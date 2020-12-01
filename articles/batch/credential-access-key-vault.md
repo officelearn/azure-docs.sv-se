@@ -4,12 +4,12 @@ description: Lär dig hur du program mässigt får åtkomst till dina autentiser
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 25cb05374fc0667306e2b1004b3cd237413b4409
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: b8b3d2655e79862c068aa48c29c7e89b7df85482
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337499"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350695"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Säker åtkomst till Key Vault med Batch
 
@@ -67,7 +67,7 @@ URL: erna för programmet är inte viktiga eftersom vi bara använder dem för K
 
 ## <a name="grant-rights-to-key-vault"></a>Bevilja rättigheter till Key Vault
 
-Tjänstens huvud namn som skapades i föregående steg måste ha behörighet att hämta hemligheterna från Key Vault. Behörighet kan beviljas antingen via [Azure Portal](/azure/key-vault/general/assign-access-policy-portal) eller med PowerShell-kommandot nedan.
+Tjänstens huvud namn som skapades i föregående steg måste ha behörighet att hämta hemligheterna från Key Vault. Behörighet kan beviljas antingen via [Azure Portal](../key-vault/general/assign-access-policy-portal.md) eller med PowerShell-kommandot nedan.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'
@@ -94,7 +94,7 @@ if($psModuleCheck.count -eq 0) {
 
 ## <a name="access-key-vault"></a>Komma åt Key Vault
 
-Nu är du redo att komma åt Key Vault i skript som körs på dina batch-noder. För att få åtkomst till Key Vault från ett skript, är allt du behöver för att ditt skript ska kunna autentisera mot Azure AD med hjälp av certifikatet. Använd följande exempel kommandon om du vill göra detta i PowerShell. Ange lämpligt GUID för **tumavtryck** , **app-ID** (ID: t för tjänstens huvud namn) och **klient-ID** (innehavaren där tjänstens huvud namn finns).
+Nu är du redo att komma åt Key Vault i skript som körs på dina batch-noder. För att få åtkomst till Key Vault från ett skript, är allt du behöver för att ditt skript ska kunna autentisera mot Azure AD med hjälp av certifikatet. Använd följande exempel kommandon om du vill göra detta i PowerShell. Ange lämpligt GUID för **tumavtryck**, **app-ID** (ID: t för tjänstens huvud namn) och **klient-ID** (innehavaren där tjänstens huvud namn finns).
 
 ```powershell
 Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint -ApplicationId

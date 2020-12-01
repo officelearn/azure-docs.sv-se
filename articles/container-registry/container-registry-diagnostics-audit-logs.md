@@ -3,12 +3,12 @@ title: Samla in & analysera resurs loggar
 description: Registrera och analysera resurs logg händelser för Azure Container Registry, till exempel autentisering, avbildnings-push och image pull.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: 63ccb944b9c3de9941acf55ca5ea85fda70a7008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b05d34e6c50fea3760e30d28f59e55d8c5f211a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87553384"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348593"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Azure Container Registry loggar för diagnostisk utvärdering och granskning
 
@@ -81,7 +81,7 @@ Följande bild visar exempel på utdata:
 
 ![Frågeloggdata](media/container-registry-diagnostics-audit-logs/azure-monitor-query.png)
 
-En själv studie kurs om hur du använder Log Analytics i Azure Portal finns i [Kom igång med Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md)eller testa Log Analytics [demo miljö](https://portal.loganalytics.io/demo). 
+En själv studie kurs om hur du använder Log Analytics i Azure Portal finns i [Kom igång med Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)eller testa Log Analytics [demo miljö](https://portal.loganalytics.io/demo). 
 
 Mer information om logg frågor finns i [Översikt över logg frågor i Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
@@ -146,5 +146,5 @@ Du kan också strömma diagnostikloggar till en [Azure Event Hub](../event-hubs/
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om att använda [Log Analytics](../azure-monitor/log-query/get-started-portal.md) och skapa [logg frågor](../azure-monitor/log-query/get-started-queries.md).
+* Lär dig mer om att använda [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) och skapa [logg frågor](../azure-monitor/log-query/get-started-queries.md).
 * Se [Översikt över Azures plattforms loggar](../azure-monitor/platform/platform-logs-overview.md) för att lära dig om plattforms loggar som är tillgängliga på olika lager i Azure.

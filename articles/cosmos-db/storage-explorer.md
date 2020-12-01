@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 61ae446d180a86b42bc52ac3244b96b7b347b68f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5b09ce48226b3c31efce4966ec776c10931cc391
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010579"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348661"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Hantera Azure Cosmos DB resurser med Azure Storage Explorer
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -22,7 +22,7 @@ Du kan använda Azure Storage Explorer för att ansluta till Azure Cosmos DB. Du
 Använd samma verktyg för att hantera olika Azure-entiteter på ett och samma ställe. Du kan hantera Azure Cosmos DB entiteter, manipulera data, uppdatera lagrade procedurer och utlösare tillsammans med andra Azure-entiteter som lagrings blobbar och köer. Azure Storage Explorer stöder Cosmos-konton som kon figurer ATS för SQL-, MongoDB-, Graph-och table API: er.
 
 > [!NOTE]
-> Azure Cosmos DB-integreringen med Storage Explorer har blivit inaktuell. Alla befintliga funktioner tas inte bort och det gäller under minst ett år, räknat från den här versionen. Du bör använda [Azure Portal](https://portal.azure.com/), [Azure Portal Desktop-appen](https://portal.azure.com/App/Download) eller fristående [Azure Cosmos Explorer](data-explorer.md) i stället. Alternativen innehåller många nya funktioner som för närvarande inte stöds i Storage Explorer.
+> Azure Cosmos DB-integreringen med Storage Explorer har blivit inaktuell. Alla befintliga funktioner tas inte bort och det gäller under minst ett år, räknat från den här versionen. Du bör använda [Azure Portal](https://portal.azure.com/), [Azure Portal Desktop-appen](https://portal.azure.com/App/Download) eller den fristående [Azure Cosmos DB Explorer](data-explorer.md) i stället. Alternativen innehåller många nya funktioner som för närvarande inte stöds i Storage Explorer.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

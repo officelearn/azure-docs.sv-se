@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: c7d3dae2b7da2fcc14e86eb4965ebd99fd7bf681
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f1a7bffc05d83b30fe9e5bcd6e17bf6bc0192e1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88650593"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348950"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Kryptera Azure Data Factory med Kundhanterade nycklar
 
@@ -47,8 +47,8 @@ I följande lista beskrivs de numrerade stegen i diagrammet:
 
 Om du använder Kundhanterade nycklar med Data Factory måste två egenskaper anges på Key Vault, __mjuk borttagning__ och __Rensa inte__. De här egenskaperna kan aktive ras med antingen PowerShell eller Azure CLI på ett nytt eller befintligt nyckel valv. Information om hur du aktiverar de här egenskaperna för ett befintligt nyckel valv finns i avsnitten med rubriken _Aktivera mjuk borttagning_ och _Aktivera rensnings skydd_ i någon av följande artiklar:
 
-- [Använda mjuk borttagning med PowerShell](../key-vault/general/soft-delete-powershell.md)
-- [Använda mjuk borttagning med CLI](../key-vault/general/soft-delete-cli.md)
+- [Använda mjuk borttagning med PowerShell](../key-vault/general/key-vault-recovery.md)
+- [Använda mjuk borttagning med CLI](../key-vault/general/key-vault-recovery.md)
 
 Om du skapar en ny Azure Key Vault via Azure Portal, kan __mjuk borttagning__ och __Rensa inte__ vara aktive rad på följande sätt:
 
@@ -56,7 +56,7 @@ Om du skapar en ny Azure Key Vault via Azure Portal, kan __mjuk borttagning__ oc
 
 ### <a name="grant-data-factory-access-to-azure-key-vault"></a>Bevilja Data Factory åtkomst till Azure Key Vault
 
-Se till att Azure Key Vault och Azure Data Factory finns i samma Azure Active Directory-klient (Azure AD) och i _samma region_. Från Azure Key Vault åtkomst kontroll beviljar du Data Factory-Hanterad tjänstidentitet (MSI) följande behörigheter: _Hämta_, _packa_upp och _packa upp nyckel_. Dessa behörigheter krävs för att aktivera Kundhanterade nycklar i Data Factory.
+Se till att Azure Key Vault och Azure Data Factory finns i samma Azure Active Directory-klient (Azure AD) och i _samma region_. Från Azure Key Vault åtkomst kontroll beviljar du Data Factory-Hanterad tjänstidentitet (MSI) följande behörigheter: _Hämta_, _packa_ upp och _packa upp nyckel_. Dessa behörigheter krävs för att aktivera Kundhanterade nycklar i Data Factory.
 
   ![Skärm bild som aktiverar Data Factory åtkomst till Key Vault](media/enable-customer-managed-key/02-access-policy-factory-managed-identities.png)
 
@@ -88,7 +88,7 @@ Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så ka
 
 ## <a name="update-key-version"></a>Uppdatera nyckel version
 
-När du skapar en ny version av en nyckel uppdaterar du data fabriken för att använda den nya versionen. Följ liknande steg som beskrivs i avsnittet _Aktivera Kundhanterade nycklar_, inklusive:
+När du skapar en ny version av en nyckel uppdaterar du data fabriken för att använda den nya versionen. Följ liknande steg som beskrivs i avsnittet _aktivera Customer-Managed nycklar_, inklusive:
 
 1. Hitta URI: n för den nya nyckel versionen via Azure Key Vault Portal
 
@@ -100,7 +100,7 @@ När du skapar en ny version av en nyckel uppdaterar du data fabriken för att a
 
 ## <a name="use-a-different-key"></a>Använd en annan nyckel
 
-Om du vill ändra nyckeln som används för Data Factory kryptering måste du manuellt uppdatera inställningarna i Data Factory. Följ liknande steg som beskrivs i avsnittet _Aktivera Kundhanterade nycklar_, inklusive:
+Om du vill ändra nyckeln som används för Data Factory kryptering måste du manuellt uppdatera inställningarna i Data Factory. Följ liknande steg som beskrivs i avsnittet _aktivera Customer-Managed nycklar_, inklusive:
 
 1. Hitta URI: n för den nya nyckeln via Azure Key Vault Portal
 
@@ -110,7 +110,7 @@ Om du vill ändra nyckeln som används för Data Factory kryptering måste du ma
 
 1. Klicka på __Spara__ och Data Factory kommer nu att krypteras med den nya nyckeln
 
-## <a name="disable-customer-managed-keys"></a>Inaktivera Kundhanterade nycklar
+## <a name="disable-customer-managed-keys"></a>Inaktivera Customer-Managed nycklar
 
 Efter designen kan du inte ta bort det extra säkerhets steget när funktionen kundhanterad nyckel är aktive rad. Vi förväntar alltid sig en kund som har fått nyckeln för att kryptera fabrik och data.
 

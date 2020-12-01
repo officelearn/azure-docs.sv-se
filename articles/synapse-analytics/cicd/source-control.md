@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 111b2b5b660133c20afdb3c56e1c3e3ed607398c
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: b6cadbf5c3a33c1a954a47f37b33ad8703f40b69
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96297073"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350746"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Käll kontroll i Azure Synapse Studio
 
@@ -192,7 +192,7 @@ När du har tagit bort associationen med den aktuella lagrings platsen kan du ko
 
 ## <a name="best-practices-for-git-integration"></a>Metod tips för git-integrering
 
--   **Behörigheter**. När du har en git-lagringsplats ansluten till din arbets yta, kommer alla som har åtkomst till din git-lagrings platsen med vilken roll som helst på arbets ytan att kunna uppdatera artefakter, som SQL-skript, Notebook, Spark jobb definition, data uppsättning, data flöde och pipeline i git-läge. Normalt vill du inte att alla grupp medlemmar ska ha behörighet att uppdatera arbets ytan. Bevilja endast git-lagringsplatsen behörighet till Synapse-ytans artefakt författare. 
+-   **Behörigheter**. När du har en git-lagringsplats ansluten till din arbets yta, kommer alla som har åtkomst till din git-lagrings platsen med vilken roll som helst i din arbets yta att kunna uppdatera artefakter, som SQL-skript, Notebook, Spark jobb definition, data uppsättning, data flöde och pipeline i git-läge. Normalt vill du inte att alla grupp medlemmar ska ha behörighet att uppdatera arbets ytan. Bevilja endast git-lagringsplatsen behörighet till Synapse-ytans artefakt författare. 
 -   **Samarbete**. Vi rekommenderar att du inte tillåter direkta incheckningar till samarbets grenen. Den här begränsningen kan hjälpa till att förhindra buggar som varje incheckning går igenom en gransknings process för pull-begäran som beskrivs i [skapa funktions grenar](source-control.md#creating-feature-branches).
 -   **Synapse live-läge**. När du har publicerat i git-läge visas alla ändringar i Synapse live-läge. I Synapse live-läge är publicering inaktiverat. Och du kan visa, köra artefakter i Live-läge om du har beviljats rätt behörighet. 
 -   **Redigera artefakter i Studio**. Synapse Studio är den enda plats där du kan aktivera käll kontroll för arbets ytan och synkronisera ändringar till git automatiskt. Alla ändringar via SDK, PowerShell, kommer inte att synkroniseras till git. Vi rekommenderar att du alltid redigerar artefakt i Studio när git är aktiverat.
@@ -215,7 +215,7 @@ Om publicerings grenen inte är synkroniserad med samarbets grenen och innehåll
 
 1. Konfigurera om git med samma inställningar, men se till att **Importera befintliga resurser till databasen** är markerat och välj samma gren.  
 
-1. Skapa en pull-begäran för att slå samman ändringarna i samarbets grenen 
+1. Skapa en pull-begäran för att sammanslå ändringarna till samarbetsgrenen 
 
 ## <a name="unsupported-features"></a>Funktioner som inte stöds
 

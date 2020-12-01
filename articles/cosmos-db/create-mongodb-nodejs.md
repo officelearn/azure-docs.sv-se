@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 5c0de1ccf4b6d2db44b1e315e73a84dd712b3f6c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: cfeb19fa36bf65021fadc7ac3bc60a9f3a620602
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564029"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349086"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Snabb start: Migrera en befintlig MongoDB Node.js-webbapp till Azure Cosmos DB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -98,7 +98,7 @@ Skapa en [resurs grupp](../azure-resource-manager/management/overview.md) med [A
 
 Följande exempel skapar en resursgrupp i regionen västeuropa. Välj ett unikt namn för resursgruppen.
 
-Om du använder Azure Cloud Shell väljer du **prova** , följer anvisningarna på skärmen för att logga in och kopierar sedan kommandot till kommando tolken.
+Om du använder Azure Cloud Shell väljer du **prova**, följer anvisningarna på skärmen för att logga in och kopierar sedan kommandot till kommando tolken.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
@@ -253,4 +253,4 @@ git commit -m "configured MongoDB connection string"
 I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos DB MongoDB API-konto med hjälp av Azure Cloud Shell och skapar och kör en MEAN.js app för att lägga till användare till kontot. Du kan nu importera ytterligare data till ditt Azure Cosmos DB-konto.
 
 > [!div class="nextstepaction"]
-> [Importera MongoDB-data till Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+> [Importera MongoDB-data till Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d085d59dc1dbe09c014dcaf5aa239805824354f0
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 6559de2b94879ac8643f4945fd5adcf4fc7e1045
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279963"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350831"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Dirigera händelser inom och utanför Azures digitala dubbla
 
@@ -20,7 +20,7 @@ Azure Digitals dubbla använder **händelse vägar** för att skicka data till k
 
 Det finns två viktiga fall för att skicka Azure Digitals dubbla data:
 * Skicka data från en mitt i det digitala Azure-diagrammet till en annan. Om du till exempel har en egenskap på en digital, dubbla ändringar kanske du vill meddela och uppdatera en annan digital i enlighet med detta.
-* Skicka data till underordnade data tjänster för ytterligare lagring eller bearbetning (kallas även *utgående data* ). Till exempel,
+* Skicka data till underordnade data tjänster för ytterligare lagring eller bearbetning (kallas även *utgående data*). Till exempel,
   - Ett sjukhus kan vilja skicka data för Azure Digitals dubbla data till [Time Series Insights (TSD)](../time-series-insights/overview-what-is-tsi.md)för att registrera Time Series-data för handwashing-relaterade händelser för Mass analys.
   - En verksamhet som redan använder [Azure Maps](../azure-maps/about-azure-maps.md) kanske vill använda Azure Digital-dubbla för att förbättra sin lösning. De kan snabbt aktivera en Azure-karta när du har konfigurerat Azure Digitals-enheter, ta Azure Map-entiteter i Azure Digitals-enheter som [digitala](concepts-twins-graph.md) delar i den dubbla grafen eller kör kraftfulla frågor som använder sina Azure Maps och Azure Digitals sammanställda data tillsammans.
 
@@ -103,7 +103,7 @@ Om något av villkoren är uppfyllt tas händelsen bort eller tas bort från kö
 
 Innan du anger platsen för obeställbara meddelanden måste du ha ett lagrings konto med en behållare. Du anger URL: en för den här behållaren när du skapar slut punkten. Obeställbara meddelanden anges som en behållar-URL med en SAS-token. Denna token behöver bara `write` behörighet för mål behållaren i lagrings kontot. Den fullständigt utformade URL: en kommer att ha formatet: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-Mer information om SAS-token finns i: [ *bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av signaturer för delad åtkomst (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+Mer information om SAS-token finns i: [ *bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av signaturer för delad åtkomst (SAS)*](../storage/common/storage-sas-overview.md)
 
 Information om hur du skapar en slut punkt med obeställbara meddelanden finns i så här gör du för att [*Hantera slut punkter och vägar i Azure Digitals dubbla (API: er och CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 

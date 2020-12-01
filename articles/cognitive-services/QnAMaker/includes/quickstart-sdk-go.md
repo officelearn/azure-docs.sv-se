@@ -8,12 +8,12 @@ ms.subservice: qna-maker
 ms.topic: include
 ms.date: 09/04/2020
 ms.author: v-jawe
-ms.openlocfilehash: 08f62ce70a09beaa2e99349e187671be46ed2ecb
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 1ca800574f4a1c370d953c90ea5abad1a64f47b2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777440"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351047"
 ---
 Använd QnA Maker klient bibliotek för att gå till:
 
@@ -30,7 +30,7 @@ Använd QnA Maker klient bibliotek för att gå till:
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * [Kör](https://golang.org/)
@@ -51,7 +51,7 @@ Skapa variabler för resursens Azure-slutpunkt och nyckel.
 > [!IMPORTANT]
 > Gå till Azure Portal och hitta nyckeln och slut punkten för den QnA Maker resurs som du skapade i kraven. De kommer att finnas på resursens **nyckel-och slut punkts** sida under **resurs hantering**.
 > Du behöver hela nyckeln för att skapa din kunskaps databas. Du behöver bara resurs namnet från slut punkten. Formatet är `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`.
-> Kom ihåg att ta bort nyckeln från koden när du är klar och publicera den aldrig offentligt. För produktion bör du överväga att använda ett säkert sätt att lagra och komma åt dina autentiseringsuppgifter. Till exempel ger [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) säker nyckel lagring.
+> Kom ihåg att ta bort nyckeln från koden när du är klar och publicera den aldrig offentligt. För produktion bör du överväga att använda ett säkert sätt att lagra och komma åt dina autentiseringsuppgifter. Till exempel ger [Azure Key Vault](../../../key-vault/general/overview.md) säker nyckel lagring.
 
 :::code language="go" source="~/cognitive-services-quickstart-code/go/qnamaker/sdk/kb_sample.go" id="environment":::
 
@@ -77,10 +77,10 @@ När du har publicerat din kunskaps bas använder du [RuntimeClient](https://god
 
 En kunskaps bas lagrar fråge-och svars par för [CreateKbDTO](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#CreateKbDTO) -objektet från tre källor:
 
-* För **redaktionellt innehåll**använder du [QnADTO](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#QnADTO) -objektet.
+* För **redaktionellt innehåll** använder du [QnADTO](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#QnADTO) -objektet.
     * Om du vill använda metadata och Uppföljnings anvisningar använder du redigerings kontexten eftersom dessa data läggs till på den enskilda QnA-ihopparningen.
-* För **filer**använder du [FileDTO](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#FileDTO) -objektet. FileDTO innehåller fil namnet och den offentliga URL: en för att komma åt filen.
-* För **URL: er**använder du en lista med strängar som representerar offentliga tillgängliga URL: er.
+* För **filer** använder du [FileDTO](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#FileDTO) -objektet. FileDTO innehåller fil namnet och den offentliga URL: en för att komma åt filen.
+* För **URL: er** använder du en lista med strängar som representerar offentliga tillgängliga URL: er.
 
 Anropa metoden [create](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#KnowledgebaseClient.Create) och skicka sedan `operationId` egenskapen för den returnerade åtgärden till [getDetails](#get-status-of-an-operation) -metoden för att söka efter status.
 

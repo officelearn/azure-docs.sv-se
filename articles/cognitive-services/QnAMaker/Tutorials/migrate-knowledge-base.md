@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: 4378a648b8b7a545c9e4b638d08592aa32fff3aa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c89ab375cb02824a08ff57e6b5278dd9299126ff
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427674"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350933"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrera en kunskaps bas med export-import
 
@@ -34,7 +34,7 @@ För att migrera en kunskaps bas måste du exportera från en befintlig kunskaps
 1. Logga in på [QNA Maker Portal](https://qnamaker.ai).
 1. Välj den ursprungliga kunskaps basen som du vill migrera.
 
-1. På sidan **Inställningar** väljer du **Exportera kunskaps bas** för att ladda ned en. TSV-fil som innehåller innehållet i ditt ursprung i kunskaps basen – frågor, svar, metadata, uppföljnings frågor och data käll namn som de extraherades från. QnA-ID: n som exporteras med frågorna och svaren kan användas för att uppdatera ett särskilt QnA-par med [uppdaterings-API: et](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). QnA-ID: t för ett enskilt QnA-par förblir oförändrat över flera export åtgärder.
+1. På sidan **Inställningar** väljer du **Exportera kunskaps bas** för att ladda ned en. TSV-fil som innehåller innehållet i ditt ursprung i kunskaps basen – frågor, svar, metadata, uppföljnings frågor och data käll namn som de extraherades från. QnA-ID: n som exporteras med frågorna och svaren kan användas för att uppdatera ett särskilt QnA-par med [uppdaterings-API: et](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). QnA-ID: t för ett enskilt QnA-par förblir oförändrat över flera export åtgärder.
 
 1. Välj **skapa en kunskaps bas** på den översta menyn och skapa en _Tom_ kunskaps bas. Det är tomt eftersom när du skapar den, kommer du inte att lägga till några URL: er eller filer. De läggs till under steget importera när du har skapat.
 
@@ -59,16 +59,16 @@ Migreringsprocessen är program mässigt tillgänglig med följande REST-API: er
 
 **Export**
 
-* [Hämta kunskaps bas-API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
+* [Hämta kunskaps bas-API](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
 
 **Importera**
 
-* [Ersätt API (Läs in med samma kunskaps bas-ID)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
-* [Skapa API (Load med nytt kunskaps bas-ID)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
+* [Ersätt API (Läs in med samma kunskaps bas-ID)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
+* [Skapa API (Load med nytt kunskaps bas-ID)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
 
 
 ## <a name="chat-logs-and-alterations"></a>Chat-loggar och ändringar
-Skift läges känsliga ändringar (synonymer) importeras inte automatiskt. Använd [v4-API: er](https://go.microsoft.com/fwlink/?linkid=2092179) för att flytta ändringarna i den nya kunskaps basen.
+Skift läges känsliga ändringar (synonymer) importeras inte automatiskt. Använd [v4-API: er](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) för att flytta ändringarna i den nya kunskaps basen.
 
 Det finns inget sätt att migrera chatt loggar, eftersom den nya kunskaps basen använder Application Insights för att lagra chatt loggar.
 

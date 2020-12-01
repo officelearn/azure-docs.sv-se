@@ -4,12 +4,12 @@ description: Skapa en HTTP-utlöst, Server lös PowerShell-funktion för att aut
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ec4b2273f6be6ea4aabed2b660e0b7553f861d0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b94d583ca26b88d093810528d3193f20d765f1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072051"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349256"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Självstudie: Använd en HTTP-utlöst Azure-funktion för att skapa en behållar grupp
 
@@ -25,17 +25,17 @@ Lär dig att:
 > * Ändra och publicera om PowerShell-funktionen för att automatisera distributionen av en container grupp med en behållare.
 > * Verifiera den HTTP-utlösta distributionen av containern.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Se [skapa din första funktion i Azure med Visual Studio Code](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell#configure-your-environment) för krav för att installera och använda Visual Studio code med Azure Functions tillägget på ditt operativ system.
+Se [skapa din första funktion i Azure med Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell#configure-your-environment) för krav för att installera och använda Visual Studio code med Azure Functions tillägget på ditt operativ system.
 
 Ytterligare steg i den här artikeln använder Azure PowerShell. Om du behöver installera eller uppgradera kan du läsa [installera Azure PowerShell][azure-powershell-install] och [Logga in på Azure](/powershell/azure/get-started-azureps#sign-in-to-azure).
 
 ## <a name="create-a-basic-powershell-function"></a>Skapa en grundläggande PowerShell-funktion
 
-Följ stegen i [skapa din första PowerShell-funktion i Azure](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell) för att skapa en PowerShell-funktion med hjälp av http-utlösaren. Använd standard namnet **HttpTrigger**i Azure function. Som du ser i snabb starten, testa funktionen lokalt och publicera projektet till en Function-app i Azure. Det här exemplet är en grundläggande HTTP-utlöst funktion som returnerar en text sträng. I senare steg i den här artikeln ändrar du funktionen för att skapa en behållar grupp.
+Följ stegen i [skapa din första PowerShell-funktion i Azure](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell) för att skapa en PowerShell-funktion med hjälp av http-utlösaren. Använd standard namnet **HttpTrigger** i Azure function. Som du ser i snabb starten, testa funktionen lokalt och publicera projektet till en Function-app i Azure. Det här exemplet är en grundläggande HTTP-utlöst funktion som returnerar en text sträng. I senare steg i den här artikeln ändrar du funktionen för att skapa en behållar grupp.
 
-I den här artikeln förutsätter vi att du publicerar projektet med namnet *myfunctionapp*i en Azure-resurs grupp automatiskt med namnet enligt namnet på Function-appen (även *myfunctionapp*). Ersätt namnet på din unika Function-app och resurs grupps namnet i senare steg.
+I den här artikeln förutsätter vi att du publicerar projektet med namnet *myfunctionapp* i en Azure-resurs grupp automatiskt med namnet enligt namnet på Function-appen (även *myfunctionapp*). Ersätt namnet på din unika Function-app och resurs grupps namnet i senare steg.
 
 ## <a name="enable-an-azure-managed-identity-in-the-function-app"></a>Aktivera en Azure-hanterad identitet i Function-appen
 
@@ -97,7 +97,7 @@ Se till att funktionen körs lokalt innan du publicerar om Function-Appaketet ti
 
 När du har kontrollerat att funktionen körs lokalt kan du publicera projektet på den befintliga Function-appen i Azure.
 
-1. Öppna kommando-paletten i Visual Studio Code. Sök efter och välj `Azure Functions: Deploy to Function App...` .
+1. I Visual Studio Code öppnar du kommandopaletten. Sök efter och välj `Azure Functions: Deploy to Function App...` .
 1. Välj den aktuella arbetsmappen till zip och distribuera.
 1. Välj prenumerationen och sedan namnet på den befintliga Function-appen (*myfunctionapp*). Bekräfta att du vill skriva över den tidigare distributionen.
 

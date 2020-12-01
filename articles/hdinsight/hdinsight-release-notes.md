@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 03874f76772d8722c7161ef43a2297c2e01b7da9
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: d4983ecd1b8afe1ec6bd3cc31df8b711cebaddf1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95748843"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350270"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Viktig information om Azure HDInsight
 
@@ -31,17 +31,17 @@ Den här versionen gäller både HDInsight 3,6 och HDInsight 4,0. HDInsight-vers
 
 ## <a name="new-features"></a>Nya funktioner
 ### <a name="auto-key-rotation-for-customer-managed-key-encryption-at-rest"></a>Automatisk nyckel rotation för kund hanterad nyckel kryptering i vila
-Från och med den här versionen kan kunder använda Azure KeyValut-version – färre URL: er för krypterings nyckel för kund hanterad nyckel kryptering i vila. HDInsight roterar automatiskt nycklarna när de går ut eller ersätts med nya versioner. Läs mer information [här](https://docs.microsoft.com/azure/hdinsight/disk-encryption).
+Från och med den här versionen kan kunder använda Azure KeyValut-version – färre URL: er för krypterings nyckel för kund hanterad nyckel kryptering i vila. HDInsight roterar automatiskt nycklarna när de går ut eller ersätts med nya versioner. Läs mer information [här](./disk-encryption.md).
 
 ### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Möjlighet att välja olika Zookeeper-storlekar för virtuella datorer för Spark-, Hadoop-och ML-tjänster
 HDInsight har tidigare inte stöd för anpassning av Zookeeper-noden för kluster typerna Spark, Hadoop och ML. Standardvärdet för A2_v2/a2 virtuella dator storlekar som tillhandahålls kostnads fritt. I den här versionen kan du välja en Zookeeper-storlek för virtuella datorer som passar bäst för ditt scenario. Zookeeper-noder med en annan virtuell dator storlek än A2_v2/a2 kommer att debiteras. A2_v2-och a2-virtuella datorer tillhandahålls fortfarande utan kostnad.
 
 ### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Flytta till skalnings uppsättningar för virtuella Azure-datorer
-HDInsight använder nu virtuella Azure-datorer för att etablera klustret. Från och med den här versionen migrerar tjänsten gradvis till [skalnings uppsättningar för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). Hela processen kan ta månader. När dina regioner och prenumerationer migreras, kommer nyligen skapade HDInsight-kluster att köras på virtuella datorers skalnings uppsättningar utan kund åtgärder. Ingen avbrytande ändring förväntas.
+HDInsight använder nu virtuella Azure-datorer för att etablera klustret. Från och med den här versionen migrerar tjänsten gradvis till [skalnings uppsättningar för virtuella Azure-datorer](../virtual-machine-scale-sets/overview.md). Hela processen kan ta månader. När dina regioner och prenumerationer migreras, kommer nyligen skapade HDInsight-kluster att köras på virtuella datorers skalnings uppsättningar utan kund åtgärder. Ingen avbrytande ändring förväntas.
 
 ## <a name="deprecation"></a>Utfasning
 ### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Utfasning av HDInsight 3,6 ML Services-kluster
-HDInsight 3,6 ML-kluster typ upphör att fungera i december 31 2020. Kunder kan inte skapa nya 3,6 ML-tjänster i kluster efter 31 2020 december. Befintliga kluster kommer att köras i befintligt skick utan support från Microsoft. Kontrol lera att support upphör för HDInsight-versioner och kluster typer [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions).
+HDInsight 3,6 ML-kluster typ upphör att fungera i december 31 2020. Kunder kan inte skapa nya 3,6 ML-tjänster i kluster efter 31 2020 december. Befintliga kluster kommer att köras i befintligt skick utan support från Microsoft. Kontrol lera att support upphör för HDInsight-versioner och kluster typer [här](./hdinsight-component-versioning.md#available-versions).
 
 ### <a name="disabled-vm-sizes"></a>Inaktiverade VM-storlekar
 Från och med november 16 2020 kommer HDInsight att blockera nya kunder som skapar kluster med hjälp av standand_A8, standand_A9 standand_A10 och standand_A11 VM-storlekar. Befintliga kunder som har använt de här VM-storlekarna under de senaste tre månaderna påverkas inte. Från och med den 9 2021 januari kommer HDInsight att blockera alla kunder som skapar kluster med hjälp av standand_A8, standand_A9 standand_A10 och standand_A11 VM-storlekar. Befintliga kluster kommer att köras som de är. Överväg att flytta till HDInsight 4,0 för att undvika eventuellt system-och support avbrott.
@@ -53,7 +53,7 @@ Ingen beteende ändring för den här versionen.
 Följande ändringar sker i kommande versioner.
 
 ### <a name="default-cluster-version-will-be-changed-to-40"></a>Standard kluster versionen kommer att ändras till 4,0
-Från och med 2021 februari kommer standard versionen av HDInsight-klustret att ändras från 3,6 till 4,0. Mer information om tillgängliga versioner finns i [tillgängliga versioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions). Läs mer om vad som är nytt i [HDInsight 4,0](https://docs.microsoft.com/azure/hdinsight/hdinsight-version-release)
+Från och med 2021 februari kommer standard versionen av HDInsight-klustret att ändras från 3,6 till 4,0. Mer information om tillgängliga versioner finns i [tillgängliga versioner](./hdinsight-component-versioning.md#available-versions). Läs mer om vad som är nytt i [HDInsight 4,0](./hdinsight-version-release.md)
 
 ### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>HDInsight 3,6-slut för support den 30 2021 juni
 HDInsight 3,6 är slut på support. Från och med juni 30 2021 kan kunder inte skapa nya HDInsight 3,6-kluster. Befintliga kluster kommer att köras i befintligt skick utan support från Microsoft. Överväg att flytta till HDInsight 4,0 för att undvika eventuellt system-och support avbrott.

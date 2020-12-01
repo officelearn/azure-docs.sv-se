@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Övervakning av program prestanda för Java-program som körs i vilken miljö som helst utan kod ändring. Distribuerad spårning och program karta.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 8423443abac90b87349a4a80fce0ec33a8b686da
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 36e2b419da2bccdf2f5f13227457172cf644994c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444749"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351545"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java-kodad program övervakning Azure Monitor Application Insights
 
@@ -228,17 +228,3 @@ Du kan också använda Application Insights Java SDK 2. x:
       telemetryClient.trackException(e);
   }
 ```
-
-## <a name="upgrading-from-application-insights-java-sdk-2x"></a>Uppgradera från Application Insights Java SDK 2. x
-
-Om du redan använder Application Insights Java SDK 2. x i ditt program behöver du inte ta bort den.
-Java 3,0-agenten identifierar den och samlar in och korrelerar en anpassad telemetri som du skickar via Java SDK 2. x, samtidigt som du undertrycker automatisk insamling som utförs av Java SDK 2. x för att förhindra duplicerad telemetri.
-
-Om du använde Application Insights 2. x-agenten måste du ta bort det `-javaagent:` JVM-arg som pekade på 2. x-agenten.
-
-> [!NOTE]
-> Java SDK 2. x TelemetryInitializers och TelemetryProcessors kommer inte att köras när du använder 3,0-agenten.
-> Många av de användnings fall som tidigare krävdes kan lösas i 3,0 genom att konfigurera [anpassade dimensioner](./java-standalone-config.md#custom-dimensions) eller konfigurera [telemetri-processorer](./java-standalone-telemetry-processors.md).
-
-> [!NOTE]
-> 3,0 har inte stöd för flera Instrumentation-nycklar i en enda JVM än.

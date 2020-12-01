@@ -1,6 +1,6 @@
 ---
-title: Migrera en hanterad avbildning till ett delat avbildnings Galleri
-description: Lär dig hur du använder Azure PowerShell för att migrera en hanterad avbildning till en avbildnings version i ett delat avbildnings Galleri.
+title: Klona en hanterad avbildning till ett delat avbildnings Galleri
+description: Lär dig hur du använder Azure PowerShell för att klona en hanterad avbildning till en avbildnings version i ett delat avbildnings Galleri.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1c57d9d283714da6905335fd3167c4f8a69292f8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 92cae59978b172993c779e9a486ff67d82309800
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964889"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349930"
 ---
-# <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migrera från en hanterad avbildning till en bild för ett delat avbildnings Galleri
+# <a name="clone-a-managed-image-to-a-shared-image-gallery-image"></a>Klona en hanterad avbildning till en bild för ett delat bild galleri
 
-Om du har en befintlig hanterad avbildning som du vill migrera till ett delat avbildnings Galleri kan du skapa en avbildning av en delad avbildning direkt från den hanterade avbildningen. När du har testat din nya avbildning kan du ta bort den hanterade käll avbildningen. Du kan också migrera från en hanterad avbildning till ett delat avbildnings galleri med hjälp av [Azure CLI](image-version-managed-image-cli.md).
+Om du har en befintlig hanterad avbildning som du vill klona och flytta till ett delat bild galleri, kan du skapa en avbildning av en delad avbildning direkt från den hanterade avbildningen. När du har testat din nya avbildning kan du ta bort den hanterade käll avbildningen. Du kan också migrera från en hanterad avbildning till ett delat avbildnings galleri med hjälp av [Azure CLI](image-version-managed-image-cli.md).
 
 Bilder i ett bild galleri har två komponenter som vi kommer att skapa i det här exemplet:
 - En **bild definition** innehåller information om avbildningen och kraven för att använda den. Detta inkluderar om avbildningen är Windows eller Linux, specialiserad eller generaliserad, viktig information och lägsta och högsta minnes krav. Det är en definition av en typ av bild. 

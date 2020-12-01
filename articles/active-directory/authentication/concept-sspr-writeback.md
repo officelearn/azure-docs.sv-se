@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9781196690c689036bfb69e1fa769112b5f69b2b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: af41f03a1ac0ea65d72d9af47b175bb78f9e1bc2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964986"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348787"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Hur fungerar tillbakaskrivning av lösen ord för självbetjänings återställning i Azure Active Directory?
 
@@ -58,7 +58,7 @@ När en federerad eller lösenordsskyddad hash-användare försöker återställ
    * Om tillbakaskrivning-tjänsten inte är igång, informeras användaren om att lösen ordet inte kan återställas just nu.
 1. Därefter skickar användaren lämpliga autentiseringsalgoritmer och når sidan **Återställ lösen ord** .
 1. Användaren väljer ett nytt lösen ord och bekräftar det.
-1. När användaren väljer **Skicka**krypteras lösen ordet i klartext med en symmetrisk nyckel som skapas under tillbakaskrivning-installationen.
+1. När användaren väljer **Skicka** krypteras lösen ordet i klartext med en symmetrisk nyckel som skapas under tillbakaskrivning-installationen.
 1. Det krypterade lösen ordet ingår i en nytto last som skickas via en HTTPS-kanal till det klient-/regionsspecifika Service Bus-reläet (som har kon figurer ATS under installationen av tillbakaskrivning). Detta relä skyddas av ett slumpmässigt genererat lösen ord som bara en lokal installation känner till.
 1. När meddelandet når Service Bus aktive ras slut punkten för lösen ords återställning automatiskt och ser att den har en återställnings förfrågan väntar.
 1. Tjänsten söker sedan efter användaren med hjälp av molnets Anchor-attribut. För att sökningen ska lyckas måste följande villkor vara uppfyllda:
@@ -90,7 +90,7 @@ Tillbakaskrivning av lösen ord är en mycket säker tjänst. För att se till a
 * **Klient-Specific Service-Bus-relä**
    * När du konfigurerar tjänsten konfigureras klient organisationens Service Bus-relä som skyddas av ett slumpmässigt genererat starkt lösen ord som Microsoft aldrig har åtkomst till.
 * **Låst, kryptografiskt stark kryptering nyckel för lösen ords kryptering**
-   * När Service Bus-reläet har skapats skapas en stark symmetrisk nyckel som that'is används för att kryptera lösen ordet när det kommer över kabeln. Den här nyckeln finns bara i företagets hemliga Arkiv i molnet, som är mycket låst och granskad, precis som andra lösen ord i katalogen.
+   * När Service Bus-reläet har skapats skapas en stark symmetrisk nyckel som används för att kryptera lösen ordet när det kommer över kabeln. Den här nyckeln finns bara i företagets hemliga Arkiv i molnet, som är mycket låst och granskad, precis som andra lösen ord i katalogen.
 * **Bransch standard Transport Layer Security (TLS)**
    1. När en lösen ords återställning eller ändrings åtgärd utförs i molnet krypteras lösen ordet i klartext med din offentliga nyckel.
    1. Det krypterade lösen ordet placeras i ett HTTPS-meddelande som skickas via en krypterad kanal genom att använda Microsoft TLS/SSL-certifikat till Service Bus-reläet.
@@ -107,7 +107,7 @@ När en användare har skickat en lösen ords återställning går återställni
 1. **Lösen ords kryptering med 2048-bitars RSA-nyckel**: när en användare skickar in ett lösen ord som ska skrivas tillbaka till lokalt, krypteras det skickade lösen ordet med en 2048-bitars RSA-nyckel.
 1. **Kryptering på paket nivå med AES-GCM**: hela paketet, lösen ordet plus de metadata som krävs, krypteras med hjälp av AES-GCM. Den här krypteringen förhindrar att någon har direkt åtkomst till den underliggande Service Bus kanalen från att visa eller manipulera innehållet.
 1. **All kommunikation sker över TLS/SSL**: all kommunikation med Service Bus sker i en SSL/TLS-kanal. Den här krypteringen skyddar innehållet från icke-auktoriserade tredje parter.
-1. **Automatisk nyckel förnyelse var sjätte**månad: alla nycklar slås över var sjätte månad, eller varje gång en tillbakaskrivning av lösen ord inaktive ras och sedan aktive ras på Azure AD Connect, för att säkerställa maximal tjänst säkerhet och säkerhet.
+1. **Automatisk nyckel förnyelse var sjätte** månad: alla nycklar slås över var sjätte månad, eller varje gång en tillbakaskrivning av lösen ord inaktive ras och sedan aktive ras på Azure AD Connect, för att säkerställa maximal tjänst säkerhet och säkerhet.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Bandbredds användning för tillbakaskrivning av lösen ord
 

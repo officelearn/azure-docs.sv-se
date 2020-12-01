@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 877aa96b189de47d158721df6585cb94ace4a855
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 827abcdb9eb2eb8b7328eb3e3a78f49d51e87e6b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94932919"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349188"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrera data från Cassandra till Azure Cosmos DB API för Cassandra konto med Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -28,7 +28,7 @@ API för Cassandra i Azure Cosmos DB har blivit ett bra val för företags arbet
 
 Det finns olika sätt att migrera databas arbets belastningar från en plattform till en annan. [Azure Databricks](https://azure.microsoft.com/services/databricks/) är en plattform som ett tjänst erbjudande för [Apache Spark](https://spark.apache.org/) som ger ett sätt att utföra offline-migreringar i stor skala. I den här artikeln beskrivs de steg som krävs för att migrera data från interna Apache Cassandra-tecken/tabeller till Azure Cosmos DB API för Cassandra med Azure Databricks.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Etablera ett Azure Cosmos DB API för Cassandra konto](create-cassandra-dotnet.md#create-a-database-account)
 
@@ -114,7 +114,7 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> `spark.cassandra.output.concurrent.writes` `connections_per_executor_max` Konfigurationerna och är viktiga för att undvika [hastighets begränsning](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), vilket inträffar när begär anden till Cosmos DB överskrider ett allokerat data flöde ([enheter för programbegäran](https://docs.microsoft.com/azure/cosmos-db/request-units)). Du kan behöva justera de här inställningarna beroende på antalet körningar i Spark-klustret och eventuellt storleken (och därför RU-kostnaden) för varje post som skrivs till mål tabellerna.
+> `spark.cassandra.output.concurrent.writes` `connections_per_executor_max` Konfigurationerna och är viktiga för att undvika [hastighets begränsning](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), vilket inträffar när begär anden till Cosmos DB överskrider ett allokerat data flöde ([enheter för programbegäran](./request-units.md)). Du kan behöva justera de här inställningarna beroende på antalet körningar i Spark-klustret och eventuellt storleken (och därför RU-kostnaden) för varje post som skrivs till mål tabellerna.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 1933e60892430b907e070ea04f39d8acc86ddac2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f6d9f670a1b85e55ccc8f6cb18645b92927221a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937840"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351647"
 ---
 # <a name="azure-defender-for-iot-edge-security-module"></a>Azure Defender för IoT Edge säkerhetsmodul
 
-[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) tillhandahåller kraftfulla funktioner för att hantera och utföra affärs arbets flöden i gränsen.
+[Azure IoT Edge](../iot-edge/index.yml) tillhandahåller kraftfulla funktioner för att hantera och utföra affärs arbets flöden i gränsen.
 Den nyckel del som IoT Edge spelar i IoT-miljöer gör det särskilt attraktivt för skadliga aktörer.
 
 Defender för IoT-säkerhetsmodulen innehåller en omfattande säkerhetslösning för dina IoT Edge enheter.
@@ -39,7 +39,7 @@ Defender för IoT-säkerhetsmodulen för IoT Edge erbjuder följande funktioner:
 
 - Analys av IoT Edge distributions manifest.
 
-- Sammanställer rå säkerhets händelser till meddelanden som skickas via [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
+- Sammanställer rå säkerhets händelser till meddelanden som skickas via [IoT Edge Hub](../iot-edge/iot-edge-runtime.md#iot-edge-hub).
 
 - Ta bort konfigurationen genom att använda säkerhetsmodulen dubbla.
 

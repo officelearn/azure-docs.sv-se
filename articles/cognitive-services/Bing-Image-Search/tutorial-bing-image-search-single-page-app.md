@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: a9dba9222816ef2cc7891ff7f803e6a7409802a4
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: bcb82ffcf4c4ad861c6523f507c816c666a71772
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593458"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351392"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för bildsökning i Bing
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Med API för bildsökning i Bing kan du söka på webben efter relevanta bilder med hög kvalitet. Använd den här självstudien för att skapa ett enkelsidigt program som kan skicka sökfrågor till API:et och visa resultaten inom webbsidan. Den här självstudiekursen liknar motsvarande [självstudiekurs](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) för webbsökning i Bing.
 

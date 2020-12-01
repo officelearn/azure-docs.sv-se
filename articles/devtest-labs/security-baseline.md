@@ -3,12 +3,12 @@ title: Azures säkerhets bas linje för Azure DevTest Labs
 description: Azures säkerhets bas linje för Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 64e5ac46fbeb71706f7b1ae2d3682260e3cbc651
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ae3886e1c47b1d6835dc348b474e3d9e82a8f41
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993660"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348831"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azures säkerhets bas linje för Azure DevTest Labs
 
@@ -172,7 +172,7 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Använd Multi-Factor Authentication för all Azure Active Directory baserad åtkomst
 **Vägledning:** Aktivera Azure Active Directory (AD) Multi-Factor Authentication (MFA) och följ rekommendationerna för Azure Security Center identitets-och åtkomst hantering.
 
-- [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
+- [Aktivera MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
 - [Övervaka identitet och åtkomst i Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center övervakning:** _ Ja
@@ -184,7 +184,7 @@ _ *Ansvar:** kund
 **Vägledning:** Använd Paw (Privileged Access Workstation) med MFA konfigurerat för att logga in på och konfigurera Azure-resurser.
 
 - [Lär dig mer om arbets stationer med privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/privileged-access-workstations)  
-- [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
+- [Aktivera MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
 
 **Azure Security Center övervakning:** EJ TILLÄMPLIGT
 
@@ -194,7 +194,7 @@ _ *Ansvar:** kund
 **Vägledning:** Använd Azure Active Directory (Azure AD) säkerhets rapporter för generering av loggar och varningar när misstänkt eller osäker aktivitet inträffar i miljön. Använd Azure Security Center för att övervaka identitets-och åtkomst aktiviteter.
 
 - [Så här identifierar du Azure AD-användare som har flaggats för riskfylld aktivitet](../active-directory/identity-protection/overview-identity-protection.md)  
-- [Övervaka användarnas identitets-och åtkomst aktiviteter i Azure Security Center](../security-center/security-center-identity-access.md)  
+- [Så här övervakar du användarnas identitets- och åtkomstrelaterade aktiviteter i Azure Security Center](../security-center/security-center-identity-access.md)  
 
 **Azure Security Center övervakning:** Inte tillgänglig för närvarande
 
@@ -212,7 +212,7 @@ _ *Ansvar:** kund
 ### <a name="39-use-azure-active-directory"></a>3,9: Använd Azure Active Directory
 **Vägledning:** Använd Azure Active Directory (Azure AD) som central autentiserings-och auktoriserings system. Azure AD skyddar data med stark kryptering för data i vila och under överföring. Azure AD innehåller även salter, hash-värden och lagrar användarautentiseringsuppgifter på ett säkert sätt.
 
-- [Så här skapar och konfigurerar du en Azure AD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)  
+- [Skapa och konfigurera en Azure AD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)  
 
 **Azure Security Center övervakning:** Inte tillgänglig för närvarande
 
@@ -233,7 +233,7 @@ _ *Ansvar:** kund
 
 Du kan effektivisera processen genom att skapa diagnostikinställningar för Azure Active Directory användar konton och skicka gransknings loggar och inloggnings loggar till en Log Analytics arbets yta. Du kan konfigurera aviseringar i Log Analytics arbets ytan.
 
-- [Så här integrerar du Azures aktivitets loggar i Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)  
+- [Så här integrerar du Azures aktivitetsloggar i Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)  
 
 **Azure Security Center övervakning:** Inte tillgänglig för närvarande
 
@@ -242,7 +242,7 @@ Du kan effektivisera processen genom att skapa diagnostikinställningar för Azu
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3,12: avisering om beteende för beteende för konto inloggning
 **Vägledning:** Använd Azure Active Directory (Azure AD) risk-och identitets skydds funktioner för att konfigurera automatiserade svar på identifierade misstänkta åtgärder som rör användar identiteter.
 
-- [Visa Azure AD-riskfyllda inloggningar](../active-directory/identity-protection/overview-identity-protection.md)  
+- [Så visar du riskfyllda inloggningar för Azure AD](../active-directory/identity-protection/overview-identity-protection.md)  
 - [Så här konfigurerar och aktiverar du risk principer för identitets skydd](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)  
 
 **Azure Security Center övervakning:** Inte tillgänglig för närvarande
@@ -288,7 +288,7 @@ Du kan effektivisera processen genom att skapa diagnostikinställningar för Azu
 
 Microsoft hanterar den underliggande infrastrukturen för Azure DevTest Labs och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
+- [Förstå skydd av kunddata i Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center övervakning:** Inte tillgänglig för närvarande
 
@@ -308,7 +308,7 @@ Microsoft hanterar den underliggande infrastrukturen för Azure DevTest Labs och
 
 För den underliggande plattformen, som hanteras av Microsoft, behandlar Microsoft allt kund innehåll som känsligt och ger fantastiska längder för att skydda mot förlust och exponering av kund information. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
 
-- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
+- [Förstå skydd av kunddata i Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center övervakning:** Inte tillgänglig för närvarande
 
@@ -329,7 +329,7 @@ För den underliggande plattformen, som hanteras av Microsoft, behandlar Microso
 
 För den underliggande plattformen, som hanteras av Microsoft, behandlar Microsoft allt kund innehåll som känsligt och ger fantastiska längder för att skydda mot förlust och exponering av kund information. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
 
-- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
+- [Förstå skydd av kunddata i Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center övervakning:** Ej tillämpligt
 
@@ -379,7 +379,7 @@ Microsoft utför sårbarhets hantering på de underliggande resurser som har st�
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5,2: Distribuera automatiserad hanterings lösning för operativ system
 **Vägledning:** Använd Azure Uppdateringshantering för att se till att de senaste säkerhets uppdateringarna är installerade på dina virtuella Windows-och Linux-datorer inom DevTest Labs. För virtuella Windows-datorer kontrollerar du att Windows Update har Aktiver ATS och kon figurer ATS för automatisk uppdatering. Den här inställningen är för närvarande inte tillgänglig för konfigurering genom DevTest Labs, men labb administratören/prenumerations administratören kan konfigurera den här inställningen på de underliggande virtuella datorerna i prenumerationen. 
 
-- [Så här konfigurerar du Uppdateringshantering för virtuella datorer i Azure](../automation/update-management/update-mgmt-overview.md)
+- [Så här konfigurerar du Uppdateringshantering för virtuella datorer i Azure](../automation/update-management/overview.md)
 - [Förstå Azures säkerhets principer som övervakas av Security Center](../security-center/policy-reference.md)
 
 **Azure Security Center övervakning:** Ej tillämpligt
@@ -393,8 +393,8 @@ Lär dig mer om [DevTest Labs image Factory](image-factory-create.md), som är e
 
 Som prenumerations administratör kan du också använda Azure Uppdateringshantering-lösningen för att hantera uppdateringar och korrigeringar för virtuella datorer med DevTest Labs. Uppdateringshantering använder den lokalt konfigurerade uppdaterings databasen för att korrigera Windows-system som stöds. Med verktyg som System Center Updates Publisher (Updates Publisher) kan du publicera anpassade uppdateringar i Windows Server Update Services (WSUS). Med det här scenariot kan Uppdateringshantering korrigera datorer som använder Configuration Manager som sitt uppdaterings lager med program vara från tredje part.
 
-- [Uppdateringshantering lösning i Azure](../automation/update-management/update-mgmt-overview.md)
-- [Hantera uppdateringar och korrigeringar för dina virtuella datorer](../automation/update-management/update-mgmt-overview.md)
+- [Uppdateringshantering lösning i Azure](../automation/update-management/overview.md)
+- [Hantera uppdateringar och korrigeringar för dina virtuella datorer](../automation/update-management/overview.md)
 
 _ *Azure Security Center övervakning:** ej tillämpligt
 
@@ -468,7 +468,7 @@ _ *Azure Security Center övervakning:** ej tillämpligt
 
 Använd också Azure Resource Graph för att fråga/identifiera resurser i prenumerationerna. Den kan hjälpa till med hög säkerhets-baserade miljöer, till exempel de med lagrings konton.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 - [Så här skapar du frågor med Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center övervakning:** Ej tillämpligt
@@ -516,7 +516,7 @@ Förutom att använda Ändringsspårning för övervakning av program vara kan a
 - Tillåtna resurstyper
 
 Se följande artiklar: 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 - [Så här nekar du en speciell resurs typ med Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center övervakning:** Ja
@@ -652,7 +652,7 @@ Dessutom hanteras och underhålls avbildningar av virtuella Azure Marketplace-da
 ### <a name="77-deploy-system-configuration-management-tools"></a>7,7: Distribuera hanterings verktyg för system konfiguration
 **Vägledning:** Definiera och implementera standardinställda säkerhetskonfigurationer för Azure-resurser med hjälp av Azure Policy. Använd Azure Policy alias för att skapa anpassade principer för att granska eller tillämpa nätverks konfigurationen för dina Azure-resurser som skapats under DevTest Labs. Du kan också använda inbyggda princip definitioner som är relaterade till dina speciella resurser. Dessutom kan du använda Azure Automation för att distribuera konfigurations ändringar.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 - [Använda alias](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Azure Security Center övervakning:** Ej tillämpligt
@@ -711,7 +711,7 @@ Dessutom hanteras och underhålls avbildningar av virtuella Azure Marketplace-da
 **Ansvar:** Kund
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminera oavsiktlig exponering för autentiseringsuppgifter
-**Vägledning:** Implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault.
+**Vägledning:** Implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Credential Scanner uppmanar också till att flytta identifierade autentiseringsuppgifter till en säkrare plats som Azure Key Vault.
 
 - Så här konfigurerar du en inloggnings skanner
 
@@ -825,7 +825,7 @@ Om du använder Azure Disk Encryption kan du återställa den virtuella Azure-da
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10,2: skapa en incident bedömnings-och prioriterings procedur
 **Vägledning:** Azure Security Center tilldelar en allvarlighets grad till varje avisering för att hjälpa dig att prioritera vilka aviseringar som bör undersökas först. Allvarlighets graden baseras på hur tillförlitlig Security Center befinner sig i att söka efter eller analysera den som används för att utfärda aviseringen samt den konfidensnivå som det fanns skadlig avsikt bakom den aktivitet som ledde till aviseringen.
 
-Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Prod.) med hjälp av taggar och skapa ett namngivnings system för att tydligt identifiera och kategorisera Azure-resurser, särskilt för bearbetning av känsliga data. Det är ditt ansvar att prioritera reparationen av aviseringar baserat på allvarlighets graden för de Azure-resurser och den miljö där incidenten inträffade.
+Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Prod.) med hjälp av taggar och skapa ett namngivnings system för att tydligt identifiera och kategorisera Azure-resurser, särskilt för bearbetning av känsliga data. Det är ditt ansvar att prioritera åtgärdandet av aviseringar baserat på allvarlighetsgraden för de Azure-resurser och den miljö där incidenten inträffade.
 
 - [Säkerhetsaviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md)
 - [Använda taggar för att organisera dina Azure-resurser](../azure-resource-manager/management/tag-resources.md)
@@ -835,7 +835,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 **Ansvar:** Kund
 
 ### <a name="103-test-security-response-procedures"></a>10,3: testa säkerhets svars procedurer
-**Vägledning:** Genomför övningar för att testa dina Systems svar på incident hantering på en vanlig takt för att skydda dina Azure-resurser. Identifiera svaga punkter och luckor och ändra planen efter behov.
+**Vägledning:** Genomför övningar för att testa dina Systems svar på incident hantering på en vanlig takt för att skydda dina Azure-resurser. Identifiera svaga punkter och luckor, och ändra planen efter behov.
 
 - [NIST-guide för att testa, träna och träna program för IT-planer och funktioner](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
@@ -856,7 +856,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 **Vägledning:** Exportera dina Azure Security Center aviseringar och rekommendationer med hjälp av funktionen för kontinuerlig export för att identifiera risker med Azure-resurser. Med kontinuerlig export kan du exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö. Du kan använda Azure Security Center Data Connector för att strömma aviseringarna till Azure Sentinel.
 
 - [Så här konfigurerar du kontinuerlig export](../security-center/continuous-export.md)
-- [Strömma aviseringar till Azure Sentinel](../sentinel/connect-azure-security-center.md)
+- [Så här strömmar du aviseringar till Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center övervakning:** Ej tillämpligt
 
@@ -877,7 +877,7 @@ Azure Security Center övervakning: * * * * ej tillämpligt
 
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att alla kritiska säkerhets brister upptäcks inom 60 dagar
-**Vägledning:** Följ Microsofts regler för engagemang för att se till att dina inträngande tester inte strider mot Microsofts principer. Använd Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft-hanterad moln infrastruktur, tjänster och program.
+**Vägledning:** Följ Microsofts regler för engagemang för att se till att dina inträngande tester inte strider mot Microsofts principer. Använd Microsofts strategi och utförande av ”red team”-aktiviteter och intrångstester live mot molninfrastruktur, tjänster och appar som hanteras av Microsoft.
 
 - [Inträngande test regler för engagemang](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 - [Microsoft Cloud Red-teamning](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)

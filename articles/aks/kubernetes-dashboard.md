@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: a80082ac524a4777b3b5ee32d946e9db8ec6e7f5
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 85f0a42cdfcbea2223d202a9dc35f58746580e85
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681626"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350134"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Få åtkomst till Kubernetes-webbinstrumentpanelen i Azure Kubernetes service (AKS)
 
@@ -41,6 +41,10 @@ az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ```
 
 ## <a name="start-the-kubernetes-dashboard"></a>Starta Kubernetes-instrumentpanelen
+
+> [!WARNING]
+> AKS Dashboard-tillägget är inaktuellt för versioner 1.19 +. Använd vyn [Kubernetes i Azure Portal (för hands version) i][kubernetes-portal] stället. 
+> * Följande kommando öppnar nu vyn Azure-portalwebbplats i stället för Kubernetes-instrumentpanelen för version 1,19 och senare.
 
 Om du vill starta Kubernetes-instrumentpanelen på ett kluster använder du kommandot [AZ AKS Browse][az-aks-browse] . Det här kommandot kräver installation av Kube på klustret, vilket ingår som standard i kluster som kör en version som är äldre än Kubernetes 1,18.
 

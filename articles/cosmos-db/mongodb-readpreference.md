@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: 3d21aadd8174bf933e55320c8596c57274140582
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3c78ad6605e927015d35df12cadf0347dd0337cf
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096401"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349052"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Distribuera läsningar globalt med Azure Cosmos DB s API för MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -146,7 +146,7 @@ Förutom läsa inställnings läget tillåter MongoDB-protokollet att Taggar anv
       }
 ```
 
-Därför kan MongoClient använda `region` taggen tillsammans med region namnet för att dirigera Läs åtgärder till vissa regioner. För Cosmos-konton finns regions namn i Azure Portal till vänster under **Inställningar – >replik data globalt** . Den här inställningen är användbar för att uppnå **Läs isolering** – fall där klient programmet bara vill dirigera Läs åtgärder till en specifik region. Den här inställningen är idealisk för scenarier som inte är produktion/analys, som körs i bakgrunden och som inte är produktions kritiska tjänster.
+Därför kan MongoClient använda `region` taggen tillsammans med region namnet för att dirigera Läs åtgärder till vissa regioner. För Cosmos-konton finns regions namn i Azure Portal till vänster under **Inställningar – >replik data globalt**. Den här inställningen är användbar för att uppnå **Läs isolering** – fall där klient programmet bara vill dirigera Läs åtgärder till en specifik region. Den här inställningen är idealisk för scenarier som inte är produktion/analys, som körs i bakgrunden och som inte är produktions kritiska tjänster.
 
 Följande kodfragment från exempel programmet visar hur du konfigurerar inställningen läsa med taggar i NodeJS:
 
@@ -168,10 +168,10 @@ I den här artikeln har du lärt dig hur du globalt distribuerar Läs åtgärder
 Om du inte kommer att fortsätta att använda den här appen tar du bort alla resurser som skapats i den här artikeln i Azure Portal med följande steg:
 
 1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade. 
-2. På sidan med resursgrupper klickar du på **Ta bort** , skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort** .
+2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Importera MongoDB-data till Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+* [Importera MongoDB-data till Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)
 * [Konfigurera en globalt distribuerad databas med Azure Cosmos DB s API för MongoDB](tutorial-global-distribution-mongodb.md)
 * [Utveckla lokalt med Azure Cosmos DB-emulatorn](local-emulator.md)

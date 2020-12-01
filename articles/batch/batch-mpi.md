@@ -4,12 +4,12 @@ description: Lär dig hur du kör MPI-program (Message Passing Interface) med hj
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: 3dc52d13cf41347e7382872e887d87fc9b25a95b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 6aa6a910dd57a255d9ec9292119bc692edf4946f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108090"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351528"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Använda aktiviteter med flera instanser för att köra MPI-program (Message Passing Interface) i batch
 
@@ -21,14 +21,14 @@ Med aktiviteter med flera instanser kan du köra en Azure Batch aktivitet på fl
 >
 
 ## <a name="multi-instance-task-overview"></a>Översikt över aktiviteter med flera instanser
-I batch körs varje aktivitet vanligt vis på en enskild Compute-nod – du skickar flera aktiviteter till ett jobb, och batch-tjänsten schemalägger varje aktivitet för körning på en nod. Genom att konfigurera en aktivitets inställningar för **flera instanser**kan du dock i stället skapa en primär aktivitet och flera under aktiviteter som sedan körs på flera noder.
+I batch körs varje aktivitet vanligt vis på en enskild Compute-nod – du skickar flera aktiviteter till ett jobb, och batch-tjänsten schemalägger varje aktivitet för körning på en nod. Genom att konfigurera en aktivitets inställningar för **flera instanser** kan du dock i stället skapa en primär aktivitet och flera under aktiviteter som sedan körs på flera noder.
 
 ![Översikt över aktiviteter med flera instanser][1]
 
 När du skickar en aktivitet med inställningar för flera instanser till ett jobb utför batch flera steg som är unika för aktiviteter med flera instanser:
 
 1. Batch-tjänsten skapar en **primär** och flera **under aktiviteter** baserat på inställningarna för flera instanser. Det totala antalet aktiviteter (primära plus alla under aktiviteter) matchar antalet **instanser** (Compute-noder) som du anger i inställningarna för flera instanser.
-2. Batch anger en av datornoderna som **huvud server**och schemalägger den primära aktiviteten så att den körs på huvud servern. Den schemalägger de under aktiviteter som ska köras på resten av de Compute-noder som allokeras till aktiviteten för flera instanser, en under aktivitet per nod.
+2. Batch anger en av datornoderna som **huvud server** och schemalägger den primära aktiviteten så att den körs på huvud servern. Den schemalägger de under aktiviteter som ska köras på resten av de Compute-noder som allokeras till aktiviteten för flera instanser, en under aktivitet per nod.
 3. De primära och alla under aktiviteterna hämtar alla **delade resursfiler** som du anger i inställningarna för flera instanser.
 4. När de delade resursfiler har hämtats, kör de primära och under aktiviteterna **koordinations kommandot** som du anger i inställningarna för flera instanser. Koordinations kommandot används vanligt vis för att förbereda noder för körning av uppgiften. Detta kan innefatta att starta bakgrunds tjänster (t. ex. [Microsoft-MPI][msmpi_msdn] `smpd.exe` ) och kontrol lera att noderna är redo att bearbeta meddelanden mellan noder.
 5. Den primära aktiviteten kör **program kommandot** på huvud-noden *när* koordinations kommandot har slutförts av den primära aktiviteten och alla under aktiviteter. Program kommandot är kommando raden för aktiviteten för flera instanser och körs bara av den primära aktiviteten. I en [MS-MPI][msmpi_msdn]-baserad lösning är det här du kör ditt MPI-aktiverade program med hjälp av `mpiexec.exe` .
@@ -39,7 +39,7 @@ När du skickar en aktivitet med inställningar för flera instanser till ett jo
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Krav för aktiviteter med flera instanser
-Aktiviteter med flera instanser kräver en pool med **kommunikation mellan noder**och med **inaktive rad körning av aktivitet inaktive rad**. Om du vill inaktivera körning av samtidiga aktiviteter ställer du in egenskapen [CloudPool. TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) på 1.
+Aktiviteter med flera instanser kräver en pool med **kommunikation mellan noder** och med **inaktive rad körning av aktivitet inaktive rad**. Om du vill inaktivera körning av samtidiga aktiviteter ställer du in egenskapen [CloudPool. TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) på 1.
 
 > [!NOTE]
 > Batch [begränsar](batch-quota-limit.md#pool-size-limits) storleken på en pool som har kommunikation mellan noder aktiverat.
@@ -95,8 +95,8 @@ Sök efter de storlekar som anges som "RDMA-kompatibel" i följande artiklar:
   * [Storlekar för Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (endast Windows)
 * **VirtualMachineConfiguration** pooler
 
-  * [Storlekar för virtuella datorer i Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) (Linux)
-  * [Storlekar för virtuella datorer i Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) (Windows)
+  * [Storlekar för virtuella datorer i Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
+  * [Storlekar för virtuella datorer i Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
 > Om du vill dra nytta av RDMA på [Linux-datornoder](batch-linux-nodes.md)måste du använda **Intel-MPI** på noderna.
@@ -153,7 +153,7 @@ cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 Observera användningen av `start` i detta koordinations kommando. Detta är obligatoriskt eftersom `smpd.exe` programmet inte returnerar omedelbart efter körning. Utan att använda [Start][cmd_start] kommandot returneras inte det här koordinations kommandot, och därför blockeras program kommandot från att köras.
 
 ## <a name="application-command"></a>Program kommando
-När den primära aktiviteten och alla under aktiviteter har slutfört körningen av koordinations kommandot, utförs *endast*körnings aktivitetens kommando rad av den primära aktiviteten. Vi anropar detta **program kommando** för att skilja den från koordinations kommandot.
+När den primära aktiviteten och alla under aktiviteter har slutfört körningen av koordinations kommandot, utförs *endast* körnings aktivitetens kommando rad av den primära aktiviteten. Vi anropar detta **program kommando** för att skilja den från koordinations kommandot.
 
 För MS-MPI-program använder du kommandot Application för att köra ditt MPI-aktiverade program med `mpiexec.exe` . Här är till exempel ett program kommando för en lösning som använder MS-MPI version 7:
 

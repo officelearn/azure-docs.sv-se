@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: e56cf54e1bf1483309cb7aac8519bb281ca2bc06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 677ab3327f2357ce7b242c314b44702370779def
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941400"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351681"
 ---
 # <a name="access-your-security-data"></a>Komma åt dina säkerhets data
 
@@ -30,14 +30,14 @@ Konfigurera vilken Log Analytics arbets yta som används:
 
 1. Öppna din IoT Hub.
 1. Klicka på bladet **Inställningar** under avsnittet **säkerhet** .
-1. Klicka på **data insamling**och ändra Log Analytics arbets ytans konfiguration.
+1. Klicka på **data insamling** och ändra Log Analytics arbets ytans konfiguration.
 
 För att få åtkomst till aviseringar och rekommendationer i Log Analytics-arbetsytan efter konfigurationen:
 
 1. Välj en avisering eller rekommendation i Defender för IoT.
-1. Klicka på **ytterligare undersökning**och klicka sedan **för att se vilka enheter som har den här aviseringen Klicka här och visa kolumnen DeviceID**.
+1. Klicka på **ytterligare undersökning** och klicka sedan **för att se vilka enheter som har den här aviseringen Klicka här och visa kolumnen DeviceID**.
 
-Information om hur du frågar efter data från Log Analytics finns i [Kom igång med frågor i Log Analytics](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries).
+Information om hur du frågar efter data från Log Analytics finns i [Kom igång med frågor i Log Analytics](//azure/log-analytics/query-language/get-started-queries).
 
 ## <a name="security-alerts"></a>Säkerhetsaviseringar
 

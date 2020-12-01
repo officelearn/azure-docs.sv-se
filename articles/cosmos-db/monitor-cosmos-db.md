@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 19137f3384a1b97ae1ae7e3faeb4dc2e0e4fd3bd
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 550418761e91a8292761d7595ff32d939c0d542e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017805"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350406"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Övervaka Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -93,7 +93,7 @@ Alla mått för Azure Cosmos DB finns i namn området **Cosmos DB standard mått
 * Region
 * StatusCode
 
-För referens kan du se en lista över [alla resurs mått som stöds i Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+För referens kan du se en lista över [alla resurs mått som stöds i Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
 ### <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Visa mått på åtgärds nivå för Azure Cosmos DB
 
@@ -127,7 +127,7 @@ Du kan gruppera mått med hjälp av alternativet **Använd delning** . Du kan ti
 
 Data i Azure Monitor loggar lagras i tabeller som varje tabell har en egen uppsättning unika egenskaper.
 
-Alla resurs loggar i Azure Monitor har samma fält följt av tjänstespecific-fält. Det gemensamma schemat beskrivs i [Azure Monitor resurs logg schema](../azure-monitor/platform/diagnostic-logs-schema.md#top-level-resource-logs-schema). En lista över typer av resurs loggar som samlats in för Azure Cosmos DB finns i [övervaknings Azure Cosmos DB data Reference] ((övervaka-Cosmos-DB-reference. MD # Resource-logs)  
+Alla resurs loggar i Azure Monitor har samma fält följt av tjänstespecific-fält. Det gemensamma schemat beskrivs i [Azure Monitor resurs logg schema](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). En lista över typer av resurs loggar som samlas in för Azure Cosmos DB finns i [övervaknings Azure Cosmos db data referens](monitor-cosmos-db-reference.md#resource-logs).
 
 [Aktivitets loggen](/azure/azure-monitor/platform/activity-log) är en plattforms inloggning för Azure som ger inblick i händelser på prenumerations nivå. Du kan visa den oberoende av varandra eller dirigera den till Azure Monitor loggar, där du kan göra mycket mer komplexa frågor med Log Analytics.  
 
@@ -172,11 +172,11 @@ Här följer några frågor som du kan ange i Sök fältet för **loggs ökning*
 
 ## <a name="alerts"></a>Aviseringar
 
-Azure Monitor aviseringar proaktivt meddela dig när viktiga villkor finns i dina övervaknings data. De gör att du kan identifiera och åtgärda problem i systemet innan kunderna märker dem. Du kan ställa in aviseringar för [mått](/azure/azure-monitor/platform/alerts-metric-overview), [loggar](/azure/azure-monitor/platform/alerts-unified-log)och [aktivitets loggen](/azure/azure-monitor/platform/activity-log-alerts). Olika typer av aviseringar har fördelar och nack delar
+Azure Monitor aviseringar proaktivt meddela dig när viktiga villkor finns i dina övervaknings data. De gör att du kan identifiera och åtgärda problem i systemet innan kunderna märker dem. Du kan ställa in aviseringar för [mått](../azure-monitor/platform/alerts-metric-overview.md), [loggar](../azure-monitor/platform/alerts-unified-log.md)och [aktivitets loggen](../azure-monitor/platform/activity-log-alerts.md). Olika typer av aviseringar har fördelar och nack delar
 
 I följande tabell visas till exempel några aviserings regler för dina resurser. Du hittar en detaljerad lista över varnings regler från Azure Portal. Mer information finns i [så här konfigurerar du aviserings](create-alerts.md) artikeln.  
 
-| Aviseringstyp | Condition (Väderförhållanden) | Description  |
+| Aviseringstyp | Condition (Väderförhållanden) | Beskrivning  |
 |:---|:---|:---|
 |Hastighets begränsning på enheter för programbegäran (mått varning) |Dimensions namn: StatusCode, operator: lika med, dimensions värden: 429  | Varningar om behållaren eller en databas har överskridit gränsen för allokerat data flöde. |
 |Regionen har redundansväxlats |Operator: större än, sammansättnings typ: antal, tröskel värde: 1 | När en enskild region har redundansväxlats. Den här aviseringen är användbar om du inte har aktiverat automatisk redundans. |

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperfq2
-ms.openlocfilehash: 4285571ead30f74f9136ad81687e52d92fdd1c47
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1f57e14893e6f43b98b0e45cc2bd2d49e31271d0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341767"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350355"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Prestanda tips för Azure Cosmos DB asynkron Java SDK v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -90,7 +90,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
   :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Bild av arkitekturen för direkt läge" border="false":::
   
-  Arkitekturen på klient sidan som används i direkt läge möjliggör förutsägbar nätverks användning och multiplex-åtkomst till Azure Cosmos DB repliker. Diagrammet ovan visar hur Direct-läge dirigerar klient begär anden till repliker i Cosmos DB-backend-servern. Arkitekturen för direkt läge allokerar upp till 10 _ *kanaler* * på klient sidan per DB-replik. En kanal är en TCP-anslutning som föregås av en buffert för begäran, som är en djup på 30 begär Anden. Kanaler som tillhör en replik allokeras dynamiskt efter behov av replikens **tjänst slut punkt**. När användaren utfärdar en begäran i direkt läge dirigerar **TransportClient** begäran till rätt tjänst slut punkt utifrån partitionsnyckel. **Begär ande kön** buffrar begär Anden före tjänst slut punkten.
+  Arkitekturen på klient sidan som används i direkt läge möjliggör förutsägbar nätverks användning och multiplex-åtkomst till Azure Cosmos DB repliker. Diagrammet ovan visar hur Direct-läge dirigerar klient begär anden till repliker i Cosmos DB-backend-servern. Arkitekturen för direkt läge allokerar upp till 10 _ *kanaler** på klient sidan per DB-replik. En kanal är en TCP-anslutning som föregås av en buffert för begäran, som är en djup på 30 begär Anden. Kanaler som tillhör en replik allokeras dynamiskt efter behov av replikens **tjänst slut punkt**. När användaren utfärdar en begäran i direkt läge dirigerar **TransportClient** begäran till rätt tjänst slut punkt utifrån partitionsnyckel. **Begär ande kön** buffrar begär Anden före tjänst slut punkten.
 
   * ***ConnectionPolicy konfigurations alternativ för direkt läge** _
 
@@ -139,7 +139,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
     Det är viktigt att Observera att parallella frågor ger de bästa fördelarna om data är jämnt fördelade över alla partitioner med avseende på frågan. Om den partitionerade samlingen är partitionerad, så att alla eller en majoritet av de data som returneras av en fråga är koncentrerade i några partitioner (en partition i värsta fall), skulle prestandan för frågan bli Flask hals av dessa partitioner.
 
-  _ * **Justering setMaxBufferedItemCount \:** _
+  _ ***Justering setMaxBufferedItemCount \:** _
     
     Parallell fråga är utformad för att hämta resultat när den aktuella gruppen med resultat bearbetas av klienten. För hämtning bidrar till den totala tids fördröjnings förbättringen av en fråga. setMaxBufferedItemCount begränsar antalet i förväg hämtade resultat. Om du anger setMaxBufferedItemCount till det förväntade antalet returnerade resultat (eller en högre siffra) kan frågan ta emot maximal nytta av för hämtning.
 
@@ -260,7 +260,7 @@ _ **Implementera backoff vid getRetryAfterInMilliseconds-intervall**
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    Mer information finns i [Azure Cosmos DB indexerings principer](/azure/cosmos-db/index-policy).
+    Mer information finns i [Azure Cosmos DB indexerings principer](./index-policy.md).
 
 ## <a name="throughput"></a><a id="measure-rus"></a>Dataflöde
 

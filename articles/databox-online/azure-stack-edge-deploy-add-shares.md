@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: aeb5bceca11f595c1582596aeea401fe5f9b239f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64fe65019a66013323b1c6d27055051badb47cee
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883475"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350321"
 ---
 # <a name="tutorial-transfer-data-with-azure-stack-edge-pro"></a>Självstudie: överföra data med Azure Stack Edge Pro
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Ansluta till resursen
 
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du lägger till resurser i Azure Stack Edge Pro, se till att:
 
@@ -56,22 +56,22 @@ Om du vill skapa en resurs, gör du så här:
     Resursnamnet får bara ha gemena bokstäver, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken och börja med en bokstav eller en siffra. Bindestreck måste föregås och följas av en bokstav eller ett numeriskt värde.
     
     b. Välj en **typ** för resursen.  
-    Typen kan vara **SMB** eller **NFS**, där SMB är standardvärdet. SMB är standard för Windows-klienter och NFS används för Linux-klienter.  
+    Typen kan vara **SMB** eller **NFS**, med SMB som standard. SMB är standard för Windows-klienter och NFS används för Linux-klienter.  
     Beroende på om du väljer SMB- eller NFS-resurser varierar resten av alternativen något. 
 
-    c. Ange ett lagrings konto där resursen kommer att finnas. 
+    c. Ange ett lagringskonto där resursen ska placeras. 
 
     > [!IMPORTANT]
-    > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge Pro-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+    > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge Pro-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](../storage/blobs/storage-blob-immutability-policies-manage.md).
     
     d. Välj **Blockblob**, **Sidblob** eller **Filer** i listrutan **Lagringstjänst**.  
-    Vilken typ av tjänst som du väljer beror på vilket format som du vill att dina data ska använda i Azure. I det här exemplet, eftersom vi vill lagra data som block blobbar i Azure väljer du **blockera BLOB**. Om du väljer **Page BLOB**ser du till att dina data är 512 byte justerade. Till exempel är en VHDX alltid justerad för 512 byte.
+    Vilken typ av tjänst som du väljer beror på vilket format som du vill att dina data ska använda i Azure. I det här exemplet, eftersom vi vill lagra data som block blobbar i Azure väljer du **blockera BLOB**. Om du väljer **Page BLOB** ser du till att dina data är 512 byte justerade. Till exempel är en VHDX alltid justerad för 512 byte.
 
     e. Skapa en ny BLOB-behållare eller Använd en befintlig i list rutan. Om du skapar en BLOB-behållare anger du ett behållar namn. En container skapas på lagringskontot med det nyligen skapade resursnamnet om det inte redan finns en.
    
     f. Beroende på om du har skapat en SMB-resurs eller en NFS-resurs, gör du något av följande: 
      
-    - **SMB-resurs**: Välj **Skapa ny** eller **Använd befintlig**i **lokal användare för behörighet**. Om du skapar en ny lokal användare, anger du ett användarnamn och ett lösenord och bekräftar därefter lösenordet. Denna åtgärd tilldelar behörigheter till den lokala användaren. När du har tilldelat behörigheterna här kan du sedan använda Utforskaren för att modifiera dem.
+    - **SMB-resurs**: Välj **Skapa ny** eller **Använd befintlig** i **lokal användare för behörighet**. Om du skapar en ny lokal användare, anger du ett användarnamn och ett lösenord och bekräftar därefter lösenordet. Denna åtgärd tilldelar behörigheter till den lokala användaren. När du har tilldelat behörigheterna här kan du sedan använda Utforskaren för att modifiera dem.
 
         Om du markerar kryss rutan **Tillåt endast Läs åtgärder** för den här resurs informationen kan du ange skrivskyddade användare.
 
@@ -162,5 +162,3 @@ Om du vill lära dig hur du omvandlar dina data med hjälp av Azure Stack Edge P
 
 > [!div class="nextstepaction"]
 > [Transformera data med Azure Stack Edge Pro](./azure-stack-edge-deploy-configure-compute.md)
-
-

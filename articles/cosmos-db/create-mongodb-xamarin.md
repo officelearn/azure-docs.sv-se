@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: masoucou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 94cf54e689f845f77c54d1d3c7710e079594f556
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 339c6177de6e83f463efbc97e88a36ed4c52d97b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098951"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349103"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Snabb start: Bygg en Xamarin. Forms-app med .NET SDK och Azure Cosmos DB s API för MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -164,11 +164,11 @@ Följande kodfragment är alla hämtade från klassen `MongoService`, som finns 
 
 Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen.
 
-1. Öppna ditt Azure Cosmos DB-konto i [Azure Portal](https://portal.azure.com/), klicka på **Anslutningssträng** och därefter på **Läs- och skrivnycklar** . Du använder kopiera-knapparna på höger sida av skärmen för att kopiera den primära anslutningssträngen i nästa steg.
+1. Öppna ditt Azure Cosmos DB-konto i [Azure Portal](https://portal.azure.com/), klicka på **Anslutningssträng** och därefter på **Läs- och skrivnycklar**. Du använder kopiera-knapparna på höger sida av skärmen för att kopiera den primära anslutningssträngen i nästa steg.
 
-2. Öppna filen **APIKeys.cs** i katalogen **Helpers** katalogen i projektet **TaskList.Core** .
+2. Öppna filen **APIKeys.cs** i katalogen **Helpers** katalogen i projektet **TaskList.Core**.
 
-3. Kopiera värdet för **primär anslutningssträng** från portalen (med kopieringsknappen) och gör det till värdet för fältet **ConnectionString** i filen **APIKeys.cs** .
+3. Kopiera värdet för **primär anslutningssträng** från portalen (med kopieringsknappen) och gör det till värdet för fältet **ConnectionString** i filen **APIKeys.cs**.
 
 4. Ta bort `&replicaSet=globaldb` från anslutnings strängen. Du får ett körnings fel om du inte tar bort det värdet från frågesträngen.
 
@@ -181,12 +181,12 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 
 ### <a name="visual-studio-2019"></a>Visual Studio 2019
 
-1. I Visual Studio högerklickar du på varje projekt i **Solution Explorer** och därefter på **Hantera NuGet-paket** .
-2. Klicka på **Återställ alla NuGet-paket** .
-3. Högerklicka på **TaskList.Android** och välj **Ange som startprojekt** .
+1. I Visual Studio högerklickar du på varje projekt i **Solution Explorer** och därefter på **Hantera NuGet-paket**.
+2. Klicka på **Återställ alla NuGet-paket**.
+3. Högerklicka på **TaskList.Android** och välj **Ange som startprojekt**.
 4. Tryck på F5 för att starta felsökning av programmet.
 5. Om du vill köra på iOS ansluts datorn först till en Mac (här är [instruktionerna](/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) för hur du gör detta).
-6. Högerklicka på projektet **TaskList.iOS** och välj **Ange som startprojekt** .
+6. Högerklicka på projektet **TaskList.iOS** och välj **Ange som startprojekt**.
 7. Klicka på F5 för att starta felsökning av programmet.
 
 ### <a name="visual-studio-for-mac"></a>Visual Studio för Mac
@@ -207,4 +207,4 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 I den här snabbstarten har du lärt dig hur du skapar ett Azure Cosmos DB-konto och kör en Xamarin.Forms-app via API:t för MongoDB. Du kan nu importera ytterligare data till ditt Cosmos DB-konto.
 
 > [!div class="nextstepaction"]
-> [Importera data till Azure Cosmos DB konfigurerat med Azure Cosmos DB:s API för MongoDB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+> [Importera data till Azure Cosmos DB konfigurerat med Azure Cosmos DB:s API för MongoDB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

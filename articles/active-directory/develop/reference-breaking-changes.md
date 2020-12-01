@@ -12,12 +12,12 @@ ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94c34e6f7cb24ff749e5de95f1c28a496700af80
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115041"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348729"
 ---
 # <a name="whats-new-for-authentication"></a>Vad är nytt för autentisering?
 
@@ -197,7 +197,7 @@ Mer information om uppdateringstoken finns i [Uppdatera åtkomsttoken](v2-oauth2
 
 ### <a name="id-tokens-cannot-be-used-for-the-obo-flow"></a>Det går inte att använda ID-token för OBO-flödet
 
-**Datum: den**1 maj 2018
+**Datum: den** 1 maj 2018
 
 **Påverkade slut punkter**: både v 1.0 och v 2.0
 

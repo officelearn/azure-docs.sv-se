@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
-ms.openlocfilehash: a11ea9cee69e5aa7b275012176084530f4a209e6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 548deeec456537c64dc5d8ebe95ed1e4802e91c5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076305"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349222"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Snabb start: ansluta ett Go-program till Azure Cosmos DB s API för MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -259,7 +259,7 @@ Skapa en [resurs grupp](../azure-resource-manager/management/overview.md) med [A
 
 Följande exempel skapar en resursgrupp i regionen västeuropa. Välj ett unikt namn för resursgruppen.
 
-Om du använder Azure Cloud Shell väljer du **prova** , följer anvisningarna på skärmen för att logga in och kopierar sedan kommandot till kommando tolken.
+Om du använder Azure Cloud Shell väljer du **prova**, följer anvisningarna på skärmen för att logga in och kopierar sedan kommandot till kommando tolken.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
@@ -421,9 +421,9 @@ Data som lagras i Azure Cosmos DB kan visas och fråga i Azure Portal.
 
 Om du vill visa, fråga och arbeta med användardata som skapats i föregående steg, loggar du in på [Azure-portalen](https://portal.azure.com) i din webbläsare.
 
-I den översta sökrutan anger du **Azure Cosmos DB** . När ditt Cosmos-kontoblad öppnas väljer du ditt Cosmos-konto. I det vänstra navigerings fönstret väljer du **datautforskaren** . Utöka din samling i samlings-fönstret så kan du visa dokumenten i samlingen, fråga data och skapa och köra lagrade procedurer, utlösare och UDF:er. 
+I den översta sökrutan anger du **Azure Cosmos DB**. När ditt Cosmos-kontoblad öppnas väljer du ditt Cosmos-konto. I det vänstra navigerings fönstret väljer du **datautforskaren**. Utöka din samling i samlings-fönstret så kan du visa dokumenten i samlingen, fråga data och skapa och köra lagrade procedurer, utlösare och UDF:er. 
 
-:::image type="content" source="./media/create-mongodb-go/go-cosmos-db-data-explorer.png" alt-text="Det nyligen skapade dokumentet visas i Datautforskaren&quot;:::
+:::image type="content" source="./media/create-mongodb-go/go-cosmos-db-data-explorer.png" alt-text="Det nyligen skapade dokumentet visas i Datautforskaren":::
 
 
 Ta bort ett `todo` using-ID
@@ -444,7 +444,7 @@ Det `todo` du nyss tog bort bör inte finnas
 +----------------------------+--------------------------------+-----------+
 |             ID             |          DESCRIPTION           |  STATUS   |
 +----------------------------+--------------------------------+-----------+
-| &quot;5e9fd6befd2f076d1f03bd8a" | Get the MongoDB connection     | pending   |
+| "5e9fd6befd2f076d1f03bd8a" | Get the MongoDB connection     | pending   |
 |                            | string using the Azure CLI     |           |
 +----------------------------+--------------------------------+-----------+
 ```
@@ -458,4 +458,4 @@ Det `todo` du nyss tog bort bör inte finnas
 I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos DB MongoDB API-konto med hjälp av Azure Cloud Shell och skapar och kör en go-kommandoraden för att hantera `todo` s. Du kan nu importera ytterligare data till ditt Azure Cosmos DB-konto.
 
 > [!div class="nextstepaction"]
-> [Importera MongoDB-data till Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+> [Importera MongoDB-data till Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

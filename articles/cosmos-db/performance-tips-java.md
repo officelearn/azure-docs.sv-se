@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 9a074b872ed19a7d3e6b3e410c69da0f2b78e85e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3eced4e727954906d8ff67e7afe2279100f8f1cc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012586"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349069"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Prestanda tips för Azure Cosmos DB Sync Java SDK v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -141,7 +141,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    Mer information finns i [Azure Cosmos DB indexerings principer](/azure/cosmos-db/index-policy).
+    Mer information finns i [Azure Cosmos DB indexerings principer](./index-policy.md).
 
 ## <a name="throughput"></a>Dataflöde
 <a id="measure-rus"></a>

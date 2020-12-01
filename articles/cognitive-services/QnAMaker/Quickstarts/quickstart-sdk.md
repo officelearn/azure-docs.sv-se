@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-sixteen
-ms.openlocfilehash: 36a38c69c68613e912e7c598495b9370044f13a6
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: d9e984d4384b59fa13bc59e09e29939457dad37c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777460"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351050"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>Snabb start: QnA Maker klient bibliotek
 
@@ -52,9 +52,8 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
->[Självstudie: testa kunskaps basen med en kommando fil](./batch-testing.md)
+>[Självstudie: testa kunskaps basen med en kommando fil](../index.yml)
 
 * [Vad är API för QnA Maker?](../Overview/overview.md)
 * [Redigera en kunskapsbas](../how-to/edit-knowledge-base.md)
 * [Hämta användnings analys](../how-to/get-analytics-knowledge-base.md)
-

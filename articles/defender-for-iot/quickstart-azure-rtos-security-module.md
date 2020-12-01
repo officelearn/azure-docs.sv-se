@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2020
 ms.author: rkarlin
-ms.openlocfilehash: 38e78b80fd14aec7557b563b2b33faf7d51bd114
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 321c8d2b9e58aba943c5bf19adf54d6359c5be96
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759740"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351784"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>Snabb start: säkerhetsmodul för Azure-återställnings tider (för hands version)
 
-Den här artikeln innehåller en förklaring av kraven innan du börjar och förklarar hur du aktiverar säkerhetsmodulen för Azure återställnings tider service på en IoT Hub. Om du för närvarande inte har en IoT Hub kan du läsa [skapa ett IoT Hub med hjälp av Azure Portal](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) för att komma igång.
+Den här artikeln innehåller en förklaring av kraven innan du börjar och förklarar hur du aktiverar säkerhetsmodulen för Azure återställnings tider service på en IoT Hub. Om du för närvarande inte har en IoT Hub kan du läsa [skapa ett IoT Hub med hjälp av Azure Portal](../iot-hub/iot-hub-create-through-portal.md) för att komma igång.
 
 > [!NOTE]
 > Säkerhetsmodulen för Azure-återställnings tider stöds bara på standard-nivå IoT Hub.
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 ### <a name="supported-devices"></a>Enheter som stöds
 
@@ -49,7 +49,7 @@ Det krävs en IoT Hub anslutning för att komma igång.
 1. Kopiera IoT-anslutningssträngen till [konfigurations filen](how-to-azure-rtos-security-module.md).
 
 
-Autentiseringsuppgifterna för anslutningen hämtas från konfiguration av användar program **HOST_NAME**, **DEVICE_ID**och **DEVICE_SYMMETRIC_KEY**.
+Autentiseringsuppgifterna för anslutningen hämtas från konfiguration av användar program **HOST_NAME**, **DEVICE_ID** och **DEVICE_SYMMETRIC_KEY**.
 
 Säkerhetsmodulen för Azure återställnings tider använder Azure IoT mellanprogram anslutningar baserat på **MQTT** -protokollet.
 
@@ -63,10 +63,10 @@ Log Analytics inmatning i IoT Hub är inaktiverat som standard Defender för IoT
 1. Välj **data insamling**. 
 1. I **konfigurations alternativet för arbets ytan** växlar du till **på**. 
 1. Skapa en ny Log Analytics arbets yta eller bifoga en befintlig. Se till att alternativet **åtkomst till rå data för säkerhets data** är markerat. 
- :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Åtkomst till data insamlings alternativ för Azure-återställnings tider":::
+ :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Azure återställnings tider-konfiguration som visar data insamlings alternativ och alternativ för rå säkerhets data som valts":::
 1. Välj **Spara**
 1. Gå tillbaka till listan med Azure-resurser och bekräfta att du ser Log Analytics arbets ytan som du skapade eller kopplade är aktive rad för IoT Hub.
-    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Åtkomst till data insamlings alternativ för Azure-återställnings tider"::: 
+    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Kontrol lera Azures resurs lista för att bekräfta att rätt Log Analytics arbets yta har lagts till för en IoT Hub"::: 
 
 ## <a name="next-steps"></a>Nästa steg
 

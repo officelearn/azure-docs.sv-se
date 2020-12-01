@@ -7,22 +7,22 @@ ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-java
 ms.topic: how-to
-ms.openlocfilehash: 275b1976e51789d4a458e7bd9f7cfa3240cc81d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50433ee1e5a575ab671d562bfc3fe549b26fe00c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777661"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352311"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Snabbstart: Skapa en kunskapsbas i QnA Maker med hjälp av Java
 
-Den här snabbstarten går igenom hur du programmatiskt skapar ett exempel på QnA Maker-kunskapsbas. QnA Maker extraherar automatiskt frågor och svar för delvis strukturerat innehåll, som vanliga frågor från [datakällor](../Concepts/knowledge-base.md). Modellen för kunskapsbasen har definierats i JSON som skickas i brödtexten i API-begäran.
+Den här snabbstarten går igenom hur du programmatiskt skapar ett exempel på QnA Maker-kunskapsbas. QnA Maker extraherar automatiskt frågor och svar för delvis strukturerat innehåll, som vanliga frågor från [datakällor](../index.yml). Modellen för kunskapsbasen har definierats i JSON som skickas i brödtexten i API-begäran.
 
 Den här snabbstarten anropar API:er för QnA Maker:
-* [Skapa kunskapsbas](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
-* [Få åtgärdsinformation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+* [Skapa kunskapsbas](/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
+* [Få åtgärdsinformation](/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 
-[Referens dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  [Java-exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java)
+[Referens dokumentation](/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  [Java-exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -119,7 +119,7 @@ Upprepa anropet tills det lyckas eller misslyckas:
 ```
 
 ## <a name="add-a-main-method"></a>Lägga till en main-metod
-Main-metoden skapar kunskapsbasen och söker sedan efter status. Åtgärds-ID: t returneras i fältet POSTens svars huvud **plats**och används som en del av vägen i get-begäran. `while`Loopen försöker igen om den inte är slutförd.
+Main-metoden skapar kunskapsbasen och söker sedan efter status. Åtgärds-ID: t returneras i fältet POSTens svars huvud **plats** och används som en del av vägen i get-begäran. `while`Loopen försöker igen om den inte är slutförd.
 
 :::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="main":::
 
@@ -144,4 +144,4 @@ När kunskapsbasen har skapats kan du visa den i QnA Maker-portalen, på sidan [
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Referens för QnA Maker (V4) REST API](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [Referens för QnA Maker (V4) REST API](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)

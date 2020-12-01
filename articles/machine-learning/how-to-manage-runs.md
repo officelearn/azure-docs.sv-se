@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 0da4127960450a13b64ec23908b4a4fd4c69bd7e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 921c88f4771fedb910dc41983d559987a8cdfb0c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542022"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349341"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Starta, övervaka och avbryta inlärnings körningar i python
 
@@ -38,7 +38,7 @@ Den här artikeln innehåller exempel på följande uppgifter:
 
 Du behöver följande objekt:
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * En [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -278,7 +278,7 @@ Använd metoden för att skapa många underordnade körningar effektivt [`create
 
 ### <a name="submit-child-runs"></a>Skicka underordnade körningar
 
-Underordnade körningar kan också skickas från en överordnad körning. På så sätt kan du skapa hierarkier med överordnade och underordnade körningar. 
+Underordnade körningar kan också skickas från en överordnad körning. På så sätt kan du skapa hierarkier med överordnade och underordnade körningar. Det går inte att skapa en överordnad underordnad körning: även om den överordnade körningen inte gör något men starta underordnade körningar, är det fortfarande nödvändigt att skapa hierarkin. Status för alla körningar är oberoende: en överordnad kan ha `"Completed"` tillståndet lyckades även om en eller flera underordnade körningar avbröts eller misslyckades.  
 
 Du kanske vill att ditt underordnade ska köras för att använda en annan körnings konfiguration än den överordnade körningen. Till exempel kan du använda en mindre kraftfull, PROCESSORbaserade konfiguration för den överordnade, samtidigt som du använder GPU-baserade konfigurationer för dina barn. En annan vanlig önskan är att skicka alla underordnade olika argument och data. Om du vill anpassa en underordnad körning skapar du ett `ScriptRunConfig` objekt för den underordnade körningen. Följande kod gör följande:
 
@@ -327,6 +327,24 @@ Använd metoden för att fråga de underordnade körningarna av en speciell öve
 ```python
 print(parent_run.get_children())
 ```
+
+### <a name="log-to-parent-or-root-run"></a>Logga till överordnad eller root-körning
+
+Du kan använda `Run.parent` fältet för att komma åt körningen som startade den aktuella underordnade körningen. Ett vanligt användnings fall för detta är när du vill konsolidera logg resultat på ett och samma ställe. Observera att underordnade körs asynkront och att det inte finns någon garanti för beställning eller synkronisering utöver det överordnade objektets förmåga att vänta på att dess underordnade körningar ska slutföras.
+
+```python
+# in child (or even grandchild) run
+
+def root_run(self : Run) -> Run :
+    if self.parent is None : 
+        return self
+    return root_run(self.parent)
+
+current_child_run = Run.get_context()
+root_run(current_child_run).log("MyMetric", f"Data from child run {current_child_run.id}")
+
+```
+
 
 ## <a name="tag-and-find-runs"></a>Tagga och hitta körningar
 

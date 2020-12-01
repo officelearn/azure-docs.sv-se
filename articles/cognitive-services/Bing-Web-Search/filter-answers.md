@@ -11,19 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: f4f001cdeb37ff760a01ac48d7efb41c0437fe5f
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 571314009b6f58e5c2ab6aac02cfebc82c53f42f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380259"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351869"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrera svaren som Sök svaret innehåller  
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 När du frågar på webben, returnerar Bing allt relevant innehåll som hittas för sökningen. Om Sök frågan till exempel är "segling + dinghies" kan svaret innehålla följande svar:
 
@@ -58,7 +58,7 @@ Om du vill filtrera svaren som returneras av Bing använder du nedanstående fr�
 
 Du kan filtrera de typer av svar som Bing inkluderar i svaret (till exempel bilder, videor och nyheter) med hjälp av [responseFilter](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) -Frågeparametern, som är en kommaavgränsad lista med svar. Ett svar tas med i svaret om Bing hittar relevant innehåll för det. 
 
-Om du vill utesluta vissa svar från svaret, till exempel bilder, lägga ett meddelande `-` till svars typen. Till exempel:
+Om du vill utesluta vissa svar från svaret, till exempel bilder, lägga ett meddelande `-` till svars typen. Exempel:
 
 ```
 &responseFilter=-images,-videos

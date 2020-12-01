@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: d35ea57a68e500deffa99033b83114ec518dd5e3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1bf6eebcfc43452dd9a62e4a49f9aacbcd517ffc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993813"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352243"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Format rikt linjer för importerade dokument och webb adresser
 
@@ -22,7 +22,7 @@ När du har importerat en fil eller URL, QnA Maker konvertera och lagra innehål
 
 Om du lägger till eller redigerar innehållet direkt i din kunskaps bas använder du **markdown-formatering** för att skapa RTF-innehåll eller ändra markdown format innehåll som redan finns i svaret. QnA Maker stöder mycket av markdown-formatet för att få RTF-funktioner till ditt innehåll. Men klient programmet, till exempel en chatt-robot, kanske inte stöder samma uppsättning markdown-format. Det är viktigt att testa klient programmets visning av svar.
 
-Se en fullständig lista över [innehålls typer och exempel](./Concepts/content-types.md#file-and-url-data-types).
+Se en fullständig lista över [innehålls typer och exempel](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base).
 
 ## <a name="basic-document-formatting"></a>Grundläggande dokumentformatering
 
@@ -118,4 +118,4 @@ Om du importerar en kunskaps bas ersätts innehållet i den befintliga kunskaps 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en fullständig lista över [innehålls typer och exempel](./Concepts/content-types.md#file-and-url-data-types)
+Se en fullständig lista över [innehålls typer och exempel](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base)

@@ -1,20 +1,20 @@
 ---
 title: Skapa mall – Visual Studio Code
-description: Använd Visual Studio Code och Azure Resource Manager-malltillägget för att arbeta med Resource Manager-mallar.
+description: Använd Visual Studio Code och Azure Resource Manager Tools-tillägget för att arbeta med Azure Resource Manager-mallar (ARM-mallar).
 author: neilpeterson
 ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 5375fedcd05aefa5d23ee872325373ce631d43bb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d8fd44a1e4c1ddfd78b2afa3280bb05c8fde91e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88034997"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350151"
 ---
-# <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Snabb start: Skapa Azure Resource Manager mallar med Visual Studio Code
+# <a name="quickstart-create-arm-templates-with-visual-studio-code"></a>Snabb start: skapa ARM-mallar med Visual Studio Code
 
-Azure Resource Manager Tools för Visual Studio Code tillhandahåller språk stöd, resurs kods tycken och slut för ande av resurser. Dessa verktyg hjälper dig att skapa och verifiera Azure Resource Manager mallar. I den här snabb starten använder du tillägget för att skapa en Azure Resource Manager mall från grunden. När du gör det kommer du att uppleva tillägg som ARM-kodfragment, verifiering, slut för ande och stöd för parameter fil.
+Azure Resource Manager Tools för Visual Studio Code tillhandahåller språk stöd, resurs kods tycken och slut för ande av resurser. Dessa verktyg hjälper dig att skapa och verifiera Azure Resource Manager mallar (ARM-mallar). I den här snabb starten använder du tillägget för att skapa en ARM-mall från grunden. När du gör det kommer du att uppleva tillägg som ARM-kodfragment, verifiering, slut för ande och stöd för parameter fil.
 
 För att slutföra den här snabb starten behöver du [Visual Studio Code](https://code.visualstudio.com/)med [tillägget Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installerat. Du behöver också antingen [Azure CLI](/cli/azure/?view=azure-cli-latest) eller Azure PowerShell- [modulen](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) installerad och autentiserad.
 
@@ -54,7 +54,7 @@ Du kan använda **TABB** -tangenten för att gå igenom konfigurerbara egenskape
 
 ## <a name="completion-and-validation"></a>Slutför och verifiera
 
-En av de mest kraftfulla funktionerna i tillägget är dess integrering med Azure-scheman. Azure-scheman ger tillägget med funktioner för validering och resurs medveten slut för ande. Nu ska vi ändra lagrings kontot för att se hur validering och slut för ande fungerar. 
+En av de mest kraftfulla funktionerna i tillägget är dess integrering med Azure-scheman. Azure-scheman ger tillägget med funktioner för validering och resurs medveten slut för ande. Nu ska vi ändra lagrings kontot för att se hur validering och slut för ande fungerar.
 
 Uppdatera först lagrings kontots typ till ett ogiltigt värde, till exempel `megaStorage` . Observera att den här åtgärden skapar en varning som anger att `megaStorage` inte är ett giltigt värde.
 
@@ -80,7 +80,7 @@ Namn på Azure Storage-konton får innehålla minst 3 tecken och högst 24. Läg
 
 ![Bild som visar minLength och maxLength som läggs till i en ARM-mallparameter](./media/quickstart-create-templates-use-visual-studio-code/11.png)
 
-På lagrings resursen uppdaterar du sedan egenskapen namn för att använda parametern. Det gör du genom att ta bort det aktuella namnet. Ange ett dubbelt citat tecken och en inledande hak paren tes `[` som skapar en lista över arm-mallens funktioner. Välj *parametrar* i listan. 
+På lagrings resursen uppdaterar du sedan egenskapen namn för att använda parametern. Det gör du genom att ta bort det aktuella namnet. Ange ett dubbelt citat tecken och en inledande hak paren tes `[` som skapar en lista över arm-mallens funktioner. Välj *parametrar* i listan.
 
 ![Bild som visar automatisk komplettering när du använder parametrar i ARM-mallens resurser](./media/quickstart-create-templates-use-visual-studio-code/12.png)
 

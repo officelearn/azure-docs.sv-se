@@ -10,19 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 93be72f2afcda90dde1b74c5ee317a7ad3350be1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4300860039b76bd076f19acfc252f59ef10d462b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075695"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351852"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Användnings- och visningskrav för API:er för Bing-sökresultat
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Dessa användnings-och visnings krav gäller för all implementering av innehållet och associerad information från följande API:er för Bing-sökresultat, inklusive relationer, metadata och andra signaler.
 
@@ -104,7 +104,7 @@ Gör inte:
 ### <a name="notices-and-branding"></a>Meddelanden och varumärke 
 Inte
 
-- Ta en funktionell hyperlänk till [Microsofts sekretess policy](https://go.microsoft.com/fwlink/?LinkId=521839), nära varje punkt i användar upplevelsen (UX) som ger användaren möjlighet att ange en Sök fråga. Etikett på hyperlänken **Microsoft sekretess policy** .
+- Ta en funktionell hyperlänk till [Microsofts sekretess policy](https://go.microsoft.com/fwlink/?LinkId=521839), nära varje punkt i användar upplevelsen (UX) som ger användaren möjlighet att ange en Sök fråga. Etikett på hyperlänken **Microsoft sekretess policy**.
 
 - Väl synlig Bing-anpassning, konsekvent med [användnings rikt linjerna för Bing-varumärke](https://go.microsoft.com/fwlink/?linkid=833278), nära varje punkt i UX-gränssnittet som ger användaren möjlighet att mata in en Sök fråga. Detta varumärke måste tydligt ange användaren att Microsoft ska starta Internets ökningen.
 
@@ -172,5 +172,4 @@ I föregående avsnitt av Sök-API: er används och visnings kraven gäller inte
 
 ## <a name="gdpr-compliance"></a>GDPR-efterlevnad  
 
-Med avseende på person uppgifter som omfattas av Europeiska unionens allmän dataskyddsförordning (GDPR) och som bearbetas i samband med anrop till Sök-API: er, API för stavningskontroll i Bing eller API för automatiska förslag i Bing, förstår du att du och Microsoft är oberoende data kontroller under GDPR. Du ansvarar oberoende för din efterlevnad av GDPR.  
-
+Med avseende på person uppgifter som omfattas av Europeiska unionens allmän dataskyddsförordning (GDPR) och som bearbetas i samband med anrop till Sök-API: er, API för stavningskontroll i Bing eller API för automatiska förslag i Bing, förstår du att du och Microsoft är oberoende data kontroller under GDPR. Du ansvarar oberoende för din efterlevnad av GDPR.

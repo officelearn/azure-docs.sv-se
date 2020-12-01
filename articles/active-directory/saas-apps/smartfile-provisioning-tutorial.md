@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: fca18a58ccb8d4e2f10b5db606ad01a97c2d5bac
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 03c7efd390d4714680ed2ccd54d297b8137aaafc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359943"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348678"
 ---
 # <a name="tutorial-configure-smartfile-for-automatic-user-provisioning"></a>Självstudie: Konfigurera SmartFile för automatisk användar etablering
 
@@ -80,7 +80,7 @@ Om du vill konfigurera SmartFile för automatisk användar etablering med Azure 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **SmartFile** , väljer **SmartFile** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **SmartFile**, väljer **SmartFile** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![SmartFile i resultatlistan](common/search-new-app.png)
 

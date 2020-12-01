@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 3d17d4dd88e29440304989b8c37eaa81125d1812
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 8eccc3be7da201ee1e2af046c6b515871ef05adc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357563"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350797"
 ---
 # <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Självstudie: Konfigurera BitaBIZ för automatisk användar etablering
 
@@ -83,7 +83,7 @@ Om du vill konfigurera BitaBIZ för automatisk användar etablering med Azure AD
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **BitaBIZ** , väljer **BitaBIZ** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **BitaBIZ**, väljer **BitaBIZ** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![BitaBIZ i resultatlistan](common/search-new-app.png)
 
@@ -151,7 +151,7 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 ## <a name="connector-limitations"></a>Kopplings begränsningar
 
-* BitaBIZ kräver **användar namn** , **e-post** , **FirstName** och **LastName** som obligatoriska attribut. 
+* BitaBIZ kräver **användar namn**, **e-post**, **FirstName** och **LastName** som obligatoriska attribut. 
 * BitaBIZ stöder inte hårda borttagningar för närvarande.
 
 ## <a name="additional-resources"></a>Ytterligare resurser

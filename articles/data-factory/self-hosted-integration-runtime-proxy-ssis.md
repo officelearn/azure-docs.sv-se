@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/19/2020
-ms.openlocfilehash: a79055a77ec73ce2b267bb4f16fa91f37e22ea75
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 82cc58d46061ec7b623d062ab0b0e5a1fdae7ddd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916788"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352226"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Konfigurera en egen värd-IR som en proxy för en Azure-SSIS IR i Azure Data Factory
 
@@ -70,7 +70,7 @@ Om du inte redan har gjort det skapar du en länkad Azure Blob Storage-tjänst i
 - För **autentiseringsmetod** väljer du **konto nyckel**, **SAS-URI**, **tjänstens huvud namn** eller **hanterad identitet**.  
 
 >[!TIP]
->Om du väljer **tjänstens huvud namns** metod ger du tjänstens huvud namn minst en roll för *Storage BLOB data Contributor* . Mer information finns i [Azure Blob Storage Connector](connector-azure-blob-storage.md#linked-service-properties). Om du väljer metoden för **hanterad identitet** ger du rätt roller för din ADM-hanterade identitet för att få åtkomst till Azure Blob Storage. Mer information finns i [komma åt Azure-Blob Storage att använda Azure Active Directory autentisering med ADM-hanterad identitet](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
+>Om du väljer **tjänstens huvud namns** metod ger du tjänstens huvud namn minst en roll för *Storage BLOB data Contributor* . Mer information finns i [Azure Blob Storage Connector](connector-azure-blob-storage.md#linked-service-properties). Om du väljer metoden för **hanterad identitet** ger du rätt roller för din ADM-hanterade identitet för att få åtkomst till Azure Blob Storage. Mer information finns i [komma åt Azure-Blob Storage att använda Azure Active Directory autentisering med ADM-hanterad identitet](/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
 
 ![Förbereda Azure Blob Storage-länkad tjänst för mellanlagring](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -157,7 +157,7 @@ Du kan också aktivera den här egenskapen när du kör befintliga paket, utan a
 
 ## <a name="debug-the-on-premises-and-cloud-staging-tasks"></a>Felsöka de lokala och molnbaserade mellanlagrings uppgifterna
 
-På din egen värd-IR kan du hitta körnings loggarna i mappen *C:\ProgramData\SSISTelemetry* och körnings loggarna för lokala mellanlagrings uppgifter i mappen *C:\ProgramData\SSISTelemetry\ExecutionLog* .  Du hittar körnings loggarna för mellanlagrings aktiviteter i din SSISDB, angivna sökvägar för loggning eller Azure Monitor beroende på om du lagrar dina paket i SSISDB, aktiverar [Azure Monitor-integrering](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#monitor-ssis-operations-with-azure-monitor)osv. Du kan också hitta unika ID: n för lokala mellanlagrings uppgifter i körnings loggarna för aktiviteter i molnet. 
+På din egen värd-IR kan du hitta körnings loggarna i mappen *C:\ProgramData\SSISTelemetry* och körnings loggarna för lokala mellanlagrings uppgifter i mappen *C:\ProgramData\SSISTelemetry\ExecutionLog* .  Du hittar körnings loggarna för mellanlagrings aktiviteter i din SSISDB, angivna sökvägar för loggning eller Azure Monitor beroende på om du lagrar dina paket i SSISDB, aktiverar [Azure Monitor-integrering](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor)osv. Du kan också hitta unika ID: n för lokala mellanlagrings uppgifter i körnings loggarna för aktiviteter i molnet. 
 
 ![Unikt ID för den första mellanlagrings uppgiften](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 
@@ -173,7 +173,7 @@ De mellanlagrings aktiviteter som körs på dina Azure-SSIS IR faktureras inte s
 
 Följ dessa anvisningar om du vill aktivera dina anpassade/tredje parts komponenter för att komma åt data lokalt med hjälp av IR som proxy för Azure-SSIS IR:
 
-1. Installera dina anpassade/tredje parts komponenter som riktar SQL Server 2017 på Azure-SSIS IR via [standard-/Express-inställningar](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+1. Installera dina anpassade/tredje parts komponenter som riktar SQL Server 2017 på Azure-SSIS IR via [standard-/Express-inställningar](./how-to-configure-azure-ssis-ir-custom-setup.md).
 
 1. Skapa följande register nycklar för DTSPath på IR med egen värd, om de inte redan finns:
    1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` Ange till `C:\Program Files\Microsoft SQL Server\140\DTS\`
@@ -197,7 +197,7 @@ Om du behöver använda starkt kryptografiskt/mer säkert nätverks protokoll (T
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
-- Endast data flödes komponenter som är inbyggda/förinstallerade på Azure-SSIS IR Standard Edition, förutom Hadoop/HDFS/DQS-komponenter, stöds för närvarande, se [alla inbyggda/förinstallerade komponenter på Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime).
+- Endast data flödes komponenter som är inbyggda/förinstallerade på Azure-SSIS IR Standard Edition, förutom Hadoop/HDFS/DQS-komponenter, stöds för närvarande, se [alla inbyggda/förinstallerade komponenter på Azure-SSIS IR](./built-in-preinstalled-components-ssis-integration-runtime.md).
 - Endast anpassade/tredje parts data flödes komponenter som är skrivna i förvaltad kod (.NET Framework) stöds för närvarande – de som skrivs i intern kod (C++) stöds inte för närvarande.
 - Det finns för närvarande inte stöd för att ändra variabel värden i både lokala och molnbaserade mellanlagrings uppgifter.
 - Att ändra variabel värden av typen Object i lokala mellanlagringsplatser visas inte i andra aktiviteter.

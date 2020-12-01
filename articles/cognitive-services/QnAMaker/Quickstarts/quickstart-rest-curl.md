@@ -7,16 +7,16 @@ ms.date: 11/09/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
-ms.openlocfilehash: 021628b92f1068743b097a455306df742f308f86
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 7592b9fb509f39504ad2399d0e939ceca1156221
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427691"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351103"
 ---
 # <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>Snabb start: Använd sväng och REST för att hantera kunskaps bas
 
-Den här snabb starten vägleder dig genom att skapa, publicera och fråga din kunskaps bas. QnA Maker extraherar automatiskt frågor och svar för delvis strukturerat innehåll, som vanliga frågor från [datakällor](../Concepts/knowledge-base.md). Modellen för kunskapsbasen har definierats i JSON som skickas i brödtexten i API-begäran.
+Den här snabb starten vägleder dig genom att skapa, publicera och fråga din kunskaps bas. QnA Maker extraherar automatiskt frågor och svar för delvis strukturerat innehåll, som vanliga frågor från [datakällor](../index.yml). Modellen för kunskapsbasen har definierats i JSON som skickas i brödtexten i API-begäran.
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -54,7 +54,7 @@ Om du vill skapa en kunskaps bas med REST-API: er och svänger måste du ha föl
 |--|--|--|
 |QnA Maker resurs namn|URL|används för att skapa URL|
 |QnA Maker resurs nyckel|`-h` parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
-|JSON som beskriver kunskaps basen|`-d` EntryPointName|[Exempel](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) på JSON|
+|JSON som beskriver kunskaps basen|`-d` EntryPointName|[Exempel](/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) på JSON|
 |Storlek på JSON i byte|`-h` parameter för `Content-Size` rubrik||
 
 Kommandot vänd körs från ett BASH-gränssnitt. Redigera det här kommandot med ditt egna resurs namn, resurs nyckel och JSON-värden och storleken på JSON.
@@ -89,7 +89,7 @@ Om du vill skapa en kunskaps bas med REST-API: er och svänger måste du ha föl
 |--|--|--|
 |QnA Maker resurs namn|URL|används för att skapa URL|
 |QnA Maker resurs nyckel|`-h` parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
-|JSON som beskriver kunskaps basen|`-d` EntryPointName|[Exempel](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) på JSON|
+|JSON som beskriver kunskaps basen|`-d` EntryPointName|[Exempel](/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) på JSON|
 |Storlek på JSON i byte|`-h` parameter för `Content-Size` rubrik||
 
 Kommandot vänd körs från ett BASH-gränssnitt. Redigera det här kommandot med ditt egna resurs namn, resurs nyckel och JSON-värden och storleken på JSON.
@@ -322,7 +322,7 @@ Att få ett svar från kunskapen görs från en annan körning än att hantera k
 |QnA Maker resurs namn|URL|används för att skapa URL|
 |QnA Maker körnings nyckel|`-h` parameter för `Authorization` rubrik|Nyckeln är en del av en sträng som innehåller ordet `Endpointkey ` . Autentisera till QnA Maker-tjänst|
 |Kunskaps bas-ID|URL-väg|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-|JSON som beskriver fråga|`-d` EntryPointName|[Begär ande text parametrar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) och [exempel](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) på JSON|
+|JSON som beskriver fråga|`-d` EntryPointName|[Begär ande text parametrar](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) och [exempel](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) på JSON|
 |Storlek på JSON i byte|`-h` parameter för `Content-Size` rubrik||
 
 Kommandot vänd körs från ett BASH-gränssnitt. Redigera det här kommandot med ditt eget resurs namn, resurs nyckel och kunskaps bas-ID.
@@ -347,7 +347,7 @@ Att få ett svar från kunskapen görs från en annan körning än att hantera k
 |QnA Maker resurs namn|URL|används för att skapa URL|
 |QnA Maker resurs nyckel|`-h` parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
 |Kunskaps bas-ID|URL-väg|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-|JSON som beskriver fråga|`-d` EntryPointName|[Begär ande text parametrar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) och [exempel](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) på JSON|
+|JSON som beskriver fråga|`-d` EntryPointName|[Begär ande text parametrar](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) och [exempel](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) på JSON|
 |Storlek på JSON i byte|`-h` parameter för `Content-Size` rubrik||
 
 Kommandot vänd körs från ett BASH-gränssnitt. Redigera det här kommandot med ditt eget resurs namn, resurs nyckel och kunskaps bas-ID.
@@ -414,11 +414,11 @@ Svars statusen är 204 utan resultat. Använd `-v` kommando rads parametern för
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Redigering](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) Referens dokumentation
-* [Körning](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime) Referens dokumentation
+* [Redigering](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) Referens dokumentation
+* [Körning](/rest/api/cognitiveservices/qnamaker4.0/runtime) Referens dokumentation
 * [Exempel på BASH-skript med hjälp av sväng](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Referens för QnA Maker (V4) REST API](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [Referens för QnA Maker (V4) REST API](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)

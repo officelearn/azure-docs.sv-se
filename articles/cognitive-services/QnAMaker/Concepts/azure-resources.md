@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 46b1cf2681ab5d804035c98d458600de5081c77d
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: cd64c19e7e9af05becd7a6978ceb4d0306112170
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376814"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351903"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Azure-resurser för QnA Maker
 
@@ -48,35 +48,35 @@ När du går vidare till utvecklings fasen i projektet bör du tänka på följa
 
 Det finns vanligt vis tre parametrar som du behöver tänka på:
 
-* **Det data flöde du behöver från tjänsten** :
-    * Välj lämplig [app-plan](https://azure.microsoft.com/pricing/details/app-service/plans/) för din app service utifrån dina behov. Du kan [skala upp](https://docs.microsoft.com/azure/app-service/manage-scale-up) eller ned appen.
-    * Detta bör även påverka din Azure **kognitiv sökning** SKU-val, se mer information [här](https://docs.microsoft.com/azure/search/search-sku-tier). Dessutom kan du behöva justera Kognitiv sökning [kapacitet](../../../search/search-capacity-planning.md) med repliker.
+* **Det data flöde du behöver från tjänsten**:
+    * Välj lämplig [app-plan](https://azure.microsoft.com/pricing/details/app-service/plans/) för din app service utifrån dina behov. Du kan [skala upp](../../../app-service/manage-scale-up.md) eller ned appen.
+    * Detta bör även påverka din Azure **kognitiv sökning** SKU-val, se mer information [här](../../../search/search-sku-tier.md). Dessutom kan du behöva justera Kognitiv sökning [kapacitet](../../../search/search-capacity-planning.md) med repliker.
 
-* **Storlek och antal kunskaps baser** : Välj lämplig [Azure Search-SKU](https://azure.microsoft.com/pricing/details/search/) för ditt scenario. Normalt bestämmer du hur många kunskaps baser du behöver baserat på antalet olika ämnes domäner. När en ämnes domän (för ett enskilt språk) ska finnas i en kunskaps bas.
+* **Storlek och antal kunskaps baser**: Välj lämplig [Azure Search-SKU](https://azure.microsoft.com/pricing/details/search/) för ditt scenario. Normalt bestämmer du hur många kunskaps baser du behöver baserat på antalet olika ämnes domäner. När en ämnes domän (för ett enskilt språk) ska finnas i en kunskaps bas.
 
     Du kan publicera N-1 kunskaps baser på en viss nivå, där N är de maximala index som tillåts på nivån. Kontrol lera också den maximala storleken och antalet dokument som tillåts per nivå.
 
     Om din nivå till exempel har 15 tillåtna index, kan du publicera 14 kunskaps banker (1 index per publicerad kunskaps bas). Det femtonde indexet används för alla kunskaps banker för redigering och testning.
 
-* **Antal dokument som källor** : den kostnads fria SKU: n för QNA Maker hanterings tjänsten begränsar antalet dokument som du kan hantera via portalen och API: erna till 3 (med en storlek på 1 MB). Standard-SKU: n har ingen gräns för antalet dokument som du kan hantera. Se mer information [här](https://aka.ms/qnamaker-pricing).
+* **Antal dokument som källor**: den kostnads fria SKU: n för QNA Maker hanterings tjänsten begränsar antalet dokument som du kan hantera via portalen och API: erna till 3 (med en storlek på 1 MB). Standard-SKU: n har ingen gräns för antalet dokument som du kan hantera. Se mer information [här](https://aka.ms/qnamaker-pricing).
 
 I följande tabell får du några rikt linjer på hög nivå.
 
 |                            | QnA Maker hantering | App Service | Azure Cognitive Search | Begränsningar                      |
 | -------------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | **Experimentering**        | Kostnads fri SKU             | Kostnads fri nivå   | Kostnads fri nivå    | Publicera upp till 2 KB, 50 MB storlek  |
-| **Utvecklings-och test miljö**   | Standard-SKU         | Delad      | Grundläggande        | Publicera upp till 14 KB, 2 GB storlek    |
+| **Utvecklings-och test miljö**   | Standard-SKU         | Delad      | Basic        | Publicera upp till 14 KB, 2 GB storlek    |
 | **Produktions miljö** | Standard-SKU         | Basic       | Standard     | Publicera upp till 49 KB, 25 GB storlek |
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
 
 Det finns vanligt vis tre parametrar som du behöver tänka på:
 
-* **Det data flöde du behöver från tjänsten** :
+* **Det data flöde du behöver från tjänsten**:
     * QnA Maker hanterad (för hands version) är en kostnads fri tjänst och data flödet är för närvarande begränsade till 10 TPS för API: er för hantering och förutsägelser.
-    * Detta bör även påverka din Azure **kognitiv sökning** SKU-val, se mer information [här](https://docs.microsoft.com/azure/search/search-sku-tier). Dessutom kan du behöva justera Kognitiv sökning [kapacitet](../../../search/search-capacity-planning.md) med repliker.
+    * Detta bör även påverka din Azure **kognitiv sökning** SKU-val, se mer information [här](../../../search/search-sku-tier.md). Dessutom kan du behöva justera Kognitiv sökning [kapacitet](../../../search/search-capacity-planning.md) med repliker.
 
-* **Storlek och antal kunskaps baser** : Välj lämplig [Azure Search-SKU](https://azure.microsoft.com/pricing/details/search/) för ditt scenario. Normalt bestämmer du hur många kunskaps baser du behöver baserat på antalet olika ämnes domäner. När en ämnes domän (för ett enskilt språk) ska finnas i en kunskaps bas.
+* **Storlek och antal kunskaps baser**: Välj lämplig [Azure Search-SKU](https://azure.microsoft.com/pricing/details/search/) för ditt scenario. Normalt bestämmer du hur många kunskaps baser du behöver baserat på antalet olika ämnes domäner. När en ämnes domän (för ett enskilt språk) ska finnas i en kunskaps bas.
 
     Med QnA Maker hanterad (för hands version) kan du välja att konfigurera QnA Maker-tjänsten för KB på ett enda språk eller flera språk. Du kan välja det här alternativet när du skapar den första kunskaps basen i din QnA Maker hanterade tjänst (för hands version).
 
@@ -86,14 +86,14 @@ Det finns vanligt vis tre parametrar som du behöver tänka på:
 
     Om din nivå till exempel har 15 tillåtna index, kan du publicera 14 kunskaps baser på samma språk (1 index per publicerad kunskaps bas). Det femtonde indexet används för alla kunskaps banker för redigering och testning. Om du väljer att ha kunskaps banker på olika språk kan du bara publicera 7 kunskaps baser.
 
-* **Antal dokument som källor** : QNA Maker hanterad (för hands version) är en kostnads fri tjänst och det finns inga begränsningar för antalet dokument som du kan lägga till som källor. Se mer information [här](https://aka.ms/qnamaker-pricing).
+* **Antal dokument som källor**: QNA Maker hanterad (för hands version) är en kostnads fri tjänst och det finns inga begränsningar för antalet dokument som du kan lägga till som källor. Se mer information [här](https://aka.ms/qnamaker-pricing).
 
 I följande tabell får du några rikt linjer på hög nivå.
 
 |                            |Azure Cognitive Search | Begränsningar                      |
 | -------------------------- |------------ | -------------------------------- |
 | **Experimentering**        |Kostnads fri nivå    | Publicera upp till 2 KB, 50 MB storlek  |
-| **Utvecklings-och test miljö**   |Grundläggande        | Publicera upp till 14 KB, 2 GB storlek    |
+| **Utvecklings-och test miljö**   |Basic        | Publicera upp till 14 KB, 2 GB storlek    |
 | **Produktions miljö** |Standard     | Publicera upp till 49 KB, 25 GB storlek |
 
 ---
@@ -120,7 +120,7 @@ QnA Maker Managed är en kostnads fri tjänst och data flödet är för närvara
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
 
-|Upgrade|Orsak|
+|Uppgradera|Orsak|
 |--|--|
 |[Uppgradera](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) SKU för QnA Maker hantering|Du vill ha fler QnA-par eller dokument källor i din kunskaps bas.|
 |[Uppgradera](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) App Service SKU och kontrol lera Kognitiv sökning nivå och [skapa kognitiv sökning repliker](../../../search/search-capacity-planning.md)|Kunskaps basen behöver för att betjäna fler förfrågningar från din klient app, till exempel en chatt-robot.|
@@ -240,7 +240,7 @@ Använd de här nycklarna när du gör förfrågningar till tjänsten via API: e
 
 |Namn|Plats|Syfte|
 |--|--|--|
-|Redigerings nyckel|[Azure-portalen](https://azure.microsoft.com/free/cognitive-services/)|Dessa nycklar används för att få åtkomst till [API: erna för QNA Maker Management-tjänsten](https://go.microsoft.com/fwlink/?linkid=2092179). Med dessa API: er kan du redigera frågorna och svaren i din kunskaps bas och publicera din kunskaps bas. Nycklarna skapas när du skapar en ny QnA Maker-tjänst.<br><br>Sök efter dessa nycklar på **Cognitive Services** resurs på sidan **nycklar** .|
+|Redigerings nyckel|[Azure-portalen](https://azure.microsoft.com/free/cognitive-services/)|Dessa nycklar används för att få åtkomst till [API: erna för QNA Maker Management-tjänsten](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Med dessa API: er kan du redigera frågorna och svaren i din kunskaps bas och publicera din kunskaps bas. Nycklarna skapas när du skapar en ny QnA Maker-tjänst.<br><br>Sök efter dessa nycklar på **Cognitive Services** resurs på sidan **nycklar** .|
 |Frågans slut punkts nyckel|[QnA Maker-portalen](https://www.qnamaker.ai)|Dessa nycklar används för att skicka frågor till den publicerade kunskaps bas slut punkten för att få svar på en användar fråga. Du använder vanligt vis den här fråge slut punkten i din Chat-robot eller i klient program koden som ansluter till QnA Maker-tjänsten. De här nycklarna skapas när du publicerar din QnA Maker-kunskaps bas.<br><br>Sök efter dessa nycklar på sidan **tjänst inställningar** . Hitta den här sidan från användarens meny längst upp till höger på sidan på den nedrullningsbara menyn.|
 
 ### <a name="subscription-keys"></a>Prenumerationsnycklar
@@ -251,11 +251,11 @@ Du måste veta vad nyckeln har åtkomst till, kunskaps bas hantering eller kunsk
 
 ### <a name="recommended-settings-for-network-isolation"></a>Rekommenderade inställningar för nätverks isolering
 
-* Skydda kognitiva tjänst resurser från offentlig åtkomst genom [att konfigurera det virtuella nätverket](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+* Skydda kognitiva tjänst resurser från offentlig åtkomst genom [att konfigurera det virtuella nätverket](../../cognitive-services-virtual-networks.md?tabs=portal).
 * Skydda App Service (QnA Runtime) från offentlig åtkomst:
     * Tillåt enbart trafik från kognitiva tjänst-IP: er. Dessa ingår redan i service tag gen "CognitiveServicesManagement". Detta krävs för att skapa API: er (Skapa/uppdatera KB) för att anropa app service och uppdatera Azure Search-tjänsten enligt detta.
     * Se till att du även tillåter andra start punkter som bot service, QnA Maker portal (kan vara ditt företags nätverket) osv. för förutsägelse "GenerateAnswer" API-åtkomst.
-    * Läs [Mer information om service märken.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+    * Läs [Mer information om service märken.](../../../virtual-network/service-tags-overview.md)
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
 
@@ -317,8 +317,8 @@ Använd de här nycklarna när du gör förfrågningar till tjänsten via API: e
 
 |Namn|Plats|Syfte|
 |--|--|--|
-|Redigerings nyckel|[Azure-portalen](https://azure.microsoft.com/free/cognitive-services/)|Dessa nycklar används för att få åtkomst till [API: erna för QNA Maker Management-tjänsten](https://go.microsoft.com/fwlink/?linkid=2092179). Med dessa API: er kan du redigera frågorna och svaren i din kunskaps bas och publicera din kunskaps bas. Nycklarna skapas när du skapar en ny QnA Maker-tjänst.<br><br>Sök efter dessa nycklar på **Cognitive Services** resurs på sidan **nycklar** .|
-|Administratörs nyckel för Azure Kognitiv sökning|[Azure-portalen](https://docs.microsoft.com/azure/search/search-security-api-keys)|Dessa nycklar används för att kommunicera med Azure kognitiv Search-tjänsten som distribueras i användarens Azure-prenumeration. När du associerar en Azure kognitiv-sökning med tjänsten QnA Maker Managed (förhands granskning) skickas administratörs nyckeln automatiskt vidare till tjänsten QnA Maker. <br><br>Du hittar dessa nycklar på **Azure kognitiv sökning** -resursen på sidan **nycklar** .|
+|Redigerings nyckel|[Azure-portalen](https://azure.microsoft.com/free/cognitive-services/)|Dessa nycklar används för att få åtkomst till [API: erna för QNA Maker Management-tjänsten](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Med dessa API: er kan du redigera frågorna och svaren i din kunskaps bas och publicera din kunskaps bas. Nycklarna skapas när du skapar en ny QnA Maker-tjänst.<br><br>Sök efter dessa nycklar på **Cognitive Services** resurs på sidan **nycklar** .|
+|Administratörs nyckel för Azure Kognitiv sökning|[Azure-portalen](../../../search/search-security-api-keys.md)|Dessa nycklar används för att kommunicera med Azure kognitiv Search-tjänsten som distribueras i användarens Azure-prenumeration. När du associerar en Azure kognitiv-sökning med tjänsten QnA Maker Managed (förhands granskning) skickas administratörs nyckeln automatiskt vidare till tjänsten QnA Maker. <br><br>Du hittar dessa nycklar på **Azure kognitiv sökning** -resursen på sidan **nycklar** .|
 
 ### <a name="subscription-keys"></a>Prenumerationsnycklar
 
@@ -328,13 +328,12 @@ Du måste veta vad nyckeln har åtkomst till, kunskaps bas hantering eller kunsk
 
 ### <a name="recommended-settings-for-network-isolation"></a>Rekommenderade inställningar för nätverks isolering 
 
-Skydda kognitiva tjänst resurser från offentlig åtkomst genom [att konfigurera det virtuella nätverket](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+Skydda kognitiva tjänst resurser från offentlig åtkomst genom [att konfigurera det virtuella nätverket](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om QnA Maker [Knowledge Base](knowledge-base.md)
+* Lär dig mer om QnA Maker [Knowledge Base](../index.yml)
 * Förstå [livs cykeln för kunskaps bas](development-lifecycle-knowledge-base.md)
 * Granska [begränsningar](../limits.md) för tjänster och kunskaps bas
-

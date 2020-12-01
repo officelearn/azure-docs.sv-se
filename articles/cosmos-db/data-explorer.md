@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: 691a2e56230d312416aed3d68bffd361f1d63558
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d4baa92fe4aa2ed402c394198684c4deec2bf9f1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008590"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348610"
 ---
-# <a name="work-with-data-using-azure-cosmos-explorer"></a>Arbeta med data med hjälp av Azure Cosmos Explorer 
+# <a name="work-with-data-using-azure-cosmos-db-explorer"></a>Arbeta med data med hjälp av Azure Cosmos DB Explorer 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB Explorer är ett fristående webbaserat gränssnitt som gör att du kan visa och hantera de data som lagras i Azure Cosmos DB. Azure Cosmos DB Explorer motsvarar fliken befintlig **datautforskaren** som är tillgänglig i Azure Portal när du skapar ett Azure Cosmos DB-konto. De främsta fördelarna med Azure Cosmos DB Explorer över befintliga data Utforskaren är:

@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: bc11dd6113bbf5b07e19b83735c83e4895e4a796
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 919688a05081c6f0b717fa4a524da769f2a281fd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323604"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351630"
 ---
 # <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Distribuera Server-renderade Nuxt.js webbplatser på Azures statiska Web Apps för hands version
 
 I den här självstudien lär du dig att distribuera en [Nuxt.js](https://nuxtjs.org) genererad statisk webbplats till [Azure static Web Apps](overview.md). För att börja, lär du dig att konfigurera, konfigurera och distribuera en Nuxt.js app. Under den här processen lär du dig också att hantera vanliga utmaningar ofta när du genererar statiska sidor med Nuxt.js
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/).
 - Ett GitHub-konto. [Skapa ett konto kostnads fritt](https://github.com/join).
@@ -30,7 +30,7 @@ I den här självstudien lär du dig att distribuera en [Nuxt.js](https://nuxtjs
 Du kan skapa ett nytt Nuxt.js-projekt med hjälp av `create-nuxt-app` . I stället för ett nytt projekt börjar du med att klona en befintlig databas i den här självstudien. Den här lagrings platsen är konfigurerad för att visa hur du distribuerar en dynamisk Nuxt.js-app som en statisk plats.
 
 1. Skapa en ny lagrings plats under ditt GitHub-konto från en mall-lagringsplats.
-1. Navigera till <http://github.com/staticwebdev/nuxtjs-starter/generate>
+1. Navigera till [http://github.com/staticwebdev/nuxtjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nuxtjs-starter/generate)
 1. Namnge lagrings platsen **nuxtjs-starter**
 1. Klona sedan den nya lagrings platsen till din dator. Se till att ersätta <YOUR_GITHUB_ACCOUNT_NAME> med ditt konto namn.
 
@@ -62,13 +62,13 @@ Navigera till `http://localhost:3000` för att öppna appen, där du bör se fö
 
 När du klickar på ett ramverk/bibliotek bör du se en informations sida om det valda objektet:
 
-:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-details.png" alt-text="Starta Nuxt.js app":::
+:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-details.png" alt-text="Sidan Details (Detaljer)":::
 
 ## <a name="generate-a-static-website-from-nuxtjs-build"></a>Skapa en statisk webbplats från Nuxt.js build
 
 När du skapar en Nuxt.js-webbplats med hjälp av skapas `npm run build` appen som en traditionell webbapp, inte en statisk plats. Använd följande program konfiguration för att skapa en statisk plats.
 
-1. Uppdatera _package.jspå_build-skriptet för att endast skapa en statisk plats med hjälp av `nuxt generate` kommandot:
+1. Uppdatera _package.jspå_ build-skriptet för att endast skapa en statisk plats med hjälp av `nuxt generate` kommandot:
 
     ```json
     "scripts": {
@@ -125,12 +125,12 @@ Följande steg visar hur du länkar appen som du precis har push-överför till 
 1. Klicka på **Skapa**
 
 1. Välj en prenumeration i list rutan *prenumeration* eller Använd standardvärdet.
-1. Klicka på den **nya** länken under List rutan *resurs grupp* . I *nytt resurs grupp namn*skriver du **mystaticsite** och klickar på **OK**
+1. Klicka på den **nya** länken under List rutan *resurs grupp* . I *nytt resurs grupp namn* skriver du **mystaticsite** och klickar på **OK**
 1. Ange ett globalt unikt namn för din app i text rutan **namn** . Giltiga tecken är `a-z` , `A-Z` , `0-9` och `-` . Det här värdet används som URL-prefix för din statiska app i formatet `https://<APP_NAME>.azurestaticapps.net` .
 1. I list rutan *region* väljer du en region som är närmast dig.
 1. Välj **kostnads fritt** från List rutan SKU.
 
-   :::image type="content" source="media/deploy-nuxtjs/create-static-web-app.png" alt-text="Starta Nuxt.js app":::
+   :::image type="content" source="media/deploy-nuxtjs/create-static-web-app.png" alt-text="Skapa en statisk webbapp":::
 
 ### <a name="add-a-github-repository"></a>Lägg till en GitHub-lagringsplats
 
@@ -141,7 +141,7 @@ Det nya kontot för statisk Web Apps behöver åtkomst till lagrings platsen med
 1. Sök efter och välj namnet på den databas som du skapade tidigare.
 1. Välj **Master** som gren i list rutan *gren* .
 
-   :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Starta Nuxt.js app":::
+   :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Ansluta GitHub":::
 
 ### <a name="configure-the-build-process"></a>Konfigurera Bygg processen
 
@@ -149,7 +149,7 @@ Azures statiska Web Apps skapas för att automatiskt utföra vanliga uppgifter s
 
 1. Klicka på fliken **build (Bygg** ) för att konfigurera mappen statiska utdata.
 
-      :::image type="content" source="media/deploy-nuxtjs/build-tab.png" alt-text="Starta Nuxt.js app":::
+      :::image type="content" source="media/deploy-nuxtjs/build-tab.png" alt-text="Fliken bygge":::
 
 1. Skriv **Dist** i text rutan *app artefakt plats* .
 
@@ -178,7 +178,7 @@ Gå tillbaka till terminalen och kör följande kommando `git pull origin master
 
 Navigera till den nyligen distribuerade platsen och klicka på någon av Ramverks-eller biblioteks logo typerna. I stället för att få en informations sida får du en felsida på 404.
 
-:::image type="content" source="media/deploy-nuxtjs/404-in-production.png" alt-text="Starta Nuxt.js app":::
+:::image type="content" source="media/deploy-nuxtjs/404-in-production.png" alt-text="404 på dynamiska vägar":::
 
 Orsaken till detta är Nuxt.js genererade den statiska platsen, men det gjorde det bara så för start sidan. Nuxt.js kan generera motsvarande statiska `.html` filer för alla `.vue` sidor-filer, men det finns ett undantag. 
 
@@ -215,7 +215,7 @@ Om sidan är en dynamisk sida finns det till exempel `_id.vue` inte tillräcklig
 
 2. Skicka de nya ändringarna till GitHub-lagringsplatsen och vänta några minuter medan GitHub-åtgärder skapar din webbplats igen. När versionen har slutförts försvinner felet 404.
 
-   :::image type="content" source="media/deploy-nuxtjs/404-in-production-fixed.png" alt-text="Starta Nuxt.js app":::
+   :::image type="content" source="media/deploy-nuxtjs/404-in-production-fixed.png" alt-text="404 på dynamiska vägar har åtgärd ATS":::
 
 > [!div class="nextstepaction"]
 > [Konfigurera en anpassad domän](custom-domain.md)

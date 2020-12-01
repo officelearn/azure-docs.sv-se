@@ -5,17 +5,17 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 08/31/2020
-ms.openlocfilehash: aa2530f817bf20af40ab2913df9f16e7d1974ef3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 356b954c65086ff65264ce7a62b038cd7a8eac3d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187144"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350967"
 ---
 # <a name="tutorial-create-an-faq-bot-with-azure-bot-service"></a>Självstudie: skapa en robot för vanliga frågor och svar med Azure Bot Service
 Skapa en bot-robot med QnA Maker och Azure [bot service](https://azure.microsoft.com/services/bot-service/) utan kod.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -80,4 +80,4 @@ När du gör ändringar i kunskaps basen och återpublicerar behöver du inte vi
     Chatt-roboten svarar med ett svar från din kunskaps bas.
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Ange en användar fråga i test-webbchatten.":::
-1. Ljust bot i fler kanaler som [stöds](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0&preserve-view=true).
+1. Ljust bot i fler kanaler som [stöds](/azure/bot-service/bot-service-manage-channels?preserve-view=true&view=azure-bot-service-4.0).

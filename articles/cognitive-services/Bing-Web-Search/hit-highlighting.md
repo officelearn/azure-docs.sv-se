@@ -11,19 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: 5c0bed04fccfba1ac06a54d5ddba9033ef05761b
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 32c3279cacddf10e77e8d245ba525ab766efd6fd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380716"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351886"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Använda dekoration markörer för att markera text
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Bing stöder träff markering, som markerar sökord (eller andra termer som Bing hittar relevanta) i visnings strängarna för vissa svar. Till exempel kan en webb sidas resultat `name` -, `displayUrl` -och- `snippet` fält innehålla markerade sökord. 
 
@@ -56,7 +56,7 @@ Om begäran inte angav dekorationer `expression` skulle fältet innehålla `log1
 
 Om `textDecorations` är `true` , kan Bing innehålla följande markörer i svars visnings strängar. Om det inte finns någon motsvarande HTML-tagg är tabell cellen tom.
 
-|Unicode|HTML|Description
+|Unicode|HTML|Beskrivning
 |-|-|-
 |U + E000|\<b>|Markerar början på frågetermen (träff markering)
 |U + E001|\</b>|Markerar slutet av frågeterm

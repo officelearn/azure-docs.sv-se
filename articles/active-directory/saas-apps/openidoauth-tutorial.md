@@ -12,20 +12,20 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: ce4cccba678a934780dc987f1441ea658a70f8eb
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 17d78b4d6db9e65868995d8ea7835a0d911e8589
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996613"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348710"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Konfigurera ett OpenID/OAuth-program från Azure AD-appgalleri
 
 ## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>Processen att lägga till ett OpenID-program från galleriet
 
-1. I den vänstra rutan i [Azure-portalen](https://portal.azure.com) väljer du **Azure Active Directory**.
+1. Välj **Azure Active Directory** i [Azure-portalen](https://portal.azure.com).
 
-    ![Azure Active Directory-knappen](common/select-azuread.png))
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
 2. Gå till **företags program**  >  **alla program**.
 
@@ -39,17 +39,23 @@ ms.locfileid: "91996613"
 
     ![Openid i resultatlistan](common/search-new-app.png)
 
-    > [!NOTE]
-    > För OpenID Connect och OAuth-appar är knappen **Lägg till** inaktiverad som standard. Här bör administratören för klientorganisationen välja registreringsknappen och ge medgivande till programmet. Programmet läggs sedan till i kundklienten, där du kan göra konfigurationerna. Du behöver inte lägga till programmet uttryckligen.
+
+1. På sidan program namn klickar du på knappen **Registrera dig** .
 
     ![Knappen Lägg till](./media/openidoauth-tutorial/addbutton.png)
 
-5. När du väljer registreringslänken omdirigeras du till sidan Azure Active Directory (Azure AD) för autentiseringsuppgifter.
+    > [!NOTE]
+    > Här bör administratören för klientorganisationen välja registreringsknappen och ge medgivande till programmet. Programmet läggs sedan till i kundklienten, där du kan göra konfigurationerna. Du behöver inte lägga till programmet uttryckligen.
+
+5. Du omdirigeras till sidan för program inloggning eller Azure Active Directory (Azure AD) för inloggnings uppgifter.
 
 6. Efter lyckad autentisering godkänner du medgivande från sidan för medgivande. Sedan visas programmets startsida.
 
     > [!NOTE]
     > Du kan endast lägga till en instans av programmet. Om du redan har lagt till en och försöker ge medgivande igen läggs den därmed inte till i klienten på nytt. Därför kan du endast logiskt använda en appinstans i klienten.
+
+1. Följ videon nedan om du vill lägga till ett OpenID-program från galleriet.
+    >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="authentication-flow-using-openid-connect"></a>Autentiseringsflöde med OpenID Connect
 
@@ -151,3 +157,7 @@ En klientadministratör kan inaktivera möjligheten för vanliga användare att 
 Parametern *prompt=admin_consent* kan även användas av program som begär behörighet som inte kräver administratörens medgivande. Ett exempel är ett program som kräver en upplevelse där klient administratören "registrerar sig" en gång, och inga andra användare tillfrågas om medgivande från den tidpunkten.
 
 Anta att ett program kräver administratörens medgivande och en administratör loggar in utan att parametern *prompt=admin_consent* skickas. När administratören godkänner programmet gäller det endast för hans/hennes användarkonto. Vanliga användare kan fortfarande inte logga in eller godkänna programmet. Den här funktionen är användbart om du vill ge klientadministratören möjlighet att utforska ditt program innan åtkomst ges andra användare.
+
+## <a name="next-steps"></a>Nästa steg
+
+[Konfigurera OIDC-baserad enkel inloggning (SSO) för ett program i din Azure Active Directory (Azure AD)-klient](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)

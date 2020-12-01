@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: cshoe
-ms.openlocfilehash: 80a48a948c70db7344ac9cbc20474177309bd909
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0086f7f68fd05d6925d19c7ab457fbc125e36be4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024236"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350236"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>Självstudie: skapa en statisk webbapp med blixt i Azure static Web Apps
 
@@ -64,7 +64,7 @@ Konfigurationen ovan garanterar att förfrågningar till alla vägar i appen ret
 Den här artikeln använder en lagrings plats för GitHub-mallar för att göra det enkelt för dig att komma igång. Mallen innehåller en start-app som distribueras till Azures statiska Web Apps.
 
 1. Se till att du är inloggad på GitHub och navigera till följande plats för att skapa en ny lagrings plats:
-    - https://github.com/staticwebdev/blazor-starter/generate
+    - [https://github.com/staticwebdev/blazor-starter/generate](https://github.com/login?return_to=/staticwebdev/blazor-starter/generate)
 1. Namnge din lagrings plats för **min-första statiska-blixte-app**
 
 ## <a name="create-a-static-web-app"></a>Skapa en statisk webbapp

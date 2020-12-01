@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: 58f22a335f4c619a6348e9e127e60f5a79f658b2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3d066005ac18bf42f913885558bf6f0ee5fc50c4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994576"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349171"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Snabb start: bygga en python-app med Azure Cosmos DB s API för MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -162,4 +162,4 @@ Om du inte vill skapa en förgrening av den här lagrings platsen kan du också 
 I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos DB för mongo DB API-konto och använder Azure Cosmos DB-emulatorn för att köra en python-flaska To-Do webbapp som klonas från GitHub. Du kan nu importera ytterligare data till ditt Azure Cosmos DB-konto. 
 
 > [!div class="nextstepaction"]
-> [Importera MongoDB-data till Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+> [Importera MongoDB-data till Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

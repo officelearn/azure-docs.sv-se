@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: stevelas
 ms.date: 10/29/2020
 ms.custom: ''
-ms.openlocfilehash: 261604b66d393723b35b472415b8840b047bc36e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4fba6290b4973e797c13943fc9be4fadb19f3274
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133788"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349290"
 ---
 # <a name="how-to-consume-and-maintain-public-content-with-azure-container-registry-tasks"></a>Hur du använder och underhåller offentligt innehåll med Azure Container Registry uppgifter
 
@@ -39,7 +39,7 @@ Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för 
 
 Den här genom gången ställer in:
 
-1. Tre **behållar register** , som representerar:
+1. Tre **behållar register**, som representerar:
    * En simulerad [Docker Hub][docker-hub] ( `publicregistry` ) som stöder ändring av bas avbildningen
    * Grup registret ( `contoso` ) för att dela privata avbildningar
    * Delat register för företag/team ( `baseartifacts` ) för importerat offentligt innehåll
@@ -47,8 +47,8 @@ Den här genom gången ställer in:
    1. Bygg en simulerad offentlig `node` avbildning
    1. Importera och validera `node` avbildningen till det delade registret för företag/team
    1. Bygg och distribuera `hello-world` avbildningen
-1. **ACR aktivitets definitioner** , inklusive konfigurationer för:
-1. En samling **autentiseringsuppgifter för registret** , som pekar mot ett nyckel valv
+1. **ACR aktivitets definitioner**, inklusive konfigurationer för:
+1. En samling **autentiseringsuppgifter för registret**, som pekar mot ett nyckel valv
 1. En samling **hemligheter** som är tillgängliga i en `acr-task.yaml` , som pekar mot ett nyckel valv
 1. En samling med **konfigurerade värden** som används i en `acr-task.yaml`
 1. Ett **Azure Key Vault** för att skydda alla hemligheter
@@ -751,11 +751,11 @@ I den här artikeln. du använde ACR uppgifter för att skapa ett automatiserat 
 
 [install-cli]:                  /cli/azure/install-azure-cli
 [acr]:                          https://aka.ms/acr
-[acr-repo-permissions]:         https://aka.ms/acr/repo-permissions
-[acr-task]:                     https://aka.ms/acr/tasks
+[acr-repo-permissions]:         ./container-registry-repository-scoped-permissions.md
+[acr-task]:                     ./container-registry-tasks-overview.md
 [acr-task-triggers]:            container-registry-tasks-overview.md#task-scenarios
 [acr-task-credentials]:       container-registry-tasks-authentication-managed-identity.md#4-optional-add-credentials-to-the-task
-[acr-tokens]:                   https://aka.ms/acr/tokens
+[acr-tokens]:                   ./container-registry-repository-scoped-permissions.md
 [aci]:                          https://aka.ms/aci
 [alpine-public-image]:          https://hub.docker.com/_/alpine
 [docker-hub]:                   https://hub.docker.com
@@ -766,11 +766,7 @@ I den här artikeln. du använde ACR uppgifter för att skapa ett automatiserat 
 [helm-charts]:                  https://helm.sh
 [mcr]:                          https://aka.ms/mcr
 [nginx-public-image]:           https://hub.docker.com/_/nginx
-[oci-artifacts]:                https://aka.ms/acr/artifacts
+[oci-artifacts]:                ./container-registry-oci-artifacts.md
 [oci-consuming-public-content]: https://opencontainers.org/posts/blog/2020-10-30-consuming-public-content/
 [opa]:                          https://www.openpolicyagent.org/
 [quay]:                         https://quay.io
-
-
-
-

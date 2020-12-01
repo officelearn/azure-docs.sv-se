@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 6e7e4dd6383b1f264ff2da7893d9f86a3708217d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b036f558628d51242a78c00d2ee17332816d25
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89227924"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348767"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft Identity Platform och OAuth 2,0 SAML Bearer-försäkrat flöde
 Med det försäkrade flödet av OAuth 2,0 SAML-Bearer kan du begära en OAuth-åtkomsttoken med en SAML-kontroll när en klient behöver använda en befintlig förtroende relation. Signaturen som används för SAML Assertion ger autentisering av den auktoriserade appen. En SAML-kontroll är en XML-säkerhetstoken som utfärdas av en identitetsprovider och som används av en tjänst leverantör. Tjänste leverantören förlitar sig på sitt innehåll för att identifiera kontrollens ämne för säkerhetsrelaterade orsaker.
@@ -32,7 +32,7 @@ Det försäkrade OAuth SAML-flödet stöds bara för användare som autentiseras
 ![OAuth-flöde](./media/v2-saml-bearer-assertion/1.png)
 
 ## <a name="call-graph-using-saml-bearer-assertion"></a>Anropa graf med SAML Bearer-kontroll
-Nu ska vi lära oss hur vi faktiskt kan hämta SAML Assertion program mässigt. Den här metoden har testats med ADFS. Detta fungerar dock med alla identitets leverantörer som har stöd för att returnera SAML Assertion program mässigt. Den grundläggande processen är: Hämta en SAML-kontroll, hämta en åtkomsttoken och få åtkomst Microsoft Graph.
+Nu ska vi lära oss hur vi faktiskt kan hämta SAML-kontroll program mässigt. Den här metoden har testats med ADFS. Detta fungerar dock med alla identitets leverantörer som har stöd för att returnera SAML-kontroll program mässigt. Den grundläggande processen är: Hämta en SAML-kontroll, hämta en åtkomsttoken och få åtkomst Microsoft Graph.
 
 ### <a name="prerequisites"></a>Förutsättningar
 
@@ -48,7 +48,7 @@ Registrera programmet i [portalen](https://ms.portal.azure.com/#blade/Microsoft_
     1. När det är klart väljer du **Registrera**.
 1. Anteckna program-ID: t (klient).
 1. I den vänstra rutan väljer du **certifikat & hemligheter**. Klicka på **ny klient hemlighet** i avsnittet **klient hemligheter** . Kopiera den nya klient hemligheten. du kommer inte att kunna hämta när du lämnar bladet.
-1. I den vänstra rutan väljer du **API-behörigheter** och **lägger sedan till en behörighet**. Välj **Microsoft Graph**, **delegerade behörigheter**och välj sedan **aktiviteter. Read** eftersom vi planerar att använda Outlook-Graph API. 
+1. I den vänstra rutan väljer du **API-behörigheter** och **lägger sedan till en behörighet**. Välj **Microsoft Graph**, **delegerade behörigheter** och välj sedan **aktiviteter. Read** eftersom vi planerar att använda Outlook-Graph API. 
 
 Installera [Postman](https://www.getpostman.com/), ett verktyg som krävs för att testa exempel förfrågningarna.  Du kan senare konvertera begär anden till kod.
 
@@ -73,7 +73,7 @@ I det här steget hämtar du en OAuth2-token med hjälp av AD-kontrollerad Respo
 1. Skapa en POST-begäran som visas nedan med huvud värden:
 
     ![POST-begäran](./media/v2-saml-bearer-assertion/5.png)
-1. I bröd texten i begäran ersätter du **client_id**, **client_secret**och **intyg** (Base64-kodad SAML-kontroll hämtades föregående steg):
+1. I bröd texten i begäran ersätter du **client_id**, **client_secret** och **intyg** (Base64-kodad SAML-kontroll hämtades föregående steg):
 
     ![Begärandetext](./media/v2-saml-bearer-assertion/6.png)
 1. Vid lyckad begäran får du en åtkomsttoken från Azure Active Directory.

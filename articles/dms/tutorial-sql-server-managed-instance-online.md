@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 3674c6a0579eb901cc490d08bb8a4893296884c4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0041779abcd97901fb9315125a287a1d45cff133
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020661"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350117"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Självstudie: Migrera SQL Server till en Azure SQL-hanterad instans online med DMS
 
@@ -25,7 +25,7 @@ Du kan använda Azure Database Migration Service för att migrera databaserna fr
 
 I den här självstudien migrerar du **Adventureworks2012** -databasen från en lokal instans av SQL Server till en SQL-hanterad instans med minimal stillestånds tid med hjälp av Azure Database migration service.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 >
 > * Skapa en instans av Azure Database Migration Service.
@@ -220,7 +220,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
     ![Konfigurera migreringsinställningar](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
     > [!NOTE]
-    > Om Azure Database Migration Service visar felet "Systemfel 53" eller "systemfel 57" kan det bero på att Azure Database Migration Service inte kan komma åt Azure-filresursen. Om du stöter på något av dessa fel kan du bevilja åtkomst till lagrings kontot från det virtuella nätverket med hjälp av instruktionerna [här](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network).
+    > Om Azure Database Migration Service visar felet "Systemfel 53" eller "systemfel 57" kan det bero på att Azure Database Migration Service inte kan komma åt Azure-filresursen. Om du stöter på något av dessa fel kan du bevilja åtkomst till lagrings kontot från det virtuella nätverket med hjälp av instruktionerna [här](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
     > [!IMPORTANT]
     > Om loopback-kontrollen är aktive rad och käll SQL Server och fil resursen finns på samma dator kommer källan inte att kunna komma åt filerna esursna med FQDN. Åtgärda problemet genom att inaktivera funktionen för loopback-kontroll med hjälp av instruktionerna [här](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd).

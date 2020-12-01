@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 7abd67ef072303b7f8156a18c2e3ac34758c03dd
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: bd01eaefa457c5ade10a5f1f4b8389d90ed60adf
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364742"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351954"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Självstudie: Skapa en klient för en webbsida med stavningskontroll
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 I den här självstudien ska vi skapa en webbsida där användarna kan fråga API:et för stavningskontroll i Bing. Käll koden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
@@ -210,7 +210,7 @@ Ange slutpunkten för API:et för stavningskontroll i Bing och deklarera ett XML
     }
 ```
 
-Ange **Ocp-Apim-Subscription-Key** -huvudet till värdet på nyckeln för API:et för stavningskontroll i Bing.
+Ange **Ocp-Apim-Subscription-Key**-huvudet till värdet på nyckeln för API:et för stavningskontroll i Bing.
 
 ```html
     request.setRequestHeader("Ocp-Apim-Subscription-Key", key);
@@ -242,7 +242,7 @@ Hantera även möjliga felhändelser från XMLHttpRequest-objektet.
     });
 ```
 
-Skicka begäran. Stäng bingSpellCheck-funktionen i **script** -taggen och **head** -taggen.
+Skicka begäran. Stäng bingSpellCheck-funktionen i **script**-taggen och **head**-taggen.
 
 ```html
     request.send();
@@ -276,7 +276,7 @@ Skapa ett HTML-formulär med ett textfält. Hantera `onsubmit` händelsen och an
 </form>
 ```
 
-Lägg till HTML-taggen **div** som vi använder för att visa resultatet. JavaScript-koden som vi definierade tidigare refererar till den här **div** -taggen.
+Lägg till HTML-taggen **div** som vi använder för att visa resultatet. JavaScript-koden som vi definierade tidigare refererar till den här **div**-taggen.
 
 ```html
 <h2>Results</h2>

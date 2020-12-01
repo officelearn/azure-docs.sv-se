@@ -3,12 +3,12 @@ title: Händelse för att skapa Azure Batch pool
 description: Referens för skapa händelse för batch-pool, som genereras när en pool har skapats. Loggens innehåll kommer att visa allmän information om poolen.
 ms.topic: reference
 ms.date: 10/08/2020
-ms.openlocfilehash: db7440df4303857d4c4a6533bc06b5f248c75da3
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 03c656ea2698ee0e61c1ddb903fcc10df9d3044b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102956"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352396"
 ---
 # <a name="pool-create-event"></a>Händelse för skapande av pool
 
@@ -53,7 +53,7 @@ ms.locfileid: "92102956"
 |-------------|----------|-----------|
 |`id`|Sträng|Poolens ID.|
 |`displayName`|Sträng|Visnings namnet för poolen.|
-|`vmSize`|Sträng|Storleken på de virtuella datorerna i poolen. Alla virtuella datorer i en pool har samma storlek. <br/><br/> Information om tillgängliga storlekar för virtuella datorer för Cloud Services pooler (pooler som skapats med cloudServiceConfiguration) finns i [storlekar för Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Batch har stöd för alla Cloud Services VM-storlekar utom `ExtraSmall` .<br/><br/> Information om tillgängliga VM-storlekar för pooler med hjälp av avbildningar från Virtual Machines Marketplace (pooler som skapats med virtualMachineConfiguration) finns i [storlekar för Virtual Machines](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) (Linux) eller [storlekar för Virtual Machines](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) (Windows). Batch har stöd för alla storlekar för virtuella datorer i Azure utom `STANDARD_A0` och de med Premium Storage (`STANDARD_GS`, `STANDARD_DS`- och `STANDARD_DSV2`-serien).|
+|`vmSize`|Sträng|Storleken på de virtuella datorerna i poolen. Alla virtuella datorer i en pool har samma storlek. <br/><br/> Information om tillgängliga storlekar för virtuella datorer för Cloud Services pooler (pooler som skapats med cloudServiceConfiguration) finns i [storlekar för Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Batch har stöd för alla Cloud Services VM-storlekar utom `ExtraSmall` .<br/><br/> Information om tillgängliga VM-storlekar för pooler med hjälp av avbildningar från Virtual Machines Marketplace (pooler som skapats med virtualMachineConfiguration) finns i [storlekar för Virtual Machines](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux) eller [storlekar för Virtual Machines](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows). Batch har stöd för alla storlekar för virtuella datorer i Azure utom `STANDARD_A0` och de med Premium Storage (`STANDARD_GS`, `STANDARD_DS`- och `STANDARD_DSV2`-serien).|
 |`imageType`|Sträng|Avbildningens distributions metod. Värden som stöds är `virtualMachineConfiguration` eller `cloudServiceConfiguration`|
 |[`cloudServiceConfiguration`](#bk_csconf)|Komplex typ|Moln tjänst konfigurationen för poolen.|
 |[`virtualMachineConfiguration`](#bk_vmconf)|Komplex typ|Konfigurationen för den virtuella datorn för poolen.|

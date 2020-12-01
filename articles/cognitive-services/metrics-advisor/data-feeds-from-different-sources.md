@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
-ms.openlocfilehash: b304986bd75a6d48401e2cf466320c893ec865d7
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: c4d1d23da5fd9678cc5b9477ddeed0daf4f5ac36
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909593"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348627"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Lägg till datafeeds från olika data källor i mått Advisor
 
@@ -37,7 +37,7 @@ Använd den här artikeln för att hitta inställningar och krav för att anslut
 
 | Datakällor | Autentiseringstyper |
 |-------------| ---------------------|
-|[**Azure Application insikter**](#appinsights)|  Basic |
+|[**Azure Application Insights**](#appinsights)|  Basic |
 |[**Azure Blob Storage (JSON)**](#blob) | Basic<br>ManagedIdentity|
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
 |[**Azure Datautforskaren (Kusto)**](#kusto) | Basic<br>ManagedIdentity|
@@ -53,9 +53,9 @@ Använd den här artikeln för att hitta inställningar och krav för att anslut
 
 Skapa en **entitet för autentiseringsuppgifter** och Använd den för autentisering till dina data källor. I följande avsnitt anges de parametrar som krävs för *grundläggande* autentisering. 
 
-## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Azure Application insikter</span>
+## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Azure Application Insights</span>
 
-* **Program-ID** : används för att identifiera det här programmet när du använder Application Insights-API: et. Hämta program-ID: t genom att göra följande:
+* **Program-ID**: används för att identifiera det här programmet när du använder Application Insights-API: et. Hämta program-ID: t genom att göra följande:
 
     1. Klicka på API-åtkomst från Application Insights resurs.
 
@@ -63,7 +63,7 @@ Skapa en **entitet för autentiseringsuppgifter** och Använd den för autentise
     
     Mer information finns i [Azure bot Service-dokumentationen](/azure/bot-service/bot-service-resources-app-insights-keys#application-id) .
 
-* **API-nyckel** : API-nycklar används av program utanför webbläsaren för att få åtkomst till den här resursen. Hämta API-nyckeln genom att göra följande:
+* **API-nyckel**: API-nycklar används av program utanför webbläsaren för att få åtkomst till den här resursen. Hämta API-nyckeln genom att göra följande:
 
     1. Klicka på API-åtkomst från Application Insights resurs.
 
@@ -73,27 +73,27 @@ Skapa en **entitet för autentiseringsuppgifter** och Använd den för autentise
 
     4. Kopiera API-nyckeln till fältet **API-nyckel** i mått Advisor.
 
-* **Fråga** : Azure Application insikter loggar bygger på Azure Datautforskaren och Azure Monitor logg frågor använder en version av samma Kusto. [Dokumentationen för Kusto-frågespråket](/azure/data-explorer/kusto/query/) innehåller all information om språket och bör vara din primära resurs för att skriva en fråga mot Application Insights. 
+* **Fråga**: Azure Application insikter loggar bygger på Azure Datautforskaren och Azure Monitor logg frågor använder en version av samma Kusto. [Dokumentationen för Kusto-frågespråket](/azure/data-explorer/kusto/query/) innehåller all information om språket och bör vara din primära resurs för att skriva en fråga mot Application Insights. 
 
 
 ## <a name="span-idblobazure-blob-storage-jsonspan"></a><span id="blob">Azure Blob Storage (JSON)</span>
 
-* **Anslutnings sträng** : Mer information om hur du hämtar den här strängen finns i artikeln om Azure Blob Storage- [anslutningssträng](../../storage/common/storage-configure-connection-string.md#configure-a-connection-string-for-an-azure-storage-account) .
+* **Anslutnings sträng**: Mer information om hur du hämtar den här strängen finns i artikeln om Azure Blob Storage- [anslutningssträng](../../storage/common/storage-configure-connection-string.md#configure-a-connection-string-for-an-azure-storage-account) .
 
-* **Container** : metrics Advisor förväntar sig Time Series-data som lagras som BLOB-filer (en BLOB per tidsstämpel) under en enda behållare. Detta är fältet container Name.
+* **Container**: metrics Advisor förväntar sig Time Series-data som lagras som BLOB-filer (en BLOB per tidsstämpel) under en enda behållare. Detta är fältet container Name.
 
-* **BLOB-mall** : det här är mallen för BLOB-filnamn. Till exempel `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. Följande parametrar stöds:
+* **BLOB-mall**: det här är mallen för BLOB-filnamn. Exempel: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. Följande parametrar stöds:
   * `%Y` är året formaterat som `yyyy`
   * `%m` är månaden formaterad som `MM`
   * `%d` är dagen formaterad som `dd`
   * `%h` är timmen formaterad som `HH`
   * `%M` är minuten formaterad som `mm`
 
-* **JSON-format version** : definierar data schema i JSON-filerna. För närvarande har Metrics Advisor stöd för två versioner:
+* **JSON-format version**: definierar data schema i JSON-filerna. För närvarande har Metrics Advisor stöd för två versioner:
   
   * v1 (standardvärde)
 
-      Endast måtten *Name* och *Value* accepteras. Till exempel:
+      Endast måtten *Name* och *Value* accepteras. Exempel:
     
       ``` JSON
       {"count":11, "revenue":1.23}
@@ -101,7 +101,7 @@ Skapa en **entitet för autentiseringsuppgifter** och Använd den för autentise
 
   * v2
 
-      *Mått och* *tidsstämpel* godkänns också. Till exempel:
+      *Mått och* *tidsstämpel* godkänns också. Exempel:
       
       ``` JSON
       [
@@ -114,10 +114,10 @@ Endast en tidstämpel tillåts per JSON-fil.
 
 ## <a name="span-idcosmosdbazure-cosmos-db-sqlspan"></a><span id="cosmosdb">Azure Cosmos DB (SQL)</span>
 
-* **Anslutnings sträng** : anslutnings strängen för att få åtkomst till din Azure Cosmos dB. Detta finns i Cosmos DB-resursen, i **nycklar** . 
-* **Databas** : databasen att fråga mot. Du hittar detta på sidan **Bläddra** under **behållare** .
-* **Samlings-ID** : samlings-ID för fråga mot. Du hittar detta på sidan **Bläddra** under **behållare** .
-* **SQL-fråga** : en SQL-fråga för att hämta och formulera data till flerdimensionella Time Series-data. Du kan använda `@StartTime` `@EndTime` variablerna och i din fråga. De ska formateras: `yyyy-MM-dd HH:mm:ss` .
+* **Anslutnings sträng**: anslutnings strängen för att få åtkomst till din Azure Cosmos dB. Detta finns i Cosmos DB-resursen, i **nycklar**. 
+* **Databas**: databasen att fråga mot. Du hittar detta på sidan **Bläddra** under **behållare** .
+* **Samlings-ID**: samlings-ID för fråga mot. Du hittar detta på sidan **Bläddra** under **behållare** .
+* **SQL-fråga**: en SQL-fråga för att hämta och formulera data till flerdimensionella Time Series-data. Du kan använda `@StartTime` `@EndTime` variablerna och i din fråga. De ska formateras: `yyyy-MM-dd HH:mm:ss` .
 
     Exempel fråga:
     
@@ -133,33 +133,33 @@ Endast en tidstämpel tillåts per JSON-fil.
 
 ## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure Datautforskaren (Kusto)</span>
 
-* **Anslutnings sträng** : mått översikten har stöd för åtkomst till Azure datautforskaren (Kusto) med hjälp av Azure AD Application Authentication. Du måste skapa och registrera ett Azure AD-program och sedan auktorisera det för att få åtkomst till en Azure Datautforskaren-databas. Information om hur du hämtar anslutnings strängen finns i [Azure datautforskaren](/azure/data-explorer/provision-azure-ad-app) -dokumentationen.
+* **Anslutnings sträng**: mått översikten har stöd för åtkomst till Azure datautforskaren (Kusto) med hjälp av Azure AD Application Authentication. Du måste skapa och registrera ett Azure AD-program och sedan auktorisera det för att få åtkomst till en Azure Datautforskaren-databas. Information om hur du hämtar anslutnings strängen finns i [Azure datautforskaren](/azure/data-explorer/provision-azure-ad-app) -dokumentationen.
 
-* **Fråga** : se [Kusto frågespråk](/azure/data-explorer/kusto/query) för att hämta och formulera data till flerdimensionella Time Series-data. Du kan använda `@StartTime` `@EndTime` variablerna och i din fråga. De ska formateras: `yyyy-MM-dd HH:mm:ss` .
+* **Fråga**: se [Kusto frågespråk](/azure/data-explorer/kusto/query) för att hämta och formulera data till flerdimensionella Time Series-data. Du kan använda `@StartTime` `@EndTime` variablerna och i din fråga. De ska formateras: `yyyy-MM-dd HH:mm:ss` .
 
 ## <a name="span-idadlazure-data-lake-storage-gen2span"></a><span id="adl">Azure Data Lake Storage Gen2</span>
 
-* **Konto namn** : konto namnet för Azure Data Lake Storage Gen2. Du hittar detta i din Azure Storage konto (Azure Data Lake Storage Gen2) i **åtkomst nycklar** .
+* **Konto namn**: konto namnet för Azure Data Lake Storage Gen2. Du hittar detta i din Azure Storage konto (Azure Data Lake Storage Gen2) i **åtkomst nycklar**.
 
-* **Konto nyckel** : Ange konto namnet för att få åtkomst till din Azure Data Lake Storage Gen2. Detta finns i inställningen för Azure Storage konto (Azure Data Lake Storage Gen2) resurs i **åtkomst nycklar** .
+* **Konto nyckel**: Ange konto namnet för att få åtkomst till din Azure Data Lake Storage Gen2. Detta finns i inställningen för Azure Storage konto (Azure Data Lake Storage Gen2) resurs i **åtkomst nycklar** .
 
-* **Fil system namn (container)** : metrics Advisor förväntar sig att tids serie data lagras som BLOB-filer (en BLOB per tidsstämpel) under en enda behållare. Detta är fältet container Name. Du hittar detta i Azure Storage-kontots (Azure Data Lake Storage Gen2) instans och klickar på behållare i avsnittet BLOB service.
+* **Fil system namn (container)**: metrics Advisor förväntar sig att tids serie data lagras som BLOB-filer (en BLOB per tidsstämpel) under en enda behållare. Detta är fältet container Name. Du hittar detta i Azure Storage-kontots (Azure Data Lake Storage Gen2) instans och klickar på behållare i avsnittet BLOB service.
 
-* **Directory-mall** : det här är katalog mal len för BLOB-filen. Till exempel: */%Y/%m/%d* . Följande parametrar stöds:
+* **Directory-mall**: det här är katalog mal len för BLOB-filen. Till exempel: */%Y/%m/%d*. Följande parametrar stöds:
   * `%Y` är året formaterat som `yyyy`
   * `%m` är månaden formaterad som `MM`
   * `%d` är dagen formaterad som `dd`
   * `%h` är timmen formaterad som `HH`
   * `%M` är minuten formaterad som `mm`
 
-* **Filmall** : Detta är fil mal len för BLOB-filen. Exempel: *X_% Y-% m-% d-% h-% M.jspå* . Följande parametrar stöds:
+* **Filmall**: Detta är fil mal len för BLOB-filen. Exempel: *X_% Y-% m-% d-% h-% M.jspå*. Följande parametrar stöds:
   * `%Y` är året formaterat som `yyyy`
   * `%m` är månaden formaterad som `MM`
   * `%d` är dagen formaterad som `dd`
   * `%h` är timmen formaterad som `HH`
   * `%M` är minuten formaterad som `mm`
 
-För närvarande stöder Metric Advisor data schemat i JSON-filerna enligt följande. Till exempel:
+För närvarande stöder Metric Advisor data schemat i JSON-filerna enligt följande. Exempel:
 
 ``` JSON
 [
@@ -186,7 +186,7 @@ The timestamp field must match one of these two formats:
 -->
 ## <a name="span-idsqlazure-sql-database--sql-serverspan"></a><span id="sql">Azure SQL Database | SQL Server</span>
 
-* **Anslutnings sträng** : metrics Advisor accepterar en [anslutnings sträng för ADO.net-format](/dotnet/framework/data/adonet/connection-string-syntax) för SQL Server-datakällan.
+* **Anslutnings sträng**: metrics Advisor accepterar en [anslutnings sträng för ADO.net-format](/dotnet/framework/data/adonet/connection-string-syntax) för SQL Server-datakällan.
 
     Exempel på anslutnings sträng:
 
@@ -194,7 +194,7 @@ The timestamp field must match one of these two formats:
     Data Source=db-server.database.windows.net:[port];initial catalog=[database];User ID=[username];Password=[password];Connection Timeout=10ms;
     ```
 
-* **Fråga** : en SQL-fråga för att hämta och formulera data till flerdimensionella Time Series-data. Du kan använda en `@StartTime` variabel i din fråga för att få hjälp med att hämta förväntade mått värden.
+* **Fråga**: en SQL-fråga för att hämta och formulera data till flerdimensionella Time Series-data. Du kan använda en `@StartTime` variabel i din fråga för att få hjälp med att hämta förväntade mått värden.
 
   * `@StartTime`: ett datum/tid i formatet för `yyyy-MM-dd HH:mm:ss`
 
@@ -212,9 +212,9 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idtableazure-table-storagespan"></a><span id="table">Azure Table Storage</span>
 
-* **Anslutnings sträng** : Mer information om hur du hämtar anslutnings strängen från Azure Table Storage finns i [Visa och kopiera en anslutnings sträng](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%252fazure%252fstorage%252ftables%252ftoc.json#view-account-access-keys) .
+* **Anslutnings sträng**: Mer information om hur du hämtar anslutnings strängen från Azure Table Storage finns i [Visa och kopiera en anslutnings sträng](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%2fazure%2fstorage%2ftables%2ftoc.json#view-account-access-keys) .
 
-* **Tabell namn** : Ange en tabell att fråga mot. Du hittar detta i din Azure Storage konto instans. Klicka på **tabeller** i avsnittet **tabell tjänst** .
+* **Tabell namn**: Ange en tabell att fråga mot. Du hittar detta i din Azure Storage konto instans. Klicka på **tabeller** i avsnittet **tabell tjänst** .
 
 * **Fråga** Du kan använda `@StartTime` i din fråga. `@StartTime` ersätts med en ÅÅÅÅ-MM-ddTHH: mm: SS-format sträng i skriptet.
 
@@ -225,41 +225,41 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-ideselasticsearchspan"></a><span id="es">ElasticSearch</span>
 
-* **Värd** : Ange huvud värden för ElasticSearch-kluster.
-* **Port** : Ange huvud porten för ElasticSearch-klustret.
-* **Authorization-huvud** : Ange värdet för ElasticSearch-klustrets Authorization-huvud.
-* **Fråga** : Ange frågan för att hämta data. Plats hållare @StartTime stöds. ( t. ex. När data från 2020-06-21T00:00:00Z matas in, @StartTime = 2020-06-21T00:00:00)
+* **Värd**: Ange huvud värden för ElasticSearch-kluster.
+* **Port**: Ange huvud porten för ElasticSearch-klustret.
+* **Authorization-huvud**: Ange värdet för ElasticSearch-klustrets Authorization-huvud.
+* **Fråga**: Ange frågan för att hämta data. Plats hållare @StartTime stöds. ( t. ex. När data från 2020-06-21T00:00:00Z matas in, @StartTime = 2020-06-21T00:00:00)
 
 ## <a name="span-idhttphttp-requestspan"></a><span id="http">HTTP-begäran</span>
 
-* **URL för begäran** : en http-URL som kan returnera en JSON. Plats hållarna% Y,% m,% d,% h,% M stöds:% Y = år i formatet åååå,% m = månad i formatet MM,% d = dag i formatet DD,% h = timme i formatet HH,% M = minut i formatet mm. Till exempel `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
-* **HTTP-metod för begäran** : Använd Get eller post.
-* **Begär ande huvud** : kan lägga till grundläggande autentisering. 
-* **Begär nytto Last** : endast JSON-nyttolast stöds. Plats hållaren @StartTime stöds i nytto lasten. Svaret ska vara i följande JSON-format: [{"timestamp": "2018-01-01T00:00:00Z", "marknad": "en-US", "count": 11, "intäkter": 1,23}, {"timestamp": "2018-01-01T00:00:00Z", "marknad": "zh-cn", "antal": 22, "intäkter": med 4,56}]. (t. ex. När data från 2020-06-21T00:00:00Z matas in, @StartTime = 2020-06-21T00:00:00.0000000 + 00:00)
+* **URL för begäran**: en http-URL som kan returnera en JSON. Plats hållarna% Y,% m,% d,% h,% M stöds:% Y = år i formatet åååå,% m = månad i formatet MM,% d = dag i formatet DD,% h = timme i formatet HH,% M = minut i formatet mm. Exempel: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
+* **HTTP-metod för begäran**: Använd Get eller post.
+* **Begär ande huvud**: kan lägga till grundläggande autentisering. 
+* **Begär nytto Last**: endast JSON-nyttolast stöds. Plats hållaren @StartTime stöds i nytto lasten. Svaret ska vara i följande JSON-format: [{"timestamp": "2018-01-01T00:00:00Z", "marknad": "en-US", "count": 11, "intäkter": 1,23}, {"timestamp": "2018-01-01T00:00:00Z", "marknad": "zh-cn", "antal": 22, "intäkter": med 4,56}]. (t. ex. När data från 2020-06-21T00:00:00Z matas in, @StartTime = 2020-06-21T00:00:00.0000000 + 00:00)
 
 ## <a name="span-idinfluxdbinfluxdb-influxqlspan"></a><span id="influxdb">InfluxDB (InfluxQL)</span>
 
-* **Anslutnings sträng** : anslutnings strängen för åtkomst till din InfluxDB.
-* **Databas** : databasen att fråga mot.
-* **Fråga** : en fråga för att hämta och formulera data till data för flerdimensionell tids serier för inmatning.
-* **Användar namn** : Detta är valfritt för autentisering. 
-* **Lösen ord** : Detta är valfritt för autentisering. 
+* **Anslutnings sträng**: anslutnings strängen för åtkomst till din InfluxDB.
+* **Databas**: databasen att fråga mot.
+* **Fråga**: en fråga för att hämta och formulera data till data för flerdimensionell tids serier för inmatning.
+* **Användar namn**: Detta är valfritt för autentisering. 
+* **Lösen ord**: Detta är valfritt för autentisering. 
 
 ## <a name="span-idmongodbmongodbspan"></a><span id="mongodb">MongoDB</span>
 
-* **Anslutnings sträng** : anslutnings strängen för åtkomst till din MongoDB.
-* **Databas** : databasen att fråga mot.
-* **Kommando** : ett kommando för att hämta och formulera data till flerdimensionella Time Series-data för inmatning.
+* **Anslutnings sträng**: anslutnings strängen för åtkomst till din MongoDB.
+* **Databas**: databasen att fråga mot.
+* **Kommando**: ett kommando för att hämta och formulera data till flerdimensionella Time Series-data för inmatning.
 
 ## <a name="span-idmysqlmysqlspan"></a><span id="mysql">MySQL</span>
 
-* **Anslutnings sträng** : anslutnings strängen för åtkomst till MySQL-databasen.
-* **Fråga** : en fråga för att hämta och formulera data till data för flerdimensionell tids serier för inmatning.
+* **Anslutnings sträng**: anslutnings strängen för åtkomst till MySQL-databasen.
+* **Fråga**: en fråga för att hämta och formulera data till data för flerdimensionell tids serier för inmatning.
 
 ## <a name="span-idpgsqlpostgresqlspan"></a><span id="pgsql">PostgreSQL</span>
 
-* **Anslutnings sträng** : anslutnings strängen för åtkomst till POSTGRESQL-databasen.
-* **Fråga** : en fråga för att hämta och formulera data till data för flerdimensionell tids serier för inmatning.
+* **Anslutnings sträng**: anslutnings strängen för åtkomst till POSTGRESQL-databasen.
+* **Fråga**: en fråga för att hämta och formulera data till data för flerdimensionell tids serier för inmatning.
 
 ## <a name="next-steps"></a>Nästa steg
 

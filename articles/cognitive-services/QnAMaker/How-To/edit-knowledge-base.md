@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 3940f060209ea5ba55957a3673020656d45de9e4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9541320f65060a0b1f2b5c84a131c08e92554e9e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000104"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351715"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Redigera QnA-par i kunskaps basen
 
@@ -59,7 +59,7 @@ Text redigering av svars texten ger dig markdown format från ett enkelt verktyg
     |Funktioner i Rich-Text-redigeraren|Kortkommando|
     |--|--|
     |Växla mellan Rich-Text Editor och markdown. `</>`|CTRL+M|
-    |Breda. **B**|Prod + LB|
+    |Breda. **T**|Prod + LB|
     |Kursiv stil, visas med kursivt **_i_**|CTRL + I|
     |Osorterad lista||
     |Ordnad lista||
@@ -128,11 +128,11 @@ Välj regelbundet **Spara och träna** efter att du har redigerat ändringarna f
 
 Med [text redigering](#add-an-editorial-qna-set) av svar kan du, som författare, använda verktygsfältet Formatering för att snabbt välja och formatera text.
 
-[Markdown](../reference-markdown-format.md) är ett bättre verktyg när du behöver generera innehåll automatiskt för att skapa kunskaps banker som ska importeras som en del av en CI/CD-pipeline eller för [batch-testning](../Quickstarts/batch-testing.md).
+[Markdown](../reference-markdown-format.md) är ett bättre verktyg när du behöver generera innehåll automatiskt för att skapa kunskaps banker som ska importeras som en del av en CI/CD-pipeline eller för [batch-testning](../index.yml).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Samarbeta i en kunskapsbas](./collaborate-knowledge-base.md)
+> [Samarbeta i en kunskapsbas](../index.yml)
 
 * [Hantera Azure-resurser som används av QnA Maker](set-up-qnamaker-service-azure.md)

@@ -3,12 +3,12 @@ title: Felsöka nätverks problem med registret
 description: Symptom, orsaker och lösningar på vanliga problem vid åtkomst till ett Azure Container Registry i ett virtuellt nätverk eller bakom en brand vägg
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 5f2cf2d72e6641d4871b7acccdbd7cc37c653f74
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 95b32b839d1b3b804a2035b797e1146a09d5236a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148452"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351801"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Felsöka nätverks problem med registret
 
@@ -103,7 +103,7 @@ Relaterade länkar:
 
 ### <a name="configure-service-access"></a>Konfigurera tjänst åtkomst
 
-Azure Security Center kan för närvarande inte utföra [avbildnings sårbarhets sökning](../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json) i ett register som begränsar åtkomsten till privata slut punkter, valda undernät eller IP-adresser. Resurser av följande tjänster kan inte heller komma åt ett behållar register med nätverks begränsningar:
+Azure Security Center kan för närvarande inte utföra [avbildnings sårbarhets sökning](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) i ett register som begränsar åtkomsten till privata slut punkter, valda undernät eller IP-adresser. Resurser av följande tjänster kan inte heller komma åt ett behållar register med nätverks begränsningar:
 
 * Azure DevOps Services 
 * Azure Container Instances

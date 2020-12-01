@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 890b555703f922168a820a0535296b9f55218752
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8c13dc0854fb29467b0fe8a1ce5f2dfc1c19bd78
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011055"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352345"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Skapa kunskaps bas och hantera inställningar
 
@@ -107,7 +107,7 @@ Om du delar din kunskaps bas med samarbets partners,] (samarbets-Knowledge-base.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [att hantera språket](language-knowledge-base.md) i alla kunskaps baser i en resurs.
+Lär dig mer om [att hantera språket](../index.yml) i alla kunskaps baser i en resurs.
 
 * Redigera QnA-par
 * Hantera Azure-resurser som används av QnA Maker

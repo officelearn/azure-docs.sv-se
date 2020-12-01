@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 96cca89b1206aaa7890648def694074a18b2aa17
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4ab32cd37d732cd9f177363da547edd22bd5af77
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368873"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349273"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services och Machine Learning
 
@@ -23,8 +23,8 @@ Cognitive Services tillhandahåller funktioner för maskin inlärning för att l
 |Tjänste kategori|Syfte|
 |--|--|
 |[Beslut](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Skapa appar som ger rekommendationer för välinformerade och effektiva beslut.|
-|[Språk](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Tillåt att dina appar behandlar naturligt språk med fördefinierade skript, utvärderar känslor och lär sig att känna igen vad användare vill.|
-|[Sök](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Lägg till API:er för Bing-sökning i dina appar och utnyttja möjligheten att söka i miljontals webbsidor, bilder, videor och nyheter med ett enda API-anrop.|
+|[Språk](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Få dina appar att bearbeta naturligt språk med fördefinierade skript, utvärdera sentiment och lär dig att förstå vad användarna vill.|
+|[Sök](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Lägg till API:er för Bing-sökresultat i dina appar och utnyttja möjligheten att kombinera miljarder olika webbsidor, bilder, videor och nyheter med ett enda API-anrop.|
 |[Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Konvertera tal till text och text till tal som låter naturligt. Översätt från ett språk till ett annat och aktivera talarverifiering och -igenkänning.|
 |[Visuellt innehåll](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Avkänning, identifiering, textning, indexering och moderering för bilder, videor och innehåll med digitala pennanteckningar.|
 ||||
@@ -44,7 +44,7 @@ Machine Learning är ett koncept där du kan samla data och en algoritm för att
 
 Processen för att skapa ett Machine Learning-system kräver viss kunskap om Machine Learning eller data vetenskap.
 
-Maskin inlärning tillhandahålls med hjälp av [Azure Machine Learning (AML)-produkter och-tjänster](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context).
+Maskin inlärning tillhandahålls med hjälp av [Azure Machine Learning (AML)-produkter och-tjänster](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%2fmachine-learning%2fstudio%2fcontext%2fml-context).
 
 ## <a name="what-is-a-cognitive-service"></a>Vad är en kognitiv tjänst?
 

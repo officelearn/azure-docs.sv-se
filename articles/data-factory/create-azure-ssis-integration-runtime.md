@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: effa0d3ba9f7098b691605bfbd76bff9ea3d5e66
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7936699832a09f535729c42b12fec2d5c49a11a0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023439"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350950"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Skapa en Azure-SSIS integration runtime i Azure Data Factory
 
@@ -167,7 +167,7 @@ Om du markerar kryss rutan utför du följande steg för att ta med din egen dat
 Välj **Testa anslutning** när det är tillämpligt och om det lyckas väljer du **Nästa**.
 
 > [!NOTE]
-   > Om du använder Azure SQL Database Server som värd för SSISDB lagras dina data i Geo-redundant lagring för säkerhets kopieringar som standard. Om du inte vill att data ska replikeras i andra regioner följer du anvisningarna för att [Konfigurera redundans för säkerhets kopiering med hjälp av PowerShell](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
+   > Om du använder Azure SQL Database Server som värd för SSISDB lagras dina data i Geo-redundant lagring för säkerhets kopieringar som standard. Om du inte vill att data ska replikeras i andra regioner följer du anvisningarna för att [Konfigurera redundans för säkerhets kopiering med hjälp av PowerShell](../azure-sql/database/automated-backups-overview.md?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
    
 ##### <a name="creating-azure-ssis-ir-package-stores"></a>Skapa Azure-SSIS IR paket arkiv
 

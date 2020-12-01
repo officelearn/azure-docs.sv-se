@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/07/2020
-ms.openlocfilehash: 1f62623758f683e5fa0580816f1497df3ab23637
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: d5103cbbeb5a8ab12f9ce497ee4ed227ca180728
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95748877"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350304"
 ---
 # <a name="archived-release-notes"></a>Arkiverad viktig information
 
@@ -30,14 +30,14 @@ Den här versionen gäller både HDInsight 3,6 och HDInsight 4,0. HDInsight-vers
 HDInsight Identity Broker (HIB) som aktiverar OAuth-autentisering för ESP-kluster är nu allmänt tillgänglig i den här versionen. HIB-kluster som skapats efter den här versionen kommer att ha de senaste HIB-funktionerna:
 - Hög tillgänglighet (HA)
 - Stöd för Multi-Factor Authentication (MFA)
-- Federerade användare logga in utan hash-synkronisering av lösen ord till AAD-DS mer information finns i [Hib-dokumentationen](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker).
+- Federerade användare logga in utan hash-synkronisering av lösen ord till AAD-DS mer information finns i [Hib-dokumentationen](./domain-joined/identity-broker.md).
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Flytta till skalnings uppsättningar för virtuella Azure-datorer
-HDInsight använder nu virtuella Azure-datorer för att etablera klustret. Från och med den här versionen migrerar tjänsten gradvis till [skalnings uppsättningar för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). Hela processen kan ta månader. När dina regioner och prenumerationer migreras, kommer nyligen skapade HDInsight-kluster att köras på virtuella datorers skalnings uppsättningar utan kund åtgärder. Ingen avbrytande ändring förväntas.
+HDInsight använder nu virtuella Azure-datorer för att etablera klustret. Från och med den här versionen migrerar tjänsten gradvis till [skalnings uppsättningar för virtuella Azure-datorer](../virtual-machine-scale-sets/overview.md). Hela processen kan ta månader. När dina regioner och prenumerationer migreras, kommer nyligen skapade HDInsight-kluster att köras på virtuella datorers skalnings uppsättningar utan kund åtgärder. Ingen avbrytande ändring förväntas.
 
 ### <a name="deprecation"></a>Utfasning
 #### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Utfasning av HDInsight 3,6 ML Services-kluster
-HDInsight 3,6 ML-kluster typ upphör att fungera i december 31 2020. Kunder kan inte skapa nya 3,6 ML-tjänster i kluster efter 31 2020 december. Befintliga kluster kommer att köras i befintligt skick utan support från Microsoft. Kontrol lera att support upphör för HDInsight-versioner och kluster typer [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions).
+HDInsight 3,6 ML-kluster typ upphör att fungera i december 31 2020. Kunder kan inte skapa nya 3,6 ML-tjänster i kluster efter 31 2020 december. Befintliga kluster kommer att köras i befintligt skick utan support från Microsoft. Kontrol lera att support upphör för HDInsight-versioner och kluster typer [här](./hdinsight-component-versioning.md#available-versions).
 
 #### <a name="disabled-vm-sizes"></a>Inaktiverade VM-storlekar
 Från och med november 16 2020 kommer HDInsight att blockera nya kunder som skapar kluster med hjälp av standand_A8, standand_A9 standand_A10 och standand_A11 VM-storlekar. Befintliga kunder som har använt de här VM-storlekarna under de senaste tre månaderna påverkas inte. Från och med den 9 2021 januari kommer HDInsight att blockera alla kunder som skapar kluster med hjälp av standand_A8, standand_A9 standand_A10 och standand_A11 VM-storlekar. Befintliga kluster kommer att köras som de är. Överväg att flytta till HDInsight 4,0 för att undvika eventuellt system-och support avbrott.
@@ -52,7 +52,7 @@ Följande ändringar sker i kommande versioner.
 HDInsight idag stöder inte anpassning av Zookeeper Node-storlek för Spark-, Hadoop-och ML-tjänster, kluster typer. Standardvärdet för A2_v2/a2 virtuella dator storlekar som tillhandahålls kostnads fritt. I den kommande versionen kan du välja en storlek på den virtuella Zookeeper-datorn som passar bäst för ditt scenario. Zookeeper-noder med en annan virtuell dator storlek än A2_v2/a2 kommer att debiteras. A2_v2-och a2-virtuella datorer tillhandahålls fortfarande utan kostnad.
 
 #### <a name="default-cluster-version-will-be-changed-to-40"></a>Standard kluster versionen kommer att ändras till 4,0
-Från och med 2021 februari kommer standard versionen av HDInsight-klustret att ändras från 3,6 till 4,0. Mer information om tillgängliga versioner finns i [tillgängliga versioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions). Läs mer om vad som är nytt i [HDInsight 4,0](https://docs.microsoft.com/azure/hdinsight/hdinsight-version-release)
+Från och med 2021 februari kommer standard versionen av HDInsight-klustret att ändras från 3,6 till 4,0. Mer information om tillgängliga versioner finns i [tillgängliga versioner](./hdinsight-component-versioning.md#available-versions). Läs mer om vad som är nytt i [HDInsight 4,0](./hdinsight-version-release.md)
 
 #### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>HDInsight 3,6-slut för support den 30 2021 juni
 HDInsight 3,6 är slut på support. Från och med juni 30 2021 kan kunder inte skapa nya HDInsight 3,6-kluster. Befintliga kluster kommer att köras i befintligt skick utan support från Microsoft. Överväg att flytta till HDInsight 4,0 för att undvika eventuellt system-och support avbrott.
@@ -60,7 +60,7 @@ HDInsight 3,6 är slut på support. Från och med juni 30 2021 kan kunder inte s
 ### <a name="bug-fixes"></a>Felkorrigeringar
 HDInsight fortsätter att göra kluster tillförlitlighet och prestanda förbättringar. 
 #### <a name="fix-issue-for-restarting-vms-in-cluster"></a>Åtgärda problem med att starta om virtuella datorer i kluster
-Problemet med att starta om virtuella datorer i klustret har åtgärd ATS, du kan använda [PowerShell eller REST API för att starta om noder i klustret](https://docs.microsoft.com/azure/hdinsight/cluster-reboot-vm) igen.
+Problemet med att starta om virtuella datorer i klustret har åtgärd ATS, du kan använda [PowerShell eller REST API för att starta om noder i klustret](./cluster-reboot-vm.md) igen.
 
 ### <a name="component-version-change"></a>Komponent versions ändring
 Ingen komponent versions ändring för den här versionen. Du hittar de aktuella komponent versionerna för HDInsight 4,0 och HDInsight 3,6 i [det här dokumentet](./hdinsight-component-versioning.md).
@@ -1859,7 +1859,7 @@ Fasta problem representerar valda problem som tidigare har loggats via Hortonwor
 
 ### <a name="behavioral-changes"></a>Beteende ändringar
 
-|**Apache-komponent**|**Apache JIRA**|**Sammanfattning**|**Detaljer**|
+|**Apache-komponent**|**Apache JIRA**|**Sammanfattning**|**Information**|
 |--|--|--|--|
 |**Spark 2,3** |**Ej tillämpligt** |**Ändringar som dokumenteras i Apache Spark viktig information** |– Det finns ett "utfasnings dokument" och en "ändring av beteende"-guiden. https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />– För SQL-delen finns en annan detaljerad guide för migrering (från 2,2 till 2,3). https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark-jobbet har slutförts, men det finns en HDFS disk kvot med ett fullständigt fel |**Scenario:** Om du kör **Infoga överskrivning** när en kvot anges i mappen pappers korg för den användare som kör kommandot.<br /><br />**Föregående beteende:** Jobbet lyckas även om det inte går att flytta data till pappers korgen. Resultatet kan felaktigt innehålla några av de data som tidigare fanns i tabellen.<br /><br />**Nytt beteende:** När det inte går att flytta mappen till pappers korgen tas filerna bort permanent.|

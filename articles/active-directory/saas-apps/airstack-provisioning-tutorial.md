@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/18/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3bfcd652572b989e98bf4c7cb717cb314dfbaaeb
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: c1bab9b40766fe22baa94497d71d3f8757e1c210
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359892"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348814"
 ---
 # <a name="tutorial-configure-airstack-for-automatic-user-provisioning"></a>Självstudie: Konfigurera en netstack för automatisk användar etablering
 
@@ -80,7 +80,7 @@ Innan du konfigurerar en netstack för automatisk användar etablering med Azure
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **netstack** , väljer **flygstack** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **netstack**, väljer **flygstack** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Flygstack i resultat listan](common/search-new-app.png)
 

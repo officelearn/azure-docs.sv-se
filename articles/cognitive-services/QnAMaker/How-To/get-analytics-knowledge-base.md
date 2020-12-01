@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: f58fe342d66c328bdadf41fc965c2952605aea8e
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5f149dd6db82b66b45a4c995e2004936481af786
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376593"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352430"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Få analyser om din kunskapsbas
 
@@ -52,7 +52,7 @@ QnA Maker lagrar alla chatt-loggar och annan telemetri, om du har aktiverat Appl
 
 QnA Maker hanterad (för hands version) använder Azure Diagnostic-loggning för att lagra telemetri-data och chatt-loggar. Följ stegen nedan för att köra exempel frågor för att få analyser om användningen av din QnA Maker kunskaps bas.
 
-1. [Aktivera diagnostikloggning](https://docs.microsoft.com/azure/cognitive-services/diagnostic-logging) för tjänsten QNA Maker Managed (för hands version).
+1. [Aktivera diagnostikloggning](../../diagnostic-logging.md) för tjänsten QNA Maker Managed (för hands version).
 
 2. I föregående steg väljer du **spåra** förutom **granskning, RequestResponse och AllMetrics** för loggning
 

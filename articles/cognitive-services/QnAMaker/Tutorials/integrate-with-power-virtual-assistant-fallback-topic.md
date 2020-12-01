@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 11/09/2020
-ms.openlocfilehash: 322db4e1535e763f4c3e7c87afaa370471ba0b66
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 3801bb44fed6bf24788957c41de77c89b3025ae8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376306"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351120"
 ---
 # <a name="tutorial-add-your-knowledge-base-to-power-virtual-agents"></a>Självstudie: Lägg till din kunskaps bas för virtuella energi agenter
 Skapa och utöka en [Power Virtual agents](https://powervirtualagents.microsoft.com/) -robot för att ge svar från din kunskaps bas.
@@ -53,7 +53,7 @@ Här är en översikt över stegen för att ansluta en agent i virtuella energi 
     * Anropa en åtgärd (för att starta automatiskt flöde).
 * I [Power automatiserad](https://us.flow.microsoft.com/) Portal:
     * Sök efter _skapa svar med QNA Maker_ -mall
-    * Använd mallen för att konfigurera flödet så att det använder [QNA Maker GenerateAnswer](https://docs.microsoft.com/connectors/cognitiveservicesqnamaker/).
+    * Använd mallen för att konfigurera flödet så att det använder [QNA Maker GenerateAnswer](/connectors/cognitiveservicesqnamaker/).
         * QnA Maker publicerad information om kunskaps bas:
             * Kunskaps bas-ID
             * QnA Maker resurs slut punkts värd
@@ -219,9 +219,9 @@ Så här ser den sista agent arbets ytan ut.
     |--|--|--|
     |1|Hello|Starta konversation|
     |2|Store-timmar|Exempel ämne. Detta är konfigurerat för dig utan ytterligare arbete på din sida.|
-    |3|Yes|Som svar på `Did that answer your question?`|
+    |3|Ja|Som svar på `Did that answer your question?`|
     |4|Utmärkt|Som svar på `Please rate your experience.`|
-    |5|Yes|Som svar på `Can I help with anything else?`|
+    |5|Ja|Som svar på `Can I help with anything else?`|
     |6|Hur kan jag förbättra data flödes prestandan för fråga förutsägelser?|Den här frågan utlöser återställnings åtgärden, som skickar texten till din kunskaps bas för att svara. Sedan visas svaret. de gröna bock markeringarna för de enskilda åtgärderna indikerar att det är klart för varje åtgärd.|
 
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png" alt-text="Skärm bild av Chat-roboten med arbets ytan som visar grön bock markering för lyckade åtgärder.":::
@@ -232,7 +232,7 @@ Om du vill att agenten ska vara tillgänglig för alla medlemmar i din skola ell
 
 1. Välj **publicera** i navigerings fönstret till vänster. Välj sedan **publicera** på sidan.
 
-1. Prova din robot på demo webbplatsen (leta efter länken under **publicera** ).
+1. Prova din robot på demo webbplatsen (leta efter länken under **publicera**).
 
     En ny webb sida öppnas med din robot. Fråga roboten samma test fråga: `How can I improve the throughput performance for query predictions?`
 
@@ -258,6 +258,6 @@ När du är färdig med kunskaps basen tar du bort QnA Maker-resurserna i Azure 
 [Få analyser om din kunskapsbas](../How-To/get-analytics-knowledge-base.md)
 
 Läs mer om:
-* [Power Virtual Agents](https://docs.microsoft.com/power-virtual-agents/)
-* [Power Automate](https://docs.microsoft.com/power-automate/)
-* [QNA Maker koppling](https://us.flow.microsoft.com/connectors/shared_cognitiveservicesqnamaker/qna-maker/) och [inställningarna för anslutningen](https://docs.microsoft.com/connectors/cognitiveservicesqnamaker/)
+* [Power Virtual Agents](/power-virtual-agents/)
+* [Power Automate](/power-automate/)
+* [QNA Maker koppling](https://us.flow.microsoft.com/connectors/shared_cognitiveservicesqnamaker/qna-maker/) och [inställningarna för anslutningen](/connectors/cognitiveservicesqnamaker/)

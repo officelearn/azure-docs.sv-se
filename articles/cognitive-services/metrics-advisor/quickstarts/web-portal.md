@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 0afd8fab6072e1563d2b2f277e8a53b56a8161c2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5dbf98d363429e6d22a0b7719cdc669deebd21a0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048244"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348644"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Snabb start: övervaka ditt första mått med hjälp av webb portalen
 
@@ -27,7 +27,7 @@ När du etablerar en Metric Advisor-instans kan du använda API: erna och den we
 * Utforska diagnostiska insikter
 * Skapa och prenumerera på avvikelse aviseringar
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * När du har en Azure-prenumeration kan du <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title=" skapa en Metrics Advisor-resurs "  target="_blank"> som skapar en Metric Advisor-resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att distribuera din Metric Advisor-instans.  
@@ -97,7 +97,7 @@ När data schemat har lästs in och visas som nedan väljer du lämpliga fält.
 |**Ignorera**     | Ignorera den markerade kolumnen.        |         |
 
 
-:::image type="content" source="../media/schema-configuration.png" alt-text="Inställningar för anslutning" lightbox="../media/schema-configuration.png":::
+:::image type="content" source="../media/schema-configuration.png" alt-text="Schema konfiguration" lightbox="../media/schema-configuration.png":::
 
 ### <a name="automatic-roll-up-settings"></a>Automatiska sammanslagnings inställningar
 
@@ -117,7 +117,7 @@ När identifieringen används klickar du på ett av måtten som anges i datafeed
 - Uppdatera identifiering av konfiguration för att uppfylla förväntade resultat
 - Konfigurera ett meddelande om identifierade avvikelser
 
-:::image type="content" source="../media/metric-details.png" alt-text="Inställningar för anslutning" lightbox="../media/metric-details.png":::
+:::image type="content" source="../media/metric-details.png" alt-text="Mått information" lightbox="../media/metric-details.png":::
 
 ## <a name="view-the-diagnostic-insights"></a>Visa diagnostiska insikter
 
@@ -125,13 +125,13 @@ När du har justerat identifierings konfigurationen bör avvikelser som hittas a
 
 Om du vill visa diagnostiska insikter klickar du på de röda punkterna i Time Series-visualiseringar som representerar identifierade avvikelser. Ett fönster visas med en länk till incident analys sidan. 
 
-:::image type="content" source="../media/incident-link.png" alt-text="Inställningar för anslutning" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Incident länk" lightbox="../media/incident-link.png":::
 
-När du har klickat på länken visas sidan incident analys som analyserar vid motsvarande avvikelse, med en massa diagnostiska insikter. Högst upp visas statistik om incidenten, till exempel **allvarlighets grad**, **avvikelser**och påverkad **Start tid** och **slut tid**. 
+När du har klickat på länken visas sidan incident analys som analyserar vid motsvarande avvikelse, med en massa diagnostiska insikter. Högst upp visas statistik om incidenten, till exempel **allvarlighets grad**, **avvikelser** och påverkad **Start tid** och **slut tid**. 
 
 Härnäst ser du den överordnade avvikelsen för incidenten och automatiserad rotor sakens råd. Den här automatiserade rotor sakens saken genereras genom att analysera incident trädet för alla relaterade avvikelser, inklusive: avvikelse, distribution och bidrag till överordnade avvikelser. 
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Inställningar för anslutning" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Incident diagnostik" lightbox="../media/incident-diagnostic.png":::
 
 Baserat på dessa kan du redan få en enkel översikt över vad som händer och påverkan av incidenten samt den mest potentiella rotor saken. Så att omedelbara åtgärder kan vidtas för att lösa incidenter så snart som möjligt. 
 
@@ -155,5 +155,5 @@ När du har skapat en Hook bestämmer en varnings inställning hur och vilka avi
 - [Publicera dina data strömmar](../how-tos/onboard-your-data.md)
     - [Hantera datafeeds](../how-tos/manage-data-feeds.md)
     - [Konfigurationer för olika data källor](../data-feeds-from-different-sources.md)
-- [Använd REST API-eller klient bibliotek](rest-api.md)
+- [Använd REST API-eller klient bibliotek](./rest-api-and-client-library.md)
 - [Konfigurera mått och finjustera konfiguration för identifiering](../how-tos/configure-metrics.md)

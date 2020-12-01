@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: fa048473f0f285b793dad88c7defdb6189ca1ccd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 63be912986542741359cd5e88227f06905d42647
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023014"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350882"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Omvandling av mottagare i data flöde för mappning
 
@@ -100,7 +100,7 @@ Som standard skrivs data till flera handfat i en icke deterministisk ordning. K�
 ![Skärm bild som visar beställning av anpassade mottagare.](media/data-flow/custom-sink-ordering.png "Skärm bild som visar beställning av anpassade mottagare.")
 
 > [!NOTE]
-> När du använder [cachelagrade sökningar](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup)ser du till att din Sink-beställning har de cachelagrade sinkarna inställt på 1, lägst (eller första) i ordning.
+> När du använder [cachelagrade sökningar](./concepts-data-flow-expression-builder.md#cached-lookup)ser du till att din Sink-beställning har de cachelagrade sinkarna inställt på 1, lägst (eller första) i ordning.
 
 ![Beställning av anpassad mottagare](media/data-flow/cache-2.png "Beställning av anpassad mottagare")
 

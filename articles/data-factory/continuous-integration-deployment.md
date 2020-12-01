@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 728dda7c702d7fc52c9285c7cb15fc4b6dc3003c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: aef85b263a142c001d47bac4aed7a71066e26dae
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182071"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350457"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -639,7 +639,7 @@ Se videon under en djupgående video genom gång om hur du kan åtgärda dina mi
 
 ## <a name="exposure-control-and-feature-flags"></a>Exponerings kontroll och funktions flaggor
 
-När du arbetar med ett team finns det instanser där du kan slå samman ändringar, men vill inte att de ska köras i utökade miljöer som till exempel PROD och frågor och svar. För att hantera det här scenariot rekommenderar ADF-teamet [DevOps-begreppet att använda funktions flaggor](https://docs.microsoft.com/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). I ADF kan du kombinera [globala parametrar](author-global-parameters.md) och [if villkor-aktiviteten](control-flow-if-condition-activity.md) för att dölja uppsättningar av logik baserat på dessa miljö flaggor.
+När du arbetar med ett team finns det instanser där du kan slå samman ändringar, men vill inte att de ska köras i utökade miljöer som till exempel PROD och frågor och svar. För att hantera det här scenariot rekommenderar ADF-teamet [DevOps-begreppet att använda funktions flaggor](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). I ADF kan du kombinera [globala parametrar](author-global-parameters.md) och [if villkor-aktiviteten](control-flow-if-condition-activity.md) för att dölja uppsättningar av logik baserat på dessa miljö flaggor.
 
 Information om hur du konfigurerar en funktions flagga finns i följande video kurs:
 

@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: e0af8e0674a15c98fadbedfa42f735d269b3de2b
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 53be2ee9b6b3ab46f081747aec58b9c99fc54f0d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920499"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349964"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Lägg till en API till för hands versionen av Azure statisk Web Apps med Azure Functions
 
 Du kan lägga till Server lös API: er i Azures statiska Web Apps via integration med Azure Functions. Den här artikeln visar hur du lägger till och distribuerar ett API till en statisk Azure-Web Apps webbplats.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-konto med en aktiv prenumeration.
   - Om du inte har något konto kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free).
@@ -32,7 +32,7 @@ Du kan lägga till Server lös API: er i Azures statiska Web Apps via integratio
 
 Följande steg visar hur du skapar en ny lagrings plats och klonar filerna till din dator.
 
-1. Kontrol lera att du är inloggad på GitHub och navigera till https://github.com/staticwebdev/vanilla-basic/generate för att skapa en ny lagrings plats.
+1. Kontrol lera att du är inloggad på GitHub och navigera till [https://github.com/staticwebdev/vanilla-basic/generate](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate) för att skapa en ny lagrings plats.
 1. I rutan _databas namn_ anger du **My-vanilj-API**.
 1. Klicka på **skapa lagrings plats från mall**.
 
@@ -268,7 +268,7 @@ Om du inte vill behålla det här programmet kan du använda följande steg för
 1. Klicka på **resurs grupper**
 1. Välj **myResourceGroup**
 1. På sidan _myResourceGroup_ kontrollerar du att de listade resurserna är de som du vill ta bort.
-1. Välj **ta bort**
+1. Välj **Ta bort**
 1. Skriv **myResourceGroup** i text rutan
 1. Välj **Ta bort**.
 

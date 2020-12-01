@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de255836cb269f5077a417a203e136f9e903f05d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d121e6280b83265a742736f9b8dd3aee96a8b32e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441682"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351767"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Lägga till en API-anslutning till ett användar flöde
 
@@ -25,7 +25,7 @@ Om du vill använda en [API-anslutning](api-connectors-overview.md)skapar du fö
 ## <a name="create-an-api-connector"></a>Skapa en API-anslutning
 
 1. Logga in till [Azure-portalen](https://portal.azure.com/) som Azure AD-administratör.
-2. Under **Azure-tjänster**väljer du **Azure Active Directory**.
+2. Under **Azure-tjänster** väljer du **Azure Active Directory**.
 3. På den vänstra menyn väljer du **externa identiteter**.
 4. Välj **alla API-kopplingar (förhands granskning)** och välj sedan **ny API-anslutning**.
 
@@ -35,7 +35,7 @@ Om du vill använda en [API-anslutning](api-connectors-overview.md)skapar du fö
 6. Ange **slut punkts-URL** för API-anropet.
 7. Ange autentiseringsinformation för API: et.
 
-   - Det finns för närvarande endast stöd för grundläggande autentisering. Om du vill använda ett API utan grundläggande autentisering i utvecklings syfte anger du bara ett **användar namn** och **lösen ord** som ditt API kan ignorera. För användning med en Azure-funktion med en API-nyckel kan du inkludera koden som en frågeparameter i **slut punkts-URL: en** (till exempel https []() ://contoso.azurewebsites.NET/API/Endpoint<b>? Code = 0123456789</b>).
+   - Det finns för närvarande endast stöd för grundläggande autentisering. Om du vill använda ett API utan grundläggande autentisering i utvecklings syfte anger du bara ett **användar namn** och **lösen ord** som ditt API kan ignorera. För användning med en Azure-funktion med en API-nyckel kan du inkludera koden som en frågeparameter i **slut punkts-URL: en** (till exempel https []() ://contoso.azurewebsites.NET/API/Endpoint <b>? Code = 0123456789</b>).
 
    ![Konfigurera en ny API-anslutning](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 8. Välj **Spara**.
@@ -75,7 +75,7 @@ Content-type: application/json
 }
 ```
 
-Endast användar egenskaper och anpassade attribut som anges i **Azure Active Directory**  >  **externa identiteter**för  >  **anpassade** användarattribut är tillgängliga att skickas i begäran.
+Endast användar egenskaper och anpassade attribut som anges i **Azure Active Directory**  >  **externa identiteter** för  >  **anpassade** användarattribut är tillgängliga att skickas i begäran.
 
 Anpassade attribut finns i **extension_ \<extensions-app-id> _AttributeNames**  formatet i katalogen. Ditt API bör förvänta sig att ta emot anspråk i samma serialiserade format. Mer information om anpassade attribut finns i [definiera anpassade attribut för](user-flow-add-custom-attributes.md)självbetjänings registrerings flöden.
 
@@ -92,10 +92,10 @@ Dessutom skickas anspråk som är **lokala för användar gränssnittet (ui_loca
 Följ dessa steg om du vill lägga till en API-anslutning till ett självbetjänings registrerings användar flöde.
 
 1. Logga in till [Azure-portalen](https://portal.azure.com/) som Azure AD-administratör.
-2. Under **Azure-tjänster**väljer du **Azure Active Directory**.
+2. Under **Azure-tjänster** väljer du **Azure Active Directory**.
 3. På den vänstra menyn väljer du **externa identiteter**.
 4. Välj **användar flöden (förhands granskning)** och välj sedan det användar flöde som du vill lägga till API-kopplingen till.
-5. Välj **API-kopplingar**och välj sedan de API-slutpunkter som du vill anropa i följande steg i användar flödet:
+5. Välj **API-kopplingar** och välj sedan de API-slutpunkter som du vill anropa i följande steg i användar flödet:
 
    - **När du har loggat in med en identitets leverantör**
    - **Innan du skapar användaren**
@@ -106,7 +106,7 @@ Följ dessa steg om du vill lägga till en API-anslutning till ett självbetjän
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>När du har loggat in med en identitets leverantör
 
-En API-anslutning i det här steget i registrerings processen anropas omedelbart när användaren autentiseras med en identitetsprovider (Google, Facebook, Azure AD). Det här steget föregår*_sidan * Attribute Collection_*_, som är det formulär som visas för användaren att samla in användarattribut. 
+En API-anslutning i det här steget i registrerings processen anropas omedelbart när användaren autentiseras med en identitetsprovider (Google, Facebook, Azure AD). Det här steget föregår *_sidan * Attribute Collection_* _, som är det formulär som visas för användaren att samla in användarattribut. 
 
 <!-- The following are examples of API connector scenarios you may enable at this step:
 - Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
@@ -246,10 +246,10 @@ Content-type: application/json
 
 | Parameter                                          | Typ              | Obligatorisk | Beskrivning                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version                                            | Sträng            | Yes      | API-versionen.                                                                                                                                                                                                                                                                |
-| åtgärd                                             | Sträng            | Yes      | Värdet måste vara `Continue` .                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | No       | Värden kan lagras i katalogen om de har valts som ett _-*anspråk för att ta emot** i konfigurationen för API- **anslutningen och användarattribut** för ett användar flöde. Värdena kan returneras i token om de väljs som ett **program anspråk**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | Det returnerade anspråket behöver inte innehålla `_<extensions-app-id>_` . Värdena lagras i katalogen om de valts som ett **anspråk att ta emot** i API-kopplingens konfiguration och **användarattribut** för ett användar flöde. Det går inte att skicka anpassade attribut tillbaka i token. |
+| version                                            | Sträng            | Ja      | API-versionen.                                                                                                                                                                                                                                                                |
+| åtgärd                                             | Sträng            | Ja      | Värdet måste vara `Continue` .                                                                                                                                                                                                                                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | Inga       | Värden kan lagras i katalogen om de har valts som ett _-*anspråk för att ta emot** i konfigurationen för API- **anslutningen och användarattribut** för ett användar flöde. Värdena kan returneras i token om de väljs som ett **program anspråk**.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Inga       | Det returnerade anspråket behöver inte innehålla `_<extensions-app-id>_` . Värdena lagras i katalogen om de valts som ett **anspråk att ta emot** i API-kopplingens konfiguration och **användarattribut** för ett användar flöde. Det går inte att skicka anpassade attribut tillbaka i token. |
 
 ### <a name="example-of-a-blocking-response"></a>Exempel på ett blockerande svar
 
@@ -268,10 +268,10 @@ Content-type: application/json
 
 | Parameter   | Typ   | Obligatorisk | Beskrivning                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| version     | Sträng | Yes      | API-versionen.                                                    |
-| åtgärd      | Sträng | Yes      | Värdet måste vara `ShowBlockPage`                                              |
-| userMessage | Sträng | Yes      | Meddelande som ska visas för användaren.                                            |
-| kod        | Sträng | No       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
+| version     | Sträng | Ja      | API-versionen.                                                    |
+| åtgärd      | Sträng | Ja      | Värdet måste vara `ShowBlockPage`                                              |
+| userMessage | Sträng | Ja      | Meddelande som ska visas för användaren.                                            |
+| kod        | Sträng | Inga       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
 
 **Slut användar upplevelse med ett blockerande svar**
 
@@ -294,11 +294,11 @@ Content-type: application/json
 
 | Parameter   | Typ    | Obligatorisk | Beskrivning                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| version     | Sträng  | Yes      | API-versionen.                                                    |
-| åtgärd      | Sträng  | Yes      | Värdet måste vara `ValidationError` .                                           |
-| status      | Integer | Yes      | Måste vara `400` ett värde för ett ValidationError-svar.                        |
-| userMessage | Sträng  | Yes      | Meddelande som ska visas för användaren.                                            |
-| kod        | Sträng  | No       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
+| version     | Sträng  | Ja      | API-versionen.                                                    |
+| åtgärd      | Sträng  | Ja      | Värdet måste vara `ValidationError` .                                           |
+| status      | Integer | Ja      | Måste vara `400` ett värde för ett ValidationError-svar.                        |
+| userMessage | Sträng  | Ja      | Meddelande som ska visas för användaren.                                            |
+| kod        | Sträng  | Inga       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
 
 **Slut användar upplevelse med ett verifierings fel svar**
 

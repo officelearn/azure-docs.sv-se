@@ -8,12 +8,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 4eaa33778287bfcda45547c24e6abe0606b6baa7
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: a952bfa45515b9d35549d03d18fd94103679344d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368805"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349477"
 ---
 # <a name="cognitive-services-development-options"></a>Utvecklingsalternativ för Cognitive Services
 
@@ -49,10 +49,10 @@ Låt oss ta en titt på de olika sätt som du kan arbeta med Cognitive Services.
 
 Cognitive Services klient bibliotek och REST-API: er ger dig direkt åtkomst till din tjänst. Dessa verktyg ger programmerings åtkomst till Cognitive Services, deras bas linje modeller och i många fall kan du anpassa dina modeller och lösningar program mässigt. 
 
-* **Mål användare** : utvecklare och data forskare
-* **Förmåner** : ger största möjliga flexibilitet för att anropa tjänsterna från alla språk och miljöer. 
-* **Gränssnitt** : saknas-kod
-* **Prenumeration (er)** : Azure-konto + Cognitive Services resurser
+* **Mål användare**: utvecklare och data forskare
+* **Förmåner**: ger största möjliga flexibilitet för att anropa tjänsterna från alla språk och miljöer. 
+* **Gränssnitt**: saknas-kod
+* **Prenumeration (er)**: Azure-konto + Cognitive Services resurser
 
 Om du vill veta mer om tillgängliga klient bibliotek och REST API: er kan du använda vår [Cognitive Services översikt](index.yml) för att välja och komma igång med en av våra snabb starter för syn, beslut, språk och tal.
 
@@ -60,10 +60,10 @@ Om du vill veta mer om tillgängliga klient bibliotek och REST API: er kan du an
 
 Med Cognitive Services för Big data kan du bädda in kontinuerligt och intelligenta modeller direkt i Apache Spark- &trade; och SQL-beräkningar. Dessa verktyg utvecklar utvecklare från lågnivå information på låg nivå, så att de kan fokusera på att skapa smarta, distribuerade program. Cognitive Services för Big data stöder följande plattformar och anslutningar: Azure Databricks, Azure Synapse, Azure Kubernetes service och data anslutningar.
 
-* **Mål användare** : data forskare och data tekniker
-* **Fördelar** : Azure-Cognitive Services för Big data gör det möjligt för användarna att channela terabyte data genom att Cognitive Services använda Apache Spark &trade; . Det är enkelt att skapa storskaliga intelligenta program med alla data lager.
-* **Gränssnitt** : saknas-kod
-* **Prenumeration (er)** : Azure-konto + Cognitive Services resurser
+* **Mål användare**: data forskare och data tekniker
+* **Fördelar**: Azure-Cognitive Services för Big data gör det möjligt för användarna att channela terabyte data genom att Cognitive Services använda Apache Spark &trade; . Det är enkelt att skapa storskaliga intelligenta program med alla data lager.
+* **Gränssnitt**: saknas-kod
+* **Prenumeration (er)**: Azure-konto + Cognitive Services resurser
 
 Om du vill lära dig mer om Big data för Cognitive Services är det en bra idé att börja med [översikten](./big-data/cognitive-services-for-big-data.md). Om du är redo att börja skapa kan du prova våra [python](./big-data/samples-python.md) -eller [Scala](./big-data/samples-scala.md) -exempel.
 
@@ -71,46 +71,46 @@ Om du vill lära dig mer om Big data för Cognitive Services är det en bra idé
 
 [Azure Functions](../azure-functions/index.yml) [-och Azure App Service-webbjobben](../app-service/index.yml) ger både kod-och integrerings tjänster utformade för utvecklare och bygger på [Azure App tjänster](../app-service/index.yml). Dessa produkter tillhandahåller en server lös infrastruktur för att skriva kod. I den koden kan du ringa till våra tjänster med hjälp av våra klient bibliotek och REST-API: er. 
 
-* **Mål användare** : utvecklare och data forskare
-* **Fördelar** : Server lös beräknings tjänst som gör att du kan köra händelse utlöst kod. 
-* **UI** : Ja
-* **Prenumeration (er)** : Azure-konto + Cognitive Services resurs + Azure Functions prenumeration
+* **Mål användare**: utvecklare och data forskare
+* **Fördelar**: Server lös beräknings tjänst som gör att du kan köra händelse utlöst kod. 
+* **UI**: Ja
+* **Prenumeration (er)**: Azure-konto + Cognitive Services resurs + Azure Functions prenumeration
 
 ### <a name="azure-logic-apps"></a>Azure Logic Apps 
 
 [Azure Logic Apps](../logic-apps/index.yml) dela samma arbets flödes designer och kopplingar som Power automatisering men ger mer avancerad och kontroll, inklusive integreringar med Visual Studio och DevOps. Med automatisk energi förbrukning kan du enkelt integrera med dina kognitiva tjänst resurser via tjänstspecifika anslutningar som tillhandahåller en proxy eller en omslutning runt API: erna. Detta är samma kopplingar som de som är tillgängliga i energi spar läge. 
 
-* **Mål användare** : utvecklare, integrerare, IT-proffs, DevOps
-* **Fördelar** : design modell-First (deklarativ) utvecklings modell som tillhandahåller avancerade alternativ och integrering i en lösning med låg kod
-* **UI** : Ja
-* **Prenumeration (er)** : Azure-konto + Cognitive Services resurs + Logic Apps distribution
+* **Mål användare**: utvecklare, integrerare, IT-proffs, DevOps
+* **Fördelar**: design modell-First (deklarativ) utvecklings modell som tillhandahåller avancerade alternativ och integrering i en lösning med låg kod
+* **UI**: Ja
+* **Prenumeration (er)**: Azure-konto + Cognitive Services resurs + Logic Apps distribution
 
 ### <a name="power-automate"></a>Power Automate 
 
 Energis par är en tjänst i den [energi plattform](/power-platform/) som hjälper dig att skapa automatiserade arbets flöden mellan appar och tjänster utan att skriva kod. Vi erbjuder flera kopplingar för att göra det enkelt att interagera med din Cognitive Services-resurs i en automatiserad lösning. Automatisk energi förbrukning bygger på Logic Apps. 
 
-* **Mål användare** : företags användare (analytiker) och SharePoint-administratörer
-* **Fördelar** : automatisera återkommande manuella uppgifter genom att bara spela in mus klickningar, tangenttryckningar och kopiera klistra in steg från Skriv bordet!
-* **Gränssnitts verktyg** : Ja – endast användar gränssnitt
-* **Prenumeration (er)** : Azure-konto + Cognitive Services resurs + Power automatiserings prenumeration + Office 365-prenumeration
+* **Mål användare**: företags användare (analytiker) och SharePoint-administratörer
+* **Fördelar**: automatisera återkommande manuella uppgifter genom att bara spela in mus klickningar, tangenttryckningar och kopiera klistra in steg från Skriv bordet!
+* **Gränssnitts verktyg**: Ja – endast användar gränssnitt
+* **Prenumeration (er)**: Azure-konto + Cognitive Services resurs + Power automatiserings prenumeration + Office 365-prenumeration
 
 ### <a name="ai-builder"></a>AI Builder 
 
 [AI Builder](/ai-builder/overview) är en Microsoft Power Platform-funktion som du kan använda för att förbättra affärs prestanda genom att automatisera processer och förutsäga resultat. AI-verktyget ger dig kraften hos AI för dina lösningar genom en punkt-och-klickning-upplevelse. Många kognitiva tjänster, till exempel formulär igenkänning, Textanalys och Visuellt innehåll har integrerats direkt här och du behöver inte skapa dina egna Cognitive Services. 
 
-* **Mål användare** : företags användare (analytiker) och SharePoint-administratörer
-* **Fördelar** : en nyckel färdig lösning som ger dig kraften hos AI genom en punkt-och klicknings upplevelse. Inga kodnings-eller data vetenskaps kunskaper krävs.
-* **Gränssnitts verktyg** : Ja – endast användar gränssnitt
-* **Prenumeration (er)** : AI-verktyg
+* **Mål användare**: företags användare (analytiker) och SharePoint-administratörer
+* **Fördelar**: en nyckel färdig lösning som ger dig kraften hos AI genom en punkt-och klicknings upplevelse. Inga kodnings-eller data vetenskaps kunskaper krävs.
+* **Gränssnitts verktyg**: Ja – endast användar gränssnitt
+* **Prenumeration (er)**: AI-verktyg
 
 ### <a name="continuous-integration-and-deployment"></a>Kontinuerlig integrering och distribution
 
 Du kan använda Azure-DevOps och GitHub-åtgärder för att hantera dina distributioner. I [avsnittet nedan](#continuous-integration-and-delivery-with-devops-and-github-actions) innehåller vi två exempel på CI/CD-integreringar för att träna och distribuera anpassade modeller för tal-och Luis-tjänsten (Language Understanding). 
 
-* **Mål användare** : utvecklare, data forskare och data tekniker
-* **Fördelar** : gör att du kontinuerligt kan justera, uppdatera och distribuera program och modeller program mässigt. Det finns avsevärda fördelar när du regelbundet använder dina data för att förbättra och uppdatera modeller för tal, syn, språk och beslut. 
-* **Gränssnitts verktyg** : ej tillämpligt-endast kod 
-* **Prenumeration (er)** : Azure-konto + Cognitive Services resurs + GitHub-konto
+* **Mål användare**: utvecklare, data forskare och data tekniker
+* **Fördelar**: gör att du kontinuerligt kan justera, uppdatera och distribuera program och modeller program mässigt. Det finns avsevärda fördelar när du regelbundet använder dina data för att förbättra och uppdatera modeller för tal, syn, språk och beslut. 
+* **Gränssnitts verktyg**: ej tillämpligt-endast kod 
+* **Prenumeration (er)**: Azure-konto + Cognitive Services resurs + GitHub-konto
 
 ## <a name="tools-to-customize-and-configure-models"></a>Verktyg för att anpassa och konfigurera modeller
 
@@ -133,7 +133,7 @@ De verktyg som du ska använda för att träna och konfigurera modeller skiljer 
 | Språk | QnA Maker | https://www.qnamaker.ai/ | [Snabbstart](./qnamaker/quickstarts/create-publish-knowledge-base.md) |
 | Språk | Translator/anpassad översättare | https://portal.customtranslator.azure.ai/ | [Snabbstart](./translator/custom-translator/quickstart-build-deploy-custom-model.md) |
 | Speech | Anpassade kommandon | https://speech.microsoft.com/ | [Snabbstart](./speech-service/custom-commands.md) |
-| Speech | Custom Speech | https://speech.microsoft.com/ | [Snabbstart](./speech-service/how-to-custom-speech.md) |
+| Speech | Custom Speech | https://speech.microsoft.com/ | [Snabbstart](./speech-service/custom-speech-overview.md) |
 | Speech | Anpassad röst | https://speech.microsoft.com/ | [Snabbstart](./speech-service/how-to-custom-voice.md) |  
 
 ### <a name="continuous-integration-and-delivery-with-devops-and-github-actions"></a>Kontinuerlig integrering och leverans med DevOps-och GitHub-åtgärder

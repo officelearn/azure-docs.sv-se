@@ -10,19 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: a982c150349ca31fdf93a38b38910c3572b14d2f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 72b4755c6f01a10851e79cf274842f1599bc2c55
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078772"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349545"
 ---
 # <a name="what-are-the-bing-search-apis"></a>Vad är API:er för Bing-sökresultat?
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Med API:er för Bing-sökning kan du skapa webbanslutna appar och tjänster som söker efter webbsidor, bilder, nyheter, platser med mera, utan annonser. Genom att skicka Sök begär Anden med Bing-sökning REST-API: er eller SDK: er kan du hämta relevant information och innehåll för Webbs ökningar. Använd den här artikeln om du vill veta mer om de olika API: erna för Bing search och hur du kan integrera kognitiva sökningar i dina program och tjänster. Priser och hastighets begränsningar kan variera mellan API: er.
 

@@ -2,14 +2,14 @@
 title: Resurs leverantörer och resurs typer
 description: Beskriver de resurs leverantörer som stöder Azure Resource Manager. Den beskriver scheman, tillgängliga API-versioner och de regioner som kan vara värdar för resurserna.
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 702836e0dc98b06ccf6e0eeb0d0f373374c4e783
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a8adbce80d5e8f9ee9df2050d8f43363cbf57dc3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972546"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352107"
 ---
 # <a name="azure-resource-providers-and-types"></a>Resursproviders och resurstyper i Azure
 
@@ -36,6 +36,9 @@ Innan du använder en resurs leverantör måste du registrera din Azure-prenumer
 
 Den här artikeln visar hur du kontrollerar registrerings status för en resurs leverantör och registrerar den efter behov. Du måste ha behörighet att utföra `/register/action` åtgärden för resurs leverantören. Behörigheten ingår i rollerna deltagare och ägare.
 
+> [!IMPORTANT]
+> Registrera bara en resurs leverantör när du är redo att använda den. Med registrerings steget kan du behålla de lägsta privilegierna i din prenumeration. En obehörig användare kan inte använda resurs leverantörer som inte är registrerade.
+
 Program koden blockerar inte skapandet av resurser för en resurs leverantör som är i **registrerings** tillstånd. När du registrerar resurs leverantören utförs åtgärden individuellt för varje region som stöds. För att skapa resurser i en region behöver registreringen bara slutföras i den regionen. Om du inte blockerar resurs leverantören i registrerings tillstånd kan ditt program fortsätta mycket tidigare än att vänta på att alla regioner ska slutföras.
 
 Du kan inte avregistrera en resurs leverantör när du fortfarande har resurs typer från den resurs leverantören i din prenumeration.
@@ -55,7 +58,7 @@ Så här visar du alla resurs leverantörer och registrerings status för din pr
 
     ![Visa resurs leverantörer](./media/resource-providers-and-types/show-resource-providers.png)
 
-6. Registrera en resurs leverantör genom att välja **Registrera**. I föregående skärm bild är **register** länken markerad för **Microsoft. skiss**.
+6. Registrera en resurs leverantör genom att välja **Registrera**. I föregående skärm bild är **register** länken markerad för **Microsoft. skiss**. Om du vill behålla minst privilegier i prenumerationen registrerar du bara de resurs leverantörer som du är redo att använda.
 
 Så här visar du information om en viss resurs leverantör:
 
@@ -107,7 +110,7 @@ Om du vill se alla registrerade resurs leverantörer för din prenumeration anv�
  Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
 ```
 
-Om du vill registrera en resurs leverantör använder du:
+Om du vill behålla minst privilegier i prenumerationen registrerar du bara de resurs leverantörer som du är redo att använda. Om du vill registrera en resurs leverantör använder du:
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -216,7 +219,7 @@ Om du vill se alla registrerade resurs leverantörer för din prenumeration anv�
 az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
 ```
 
-Om du vill registrera en resurs leverantör använder du:
+Om du vill behålla minst privilegier i prenumerationen registrerar du bara de resurs leverantörer som du är redo att använda. Om du vill registrera en resurs leverantör använder du:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Batch

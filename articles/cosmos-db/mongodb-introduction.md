@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/25/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 8ae8108c52e150625540c8b13fa66a03f985ba5a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8205ecab3abfc7a944c12db1aca2bf594f6cd98f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184628"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349460"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API för Azure Cosmos DB för MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -56,7 +56,7 @@ Här följer några tips för att komma igång:
 
 * Följ självstudien [Anslut ett MongoDB-program till Azure Cosmos DB](connect-mongodb-account.md) om du vill lära dig hur du hämtar information om anslutningssträngar för ditt konto.
 * Följ självstudiekursen [Använda Studio 3T med Azure Cosmos DB](mongodb-mongochef.md) om du vill lära dig hur du skapar en anslutning mellan din Cosmos-databas och MongoDB-appen i Studio 3T.
-* Följ självstudiekursen [Importera MongoDB-data till Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) om du vill lära dig hur du importerar dina data till en Cosmos-databas.
+* Följ självstudiekursen [Importera MongoDB-data till Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) om du vill lära dig hur du importerar dina data till en Cosmos-databas.
 * Anslut till ett Cosmos-konto med [Robo 3T](mongodb-robomongo.md).
 * Lär dig hur du [konfigurerar läsinställningar för globalt distribuerade appar](../cosmos-db/tutorial-global-distribution-mongodb.md).
 * Hitta lösningarna som ofta hittar fel i vår [fel söknings guide](mongodb-troubleshoot.md)

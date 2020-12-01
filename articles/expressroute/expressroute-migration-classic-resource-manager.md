@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: duau
-ms.openlocfilehash: ac6fe619fc1c65b9ced18227d08cde50997eb7d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57c439cf8ac52d93d231d6ff33f72a5a942dec6a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395289"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351613"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Migrera ExpressRoute-associerade virtuella nätverk från klassiskt läge till Resource Manager
 
@@ -29,10 +29,10 @@ Den här artikeln förklarar hur du migrerar ExpressRoute virtuella nätverk fr�
 * Se till att du har en resurs grupp som har skapats i distributions modellen för Resource Manager.
 * Läs följande dokumentation om migrering av resurser:
 
-    * [Plattformsstödd migrering av IaaS-resurser från klassisk till Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+    * [Plattformsstödd migrering av IaaS-resurser från klassisk till Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)
     * [En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-deep-dive.md)
     * [Vanliga frågor och svar: migrering av IaaS-resurser som stöds från klassisk till Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-faq.md)
-    * [Granska de vanligaste migrerings felen och begränsningarna](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+    * [Granska de vanligaste migrerings felen och begränsningarna](../virtual-machines/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="supported-and-unsupported-scenarios"></a>Scenarier som stöds och som inte stöds
 
@@ -82,7 +82,7 @@ I det här avsnittet beskrivs de steg som ska följas för att migrera ett virtu
    ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Plattformsstödd migrering av IaaS-resurser från klassisk till Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+* [Plattformsstödd migrering av IaaS-resurser från klassisk till Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)
 * [En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-deep-dive.md)
 * [Vanliga frågor och svar: migrering av IaaS-resurser som stöds från klassisk till Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-faq.md)
-* [Granska de vanligaste migrerings felen och begränsningarna](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Granska de vanligaste migrerings felen och begränsningarna](../virtual-machines/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

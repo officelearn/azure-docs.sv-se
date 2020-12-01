@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: bd2032d565f5bd1fb430449be8b8c08e222f531d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 085dd18214f795566669fb862bba63b67eb9115d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025841"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350372"
 ---
 # <a name="build-an-enrollment-app-for-android-with-react"></a>Bygg en registrerings app för Android med reagera
 
@@ -74,7 +74,7 @@ Om du vill utöka appens funktioner så att de täcker den fullständiga registr
 
 ### <a name="android"></a>Android
 
-Kontrol lera först att appen är redo för produktions distribution: ta bort alla nycklar eller hemligheter från App-koden och se till att du har följt de [rekommenderade säkerhets metoderna](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp).
+Kontrol lera först att appen är redo för produktions distribution: ta bort alla nycklar eller hemligheter från App-koden och se till att du har följt de [rekommenderade säkerhets metoderna](../cognitive-services-security.md?tabs=command-line%2ccsharp).
 
 När du är redo att publicera din app för produktion genererar du en APK-fil för klar ande paket, vilket är paket fil formatet för Android-appar. Den här APK-filen måste vara signerad med en privat nyckel. Med den här versionen av versionen kan du börja distribuera appen till dina enheter direkt. 
 

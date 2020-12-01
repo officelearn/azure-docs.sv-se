@@ -11,14 +11,14 @@ ms.date: 09/22/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b7aa0bf8c82990a00b4e41041145a67ee2f02b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e272c402cac803d10d9998298ce6d3370d0e000
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91637365"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348811"
 ---
-# <a name="azure-ad-connect-cloud-provisioning-attibute-mapping"></a>Azure AD Connect mappning av attribut Cloud Provisioning
+# <a name="azure-ad-connect-cloud-provisioning-attribute-mapping"></a>Azure AD Connect mappning av attributmappning för moln etablering
 
 Azure AD Connect Cloud etableringen har introducerat en ny funktion som gör att du enkelt kan mappa attribut mellan dina lokala användar-och grupp objekt och objekten i Azure AD.  Den här funktionen har lagts till i konfigurationen för moln etablering.
 
@@ -54,13 +54,13 @@ Tillsammans med den här egenskapen stöder attribut-mappningar även följande 
 ## <a name="using-attribute-mapping"></a>Använda Attribute-mappning
 Följ stegen nedan om du vill använda den nya funktionen.
 
- 1.  I Azure Portal väljer du **Azure Active Directory**.
+ 1.  Välj **Azure Active Directory** i Azure Portal.
  2.  Välj **Azure AD Connect**.
  3.  Välj **Hantera etablering**.
 
    ![Hantera etablering](media/how-to-configure/manage1.png)
  
- 4. Under **konfiguration**väljer du din konfiguration.
+ 4. Under **konfiguration** väljer du din konfiguration.
  5. Välj **Klicka om du vill redigera mappningar**.  Då öppnas skärmen mappning av attribut.
 
  ![Lägger till attribut](media/how-to-attribute-mapping/mapping6.png)
@@ -82,10 +82,10 @@ Följ stegen nedan om du vill använda den nya funktionen.
 ## <a name="test-your-attribute-mapping"></a>Testa din attributmappning
 Du kan testa din attributmappning genom att använda [etablering på begäran](how-to-on-demand-provision.md).  Från 
 
-1.  I Azure Portal väljer du **Azure Active Directory**.
+1.  Välj **Azure Active Directory** i Azure Portal.
 2.  Välj **Azure AD Connect**.
 3.  Välj **Hantera etablering**.
-4. Under **konfiguration**väljer du din konfiguration.
+4. Under **konfiguration** väljer du din konfiguration.
 5. Under **Verifiera** klickar du på knappen **Tillhandahåll en användare** . 
 6. På sidan etablering på begäran.  Ange det **unika namnet** för en användare eller grupp och klicka på knappen **Tillhandahåll** .  
 7. När den är klar bör du se en lyckad skärm och en grön kryss ruta som anger att den har kon figurer ATS.  

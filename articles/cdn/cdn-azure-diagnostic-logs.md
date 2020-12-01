@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: e5d84616e70d2a28abf3937b485f4fcf5258c43e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fdb609a243656e2c75159cd2d4e70e2f965ae896
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779415"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352124"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Diagnostikloggar – Azure Content Delivery Network
 
@@ -52,26 +52,26 @@ Följ de här stegen för att aktivera loggning för din Azure CDN-slutpunkt:
 
 3. Välj **diagnostikloggar** i avsnittet **övervakning** :
 
-    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Välj CDN-slutpunkt." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Välj diagnostikloggar." border="true":::
 
 ### <a name="enable-logging-with-azure-storage"></a>Aktivera loggning med Azure Storage
 
 Följ dessa steg om du vill använda ett lagrings konto för att lagra loggarna:
 
  >[!NOTE] 
- >Du måste ange ett lagrings konto för att kunna slutföra dessa steg. Se: **[skapa ett Azure Storage konto](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%252fazure%252fstorage%252fblobs%252ftoc.json)** för mer information.
+ >Du måste ange ett lagrings konto för att kunna slutföra dessa steg. Se: **[skapa ett Azure Storage konto](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** för mer information.
     
-1. Ange ett namn för inställningarna för diagnostikinställningar för **diagnostiskt inställnings namn** .
+1. Ange ett namn för inställningarna för diagnostikinställningar för **diagnostiskt inställnings namn**.
  
-2. Välj **Arkiv till ett lagrings konto** och välj sedan **CoreAnalytics** . 
+2. Välj **Arkiv till ett lagrings konto** och välj sedan **CoreAnalytics**. 
 
 3. För **kvarhållning (dagar)** väljer du antalet dagar för kvarhållning. En kvarhållning på noll dagar lagrar loggarna på obestämd tid. 
 
 4. Välj prenumerations-och lagrings konto för loggarna.
 
-    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Välj CDN-slutpunkt." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Diagnostikloggar-lagring." border="true":::
 
-3. Välj **Spara** .
+3. Välj **Spara**.
 
 ### <a name="send-to-log-analytics"></a>Skicka till Log Analytics
 
@@ -80,15 +80,15 @@ Följ dessa steg om du vill använda Log Analytics för loggarna:
 >[!NOTE] 
 >En Log Analytics-arbetsyta krävs för att slutföra de här stegen. Mer information hittar du **[i: skapa en Log Analytics arbets yta i Azure Portal](../azure-monitor/learn/quick-create-workspace.md)** .
     
-1. Ange ett namn för inställningarna för diagnostikinställningar för **diagnostiskt inställnings namn** .
+1. Ange ett namn för inställningarna för diagnostikinställningar för **diagnostiskt inställnings namn**.
 
-2. Välj **Skicka till Log Analytics** och välj sedan **CoreAnalytics** . 
+2. Välj **Skicka till Log Analytics** och välj sedan **CoreAnalytics**. 
 
 3. Välj prenumerationen och Log Analytics arbets ytan för loggarna.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Välj CDN-slutpunkt." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Diagnostikloggar – Log Analytics." border="true":::
 
-4. Välj **Spara** .
+4. Välj **Spara**.
 
 ### <a name="stream-to-an-event-hub"></a>Strömma till en händelsehubb
 
@@ -97,15 +97,15 @@ Följ dessa steg om du vill använda en Event Hub för loggarna:
 >[!NOTE] 
 >En Event Hub krävs för att slutföra de här stegen. Se: **[snabb start: skapa en Event Hub med Azure Portal](../event-hubs/event-hubs-create.md)** för mer information.
     
-1. Ange ett namn för inställningarna för diagnostikinställningar för **diagnostiskt inställnings namn** .
+1. Ange ett namn för inställningarna för diagnostikinställningar för **diagnostiskt inställnings namn**.
 
-2. Välj **Stream till en händelsehubben** och välj sedan **CoreAnalytics** . 
+2. Välj **Stream till en händelsehubben** och välj sedan **CoreAnalytics**. 
 
 3. Välj namn området för prenumeration och händelsehubben för loggarna.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Välj CDN-slutpunkt." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Diagnostikloggar – Event Hub." border="true":::
 
-4. Välj **Spara** .
+4. Välj **Spara**.
 
 
 ## <a name="enable-logging-with-powershell"></a>aktivera loggning med PowerShell
@@ -190,8 +190,8 @@ Information om hur du hämtar verktyget finns [Azure Storage Explorer](https://s
 1.  Öppna **Microsoft Azure Storage Explorer**
 2.  Hitta lagrings kontot
 3.  Expandera noden **BLOB containers** under det här lagrings kontot.
-4.  Välj behållaren med namnet *Insights-logs-coreanalytics* .
-5.  Resultaten visas i den högra rutan, med början på den första nivån som *resourceId =* . Fortsätt att markera varje nivå tills du hittar filen *PT1H.js* . En förklaring av sökvägen finns i [BLOB Path-format](cdn-azure-diagnostic-logs.md#blob-path-format).
+4.  Välj behållaren med namnet *Insights-logs-coreanalytics*.
+5.  Resultaten visas i den högra rutan, med början på den första nivån som *resourceId =*. Fortsätt att markera varje nivå tills du hittar filen *PT1H.js*. En förklaring av sökvägen finns i [BLOB Path-format](cdn-azure-diagnostic-logs.md#blob-path-format).
 6.  Varje Blob- *PT1H.jsi* filen representerar analys loggar för en timme för en angiven CDN-slutpunkt eller dess anpassade domän.
 7.  Schemat för innehållet i denna JSON-fil beskrivs i avsnittet-schemat i Core Analytics-loggarna.
 
@@ -229,7 +229,7 @@ Så här kan du använda verktyget:
 
 ## <a name="log-data-delays"></a>Logga data fördröjningar
 
-I följande tabell visas fördröjningar i logg data för **Azure CDN Standard från Microsoft** , **Azure CDN Standard från Akamai** och **Azure CDN Standard/Premium från Verizon** .
+I följande tabell visas fördröjningar i logg data för **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Akamai** och **Azure CDN Standard/Premium från Verizon**.
 
 Microsoft logg data fördröjningar | Data fördröjningar för Verizon-logg | Akamai logg data fördröjningar
 --- | --- | ---
@@ -249,7 +249,7 @@ I följande tabell visas en lista över mått som är tillgängliga i Core Analy
 Alla mått är inte tillgängliga från alla leverantörer, även om sådana skillnader är minimala. Tabellen visar även om ett specifikt mått är tillgängligt från en leverantör. Måtten är endast tillgängliga för de CDN-slutpunkter som har trafik på dem.
 
 
-|Mått                     | Beskrivning | Microsoft | Verizon | Akamai |
+|Metric                     | Beskrivning | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | RequestCountTotal         | Totalt antal begär ande träffar under denna period. | Ja | Ja |Ja |
 | RequestCountHttpStatus2xx | Antal begär Anden som resulterade i en 2xx HTTP-kod (till exempel 200, 202). | Ja | Ja |Ja |
@@ -257,27 +257,27 @@ Alla mått är inte tillgängliga från alla leverantörer, även om sådana ski
 | RequestCountHttpStatus4xx | Antal begär Anden som resulterade i en 4xx HTTP-kod (till exempel 400, 404). | Ja | Ja |Ja |
 | RequestCountHttpStatus5xx | Antal begär Anden som resulterade i en 5xx HTTP-kod (till exempel 500, 504). | Ja | Ja |Ja |
 | RequestCountHttpStatusOthers | Antal andra HTTP-koder (utanför 2xx-5xx). | Ja | Ja |Ja |
-| RequestCountHttpStatus200 | Antal begär Anden som resulterade i ett 200-HTTP-kods svar. | Ja | Nej  |Ja |
-| RequestCountHttpStatus206 | Antal begär Anden som resulterade i ett 206-HTTP-kods svar. | Ja | Nej  |Ja |
-| RequestCountHttpStatus302 | Antal begär Anden som resulterade i ett 302-HTTP-kods svar. | Ja | Nej  |Ja |
-| RequestCountHttpStatus304 | Antal begär Anden som resulterade i ett 304-HTTP-kods svar. | Ja | Nej  |Ja |
-| RequestCountHttpStatus404 | Antal begär Anden som resulterade i ett 404-HTTP-kods svar. | Ja | Nej  |Ja |
-| RequestCountCacheHit | Antal begär Anden som resulterade i en cacheträff. Till gången betjänades direkt från POP till klienten. | Ja | Ja | Nej  |
-| RequestCountCacheMiss | Antal begär Anden som resulterade i ett cache-missar. Ett cache-missar innebär att till gången inte hittades på den POP som är närmast klienten och hämtades från ursprunget. | Ja | Ja | Nej |
-| RequestCountCacheNoCache | Antal begär anden till en till gång som inte tillåts att cachelagras på grund av en användar konfiguration på gränsen. | Ja | Ja | Nej |
-| RequestCountCacheUncacheable | Antal begär anden till till gångar som inte kan cachelagras av till gångens Cache-Control och som förfaller huvuden. Det här antalet anger att den inte ska cachelagras på en POP-eller HTTP-klient. | Ja | Ja | Nej |
-| RequestCountCacheOthers | Antal begär Anden med cache-status som inte omfattas av ovan. | Nej | Ja | Nej  |
+| RequestCountHttpStatus200 | Antal begär Anden som resulterade i ett 200-HTTP-kods svar. | Ja | Inga  |Ja |
+| RequestCountHttpStatus206 | Antal begär Anden som resulterade i ett 206-HTTP-kods svar. | Ja | Inga  |Ja |
+| RequestCountHttpStatus302 | Antal begär Anden som resulterade i ett 302-HTTP-kods svar. | Ja | Inga  |Ja |
+| RequestCountHttpStatus304 | Antal begär Anden som resulterade i ett 304-HTTP-kods svar. | Ja | Inga  |Ja |
+| RequestCountHttpStatus404 | Antal begär Anden som resulterade i ett 404-HTTP-kods svar. | Ja | Inga  |Ja |
+| RequestCountCacheHit | Antal begär Anden som resulterade i en cacheträff. Till gången betjänades direkt från POP till klienten. | Ja | Ja | Inga  |
+| RequestCountCacheMiss | Antal begär Anden som resulterade i ett cache-missar. Ett cache-missar innebär att till gången inte hittades på den POP som är närmast klienten och hämtades från ursprunget. | Ja | Ja | Inga |
+| RequestCountCacheNoCache | Antal begär anden till en till gång som inte tillåts att cachelagras på grund av en användar konfiguration på gränsen. | Ja | Ja | Inga |
+| RequestCountCacheUncacheable | Antal begär anden till till gångar som inte kan cachelagras av till gångens Cache-Control och som förfaller huvuden. Det här antalet anger att den inte ska cachelagras på en POP-eller HTTP-klient. | Ja | Ja | Inga |
+| RequestCountCacheOthers | Antal begär Anden med cache-status som inte omfattas av ovan. | Inga | Ja | Inga  |
 | EgressTotal | Utgående data överföring i GB | Ja |Ja |Ja |
-| EgressHttpStatus2xx | Utgående data överföring * för svar med 2xx HTTP-status koder i GB. | Ja | Ja | Nej  |
-| EgressHttpStatus3xx | Utgående data överföring för svar med 3xx HTTP-status koder i GB. | Ja | Ja | Nej  |
-| EgressHttpStatus4xx | Utgående data överföring för svar med 4xx HTTP-status koder i GB. | Ja | Ja | Nej  |
-| EgressHttpStatus5xx | Utgående data överföring för svar med 5xx HTTP-status koder i GB. | Ja | Ja | Nej |
-| EgressHttpStatusOthers | Utgående data överföring för svar med andra HTTP-statuskod i GB. | Ja | Ja | Nej  |
-| EgressCacheHit | Utgående data överföring för svar som levererades direkt från CDN-cachen på CDN-pop/-kanter. | Ja | Ja | Nej |
-| EgressCacheMiss. | Utgående data överföring för svar som inte hittades på den närmaste POP-servern och som hämtats från ursprungs servern. | Ja | Ja | Nej |
-| EgressCacheNoCache | Utgående data överföring för till gångar som förhindras från att cachelagras på grund av en användar konfiguration på gränsen. | Ja | Ja | Nej |
-| EgressCacheUncacheable | Utgående data överföring för till gångar som inte kan cachelagras av till gångens Cache-Control och, eller som upphör att gälla. Anger att den inte ska cachelagras på en POP-eller HTTP-klient. | Ja | Ja | Nej |
-| EgressCacheOthers | Utgående data överföringar för andra cache-scenarier. | Nej | Ja | Nej |
+| EgressHttpStatus2xx | Utgående data överföring * för svar med 2xx HTTP-status koder i GB. | Ja | Ja | Inga  |
+| EgressHttpStatus3xx | Utgående data överföring för svar med 3xx HTTP-status koder i GB. | Ja | Ja | Inga  |
+| EgressHttpStatus4xx | Utgående data överföring för svar med 4xx HTTP-status koder i GB. | Ja | Ja | Inga  |
+| EgressHttpStatus5xx | Utgående data överföring för svar med 5xx HTTP-status koder i GB. | Ja | Ja | Inga |
+| EgressHttpStatusOthers | Utgående data överföring för svar med andra HTTP-statuskod i GB. | Ja | Ja | Inga  |
+| EgressCacheHit | Utgående data överföring för svar som levererades direkt från CDN-cachen på CDN-pop/-kanter. | Ja | Ja | Inga |
+| EgressCacheMiss. | Utgående data överföring för svar som inte hittades på den närmaste POP-servern och som hämtats från ursprungs servern. | Ja | Ja | Inga |
+| EgressCacheNoCache | Utgående data överföring för till gångar som förhindras från att cachelagras på grund av en användar konfiguration på gränsen. | Ja | Ja | Inga |
+| EgressCacheUncacheable | Utgående data överföring för till gångar som inte kan cachelagras av till gångens Cache-Control och, eller som upphör att gälla. Anger att den inte ska cachelagras på en POP-eller HTTP-klient. | Ja | Ja | Inga |
+| EgressCacheOthers | Utgående data överföringar för andra cache-scenarier. | Inga | Ja | Inga |
 
 * Utgående data överföring avser trafik som levereras från CDN POP-servrar till klienten.
 

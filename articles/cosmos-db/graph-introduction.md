@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 11/25/2020
 ms.author: chrande
-ms.openlocfilehash: 56ed1e653547b3c0e3469f820eb33155aedb1bcb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c2165ea6273ad90cfb95242dfe72538c0a5ef64c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187212"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350066"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introduktion till Gremlin-API i Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -56,7 +56,7 @@ Följande är de differentierade funktionerna som Azure Cosmos DB Gremlin-API: e
 
 * **Automatisk indexering**
 
-  Som standard indexerar Azure Cosmos DB automatiskt alla egenskaper i noderna (kallas även hörn) och kanter i grafen och inte förväntar sig eller kräver något schema eller skapandet av sekundära index. Läs mer om [indexering i Azure Cosmos DB](/azure/cosmos-db/index-overview).
+  Som standard indexerar Azure Cosmos DB automatiskt alla egenskaper i noderna (kallas även hörn) och kanter i grafen och inte förväntar sig eller kräver något schema eller skapandet av sekundära index. Läs mer om [indexering i Azure Cosmos DB](./index-overview.md).
 
 * **Kompatibilitet med Apache TinkerPop**
 

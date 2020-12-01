@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 55a7e117ebd49f268d4b075d58791df4e9223fdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a61e87c660bf2d2f0f4c8d02bd1699c58f8da667
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849270"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350678"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Skapa en pool med diskkryptering aktiverat
 
@@ -25,8 +25,8 @@ Med en batch-pool kan du komma åt och lagra data på de operativ system och tem
 
 Batch använder en av dessa disk krypterings tekniker på datornoderna, baserat på konfiguration av pooler och regional support.
 
-- [Hanterad disk kryptering i vila med plattforms hanterade nycklar](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)
-- [Kryptering på värden med en plattforms-hanterad nyckel](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [Hanterad disk kryptering i vila med plattforms hanterade nycklar](../virtual-machines/disk-encryption.md#platform-managed-keys)
+- [Kryptering på värden med en plattforms-hanterad nyckel](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
 
 > [!IMPORTANT]
@@ -44,7 +44,7 @@ När du skapar en batch-pool i Azure Portal väljer du antingen **TemporaryDisk*
 
 När poolen har skapats kan du se konfigurations målen för disk kryptering i poolens **Egenskaper** -avsnitt.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Skärm bild av konfigurations alternativet disk kryptering i Azure Portal.":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Skärm bild som visar konfigurations målen för disk kryptering i Azure Portal.":::
 
 ## <a name="examples"></a>Exempel
 
@@ -107,5 +107,5 @@ az batch pool create \
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [kryptering på Server sidan av Azure-disklagring](../virtual-machines/windows/disk-encryption.md).
+- Läs mer om [kryptering på Server sidan av Azure-disklagring](../virtual-machines/disk-encryption.md).
 - En djupgående översikt över batch finns i [batch-tjänstens arbets flöde och resurser](batch-service-workflow-features.md).

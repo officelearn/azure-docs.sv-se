@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: b6d9ec0760cc8d95f712cfc7a5478de1a99465ef
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 76d7f4e31934480be57cd5ac133c1c7e6a9dd364
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379879"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349613"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Självstudie: Skapa en enkelsidig app med videosökning
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 Med API för videosökning i Bing kan du söka på webben och få videoresultat som är relevanta för en sökfråga. I de här självstudierna skapar vi ett enkelsidigt program som använder API för sökning i Bing för att visa sökresultat på sidan. Programmet innehåller komponenterna HTML, CSS och JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.
@@ -314,7 +314,7 @@ Sökresultaten returneras som `value`-objektet på den översta nivån i JSON-sv
 
 API:et för nyhetssökning i Bing returnerar upp till fyra olika typer av relaterade resultat i sitt respektive toppnivåobjekt. De är:
 
-|Relation|Description|
+|Relation|Beskrivning|
 |-|-|
 |`pivotSuggestions`|Frågor som ersätter ett pivotord i den ursprungliga sökningen med ett annat. Om du till exempel söker efter ”röda blommor” kan ett pivotord vara ”röda”, och ett pivotförslag kan vara ”gula blommor”.|
 |`queryExpansions`|Frågor som begränsar den ursprungliga sökningen genom att lägga till fler termer. Om du exempelvis söker efter ”Microsoft Surface” kan en frågeexpansion vara ”Microsoft Surface Pro”.|

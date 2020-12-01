@@ -3,12 +3,12 @@ title: Nyheter Viktig information – Azure Event Grid
 description: Lär dig mer om vad som är nytt med Azure Event Grid, till exempel senaste versions information, kända problem, fel korrigeringar, inaktuella funktioner och kommande ändringar.
 ms.topic: overview
 ms.date: 07/23/2020
-ms.openlocfilehash: 1edfa3e2bc4c8adae113b2215b7fb0483fba4c02
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7528cef7007704bbf434f16622707da8920eec2b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87172786"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350015"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Vad är nytt i Azure Event Grid?
 
@@ -40,7 +40,7 @@ Azure Event Grid tar emot förbättringar regelbundet. För att hålla dig uppda
 - Den här versionen innehåller ytterligare fel korrigeringar för bättre kvalitet.
 - Som version 5.3.1 – för hands version motsvarar den här versionen 2020-04-01-Preview API-versionen, som innehåller följande nya funktioner: 
     - [Stöd för IP-filtrering vid publicering av händelser till domäner och ämnen](configure-firewall.md)
-    - [Partnerämnen](partner-topics-overview.md)
+    - [Partnerämnen](./partner-events-overview.md)
     - [System ämnen som spårade resurser i Azure Portal](system-topics.md)
     - [Händelse leverans med hanterad tjänst identitet](managed-service-identity.md) 
     - [Stöd för privata länk tjänster](configure-private-endpoints.md)
@@ -49,7 +49,7 @@ Azure Event Grid tar emot förbättringar regelbundet. För att hålla dig uppda
 - Den här versionen innehåller flera fel korrigeringar för att förbättra kvaliteten.
 - Som version 5.3.0 – för hands version motsvarar den här versionen 2020-04-01-Preview API-versionen, som innehåller följande nya funktioner: 
     - [Stöd för IP-filtrering vid publicering av händelser till domäner och ämnen](configure-firewall.md)
-    - [Partnerämnen](partner-topics-overview.md)
+    - [Partnerämnen](./partner-events-overview.md)
     - [System ämnen som spårade resurser i Azure Portal](system-topics.md)
     - [Händelse leverans med hanterad tjänst identitet](managed-service-identity.md) 
     - [Stöd för privata länk tjänster](configure-private-endpoints.md)
@@ -59,7 +59,7 @@ Azure Event Grid tar emot förbättringar regelbundet. För att hålla dig uppda
 - Som version 5.2.0 – för hands version motsvarar den här versionen 2020-04-01-Preview API-versionen.
 - Den lägger till stöd för följande nya funktioner: 
     - [Stöd för IP-filtrering vid publicering av händelser till domäner och ämnen](configure-firewall.md)
-    - [Partnerämnen](partner-topics-overview.md)
+    - [Partnerämnen](./partner-events-overview.md)
     - [System ämnen som spårade resurser i Azure Portal](system-topics.md)
     - [Händelse leverans med hanterad tjänst identitet](managed-service-identity.md) 
     - [Stöd för privata länk tjänster](configure-private-endpoints.md)

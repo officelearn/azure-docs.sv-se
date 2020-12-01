@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 2716f037de533e14ae8e57706134c8a2b135b440
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2fd7a3e512b79651fdcf6a6ac0c14822361fc263
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322374"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350202"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Översikt över Azure HDInsight 4,0
 
@@ -77,7 +77,7 @@ Apache Oozie 4.3.1 ingår i HDI 4.0 med följande ändringar:
 
 * Oozie kör inte längre Hive-åtgärder. Hive CLI har tagits bort och ersatts med BeeLine.
 
-* Du kan exkludera oönskade beroenden från ”share lib” genom att ta med ett exkluderingsmönster i din **job.properties** -fil.
+* Du kan exkludera oönskade beroenden från ”share lib” genom att ta med ett exkluderingsmönster i din **job.properties**-fil.
 
 Läs mer om [Apache Oozie](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/patch_oozie.html).
 
@@ -102,9 +102,9 @@ Det finns ingen uppgraderings väg som stöds från tidigare versioner av HDInsi
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Guide för HBase-migrering](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-migrate-new-version)
-* [Guide för Hive-migrering](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-migrate-workloads)
-* [Guide för Kafka-migrering](https://docs.microsoft.com/azure/hdinsight/kafka/migrate-versions)
-* [Guide för Spark-migrering](https://docs.microsoft.com/azure/hdinsight/spark/migrate-versions)
+* [Guide för HBase-migrering](./hbase/apache-hbase-migrate-new-version.md)
+* [Guide för Hive-migrering](./interactive-query/apache-hive-migrate-workloads.md)
+* [Guide för Kafka-migrering](./kafka/migrate-versions.md)
+* [Guide för Spark-migrering](./spark/migrate-versions.md)
 * [Dokumentation om Azure HDInsight](index.yml)
 * [Viktig information](hdinsight-release-notes.md)

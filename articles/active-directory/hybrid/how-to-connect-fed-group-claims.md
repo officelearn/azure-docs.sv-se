@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: cb828eeb408a170b93ffc73b58f14b3f7a883cc4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: bef5942707c1ded22ba82bdb0d945b9fdb23fffa
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95247242"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349358"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Konfigurera grupp anspråk för program med Azure Active Directory
 
@@ -58,7 +58,7 @@ Men om ett befintligt program förväntar sig att använda grupp information via
 
 - När du använder grupp medlemskap för auktorisering i program är det bättre att använda gruppen ObjectID. Gruppen ObjectID är oföränderlig och unik i Azure Active Directory och är tillgänglig för alla grupper.
 - Om du använder den lokala gruppens sAMAccountName för auktorisering använder du kvalificerade domän namn.  Det finns mindre risk för namn konflikt. sAMAccountName kan vara unikt inom en Active Directory domän, men om mer än en Active Directory domän är synkroniserad med en Azure Active Directory-klient finns det en möjlighet för fler än en grupp att ha samma namn.
-- Överväg att använda [program roller](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) för att tillhandahålla ett lager av indirigering mellan grupp medlemskapet och programmet.   Programmet fattar sedan interna auktoriseringsbeslut baserat på roll clams i token.
+- Överväg att använda [program roller](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) för att tillhandahålla ett lager av indirigering mellan grupp medlemskapet och programmet.   Programmet fattar sedan interna auktoriseringsbeslut baserat på roll anspråk i token.
 - Om programmet har kon figurer ATS för att hämta Gruppattribut som synkroniseras från Active Directory och en grupp inte innehåller dessa attribut tas de inte med i anspråken.
 - Grupp anspråk i token inkluderar kapslade grupper, förutom när du använder alternativet för att begränsa grupp anspråk till grupper som tilldelats programmet.  Om en användare är medlem i GroupB och GroupB är medlem i Groupa, kommer grupp anspråk för användaren att innehålla både Groupa och GroupB. När en organisations användare har ett stort antal grupp medlemskap, kan antalet grupper som listas i token växa till token-storleken.  Azure Active Directory begränsar antalet grupper som det genererar i en token till 150 för SAML-kontroller och 200 för JWT.  Om en användare är medlem i ett större antal grupper utelämnas grupperna och en länk till diagrammets slut punkt för att hämta grupp information ingår i stället.
 
@@ -148,7 +148,7 @@ Giltiga värden är:
 | **Variabeln applicationgroup** | Genererar bara de grupper som uttryckligen tilldelas till programmet och användaren är medlem i |
 | **Alternativet** | Inga grupper returneras. (Det är inte sensetive att ingen fungerar som den ska, och det kan ställas in direkt i applikations manifestet.) |
 
-   Ett exempel:
+   Exempel:
 
    ```json
    "groupMembershipClaims": "SecurityGroup"

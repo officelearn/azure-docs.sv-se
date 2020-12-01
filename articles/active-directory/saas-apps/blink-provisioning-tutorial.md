@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 717500050aff89964ff959a4741aed01533ada70
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 886d6ff1d3437a9d45bdabc68b2bf3ab8cdaa3ef
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357138"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349998"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Blink för automatisk användar etablering
 
@@ -72,7 +72,7 @@ Innan du konfigurerar blinka för automatisk användar etablering med Azure AD m
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **blinkar** , väljer **blinkar** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **blinkar**, väljer **blinkar** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Blinkar i resultat listan](common/search-new-app.png)
 

@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: de74d7e3cf854f36d122be6a32c7fb4d449c5fe5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f591a9781cb81ec735d22f4f687f8d413923dc93
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175924"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349137"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -78,8 +78,8 @@ Här är de lägsta etablerade RU-gränserna i sammanfattning.
 
 | Resurs | Standardgräns |
 | --- | --- |
-| Lägsta ru: er per container ([dedikerat data flöde har allokerat läge](databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Lägsta ru: er per databas ([delat data flöde, etablerings läge](databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s för de första 25 behållarna. Ytterligare 100 RU/s för varje behållare efteråt. |
+| Lägsta ru: er per container ([dedikerat data flöde har allokerat läge](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Lägsta ru: er per databas ([delat data flöde, etablerings läge](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s för de första 25 behållarna. Ytterligare 100 RU/s för varje behållare efteråt. |
 
 Cosmos DB stöder programmerings skalning av data flöde (RU/s) per behållare eller databas via SDK: er eller portalen.    
 

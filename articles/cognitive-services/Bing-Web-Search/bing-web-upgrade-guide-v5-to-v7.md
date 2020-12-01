@@ -11,19 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 39848bcaded1669c6a6efd5b649ecf8e8343a596
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: d930543671a5328d76a38aa7e1b421c111e89e39
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381124"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349528"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Uppgradera från API för webbsökning i Bing V5 till v7
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Den här uppgraderings guiden identifierar ändringarna mellan version 5 och version 7 av API för webbsökning i Bing. Använd den här guiden för att hjälpa dig att identifiera de delar av programmet som du behöver uppdatera för att använda version 7.
 
@@ -31,7 +31,7 @@ Den här uppgraderings guiden identifierar ändringarna mellan version 5 och ver
 
 ### <a name="endpoints"></a>Slutpunkter
 
-- Slut punktens versions nummer har ändrats från V5 till v7. Till exempel https: \/ \/ API.Cognitive.Microsoft.com/Bing/ **v 7.0** /search.
+- Slut punktens versions nummer har ändrats från V5 till v7. Till exempel https: \/ \/ API.Cognitive.Microsoft.com/Bing/**v 7.0**/search.
 
 ### <a name="error-response-objects-and-error-codes"></a>Fel svars objekt och felkoder
 
@@ -44,7 +44,7 @@ Den här uppgraderings guiden identifierar ändringarna mellan version 5 och ver
 
 - Ersatt felkoderna för v5 med följande möjliga `code` `subCode` värden.
 
-|Kod|Under kod|Description
+|Kod|Under kod|Beskrivning
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av under kod villkoren inträffar. Svaret kommer att inkludera dessa fel om HTTP-statuskoden är 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran är ogiltig. Till exempel saknas en obligatorisk parameter eller också är ett parameter värde ogiltigt.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue är HTTP-status koden 400.<br/><br/>Om felet är HttpNotAllowed, HTTP-statuskod 410.
@@ -86,7 +86,7 @@ Blockerad|InvalidRequest. blockerad
 
 - Frågeparametern för [answerCount](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) har lagts till. Använd den här parametern för att ange det antal svar som du vill att svaret ska innehålla. Svaren väljs utifrån rangordning. Om du till exempel anger den här parametern till tre (3), innehåller svaret de tre främsta rankade svaren.  
 
-- Parametern [befordra](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) frågeparameter har lagts till. Använd den här parametern tillsammans med `answerCount` för att uttryckligen inkludera en eller flera svars typer, oavsett rangordning. Om du till exempel vill flytta videor och bilder till svaret ställer du in Höj till *videor, bilder*. Listan med svar som du vill befordra räknas inte mot `answerCount` gränsen. Om är till exempel `answerCount` 2 och `promote` är inställt på *videor, bilder* , kan svaret omfatta webb sidor, nyheter, videor och bilder.
+- Parametern [befordra](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) frågeparameter har lagts till. Använd den här parametern tillsammans med `answerCount` för att uttryckligen inkludera en eller flera svars typer, oavsett rangordning. Om du till exempel vill flytta videor och bilder till svaret ställer du in Höj till *videor, bilder*. Listan med svar som du vill befordra räknas inte mot `answerCount` gränsen. Om är till exempel `answerCount` 2 och `promote` är inställt på *videor, bilder*, kan svaret omfatta webb sidor, nyheter, videor och bilder.
 
 ### <a name="object-changes"></a>Objekt ändringar
 

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: bd41a2c3a101dd678be665fd7102b8ff33957824
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: be4338942057cf52bf26b7fd1e15f77e724d49f8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925772"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348916"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Binärt format i Azure Data Factory
 
@@ -33,11 +33,11 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Data uppsättningens typ-egenskap måste anges till **Binary** . | Yes      |
-| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning** . | Yes      |
-| komprimering | Grupp egenskaper för att konfigurera fil komprimering. Konfigurera det här avsnittet när du vill utföra komprimering/expandering under aktivitets körningen. | No |
-| typ | Komprimerings-codec som används för att läsa/skriva binära filer. <br>Tillåtna värden är **bzip2** , **gzip** , **DEFLATE** , **ZipDeflate** , **tjär** eller **TarGzip** . <br>**Obs!** när du använder kopierings aktivitet för att expandera **ZipDeflate** / **TarGzip** / **tar** filer och skriver till filbaserat mottagar data lager som standardfiler extraheras till mappen: `<path specified in dataset>/<folder named as source compressed file>/` , använder `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` du på [kopierings aktivitets källan](#binary-as-source) för att kontrol lera om namnet på den eller de komprimerade filerna är kvar som mappstruktur.| No       |
-| nivå | Komprimerings förhållandet. Använd när dataset används i kopierings aktiviteten Sink.<br>Tillåtna värden är **optimalt** eller **snabbast** .<br>- **Snabbast:** Komprimerings åtgärden bör utföras så snabbt som möjligt, även om den resulterande filen inte komprimeras optimalt.<br>- **Optimalt** : komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i avsnittet [komprimerings nivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
+| typ             | Data uppsättningens typ-egenskap måste anges till **Binary**. | Ja      |
+| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Ja      |
+| komprimering | Grupp egenskaper för att konfigurera fil komprimering. Konfigurera det här avsnittet när du vill utföra komprimering/expandering under aktivitets körningen. | Inga |
+| typ | Komprimerings-codec som används för att läsa/skriva binära filer. <br>Tillåtna värden är **bzip2**, **gzip**, **DEFLATE**, **ZipDeflate**, **tjär** eller **TarGzip**. <br>**Obs!** när du använder kopierings aktivitet för att expandera **ZipDeflate** / **TarGzip** / **tar** filer och skriver till filbaserat mottagar data lager som standardfiler extraheras till mappen: `<path specified in dataset>/<folder named as source compressed file>/` , använder `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` du på [kopierings aktivitets källan](#binary-as-source) för att kontrol lera om namnet på den eller de komprimerade filerna är kvar som mappstruktur.| Inga       |
+| nivå | Komprimerings förhållandet. Använd när dataset används i kopierings aktiviteten Sink.<br>Tillåtna värden är **optimalt** eller **snabbast**.<br>- **Snabbast:** Komprimerings åtgärden bör utföras så snabbt som möjligt, även om den resulterande filen inte komprimeras optimalt.<br>- **Optimalt**: komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i avsnittet [komprimerings nivå](/dotnet/api/system.io.compression.compressionlevel) . | Inga       |
 
 Nedan visas ett exempel på en binär data uppsättning på Azure Blob Storage:
 
@@ -73,22 +73,22 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="binary-as-source"></a>Binär som källa
 
-Följande egenskaper stöds i avsnittet Kopiera aktivitet **_ \_ källa \*** *.
+Följande egenskaper stöds i avsnittet Kopiera aktivitet **_ \_ källa \****.
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **BinarySource** . | Yes      |
-| formatSettings | En grupp med egenskaper. Läs tabellen med **binära Läs inställningar** nedan. | No       |
-| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet** . | No       |
+| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **BinarySource**. | Ja      |
+| formatSettings | En grupp med egenskaper. Läs tabellen med **binära Läs inställningar** nedan. | Inga       |
+| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Inga       |
 
 **Binära Läs inställningar** som stöds under `formatSettings` :
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typen för formatSettings måste anges till **BinaryReadSettings** . | Yes      |
-| compressionProperties | En grupp egenskaper för hur man dekomprimerar data för en angiven komprimerings-codec. | No       |
-| preserveZipFileNameAsFolder<br>( *under `compressionProperties` -> `type` som `ZipDeflateReadSettings`* ) | Gäller när indata-dataset konfigureras med **ZipDeflate** -komprimering. Anger om käll filens zip-filnamn ska bevaras som mappstruktur under kopieringen.<br>-Om värdet är **true (standard)** , Data Factory skriver zippade filer till `<path specified in dataset>/<folder named as source zip file>/` .<br>– Om värdet är **false** skriver data Factory zippade filer direkt till `<path specified in dataset>` . Se till att du inte har dubbla fil namn i olika käll-zip-filer för att undvika racing eller oväntat beteende.  | No |
-| preserveCompressionFileNameAsFolder<br>( *under `compressionProperties` -> `type` som `TarGZipReadSettings` eller `TarReadSettings`* ) | Gäller när indata-dataset konfigureras med **TarGzip** / **tar** komprimering. Anger om du vill bevara det komprimerade fil namnet för källan som mappstruktur under kopieringen.<br>– När värdet är **true (standard)** , Data Factory skriver expanderade filer till `<path specified in dataset>/<folder named as source compressed file>/` . <br>– Om det är inställt på **false** Data Factory skriver expanderade filer direkt till `<path specified in dataset>` . Se till att du inte har dubbla fil namn i olika källfiler för att undvika racing eller oväntat beteende. | No |
+| typ          | Typen för formatSettings måste anges till **BinaryReadSettings**. | Ja      |
+| compressionProperties | En grupp egenskaper för hur man dekomprimerar data för en angiven komprimerings-codec. | Inga       |
+| preserveZipFileNameAsFolder<br>(*under `compressionProperties` -> `type` som `ZipDeflateReadSettings`*) | Gäller när indata-dataset konfigureras med **ZipDeflate** -komprimering. Anger om käll filens zip-filnamn ska bevaras som mappstruktur under kopieringen.<br>-Om värdet är **true (standard)**, Data Factory skriver zippade filer till `<path specified in dataset>/<folder named as source zip file>/` .<br>– Om värdet är **false** skriver data Factory zippade filer direkt till `<path specified in dataset>` . Se till att du inte har dubbla fil namn i olika käll-zip-filer för att undvika racing eller oväntat beteende.  | Inga |
+| preserveCompressionFileNameAsFolder<br>(*under `compressionProperties` -> `type` som `TarGZipReadSettings` eller `TarReadSettings`*) | Gäller när indata-dataset konfigureras med **TarGzip** / **tar** komprimering. Anger om du vill bevara det komprimerade fil namnet för källan som mappstruktur under kopieringen.<br>– När värdet är **true (standard)**, Data Factory skriver expanderade filer till `<path specified in dataset>/<folder named as source compressed file>/` . <br>– Om det är inställt på **false** Data Factory skriver expanderade filer direkt till `<path specified in dataset>` . Se till att du inte har dubbla fil namn i olika källfiler för att undvika racing eller oväntat beteende. | Inga |
 
 ```json
 "activities": [
@@ -120,12 +120,12 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitet **_ \_ källa \*** *.
 
 ### <a name="binary-as-sink"></a>Binär som mottagare
 
-Följande egenskaper stöds i avsnittet Kopiera aktivitet **_ \_ mottagare \*** *.
+Följande egenskaper stöds i avsnittet Kopiera aktivitet **_ \_ mottagare \****.
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **BinarySink** . | Yes      |
-| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet** . | Nej       |
+| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **BinarySink**. | Ja      |
+| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Nej       |
 
 ## <a name="next-steps"></a>Nästa steg
 

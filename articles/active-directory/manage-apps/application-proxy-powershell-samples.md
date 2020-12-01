@@ -12,12 +12,12 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efe71fd77e9e4edb7fc7df4c633ae8f81177097b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f10e2b0aa5c7e178ae6b58805703fcb1b0ff3e2b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657828"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352498"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Azure AD PowerShell-exempel för Azure AD-programproxy
 
@@ -26,7 +26,7 @@ Följande tabell innehåller länkar till exempel på PowerShell-skript för Azu
 
 Mer information om de cmdlets som används i de här exemplen finns i [Application Management](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) och Application [proxy Connector Management](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management).
 
-| Länk | Description |
+| Länk | Beskrivning |
 |---|---|
 |**Application Proxy-appar**||
 | [Visa en lista med grundläggande information om alla Application Proxy-appar](scripts/powershell-get-all-app-proxy-apps-basic.md) | Visar grundläggande information (AppId, DisplayName, ObjId) om alla Application Proxy-appar i din katalog. |

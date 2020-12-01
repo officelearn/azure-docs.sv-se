@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: jodowns
-ms.openlocfilehash: 58efeaebcc9f643c725cde54fcbda6f65c4bd700
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 24a8a559d72eae4dab0b6e740b34890f1d7ff114
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94415171"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350791"
 ---
 # <a name="ddos-protection-on-front-door"></a>DDoS skydd på front dörren
 
@@ -36,7 +36,7 @@ Front dörren är en storskaligt skalad, globalt distribuerad tjänst. Vi har m�
 
 ## <a name="caching"></a>Caching
 
-[Frontend-funktioner för front dörren](./front-door-caching.md) kan användas för att skydda Server delar från stora trafik volymer som genereras av en attack. Cachelagrade resurser returneras från de främre dörr kant-noderna så att de inte vidarebefordras till Server delen. Jämna användnings tider för kort cache (sekunder eller minuter) på dynamiska svar kan avsevärt minska belastningen på backend-tjänster. Mer information om cachelagring av koncept och mönster finns i avsnittet [cachelagring](https://docs.microsoft.com/azure/architecture/best-practices/caching) och [cache-undan mönster](https://docs.microsoft.com/azure/architecture/patterns/cache-aside).
+[Frontend-funktioner för front dörren](./front-door-caching.md) kan användas för att skydda Server delar från stora trafik volymer som genereras av en attack. Cachelagrade resurser returneras från de främre dörr kant-noderna så att de inte vidarebefordras till Server delen. Jämna användnings tider för kort cache (sekunder eller minuter) på dynamiska svar kan avsevärt minska belastningen på backend-tjänster. Mer information om cachelagring av koncept och mönster finns i avsnittet [cachelagring](/azure/architecture/best-practices/caching) och [cache-undan mönster](/azure/architecture/patterns/cache-aside).
 
 ## <a name="web-application-firewall-waf"></a>Brandvägg för webbaserade program (WAF)
 

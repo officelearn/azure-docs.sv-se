@@ -1,20 +1,20 @@
 ---
 title: Distribuera mall – Azure Portal
-description: Lär dig hur du skapar din första Azure Resource Manager-mall med Azure-portalen och hur du distribuerar den.
+description: Lär dig hur du skapar din första Azure Resource Manager mall (ARM-mall) med hjälp av Azure Portal och hur du distribuerar den.
 author: mumian
 ms.date: 06/29/2020
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: c132d8337ccb46824b32ab4a6bcfc73bf5d0818b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bdbcecc247a4b5318ba44b92befa7e90ac47aa8c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95978564"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349630"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Snabb start: skapa och distribuera ARM-mallar med hjälp av Azure Portal
 
-Lär dig hur du genererar en Azure Resource Manager-mall (ARM) med hjälp av Azure Portal och hur du redigerar och distribuerar mallen från portalen. ARM-mallar är JSON-filer som definierar de resurser som du behöver distribuera för din lösning. Information om de begrepp som är kopplade till att distribuera och hantera dina Azure-lösningar finns i [Översikt över mall-distribution](overview.md).
+Lär dig hur du genererar en Azure Resource Manager mall (ARM-mall) med hjälp av Azure Portal och hur du redigerar och distribuerar mallen från portalen. ARM-mallar är JSON-filer som definierar de resurser som du behöver distribuera för din lösning. Information om de begrepp som är kopplade till att distribuera och hantera dina Azure-lösningar finns i [Översikt över mall-distribution](overview.md).
 
 ![Snabb starts Portal diagram för Resource Manager-mall](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 

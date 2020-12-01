@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 93d9cc871d1cb114f7f08b68eb8ae9d597e228b9
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 9c042d044f5ceba5a64d6bd7dfefa34bbc69b107
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376493"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353212"
 ---
 # <a name="manage-qna-maker-app"></a>Hantera QnA Maker app
 
@@ -23,7 +23,7 @@ Kunskaps basen ändras inte automatiskt. För att alla ändringar ska börja gä
 
 ## <a name="add-azure-role-based-access-control-azure-rbac"></a>Lägg till Azure-rollbaserad åtkomst kontroll (Azure RBAC)
 
-QnA Maker låter flera personer samar beta i alla kunskaps banker i samma QnA Maker-resurs. Den här funktionen tillhandahålls med [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../../active-directory/role-based-access-control-configure.md).
+QnA Maker låter flera personer samar beta i alla kunskaps banker i samma QnA Maker-resurs. Den här funktionen tillhandahålls med [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="access-at-the-qna-maker-resource-level"></a>Åtkomst på QnA Maker resurs nivå
 
@@ -91,7 +91,7 @@ Aktiv inlärning är inaktiverat som standard. Aktivera det om du vill se föres
 
 1. Välj **publicera** för att publicera kunskaps basen. Aktiva inlärnings frågor samlas endast in från GenerateAnswer API förutsägelse-slut punkten. Frågorna i test fönstret i QnA Makers portalen påverkar inte aktiv inlärning.
 
-1. Om du vill aktivera aktiv inlärning i QnA Maker portal går du till det övre högra hörnet och väljer ditt **namn** , gå till [**tjänst inställningar**](https://www.qnamaker.ai/UserSettings).
+1. Om du vill aktivera aktiv inlärning i QnA Maker portal går du till det övre högra hörnet och väljer ditt **namn**, gå till [**tjänst inställningar**](https://www.qnamaker.ai/UserSettings).
 
     ![Aktivera alternativ för den föreslagna frågan i Active Learning på sidan tjänst inställningar. Välj ditt användar namn på menyn längst upp till höger och välj sedan tjänst inställningar.](../media/improve-knowledge-base/Endpoint-Keys.png)
 

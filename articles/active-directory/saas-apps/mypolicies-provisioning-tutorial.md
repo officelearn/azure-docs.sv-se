@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 55f7b64c9ade91bb2923161d60568e3ea14ee034
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 221f63ab9a7eb3f71a4c730a11565dda64c9edc9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353527"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353594"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Självstudie: konfigurera principer för automatisk användar etablering
 
@@ -74,7 +74,7 @@ Om du vill konfigurera principer för automatisk användar etablering med Azure 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **principer** , väljer **principer** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **principer**, väljer **principer** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Principer i resultat listan](common/search-new-app.png)
 
@@ -155,7 +155,7 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 ## <a name="connector-limitations"></a>Kopplings begränsningar
 
-* Principer för principer kräver alltid **användar namn** , **e-post** och **externalId**.
+* Principer för principer kräver alltid **användar namn**, **e-post** och **externalId**.
 * Principer för att inte använda hård borttagningar för användarattribut stöds inte.
 
 ## <a name="change-log"></a>Ändringslogg

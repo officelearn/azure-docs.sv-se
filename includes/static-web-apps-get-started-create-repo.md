@@ -4,12 +4,12 @@ ms.service: static-web-apps
 ms.topic: include
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 6923356ff30f2abd32e9a100ceeb1e61a158ebb1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 06a54456a076ae425866c1fa502bd97c505e41c6
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027763"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356451"
 ---
 ## <a name="create-a-repository"></a>Klona en lagringsplats
 
@@ -17,8 +17,8 @@ Den här artikeln använder en lagrings plats för GitHub-mallar för att göra 
 
 # <a name="no-framework"></a>[Inget ramverk](#tab/vanilla-javascript)
 
-1. Se till att du är inloggad på GitHub och navigera till följande plats för att skapa en ny lagrings plats:
-    1. https://github.com/staticwebdev/vanilla-basic/generate – Om länken inte fungerar [loggar du in på GitHub](https://github.com/login?return_to=%2Fstaticwebdev%2Fvanilla-basic%2Fgenerate) och försöker igen
+1. Gå till följande plats för att skapa en ny lagrings plats:
+    1. [https://github.com/staticwebdev/vanilla-basic/generate](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate)
 1. Namnge din lagrings plats **först statisk-webb-app**
 
 > [!NOTE]
@@ -26,20 +26,20 @@ Den här artikeln använder en lagrings plats för GitHub-mallar för att göra 
 
 # <a name="angular"></a>[Angular](#tab/angular)
 
-1. Se till att du är inloggad på GitHub och navigera till följande plats för att skapa en ny lagrings plats:
-    1. https://github.com/staticwebdev/angular-basic/generate – Om länken inte fungerar [loggar du in på GitHub](https://github.com/login?return_to=%2Fstaticwebdev%2Fangular-basic%2Fgenerate) och försöker igen
+1. Gå till följande plats för att skapa en ny lagrings plats:
+    1. [https://github.com/staticwebdev/angular-basic/generate](https://github.com/login?return_to=%2Fstaticwebdev%2Fangular-basic%2Fgenerate)
 1. Namnge din lagrings plats **först statisk-webb-app**
 
 # <a name="react"></a>[React](#tab/react)
 
-1. Se till att du är inloggad på GitHub och navigera till följande plats för att skapa en ny lagrings plats:
-    1. https://github.com/staticwebdev/react-basic/generate – Om länken inte fungerar [loggar du in på GitHub](https://github.com/login?return_to=%2Fstaticwebdev%2Freact-basic%2Fgenerate) och försöker igen
+1. Gå till följande plats för att skapa en ny lagrings plats:
+    1. [https://github.com/staticwebdev/react-basic/generate](https://github.com/login?return_to=%2Fstaticwebdev%2Freact-basic%2Fgenerate)
 1. Namnge din lagrings plats **först statisk-webb-app**
 
 # <a name="vue"></a>[Vue](#tab/vue)
 
-1. Se till att du är inloggad på GitHub och navigera till följande plats för att skapa en ny lagrings plats:
-    1. https://github.com/staticwebdev/vue-basic/generate – Om länken inte fungerar [loggar du in på GitHub](https://github.com/login?return_to=%2Fstaticwebdev%2Fvue-basic%2Fgenerate) och försöker igen
+1. Gå till följande plats för att skapa en ny lagrings plats:
+    1. [https://github.com/staticwebdev/vue-basic/generate](https://github.com/login?return_to=%2Fstaticwebdev%2Fvue-basic%2Fgenerate)
 1. Namnge din lagrings plats **först statisk-webb-app**
 
 ---

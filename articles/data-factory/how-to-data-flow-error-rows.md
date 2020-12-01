@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: makromer
-ms.openlocfilehash: 49d11dfe3d42d99c610fae9fa64079a5fd87501f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: c8b0ae7058aecc1813d720a3fbb2a1a1f967cf40
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006803"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352617"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Hantera fel rader för SQL-trunkering i Data Factory mappa data flöden
 
@@ -23,7 +23,7 @@ Ett vanligt scenario i Data Factory när du använder mappnings data flöden är
 
 Det finns två primära metoder för att korrekt hantera fel vid skrivning av data till databasens Sink i ADF-dataflöden:
 
-* Ange [rad hantering](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#error-row-handling) av mottagar fel till "Fortsätt vid fel" vid bearbetning av databas data. Det här är en automatiserad catch-all-metod som inte kräver anpassad logik i ditt data flöde.
+* Ange [rad hantering](./connector-azure-sql-database.md#error-row-handling) av mottagar fel till "Fortsätt vid fel" vid bearbetning av databas data. Det här är en automatiserad catch-all-metod som inte kräver anpassad logik i ditt data flöde.
 * Du kan också följa stegen nedan för att tillhandahålla loggning av kolumner som inte passar i en mål Strängs kolumn, så att ditt data flöde kan fortsätta.
 
 > [!NOTE]

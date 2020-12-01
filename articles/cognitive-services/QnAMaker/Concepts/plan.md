@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 0be2fecfad4d2a2b829266fa1d9574bcc4c50eee
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 048b53186aa0be388d9d801cd6590d4295a4faa7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376695"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353178"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planera QnA Maker-appen
 
@@ -94,13 +94,13 @@ Du kan nu ha kunskaps banker på olika språk inom samma QnA Maker-resurs. När 
 
 ### <a name="ingest-data-sources"></a>Mata in data källor
 
-Du kan använda någon av följande inmatade [data källor](knowledge-base.md) för att skapa en kunskaps bas:
+Du kan använda någon av följande inmatade [data källor](../index.yml) för att skapa en kunskaps bas:
 
 * Offentlig URL
 * Privat SharePoint-URL
 * Fil
 
-Vid inmatnings processen konverteras [innehålls typer som stöds](content-types.md) till markdown. All ytterligare redigering av *svaret* görs med markdown. När du har skapat en kunskaps bas kan du redigera [QNA-par](question-answer-set.md) i QNA Maker Portal med RTF- [redigering](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
+Vid inmatnings processen konverteras [innehålls typer som stöds](../index.yml) till markdown. All ytterligare redigering av *svaret* görs med markdown. När du har skapat en kunskaps bas kan du redigera [QNA-par](question-answer-set.md) i QNA Maker Portal med RTF- [redigering](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
 ### <a name="data-format-considerations"></a>Överväganden för data format
 
@@ -124,17 +124,17 @@ Du bör utforma ditt konversations flöde med en loop i åtanke så att en anvä
 
 Medarbetare kan vara andra utvecklare som delar den fullständiga utvecklings stacken i kunskaps bas programmet eller kan vara begränsade till att bara redigera kunskaps basen.
 
-Redigering av kunskaps bas har stöd för flera [rollbaserade åtkomst behörigheter](../how-to/collaborate-knowledge-base.md) som du använder i Azure Portal för att begränsa omfattningen för en medarbetares förmågor.
+Redigering av kunskaps bas har stöd för flera [rollbaserade åtkomst behörigheter](../index.yml) som du använder i Azure Portal för att begränsa omfattningen för en medarbetares förmågor.
 
 ## <a name="integration-with-client-applications"></a>Integrering med klient program
 
-Integrering med [klient program](integration-with-other-applications.md) uppnås genom att skicka en fråga till körnings slut punkten för förutsägelse. En fråga skickas till din speciella kunskaps bas med en SDK-eller REST-baserad begäran till din QnA Makers webb programs slut punkt.
+Integrering med [klient program](../index.yml) uppnås genom att skicka en fråga till körnings slut punkten för förutsägelse. En fråga skickas till din speciella kunskaps bas med en SDK-eller REST-baserad begäran till din QnA Makers webb programs slut punkt.
 
 Om du vill autentisera en klientbegäran korrekt måste klient programmet skicka rätt autentiseringsuppgifter och ID för kunskaps bas. Om du använder en Azure Bot Service konfigurerar du inställningarna som en del av robot konfigurationen i Azure Portal.
 
 ### <a name="conversation-flow-in-a-client-application"></a>Konversations flöde i ett klient program
 
-Konversations flödet i ett [klient program](integration-with-other-applications.md), t. ex. en Azure-robot, kan kräva funktioner innan och efter att du har interagerat i kunskaps basen.
+Konversations flödet i ett [klient program](../index.yml), t. ex. en Azure-robot, kan kräva funktioner innan och efter att du har interagerat i kunskaps basen.
 
 Stöder ditt klient program konversations flödet, antingen genom att tillhandahålla alternativa metoder för att hantera uppföljnings-prompter eller inklusive CHI2TEST? I så fall kan du utforma dessa tidiga och se till att klient program frågan hanteras korrekt av en annan tjänst eller när den skickas till din kunskaps bas.
 
@@ -152,7 +152,7 @@ QnA Maker använder _Active Learning_ för att förbättra din kunskaps bas geno
 
 ### <a name="providing-a-default-answer"></a>Ange ett standard svar
 
-Om din kunskaps bas inte hittar något svar, returneras _standard svaret_. Detta svar kan konfigureras på sidan **Inställningar** i QNA Maker portalen eller i [API: erna](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
+Om din kunskaps bas inte hittar något svar, returneras _standard svaret_. Detta svar kan konfigureras på sidan **Inställningar** i QNA Maker portalen eller i [API: erna](/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
 
 Det här standardsvaret skiljer sig från standard svaret för Azure bot. Du konfigurerar standard svaret för din Azure-robot i Azure Portal som en del av konfigurations inställningarna. Den returneras när Poäng tröskelvärdet inte är uppfyllt.
 
@@ -197,7 +197,7 @@ Alla frågor till kunskaps basen lagras i Application Insights. Använd våra [v
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
 
-I den hanterade distributionen erbjuds telemetri via [tjänsten Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). Använd våra [vanligaste frågor](../how-to/get-analytics-knowledge-base.md) för att förstå dina mått.
+I den hanterade distributionen erbjuds telemetri via [tjänsten Azure Monitor](../../../azure-monitor/index.yml). Använd våra [vanligaste frågor](../how-to/get-analytics-knowledge-base.md) för att förstå dina mått.
 
 
 ---
@@ -217,7 +217,7 @@ Varje par kan innehålla:
 
 ### <a name="devops-development"></a>DevOps-utveckling
 
-Att utveckla en kunskaps bas som ska infogas i en DevOps-pipeline kräver att kunskaps basen isoleras under [batch-testning](../quickstarts/batch-testing.md).
+Att utveckla en kunskaps bas som ska infogas i en DevOps-pipeline kräver att kunskaps basen isoleras under [batch-testning](../index.yml).
 
 En kunskaps bas delar Kognitiv sökning indexet med alla andra kunskaps baser på den QnA Maker resursen. När kunskaps basen isoleras av en partition kan delning av index orsaka en skillnad i poängen jämfört med den publicerade kunskaps basen.
 

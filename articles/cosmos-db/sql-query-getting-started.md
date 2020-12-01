@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.author: tisande
-ms.openlocfilehash: 9176205b93519f0afac0c57f5da8593df6673c0f
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: c78e15a0656abd510bbc241d39ffd026afddfd96
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356628"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353671"
 ---
 # <a name="getting-started-with-sql-queries"></a>Komma igång med SQL-frågor
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,16 +34,16 @@ De flesta Läs tunga arbets belastningar på Azure Cosmos DB använda en kombina
 
 Här följer några exempel på hur du gör **SQL-frågor** med varje SDK:
 
-- [.NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples#query-examples)
-- [Java SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples#query-examples)
-- [Node.js SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-nodejs-samples#item-examples)
-- [Python SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-python-samples#item-examples)
+- [.NET SDK](./sql-api-dotnet-v3sdk-samples.md#query-examples)
+- [Java SDK](./sql-api-java-sdk-samples.md#query-examples)
+- [Node.js SDK](./sql-api-nodejs-samples.md#item-examples)
+- [Python SDK](./sql-api-python-samples.md#item-examples)
 
 Resten av det här dokumentet visar hur du kommer igång med att skriva SQL-frågor i Azure Cosmos DB. SQL-frågor kan köras via antingen SDK eller Azure Portal.
 
 ## <a name="upload-sample-data"></a>Ladda upp exempel data
 
-I ditt SQL API Cosmos DB-konto öppnar du [datautforskaren](https://docs.microsoft.com/azure/cosmos-db/data-explorer) för att skapa en behållare med namnet `Families` . När den har skapats använder du data struktur listan för att hitta och öppna den. I din `Families` behållare visas `Items` alternativet direkt under namnet på behållaren. Öppna det här alternativet så visas en knapp i meny raden i mitten av skärmen för att skapa ett nytt objekt. Du kommer att använda den här funktionen för att skapa JSON-objekten nedan.
+I ditt SQL API Cosmos DB-konto öppnar du [datautforskaren](./data-explorer.md) för att skapa en behållare med namnet `Families` . När den har skapats använder du data struktur listan för att hitta och öppna den. I din `Families` behållare visas `Items` alternativet direkt under namnet på behållaren. Öppna det här alternativet så visas en knapp i meny raden i mitten av skärmen för att skapa ett nytt objekt. Du kommer att använda den här funktionen för att skapa JSON-objekten nedan.
 
 ### <a name="create-json-items"></a>Skapa JSON-objekt
 
@@ -193,4 +193,4 @@ I föregående exempel visas flera aspekter av Cosmos DB frågespråket:
 
 - [Introduktion till Azure Cosmos DB](introduction.md)
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [SELECT-satsen](sql-query-select.md)
+- [SELECT-sats](sql-query-select.md)

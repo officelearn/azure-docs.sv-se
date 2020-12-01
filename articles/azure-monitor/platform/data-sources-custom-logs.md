@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 10a2ae71d8c26d82a4a730bab3ba16e7c62d1243
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2b27da096ed18170ca8c9d70f31dc955fb74950
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911744"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352838"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Samla in anpassade loggar med Log Analytics agent i Azure Monitor
 
@@ -30,7 +30,7 @@ De loggfiler som ska samlas in måste matcha följande kriterier.
 
 - Logg filen får inte tillåta cirkulär loggning eller logg rotation, där filen skrivs över med nya poster.
 - Logg filen måste använda ASCII-eller UTF-8-kodning.  Andra format, till exempel UTF-16, stöds inte.
-- För Linux stöds inte tids zons converesion för tidsstämplar i loggarna.
+- För Linux stöds inte tids zons konvertering för tidsstämplar i loggarna.
 
 >[!NOTE]
 > Om det finns dubbla poster i logg filen, Azure Monitor samla in dem. Frågeresultatet kommer dock att vara inkonsekvent där filter resultaten visar fler händelser än antalet resultat. Det är viktigt att du validerar loggen för att avgöra om programmet som skapar den orsakar detta beteende och kan åtgärda det om möjligt innan du skapar den anpassade logg samlings definitionen.  
@@ -78,7 +78,7 @@ Ett program kan till exempel skapa en loggfil varje dag med datumet som ingår i
 
 Följande tabell innehåller exempel på giltiga mönster för att ange olika loggfiler.
 
-| Description | Sökväg |
+| Beskrivning | Sökväg |
 |:--- |:--- |
 | Alla filer i *: c:\Logs* med tillägget. txt i Windows-agenten |: C:\Logs \\ \* . txt |
 | Alla filer i *: c:\Logs* med ett namn som börjar med log och tillägget. txt i Windows-agenten |C:\Logs\log \* . txt |

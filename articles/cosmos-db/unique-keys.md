@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: c3c42146ba93115e257924c23dc34785c8258533
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 165fb2937db5edfa4f51f62033afaf87cfff83ef
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340465"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353110"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Unika nyckel begränsningar i Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,7 +45,7 @@ Du kan bara definiera unika nycklar när du skapar en Azure Cosmos-behållare. E
 
 * Du kan inte uppdatera en befintlig behållare för att använda en annan unik nyckel. När en behållare har skapats med en unik nyckel princip kan du med andra ord inte ändra principen.
 
-* Om du vill ange en unik nyckel för en befintlig behållare skapar du en ny behållare med den unika nyckel begränsningen. Använd lämpligt verktyg för datamigrering för att flytta data från den befintliga behållaren till den nya behållaren. För SQL-behållare använder du [verktyget datamigrering](import-data.md) för att flytta data. För MongoDB-behållare använder du [mongoimport.exe eller mongorestore.exe](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) för att flytta data.
+* Om du vill ange en unik nyckel för en befintlig behållare skapar du en ny behållare med den unika nyckel begränsningen. Använd lämpligt verktyg för datamigrering för att flytta data från den befintliga behållaren till den nya behållaren. För SQL-behållare använder du [verktyget datamigrering](import-data.md) för att flytta data. För MongoDB-behållare använder du [mongoimport.exe eller mongorestore.exe](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) för att flytta data.
 
 * En unik nyckel princip kan innehålla högst 16 Sök vägs värden. Värdena kan till exempel vara `/firstName` , `/lastName` och `/address/zipCode` . Varje unik nyckel princip kan innehålla högst 10 unika nyckel begränsningar eller kombinationer. De kombinerade Sök vägarna för varje Unique index-begränsning får inte överstiga 60 byte. I det tidigare exemplet är förnamn, efter namn och e-postadress tillsammans en begränsning. Den här begränsningen använder 3 av de 16 möjliga Sök vägarna.
 

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2c088bce3bc763bf813298ef91b4e07f0b20c50c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7deee88210acf700916961be7c4ccaf9477accf8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328747"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353450"
 ---
 # <a name="azure-security-baseline-for-azure-cloud-services"></a>Azures säkerhets bas linje för Azure Cloud Services
 
-Den här säkerhets bas linjen använder vägledning från [Azures säkerhets benchmark-version 1,0](../security/benchmarks/overview-v1.md) till Microsoft Azure Cloud Services. Azures säkerhets benchmark ger rekommendationer om hur du kan skydda dina moln lösningar på Azure.
+Den här säkerhets bas linjen använder vägledning från [Azures säkerhets benchmark-version 1,0](../security/benchmarks/overview-v1.md) till Microsoft Azure Cloud Services. Azure Security Benchmark ger rekommendationer om hur du kan skydda dina molnlösningar i Azure.
 Innehållet grupperas efter de **säkerhets kontroller** som definieras av Azures säkerhets benchmark och relaterade rikt linjer som gäller för Cloud Services. **Kontroller** som inte är tillämpliga på Cloud Services har uteslutits.
 
  
@@ -28,7 +28,7 @@ Om du vill se hur Cloud Services helt mappar till Azures säkerhets mätning, se
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: skydda Azure-resurser i virtuella nätverk
 
-**Vägledning** : skapa en klassisk Azure-Virtual Network med separata offentliga och privata undernät för att upprätthålla isolering baserat på betrodda portar och IP-adressintervall. Dessa virtuella nätverk och undernät måste vara de klassiska Virtual Network-baserade (klassiska distributioner) resurserna och inte de aktuella Azure Resource Manager resurserna.  
+**Vägledning**: skapa en klassisk Azure-Virtual Network med separata offentliga och privata undernät för att upprätthålla isolering baserat på betrodda portar och IP-adressintervall. Dessa virtuella nätverk och undernät måste vara de klassiska Virtual Network-baserade (klassiska distributioner) resurserna och inte de aktuella Azure Resource Manager resurserna.  
 
 Tillåt eller neka trafik med en nätverks säkerhets grupp som innehåller regler för åtkomst kontroll baserat på trafik riktning, protokoll, käll adress och port samt mål adress och port. Reglerna för en nätverks säkerhets grupp kan ändras när som helst, och ändringarna tillämpas på alla associerade instanser.
 
@@ -36,15 +36,15 @@ Microsoft Azure Cloud Services (klassisk) kan inte placeras i Azure Resource Man
 
 - [Översikt över nätverks säkerhets grupp](../virtual-network/network-security-groups-overview.md)
 
-- [Virtual Network-peering](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq?&amp;preserve-view=true#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
+- [Peering för virtuella nätverk](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1,2: övervaka och logga konfigurationen och trafiken för virtuella nätverk, undernät och nätverkskort
 
-**Vägledning** : dokumentera din Azure Cloud Services-konfiguration och övervaka den för ändringar. Använd tjänstens konfigurations fil för att ange antalet roll instanser som ska distribueras för varje roll i tjänsten, värdena för alla konfigurations inställningar och tumavtrycken för alla certifikat som är associerade med en roll. 
+**Vägledning**: dokumentera din Azure Cloud Services-konfiguration och övervaka den för ändringar. Använd tjänstens konfigurations fil för att ange antalet roll instanser som ska distribueras för varje roll i tjänsten, värdena för alla konfigurations inställningar och tumavtrycken för alla certifikat som är associerade med en roll. 
 
 Om tjänsten ingår i ett virtuellt nätverk måste konfigurations information för nätverket anges i tjänst konfigurations filen, samt i konfigurations filen för det virtuella nätverket. Standard tillägget för tjänst konfigurations filen är. cscfg. Observera att Azure Policy inte stöds för klassiska distributioner för konfigurations tvång.
 
@@ -58,27 +58,27 @@ Aktivera flödes loggar för nätverks säkerhets grupper och skicka loggarna ti
 
 - [Cloud Services konfigurations fil](schema-cscfg-file.md)
 
-- [Lista över tjänster som stöds av Azure Policy](https://docs.microsoft.com/cli/azure/azure-services-the-azure-cli-can-manage?&amp;preserve-view=true)
+- [Lista över tjänster som stöds av Azure Policy](/cli/azure/azure-services-the-azure-cli-can-manage?amp;preserve-view=)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="13-protect-critical-web-applications"></a>1,3: skydda viktiga webb program
 
-**Vägledning** : Microsoft använder Transport Layer Security (TLS) protokoll v 1.2 för att skydda data när de reser mellan Azure Cloud Services och kunder. Microsoft-datacentren förhandlar en TLS-anslutning med klient system som ansluter till Azure-tjänster. TLS ger stark autentisering, meddelande sekretess och integritet (aktiverar identifiering av meddelande manipulation, avlyssning och förfalskning), samverkan, algoritm flexibilitet och enkel distribution och användning.
+**Vägledning**: Microsoft använder Transport Layer Security (TLS) protokoll v 1.2 för att skydda data när de reser mellan Azure Cloud Services och kunder. Microsoft-datacentren förhandlar en TLS-anslutning med klient system som ansluter till Azure-tjänster. TLS ger stark autentisering, meddelande sekretess och integritet (aktiverar identifiering av meddelande manipulation, avlyssning och förfalskning), samverkan, algoritm flexibilitet och enkel distribution och användning.
 
 - [Grundläggande kryptering](../security/fundamentals/encryption-overview.md)
 
 - [Konfigurera TLS/SSL-certifikat](cloud-services-configure-ssl-certificate-portal.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: neka kommunikation med kända skadliga IP-adresser
 
-**Vägledning** : Azure Cloud implementerar en Multilayer nätverks säkerhet för att skydda sina plattforms tjänster mot distribuerade DDoS-attacker (Denial-of-Service). Azure DDoS Protection är en del av Azures molnets kontinuerliga övervaknings process, som kontinuerligt förbättras genom inträngande tester. Den här DDoS Protection är utformad för att motstå inte bara angrepp från utsidan utan även från andra Azure-klienter. 
+**Vägledning**: Azure Cloud implementerar en Multilayer nätverks säkerhet för att skydda sina plattforms tjänster mot distribuerade DDoS-attacker (Denial-of-Service). Azure DDoS Protection är en del av Azures molnets kontinuerliga övervaknings process, som kontinuerligt förbättras genom inträngande tester. Den här DDoS Protection är utformad för att motstå inte bara angrepp från utsidan utan även från andra Azure-klienter. 
 
 Det finns flera olika sätt att blockera eller neka kommunikation förutom plattforms nivå skydd i Azure Cloud Services. Dessa är: 
 
@@ -89,43 +89,43 @@ Förhindra inkommande trafik till standard-URL: en eller namnet på din Cloud Se
 
 Konfigurera en neka-tillämpa regel för administratörs tilldelningar för klassiska prenumerationer. Som standard när en intern slut punkt har definierats kan kommunikationen flöda från vilken roll som helst till den interna slut punkten för en roll utan några begränsningar. Om du vill begränsa kommunikationen måste du lägga till ett NetworkTrafficRules-element i service definition-elementet i tjänst definitions filen.
 
-- [Hur kan jag blockera/inaktivera inkommande trafik till standard-URL: en för min moln tjänst](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq?&amp;preserve-view=true#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
+- [Hur kan jag blockera/inaktivera inkommande trafik till standard-URL: en för min moln tjänst](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
 
-- [Azure DDOS-skydd](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq?&amp;preserve-view=true#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
+- [Azure DDOS-skydd](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
 
 - [Blockera en speciell IP-adress](cloud-services-startup-tasks-common.md#block-a-specific-ip-address)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="15-record-network-packets"></a>1,5: registrera nätverks paket
 
-**Vägledning** : använd Azure Network Watcher, övervakning av nätverks prestanda, diagnostik och analys tjänster, som gör det möjligt att övervaka Azure-nätverk. Tillägget Network Watcher agent virtuell dator måste vara ett krav för att samla in nätverks trafik på begäran och andra avancerade funktioner på Azure Virtual Machines. Installera den virtuella datorn Network Watcher agent-tillägg och aktivera flödes loggar för nätverks säkerhets grupper.
+**Vägledning**: använd Azure Network Watcher, övervakning av nätverks prestanda, diagnostik och analys tjänster, som gör det möjligt att övervaka Azure-nätverk. Tillägget Network Watcher agent virtuell dator måste vara ett krav för att samla in nätverks trafik på begäran och andra avancerade funktioner på Azure Virtual Machines. Installera den virtuella datorn Network Watcher agent-tillägg och aktivera flödes loggar för nätverks säkerhets grupper.
 
 Konfigurera flödes loggning i en nätverks säkerhets grupp. Läs mer om hur du distribuerar Network Watcher virtuell dators tillägg till en befintlig virtuell dator som distribueras via den klassiska distributions modellen.
 
 - [Konfigurera flödes loggning i en nätverks säkerhets grupp](../virtual-machines/extensions/network-watcher-linux.md)
 
-- [Mer information om hur du konfigurerar flödes loggar finns i](https://docs.microsoft.com/cli/azure/azure-services-the-azure-cli-can-manage?&amp;preserve-view=true)
+- [Mer information om hur du konfigurerar flödes loggar finns i](/cli/azure/azure-services-the-azure-cli-can-manage?amp;preserve-view=)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: Distribuera nätverksbaserade intrångs identifiering/system för skydd mot intrång (ID/IP-adresser)
 
-**Vägledning** : Azure Cloud Services saknar inbyggda ID eller IP-funktioner. Kunder kan välja och distribuera ett extra nätverksbaserade ID eller en IP-lösning från Azure Marketplace baserat på deras organisations krav. När du använder lösningar från tredje part måste du kontrol lera att du testar dina valda ID: n eller IP-lösningen med Azure Cloud Services för att säkerställa korrekt drift och funktionalitet.
+**Vägledning**: Azure Cloud Services saknar inbyggda ID eller IP-funktioner. Kunder kan välja och distribuera ett extra nätverksbaserade ID eller en IP-lösning från Azure Marketplace baserat på deras organisations krav. När du använder lösningar från tredje part måste du kontrol lera att du testar dina valda ID: n eller IP-lösningen med Azure Cloud Services för att säkerställa korrekt drift och funktionalitet.
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall) 
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1,7: hantera trafik till webb program
 
-**Vägledning** : tjänst certifikat, som är anslutna till Azure Cloud Services, aktiverar säker kommunikation till och från tjänsten. Dessa certifikat definieras i definitionerna för tjänsterna och distribueras automatiskt till den virtuella datorn som kör en instans av en webb roll. Som exempel kan du använda ett tjänst certifikat som kan autentisera en exponerad HTTPS-slutpunkt för en webbroll. 
+**Vägledning**: tjänst certifikat, som är anslutna till Azure Cloud Services, aktiverar säker kommunikation till och från tjänsten. Dessa certifikat definieras i definitionerna för tjänsterna och distribueras automatiskt till den virtuella datorn som kör en instans av en webb roll. Som exempel kan du använda ett tjänst certifikat som kan autentisera en exponerad HTTPS-slutpunkt för en webbroll. 
 
 Om du vill uppdatera certifikatet är det bara nödvändigt att ladda upp ett nytt certifikat och ändra tumavtryck-värdet i tjänst konfigurations filen.
 
@@ -139,37 +139,37 @@ För att skydda webb program och för att skydda dem mot attacker som OWASP topp
 
 - [Så här distribuerar du Application Gateway](../application-gateway/quick-create-portal.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: underhåll standardkonfigurationer för nätverks enheter
 
-**Vägledning** : härdning av Azure Cloud Services-konfigurationen och övervaka den för ändringar. Tjänst konfigurations filen anger antalet roll instanser som ska distribueras för varje roll i tjänsten, värdena för alla konfigurations inställningar och tumavtrycken för alla certifikat som är associerade med en roll. 
+**Vägledning**: härdning av Azure Cloud Services-konfigurationen och övervaka den för ändringar. Tjänst konfigurations filen anger antalet roll instanser som ska distribueras för varje roll i tjänsten, värdena för alla konfigurations inställningar och tumavtrycken för alla certifikat som är associerade med en roll. 
 
 Om din tjänst ingår i ett virtuellt nätverk måste konfigurations informationen för nätverket anges i tjänst konfigurations filen, samt i konfigurations filen för det virtuella nätverket. Standard tillägget för tjänst konfigurations filen är. cscfg.
 
 Observera att Azure Policy inte stöds med Azure Cloud Services för konfigurations tvång.
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="110-document-traffic-configuration-rules"></a>1,10: dokumentera trafik konfigurations regler
 
-**Vägledning** : Azure-nätverks säkerhets grupper kan användas för att filtrera nätverks trafik till och från Azure-resurser i en azure-Virtual Network. En nätverks säkerhets grupp innehåller säkerhets regler som tillåter eller nekar inkommande nätverks trafik till, eller utgående nätverks trafik från, flera typer av Azure-resurser. För varje regel kan du ange källa och mål, port och protokoll.
+**Vägledning**: Azure-nätverks säkerhets grupper kan användas för att filtrera nätverks trafik till och från Azure-resurser i en azure-Virtual Network. En nätverks säkerhets grupp innehåller säkerhets regler som tillåter eller nekar inkommande nätverks trafik till, eller utgående nätverks trafik från, flera typer av Azure-resurser. För varje regel kan du ange källa och mål, port och protokoll.
 
 Använd fältet Beskrivning för enskilda regler för nätverks säkerhets grupper i Azure Cloud Services för att dokumentera reglerna, som tillåter trafik till eller från ett nätverk.
 
 - [Filtrera nätverks trafik med regler för nätverks säkerhets grupper](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1,11: Använd automatiserade verktyg för att övervaka konfigurationer för nätverks resurser och identifiera ändringar
 
-**Vägledning** : använd Azure Traffic Managers inbyggda slut punkts övervakning och funktioner för automatisk slut punkt redundans. De hjälper dig att leverera program med hög tillgänglighet som är elastiska till slut punkter och fel i Azure-regioner. Om du vill konfigurera slut punkts övervakning måste du ange vissa inställningar i Traffic Manager profilen.
+**Vägledning**: använd Azure Traffic Managers inbyggda slut punkts övervakning och funktioner för automatisk slut punkt redundans. De hjälper dig att leverera program med hög tillgänglighet som är elastiska till slut punkter och fel i Azure-regioner. Om du vill konfigurera slut punkts övervakning måste du ange vissa inställningar i Traffic Manager profilen.
 
 Samla in insikter från aktivitets loggen, en plattforms logg i Azure, i händelser på prenumerations nivå. Den innehåller sådan information som när en resurs ändras eller när en virtuell dator startas. Visa aktivitets loggen i Azure Portal eller hämta poster med PowerShell och CLI. 
 
@@ -181,9 +181,9 @@ Skapa en diagnostisk inställning för att skicka aktivitets loggen till Azure M
 
 - [Traffic Manager övervakning](../traffic-manager/traffic-manager-monitoring.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
@@ -191,17 +191,17 @@ Skapa en diagnostisk inställning för att skicka aktivitets loggen till Azure M
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2,1: Använd godkända tids källor för synkronisering
 
-**Vägledning** : Microsoft hanterar tids källor för Azure-resurser för Azure Cloud Services. Kunder kan behöva skapa en nätverks regel för att tillåta åtkomst till en tids server som används i deras miljö, via port 123 med UDP-protokoll.
+**Vägledning**: Microsoft hanterar tids källor för Azure-resurser för Azure Cloud Services. Kunder kan behöva skapa en nätverks regel för att tillåta åtkomst till en tids server som används i deras miljö, via port 123 med UDP-protokoll.
 
 - [Åtkomst till NTP-server](../firewall/protect-windows-virtual-desktop.md#additional-considerations)
 
-**Azure Security Center övervakning** : Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvars område** : delat
+**Ansvar**: Delad
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Konfigurera central hantering av säkerhets loggar
 
-**Vägledning** : använda moln tjänsten för strömning av data program mässigt med Azure Event Hubs. Integrera och skicka alla dessa data till Azure Sentinel för att övervaka och granska dina loggar, eller Använd en SIEM från tredje part. För central hantering av säkerhets loggar konfigurerar du kontinuerlig export av dina valda Azure Security Center data till Azure Event Hubs och konfigurerar lämplig anslutning för din SIEM. Här följer några alternativ för Azure Sentinel, inklusive verktyg från tredje part:
+**Vägledning**: använda moln tjänsten för strömning av data program mässigt med Azure Event Hubs. Integrera och skicka alla dessa data till Azure Sentinel för att övervaka och granska dina loggar, eller Använd en SIEM från tredje part. För central hantering av säkerhets loggar konfigurerar du kontinuerlig export av dina valda Azure Security Center data till Azure Event Hubs och konfigurerar lämplig anslutning för din SIEM. Här följer några alternativ för Azure Sentinel, inklusive verktyg från tredje part:
 
 - Azure Sentinel – Använd den inbyggda Security Center Alerts data Connector
 - Splunk – Använd Azure Monitor-tillägget för Splunk
@@ -218,46 +218,46 @@ Läs Azure Sentinel-dokumentationen om du vill ha mer information om tillgängli
 
 - [Konfigurera SIEM-integrering via Azure Event Hubs](../security-center/continuous-export.md)
 
-**Azure Security Center övervakning** : Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: Aktivera gransknings loggning för Azure-resurser
 
-**Vägledning** : Konfigurera Visual Studio för att konfigurera Azure-diagnostik för fel sökning av Azure Cloud Services som fångar upp system-och loggnings data på virtuella datorer, inklusive virtuella dator instanser som kör Azure-Cloud Services. Diagnostikdata överförs till ett valfritt lagrings konto. Aktivera diagnostik i Azure Cloud Services-projekt innan deras distribution.
+**Vägledning**: Konfigurera Visual Studio för att konfigurera Azure-diagnostik för fel sökning av Azure Cloud Services som fångar upp system-och loggnings data på virtuella datorer, inklusive virtuella dator instanser som kör Azure-Cloud Services. Diagnostikdata överförs till ett valfritt lagrings konto. Aktivera diagnostik i Azure Cloud Services-projekt innan deras distribution.
 
  
 Visa ändrings historiken för vissa händelser i aktivitets loggen i Azure Monitor. Granska vilka ändringar som gjorts under en händelse tids period. Välj en händelse i aktivitets loggen för djupare kontroll med ändrings historik (för hands version) fliken. Skicka diagnostikdata till Application Insights när du publicerar en Azure-Cloud Services från Visual Studio. Skapa Application Insights Azure-resursen vid den tiden eller skicka data till en befintlig Azure-resurs. 
 
 Azure Cloud Services kan övervakas av Application Insights för tillgänglighet, prestanda, haverier och användning. Du kan lägga till anpassade diagram i Application Insights så att du kan se de data som är mest viktiga. Roll instans data kan samlas in med hjälp av Application Insights SDK i Azure Cloud Services-projektet. 
 
-- [Aktivera diagnostik i Visual Studio innan du distribuerar](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?&amp;preserve-view=true#to-turn-on-diagnostics-in-visual-studio-before-deployment)
+- [Aktivera diagnostik i Visual Studio innan du distribuerar](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?amp;preserve-view=#to-turn-on-diagnostics-in-visual-studio-before-deployment)
 
 - [Visa ändrings historik](../azure-monitor/platform/activity-log.md#view-change-history)
 
 - [Application Insights för Azure Cloud Service (klassisk)](../azure-monitor/app/cloudservices.md)
 
-- [Konfigurera diagnostik för Azure Cloud Service (klassisk) och virtuella datorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?toc=%2Fazure%2Fcloud-services%2Ftoc.json&amp;preserve-view=true)
+- [Konfigurera diagnostik för Azure Cloud Service (klassisk) och virtuella datorer](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?amp;preserve-view=true&toc=%2fazure%2fcloud-services%2ftoc.json)
 
-**Azure Security Center övervakning** : Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurera säkerhets logg lagrings kvarhållning
 
-**Vägledning** : du kan använda avancerad övervakning med Azure Cloud Services som gör det möjligt att sampla och samla in ytterligare mått i intervall på 5 minuter, 1 timme och 12 timmar. De aggregerade data lagras i lagrings kontot i tabeller och rensas efter 10 dagar. Det lagrings konto som används konfigureras dock av rollen och du kan använda olika lagrings konton för olika roller. Detta konfigureras med en anslutnings sträng i. csdef-och. cscfg-filerna.
+**Vägledning**: du kan använda avancerad övervakning med Azure Cloud Services som gör det möjligt att sampla och samla in ytterligare mått i intervall på 5 minuter, 1 timme och 12 timmar. De aggregerade data lagras i lagrings kontot i tabeller och rensas efter 10 dagar. Det lagrings konto som används konfigureras dock av rollen och du kan använda olika lagrings konton för olika roller. Detta konfigureras med en anslutnings sträng i. csdef-och. cscfg-filerna.
 
 Observera att avancerad övervakning innebär att använda Azure-diagnostik tillägget (Application Insights SDK är valfritt) på den roll som du vill övervaka. Tillägget för diagnostik använder en konfigurations fil (per roll) med namnet Diagnostics. wadcfgx för att konfigurera de diagnostik mått som övervakas. Azure Diagnostic-tillägget samlar in och lagrar data i ett Azure Storage-konto. Dessa inställningar konfigureras i. wadcfgx-,. csdef-och. cscfg-filerna.
 
 - [Introduktion till moln tjänst övervakning](cloud-services-how-to-monitor.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="26-monitor-and-review-logs"></a>2,6: övervaka och granska loggar
 
-**Vägledning** : grundläggande eller avancerade övervaknings lägen är tillgängliga för Azure Cloud Services. Azure Cloud Services samlar automatiskt in grundläggande övervaknings data (CPU-procent, nätverk in/ut och disk läsning/skrivning) från en virtuell värd dator. Visa insamlade övervaknings data på sidan Översikt och mått i en moln tjänst i Azure Portal. 
+**Vägledning**: grundläggande eller avancerade övervaknings lägen är tillgängliga för Azure Cloud Services. Azure Cloud Services samlar automatiskt in grundläggande övervaknings data (CPU-procent, nätverk in/ut och disk läsning/skrivning) från en virtuell värd dator. Visa insamlade övervaknings data på sidan Översikt och mått i en moln tjänst i Azure Portal. 
 
 Aktivera diagnostik i Azure Cloud Services för att samla in diagnostikdata som program loggar, prestanda räknare med mera, samtidigt som du använder tillägget Azure-diagnostik. Aktivera eller uppdatera diagnostikinställningar på en moln tjänst som redan körs med Set-AzureServiceDiagnosticsExtension-cmdlet eller distribuera en moln tjänst med diagnostiskt tillägg automatiskt. Du kan också installera Application Insights SDK. Skicka prestanda räknare till Azure Monitor.
 
@@ -271,29 +271,29 @@ Azure Diagnostic-tillägget samlar in och lagrar data i ett Azure Storage-konto.
 
 - [Lagra och visa diagnostikdata i Azure Storage](diagnostics-extension-to-storage.md?&amp;preserve-view=true)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: aktivera aviseringar för avvikande aktiviteter
 
-**Vägledning** : du kan övervaka Azure Cloud Services loggdata genom att integrera med Azure Sentinel eller med en Siem från tredje part genom att aktivera aviseringar för avvikande aktiviteter.
+**Vägledning**: du kan övervaka Azure Cloud Services loggdata genom att integrera med Azure Sentinel eller med en Siem från tredje part genom att aktivera aviseringar för avvikande aktiviteter.
 
 - [Integrera med en SIEM](../security-center/continuous-export.md)
 
-**Azure Security Center övervakning** : Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="28-centralize-anti-malware-logging"></a>2,8: centralisera loggning mot skadlig kod
 
-**Vägledning** : Microsoft Antimalware för Azure, skyddar Azure Cloud Services och virtuella datorer. Du har möjlighet att distribuera säkerhetslösningar från tredje part, till exempel brand väggar för webb program, nätverks brand väggar, program mot skadlig kod, intrångs identifiering och skydds system (ID eller IP-adresser) med mera.
+**Vägledning**: Microsoft Antimalware för Azure, skyddar Azure Cloud Services och virtuella datorer. Du har möjlighet att distribuera säkerhetslösningar från tredje part, till exempel brand väggar för webb program, nätverks brand väggar, program mot skadlig kod, intrångs identifiering och skydds system (ID eller IP-adresser) med mera.
 
-- [Vilka är de funktioner och funktioner som Azure Basic IP-adresser och DDOS tillhandahåller](https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq?&amp;preserve-view=true#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
+- [Vilka är de funktioner och funktioner som Azure Basic IP-adresser och DDOS tillhandahåller](./cloud-services-configuration-and-management-faq.md?amp;preserve-view=#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ## <a name="identity-and-access-control"></a>Identitets- och åtkomstkontroll
 
@@ -301,7 +301,7 @@ Azure Diagnostic-tillägget samlar in och lagrar data i ett Azure Storage-konto.
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
 
-**Vägledning** : Microsoft rekommenderar att du hanterar åtkomst till Azure-resurser med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC). Azure Cloud Services stöder dock inte Azure RBAC-modellen eftersom den inte är en Azure Resource Manager baserad tjänst och du måste använda en klassisk prenumeration
+**Vägledning**: Microsoft rekommenderar att du hanterar åtkomst till Azure-resurser med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC). Azure Cloud Services stöder dock inte Azure RBAC-modellen eftersom den inte är en Azure Resource Manager baserad tjänst och du måste använda en klassisk prenumeration
 
 Som standard är konto administratör, tjänst administratör och Co-Administrator de tre klassiska prenumerations administratörs rollerna i Azure. 
 
@@ -317,41 +317,41 @@ Granska skillnaderna mellan administrativa roller i den klassiska prenumeratione
 
 - [Skillnader mellan tre klassiska prenumerationer administrativa roller](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3,3: Använd dedikerade administrativa konton
 
-**Vägledning** : Vi rekommenderar att du skapar standard procedurer kring användningen av dedikerade administrativa konton, baserat på tillgängliga roller och de behörigheter som krävs för att hantera och hantera Azure Cloud Services-resurser.
+**Vägledning**: Vi rekommenderar att du skapar standard procedurer kring användningen av dedikerade administrativa konton, baserat på tillgängliga roller och de behörigheter som krävs för att hantera och hantera Azure Cloud Services-resurser.
 
 - [Skillnader mellan administrativa roller för den klassiska prenumerationen](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3,4: Använd enkel inloggning (SSO) med Azure Active Directory
 
-**Vägledning** : Undvik att hantera separata identiteter för program som körs på Azure Cloud Services. Använd enkel inloggning för att undvika att användarna måste hantera flera identiteter och autentiseringsuppgifter.
+**Vägledning**: Undvik att hantera separata identiteter för program som körs på Azure Cloud Services. Använd enkel inloggning för att undvika att användarna måste hantera flera identiteter och autentiseringsuppgifter.
 
 - [Vad är enkel inloggning (SSO)](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Använd dedikerade datorer (arbets stationer med privilegie rad åtkomst) för alla administrativa uppgifter
 
-**Vägledning** : Vi rekommenderar att du använder en säker, Azure-hanterad arbets Station (kallas även en privilegie rad åtkomst arbets Station) för administrativa uppgifter som kräver förhöjda privilegier.
+**Vägledning**: Vi rekommenderar att du använder en säker, Azure-hanterad arbets Station (kallas även en privilegie rad åtkomst arbets Station) för administrativa uppgifter som kräver förhöjda privilegier.
 
 - [Förstå säkra, Azure-hanterade arbets stationer](../active-directory/devices/concept-azure-managed-workstation.md)
 
 - [Så här aktiverar du Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ## <a name="data-protection"></a>Dataskydd
 
@@ -359,7 +359,7 @@ Granska skillnaderna mellan administrativa roller i den klassiska prenumeratione
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: underhåll en inventering av känslig information
 
-**Vägledning** : Använd Azure Cloud Service REST-API: er för att inventera dina Azure Cloud Service-resurser för känslig information. Avsök de distribuerade moln tjänst resurserna för att hämta konfigurations-och. pkg-resurser.
+**Vägledning**: Använd Azure Cloud Service REST-API: er för att inventera dina Azure Cloud Service-resurser för känslig information. Avsök de distribuerade moln tjänst resurserna för att hämta konfigurations-och. pkg-resurser.
 
  Till exempel visas några API: er nedan:
 
@@ -375,39 +375,39 @@ Läs dokumentationen för Azure Cloud Service REST API: er och skapa en process 
 
 - [Hämta paket](/rest/api/compute/cloudservices/rest-get-package)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: isolera system som lagrar eller bearbetar känslig information
 
-**Vägledning** : implementera isolering med separata prenumerationer och hanterings grupper för enskilda säkerhets domäner som miljö typ och data känslighets nivå för Azure Cloud Services.
+**Vägledning**: implementera isolering med separata prenumerationer och hanterings grupper för enskilda säkerhets domäner som miljö typ och data känslighets nivå för Azure Cloud Services.
 
 Du kan också redigera "permissionLevel" i Azure Cloud Service Certificate-elementet för att ange de åtkomst behörigheter som tilldelats roll processerna. Om du bara vill att utökade processer ska kunna komma åt den privata nyckeln anger du förhöjd behörighet. limitedOrElevated-behörighet tillåter alla roll processer att komma åt den privata nyckeln. Möjliga värden är limitedOrElevated eller utökade. Standardvärdet är limitedOrElevated.
 
-- [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
+- [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-- [Så här skapar du hanterings grupper](/azure/governance/management-groups/create)
+- [Så här skapar du hanterings grupper](../governance/management-groups/create-management-group-portal.md)
 
 - [WebRole-schema](schema-csdef-webrole.md#Certificate)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4,3: övervaka och blockera obehörig överföring av känslig information
 
-**Vägledning** : Vi rekommenderar att du använder en lösning från tredje part från Azure Marketplace i nätverks omkretser för att övervaka obehörig överföring av känslig information och blockera sådana överföringar samtidigt som du varnar information om information om säkerhets tekniker.
+**Vägledning**: Vi rekommenderar att du använder en lösning från tredje part från Azure Marketplace i nätverks omkretser för att övervaka obehörig överföring av känslig information och blockera sådana överföringar samtidigt som du varnar information om information om säkerhets tekniker.
 
-- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
+- [Förstå skydd av kunddata i Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Azure Security Center-övervakning**: Inte tillämpligt
 
-**Ansvars område** : delat
+**Ansvar**: Delad
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: kryptera all känslig information under överföring
 
-**Vägledning** : Konfigurera TLS v2 för Azure Cloud Services. Använd Azure Portal för att lägga till certifikatet i den mellanlagrade Azure Cloud Services-distributionen och Lägg till certifikat informationen i tjänsterna CSDEF och CSCFG. Paketera ditt program igen och uppdatera din mellanlagrade distribution för att använda det nya paketet. 
+**Vägledning**: Konfigurera TLS v2 för Azure Cloud Services. Använd Azure Portal för att lägga till certifikatet i den mellanlagrade Azure Cloud Services-distributionen och Lägg till certifikat informationen i tjänsterna CSDEF och CSCFG. Paketera ditt program igen och uppdatera din mellanlagrade distribution för att använda det nya paketet. 
 
 Använd tjänst certifikat i Azure som är anslutna till Azure Cloud Services för att aktivera säker kommunikation till och från tjänsten. Ange ett certifikat som kan autentisera en exponerad HTTPS-slutpunkt. Definiera tjänst certifikat i moln tjänstens tjänst definition och distribuera dem automatiskt till den virtuella datorn, och kör en instans av din roll.
 
@@ -419,49 +419,49 @@ För ytterligare referens ger Azure-Service Management-API program mässig åtko
 
 - [Använda Service Management från python](cloud-services-python-how-to-use-service-management.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvars område** : delat
+**Ansvar**: Delad
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4,5: Använd ett aktivt identifierings verktyg för att identifiera känsliga data
 
-**Vägledning** : Vi rekommenderar att du använder ett aktivt identifierings verktyg från tredje part för att identifiera all känslig information som lagras, bearbetas eller överförs av organisationens teknik system, inklusive de som finns på plats eller på en fjärran sluten tjänst leverantör, och sedan uppdatera organisationens känsliga informations inventering.
+**Vägledning**: Vi rekommenderar att du använder ett aktivt identifierings verktyg från tredje part för att identifiera all känslig information som lagras, bearbetas eller överförs av organisationens teknik system, inklusive de som finns på plats eller på en fjärran sluten tjänst leverantör, och sedan uppdatera organisationens känsliga informations inventering.
 
-- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
+- [Förstå skydd av kunddata i Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Azure Security Center-övervakning**: Inte tillämpligt
 
-**Ansvars område** : delat
+**Ansvar**: Delad
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4,7: Använd värdbaserade data förlust skydd för att genomdriva åtkomst kontroll
 
-**Vägledning** : gäller inte för moln tjänst (klassisk). Det upprätthåller inte data förlust skydd.
+**Vägledning**: gäller inte för moln tjänst (klassisk). Det upprätthåller inte data förlust skydd.
 
 Vi rekommenderar att du implementerar ett verktyg från tredje part, till exempel en automatiserad värdbaserade lösning för data förlust skydd för att tillämpa åtkomst kontroller på data även när data kopieras av ett system.
 
 För den underliggande plattform som hanteras av Microsoft behandlar Microsoft allt kund innehåll som känsligt och går till fantastiska längder för att skydda mot kund data förlust och exponering. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
 
-- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
+- [Förstå skydd av kunddata i Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Azure Security Center-övervakning**: Inte tillämpligt
 
-**Ansvars område** : delat
+**Ansvar**: Delad
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: kryptera känslig information i vila
 
-**Vägledning** : Azure Cloud Services stöder inte kryptering vid vila. Detta beror på att Azure Cloud Services har utformats för att vara tillstånds lösa. Azure Cloud Services stöder extern lagring, till exempel Azure Storage, som är som standard krypterat i vila.  
+**Vägledning**: Azure Cloud Services stöder inte kryptering vid vila. Detta beror på att Azure Cloud Services har utformats för att vara tillstånds lösa. Azure Cloud Services stöder extern lagring, till exempel Azure Storage, som är som standard krypterat i vila.  
 
 Program data som lagras på temporära diskar är inte krypterade. Kunden ansvarar för att hantera och kryptera dessa data, om det behövs.  
 
-- [Förstå kryptering i vila i Azure](../security/fundamentals/encryption-atrest.md)
+- [Förstå kryptering vid vila i Azure](../security/fundamentals/encryption-atrest.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Azure Security Center-övervakning**: Inte tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: logg och varning vid ändringar av kritiska Azure-resurser
 
-**Vägledning** : du kan använda klassiska mått varningar i Azure Monitor för att få ett meddelande när ett av dina mått tillämpas på kritiska resurser mellan ett tröskelvärde. Klassiska mått varningar är en äldre funktion som endast tillåter aviseringar på icke-dimensionella mått. Det finns en befintlig ny funktion som kallas mått aviseringar som har förbättrade funktioner i klassiska mått varningar. 
+**Vägledning**: du kan använda klassiska mått varningar i Azure Monitor för att få ett meddelande när ett av dina mått tillämpas på kritiska resurser mellan ett tröskelvärde. Klassiska mått varningar är en äldre funktion som endast tillåter aviseringar på icke-dimensionella mått. Det finns en befintlig ny funktion som kallas mått aviseringar som har förbättrade funktioner i klassiska mått varningar. 
 
 Dessutom kan Application Insights övervaka Azure Cloud Services-appar för tillgänglighet, prestanda, haverier och användning. Detta använder kombinerade data från Application Insights SDK: er med Azure-diagnostik data från Azure-Cloud Services.
 
@@ -471,9 +471,9 @@ Dessutom kan Application Insights övervaka Azure Cloud Services-appar för till
 
 - [Application Insights för Azure Cloud Service (klassisk)](../azure-monitor/app/cloudservices.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ## <a name="vulnerability-management"></a>Sårbarhetshantering
 
@@ -481,7 +481,7 @@ Dessutom kan Application Insights övervaka Azure Cloud Services-appar för till
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5,2: Distribuera automatiserad hanterings lösning för operativ system
 
-**Vägledning** : Observera att den här informationen är relaterad till Azure gäst operativ system för Azure Cloud Services Worker och webb roller med PaaS (Platform as a Service). Det gäller dock inte för Virtual Machines med IaaS (Infrastructure as a Service).
+**Vägledning**: Observera att den här informationen är relaterad till Azure gäst operativ system för Azure Cloud Services Worker och webb roller med PaaS (Platform as a Service). Det gäller dock inte för Virtual Machines med IaaS (Infrastructure as a Service).
 
 Som standard uppdaterar Azure regelbundet kundens gäst operativ system till den senaste avbildning som stöds i den operativ system familj som de har angett i tjänst konfigurationen (. cscfg), till exempel Windows Server 2016.
 
@@ -495,23 +495,23 @@ När en kund väljer en specifik operativ system version för sin Azure Cloud Se
 
 - [Hantera gäst operativ system version](cloud-services-how-to-configure-portal.md#manage-guest-os-version)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvars område** : delat
+**Ansvar**: Delad
 
 ### <a name="53-deploy-an-automated-patch-management-solution-for-third-party-software-titles"></a>5,3: Distribuera en automatiserad korrigerings hanterings lösning för program varu titlar från tredje part
 
-**Vägledning** : Använd en lösning för korrigerings hantering från tredje part. Kunder som redan använder Configuration Manager i sin miljö kan också använda System Center Updates Publisher, så att de kan publicera anpassade uppdateringar i Windows Server Update-tjänsten. 
+**Vägledning**: Använd en lösning för korrigerings hantering från tredje part. Kunder som redan använder Configuration Manager i sin miljö kan också använda System Center Updates Publisher, så att de kan publicera anpassade uppdateringar i Windows Server Update-tjänsten. 
 
 På så sätt kan Uppdateringshantering korrigera datorer som använder Configuration Manager som uppdaterings lagrings plats med program vara från tredje part.
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5,5: Använd en risk klassificerings process för att prioritera reparation av identifierade säkerhets risker
 
-**Vägledning** : Vi rekommenderar att en kund förstår omfattningen av deras risk från en DDoS-attack kontinuerligt. 
+**Vägledning**: Vi rekommenderar att en kund förstår omfattningen av deras risk från en DDoS-attack kontinuerligt. 
 
 Vi rekommenderar att du funderar på följande scenarier:
 
@@ -525,9 +525,9 @@ Support dokumentation:
 
 - [Riskbedömning av dina Azure-resurser](../security/fundamentals/ddos-best-practices.md#risk-evaluation-of-your-azure-resources)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ## <a name="inventory-and-asset-management"></a>Inventerings- och tillgångshantering
 
@@ -535,31 +535,31 @@ Support dokumentation:
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Använd automatiserad identifierings lösning för till gång
 
-**Vägledning** : gäller inte för Azure Cloud Services. Den här rekommendationen gäller för IaaS-beräknings resurser.
+**Vägledning**: gäller inte för Azure Cloud Services. Den här rekommendationen gäller för IaaS-beräknings resurser.
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6,3: ta bort obehöriga Azure-resurser
 
-**Vägledning** : Vi rekommenderar att du avstämr inventering regelbundet och ser till att obehöriga resurser tas bort från prenumerationen inom rimlig tid.
+**Vägledning**: Vi rekommenderar att du avstämr inventering regelbundet och ser till att obehöriga resurser tas bort från prenumerationen inom rimlig tid.
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6,4: definiera och underhålla en inventering av godkända Azure-resurser
 
-**Vägledning** : kunden bör definiera godkända Azure-resurser och godkänd program vara för beräknings resurser.
+**Vägledning**: kunden bör definiera godkända Azure-resurser och godkänd program vara för beräknings resurser.
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6,5: övervaka för ej godkända Azure-resurser
 
-**Vägledning** : Använd funktionen för anpassningsbar program kontroll som finns i Azure Security Center. Det är en intelligent, automatiserad lösning från slut punkt till slut punkt från Security Center som hjälper dig att styra vilka program som kan köras på dina Windows-och Linux-, Azure-och icke-Azure-datorer. Den hjälper också till att förstärka dina datorer mot skadlig kod. 
+**Vägledning**: Använd funktionen för anpassningsbar program kontroll som finns i Azure Security Center. Det är en intelligent, automatiserad lösning från slut punkt till slut punkt från Security Center som hjälper dig att styra vilka program som kan köras på dina Windows-och Linux-, Azure-och icke-Azure-datorer. Den hjälper också till att förstärka dina datorer mot skadlig kod. 
 
 Den här funktionen är tillgänglig för både Azure-och icke-Azure-fönster (alla versioner, klassiska eller Azure Resource Manager) och Linux-datorer.
 
@@ -576,13 +576,13 @@ Mer information finns på de länkar som refereras till.
 
 - [Anpassningsbara programkontroller](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center övervakning** : Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6,6: övervaka för program som inte godkänts i beräknings resurser
 
-**Vägledning** : Använd funktionen för anpassningsbar program kontroll som finns i Azure Security Center. Det är en intelligent, automatiserad lösning från slut punkt till slut punkt från Security Center som hjälper dig att styra vilka program som kan köras på dina Windows-och Linux-, Azure-och icke-Azure-datorer. Den hjälper också till att förstärka dina datorer mot skadlig kod. 
+**Vägledning**: Använd funktionen för anpassningsbar program kontroll som finns i Azure Security Center. Det är en intelligent, automatiserad lösning från slut punkt till slut punkt från Security Center som hjälper dig att styra vilka program som kan köras på dina Windows-och Linux-, Azure-och icke-Azure-datorer. Den hjälper också till att förstärka dina datorer mot skadlig kod. 
 
 Den här funktionen är tillgänglig för både Azure-och icke-Azure-fönster (alla versioner, klassiska eller Azure Resource Manager) och Linux-datorer.
 
@@ -604,13 +604,13 @@ Mer information finns på de länkar som refereras till.
 
 - [Anpassningsbara programkontroller](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center övervakning** : Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6,7: ta bort icke godkända Azure-resurser och program
 
-**Vägledning** : Använd funktionen för anpassningsbar program kontroll som finns i Azure Security Center. Det är en intelligent, automatiserad lösning från slut punkt till slut punkt från Security Center som hjälper dig att styra vilka program som kan köras på dina Windows-och Linux-, Azure-och icke-Azure-datorer. Den hjälper också till att förstärka dina datorer mot skadlig kod. 
+**Vägledning**: Använd funktionen för anpassningsbar program kontroll som finns i Azure Security Center. Det är en intelligent, automatiserad lösning från slut punkt till slut punkt från Security Center som hjälper dig att styra vilka program som kan köras på dina Windows-och Linux-, Azure-och icke-Azure-datorer. Den hjälper också till att förstärka dina datorer mot skadlig kod. 
 
 Den här funktionen är tillgänglig för både Azure-och icke-Azure-fönster (alla versioner, klassiska eller Azure Resource Manager) och Linux-datorer.
 
@@ -632,13 +632,13 @@ Mer information finns på de länkar som refereras till.
 
 - [Anpassningsbara programkontroller](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center övervakning** : Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="68-use-only-approved-applications"></a>6,8: Använd endast godkända program
 
-**Vägledning** : Använd funktionen för anpassningsbar program kontroll som finns i Azure Security Center. Det är en intelligent, automatiserad lösning från slut punkt till slut punkt från Security Center som hjälper dig att styra vilka program som kan köras på dina Windows-och Linux-, Azure-och icke-Azure-datorer. Den hjälper också till att förstärka dina datorer mot skadlig kod. 
+**Vägledning**: Använd funktionen för anpassningsbar program kontroll som finns i Azure Security Center. Det är en intelligent, automatiserad lösning från slut punkt till slut punkt från Security Center som hjälper dig att styra vilka program som kan köras på dina Windows-och Linux-, Azure-och icke-Azure-datorer. Den hjälper också till att förstärka dina datorer mot skadlig kod. 
 
 Den här funktionen är tillgänglig för både Azure-och icke-Azure-fönster (alla versioner, klassiska eller Azure Resource Manager) och Linux-datorer.
 
@@ -660,13 +660,13 @@ Mer information finns på de länkar som refereras till.
 
 - [Anpassningsbara programkontroller](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center övervakning** : Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6,10: underhåll en inventering av godkända program varu titlar
 
-**Vägledning** : Använd funktionen för anpassningsbar program kontroll som finns i Azure Security Center. Det är en intelligent, automatiserad lösning från slut punkt till slut punkt från Security Center som hjälper dig att styra vilka program som kan köras på dina Windows-och Linux-, Azure-och icke-Azure-datorer. Den hjälper också till att förstärka dina datorer mot skadlig kod. 
+**Vägledning**: Använd funktionen för anpassningsbar program kontroll som finns i Azure Security Center. Det är en intelligent, automatiserad lösning från slut punkt till slut punkt från Security Center som hjälper dig att styra vilka program som kan köras på dina Windows-och Linux-, Azure-och icke-Azure-datorer. Den hjälper också till att förstärka dina datorer mot skadlig kod. 
 
 Den här funktionen är tillgänglig för både Azure-och icke-Azure-fönster (alla versioner, klassiska eller Azure Resource Manager) och Linux-datorer.
 
@@ -683,13 +683,13 @@ Mer information finns på de länkar som refereras till.
 
 - [Anpassningsbara programkontroller](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center övervakning** : Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="612-limit-users-ability-to-execute-scripts-in-compute-resources"></a>6,12: begränsa användarnas möjlighet att köra skript i beräknings resurser
 
-**Vägledning** : Använd funktionen för anpassningsbar program kontroll som finns i Azure Security Center. Det är en intelligent, automatiserad lösning från slut punkt till slut punkt från Security Center som hjälper dig att styra vilka program som kan köras på dina Windows-och Linux-, Azure-och icke-Azure-datorer. Den hjälper också till att förstärka dina datorer mot skadlig kod. 
+**Vägledning**: Använd funktionen för anpassningsbar program kontroll som finns i Azure Security Center. Det är en intelligent, automatiserad lösning från slut punkt till slut punkt från Security Center som hjälper dig att styra vilka program som kan köras på dina Windows-och Linux-, Azure-och icke-Azure-datorer. Den hjälper också till att förstärka dina datorer mot skadlig kod. 
 
 Den här funktionen är tillgänglig för både Azure-och icke-Azure-fönster (alla versioner, klassiska eller Azure Resource Manager) och Linux-datorer.
 
@@ -711,13 +711,13 @@ Mer information finns på de länkar som refereras till.
 
 - [Anpassningsbara programkontroller](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center övervakning** : Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6,13: fysiskt eller logiskt särskiljande program med hög risk
 
-**Vägledning** : för känsliga eller högrisk program med Azure Cloud Services, implementera separata prenumerationer eller hanterings grupper för att tillhandahålla isolering.
+**Vägledning**: för känsliga eller högrisk program med Azure Cloud Services, implementera separata prenumerationer eller hanterings grupper för att tillhandahålla isolering.
 
 Använd en nätverks säkerhets grupp, skapa en inkommande säkerhets regel, Välj en tjänst, till exempel http, Välj en anpassad port, ge den en prioritet och ett namn. Prioriteten påverkar ordningen i vilken reglerna tillämpas, det lägre numeriska värdet, den tidigare regeln tillämpas. Du måste associera nätverks säkerhets gruppen med ett undernät eller ett speciellt nätverks gränssnitt för att isolera eller segmentera nätverks trafiken utifrån dina affärs behov.
 
@@ -725,9 +725,9 @@ Mer information finns på de länkar som refereras till.
 
 - [Självstudie – filtrera nätverks trafik med en nätverks säkerhets grupp med hjälp av Azure Portal](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ## <a name="secure-configuration"></a>Säker konfiguration
 
@@ -735,71 +735,71 @@ Mer information finns på de länkar som refereras till.
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: upprätta säkra konfigurationer för alla Azure-resurser
 
-**Vägledning** : Använd rekommendationerna från Azure Security Center som en säker konfigurations bas linje för dina Azure Cloud Services-resurser. 
+**Vägledning**: Använd rekommendationerna från Azure Security Center som en säker konfigurations bas linje för dina Azure Cloud Services-resurser. 
 
 På Azure Portal väljer du Security Center, sedan beräknar du &amp; appar och Azure-Cloud Services för att se de rekommendationer som gäller för dina tjänst resurser.
 
 - [Säkerhetsrekommendationer – en referensguide](../security-center/recommendations-reference.md)
 
-**Azure Security Center övervakning** : Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7,3: underhåll säker Azure-resurs-konfigurationer
 
-**Vägledning** : gäller inte för Azure Cloud Services. Den är baserad på den klassiska distributions modellen. Vi rekommenderar att du använder en lösning från tredje part för att upprätthålla säker Azure-resurs konfiguration
+**Vägledning**: gäller inte för Azure Cloud Services. Den är baserad på den klassiska distributions modellen. Vi rekommenderar att du använder en lösning från tredje part för att upprätthålla säker Azure-resurs konfiguration
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: Spara konfigurationen av Azure-resurser på ett säkert sätt
 
-**Vägledning** : Azure Cloud Services konfigurations fil lagrar startattribut för en resurs. Du kan lagra en kopia av konfigurationsfilerna till ett säkert lagrings konto.
+**Vägledning**: Azure Cloud Services konfigurations fil lagrar startattribut för en resurs. Du kan lagra en kopia av konfigurationsfilerna till ett säkert lagrings konto.
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: Distribuera konfigurations hanterings verktyg för Azure-resurser
 
-**Vägledning** : gäller inte för Azure Cloud Services. Den är baserad på den klassiska distributions modellen och kan inte hanteras av Azure Resource Manager distributions konfigurations verktyg.
+**Vägledning**: gäller inte för Azure Cloud Services. Den är baserad på den klassiska distributions modellen och kan inte hanteras av Azure Resource Manager distributions konfigurations verktyg.
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7,8: Distribuera konfigurations hanterings verktyg för operativ system
 
-**Vägledning** : gäller inte för Azure Cloud Services. Den här rekommendationen gäller för IaaS-baserade (Infrastructure as a Service) data bearbetnings resurser.
+**Vägledning**: gäller inte för Azure Cloud Services. Den här rekommendationen gäller för IaaS-baserade (Infrastructure as a Service) data bearbetnings resurser.
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9: implementera automatisk konfigurations övervakning för Azure-resurser
 
-**Vägledning** : Använd Azure Security Center för att utföra bas linjes ökningar för dina Azure-resurser.  
+**Vägledning**: Använd Azure Security Center för att utföra bas linjes ökningar för dina Azure-resurser.  
 
 - [Så här åtgärdar du rekommendationer i Azure Security Center](../security-center/security-center-remediate-recommendations.md)
 
-**Azure Security Center övervakning** : Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7,10: implementera automatisk konfigurations övervakning för operativ system
 
-**Vägledning** : i Azure Security Center väljer du funktionen Compute &amp; Apps och följer rekommendationerna för virtuella datorer, servrar och behållare.
+**Vägledning**: i Azure Security Center väljer du funktionen Compute &amp; Apps och följer rekommendationerna för virtuella datorer, servrar och behållare.
 
-- [Förstå rekommendationer för Azure Security Center-container](/azure/security-center/security-center-container-recommendations)
+- [Förstå rekommendationer för Azure Security Center-container](../security-center/container-security.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="711-manage-azure-secrets-securely"></a>7,11: Hantera Azure-hemligheter på ett säkert sätt
 
-**Vägledning** : Azure Cloud Services baseras på en klassisk distributions modell och integreras inte med Azure Key Vault.
+**Vägledning**: Azure Cloud Services baseras på en klassisk distributions modell och integreras inte med Azure Key Vault.
 
 Du kan skydda hemligheter som autentiseringsuppgifter som används i Azure Cloud Services så att du inte behöver ange ett lösen ord varje gången. Börja med genom att ange ett lösen ord för oformaterad text, konvertera det till en säker sträng med hjälp av ConvertTo-SecureString, PowerShell-kommando. Konvertera sedan den här säkra strängen till en krypterad standard sträng med hjälp av ConvertFrom-SecureString.  Nu kan du spara den krypterade standard strängen till en fil med hjälp av Set-Content.
 
@@ -807,13 +807,13 @@ Dessutom rekommenderar vi att du lagrar privata nycklar för certifikat som anv�
 
 - [Konfigurera fjärr skrivbord från PowerShell](cloud-services-role-enable-remote-desktop-powershell.md#configure-remote-desktop-from-powershell)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminera oavsiktlig exponering för autentiseringsuppgifter
 
-**Vägledning** : skydda hemligheter som autentiseringsuppgifter som används i Azure Cloud Services så att du inte behöver ange ett lösen ord varje gången. 
+**Vägledning**: skydda hemligheter som autentiseringsuppgifter som används i Azure Cloud Services så att du inte behöver ange ett lösen ord varje gången. 
  
 
 Börja genom att ange ett lösen ord för oformaterad text, ändra det till en säker sträng med hjälp av ConvertTo-SecureString, PowerShell-kommando. Konvertera sedan den här säkra strängen till en krypterad standard sträng med hjälp av ConvertFrom-SecureString. Spara nu den här krypterade standard strängen till en fil med hjälp av kommandot Set-Content.
@@ -822,9 +822,9 @@ Lagra privata nycklar för certifikat som används i Azure Cloud Services till e
 
 - [Konfigurera fjärr skrivbord från PowerShell](cloud-services-role-enable-remote-desktop-powershell.md#configure-remote-desktop-from-powershell)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ## <a name="malware-defense"></a>Skydd mot skadlig kod
 
@@ -832,7 +832,7 @@ Lagra privata nycklar för certifikat som används i Azure Cloud Services till e
 
 ### <a name="81-use-centrally-managed-antimalware-software"></a>8,1: Använd centralt hanterad program vara för program mot skadlig kod
 
-**Vägledning** : Microsoft Antimalware för Azure är tillgängligt för Azure Cloud Services och Virtual Machines. Det är ett kostnads fritt real tids skydd som hjälper till att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Den genererar aviseringar när en känd skadlig eller oönskad program vara försöker installera sig själv eller köra på dina Azure-system. 
+**Vägledning**: Microsoft Antimalware för Azure är tillgängligt för Azure Cloud Services och Virtual Machines. Det är ett kostnads fritt real tids skydd som hjälper till att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Den genererar aviseringar när en känd skadlig eller oönskad program vara försöker installera sig själv eller köra på dina Azure-system. 
 
 Använd PowerShell-baserad cmdlet för program mot skadlig kod för att hämta konfigurationen för program mot skadlig kod med "Get-AzureServiceAntimalwareConfig".
 
@@ -840,15 +840,15 @@ Aktivera tillägget för program mot skadlig kod med ett PowerShell-skript i Sta
 
 Välj funktionen adaptiva program kontroll i Azure Security Center, en intelligent, automatiserad lösning från slut punkt till slut punkt. Det hjälper dig att hindra dina datorer mot skadlig kod och gör att du kan blockera eller Varna vid försök att köra skadliga program, inklusive sådana som annars kan missas av lösningar mot skadlig kod.
 
-- [Hur kan jag lägga till ett tillägg för program mot skadlig kod för min Azure-Cloud Services på ett automatiserat sätt](https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq?&amp;preserve-view=true#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
+- [Hur kan jag lägga till ett tillägg för program mot skadlig kod för min Azure-Cloud Services på ett automatiserat sätt](./cloud-services-configuration-and-management-faq.md?amp;preserve-view=#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
 
 - [Distributions scenarier för program mot skadlig kod](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)
 
 - [Anpassningsbara programkontroller](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ## <a name="incident-response"></a>Incidenthantering
 
@@ -856,7 +856,7 @@ Välj funktionen adaptiva program kontroll i Azure Security Center, en intellige
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: skapa en incident svars guide
 
-**Vägledning** : Bygg ut en incident svars guide för din organisation. Se till att det finns skriftliga svars planer för incidenter som definierar alla personal roller och faser för incident hantering/hantering från identifiering till granskning efter incidenten.
+**Vägledning**: Skapa en guide till incidentsvar för organisationen. Se till att det finns skriftliga planer för incidentsvar som definierar alla personalroller och faser i incidenthanteringen, från identifiering till granskning efter incidenten.
 
 - [Konfigurera automatisering av arbets flöden i Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
@@ -866,61 +866,61 @@ Välj funktionen adaptiva program kontroll i Azure Security Center, en intellige
 
 - [Kunden kan också utnyttja NISTs hanterings guide för dator säkerhet för att hjälpa till med att skapa egna incident svars planer](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10,2: skapa en incident bedömnings-och prioriterings procedur
 
-**Vägledning** : Azure Security Center tilldelar en allvarlighets grad till varje avisering för att hjälpa dig att prioritera vilka aviseringar som bör undersökas först. Allvarlighets graden baseras på hur tillförlitlig Security Center befinner sig i att söka efter eller det analytiska som används för att utfärda aviseringen samt vilken konfidensnivå som det fanns skadlig avsikt bakom den aktivitet som ledde till aviseringen. 
+**Vägledning**: Azure Security Center tilldelar en allvarlighets grad till varje avisering för att hjälpa dig att prioritera vilka aviseringar som bör undersökas först. Allvarlighets graden baseras på hur tillförlitlig Security Center befinner sig i att söka efter eller det analytiska som används för att utfärda aviseringen samt vilken konfidensnivå som det fanns skadlig avsikt bakom den aktivitet som ledde till aviseringen. 
 
 Markera prenumerationer tydligt (till exempel produktion, icke-produktion) och skapa ett namngivnings system för att tydligt identifiera och kategorisera Azure-resurser.
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="103-test-security-response-procedures"></a>10,3: testa säkerhets svars procedurer
 
-**Vägledning** : utföra övningar för att testa dina Systems incident svars funktioner på en vanlig takt. Identifiera svaga punkter och luckor och ändra planen efter behov. 
+**Vägledning**: utföra övningar för att testa dina Systems incident svars funktioner på en vanlig takt. Identifiera svaga punkter och luckor, och ändra planen efter behov. 
 
 - [Se NIST: guide för test, utbildning och övnings program för IT-planer och funktioner](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10,4: Ange kontakt information för säkerhets incidenter och konfigurera aviseringar för säkerhets incidenter
 
-**Vägledning** : kontakt information om säkerhets incidenter kommer att användas av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att kundens data har öppnats av en olaglig eller obehörig part. Granska incidenter när du är säker på att problemen är lösta. 
+**Vägledning**: kontakt information om säkerhets incidenter kommer att användas av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att kundens data har öppnats av en olaglig eller obehörig part. Granska incidenter när du är säker på att problemen är lösta. 
 
 - [Så här ställer du in Azure Security Center säkerhets kontakt](../security-center/security-center-provide-security-contact-details.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10,5: införliva säkerhets aviseringar i ditt incident svars system
 
-**Vägledning** : exportera Azure Security Center aviseringar och rekommendationer med hjälp av funktionen för kontinuerlig export. Med kontinuerlig export kan du exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö. Du kan använda Security Center Data Connector för att strömma aviseringarna till Azure Sentinel. 
+**Vägledning**: exportera Azure Security Center aviseringar och rekommendationer med hjälp av funktionen för kontinuerlig export. Med kontinuerlig export kan du exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö. Du kan använda Security Center Data Connector för att strömma aviseringarna till Azure Sentinel. 
 
 - [Så här konfigurerar du kontinuerlig export](../security-center/continuous-export.md) 
 
-- [Strömma aviseringar till Azure Sentinel](../sentinel/connect-azure-security-center.md)
+- [Så här strömmar du aviseringar till Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10,6: automatisera svaret på säkerhets aviseringar
 
-**Vägledning** : Använd funktionen för automatisering av arbets flöden i Azure Security Center för att automatiskt utlösa svar via "Logic Apps" i säkerhets aviseringar och rekommendationer.
+**Vägledning**: Använd funktionen för automatisering av arbets flöden i Azure Security Center för att automatiskt utlösa svar via "Logic Apps" i säkerhets aviseringar och rekommendationer.
 
 - [Konfigurera automatisering av arbets flöden och Logic Apps](../security-center/workflow-automation.md)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar** : kund
+**Ansvar**: Kund
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Penetrationstester och Red Team-tester
 
@@ -928,15 +928,15 @@ Markera prenumerationer tydligt (till exempel produktion, icke-produktion) och s
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att åtgärda alla viktiga säkerhets brister
 
-**Vägledning** : Följ Microsofts regler för engagemang för att se till att dina inträngande tester inte strider mot Microsofts principer: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1 
+**Vägledning**: Följ Microsofts regler för engagemang för att se till att dina inträngande tester inte strider mot Microsofts principer: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1 
 
 - [Du hittar mer information om Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft-hanterad moln infrastruktur, tjänster och program](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Azure Security Center övervakning** : inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvars område** : delat
+**Ansvar**: Delad
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Azures säkerhets benchmark](/azure/security/benchmarks/overview)
-- Läs mer om [Azures säkerhets bas linjer](/azure/security/benchmarks/security-baselines-overview)
+- Se [Azures säkerhets benchmark](../security/benchmarks/overview.md)
+- Läs mer om [säkerhetsbaslinjer för Azure](../security/benchmarks/security-baselines-overview.md)

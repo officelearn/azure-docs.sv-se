@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 397aab743da25da3882c66d0fdf32c4c4d202586
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: fa9723b466045ebe7b932f837e0fa7c45c898b6b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357002"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353892"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Självstudie: Konfigurera iPass SmartConnect för automatisk användar etablering
 
@@ -73,7 +73,7 @@ Om du vill konfigurera iPass-SmartConnect för automatisk användar etablering m
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **IPass SmartConnect** , väljer **iPass SmartConnect** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **IPass SmartConnect**, väljer **iPass SmartConnect** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![iPass SmartConnect i resultat listan](common/search-new-app.png)
 

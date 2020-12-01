@@ -1,18 +1,18 @@
 ---
 title: Utdata i mallar
-description: Beskriver hur du definierar utdata i en Azure Resource Manager-mall.
+description: Beskriver hur du definierar utdataparametrar i en Azure Resource Manager-mall (ARM-mall).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 8f782a78e523ebc55faac98344643982172476fa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6a375dfbc767bcbbfd8ec6b7f8cb9e942e275582
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911438"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353535"
 ---
-# <a name="outputs-in-azure-resource-manager-template"></a>Utdata i Azure Resource Manager mall
+# <a name="outputs-in-arm-templates"></a>Utdata i ARM-mallar
 
-I den här artikeln beskrivs hur du definierar utdataparametrar i Azure Resource Manager-mallen. Du använder utdata när du behöver returnera värden från de distribuerade resurserna.
+I den här artikeln beskrivs hur du definierar utdataparametrar i Azure Resource Manager mall (ARM-mall). Du använder utdata när du behöver returnera värden från de distribuerade resurserna.
 
 Formatet för varje utmatnings värde måste matcha en av [data typerna](template-syntax.md#data-types).
 
@@ -112,7 +112,7 @@ az deployment group show \
 
 Följande exempel visar scenarier för att använda utdata.
 
-|Mall  |Description  |
+|Mall  |Beskrivning  |
 |---------|---------|
 |[Kopiera variabler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Skapar komplexa variabler och matar ut dessa värden. Distribuerar inte några resurser. |
 |[Offentlig IP-adress](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Skapar en offentlig IP-adress och matar ut resurs-ID: t. |
@@ -120,4 +120,4 @@ Följande exempel visar scenarier för att använda utdata.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om tillgängliga egenskaper för utdata finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](template-syntax.md).
+* Mer information om tillgängliga egenskaper för utdata finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).

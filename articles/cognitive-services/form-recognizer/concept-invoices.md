@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: af3935bab5cd4d6a2aa4a9e3250f6beec19a8ea4
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 5c8af8ddb7a0870de37b73cbe09965ee63c88ba1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736687"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353756"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Fördefinierad faktura modell för formulär tolken
 
-Azure formulär tolken kan analysera och extrahera information från försäljnings fakturor med hjälp av inbyggda faktura modeller. Med faktura-API: et kan kunder ta fakturor i olika format och returnera strukturerade data för att automatisera faktura bearbetningen. Den kombinerar vår kraftfulla [OCR-kapacitet (optisk tecken läsning)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) med faktura om djup inlärnings modeller för att extrahera viktig information från fakturor på engelska. Den extraherar text, tabeller och information, till exempel kund, leverantör, faktura-ID, förfallo datum för faktura, totalt, Fakturerat belopp, moms belopp, leverera till, fakturera till och mycket annat. Det inbyggda faktura-API: t är offentligt tillgängligt i för hands versionen av formulär igenkänning v 2.1.
+Azure formulär tolken kan analysera och extrahera information från försäljnings fakturor med hjälp av inbyggda faktura modeller. Med faktura-API: et kan kunder ta fakturor i olika format och returnera strukturerade data för att automatisera faktura bearbetningen. Den kombinerar vår kraftfulla [OCR-kapacitet (optisk tecken läsning)](../computer-vision/concept-recognizing-text.md) med faktura om djup inlärnings modeller för att extrahera viktig information från fakturor på engelska. Den extraherar text, tabeller och information, till exempel kund, leverantör, faktura-ID, förfallo datum för faktura, totalt, Fakturerat belopp, moms belopp, leverera till, fakturera till och mycket annat. Det inbyggda faktura-API: t är offentligt tillgängligt i för hands versionen av formulär igenkänning v 2.1.
 
 ## <a name="what-does-the-invoice-service-do"></a>Vad gör faktura tjänsten?
 
@@ -80,8 +80,8 @@ Faktura tjänsten kommer att extrahera fälten text, tabeller och 26 fakturor. N
 | CustomerId | sträng | Referens-ID för kunden | CID – 12345 |  |
 | PurchaseOrder | sträng | Ett referens nummer för inköps order | PO – 3333 | |  |
 | InvoiceId | sträng | ID för den här aktuella fakturan (ofta "faktura nummer") | INV-100 | |  |
-| InvoiceDate | datum | Datum då fakturan utfärdades | 11/15/2019 | 
-| DueDate | datum | Datum betalning för den här fakturan är förfallen | 12/15/2019 | 2019-12-15 | 2019-11-15 |
+| InvoiceDate | date | Datum då fakturan utfärdades | 11/15/2019 | 
+| DueDate | date | Datum betalning för den här fakturan är förfallen | 12/15/2019 | 2019-12-15 | 2019-11-15 |
 | Namn | sträng | Leverantör som har skapat den här fakturan | CONTOSO LTD. | |
 | VendorAddress | sträng | E-postadress för leverantören | 123 456th St New York, Sverige, 10001 | |
 | VendorAddressRecipient | sträng | Namn som är associerat med VendorAddress | Contoso Headquarters | |
@@ -99,8 +99,8 @@ Faktura tjänsten kommer att extrahera fälten text, tabeller och 26 fakturor. N
 | ServiceAddressRecipient | sträng | Namn som är associerat med ServiceAddress | Microsoft-tjänster | |
 | RemittanceAddress | sträng | Explicit remittering eller betalnings adress för kunden | 123 remittera St New York, Sverige, 10001 |  |
 | RemittanceAddressRecipient | sträng | Namn som är associerat med RemittanceAddress | Contoso-fakturering |  |
-| ServiceStartDate | datum | Första datumet för service perioden (till exempel en service period för verktyg) | 2019-10-14 | 2019-10-14 |
-| ServiceEndDate | datum | Slutdatum för service perioden (till exempel en service period för verktyg) | 11/14/2019 | 2019-11-14 |
+| ServiceStartDate | date | Första datumet för service perioden (till exempel en service period för verktyg) | 2019-10-14 | 2019-10-14 |
+| ServiceEndDate | date | Slutdatum för service perioden (till exempel en service period för verktyg) | 11/14/2019 | 2019-11-14 |
 | PreviousUnpaidBalance | antal | Explicit tidigare obetald balans | $500.00 | 500 |
 
 
@@ -113,4 +113,3 @@ Faktura tjänsten kommer att extrahera fälten text, tabeller och 26 fakturor. N
 
 * [Vad är formigenkänning?](./overview.md)
 * [REST API referens dokument](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync)
-

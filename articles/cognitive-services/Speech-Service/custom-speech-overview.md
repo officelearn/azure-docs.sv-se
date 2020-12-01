@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 6dbe97d615753f0a90c8ba80aa7afa6dafa15eb2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7f8fb0488c863868b1076ad5b3fa7868d1880a6b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658476"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353790"
 ---
 # <a name="what-is-custom-speech"></a>Vad är Custom Speech?
 
@@ -31,7 +31,7 @@ Det här diagrammet visar de delar som utgör den [Custom Speech portalen](https
 
 1. [Prenumerera och skapa ett projekt](#set-up-your-azure-account) – skapa ett Azure-konto och prenumerera på tal tjänsten. Den här enhetliga prenumerationen ger dig åtkomst till tal översättning av tal till text, text till tal, tal översättning och [Custom Speech-portalen](https://speech.microsoft.com/customspeech). Sedan använder du din röst tjänst prenumeration och skapar ditt första Custom Speech-projekt.
 
-1. [Ladda upp test data](how-to-custom-speech-test-data.md) – Ladda upp test data (ljudfiler) för att utvärdera Microsofts tal-till-text-erbjudande för dina program, verktyg och produkter.
+1. [Ladda upp test data](./how-to-custom-speech-test-and-train.md) – Ladda upp test data (ljudfiler) för att utvärdera Microsofts tal-till-text-erbjudande för dina program, verktyg och produkter.
 
 1. [Granska igenkännings kvalitet](how-to-custom-speech-inspect-data.md) – Använd [Custom Speech portalen](https://speech.microsoft.com/customspeech) för att spela upp ljud som laddats upp och kontrol lera kvaliteten på test data. Information om kvantitativa mått finns i [Granska data](how-to-custom-speech-inspect-data.md).
 
@@ -101,7 +101,7 @@ Observera att du kan uppgradera modellen på en anpassad tal slut punkt utan dri
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Förbered och testa dina data](how-to-custom-speech-test-data.md)
+* [Förbered och testa dina data](./how-to-custom-speech-test-and-train.md)
 * [Inspektera dina data](how-to-custom-speech-inspect-data.md)
 * [Utvärdera och förbättra modell precisionen](how-to-custom-speech-evaluate-data.md)
 * [Träna och distribuera en modell](how-to-custom-speech-train-model.md)

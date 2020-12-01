@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 8e9739b705848edd721c9ebe0d36c25dd5b8d80c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 39b3104f9d6cbc004383bf2c50d07c4dd345fa3c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517794"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353614"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Självstudie: Azure Active Directory integrering med UserVoice
 
@@ -130,7 +130,7 @@ Utför följande steg för att konfigurera enkel inloggning med UserVoice för A
 
 1. Logga in på din UserVoice-företags webbplats som administratör i ett annat webbläsarfönster.
 
-2. I verktygsfältet högst upp klickar du på **Inställningar**och väljer sedan **webb Portal** på menyn.
+2. I verktygsfältet högst upp klickar du på **Inställningar** och väljer sedan **webb Portal** på menyn.
    
     ![Avsnittet Inställningar på App-sidan](./media/uservoice-tutorial/ic777519.png "Inställningar")
 
@@ -180,7 +180,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till UserVoice.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **UserVoice**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program** och väljer sedan **UserVoice**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 

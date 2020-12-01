@@ -1,20 +1,20 @@
 ---
 title: Användardefinierade funktioner i mallar
-description: Beskriver hur du definierar och använder användardefinierade funktioner i en Azure Resource Manager mall.
+description: Beskriver hur du definierar och använder användardefinierade funktioner i en Azure Resource Manager-mall (ARM-mall).
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 69f4e98d389cc8dbe5cd3f4b628189676c501106
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0d62abb5362d51a77db872c11416b04dcfb3f97
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84672943"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353484"
 ---
-# <a name="user-defined-functions-in-azure-resource-manager-template"></a>Användardefinierade funktioner i Azure Resource Manager mall
+# <a name="user-defined-functions-in-arm-template"></a>Användardefinierade funktioner i ARM-mallen
 
 I mallen kan du skapa egna funktioner. Dessa funktioner är tillgängliga för användning i din mall. Användardefinierade funktioner är separata från de [standardmallar](template-functions.md) som är tillgängliga automatiskt i din mall. Skapa egna funktioner när du har komplicerade uttryck som används upprepade gånger i din mall.
 
-I den här artikeln beskrivs hur du lägger till användardefinierade funktioner i Azure Resource Manager-mallen.
+Den här artikeln beskriver hur du lägger till användardefinierade funktioner i din Azure Resource Manager-mall (ARM-mall).
 
 ## <a name="define-the-function"></a>Definiera funktionen
 

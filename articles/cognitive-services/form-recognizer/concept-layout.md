@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: b489964e5ef8ea483cbe203be1ff665078a6d66a
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 60ef490bbba4dca4f01b82967ad6ea8636e7bd4e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95741737"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353705"
 ---
 # <a name="form-recognizer-layout-service"></a>Formulär tolkens layout-tjänst
 
-Azure formulär tolken kan extrahera text, tabeller, markerings märken och struktur information från dokument med hjälp av dess layout-tjänst. Layout-API: et gör det möjligt för kunderna att ta dokument i en rad olika format och returnera strukturerade data och åter givning av dokumentet. Den kombinerar vår kraftfulla [OCR-kapacitet (optisk tecken läsning)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) med dokument som förstår djup inlärnings modeller för att extrahera text, tabeller, markerings märken och dokument strukturer. 
+Azure formulär tolken kan extrahera text, tabeller, markerings märken och struktur information från dokument med hjälp av dess layout-tjänst. Layout-API: et gör det möjligt för kunderna att ta dokument i en rad olika format och returnera strukturerade data och åter givning av dokumentet. Den kombinerar vår kraftfulla [OCR-kapacitet (optisk tecken läsning)](../computer-vision/concept-recognizing-text.md) med dokument som förstår djup inlärnings modeller för att extrahera text, tabeller, markerings märken och dokument strukturer. 
 
 ## <a name="what-does-the-layout-service-do"></a>Vad gör layout tjänsten?
 
@@ -96,7 +96,3 @@ Layout extraherar också markerings märken från dokument. Extraherade markerin
 
 * [Vad är formigenkänning?](./overview.md)
 * [REST API referens dokument](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync)
-
-
-
-

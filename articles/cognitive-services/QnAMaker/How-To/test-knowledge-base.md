@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 21984a03947e4f9f60e705955cb1be3b2df8933c
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 273548ec095ce04772438a2d732b914d80d976cc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376199"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353161"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Testa din kunskaps bas i QnA Maker
 
@@ -70,7 +70,7 @@ Välj **Spara och träna** för att spara det här svaret. Ett nytt fråge-/svar
 
 1. Gå till kunskaps basen genom att välja namnet på sidan **Mina kunskaps baser** .
 1. Välj **testa** i programmets övre panel för att komma åt test-bildspel-panelen. 
-1. En kryss ruta visas i det övre **visnings kort svaret** , som är markerat som standard. Det här alternativet används för att aktivera identifiering av MRC-baserade svars intervall i test panelen. 
+1. En kryss ruta visas i det övre **visnings kort svaret**, som är markerat som standard. Det här alternativet används för att aktivera identifiering av MRC-baserade svars intervall i test panelen. 
 1. Ange en fråga i text rutan och välj RETUR. 
 1. Om det finns ett exakt svars-/kort svar i svars passage för varje fråga, tillsammans med bäst matchade svars passage, som finns i kunskaps basen, kommer du även att ha ett kort svar på din fråga.
     ![Hanterat aktiverat test fönster](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
@@ -263,7 +263,7 @@ Använd följande diagram för att förstå hur du hittar fältvärdena för val
     > [!TIP]
     > Exportera kunskaps basen om du vill se metadata och QnA-ID för varje uppsättning. Välj sidan **Inställningar** och välj sedan **Exportera** som en `.xls` fil. Hitta den här hämtade filen och öppna med Excel-granska för metadata och ID.
 
-1. Välj **Spara och träna** , välj sedan **publicerings** sidan och välj sedan knappen **publicera** . De här åtgärderna gör ändringen tillgänglig för batch-testet. Hämta kunskaps basen från sidan **Inställningar** .
+1. Välj **Spara och träna**, välj sedan **publicerings** sidan och välj sedan knappen **publicera** . De här åtgärderna gör ändringen tillgänglig för batch-testet. Hämta kunskaps basen från sidan **Inställningar** .
 
     Den hämtade filen har rätt format för metadata och korrekt fråge-och svars uppsättnings-ID. Använd de här fälten i nästa avsnitt
 
@@ -323,4 +323,4 @@ Om du inte kommer att fortsätta att använda den här kunskaps basen tar du bor
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Publicera en kunskapsbas](./publish-knowledge-base.md)
+> [Publicera en kunskapsbas](../quickstarts/create-publish-knowledge-base.md)

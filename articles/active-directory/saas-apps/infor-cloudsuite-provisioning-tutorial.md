@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: a62afa9469caa886d86814036017427c0cc0d193
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 8fdd2c8a326fbdc68d1aec65377f4c465c5ee4c1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357444"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353909"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera information CloudSuite för automatisk användar etablering
 
@@ -94,7 +94,7 @@ Innan du konfigurerar information CloudSuite för automatisk användar etablerin
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **information CloudSuite** , väljer **infor CloudSuite** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **information CloudSuite**, väljer **infor CloudSuite** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Information CloudSuite i resultat listan](common/search-new-app.png)
 

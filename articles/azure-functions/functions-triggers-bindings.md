@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: e00fd3d1dac0a18ac7f7377e08ae8d20ae132c56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0d78d52ec13c91b82e6a8d10720269076f59a1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652641"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353552"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Utlösare och bindningar i Azure Functions
 
@@ -18,7 +18,7 @@ I den här artikeln lär du dig de övergripande koncepten som omger funktions u
 
 Utlösare är orsaken till att en funktion körs. En utlösare definierar hur en funktion anropas och en funktion måste ha exakt en utlösare. Utlösare har associerade data, vilka vanligtvis är nyttolasten för funktionen. 
 
-Bindning till en funktion är ett sätt att på ett sätt ansluta en annan resurs till funktionen. bindningar kan vara anslutna som *indata-bindningar*, *utgående bindningar*eller både och. Data från bindningar skickas som parametrar till funktionen.
+Bindning till en funktion är ett sätt att på ett sätt ansluta en annan resurs till funktionen. bindningar kan vara anslutna som *indata-bindningar*, *utgående bindningar* eller både och. Data från bindningar skickas som parametrar till funktionen.
 
 Du kan blanda och matcha olika bindningar så att de passar dina behov. Bindningar är valfria och en funktion kan ha en eller flera indata- och/eller utdatabindningar.
 
@@ -88,6 +88,10 @@ Information om vilka bindningar som är i för hands version eller som godkänns
 Använd följande tabell för att hitta exempel på olika typer av bindningar som visar hur du arbetar med bindningar i dina funktioner. Först väljer du fliken språk som motsvarar ditt projekt. 
 
 [!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
+
+## <a name="custom-bindings"></a>Anpassade bindningar
+
+Du kan skapa anpassade bindningar för indata och utdata. Bindningar måste vara skapade i .NET, men kan användas på alla språk som stöds. Mer information om hur du skapar anpassade bindningar finns i [skapa anpassade bindningar för indata och utdata](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
 ## <a name="resources"></a>Resurser
 - [Bindnings uttryck och mönster](./functions-bindings-expressions-patterns.md)

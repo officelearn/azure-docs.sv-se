@@ -10,26 +10,26 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 90b6619a5a0c3d59b09eeb5a5002d15cf0c21e19
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6141bd67681df757536792981d47756a20ed33db
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095908"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353331"
 ---
 # <a name="share-your-custom-search-instance"></a>Dela din anpassade Sök instans
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Du kan möjliggöra samarbetsbaserad redigering och testning av din instans genom att helt enkelt dela den med medlemmar i ditt team. Du kan dela din instans med någon som bara använder sin e-postadress. Så här delar du en instans:
 
 - Logga in på [Anpassad sökning](https://customsearch.ai)
 - Välj en anpassad Sök instans
 - Klicka på inställnings ikonen (visas som ett kugg hjul). 
-- Under **dela din instans** anger du e-postadressen till den person som du vill dela din instans med och klickar på **dela** . 
+- Under **dela din instans** anger du e-postadressen till den person som du vill dela din instans med och klickar på **dela**. 
 
 När du har lagt till e-postadressen läggs den till i den **instans som delas med** -listan. Upprepa processen för varje person som du vill dela din instans med. 
 

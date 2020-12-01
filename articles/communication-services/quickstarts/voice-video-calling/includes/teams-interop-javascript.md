@@ -5,12 +5,12 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: ab13e02c9154dbfc1bd28872f1bd6f993019a604
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 820659c513674dc04e914c8f1094afab4f5a89e2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915447"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356468"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -22,7 +22,7 @@ ms.locfileid: "94915447"
 Funktionen Teams driftskompatibilitet finns för närvarande i privat för hands version. Om du vill aktivera den här funktionen för din kommunikations tjänst resurs, kan du skicka e-post [acsfeedback@microsoft.com](mailto:acsfeedback@microsoft.com) till:
 
 1. Prenumerations-ID för den Azure-prenumeration som innehåller kommunikations tjänst resursen.
-2. Ditt teams klient-ID. Det enklaste sättet att skaffa detta är att [Hämta och dela en länk till teamet](https://support.microsoft.com/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f#:~:text=Create%20a%20link%20If%20you%E2%80%99re%20a%20team%20owner%2C,link%20into%20any%20browser%20to%20join%20the%20team).
+2. Ditt teams klient-ID. Det enklaste sättet att skaffa detta är att [Hämta och dela en länk till teamet](https://support.microsoft.com/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f).
 
 Du måste vara medlem i den ägande organisationen av båda entiteterna för att kunna använda den här funktionen.
 

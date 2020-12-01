@@ -1,5 +1,5 @@
 ---
-title: Integrera bransch standard modeller
+title: Integrera branschstandardmodeller
 titleSuffix: Azure Digital Twins
 description: Förstå hur du integrerar bransch standard modeller i DTDL för Azure Digitals, antingen genom att använda särskilda DTDL-Ontologies eller konvertera befintliga Ontologies
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1866e9b233a1379474c061779ada09fd6d119107
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: f5bfe128ddc04e8048bb89a8e39035434dfd2b92
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94338404"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352889"
 ---
 # <a name="integrate-industry-standard-models-with-dtdl-for-azure-digital-twins"></a>Integrera bransch standard modeller med DTDL för Azure Digitals, dubbla
 
@@ -21,9 +21,9 @@ Med hjälp av modeller som baseras på bransch standarder eller använder standa
 För att kunna användas med digitala Azure-datorer måste en modell representeras i DTDL (JSON-LD-based [**digital)**](concepts-models.md). I den här artikeln beskrivs därför hur du representerar bransch standard modeller i DTDL, som integrerar de befintliga bransch koncepten med DTDL-semantik så att Azures digitala dubbla kan använda dem. DTDL-modellen fungerar sedan som källan till sanningen för modellen i Azure Digitals-modeller.
 
 Det finns tre möjliga sökvägar för integrering av bransch standard modeller med DTDL:
-* **Anta** : du kan starta din lösning med en DTDL-Ontology med öppen källkod som har byggts på de mest antagna bransch standarderna. 
-* **Konvertera** : om du redan har befintliga modeller måste du konvertera dem till DTDL.
-* **Författare** : du kan alltid utveckla dina egna anpassade DTDL-modeller från grunden, enligt beskrivningen i [*How-to: Hantera anpassade modeller*](how-to-manage-model.md).
+* **Anta**: du kan starta din lösning med en DTDL-Ontology med öppen källkod som har byggts på de mest antagna bransch standarderna. 
+* **Konvertera**: om du redan har befintliga modeller måste du konvertera dem till DTDL.
+* **Författare**: du kan alltid utveckla dina egna anpassade DTDL-modeller från grunden, enligt beskrivningen i [*How-to: Hantera anpassade modeller*](how-to-manage-model.md).
 
 ## <a name="adopt-an-open-source-dtdl-ontology"></a>Anta en DTDL-Ontology med öppen källkod
 
@@ -35,7 +35,7 @@ Dessa DTDL-Ontologies med öppen källkod ger också bästa praxis för hur du a
 
 ## <a name="convert-existing-models-to-dtdl"></a>Konvertera befintliga modeller till DTDL
 
-De flesta bransch modeller (kallas även **Ontologies** ) baseras på semantiska webb standarder som [Owl](https://www.w3.org/OWL/), [RDF](https://www.w3.org/2001/sw/wiki/RDF)och [RDFS](https://www.w3.org/2001/sw/wiki/RDFS). 
+De flesta bransch modeller (kallas även **Ontologies**) baseras på semantiska webb standarder som [Owl](https://www.w3.org/OWL/), [RDF](https://www.w3.org/2001/sw/wiki/RDF)och [RDFS](https://www.w3.org/2001/sw/wiki/RDFS). 
 
 Om du vill använda en modell med digitala Azure-dubbla, måste den vara i DTDL-format. I det här avsnittet beskrivs allmän design vägledning i form av ett **konverterings mönster** för att konvertera RDF-baserade modeller till DTDL så att de kan användas med digitala Azure-dubbla. 
 
@@ -111,9 +111,9 @@ Det finns ett tillgängligt exempel program som konverterar en RDF-baserad model
 
 Exemplet är ett .NET Core-kommando rads program som heter **RdfToDtdlConverter**.
 
-Du kan hämta exemplet här: [**RdfToDtdlConverter**](https://docs.microsoft.com/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
+Du kan hämta exemplet här: [**RdfToDtdlConverter**](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
 
-Du kan ladda ned koden till datorn genom att trycka på *Hämta zip* -knappen under rubriken på exempel landnings sidan. En *zip* -fil kommer att hämtas under namnet *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip* , som du sedan kan packa upp och utforska.
+Du kan ladda ned koden till datorn genom att trycka på *Hämta zip* -knappen under rubriken på exempel landnings sidan. En *zip* -fil kommer att hämtas under namnet *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip*, som du sedan kan packa upp och utforska.
 
 Du kan använda det här exemplet för att se konverterings mönstren i sammanhanget och ha som bygg block för dina egna program som utför modell konverteringar enligt dina egna specifika behov.
 

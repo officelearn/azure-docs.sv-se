@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: encorona
-ms.openlocfilehash: a24f1337a68f38db273688e9a91c65ac2f4736b4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 737b6e0534111924a31204d4548dfa59805c2fe5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963614"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352583"
 ---
 # <a name="update-a-command-from-a-web-endpoint"></a>Uppdatera ett kommando från en webbslutpunkt
 
@@ -23,13 +23,13 @@ Om klient programmet kräver en uppdatering av statusen för ett pågående komm
 
 I den här artikeln får du lära dig hur du uppdaterar ett pågående kommando från en webb slut punkt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 > [!div class = "checklist"]
 > * En tidigare [skapad app för Anpassade kommandon](quickstart-custom-commands-application.md)
 
 ## <a name="create-an-azure-function"></a>Skapa en Azure-funktion 
 
-I det här exemplet behöver du en HTTP-utlöst Azure- [funktion](https://docs.microsoft.com/azure/azure-functions/) som stöder följande indatatyper (eller en delmängd av den här indatamängden):
+I det här exemplet behöver du en HTTP-utlöst Azure- [funktion](../../azure-functions/index.yml) som stöder följande indatatyper (eller en delmängd av den här indatamängden):
 
 ```JSON
 {

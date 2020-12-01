@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 789dafc61c89515f4b2ef64933262252d1232f16
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ec509cc04db87602b3e29230253d9b363a5e30d5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357036"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353926"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Figma för automatisk användar etablering
 
@@ -87,7 +87,7 @@ Om du vill konfigurera Figma för automatisk användar etablering med Azure AD m
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **Figma** , väljer **Figma** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **Figma**, väljer **Figma** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Figma i resultat listan](common/search-new-app.png)
 

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
-ms.openlocfilehash: dc910c01c401468a3dae392a6318344bee25efb7
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5035a81838ace0678f0cbb68ad2b9325de498003
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375658"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353127"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Språk stöd för en QnA Maker resurs-och kunskaps baser
 
@@ -140,7 +140,7 @@ Följande lista innehåller de språk som stöds för en QnA Maker-resurs.
 |Vietnamesiska|
 
 ## <a name="query-matching-and-relevance"></a>Fråga matchning och relevans
-QnA Maker är beroende av [Azure kognitiv sökning språk analys](https://docs.microsoft.com/rest/api/searchservice/language-support) verktyg för att ge resultat.
+QnA Maker är beroende av [Azure kognitiv sökning språk analys](/rest/api/searchservice/language-support) verktyg för att ge resultat.
 
 Även om Azure Kognitiv sökning-funktionerna är på parivärde för språk som stöds, har QnA Maker ytterligare rangordning som ligger ovanför Azure Search-resultaten. I den här ranknings modellen använder vi vissa särskilda semantiska och Word-baserade funktioner på följande språk.
 
@@ -166,4 +166,4 @@ Den här ytterligare rangordningen är en intern bearbetning av QnA Makers rang.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Val av språk](../how-to/language-knowledge-base.md)
+> [Val av språk](../index.yml)

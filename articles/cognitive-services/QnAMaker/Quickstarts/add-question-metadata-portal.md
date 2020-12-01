@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: 930acbd3bbdb8f63b6aa888b292025a76435b289
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e56d718892d9cfdbfda9068ecd68ef31f7f2ea46
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776756"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353078"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Snabb start: Lägg till frågor och svar med QnA Maker Portal
 
@@ -20,7 +20,7 @@ När en kunskaps bas har skapats kan du lägga till fråge-och svars-par (QnA) m
 
 |Par|Frågor|Svar|Metadata|
 |--|--|--|--|
-|Nr 1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
+|Nr 1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../concepts/azure-resources.md) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |Nr 2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
 
 När metadata har lagts till i ett QnA-par kan klient programmet:
@@ -29,7 +29,7 @@ När metadata har lagts till i ett QnA-par kan klient programmet:
 * Ta emot alla svar men efter bearbetningen av svaren beroende på metadata för varje svar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför den [tidigare snabb](./create-publish-knowledge-base.md) starten
 
@@ -37,7 +37,7 @@ När metadata har lagts till i ett QnA-par kan klient programmet:
 
 1. Logga in på [QNA Maker Portal](https://www.qnamaker.ai).
 
-1. Välj din befintliga kunskaps bas från [föregående snabb start](../how-to/create-knowledge-base.md).
+1. Välj din befintliga kunskaps bas från [föregående snabb start](./create-publish-knowledge-base.md).
 
 ## <a name="add-additional-alternatively-phrased-questions"></a>Lägg till ytterligare, frasbaserade frågor
 
@@ -56,13 +56,13 @@ När den här webb adressen har importer ATS skapades bara en fråga med ett sva
 
 1. Välj **Spara och träna** för att träna om kunskaps basen.
 
-1. Välj **test**och ange sedan en fråga som är nära en av de nya alternativa ordföljder, men inte exakt samma formulering:
+1. Välj **test** och ange sedan en fråga som är nära en av de nya alternativa ordföljder, men inte exakt samma formulering:
 
     `What GB size can a knowledge base be?`
 
     Rätt svar returneras i markdown-format:
 
-    `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`
+    `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../concepts/azure-resources.md) for more details.`
 
     Om du väljer **Granska** under det returnerade svaret kan du se fler svar som uppfyllde frågan men inte med samma höga förtroende nivå.
 
@@ -76,9 +76,9 @@ Genom att lägga till metadata till ett fråge-och svars par kan klient programm
 
 1. Lägg till den andra frågan och svars paret utan metadata från den [första tabellen i den här snabb](#qna-table)starten och fortsätt sedan med följande steg.
 
-1. Välj **visnings alternativ**och välj sedan **Visa metadata**.
+1. Välj **visnings alternativ** och välj sedan **Visa metadata**.
 
-1. För det QnA-par som du nyss lade till väljer du **Lägg till metadata-Taggar**och lägger sedan till namnet på `service` och värdet för `search` . Det ser ut så här: `service:search` .
+1. För det QnA-par som du nyss lade till väljer du **Lägg till metadata-Taggar** och lägger sedan till namnet på `service` och värdet för `search` . Det ser ut så här: `service:search` .
 
 1. Lägg till en annan metadata-tagg med namnet `link_in_answer` och värdet `false` . Det ser ut så här: `link_in_answer:false` .
 

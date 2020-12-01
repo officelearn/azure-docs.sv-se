@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 5ba81c7a3da6747b0fee8a05e359181e86e4a19d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7a15248300150c9b79c4678701f81fac923d56a3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181534"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353620"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med ServiceNow
 
@@ -25,6 +25,8 @@ I den här självstudien får du lära dig hur du integrerar ServiceNow med Azur
 * Kontroll i Azure AD som har åtkomst till ServiceNow.
 * Gör det möjligt för användarna att logga in automatiskt till ServiceNow med sina Azure AD-konton.
 * Hantera dina konton på en central plats: Azure Portal.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Jao6]
 
 ## <a name="prerequisites"></a>Förutsättningar
 

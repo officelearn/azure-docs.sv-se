@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: ac41fb5ed6fd1e46719fcc39ccaf5b29375e7410
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b6a8f192cd26639431cc9fcb6b43e1bc5e8e2843
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359909"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353637"
 ---
 # <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Självstudie: Konfigurera meta Networks Connector för automatisk användar etablering
 
@@ -106,7 +106,7 @@ Innan du konfigurerar meta Network Connector för automatisk användar etablerin
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök anger du **meta Networks Connector** , väljer **meta Networks Connector** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I rutan Sök anger du **meta Networks Connector**, väljer **meta Networks Connector** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Meta Networks Connector i resultatlistan](common/search-new-app.png)
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 5185e7d0bd60eec239f1233db7f9789cbefc2c10
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 83917214705546b21553e997ccab11a7511f77fd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006174"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353314"
 ---
 # <a name="manage-qna-maker-resources"></a>Hantera QnA Maker resurser
 
@@ -81,7 +81,7 @@ Så här uppgraderar du SKU: n för QnA Maker hantering:
 
  När din kunskaps bas behöver hantera fler förfrågningar från din klient program, uppgraderar du App Service pris nivå.
 
-Du kan [skala upp](https://docs.microsoft.com/azure/app-service/manage-scale-up) eller skala ut app service.
+Du kan [skala upp](../../../app-service/manage-scale-up.md) eller skala ut app service.
 
 Gå till App Service resursen i Azure Portal och välj alternativet **skala upp** eller **skala ut** efter behov.
 
@@ -154,13 +154,13 @@ Det främsta målet med affärs kontinuitets planen är att skapa en elastisk ku
 
 Den övergripande idén som visas ovan är följande:
 
-1. Konfigurera två parallella [QNA Maker tjänster](set-up-qnamaker-service-azure.md) i [Azure-kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+1. Konfigurera två parallella [QNA Maker tjänster](set-up-qnamaker-service-azure.md) i [Azure-kopplade regioner](../../../best-practices-availability-paired-regions.md).
 
 1. [Säkerhetskopiera](../../../app-service/manage-backup.md) den primära QNA Maker app-tjänsten och [Återställ](../../../app-service/web-sites-restore.md) den i den sekundära installationen. Detta säkerställer att båda konfigurationerna fungerar med samma värdnamn och nycklar.
 
 1. Behåll de primära och sekundära Azure Search-indexen synkroniserade. Använd exemplet GitHub [här](https://github.com/pchoudhari/QnAMakerBackupRestore) för att se hur du säkerhetskopierar Azure index.
 
-1. Säkerhetskopiera Application Insights med [kontinuerlig export](../../../application-insights/app-insights-export-telemetry.md).
+1. Säkerhetskopiera Application Insights med [kontinuerlig export](../../../azure-monitor/app/export-telemetry.md).
 
 1. När de primära och sekundära stackarna har kon figurer ATS använder du [Traffic Manager](../../../traffic-manager/traffic-manager-overview.md) för att konfigurera de två slut punkterna och konfigurera en routningsmetod.
 
@@ -386,4 +386,4 @@ Om du tar bort någon av de Azure-resurser som används för QnA Maker kunskaps 
 Läs mer om [App Service](../../../app-service/index.yml) och [search service](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du skapar med andra](../how-to/collaborate-knowledge-base.md)
+> [Lär dig hur du skapar med andra](../index.yml)

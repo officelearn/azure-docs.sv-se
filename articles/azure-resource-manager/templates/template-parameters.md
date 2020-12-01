@@ -1,18 +1,18 @@
 ---
 title: Parametrar i mallar
-description: Beskriver hur du definierar parametrar i en Azure Resource Manager-mall.
+description: Beskriver hur du definierar parametrar i en Azure Resource Manager-mall (ARM-mall).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 8cdc95037967a32c2d8464f4dc39b1e7369102bb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ac1aeb579040b35b2a9b4cb90fb5687f91ebd3b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911421"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353518"
 ---
-# <a name="parameters-in-azure-resource-manager-templates"></a>Parametrar i Azure Resource Manager-mallar
+# <a name="parameters-in-arm-templates"></a>Parametrar i ARM-mallar
 
-I den här artikeln beskrivs hur du definierar och använder parametrar i din Azure Resource Manager-mall. Genom att ange olika värden för parametrar kan du återanvända en mall för olika miljöer.
+Den här artikeln beskriver hur du definierar och använder parametrar i din Azure Resource Manager-mall (ARM-mall). Genom att ange olika värden för parametrar kan du återanvända en mall för olika miljöer.
 
 Resource Manager matchar parameter värden innan distributions åtgärderna startas. Oavsett var parametern används i mallen ersätter Resource Manager den med det matchade värdet.
 
@@ -154,14 +154,13 @@ Du refererar till egenskaperna för objektet med hjälp av punkt operatorn.
 
 I följande exempel demonstreras scenarier för att använda parametrar.
 
-|Mall  |Description  |
+|Mall  |Beskrivning  |
 |---------|---------|
 |[parametrar med funktioner för standardvärden](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Visar hur du använder mall funktioner när du definierar standardvärden för parametrar. Mallen distribuerar inga resurser. Den skapar parameter värden och returnerar dessa värden. |
 |[parameter objekt](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Visar hur man använder ett objekt för en parameter. Mallen distribuerar inga resurser. Den skapar parameter värden och returnerar dessa värden. |
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om tillgängliga egenskaper för parametrar finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](template-syntax.md).
+* Mer information om tillgängliga egenskaper för parametrar finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
 * Information om hur du skickar parameter värden som en fil finns i [create Resource Manager parameter File](parameter-files.md).
 * Rekommendationer för att skapa parametrar finns i [metod tips – parametrar](template-best-practices.md#parameters).

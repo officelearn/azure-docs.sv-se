@@ -1,18 +1,18 @@
 ---
 title: Variabler i mallar
-description: Beskriver hur du definierar variabler i en Azure Resource Manager mall.
+description: Beskriver hur du definierar variabler i en Azure Resource Manager-mall (ARM-mall).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 7758451747503cb8c42566dc081a91f84bafa375
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5d9b58d63e96656c45d3494d24099bbeadc46b11
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95916011"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353467"
 ---
-# <a name="variables-in-azure-resource-manager-template"></a>Variabler i Azure Resource Manager-mallar
+# <a name="variables-in-arm-template"></a>Variabler i ARM-mallen
 
-I den här artikeln beskrivs hur du definierar och använder variabler i din Azure Resource Manager-mall. Du kan använda variabler för att förenkla din mall. I stället för att upprepa komplexa uttryck i hela mallen definierar du en variabel som innehåller det komplexa uttrycket. Sedan kan du referera till variabeln efter behov i hela mallen.
+Den här artikeln beskriver hur du definierar och använder variabler i din Azure Resource Manager-mall (ARM-mall). Du kan använda variabler för att förenkla din mall. I stället för att upprepa komplexa uttryck i hela mallen definierar du en variabel som innehåller det komplexa uttrycket. Sedan kan du referera till variabeln efter behov i hela mallen.
 
 Resource Manager löser variabler innan distributions åtgärderna påbörjas. Oavsett var variabeln används i mallen ersätter Resource Manager den med det matchade värdet.
 
@@ -87,7 +87,7 @@ Använd variabeln och parametern tillsammans för att hämta inställningarna f�
 
 Följande exempel visar scenarier för att använda variabler.
 
-|Mall  |Description  |
+|Mall  |Beskrivning  |
 |---------|---------|
 | [variabel definitioner](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Visar de olika typerna av variabler. Mallen distribuerar inga resurser. Den skapar variabel värden och returnerar dessa värden. |
 | [konfigurations variabel](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Visar användningen av en variabel som definierar konfigurations värden. Mallen distribuerar inga resurser. Den skapar variabel värden och returnerar dessa värden. |
@@ -95,5 +95,5 @@ Följande exempel visar scenarier för att använda variabler.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om tillgängliga egenskaper för variabler finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](template-syntax.md).
+* Mer information om tillgängliga egenskaper för variabler finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
 * Rekommendationer om hur du skapar variabler finns i [metod tips – variabler](template-best-practices.md#variables).

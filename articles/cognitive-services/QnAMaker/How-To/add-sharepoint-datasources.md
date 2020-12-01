@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 0f49621d44b99412b9a6ab0360c30c894a71e5d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c231ac95841043e5576f064e683dd86d9695b108
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776875"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353195"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Lägg till en säker SharePoint-datakälla i kunskaps basen
 
@@ -27,7 +27,7 @@ Om QnA Maker Knowledge Base Manager inte är Active Directory Manager måste du 
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>Lägg till filtyper som stöds i kunskaps basen
 
-Du kan lägga till alla [filtyper](../Concepts/content-types.md) som stöds av QNA Maker från en SharePoint-webbplats till din kunskaps bas. Du kan behöva bevilja [behörigheter](#permissions) om fil resursen är skyddad.
+Du kan lägga till alla [filtyper](../index.yml) som stöds av QNA Maker från en SharePoint-webbplats till din kunskaps bas. Du kan behöva bevilja [behörigheter](#permissions) om fil resursen är skyddad.
 
 1. I biblioteket med SharePoint-webbplatsen väljer du filens ellips-meny, `...` .
 1. Kopiera filens URL.
@@ -119,7 +119,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
     [![Sök efter QnAMakerPortalSharePoint i listan över företags appar](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 
-1. Gå till **behörigheter**under **säkerhet**. Välj **bevilja administrativt godkännande för organisationen**.
+1. Gå till **behörigheter** under **säkerhet**. Välj **bevilja administrativt godkännande för organisationen**.
 
     [![Välj autentiserad användare för Active Directory admin](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
 
@@ -156,7 +156,7 @@ Use the following steps to transform the SharePoint URL into a sharing token.
 
 ### Add or update a SharePoint File URI to your knowledge base
 
-Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](https://go.microsoft.com/fwlink/?linkid=2092179) or [updating a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
+Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) or [updating a knowledge base](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
 
 ```
 {
@@ -188,4 +188,4 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Samar beta med din kunskaps bas](collaborate-knowledge-base.md)
+> [Samar beta med din kunskaps bas](../index.yml)

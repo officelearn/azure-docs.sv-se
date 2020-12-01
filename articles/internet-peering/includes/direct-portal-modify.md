@@ -1,26 +1,26 @@
 ---
-title: inkludera fil
+title: ta med fil
 titleSuffix: Azure
-description: inkludera fil
+description: ta med fil
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 3894bf046ed4ee3f068e43dbc5bc5b7f2a1002b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3212acd5015edbb639b8904b885c718d654e5b4
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81681035"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356269"
 ---
 I det här avsnittet beskrivs hur du utför följande ändrings åtgärder för direkt peering.
 
 ### <a name="add-direct-peering-connections"></a>Lägg till direkta peering-anslutningar
 1. Välj knappen **+ Lägg till anslutningar** och konfigurera en ny peering-anslutning.
     > [!div class="mx-imgBorder"]
-    > ![Vyn peering-resurs](../media/setup-direct-modify-addconnection.png)
+    > ![På sidan AshburnPeering-Connections visas anslutningarna. Knappen + Lägg till anslutningar är markerad.](../media/setup-direct-modify-addconnection.png)
 
 1. Fyll i formuläret **direkt peering-anslutning** och välj **Spara**. Om du behöver hjälp med att konfigurera en peering-anslutning går du igenom stegen i avsnittet "skapa och etablera en direkt peering".
     > [!div class="mx-imgBorder"]

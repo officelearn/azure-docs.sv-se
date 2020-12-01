@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 43b57d0b58c9268482ca27fd51040c7152ecdc25
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 15f66e836a2900349007fb5068a172b89f39d4de
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026060"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352804"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Skapa ett Azure Kubernetes service-kluster (AKS) som använder tillgänglighets zoner
 
@@ -34,11 +34,8 @@ AKS-kluster kan för närvarande skapas med tillgänglighets zoner i följande r
 * East US 
 * USA, östra 2
 * Frankrike, centrala
-* Tyskland, västra centrala
 * Japan, östra
 * Norra Europa
-* Sydafrika, norra
-* USA, södra centrala
 * Sydostasien
 * Storbritannien, södra
 * Europa, västra

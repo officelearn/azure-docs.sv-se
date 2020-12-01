@@ -10,14 +10,14 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: ded332813a840892f640aa6f6e48debbfe381b4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5d182276cd77493be5184503a1afc47934bf8ea
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90889239"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344201"
 ---
-# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Använda Jupyter-anteckningsböcker för att efter säkerhetshot
+# <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Använd Jupyter Notebook för att efter säkerhetshot
 
 Stiftelsen i Azure Sentinel är data lagret. den kombinerar högpresterande frågor, dynamiskt schema och skalar till enorma data volymer. Azure Portal och alla Azure Sentinel-verktyg använder ett gemensamt API för att få åtkomst till det här data lagret. Samma API är också tillgängligt för externa verktyg som [Jupyter](https://jupyter.org/) Notebooks och python. Många vanliga uppgifter kan utföras i portalen, och Jupyter utökar omfattningen av vad du kan göra med dessa data. Den kombinerar fullständig programmering med en enorm samling bibliotek för maskin inlärning, visualisering och data analys. Dessa attribut gör Jupyter till ett övertygande verktyg för säkerhets undersökning och jakt.
 
@@ -54,14 +54,14 @@ Om du vill använda antecknings böckerna måste du först skapa en arbets yta f
     > [!div class="mx-imgBorder"]
     > ![Starta Notebook för att starta Azure ml-arbetsytan](./media/notebooks/sentinel-notebooks-launch.png)
 
-1. Under **azureml arbets yta**väljer du **Skapa ny**.
+1. Under **azureml arbets yta** väljer du **Skapa ny**.
 
     > [!div class="mx-imgBorder"]
     > ![skapa arbets yta](./media/notebooks/sentinel-notebooks-azureml-create.png)
 
 1. På sidan **Machine Learning** anger du följande information och väljer sedan **Granska + skapa**.
 
-    |Field|Beskrivning|
+    |Fält|Beskrivning|
     |--|--|
     |Prenumeration|Välj den Azure-prenumeration som du vill använda.|
     |Resursgrupp|Använd en befintlig resursgrupp i din prenumeration eller ange ett namn för att skapa en ny resursgrupp. En resurs grupp innehåller relaterade resurser för en Azure-lösning. I det här exemplet använder vi **AzureMLRG**.|
@@ -89,7 +89,7 @@ När distributionen är klar kan du starta antecknings böcker i din nya Azure M
 
 ## <a name="launch-a-notebook-using-your-azure-ml-workspace"></a>Starta en bärbar dator med din Azure ML-arbetsyta
 
-1. Från Azure Portal navigerar du till **Azure Sentinel**  >  **Threat management**  >  **antecknings böcker**för Azure Sentinel Threat Management, där du kan se antecknings böcker som Azure Sentinel tillhandahåller.
+1. Från Azure Portal navigerar du till **Azure Sentinel**  >  **Threat management**  >  **antecknings böcker** för Azure Sentinel Threat Management, där du kan se antecknings böcker som Azure Sentinel tillhandahåller.
 
     > [!TIP]
     > Välj **guider & feedback** för att öppna ett fönster med ytterligare hjälp och vägledning om antecknings böcker.
@@ -126,7 +126,7 @@ När distributionen är klar kan du starta antecknings böcker i din nya Azure M
     > [!div class="mx-imgBorder"]
     > ![Kör antecknings boken](./media/notebooks/sentinel-azure-notebooks-run.png)
 
-Rekommenderade
+Rekommendationer:
 
 - En snabb introduktion till att fråga data i Azure Sentinel finns i [komma igång med Azure ml-anteckningsböcker och Azure Sentinel](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/A%20Getting%20Started%20Guide%20For%20Azure%20Sentinel%20ML%20Notebooks.ipynb) -guide.
 
@@ -140,7 +140,7 @@ Vi välkomnar feedback, om förslag, förfrågningar om funktioner, antecknings 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du kommer igång med Jupyter-anteckningsböcker i Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
+I den här artikeln har du lärt dig hur du kommer igång med Jupyter Notebook i Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 
 - [Söker proaktivt efter hot](hunting.md)
 - [Använd bok märken för att spara intressant information under jakt](bookmarks.md)

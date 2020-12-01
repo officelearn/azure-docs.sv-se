@@ -1,14 +1,14 @@
 ---
 title: Översikt över mallar
-description: Beskriver fördelarna med Azure Resource Manager mallar för att distribuera resurser.
+description: Beskriver fördelarna med Azure Resource Manager mallar (ARM-mallar) för att distribuera resurser.
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 188fd5782795a4fb5456978a2a596cabc6dfd874
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: e25404fc74456f99a4d41c25786b34b6e1f3edda
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325068"
+ms.locfileid: "96342336"
 ---
 # <a name="what-are-arm-templates"></a>Vad är ARM-mallar?
 
@@ -16,7 +16,7 @@ Med flytten till molnet har många team antagit smidiga utvecklings metoder. Des
 
 För att möta dessa utmaningar kan du automatisera distributioner och använda infrastrukturen som kod. I kod definierar du den infrastruktur som måste distribueras. Infrastruktur koden blir en del av projektet. Precis som program kod, lagrar du infrastruktur koden i en käll lagrings plats och version. Vilken som helst av dina team kan köra koden och distribuera liknande miljöer.
 
-Använd Azure Resource Manager ARM-mallar för att implementera infrastruktur som kod för dina Azure-lösningar. Mallen är en JavaScript Object Notation-fil (JSON) som definierar infrastrukturen och konfigurationen för ditt projekt. Mallen använder deklarativ syntax, som låter dig ange vad du vill distribuera utan att du behöver skriva sekvensen med programmeringskommandon för att skapa det. I mallen anger du de resurser som ska distribueras och egenskaperna för dessa resurser.
+Använd Azure Resource Manager mallar (ARM-mallar) om du vill implementera infrastruktur som kod för dina Azure-lösningar. Mallen är en JavaScript Object Notation-fil (JSON) som definierar infrastrukturen och konfigurationen för ditt projekt. Mallen använder deklarativ syntax, som låter dig ange vad du vill distribuera utan att du behöver skriva sekvensen med programmeringskommandon för att skapa det. I mallen anger du de resurser som ska distribueras och egenskaperna för dessa resurser.
 
 ## <a name="why-choose-arm-templates"></a>Varför ska du välja ARM-mallar?
 

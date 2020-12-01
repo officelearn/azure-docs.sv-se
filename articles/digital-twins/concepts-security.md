@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 349f57299387b616373bb5fb4d295da8df8ee493
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: d62e7566038af6647cab2992b02184a4ea5ba30b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279897"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344155"
 ---
 # <a name="secure-azure-digital-twins"></a>Skydda digitala Azure-dubbla
 
@@ -24,7 +24,7 @@ Azure Digitals dubbla är också stöd för kryptering av data i vila.
 
 Azure RBAC tillhandahålls till Azure Digitals sammanflätade via integrering med [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
-Du kan använda Azure RBAC för att bevilja behörighet till ett *säkerhets objekt* , som kan vara en användare, en grupp eller ett program tjänst objekt. Säkerhets objekt autentiseras av Azure AD och tar emot en OAuth 2,0-token i retur. Denna token kan användas för att auktorisera en åtkomstbegäran till en Azure Digitals-instans.
+Du kan använda Azure RBAC för att bevilja behörighet till ett *säkerhets objekt*, som kan vara en användare, en grupp eller ett program tjänst objekt. Säkerhets objekt autentiseras av Azure AD och tar emot en OAuth 2,0-token i retur. Denna token kan användas för att auktorisera en åtkomstbegäran till en Azure Digitals-instans.
 
 ### <a name="authentication-and-authorization"></a>Autentisering och auktorisering
 
@@ -93,13 +93,13 @@ Om en användare försöker utföra en åtgärd som inte tillåts av deras roll,
 
 En **service-tagg** representerar en grupp med IP-adressprefix från en specifik Azure-tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras, vilket minimerar komplexiteten vid frekventa uppdateringar av nätverks säkerhets regler. Mer information om service märken finns i  [*taggar för virtuella nätverk*](../virtual-network/service-tags-overview.md). 
 
-Du kan använda service märken för att definiera nätverks åtkomst kontroller i [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md#security-rules)   eller [Azure-brandvägg](../firewall/service-tags.md)genom att använda tjänst Taggar i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet (i det här fallet **AzureDigitalTwins** ) i lämpligt *käll*   -eller *mål*   fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst. 
+Du kan använda service märken för att definiera nätverks åtkomst kontroller i [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md#security-rules)   eller [Azure-brandvägg](../firewall/service-tags.md)genom att använda tjänst Taggar i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet (i det här fallet **AzureDigitalTwins**) i lämpligt *käll*   -eller *mål*   fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst. 
 
 Nedan visas information om **AzureDigitalTwins** -tjänst tag gen.
 
 | Tagga | Syfte | Kan använda inkommande eller utgående? | Kan regionala? | Kan använda med Azure-brandväggen? |
 | --- | --- | --- | --- | --- |
-| AzureDigitalTwins | Azure Digital Twins<br>OBS! den här taggen eller de IP-adresser som omfattas av den här taggen kan användas för att begränsa åtkomsten till slut punkter som kon figurer ATS för [händelse vägar](concepts-route-events.md). | Inkommande | Nej | Ja |
+| AzureDigitalTwins | Azure Digital Twins<br>OBS! den här taggen eller de IP-adresser som omfattas av den här taggen kan användas för att begränsa åtkomsten till slut punkter som kon figurer ATS för [händelse vägar](concepts-route-events.md). | Inkommande | Inga | Ja |
 
 ### <a name="using-service-tags-for-accessing-event-route-endpoints"></a>Använda service märken för att komma åt händelse vägens slut punkter 
 
@@ -121,7 +121,7 @@ Azure Digitals-enheter tillhandahåller kryptering av data i vila och under öve
 
 ## <a name="cross-origin-resource-sharing-cors"></a>Resursdelning för korsande ursprung (CORS)
 
-Azure Digitals-korsningar stöder för närvarande inte **resurs delning mellan ursprung (CORS)**. Det innebär att om du anropar en REST API från en webbapp, ett [API Management (APIM)](../api-management/api-management-key-concepts.md) -gränssnitt eller en [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) -anslutning kan du se ett princip fel.
+Azure Digitals-korsningar stöder för närvarande inte **resurs delning mellan ursprung (CORS)**. Det innebär att om du anropar en REST API från en webbapp, ett [API Management (APIM)](../api-management/api-management-key-concepts.md) -gränssnitt eller en [Power Apps](/powerapps/powerapps-overview) -anslutning kan du se ett princip fel.
 
 För att lösa det här felet kan du göra något av följande:
 * Remsans CORS-rubrik `Access-Control-Allow-Origin` från meddelandet. Den här rubriken anger om svaret kan delas. 

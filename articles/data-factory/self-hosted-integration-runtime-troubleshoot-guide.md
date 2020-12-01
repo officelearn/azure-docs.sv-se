@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: 8195c4d072acce5345fa9752f97713aed22d962f
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 635178999398287649d8630fc5262a385afc48b2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296962"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341792"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Felsöka integration runtime med egen värd
 
@@ -167,7 +167,7 @@ När vi hanterar fall som rör SSL/TLS-handskakning kan vi stöta på problem so
 
 `Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
  
-Ett exempel: 
+Exempel: 
 
 `Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
 
@@ -752,7 +752,7 @@ Två möjliga orsaker till det här problemet:
 - För orsak 1 kontrollerar du att ADF-servercertifikatet och certifikat kedjan är betrodd av den dator där SHIR är installerat.
 - För orsak 2 kan du antingen lita på den ersatta rot certifikat utfärdaren på SHIR dator eller konfigurera proxyn så att den inte ersätter ADF-servercertifikat.
 
-Se [den här artikeln](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) för information om att lita på ett certifikat i Windows.
+Se [den här artikeln](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) för information om att lita på ett certifikat i Windows.
 
 #### <a name="additional-info"></a>Ytterligare info
 Vi håller på att lansera ett nytt SSL-certifikat, som är signerat från DigiCert, kontrol lera om DigiCert globala rot G2 är i den betrodda rot certifikat utfärdaren.

@@ -11,19 +11,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 6fb1bdbad4455b55c3f6cc3b395526f637339847
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 2566b2cf950df915f8ea843c34ea1fb6f8e7ea21
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592166"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96342013"
 ---
 # <a name="customize-and-suggest-image-search-queries"></a>Anpassa och föreslå bilds öknings frågor
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Använd den här artikeln för att lära dig hur du anpassar frågor och föreslår Sök villkor som ska skickas till API för bildsökning i Bing.
 
@@ -33,9 +33,9 @@ Om din app har en sökruta där Sök villkor har angetts kan du använda [API f�
 
 ## <a name="pivot-the-query"></a>Pivotera frågan
 
-Om Bing kan segmentera den ursprungliga Sök frågan innehåller objektet returnerade [bilder](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) `pivotSuggestions` . Pivot-förslag kan visas som valfria Sök villkor för användaren. Om den ursprungliga frågan exempelvis var *Microsoft Surface* , kan Bing segmentera frågan till *Microsoft* och *ytan* och tillhandahålla föreslagna pivoteror för var och en. Dessa förslag kan visas som valfria sökord för användaren.
+Om Bing kan segmentera den ursprungliga Sök frågan innehåller objektet returnerade [bilder](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) `pivotSuggestions` . Pivot-förslag kan visas som valfria Sök villkor för användaren. Om den ursprungliga frågan exempelvis var *Microsoft Surface*, kan Bing segmentera frågan till *Microsoft* och *ytan* och tillhandahålla föreslagna pivoteror för var och en. Dessa förslag kan visas som valfria sökord för användaren.
 
-I följande exempel visas Pivot-förslag för *Microsoft-ytan* :  
+I följande exempel visas Pivot-förslag för *Microsoft-ytan*:  
 
 ```json
 {

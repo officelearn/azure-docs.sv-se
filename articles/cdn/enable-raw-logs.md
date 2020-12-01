@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: allensu
-ms.openlocfilehash: 2fbefd3b7761976cffbd6be8714cb849e1253aec
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e73b4b2eefeb26dad4d028f617cbe453dbd1870d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778030"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96342472"
 ---
 # <a name="monitoring-metrics-and-raw-logs-for-azure-cdn-from-microsoft"></a>Övervaknings mått och råa loggar för Azure CDN från Microsoft
 Med Azure CDN från Microsoft kan du övervaka resurser på följande sätt för att hjälpa dig att felsöka, spåra och felsöka problem. 
@@ -40,9 +40,9 @@ Så här konfigurerar du obehandlade loggar för din Azure CDN från Microsoft-p
 
 1. Välj **alla resurser** på Azure Portal-menyn  >>  **\<your-CDN-profile>** .
 
-2. Under **Övervakning** väljer du **Diagnostikinställningar** .
+2. Under **Övervakning** väljer du **Diagnostikinställningar**.
 
-3. Välj **+ Lägg till diagnostisk inställning** .
+3. Välj **+ Lägg till diagnostisk inställning**.
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-01.png" alt-text="Lägg till diagnostisk inställning för CDN-profil." border="true":::
     
@@ -53,17 +53,17 @@ Så här konfigurerar du obehandlade loggar för din Azure CDN från Microsoft-p
 
 5. Välj **AzureCdnAccessLog** och ange kvarhållning i dagar.
 
-6. Välj **mål information** . Mål alternativen är:
+6. Välj **mål information**. Mål alternativen är:
     * **Skicka till Log Analytics**
-        * Välj **prenumerationen** och **Log Analytics arbets ytan** .
+        * Välj **prenumerationen** och **Log Analytics arbets ytan**.
     * **Arkivera till ett lagrings konto**
-        * Välj **prenumerationen** och **lagrings kontot** .
-    * **Strömma till en Event Hub**
-        * Välj **prenumeration** , **Event Hub-namnrymd** , **Event Hub-namn (valfritt)** och **princip namn för Event Hub** .
+        * Välj **prenumerationen** och **lagrings kontot**.
+    * **Strömma till en händelsehubb**
+        * Välj **prenumeration**, **Event Hub-namnrymd**, **Event Hub-namn (valfritt)** och **princip namn för Event Hub**.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Lägg till diagnostisk inställning för CDN-profil." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Konfigurera målet för logg inställningar." border="true":::
 
-7. Välj **Spara** .
+7. Välj **Spara**.
 
 ## <a name="configuration---azure-powershell"></a>Konfiguration – Azure PowerShell
 
@@ -178,7 +178,7 @@ Azure CDN från Microsoft-tjänsten tillhandahåller för närvarande obehandlad
     ```
 
 ### <a name="sent-to-origin-shield-deprecation"></a>Skickas till ursprungs sköldens utfasning
-Den råa logg egenskapen **isSentToOriginShield** har ersatts och ersatts av ett nytt fält **isReceivedFromClient** . Använd det nya fältet om du redan använder det inaktuella fältet. 
+Den råa logg egenskapen **isSentToOriginShield** har ersatts och ersatts av ett nytt fält **isReceivedFromClient**. Använd det nya fältet om du redan använder det inaktuella fältet. 
 
 Obehandlade loggar innehåller loggar som skapats från både CDN-Edge (underordnad POP) och ursprungs sköld. Ursprungs sköld syftar på överordnade noder som är strategiskt placerade över hela världen. Dessa noder kommunicerar med ursprungs servrar och minskar belastningen på belastningen på ursprunget. 
 
@@ -201,7 +201,7 @@ AzureDiagnostics
 ```
 
 > [!IMPORTANT]
-> Funktionen HTTP RAW-loggar är tillgänglig automatiskt för profiler som skapats eller uppdaterats efter **25 februari 2020** . För CDN-profiler som skapats tidigare bör du uppdatera CDN-slutpunkten när du har konfigurerat loggning. Till exempel kan en navigera till geo-filtrering under CDN-slutpunkter och blockera alla länder/regioner som inte är relevanta för deras arbets belastning och tryck på Spara.
+> Funktionen HTTP RAW-loggar är tillgänglig automatiskt för profiler som skapats eller uppdaterats efter **25 februari 2020**. För CDN-profiler som skapats tidigare bör du uppdatera CDN-slutpunkten när du har konfigurerat loggning. Till exempel kan en navigera till geo-filtrering under CDN-slutpunkter och blockera alla länder/regioner som inte är relevanta för deras arbets belastning och tryck på Spara.
 
 
 ## <a name="metrics"></a>Mått
@@ -220,7 +220,7 @@ Mer information finns i [Azure Monitor mått](../azure-monitor/platform/data-pla
 | Träff grad för byte * | Procent andelen utgående från CDN-cachen, beräknad mot det totala utgående värdet.                                      | Slutpunkt                                                                                    |
 | RequestCount    | Antalet klient begär Anden som hanteras av CDN.                                                                     | Slutpunkt </br> Klient land. </br> Klient region. </br> HTTP-status. </br> HTTP-status grupp. |
 | ResponseSize    | Antalet byte som har skickats som svar från CDN-Edge till klienter.                                                  |Slutpunkt </br> Klient land. </br> Klient region. </br> HTTP-status. </br> HTTP-status grupp.                                                                                          |
-| TotalLatency    | Den totala tiden från klient förfrågan som mottagits av CDN **tills den sista svars bytet skickades från CDN till klienten** . |Slutpunkt </br> Klient land. </br> Klient region. </br> HTTP-status. </br> HTTP-status grupp.                                                                                             |
+| TotalLatency    | Den totala tiden från klient förfrågan som mottagits av CDN **tills den sista svars bytet skickades från CDN till klienten**. |Slutpunkt </br> Klient land. </br> Klient region. </br> HTTP-status. </br> HTTP-status grupp.                                                                                             |
 
 **_Antal byte träff-portioner = (utgående från Edge-utgång från ursprung)/egress från gräns_*
 
@@ -233,33 +233,33 @@ Scenarier som exkluderas i beräkningen av byte-träffar:
 
 1. Välj **alla resurser** på Azure Portal-menyn  >>  **\<your-CDN-profile>** .
 
-2. Under **övervakning** väljer du **mått** :
+2. Under **övervakning** väljer du **mått**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Lägg till diagnostisk inställning för CDN-profil." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Mått för CDN-profilen." border="true":::
 
-3. Välj **Lägg till mått** , Välj måttet som ska läggas till:
+3. Välj **Lägg till mått**, Välj måttet som ska läggas till:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Lägg till diagnostisk inställning för CDN-profil." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Lägg till och välj mått för CDN-profilen." border="true":::
 
 4. Välj **Lägg till filter** för att lägga till ett filter:
     
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Lägg till diagnostisk inställning för CDN-profil." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Använd filter för mått." border="true":::
 
 5. Välj **Använd** delning för att se trenden efter olika dimensioner:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Lägg till diagnostisk inställning för CDN-profil." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Använd delning till måttet." border="true":::
 
 6. Välj **nytt diagram** för att lägga till ett nytt diagram:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Lägg till diagnostisk inställning för CDN-profil." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Lägg till nytt diagram i vyn mått." border="true":::
 
 ### <a name="alerts"></a>Aviseringar
 
-Du kan konfigurera aviseringar i Microsoft CDN genom att välja **övervaknings**  >>  **aviseringar** .
+Du kan konfigurera aviseringar i Microsoft CDN genom att välja **övervaknings**  >>  **aviseringar**.
 
 Välj **ny varnings regel** för mått som anges i avsnittet mått:
 
-:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Lägg till diagnostisk inställning för CDN-profil." border="true":::
+:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Konfigurera aviseringar för CDN-slutpunkten." border="true":::
 
 Aviseringen kommer att debiteras baserat på Azure Monitor. Mer information om aviseringar finns i [Azure Monitor aviseringar](../azure-monitor/platform/alerts-overview.md).
 
@@ -270,23 +270,23 @@ Du kan aktivera ytterligare mått med hjälp av Azure Log Analytics och råa log
 
 2. Välj Log Analytics arbets ytan som du skapade:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Lägg till diagnostisk inställning för CDN-profil." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Välj Log Analytics-arbetsyta" border="true":::   
 
-3. Välj **loggar** under **Allmänt** i Log Analytics-arbetsytan.  Välj sedan **Kom igång** :
+3. Välj **loggar** under **Allmänt** i Log Analytics-arbetsytan.  Välj sedan **Kom igång**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Lägg till diagnostisk inställning för CDN-profil." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Arbets ytan Log Analytics-resurs." border="true":::   
  
-4. Välj **CDN-profiler** .  Välj en exempel fråga att köra eller Stäng exempel skärmen för att ange en anpassad fråga:
+4. Välj **CDN-profiler**.  Välj en exempel fråga att köra eller Stäng exempel skärmen för att ange en anpassad fråga:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Lägg till diagnostisk inställning för CDN-profil." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Exempel på fråga-skärmen." border="true":::   
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Lägg till diagnostisk inställning för CDN-profil." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Frågekörningen." border="true":::   
 
-4. Om du vill visa data efter diagram väljer du **diagram** .  Välj **Fäst på instrument panelen** för att fästa diagrammet på Azure-instrumentpanelen:
+4. Om du vill visa data efter diagram väljer du **diagram**.  Välj **Fäst på instrument panelen** för att fästa diagrammet på Azure-instrumentpanelen:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Lägg till diagnostisk inställning för CDN-profil." border="true"::: 
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Fäst diagram på instrument panelen." border="true"::: 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du aktiverat HTTP RAW-loggar för Microsoft CDN-tjänsten.
 
 Mer information om Azure CDN och de andra Azure-tjänsterna som nämns i den här artikeln finns i:
@@ -295,4 +295,4 @@ Mer information om Azure CDN och de andra Azure-tjänsterna som nämns i den hä
 
 * Läs mer om [Azure Monitor](../azure-monitor/overview.md).
 
-* Konfigurera [Log Analytics i Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
+* Konfigurera [Log Analytics i Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).

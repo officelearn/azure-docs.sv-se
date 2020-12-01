@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 8d5352a79d2920701c96289f6162c1466f0f9f75
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 6a2c69735c36c06cdf72efc812aa1ac4020ff00a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367581"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96342234"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Självstudie: Hämta Sök förslag på en webb sida
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 I den här självstudien skapar vi en webbsida där användarna kan fråga API:et Automatiska förslag i Bing.
 
@@ -238,7 +238,7 @@ Hantera även möjliga felhändelser från XMLHttpRequest-objektet.
     });
 ```
 
-Skicka begäran. Stäng funktionen bingAutosuggest i **script** -taggen och **head** -taggen.
+Skicka begäran. Stäng funktionen bingAutosuggest i **script**-taggen och **head**-taggen.
 
 ```html
     request.send();
@@ -272,7 +272,7 @@ Skapa ett HTML-formulär med ett textfält. Hantera `oninput` händelsen och anr
 </form>
 ```
 
-Lägg till HTML-taggen **div** som vi använder för att visa resultatet. JavaScript-koden som vi definierade tidigare refererar till den här **div** -taggen.
+Lägg till HTML-taggen **div** som vi använder för att visa resultatet. JavaScript-koden som vi definierade tidigare refererar till den här **div**-taggen.
 
 ```html
 <h2>Results</h2>

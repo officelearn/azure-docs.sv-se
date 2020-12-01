@@ -8,12 +8,12 @@ keywords: Hadoop hög tillgänglighet
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: c322380d6a41e69baa8f753b84c0bc074f334647
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0275fa4cc46dff8781d73563fd250b1ec62ddd56
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547035"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344121"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Azure HDInsight affärs kontinuitets arkitekturer
 
@@ -50,13 +50,13 @@ Det sekundära klustret är vanligt vis skrivskyddat. Du kan göra det sekundär
 
 I en *aktiv primär klient med sekundär arkitektur på begäran* , skriver program till den aktiva primära regionen medan inget kluster tillhandahålls i den sekundära regionen under normal drift. SQL-Metaarkiv och lagring i den sekundära regionen är permanenta, medan HDInsight-klustret är skriptat och distribueras på begäran bara innan den schemalagda Hive-replikeringen körs.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary.png" alt-text="Arkitektur för Hive och interaktiv fråga":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary.png" alt-text="aktiv primär med sekundär på begäran":::
 
 #### <a name="hive-active-primary-with-standby-secondary"></a>Hive aktiv primär med sekundär vänte läge
 
 I en *aktiv primär med sekundär vänte läge* kan program skriva till den aktiva primära regionen medan ett vänte läge som skalas ned sekundärt kluster i skrivskyddat läge körs under normal drift. Under normal drift kan du välja att avlasta regions information läs åtgärder till sekundär.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Arkitektur för Hive och interaktiv fråga":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="aktiv primär med sekundär vänte läge":::
 
 Mer information om Hive-replikering och kod exempel hittar [Apache Hive replikering i Azure HDInsight-kluster](./interactive-query/apache-hive-replication.md)
 
@@ -85,13 +85,13 @@ Om det finns kundspecifika bibliotek som är utanför det som HDInsight tillhand
 
 Program läser och skriver till Spark-och Hive-kluster i den primära regionen medan inga kluster tillhandahålls i den sekundära regionen under normal drift. SQL-Metaarkiv, Hive-lagring och Spark-lagring är permanenta i den sekundära regionen. Spark-och Hive-klustren är skriptade och distribuerade på begäran. Hive-replikering används för att replikera Hive-lagring och Hive-metastores medan Azure Data Factory `DistCP` kan användas för att kopiera fristående Spark-lagring. Hive-kluster måste distribueras innan varje Hive-replikering körs på grund av beroende `DistCp` beräkningen.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary-spark.png" alt-text="Arkitektur för Hive och interaktiv fråga":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary-spark.png" alt-text="aktiv primär Apache Spark arkitektur med sekundär på begäran":::
 
 #### <a name="spark-active-primary-with-standby-secondary"></a>Spark aktiv primär med sekundär vänte läge
 
 Program har Läs-och Skriv behörighet till Spark-och Hive-kluster i den primära regionen medan standby-expanderade Hive-och Spark-kluster i skrivskyddat läge körs i den sekundära regionen under normal drift. Under normal drift kan du välja att avlasta regions struktur och Spark Läs åtgärder till sekundär.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary-spark.png" alt-text="Arkitektur för Hive och interaktiv fråga":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary-spark.png" alt-text="aktiv sekundär Apache Spark primär vänte läge ":::
 
 ## <a name="apache-hbase"></a>Apache HBase
 
@@ -131,19 +131,19 @@ I den här uppsättningen över regioner är replikering enkelriktad från den p
 
 Det sekundära klustret fungerar som ett normalt HBase-kluster som kan vara värd för sina egna tabeller och som kan hantera läsningar och skrivningar från regionala program. Skrivningar i de replikerade tabellerna eller tabellerna som är inbyggda i den sekundära replikeras dock inte tillbaka till den primära.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-follower.png" alt-text="Arkitektur för Hive och interaktiv fråga":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-follower.png" alt-text="HBase ledare, uppföljnings modell":::
 
 #### <a name="hbase-replication--leader--leader-model"></a>HBase-replikering: ledare – ledar modell
 
 Detta är mycket likt den enkelriktade inställningen, förutom att replikeringen sker i båda riktningarna mellan den primära och den sekundära regionen. Program kan använda båda klustren i Read-Write-lägen och uppdateringar utbyter asynkront mellan dem.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-leader.png" alt-text="Arkitektur för Hive och interaktiv fråga":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-leader.png" alt-text="HBase ledare, ledar modell":::
 
 #### <a name="hbase-replication-multi-region-or-cyclic"></a>HBase-replikering: flera regioner eller cykliska
 
 Modellen för flera regioner/cykliska replikeringar är en utökning av HBase-replikering och kan användas för att skapa en globalt redundant HBase-arkitektur med flera program som läser och skriver till landsspecifika HBase-kluster. Klustren kan konfigureras i olika kombinationer av ledare/ledare eller ledare/följare beroende på affärs krav.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-cyclic.png" alt-text="Arkitektur för Hive och interaktiv fråga":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-cyclic.png" alt-text="HBase cyklisk modell":::
 
 ## <a name="apache-kafka"></a>Apache Kafka
 
@@ -151,7 +151,7 @@ Om du vill aktivera tillgänglighet mellan regioner HDInsight 4,0 stöder Kafka-
 
 Beroende på ämnets livs längd när replikeringen startades kan MirrorMaker-ämnes replikering leda till olika förskjutningar mellan käll-och replik ämnen. HDInsight Kafka-kluster stöder även avsnitt partition replikering som är en funktion för hög tillgänglighet på den enskilda kluster nivån.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-replication.png" alt-text="Arkitektur för Hive och interaktiv fråga":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-replication.png" alt-text="Apache Kafka replikering":::
 
 ### <a name="apache-kafka-architectures"></a>Apache Kafka arkitekturer
 
@@ -172,7 +172,7 @@ Nackdelar:
 * Eventuell konsekvens mellan ämnen mellan aktiva och passiva kluster.
 * Förlita till primär kan leda till inkonsekvens i meddelanden i ämnen.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-passive.png" alt-text="Arkitektur för Hive och interaktiv fråga":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-passive.png" alt-text="Apache Kafka aktiv passiv modell":::
 
 #### <a name="kafka-replication-active--active"></a>Kafka-replikering: aktiv – aktiv
 
@@ -188,7 +188,7 @@ Nackdelar:
 * Problemet med cirkulär replikering måste åtgärdas.  
 * Dubbelriktad replikering leder till högre kostnader för utgående data från regionala data.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-active.png" alt-text="Arkitektur för Hive och interaktiv fråga":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-active.png" alt-text="Apache Kafka aktiv aktiv modell":::
 
 ## <a name="hdinsight-enterprise-security-package"></a>HDInsight-Enterprise Security Package
 
@@ -198,11 +198,11 @@ Ranger Metaarkiv-replikering:
 
 Ranger Metaarkiv används för att lagra och betjäna Ranger-principer för att styra dataauktorisering. Vi rekommenderar att du upprätthåller oberoende Ranger-principer i primär och sekundär och upprätthåller den sekundära som en Läs replik.
   
-Om kravet är att behålla Ranger-principer i synkronisering mellan primär och sekundär använder du [Ranger import/export](https://cwiki.apache.org/confluence/display/RANGER/User+Guide+For+Import-Export#:~:text=Ranger%20has%20introduced%20a%20new,can%20import%20and%20export%20policies.&text=Also%20can%20export%2Fimport%20a,repositories\)%20via%20Ranger%20Admin%20UI) för att regelbundet säkerhetskopiera och importera Ranger-principer från primär till sekundär.
+Om kravet är att behålla Ranger-principer i synkronisering mellan primär och sekundär använder du [Ranger import/export](https://cwiki.apache.org/confluence/display/RANGER/User+Guide+For+Import-Export) för att regelbundet säkerhetskopiera och importera Ranger-principer från primär till sekundär.
 
 Att replikera Ranger-principer mellan primär och sekundär kan orsaka att den sekundära är skrivnings aktive rad, vilket kan leda till oavsiktlig skrivning på den sekundära data inkonsekvenserna.  
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hdinsight-enterprise-security-package.png" alt-text="Arkitektur för Hive och interaktiv fråga":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hdinsight-enterprise-security-package.png" alt-text="HDInsight Enterprise Security Package-arkitektur":::
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/25/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5cbedad360e5270238225503e7802d571820c871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 084a8e247ab8bb3e6e6c75cf8cfe8e204384f549
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388161"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345158"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett LinkedIn-konto med anpassade principer i Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "85388161"
 
 Den här artikeln visar hur du aktiverar inloggning för användare från ett LinkedIn-konto genom att använda [anpassade principer](custom-policy-overview.md) i Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md).
 - LinkedIn-konto – om du inte redan har ett [konto kan du skapa ett konto](https://www.linkedin.com/start/join).
@@ -52,7 +52,7 @@ Om du vill använda LinkedIn som identitets leverantör i Azure AD B2C måste du
 1. Välj fliken **autentisering** .
 1. Registrera **klient-ID**.
 1. Visa och registrera **klient hemligheten**.
-1. Under **Inställningar för OAuth 2,0**lägger du till följande **omdirigerings-URL**. Ersätt `your-tenant` med namnet på din klient. Använd **gemener** för klient organisationens namn även om det har definierats med versaler i Azure AD B2C.
+1. Under **Inställningar för OAuth 2,0** lägger du till följande **omdirigerings-URL**. Ersätt `your-tenant` med namnet på din klient. Använd **gemener** för klient organisationens namn även om det har definierats med versaler i Azure AD B2C.
 
     `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`
 
@@ -65,10 +65,10 @@ Du måste lagra klient hemligheten som du tidigare registrerade i Azure AD B2C-k
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer du **ID för identitets miljö**.
 5. Välj **princip nycklar** och välj sedan **Lägg till**.
-6. För **alternativ**väljer du `Manual` .
+6. För **alternativ** väljer du `Manual` .
 7. Ange ett **namn** för princip nyckeln. Exempelvis `LinkedInSecret`. Prefixet *B2C_1A_* läggs automatiskt till namnet på din nyckel.
-8. I **hemlighet**anger du den klient hemlighet som du tidigare har registrerat.
-9. För **nyckel användning**väljer du `Signature` .
+8. I **hemlighet** anger du den klient hemlighet som du tidigare har registrerat.
+9. För **nyckel användning** väljer du `Signature` .
 10. Klicka på **Skapa**.
 
 ## <a name="add-a-claims-provider"></a>Lägg till en anspråks leverantör
@@ -77,8 +77,8 @@ Om du vill att användarna ska logga in med ett LinkedIn-konto måste du definie
 
 Definiera ett LinkedIn-konto som en anspråks leverantör genom att lägga till det i **ClaimsProviders** -elementet i principens tilläggs fil.
 
-1. Öppna filen *SocialAndLocalAccounts/* * TrustFrameworkExtensions.xml** * i redigeraren. Den här filen finns i det [Start paket för anpassad princip][starter-pack] som du laddade ned som en del av en av kraven.
-1. Hitta **ClaimsProviders** -elementet. Om den inte finns lägger du till den under rot elementet.
+1. Öppna filen * SocialAndLocalAccounts/**TrustFrameworkExtensions.xml** _ i redigeraren. Den här filen finns i det [Start paket för anpassad princip][starter-pack] som du laddade ned som en del av en av kraven.
+1. Hitta elementet _ *ClaimsProviders**. Om den inte finns lägger du till den under rot elementet.
 1. Lägg till en ny **ClaimsProvider** enligt följande:
 
     ```xml
@@ -99,7 +99,7 @@ Definiera ett LinkedIn-konto som en anspråks leverantör genom att lägga till 
             <Item Key="external_user_identity_claim_id">id</Item>
             <Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>
             <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
-            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="client_id">Your LinkedIn application client ID</Item>
           </Metadata>
           <CryptographicKeys>
@@ -134,7 +134,7 @@ Definiera ett LinkedIn-konto som en anspråks leverantör genom att lägga till 
 
 Den tekniska profilen LinkedIn kräver att **ExtractGivenNameFromLinkedInResponse** -och **ExtractSurNameFromLinkedInResponse** -postomvandlingar läggs till i listan över ClaimsTransformations. Om du inte har ett **ClaimsTransformations** -element definierat i filen lägger du till de överordnade XML-elementen som visas nedan. Anspråks omvandlingarna behöver också en ny anspråks typ som definierats med namnet **nullStringClaim**.
 
-Lägg till elementet **BuildingBlocks** längst upp i *TrustFrameworkExtensions.xmls * filen. Se *TrustFrameworkBase.xml* ett exempel.
+Lägg till elementet **BuildingBlocks** längst upp i *TrustFrameworkExtensions.xmls* filen. Se *TrustFrameworkBase.xml* ett exempel.
 
 ```xml
 <BuildingBlocks>
@@ -177,7 +177,7 @@ Lägg till elementet **BuildingBlocks** längst upp i *TrustFrameworkExtensions.
 Nu har du en princip konfigurerad så att Azure AD B2C vet hur man kommunicerar med ditt LinkedIn-konto. Försök att ladda upp tilläggs filen för principen för att bekräfta att den inte har några problem hittills.
 
 1. På sidan **anpassade principer** i Azure AD B2C klienten väljer du **Ladda upp princip**.
-2. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj *TrustFrameworkExtensions.xml* -filen.
+2. Aktivera **Skriv över principen om den finns** och bläddra sedan till och välj *TrustFrameworkExtensions.xml* -filen.
 3. Klicka på **Överför**.
 
 ## <a name="register-the-claims-provider"></a>Registrera anspråks leverantören
@@ -239,7 +239,7 @@ LinkedIn har nyligen [uppdaterat sina API: er från v 1.0 till v 2.0](https://en
 
 ### <a name="replace-items-in-the-metadata"></a>Ersätt objekt i metadata
 
-I det befintliga **metadata** -elementet i **TechnicalProfile**uppdaterar du följande **objekt** element från:
+I det befintliga **metadata** -elementet i **TechnicalProfile** uppdaterar du följande **objekt** element från:
 
 ```xml
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,headline)</Item>
@@ -255,7 +255,7 @@ Till:
 
 ### <a name="add-items-to-the-metadata"></a>Lägg till objekt i metadata
 
-I TechnicalProfile **metadata** lägger du **TechnicalProfile**till följande **objekt** element:
+I TechnicalProfile **metadata** lägger du **TechnicalProfile** till följande **objekt** element:
 
 ```xml
 <Item Key="external_user_identity_claim_id">id</Item>
@@ -265,7 +265,7 @@ I TechnicalProfile **metadata** lägger du **TechnicalProfile**till följande **
 
 ### <a name="update-the-outputclaims"></a>Uppdatera OutputClaims
 
-I den befintliga **OutputClaims** av **TechnicalProfile**uppdaterar du följande **OutputClaim** -element från:
+I den befintliga **OutputClaims** av **TechnicalProfile** uppdaterar du följande **OutputClaim** -element från:
 
 ```xml
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />

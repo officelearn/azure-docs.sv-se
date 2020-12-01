@@ -13,12 +13,12 @@ ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: ea8629e53ec793b4a63c817b6ec83278a2d23871
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6b5093c5a1a45aed3493fabd7a362b0579998171
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674082"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343594"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Initiera klient program med hjälp av MSAL.js
 
@@ -36,10 +36,10 @@ När du har registrerat din app behöver du några eller alla följande värden 
 
 | Värde | Krävs | Beskrivning |
 |:----- | :------: | :---------- |
-| Program-ID (klient) | Krävs | Ett GUID som unikt identifierar ditt program i Microsoft Identity Platform. |
-| Myndighet | Valfri | Identitets leverantörens URL ( *instansen* ) och *inloggnings mål gruppen* för ditt program. Instansen och inloggnings mål gruppen, när de sammanfogas, utgör *utfärdaren* . |
-| Katalog-ID (klient) | Valfri | Ange detta om du skapar ett branschspecifika program enbart för din organisation, vilket ofta kallas ett program för en *klient* . |
-| Omdirigerings-URI | Valfri | Om du skapar en webbapp anger i vilken `redirectUri` identitet leverantören (Microsoft Identity Platform) ska returnera de säkerhetstoken som den har utfärdat. |
+| Program-ID (klient) | Obligatorisk | Ett GUID som unikt identifierar ditt program i Microsoft Identity Platform. |
+| Myndighet | Valfritt | Identitets leverantörens URL ( *instansen*) och *inloggnings mål gruppen* för ditt program. Instansen och inloggnings mål gruppen, när de sammanfogas, utgör *utfärdaren*. |
+| Katalog-ID (klient) | Valfritt | Ange detta om du skapar ett branschspecifika program enbart för din organisation, vilket ofta kallas ett program för en *klient*. |
+| Omdirigerings-URI | Valfritt | Om du skapar en webbapp anger i vilken `redirectUri` identitet leverantören (Microsoft Identity Platform) ska returnera de säkerhetstoken som den har utfärdat. |
 
 ## <a name="initialize-msaljs-2x-apps"></a>Initiera MSAL.js 2. x-appar
 
@@ -108,7 +108,7 @@ Anropa [handleRedirectPromise][msal-js-handleredirectpromise] när ditt program 
 Det finns tre möjliga resultat från löftet:
 
 - `.then` anropas och `tokenResponse` är truthy: programmet returneras från en omdirigering som lyckades.
-- `.then` anropas och `tokenResponse` är falskt ( `null` ): programmet returneras inte från en omdirigering.
+- `.then` anropas och `tokenResponse` är falskt ( `null` ): programmet returnerar inget från en omdirigerings åtgärd.
 - `.catch` anropas: programmet returneras från en omdirigering och ett fel uppstod.
 
 ## <a name="initialize-msaljs-1x-apps"></a>Initiera MSAL.js 1. x-appar

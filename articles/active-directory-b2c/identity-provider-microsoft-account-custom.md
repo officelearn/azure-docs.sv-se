@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db81f8b60cf4883223f6fc084c19c8da1d07bc9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 282d60b1894ffa186a6b5b6b5630aefa9e961572
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388110"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345141"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med en Microsoft-konto att använda anpassade principer i Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "85388110"
 
 Den här artikeln visar hur du aktiverar inloggning för användare från en Microsoft-konto med hjälp av [anpassade principer](custom-policy-overview.md) i Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md).
 - Om du inte redan har en Microsoft-konto skapar du en på [https://www.live.com/](https://www.live.com/) .
@@ -38,13 +38,13 @@ Om du vill aktivera inloggning för användare med en Microsoft-konto måste du 
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ny registrering**.
 1. Ange ett **namn** för ditt program. Till exempel *MSAapp1*.
-1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog (alla Azure AD-klienter-flera klienter) och personliga Microsoft-konton (t. ex. Skype, Xbox)**.
+1. Under **konto typer som stöds** väljer du **konton i valfri organisations katalog (alla Azure AD-klienter-flera klienter) och personliga Microsoft-konton (t. ex. Skype, Xbox)**.
 1. Under **omdirigerings-URI (valfritt)** väljer du **webb** och anger `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/authresp` i text rutan. Ersätt `<tenant-name>` med ditt Azure AD B2C klient namn.
 1. Välj **register**
 1. Registrera **program-ID (klient)** som visas på sidan program översikt. Du behöver detta när du konfigurerar anspråks leverantören i ett senare avsnitt.
 1. Välj **certifikat & hemligheter**
 1. Klicka på **Ny klienthemlighet**
-1. Ange en **Beskrivning** av hemligheten, till exempel *MSA program klient hemlighet*och klicka sedan på **Lägg till**.
+1. Ange en **Beskrivning** av hemligheten, till exempel *MSA program klient hemlighet* och klicka sedan på **Lägg till**.
 1. Registrera program lösen ordet som visas i kolumnen **värde** . Du använder det här värdet i nästa avsnitt.
 
 ## <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
@@ -69,10 +69,10 @@ Nu när du har skapat programmet i din Azure AD-klient måste du lagra programme
 1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 1. På sidan Översikt väljer du **ID för identitets miljö**.
 1. Välj **princip nycklar** och välj sedan **Lägg till**.
-1. För **alternativ**väljer du `Manual` .
+1. För **alternativ** väljer du `Manual` .
 1. Ange ett **namn** för princip nyckeln. Exempelvis `MSASecret`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
-1. I **hemlighet**anger du den klient hemlighet som du registrerade i föregående avsnitt.
-1. För **nyckel användning**väljer du `Signature` .
+1. I **hemlighet** anger du den klient hemlighet som du registrerade i föregående avsnitt.
+1. För **nyckel användning** väljer du `Signature` .
 1. Klicka på **Skapa**.
 
 ## <a name="add-a-claims-provider"></a>Lägg till en anspråks leverantör
@@ -100,7 +100,7 @@ Du kan definiera Azure AD som en anspråks leverantör genom att lägga till **C
             <Item Key="response_mode">form_post</Item>
             <Item Key="scope">openid profile email</Item>
             <Item Key="HttpBinding">POST</Item>
-            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="client_id">Your Microsoft application client ID</Item>
           </Metadata>
           <CryptographicKeys>
@@ -138,7 +138,7 @@ Innan du fortsätter laddar du upp den ändrade principen för att bekräfta att
 
 1. Gå till din Azure AD B2C-klient i Azure Portal och välj ett **ramverk för identitets upplevelse**.
 1. På sidan **anpassade principer** väljer du **Ladda upp anpassad princip**.
-1. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj *TrustFrameworkExtensions.xml* -filen.
+1. Aktivera **Skriv över principen om den finns** och bläddra sedan till och välj *TrustFrameworkExtensions.xml* -filen.
 1. Klicka på **Överför**.
 
 Fortsätt till nästa avsnitt om inga fel visas i portalen.

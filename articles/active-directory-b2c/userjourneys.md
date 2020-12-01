@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fda57ae152efbb04a793c6acf63465fe8d406a1a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 5b89126b837f9c197a8babf81abb17bfd98002e4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998650"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345005"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -172,7 +172,7 @@ Ett Dirigerings steg av typen `ClaimsProviderSelection` eller `CombinedSignInAnd
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| DisplayOption| Inga | Styr beteendet för ett ärende där ett enda val av anspråks leverantör är tillgängligt. Möjliga värden:  `DoNotShowSingleProvider`   (standard), användaren omdirigeras omedelbart till den federerade identitets leverantören. Eller  `ShowSingleProvider`   Azure AD B2C visar inloggnings sidan med valet för enskild identitetsprovider. Om du vill använda det här attributet måste [innehålls definitions versionen](page-layout.md) vara  `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` och högre.|
+| DisplayOption| Inga | Styr beteendet för ett ärende där ett enda val av anspråks leverantör är tillgängligt. Möjliga värden: `DoNotShowSingleProvider` (standard), användaren omdirigeras omedelbart till den federerade identitets leverantören. Eller `ShowSingleProvider` Azure AD B2C visar inloggnings sidan med valet för enskild identitetsprovider. Om du vill använda det här attributet måste [innehålls definitions versionen](page-layout.md) vara `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` och högre.|
 
 **ClaimsProviderSelection** -elementet innehåller följande attribut:
 

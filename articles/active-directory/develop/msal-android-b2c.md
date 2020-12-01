@@ -13,12 +13,12 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 0ad5fab685757d2efd91cd1df0e48a5f1258d17e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c4f47fd771cfb92b3896963c96b39d9eb7d97b8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119886"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344886"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Använda MSAL för Android med B2C
 
@@ -129,7 +129,7 @@ AcquireTokenSilentParameters parameters = new AcquireTokenSilentParameters.Build
 
         @Override
         public void onError(MsalException exception) {
-            // Token request was unsuccesful, inspect the exception
+            // Token request was unsuccessful, inspect the exception
         }
     })
     .build();
@@ -153,7 +153,7 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 
 ## <a name="handle-password-change-policies"></a>Hantera principer för lösen ords ändring
 
-Användar flödet för registrering av lokalt konto eller inloggnings användare visar ett**bortglömt lösen ord?** . När du klickar på den här länken utlöses inget användar flöde för lösen ords återställning automatiskt.
+Användar flödet för registrering av lokalt konto eller inloggnings användare visar ett **bortglömt lösen ord?** . När du klickar på den här länken utlöses inget användar flöde för lösen ords återställning automatiskt.
 
 I stället returneras fel koden `AADB2C90118` till din app. Din app ska hantera den här felkoden genom att köra ett speciellt användar flöde som återställer lösen ordet.
 

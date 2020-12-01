@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 1a57660733b7257b224c38a55059f1bf069495a0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0de93eff0fc422bc28fe7b2c42c295c8d8b1acc4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890263"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344478"
 ---
 # <a name="what-is-metrics-advisor-preview"></a>Vad är Metrics Advisor (för hands version)? 
 
@@ -63,4 +63,4 @@ Arbets flödet är enkelt: när du har registrerat dina data kan du finjustera a
 ## <a name="next-steps"></a>Nästa steg
 
 * Utforska en snabb start: [övervaka ditt första mått på webben](quickstarts/web-portal.md).
-* Utforska en snabb start: [Använd REST-API: er för att anpassa din lösning](quickstarts/rest-api.md).
+* Utforska en snabb start: [Använd REST-API: er för att anpassa din lösning](./quickstarts/rest-api-and-client-library.md).

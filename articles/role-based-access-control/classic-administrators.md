@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/24/2020
+ms.date: 11/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 935c0bf76e298ab1e2e4d25fab8685ac4ce617db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4c758dca9f6020fd948ad8c3a8cdf014306e8ae7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95916226"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344028"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Klassiska Azure-prenumerationsadministratörer
 
@@ -105,7 +105,7 @@ Följ dessa steg om du vill ändra tjänst administratören i Azure Portal.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
 
-1. Öppna [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) och välj en prenumeration.
+1. Öppna **Cost Management + fakturering** och välj en prenumeration.
 
 1. Klicka på **Egenskaper** i det vänstra navigerings fältet.
 
@@ -125,8 +125,8 @@ Det kan bara finnas en tjänst administratör per Azure-prenumeration. Att ändr
 
 | Konto administratörs konto | Kan du ändra tjänst administratör till en annan Microsoft-konto? | Kan du ändra tjänst administratör till ett Azure AD-konto i samma katalog? | Kan du ändra tjänst administratör till ett Azure AD-konto i en annan katalog? |
 | --- | --- | --- | --- |
-| Microsoft-konto | Ja | Nej | Nej |
-| Azure AD-konto | Ja | Ja | Nej |
+| Microsoft-konto | Ja | Inga | Inga |
+| Azure AD-konto | Ja | Ja | Inga |
 
 Om konto administratören är ett Azure AD-konto kan du ändra tjänst administratören till ett Azure AD-konto i samma katalog, men inte i en annan katalog. Kan till exempel abby@contoso.com ändra tjänst administratören till bob@contoso.com , men kan inte ändra tjänst administratören till john@notcontoso.com om den inte john@notcontoso.com har en närvaro i contoso.com-katalogen.
 
@@ -140,7 +140,7 @@ Följ dessa steg om du vill visa konto administratören.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Öppna [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) och välj en prenumeration.
+1. Öppna **Cost Management + fakturering** och välj en prenumeration.
 
 1. Klicka på **Egenskaper** i det vänstra navigerings fältet.
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: dech
-ms.openlocfilehash: 7823c63cf618808cb1ab4400c39f4bc64b7af338
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 1cee4d2ad1bc7f362a045a5991624ec43521b8d2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427589"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341656"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Självstudie: Använda datamigreringsverktyget för att migrera data till Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,7 +24,7 @@ Den här självstudien innehåller anvisningar för hur du använder datamigreri
 
 * **[SQL-API](./introduction.md)** – du kan använda något av de käll alternativ som anges i verktyget datamigrering för att importera data till en liten skala. [Lär dig mer om migrerings alternativ för att importera data i stor skala](cosmosdb-migrationchoices.md).
 * **[Tabell-API](table-introduction.md)** – du kan importera data med hjälp av verktyget datamigrering eller [AzCopy](table-import.md#migrate-data-by-using-azcopy) . Se [Importera data för användning med Azure Cosmos DB Table-API](table-import.md) för mer information.
-* **[Azure Cosmos DB s API för MongoDB](mongodb-introduction.md)** – verktyget datamigrering stöder inte Azure Cosmos DBS API för MongoDB antingen som en källa eller som mål. Om du vill migrera data i eller ut ur samlingar i Azure Cosmos DB, se [hur du migrerar MongoDB-data till en Cosmos-databas med Azure Cosmos DB s API för MongoDB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) för instruktioner. Du kan fortfarande använda datamigreringsverktyget till att exportera data från MongoDB till Azure Cosmos DB SQL API-samlingar för användning med SQL API.
+* **[Azure Cosmos DB s API för MongoDB](mongodb-introduction.md)** – verktyget datamigrering stöder inte Azure Cosmos DBS API för MongoDB antingen som en källa eller som mål. Om du vill migrera data i eller ut ur samlingar i Azure Cosmos DB, se [hur du migrerar MongoDB-data till en Cosmos-databas med Azure Cosmos DB s API för MongoDB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) för instruktioner. Du kan fortfarande använda datamigreringsverktyget till att exportera data från MongoDB till Azure Cosmos DB SQL API-samlingar för användning med SQL API.
 * **[API för Cassandra](graph-introduction.md)** -verktyget datamigrering är inte ett import verktyg som stöds för API för Cassandra-konton. [Lär dig mer om migrerings alternativ för att importera data till API för Cassandra](cosmosdb-migrationchoices.md#azure-cosmos-db-cassandra-api)
 * **[Gremlin API](graph-introduction.md)** – Datamigreringsverktyget är ett importverktyg som saknar stöd för Gremlin API-konton för närvarande. [Lär dig mer om migrerings alternativ för att importera data till Gremlin-API](cosmosdb-migrationchoices.md#other-apis) 
 
@@ -41,7 +41,7 @@ Innan du följer anvisningarna i den här artikeln bör du se till att du utför
 
 * **Installera** [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) eller högre.
 
-* **Öka dataflödet** : Hur lång tid datamigreringen tar beror på hur stort dataflöde du anger för en enskild samling eller en uppsättning samlingar. Vi rekommenderar att du ökar dataflödet för större datamigreringar. När du har slutfört migreringen minskar du dataflödet för att spara kostnader. Mer information om hur du ökar dataflödet i Azure-portalen finns i avsnitten om [prestandanivåer](performance-levels.md) och [prisnivåer](https://azure.microsoft.com/pricing/details/cosmos-db/) i Azure Cosmos DB.
+* **Öka dataflödet**: Hur lång tid datamigreringen tar beror på hur stort dataflöde du anger för en enskild samling eller en uppsättning samlingar. Vi rekommenderar att du ökar dataflödet för större datamigreringar. När du har slutfört migreringen minskar du dataflödet för att spara kostnader. Mer information om hur du ökar dataflödet i Azure-portalen finns i avsnitten om [prestandanivåer](performance-levels.md) och [prisnivåer](https://azure.microsoft.com/pricing/details/cosmos-db/) i Azure Cosmos DB.
 
 * **Skapa Azure Cosmos DB-resurser:** Innan du börjar migrera data skapar du alla dina samlingar i förväg från Azure-portalen. Om du vill migrera till ett Azure Cosmos DB konto som har data flöde på databas nivå, anger du en partitionsnyckel när du skapar Azure Cosmos-behållare.
 
@@ -70,8 +70,8 @@ Datamigreringsverktyget är en lösning med öppen källkod som importerar data 
 
 Källkoden för migreringsverktyget finns i GitHub på [den här lagringsplatsen](https://github.com/azure/azure-documentdb-datamigrationtool). Du kan ladda ned och kompilera lösningen lokalt, eller [ladda ned en förkompilerad binär kod](https://aka.ms/csdmtool) och sedan köra något av följande:
 
-* **Dtui.exe** : Grafisk gränssnittsversion av verktyget
-* **DT.exe** : Kommandoradsversion av verktyget
+* **Dtui.exe**: Grafisk gränssnittsversion av verktyget
+* **DT.exe**: Kommandoradsversion av verktyget
 
 ## <a name="select-data-source"></a>Välj datakälla
 
@@ -131,7 +131,7 @@ dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t
 ## <a name="import-from-mongodb"></a><a id="MongoDB"></a>Importera från MongoDB
 
 > [!IMPORTANT]
-> Om du importerar till ett Cosmos-konto som har konfigurerats med Azure Cosmos DB API för MongoDB, följer du dessa [instruktioner](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json).
+> Om du importerar till ett Cosmos-konto som har konfigurerats med Azure Cosmos DB API för MongoDB, följer du dessa [instruktioner](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json).
 
 Med importverktygets alternativ för MongoDB-källor kan du importera från en enskild MongoDB-samling, filtrera dokument med hjälp av en fråga (valfritt) och ändra dokumentstrukturen med hjälp av en projektion.  
 
@@ -159,7 +159,7 @@ dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<po
 ## <a name="import-mongodb-export-files"></a><a id="MongoDBExport"></a>Importera MongoDB-exportfiler
 
 > [!IMPORTANT]
-> Om du importerar till ett Azure Cosmos DB-konto med stöd för MongoDB, följer du dessa [anvisningar](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json).
+> Om du importerar till ett Azure Cosmos DB-konto med stöd för MongoDB, följer du dessa [anvisningar](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json).
 
 Med importverktygets alternativ för MongoDB-export av JSON-filkällor, kan du importera en eller flera JSON-filer som skapats med verktyget mongoexport.  
 
@@ -386,7 +386,7 @@ Anslutningssträngen för Azure Cosmos DB-kontot kan hämtas från sidan Nycklar
 > [!NOTE]
 > Använd kommandot Kontrollera för att se att den angivna Azure Cosmos DB-instansen är tillgänglig i anslutningssträngens fält.
 
-Om du ska importera till en enskild samling anger du namnet på samlingen som du ska importera data från. Klicka sedan på knappen Lägg till. Om du vill importera till fler än en samling anger du antingen varje samlingsnamn individuellt, eller så använder du följande syntax för att ange fler än en samling: *collection_prefix* [start index - end index]. Tänk på följande riktlinjer när du anger fler än en samling med hjälp av ovannämnda syntax:
+Om du ska importera till en enskild samling anger du namnet på samlingen som du ska importera data från. Klicka sedan på knappen Lägg till. Om du vill importera till fler än en samling anger du antingen varje samlingsnamn individuellt, eller så använder du följande syntax för att ange fler än en samling: *collection_prefix*[start index - end index]. Tänk på följande riktlinjer när du anger fler än en samling med hjälp av ovannämnda syntax:
 
 1. Det är bara namnmönster i heltalsintervall som stöds. Om du till exempel anger collection[0-3] skapas följande samlingar: collection0, collection1, collection2 och collection3.
 2. Du kan använda en förkortad syntax: collection[3] skapar samma uppsättning samlingar som nämns i steg 1.
@@ -445,7 +445,7 @@ Du kan hämta anslutningssträngen för Azure Cosmos DB-konto från sidan Nyckla
 > [!NOTE]
 > Använd kommandot Kontrollera för att se att den angivna Azure Cosmos DB-instansen är tillgänglig i anslutningssträngens fält.
 
-Om du ska importera till en enskild samling anger du namnet på den samling som data ska importeras till och klickar sedan på knappen Lägg till. Ange varje samlingsnamn separat om du vill importera till mer än en samling. Du kan även använda följande syntax för att ange mer än en samling: *collection_prefix* [start index - end index]. Tänk på följande riktlinjer när du anger fler än en samling via ovannämnda syntax:
+Om du ska importera till en enskild samling anger du namnet på den samling som data ska importeras till och klickar sedan på knappen Lägg till. Ange varje samlingsnamn separat om du vill importera till mer än en samling. Du kan även använda följande syntax för att ange mer än en samling: *collection_prefix*[start index - end index]. Tänk på följande riktlinjer när du anger fler än en samling via ovannämnda syntax:
 
 1. Det är bara namnmönster i heltalsintervall som stöds. Om du till exempel anger collection[0-3] skapas följande samlingar: collection0, collection1, collection2 och collection3.
 2. Du kan använda en förkortad syntax: collection[3] skapar samma uppsättning samlingar som nämns i steg 1.

@@ -13,12 +13,12 @@ ms.date: 11/07/2019
 ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 6267c2118b7bac9befb42102d1118faac639bf49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc039e06c8c9d75608b60c2f48e86bc5503e5aec
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87312562"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344869"
 ---
 # <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>Hämta och ta bort konton från token-cachen med MSAL för Java
 
@@ -39,7 +39,7 @@ Set<IAccount> accounts = pca.getAccounts().join();
 
 ## <a name="remove-accounts-from-the-cache"></a>Ta bort konton från cachen
 
-Om du vill ta bort ett konto från cachen letar du reda på det konto som måste tas bort och anropar sedan det `PublicClientApplicatoin.removeAccount()` som visas i följande exempel:
+Om du vill ta bort ett konto från cachen letar du reda på det konto som måste tas bort och anropar sedan det `PublicClientApplication.removeAccount()` som visas i följande exempel:
 
 ```java
 Set<IAccount> accounts = pca.getAccounts().join();

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 8e18b79cc14fe98879ec97361f6e275d8fd918bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2634ed819b8818632c58b9e471b0f26190e5f16b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90942192"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339973"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Välj och distribuera en säkerhets agent på din IoT-enhet
 
@@ -45,7 +45,7 @@ Den C-baserade säkerhets agenten har ett mindre minnes utrymme och är det idea
 | **Öppen källkod** | Tillgängligt under [MIT-licens](https://en.wikipedia.org/wiki/MIT_License) i [GitHub](https://aka.ms/iot-security-github-c) | Tillgängligt under [MIT-licens](https://en.wikipedia.org/wiki/MIT_License) i [GitHub](https://aka.ms/iot-security-github-cs) |
 | **Utvecklingsspråk**    | C | C# |
 | **Windows-plattformar som stöds?** | Inga | Ja |
-| **Windows-krav** | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
+| **Windows-krav** | --- | [WMI](/windows/desktop/wmisdk/) |
 | **Linux-plattformar som stöds?** | Ja, x64 och x86 | Ja, endast x64 |
 | **Förutsättningar för Linux** | libunwind8, libcurl3, UUID-körning, granskad, audispd-plugin-program | libunwind8, libcurl3, UUID-körning, granskad, audispd-plugin-program, sudo, netstat, program varan iptables |
 | **Disk utrymme** | 10,5 MB | 90 MB |

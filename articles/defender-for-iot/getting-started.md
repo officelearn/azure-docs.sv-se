@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: e3de253ee6f45f9296d6b09189fe4bc488be36ad
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 6aa525fd7f2d82194baa2e2a0c910cb71509c2d5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090071"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340024"
 ---
 # <a name="getting-started-with-azure-defender-for-iot"></a>Komma igång med Azure Defender för IoT
 
@@ -30,9 +30,9 @@ Utför följande steg för att få Azure Defender för IoT igång.
 
 ## <a name="1-set-up-azure"></a>1. Konfigurera Azure
 
-- Konfigurera ett Azure-konto. Mer information finns i [skapa ett Azure-konto](https://docs.microsoft.com/learn/modules/create-an-azure-account/).
+- Konfigurera ett Azure-konto. Mer information finns i [skapa ett Azure-konto](/learn/modules/create-an-azure-account/).
 
-- Brand vägg eller proxy: om du har en brand vägg eller liknande mellanliggande nätverks enhet som är konfigurerad för att tillåta vissa anslutningar kontrollerar du att antingen *. azure-devices.net:443 är öppen för brand väggen eller proxyservern. Om jokertecken inte stöds eller om du vill ha mer kontroll, ska det angivna IoT Hub fullständiga domän namnet öppnas i din VB eller proxy. Mer information finns i [referens-IoT Hub slut punkter](/azure/iot-hub/iot-hub-devguide-endpoints).
+- Brand vägg eller proxy: om du har en brand vägg eller liknande mellanliggande nätverks enhet som är konfigurerad för att tillåta vissa anslutningar kontrollerar du att antingen *. azure-devices.net:443 är öppen för brand väggen eller proxyservern. Om jokertecken inte stöds eller om du vill ha mer kontroll, ska det angivna IoT Hub fullständiga domän namnet öppnas i din VB eller proxy. Mer information finns i [referens-IoT Hub slut punkter](../iot-hub/iot-hub-devguide-endpoints.md).
 
 ## <a name="2-deploy-hardware-software-and-onboard-to-sensor"></a>2. distribuera maskin vara, program vara och onboard to sensor
 

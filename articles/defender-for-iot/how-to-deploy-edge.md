@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: dd68fd79d25e839876180ff25cacfa1ddf64eb2b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 75a9d1267a8824801e3c24fc25c687f29a808187
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368816"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339939"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuera en säkerhetsmodul på din IoT Edge-enhet
 
@@ -32,9 +32,9 @@ I den här artikeln får du lära dig hur du distribuerar en säkerhetsmodul på
 
 Använd följande steg för att distribuera en Defender for IoT-säkerhetsmodul för IoT Edge.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
-1. Kontrol lera att enheten är [registrerad som en IoT Edge enhet](https://docs.microsoft.com/azure/iot-edge/how-to-manual-provision-symmetric-key#register-a-new-device)i IoT Hub.
+1. Kontrol lera att enheten är [registrerad som en IoT Edge enhet](../iot-edge/how-to-manual-provision-symmetric-key.md#register-a-new-device)i IoT Hub.
 
 1. Defender för IoT Edge modul kräver att det [granskade ramverket](https://linux.die.net/man/8/auditd) är installerat på IoT Edges enheten.
 
@@ -49,18 +49,18 @@ Använd följande steg för att distribuera en Defender for IoT-säkerhetsmodul 
 
 ### <a name="deployment-using-azure-portal"></a>Distribution med hjälp av Azure Portal
 
-1. Öppna **Marketplace**från Azure Portal.
+1. Öppna **Marketplace** från Azure Portal.
 
-1. Välj **Sakernas Internet**och Sök sedan efter **Defender för IoT** och välj den.
+1. Välj **Sakernas Internet** och Sök sedan efter **Defender för IoT** och välj den.
 
    ![Välj Defender för IoT](media/howto/edge-onboarding-8.png)
 
 1. Konfigurera distributionen genom att klicka på **skapa** .
 
-1. Välj Azure- **prenumerationen** för din IoT Hub och välj sedan **IoT Hub**.<br>Välj **distribuera till en enhet** för att rikta in dig på en enskild enhet eller Välj **distribuera i skala** för att rikta flera enheter och klicka på **skapa**. Mer information om [hur du](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor)distribuerar i skala finns i distribuera.
+1. Välj Azure- **prenumerationen** för din IoT Hub och välj sedan **IoT Hub**.<br>Välj **distribuera till en enhet** för att rikta in dig på en enskild enhet eller Välj **distribuera i skala** för att rikta flera enheter och klicka på **skapa**. Mer information om [hur du](../iot-edge/how-to-deploy-at-scale.md)distribuerar i skala finns i distribuera.
 
     >[!Note]
-    >Om du har valt **distribuera i skala**lägger du till enhets namnet och informationen innan du fortsätter till fliken **Lägg till moduler** i följande instruktioner.
+    >Om du har valt **distribuera i skala** lägger du till enhets namnet och informationen innan du fortsätter till fliken **Lägg till moduler** i följande instruktioner.
 
 Slutför varje steg för att slutföra din IoT Edge-distribution för Defender för IoT.
 
@@ -105,14 +105,14 @@ Slutför varje steg för att slutföra din IoT Edge-distribution för Defender f
      }
    ```
     
-   Mer information om hur du konfigurerar agenten finns i [Konfigurera säkerhets agenter](https://docs.microsoft.com/azure/defender-for-iot/how-to-agent-configuration).
+   Mer information om hur du konfigurerar agenten finns i [Konfigurera säkerhets agenter](./how-to-agent-configuration.md).
 
 1. Välj **Uppdatera**.
 
 #### <a name="step-2-runtime-settings"></a>Steg 2: körnings inställningar
 
 1. Välj **körnings inställningar**.
-1. Ändra **bilden** till **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**under **Edge Hub**.
+1. Ändra **bilden** till **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3** under **Edge Hub**.
 1. Kontrol lera att **skapa-alternativ** har angetts till följande konfiguration:
 
     ``` json
@@ -145,7 +145,7 @@ Slutför varje steg för att slutföra din IoT Edge-distribution för Defender f
 
 #### <a name="step-3-specify-routes"></a>Steg 3: Ange vägar
 
-1. På fliken **Ange vägar** kontrollerar du att du har en väg (explicit eller implicit) som vidarebefordrar meddelanden från **azureiotsecurity** -modulen till **$upstream** enligt följande exempel. Välj **Nästa**när vägen är på plats.
+1. På fliken **Ange vägar** kontrollerar du att du har en väg (explicit eller implicit) som vidarebefordrar meddelanden från **azureiotsecurity** -modulen till **$upstream** enligt följande exempel. Välj **Nästa** när vägen är på plats.
 
    Exempel vägar:
 
@@ -175,7 +175,7 @@ Om du stöter på problem är behållar loggarna det bästa sättet att lära si
 
 1. Kontrol lera att följande behållare körs:
 
-   | Namn | BILD |
+   | Name | BILD |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

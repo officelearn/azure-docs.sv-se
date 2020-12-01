@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: e901009063afa81c98dd86268ac8c9c6de725e5d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 666b39e2a600fe6ca004798ed4f8371cdd1dfe5f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521024"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340262"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Skapa HDInsight-kluster med Azure Data Lake Storage Gen1 med hjälp av Azure Portal
 
@@ -47,7 +47,7 @@ Så här skapar du ett HDInsight-kluster med ett Data Lake Storage Gen1 som stan
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Följ [skapa kluster](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) för allmän information om hur du skapar HDInsight-kluster.
-3. Välj **Azure Data Lake Storage gen1**under **primär lagrings typ**på bladet **lagring** och ange följande information:
+3. Välj **Azure Data Lake Storage gen1** under **primär lagrings typ** på bladet **lagring** och ange följande information:
 
     ![Inställningar för HDInsight-lagrings konto](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png)
 
@@ -56,7 +56,7 @@ Så här skapar du ett HDInsight-kluster med ett Data Lake Storage Gen1 som stan
     * **Data Lake Store åtkomst**: konfigurera åtkomst mellan data Lake Storage gen1 konto och HDInsight-kluster. Instruktioner finns i [konfigurera data Lake Storage gen1 åtkomst](#configure-data-lake-storage-gen1-access).
     * **Ytterligare lagrings konton**: Lägg till Azure Storage-konton som ytterligare lagrings konton för klustret. Om du vill lägga till ytterligare Data Lake Storage Gen1 konton gör du det genom att ge kluster behörigheterna för data i fler Data Lake Storage Gen1-konton när du konfigurerar ett Data Lake Storage Gen1-konto som primär lagrings typ. Se [konfigurera data Lake Storage gen1 åtkomst](#configure-data-lake-storage-gen1-access).
 
-4. Klicka på **Välj**på **data Lake Store åtkomst**och fortsätt sedan med att skapa kluster genom att följa anvisningarna i [skapa Hadoop-kluster i HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
+4. Klicka på **Välj** på **data Lake Store åtkomst** och fortsätt sedan med att skapa kluster genom att följa anvisningarna i [skapa Hadoop-kluster i HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ### <a name="create-a-cluster-with-data-lake-storage-gen1-as-additional-storage"></a>Skapa ett kluster med Data Lake Storage Gen1 som ytterligare lagrings utrymme
 
@@ -66,11 +66,11 @@ Så här skapar du ett HDInsight-kluster med Data Lake Storage Gen1 som ett ytte
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Följ [skapa kluster](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) för allmän information om hur du skapar HDInsight-kluster.
-3. Välj **Azure Storage**under **primär lagrings typ**på bladet **lagring** och ange följande information:
+3. Välj **Azure Storage** under **primär lagrings typ** på bladet **lagring** och ange följande information:
 
     ![HDInsight-lagrings konto inställningar ytterligare lagring](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png)
 
-    * **Urvals metod** – om du vill ange ett lagrings konto som ingår i din Azure-prenumeration väljer du **Mina prenumerationer**och väljer sedan lagrings kontot. Om du vill ange ett lagrings konto som ligger utanför din Azure-prenumeration väljer du **åtkomst nyckel**och anger sedan informationen för det externa lagrings kontot.
+    * **Urvals metod** – om du vill ange ett lagrings konto som ingår i din Azure-prenumeration väljer du **Mina prenumerationer** och väljer sedan lagrings kontot. Om du vill ange ett lagrings konto som ligger utanför din Azure-prenumeration väljer du **åtkomst nyckel** och anger sedan informationen för det externa lagrings kontot.
 
     * **Standard behållare** – Använd antingen standardvärdet eller ange ett eget namn.
     * **Ytterligare lagrings konton** – Lägg till fler Azure Storage-konton som ytterligare lagrings utrymme.
@@ -85,14 +85,14 @@ I det här avsnittet konfigurerar du Data Lake Storage Gen1 åtkomst från HDIns
 Från Azure Portal kan du antingen använda ett befintligt huvud namn för tjänsten eller skapa ett nytt.
 
 Så här skapar du ett huvud namn för tjänsten från Azure Portal:
-1. Se [skapa tjänstens huvud namn och certifikat](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) med hjälp av Azure Active Directory.
+1. Se [skapa tjänstens huvud namn och certifikat](../active-directory/develop/howto-create-service-principal-portal.md) med hjälp av Azure Active Directory.
 
 Så här använder du ett befintligt huvud namn för tjänsten från Azure Portal:
 
 1. Tjänstens huvud namn ska ha ägar behörigheter för lagrings kontot. Se [Konfigurera behörigheter för tjänstens huvud namn som ägare på lagrings kontot](#configure-serviceprincipal-permissions).
 1. Välj **data Lake Store åtkomst**.
 1. På bladet **data Lake Storage gen1 åtkomst** väljer du **Använd befintlig**.
-1. Välj **tjänstens huvud namn**och välj sedan ett huvud namn för tjänsten.
+1. Välj **tjänstens huvud namn** och välj sedan ett huvud namn för tjänsten.
 1. Ladda upp certifikatet (. pfx-fil) som är associerat med ditt valda huvud namn för tjänsten och ange sedan lösen ordet för certifikatet.
 
     ![Lägg till tjänstens huvud namn i HDInsight-kluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png)
@@ -118,7 +118,7 @@ Konfigurationen skiljer sig åt beroende på om kontot används som standard lag
 
 För att tilldela behörighet till lagrings kontot med Data Lake Storage Gen1 på rotnivå:
 
-1. Välj **åtkomst**på bladet **data Lake Storage gen1 åtkomst** . Bladet **Välj fil behörigheter** öppnas. Den visar alla lagrings konton i din prenumeration.
+1. Välj **åtkomst** på bladet **data Lake Storage gen1 åtkomst** . Bladet **Välj fil behörigheter** öppnas. Den visar alla lagrings konton i din prenumeration.
 1. Hovra (Klicka inte på) musen över namnet på kontot med Data Lake Storage Gen1 för att kryss rutan ska synas. Markera sedan kryss rutan.
 
     ![Välj fil behörigheter](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png)
@@ -127,17 +127,17 @@ För att tilldela behörighet till lagrings kontot med Data Lake Storage Gen1 p�
 
 1. Klicka på **Välj** längst ned på sidan.
 1. Välj **Kör** för att tilldela behörighet.
-1. Välj **Done** (Klar).
+1. Välj **Klar**.
 
 Så här tilldelar du behörighet på HDInsight-klustrets rot nivå:
 
-1. Välj **åtkomst**på bladet **data Lake Storage gen1 åtkomst** . Bladet **Välj fil behörigheter** öppnas. Den visar alla lagrings konton med Data Lake Storage Gen1 i din prenumeration.
+1. Välj **åtkomst** på bladet **data Lake Storage gen1 åtkomst** . Bladet **Välj fil behörigheter** öppnas. Den visar alla lagrings konton med Data Lake Storage Gen1 i din prenumeration.
 1. Från bladet **Välj fil behörigheter** väljer du lagrings kontot med data Lake Storage gen1 namn för att visa dess innehåll.
 1. Välj HDInsight-klustrets lagrings rot genom att markera kryss rutan till vänster i mappen. Enligt skärm bilden tidigare är kluster lagrings roten __/Clusters__ -mapp som du angav när du valde data Lake Storage gen1 som standard lagring.
 1. Ange behörigheter för mappen.  Som standard har Läs-, skriv-och körnings behörighet marker ATS.
 1. Klicka på **Välj** längst ned på sidan.
 1. Välj **Kör**.
-1. Välj **Done** (Klar).
+1. Välj **Klar**.
 
 Om du använder Data Lake Storage Gen1 som ytterligare lagrings utrymme måste du tilldela behörighet för de mappar som du vill komma åt från HDInsight-klustret. I skärm bilden nedan ger du till exempel endast åtkomst till mappen **mynewfolder** i ett lagrings konto med data Lake Storage gen1.
 
@@ -200,4 +200,4 @@ Du kan använda lagrings kontot med Data Lake Storage Gen1 för att skriva data 
 * [PowerShell: skapa ett HDInsight-kluster för att använda Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: /windows-hardware/drivers/devtest/makecert
-[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
+[pvk2pfx]: /windows-hardware/drivers/devtest/pvk2pfx

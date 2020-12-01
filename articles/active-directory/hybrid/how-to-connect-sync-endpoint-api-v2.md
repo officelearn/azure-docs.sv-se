@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 779b29c8d31dffa495926a7f2ca5e1f77870078c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4b9b73e30094ed7d07e19f4b93f2fe8ab8f6af3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319919"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339429"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Azure AD Connect Sync v2 Endpoint API (offentlig för hands version) 
 Microsoft har distribuerat en ny slut punkt (API) för Azure AD Connect som förbättrar prestandan för synkroniseringstjänsten i Azure Active Directory. Genom att använda den nya v2-slutpunkten får du märkbara prestanda vinster vid export och import till Azure AD. Den här nya slut punkten stöder följande:
@@ -141,7 +141,7 @@ Följande steg kan användas för att öka medlemskaps gränsen:
 > Om Azure AD Connect Health inte har Aktiver ATS ändrar du inställningarna för Windows program händelse logg för att arkivera loggarna, i stället för att skriva över dem. Loggarna kan användas för att under lätta framtida fel söknings åtgärder. 
 
 >[!NOTE]
-> När du har aktiverat den nya slut punkten kan du se ytterligare export fel på AAD-anslutningen med namnet DN-attributes-Failure. Det kommer att finnas en motsvarande händelse logg post för varje fel med ID 6949,. Felen är information och indikerar inte något problem med installationen, utan i stället kan synkroniseringen inte lägga till vissa medlemmar i en grupp i Azure AD eftersom själva medlems objektet inte har synkroniserats med Azure AD. 
+> När du har aktiverat den nya slut punkten kan du se ytterligare export fel på AAD-anslutningen med namnet DN-attributes-Failure. Det kommer att finnas en motsvarande händelse logg post för varje fel med ID 6949. Felen är information och indikerar inte något problem med installationen, utan i stället kan synkroniseringen inte lägga till vissa medlemmar i en grupp i Azure AD eftersom själva medlems objektet inte har synkroniserats med Azure AD. 
 
 Den nya v2-slutpunkts koden hanterar vissa typer av export fel något annorlunda än v1-koden.  Du kan se mer av informations fel meddelandena när du använder v2-slutpunkten. 
 
@@ -155,7 +155,7 @@ Vid efterföljande ökningar till grupp medlems gränsen i regeln **out to AAD �
 >[!NOTE]
 > Om du har Microsoft 365 enhetliga grupper som har fler än 50 000 medlemmar, kommer grupperna att läsas in i Azure AD Connect och om tillbakaskrivning av grupp är aktiverat skrivs de till din lokala AD. 
 
-## <a name="rollback"></a>Ånger 
+## <a name="rollback"></a>Återställning 
 Om du har aktiverat v2-slutpunkten och behöver återställa, följer du dessa steg: 
 
 1. På Azure AD Connect-servern: a. Valfritt Ta säkerhets kopia av databas 
@@ -198,5 +198,5 @@ Om du har aktiverat v2-slutpunkten och behöver återställa, följer du dessa s
  
 ## <a name="next-steps"></a>Nästa steg
 
-* [Azure AD Connect synkronisering: förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)

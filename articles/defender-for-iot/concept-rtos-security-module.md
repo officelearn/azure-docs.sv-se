@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 9f816b35fd79d3f158ea12fd2c7e1d811823dc8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f521bd593369509fd520831f90ce9c601227f09
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941716"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340058"
 ---
 # <a name="security-module-for-azure-rtos-preview"></a>Säkerhetsmodul för Azure-återställnings tider (för hands version)
 
@@ -32,7 +32,7 @@ Säkerhetsmodulen för Azure återställnings tider körs i bakgrunden och ger e
 
 ## <a name="azure-rtos-netx-duo"></a>Azure RTOS NetX Duo
 
-Azure återställnings tider NetX Duo är en avancerad, inbyggd TCP/IP-nätverks stack som utformats specifikt för djupt inbyggda real tids-och IoT-program. Azure återställnings tider NetX Duo är en dubbel IPv4-och IPv6-nätverks stack som ger en omfattande uppsättning protokoll, inklusive säkerhet och moln. Läs mer om [Azure återställnings tider netx Duo](https://aka.ms/netxduo) -lösningar.
+Azure återställnings tider NetX Duo är en avancerad, inbyggd TCP/IP-nätverks stack som utformats specifikt för djupt inbyggda real tids-och IoT-program. Azure återställnings tider NetX Duo är en dubbel IPv4-och IPv6-nätverks stack som ger en omfattande uppsättning protokoll, inklusive säkerhet och moln. Läs mer om [Azure återställnings tider netx Duo](/azure/rtos/netx-duo/) -lösningar.
 
 Modulen erbjuder följande funktioner:
 
@@ -47,11 +47,11 @@ Säkerhetsmodulen för Azure återställnings tider initieras av Azure IoT mella
 :::image type="content" source="media/architecture/security-module-state-diagram.png" alt-text="Tillstånds diagram för Azure IoT-säkerhetsmodulen och informations flödet":::
 
 Säkerhetsmodulen för Azure återställnings tider övervakar följande enhets aktivitet och information med hjälp av tre insamlare:
-- Enhets nätverks aktivitet **TCP**, **UDP**och **ICM**
+- Enhets nätverks aktivitet **TCP**, **UDP** och **ICM**
 - System information som **ThreadX** -och **netx Duo** -versioner
 - Pulsslagshändelser
 
-Varje insamlare är länkad till en prioritets grupp och varje prioritets grupp har ett eget intervall med möjliga värden **låg**, **medel**och **hög**. Intervallen påverkar det tidsintervall då data samlas in och skickas.
+Varje insamlare är länkad till en prioritets grupp och varje prioritets grupp har ett eget intervall med möjliga värden **låg**, **medel** och **hög**. Intervallen påverkar det tidsintervall då data samlas in och skickas.
 
 Varje tidsintervall kan konfigureras och IoT-anslutningarna kan aktive ras och inaktive ras för att ytterligare [Anpassa din lösning](how-to-azure-rtos-security-module.md). 
 
@@ -68,4 +68,3 @@ Säkerhetsmodulen för Azure återställnings tider tillhandahålls som kostnads
 - Kom igång med säkerhetsmodulen för Azure återställnings tider- [krav och installation](quickstart-azure-rtos-security-module.md).
 - Lär dig mer om säkerhetsmodulen för Azure återställnings tider [Security-aviseringar och rekommendations support](concept-rtos-security-alerts-recommendations.md). 
 - Använd säkerhetsmodulen för Azure återställnings tider [Reference API](azure-rtos-security-module-api.md).
-

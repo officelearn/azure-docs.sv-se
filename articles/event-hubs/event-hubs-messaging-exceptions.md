@@ -3,12 +3,12 @@ title: Azure Event Hubs – undantag (bakåtkompatibelt)
 description: Den här artikeln innehåller en lista över undantag och föreslagna åtgärder för Azure Event Hubs Messaging.
 ms.topic: article
 ms.date: 11/02/2020
-ms.openlocfilehash: adaf7242530727a1f77a9662110a43341e57e80a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 357a87c53023962dd9195a616bd9ce9e01c55bf9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289336"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340975"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>Event Hubs meddelande undantag – .NET (bakåtkompatibelt)
 I det här avsnittet listas de .NET-undantag som genereras av .NET Framework API: er. 
@@ -107,11 +107,11 @@ Felet kan bero på en av följande orsaker:
 
 - Belastningen fördelas inte jämnt över alla partitioner i händelsehubben, och en partition träffar den lokala begränsningen för data flödet.
     
-    **Lösning** : att ändra distributions strategin för partitionen eller testa [EventHubClient. send (eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) kan hjälpa dig.
+    **Lösning**: att ändra distributions strategin för partitionen eller testa [EventHubClient. send (eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) kan hjälpa dig.
 
 - Event Hubs-namnrymden har inte tillräckligt med data flödes enheter (du kan kontrol lera **måtten** på skärmen i Event Hubs namn områdes fönstret i [Azure Portal](https://portal.azure.com) för att bekräfta). Portalen visar sammanställd (1 minut) information, men vi mäter data flödet i real tid – så det är bara en uppskattning.
 
-    **Lösning** : att öka data flödes enheterna i namn området kan hjälpa dig. 
+    **Lösning**: att öka data flödes enheterna i namn området kan hjälpa dig. 
 
     Du kan konfigurera data flödes enheter på sidan **skalnings** sida eller **översikt** på sidan **Event Hubs namn område** i Azure Portal. Du kan också använda [Automatisk](event-hubs-auto-inflate.md)ökning, som automatiskt skalar upp genom att öka antalet data flödes enheter för att möta användnings behoven.
 
@@ -123,13 +123,13 @@ Felet kan bero på en av följande orsaker:
     
     På sidan **Översikt** i avsnittet **Visa mått** växlar du till fliken **data flöde** . Välj diagrammet för att öppna det i ett större fönster med intervall på 1 minut på x-axeln. Titta på de högsta värdena och dela upp dem med 60 för att få inkommande byte/sekund eller utgående byte/sekund. Använd liknande metod för att beräkna antalet begär Anden per sekund vid hög belastnings tider på fliken **förfrågningar** . 
 
-    Om du ser värden som är högre än antalet antal * gränser (1 MB per sekund för ingångs-eller 1000-begäranden för ingångar/sekund, 2 MB per sekund för utgående trafik) ökar du antalet antal genom att använda **skalan** (på den vänstra menyn) i ett Event Hubs namn område för att skala högre eller använda funktionen för [automatisk](event-hubs-auto-inflate.md) ökning i Event Hubs. Observera att automatisk ökning bara kan öka upp till 20 antal. Skicka en [supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)för att öka den till exakt 40 antal.
+    Om du ser värden som är högre än antalet antal * gränser (1 MB per sekund för ingångs-eller 1000-begäranden för ingångar/sekund, 2 MB per sekund för utgående trafik) ökar du antalet antal genom att använda **skalan** (på den vänstra menyn) i ett Event Hubs namn område för att skala högre eller använda funktionen för [automatisk](event-hubs-auto-inflate.md) ökning i Event Hubs. Observera att automatisk ökning bara kan öka upp till 20 antal. Skicka en [supportbegäran](../azure-portal/supportability/how-to-create-azure-support-request.md)för att öka den till exakt 40 antal.
 
 ### <a name="error-code-50001"></a>Felkod 50001
 
 Det här felet bör sällan uppstå. Det inträffar när behållaren som kör kod för namn området har ont om CPU – inte mer än några sekunder innan den Event Hubs belastningsutjämnaren börjar.
 
-**Lösning** : begränsa anrop till GetRuntimeInformation-metoden. Azure Event Hubs stöder upp till 50 anrop per sekund till GetRuntimeInfo per sekund. Du kan få ett undantag som liknar följande när gränsen nås:
+**Lösning**: begränsa anrop till GetRuntimeInformation-metoden. Azure Event Hubs stöder upp till 50 anrop per sekund till GetRuntimeInfo per sekund. Du kan få ett undantag som liknar följande när gränsen nås:
 
 ```
 ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.

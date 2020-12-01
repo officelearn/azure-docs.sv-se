@@ -1,5 +1,5 @@
 ---
-title: Lägg till komplettera automatiskt och förslag i en sökruta
+title: Lägg till Autoavsluta i en sökruta
 titleSuffix: Azure Cognitive Search
 description: Aktivera frågor som är av typ typ i Azure Kognitiv sökning genom att skapa förslag och utforma begär Anden som kompletterar en sökruta med färdiga villkor eller fraser. Du kan också returnera föreslagna matchningar.
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5b498b8f49f2f0636b010e3c4d86f13ad44ac090
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 25c87971455ed3c5f59c92748794720d61e599e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029021"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339616"
 ---
-# <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Lägg till komplettera automatiskt och förslag till klient program
+# <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Lägg till komplettera automatiskt och förslag till klient program med Azure Kognitiv sökning
 
 Sökning efter typ är en vanlig teknik för att förbättra produktiviteten för användarinitierade frågor. I Azure Kognitiv sökning stöds den här upplevelsen genom *Autoavsluta*, som avslutar en term eller fras baserat på inaktuella inleveranser (som slutförs med "Micro" med "Microsoft"). En andra användar upplevelse är *förslag* eller en kort lista med matchande dokument (som returnerar bok titlar med ett ID så att du kan länka till en informations sida om den boken). Både Autoavsluta och förslag är predikat på en matchning i indexet. Tjänsten erbjuder inte frågor som returnerar noll resultat.
 

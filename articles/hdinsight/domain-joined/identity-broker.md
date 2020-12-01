@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 8a4f9a5df8def928c06fe95a53c7be0d93ec76c4
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: c6bc5ca748a35b17c61d314e96f7284d30e7fc3b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302681"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338137"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Azure HDInsight ID Broker (HIB)
 
@@ -52,7 +52,7 @@ Följande diagram visar det grundläggande autentiseringsschemat för federerade
 
 Så här skapar du ett Enterprise Security Package kluster med HDInsight ID Broker aktiverat:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Följ de grundläggande stegen för att skapa Enterprise Security Package-kluster. Mer information finns i [skapa ett HDInsight-kluster med Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
 1. Välj **Aktivera HDInsight ID Broker**.
 
@@ -146,7 +146,7 @@ För varje kluster registreras ett program från tredje part i AAD med kluster-U
 I AAD krävs medgivande för alla program från tredje part innan det kan autentisera användare eller komma åt data.
 
 ### <a name="can-the-consent-be-approved-programatically"></a>Kan medgivande godkännas program mässigt?
-Microsoft Graph API gör att du kan automatisera medgivande, se [API-dokumentationen](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0) som sekvensen för att automatisera godkännandet är:
+Microsoft Graph API gör att du kan automatisera medgivande, se [API-dokumentationen](/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0) som sekvensen för att automatisera godkännandet är:
 
 * Registrera en app och bevilja Application. ReadWrite. alla behörigheter till appen för att få åtkomst till Microsoft Graph
 * Efter att ett kluster har skapats frågar du efter kluster appen baserat på ID-URI: n

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb0223b338457ad5eeea0b0bb40593f57a0d3aa
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a23056445331c82aded878a77d1e0e730e4e2ceb
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442090"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339480"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Direkt Federation med AD FS och tredje parts leverantörer för gäst användare (för hands version)
 
@@ -45,7 +45,7 @@ Med direkt Federation loggar gäst användare in på din Azure AD-klient med hj�
 ## <a name="limitations"></a>Begränsningar
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>DNS-verifierade domäner i Azure AD
-Den domän som du vill federera med måste vara**not**av DNS-verifierad i Azure AD. Du kan konfigurera direkt Federation med ohanterad (e-postverifierad eller "viral") Azure AD-klienter eftersom de inte är DNS-verifierade.
+Den domän som du vill federera med måste vara **not** av DNS-verifierad i Azure AD. Du kan konfigurera direkt Federation med ohanterad (e-postverifierad eller "viral") Azure AD-klienter eftersom de inte är DNS-verifierade.
 
 ### <a name="authentication-url"></a>URL för autentisering
 Direkt Federation tillåts bara för principer där autentiserings-URL: en domän matchar mål domänen, eller där autentiserings-URL: en är en av dessa tillåtna identitets leverantörer (den här listan kan ändras):
@@ -150,7 +150,7 @@ Sedan konfigurerar du federationen med den identitetsprovider som du konfigurera
 
     ![Skärm bild som visar knapp för att lägga till en ny SAML-eller WS-Fed-IdP](media/direct-federation/new-saml-wsfed-idp.png)
 
-4. På sidan **ny SAML/WS-utfodras IDP** under **Identity Provider Protocol**väljer du **SAML** eller **WS-utfodras**.
+4. På sidan **ny SAML/WS-utfodras IDP** under **Identity Provider Protocol** väljer du **SAML** eller **WS-utfodras**.
 
     ![Skärm bild som visar knappen parsa på SAML-eller WS-Fed IdP-Sidan](media/direct-federation/new-saml-wsfed-idp-parse.png)
 
@@ -195,7 +195,7 @@ Testa nu din direkt Federations installation genom att bjuda in en ny B2B-gäst 
 1. Gå till [Azure-portalen](https://portal.azure.com/). Välj **Azure Active Directory** i den vänstra rutan. 
 2. Välj **externa identiteter**.
 3. Välj **alla identitets leverantörer**
-4. Under **SAML/WS-utfodras identitets leverantörer**väljer du providern.
+4. Under **SAML/WS-utfodras identitets leverantörer** väljer du providern.
 5. Uppdatera värdena i fönstret information om identitetsprovider.
 6. Välj **Spara**.
 

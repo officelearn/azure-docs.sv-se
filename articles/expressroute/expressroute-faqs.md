@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: b8ef1c14089744defaf6de5b3cf9e72d281452b6
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 7b7362d9315d8228e56dc85b2da22e0d507fa8ae
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027116"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339797"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -46,7 +46,7 @@ Nej. Du kan köpa en VPN-anslutning för valfri hastighet från din tjänst leve
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Har jag möjlighet att använda mer än min upphandlade bandbredd om jag betalar för en ExpressRoute-krets för en specifik bandbredd?
 
-Ja, du kan använda upp till två gånger bandbredds gränsen som du har upprättat genom att använda den tillgängliga bandbredden på den sekundära anslutningen av ExpressRoute-kretsen. Den inbyggda redundansen av kretsen konfigureras med hjälp av primära och sekundära anslutningar, var och en av de upphandlade bandbredderna till två Microsoft Enterprise Edge-routrar (msee). Bandbredden som är tillgänglig via den sekundära anslutningen kan användas för ytterligare trafik om det behövs. Eftersom den sekundära anslutningen är avsedd för redundans, är den inte garanterad och bör inte användas för ytterligare trafik under en varaktig tids period. Mer information om hur du använder både anslutningar för att överföra trafik finns [här](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending).
+Ja, du kan använda upp till två gånger bandbredds gränsen som du har upprättat genom att använda den tillgängliga bandbredden på den sekundära anslutningen av ExpressRoute-kretsen. Den inbyggda redundansen av kretsen konfigureras med hjälp av primära och sekundära anslutningar, var och en av de upphandlade bandbredderna till två Microsoft Enterprise Edge-routrar (msee). Bandbredden som är tillgänglig via den sekundära anslutningen kan användas för ytterligare trafik om det behövs. Eftersom den sekundära anslutningen är avsedd för redundans, är den inte garanterad och bör inte användas för ytterligare trafik under en varaktig tids period. Mer information om hur du använder både anslutningar för att överföra trafik finns [här](./expressroute-optimize-routing.md#solution-use-as-path-prepending).
 Om du endast planerar att använda din primära anslutning för att överföra trafik, är bandbredden för anslutningen fast och om du försöker överprenumerera på den, vilket leder till ökade paket. Om trafiken flödar genom en ExpressRoute-Gateway, är bandbredden för SKU: n fast och inte burstbar.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Kan jag använda samma privata nätverks anslutning med virtuella nätverk och andra Azure-tjänster samtidigt?

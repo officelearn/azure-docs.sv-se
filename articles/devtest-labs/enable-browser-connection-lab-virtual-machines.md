@@ -3,12 +3,12 @@ title: Aktivera webb läsar anslutning på Azure DevTest Labs virtuella datorer
 description: DevTest Labs integreras nu med Azure skydds som en ägare till labbet som du kan använda för att få åtkomst till alla virtuella labb datorer via en webbläsare.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 28a3c11f3df578265f9746a173fcb3029a132b26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d9d631c79c22f1f713cfc4ee7cdd766a4ad8f06
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870501"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341180"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Aktivera webb läsar anslutning på Azure DevTest Labs virtuella datorer 
 DevTest Labs integreras med [Azure skydds](../bastion/index.yml), vilket gör att du kan ansluta till dina virtuella datorer via en webbläsare. Du måste först aktivera webb läsar anslutning på virtuella labb datorer.
@@ -20,7 +20,7 @@ Den här artikeln visar hur du aktiverar webb läsar anslutning på virtuella la
 
 ## <a name="prerequisites"></a>Förutsättningar 
 - Distribuera en skydds-värd i det befintliga Labbets virtuella nätverk **(eller)** Anslut ditt labb med ett skydds konfigurerat virtuellt nätverk.
-Information om hur du distribuerar en skydds-värd i ett virtuellt nätverk finns i  [skapa en Azure skydds-värd](../bastion/bastion-create-host-portal.md). När du skapar skydds-värden väljer du Labbets virtuella nätverk. 
+Information om hur du distribuerar en skydds-värd i ett virtuellt nätverk finns i  [skapa en Azure skydds-värd](../bastion/tutorial-create-host-portal.md). När du skapar skydds-värden väljer du Labbets virtuella nätverk. 
 - Labb användaren måste ha en **läsar** roll på skydds-värden och det virtuella nätverk som har skydds konfigurerat. 
 
 ## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>Skapa ett andra under nät i det virtuella skydds-nätverket
@@ -58,7 +58,7 @@ Följ dessa steg om du vill aktivera webbläsaren Connect på virtuella labb dat
 
 1. I Azure Portal navigerar du till *labbet*.
 1. Välj **konfiguration och principer**.
-1. I **Inställningar**väljer du **webbläsare Connect**. Om du inte ser det här alternativet stänger du sidan **konfigurations principer** och öppnar den igen. 
+1. I **Inställningar** väljer du **webbläsare Connect**. Om du inte ser det här alternativet stänger du sidan **konfigurations principer** och öppnar den igen. 
 
     ![Aktivera webb läsar anslutning](./media/enable-browser-connection-lab-virtual-machines/browser-connect.png)
 

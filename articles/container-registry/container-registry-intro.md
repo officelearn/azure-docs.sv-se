@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d54c939f0ecc78d7734345b23fd2b75f150243c1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b5c81d8b2e6d7eac2dcd9070bf1f448340ea1a18
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148493"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341273"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduktion till privata Docker-containerregister i Azure
 
@@ -45,7 +45,7 @@ Azure tillhandahåller verktyg, till exempel Azure Command-Line Interface, Azure
 
   Du [styr åtkomsten](container-registry-authentication.md) till en container med hjälp av en Azure-identitet, ett Azure Active Directory-kopplat [tjänstobjekt](../active-directory/develop/app-objects-and-service-principals.md) eller ett angivet administratörskonto. Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att tilldela användare eller system detaljerade behörigheter till ett register.
 
-  Säkerhetsfunktionerna i Premium service-nivån är [innehålls förtroende](container-registry-content-trust.md) för bildtagg-signering, och [brand väggar och virtuella nätverk (för hands version)](container-registry-vnet.md) för att begränsa åtkomsten till registret. Azure Security Center kan integreras med Azure Container Registry för att [skanna bilder](../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json) när en bild skickas till ett register.
+  Säkerhetsfunktionerna i Premium service-nivån är [innehålls förtroende](container-registry-content-trust.md) för bildtagg-signering, och [brand väggar och virtuella nätverk (för hands version)](container-registry-vnet.md) för att begränsa åtkomsten till registret. Azure Security Center kan integreras med Azure Container Registry för att [skanna bilder](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) när en bild skickas till ett register.
 
 * **Bilder och artefakter som stöds** – grupperade i en lagrings plats, är varje avbildning en skrivskyddad ögonblicks bild av en Docker-kompatibel behållare. Azure-containerregister kan innehålla både Windows- och Linux-avbildningar. Du styr avbildningsnamnen för alla containerdistributioner. Använd [Docker-standardkommandon](https://docs.docker.com/engine/reference/commandline/) för att skicka avbildningar till en lagringsplats, eller för att hämta en avbildning från en lagringsplats. Förutom Docker-behållar avbildningar, Azure Container Registry lagrar [relaterade innehålls format](container-registry-image-formats.md) , till exempel [Helm-diagram](container-registry-helm-repos.md) och bilder som skapats i [specifikationen Open container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md).
 

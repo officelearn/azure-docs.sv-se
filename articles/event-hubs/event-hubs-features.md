@@ -3,12 +3,12 @@ title: Översikt över funktioner – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om funktioner och terminologi i Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: db7c0244fd4e9e04f9cfbcbba8748ec8190fc5c5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a38cf4ba6a06dc6e977f9ea168fcf67ce83ff5de
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96007449"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339990"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funktioner och terminologi i Azure Event Hubs
 
@@ -33,7 +33,7 @@ En entitet som skickar data till en Event Hub är en händelse producent eller *
 
 ### <a name="publishing-an-event"></a>Publicera en händelse
 
-Du kan publicera en händelse via AMQP 1,0, Kafka 1,0 (och senare) eller HTTPS. Event Hubs tjänsten tillhandahåller klient biblioteken [REST API](https://docs.microsoft.com/rest/api/eventhub/) och [.net](event-hubs-dotnet-standard-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [python](event-hubs-python-get-started-send.md), [Java Script](event-hubs-node-get-started-send.md)och [Go](event-hubs-go-get-started-send.md) för att publicera händelser till en Event Hub. För andra körningar och plattformar kan du använda alla AMQP 1.0-klienter, t.ex. [Apache Qpid](https://qpid.apache.org/). 
+Du kan publicera en händelse via AMQP 1,0, Kafka 1,0 (och senare) eller HTTPS. Event Hubs tjänsten tillhandahåller klient biblioteken [REST API](/rest/api/eventhub/) och [.net](event-hubs-dotnet-standard-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [python](event-hubs-python-get-started-send.md), [Java Script](event-hubs-node-get-started-send.md)och [Go](event-hubs-go-get-started-send.md) för att publicera händelser till en Event Hub. För andra körningar och plattformar kan du använda alla AMQP 1.0-klienter, t.ex. [Apache Qpid](https://qpid.apache.org/). 
 
 Du kan publicera händelser individuellt eller i batchar. En enskild publikation (händelse data instans) har en gräns på 1 MB, oavsett om det är en enskild händelse eller en batch. Om du publicerar händelser som är större än det här tröskelvärdet uppstår ett fel. Det är en bra idé för utgivare att vara medveten om partitioner i händelsehubben och bara ange en *partitionsnyckel* (som introduceras i nästa avsnitt) eller deras identitet via sin SAS-token.
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: a39b6973767b72e69a82750ab8d0d487c733eda0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e525fc0705dffcd4765e6a1f6c5235bdef260fcd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657116"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339684"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Konfigurera sammanställd namnrymd
 
@@ -83,7 +83,7 @@ I den här listan visas det maximala antalet sökvägar i namn område per konfi
   * 6 TB cache-10 namn områdes Sök vägar
   * 23 TB cache – 20 namn rymds Sök vägar
 
-* Upp till 5 GB/s-genomflöde:
+* Upp till 4 GB/s-genomflöde:
 
   * 6 TB cache-10 namn områdes Sök vägar
   * 12 TB cache-10 namn områdes Sök vägar

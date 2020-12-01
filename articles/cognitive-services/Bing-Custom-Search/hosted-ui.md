@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: d5caa9b4168307bb27022b59415e43b37f30bf67
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: ca3f9da681c60608b5b196b17191f0b4d549f305
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367394"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338375"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Konfigurera värdbaserad UI-upplevelse
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Anpassad sökning i Bing tillhandahåller ett värdbaserad gränssnitt som du enkelt kan integrera med dina webb sidor och webb program som ett JavaScript-kodfragment. Med hjälp av Anpassad sökning i Bing Portal kan du konfigurera alternativ för layout, färg och sökning i användar gränssnittet.
 
@@ -105,7 +105,7 @@ Du kan konfigurera beteendet för ditt värdbaserade gränssnitt genom att klick
 - Webb resultat per sida: antal Webbs öknings resultat som ska visas i taget (det högsta är 50 resultat per sida).
 - Bild beskrivning: anger om bilder visas med Sök resultat.
 
-Följande konfigurationer visas om du klickar på **Visa avancerade konfigurationer** :
+Följande konfigurationer visas om du klickar på **Visa avancerade konfigurationer**:
 
 - Markera ord: anger om resultat visas med Sök termer i fetstil.
 - Länk mål: anger om webb sidan öppnas i en ny flik i webbläsaren (tom) eller samma flik i webbläsaren (Self) när användaren klickar på ett Sök resultat.

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 0b0e198075455f697c87ad48741a770e6f78b5a5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a42b07254deaf19d253f7523631018bfe7166a57
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542158"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339599"
 ---
 # <a name="azure-dedicated-hosts"></a>Dedikerade Azure-värdar
 
@@ -165,6 +165,8 @@ En SKU definieras för en värd och den representerar den virtuella datorns stor
 
 Storlekarna och maskin varu typerna varierar beroende på region. Mer information hittar du på [prissättnings sidan](https://aka.ms/ADHPricing) för värden.
 
+> [!NOTE]
+> När en dedikerad värd är etablerat kan du inte ändra storlek eller typ. Om du behöver en annan typ av typ måste du skapa en ny värd.  
 
 ## <a name="host-life-cycle"></a>Värd livs cykel
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: c3d6e21b45bccbdaeeee350bac79be680783eb24
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ecf81152605d77e1036c9fbf5d3308af2b1fb988
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147520"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346163"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Samar beta med andra författare och redigerare
 
@@ -42,11 +42,11 @@ Följande diagram visar flödet från författarens perspektiv för att logga in
 |3|API för QnA Maker validerar token.|
 |4 |API för QnA Maker anropar QnAMaker-tjänsten.|
 
-Om du tänker anropa redigerings- [API: erna](../How-To/collaborate-knowledge-base.md)kan du läsa mer om hur du konfigurerar autentisering.
+Om du tänker anropa redigerings- [API: erna](../index.yml)kan du läsa mer om hur du konfigurerar autentisering.
 
 ## <a name="authenticate-by-qna-maker-portal"></a>Autentisera med QnA Maker Portal
 
-Om du skapar och samarbetar med hjälp av QnA Maker Portal hanterar QnA Maker portalen alla åtkomst behörigheter när du har [lagt till en lämplig roll till resursen för en medarbetare](../How-To/collaborate-knowledge-base.md).
+Om du skapar och samarbetar med hjälp av QnA Maker Portal hanterar QnA Maker portalen alla åtkomst behörigheter när du har [lagt till en lämplig roll till resursen för en medarbetare](../index.yml).
 
 ## <a name="authenticate-by-qna-maker-apis-and-sdks"></a>Autentisera med QnA Maker-API: er och SDK: er
 
@@ -54,4 +54,4 @@ Om du skapar och samarbetar med hjälp av API: er, antingen via REST eller SDK: 
 
 ## <a name="next-step"></a>Nästa steg
 
-* Utforma en kunskaps bas för [språk](design-language-culture.md) och för [klient program](integration-with-other-applications.md)
+* Utforma en kunskaps bas för [språk](../index.yml) och för [klient program](../index.yml)

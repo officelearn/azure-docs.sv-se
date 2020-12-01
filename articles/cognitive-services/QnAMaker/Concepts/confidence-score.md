@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: abae83cee106feb553e8ced404d23ba5619ba416
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 489592fcbc779685728b120f18e5e923ee34d655
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327161"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346383"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>Förtroende poängen för ett svar
 När en användar fråga matchas mot en kunskaps bas, returnerar QnA Maker relevanta svar, tillsammans med en förtroende poäng. Den här poängen indikerar att svaret är den rätta matchningen för den aktuella användar frågan.
@@ -48,9 +48,9 @@ Tabellen ovan visar de resultat som förväntas för de flesta KB. Men eftersom 
 
 När du väljer ditt tröskelvärde bör du tänka på balansen mellan precisionen och täckningen och justera tröskelvärdet utifrån dina behov.
 
-- Om **precisionen** (eller precisionen) är viktigare för ditt scenario, ökar du tröskelvärdet. På så sätt kan du varje gång du returnerar ett svar vara ett mycket mer säkert ärende, och det är mycket mer sannolikt att svars användarna söker. I så fall kan du lämna fler frågor utan svar. *Exempel:* om du gör tröskelvärdet **70**kan du missa några tvetydiga exempel gillar "Vad är Spara och träna?".
+- Om **precisionen** (eller precisionen) är viktigare för ditt scenario, ökar du tröskelvärdet. På så sätt kan du varje gång du returnerar ett svar vara ett mycket mer säkert ärende, och det är mycket mer sannolikt att svars användarna söker. I så fall kan du lämna fler frågor utan svar. *Exempel:* om du gör tröskelvärdet **70** kan du missa några tvetydiga exempel gillar "Vad är Spara och träna?".
 
-- Om **täckning** (eller återkallande) är mer viktigt – och du vill besvara så många frågor som möjligt, även om det bara finns en partiell relation till användarens fråga – och sedan sänka tröskelvärdet. Det innebär att det kan finnas flera fall där svaret inte svarar på användarens faktiska fråga, men ger något annat särskilt besvarat svar. *Exempel:* om du gör tröskelvärdet **30**kan du ge svar på frågor som "var kan jag redigera mitt KB?".
+- Om **täckning** (eller återkallande) är mer viktigt – och du vill besvara så många frågor som möjligt, även om det bara finns en partiell relation till användarens fråga – och sedan sänka tröskelvärdet. Det innebär att det kan finnas flera fall där svaret inte svarar på användarens faktiska fråga, men ger något annat särskilt besvarat svar. *Exempel:* om du gör tröskelvärdet **30** kan du ge svar på frågor som "var kan jag redigera mitt KB?".
 
 > [!NOTE]
 > Nyare versioner av QnA Maker innehåller förbättringar av bedömnings logik och kan påverka din tröskel. När som helst kan du uppdatera tjänsten, se till att testa och justera tröskelvärdet om det behövs. Du kan kontrol lera din QnA-version [här](https://www.qnamaker.ai/UserSettings)och se hur du hämtar de senaste uppdateringarna [här](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
@@ -62,7 +62,7 @@ Ange tröskelvärdet som en egenskap för [GENERATEANSWER API-JSON-texten](../ho
 I bot-ramverket ställer du in poängen som en del av alternativ-objektet med [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) eller [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Förbättra förtroende poängen
-Om du vill förbättra förtroende poängen för ett visst svar på en användar fråga kan du lägga till användar frågan i kunskaps basen som en annan fråga på det svaret. Du kan också använda Skift läges känsliga [ord ändringar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) för att lägga till synonymer till nyckelord i din KB.
+Om du vill förbättra förtroende poängen för ett visst svar på en användar fråga kan du lägga till användar frågan i kunskaps basen som en annan fråga på det svaret. Du kan också använda Skift läges känsliga [ord ändringar](/rest/api/cognitiveservices/qnamaker/alterations/replace) för att lägga till synonymer till nyckelord i din KB.
 
 
 ## <a name="similar-confidence-scores"></a>Liknande förtroende Poäng
@@ -89,4 +89,3 @@ När ingen lämplig matchning påträffas av Ranging returneras förtroende poä
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
 > [Bästa praxis](./best-practices.md)
-

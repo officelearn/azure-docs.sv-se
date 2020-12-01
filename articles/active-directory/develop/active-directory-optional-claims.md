@@ -12,12 +12,12 @@ ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 50f57f48ca839c5389df49fc5dc7586030916b6b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7eedb9ce30be236e8d47152f0e114b7bc5ae2304
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169757"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348100"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Gör så här: Ange valfria anspråk för din app
 
@@ -37,7 +37,7 @@ Listor över standard anspråk finns i [åtkomsttoken](access-tokens.md) och [id
 
 | Kontotyp               | v 1.0-token | v 2.0-token |
 |----------------------------|-------------|-------------|
-| Personlig Microsoft-konto | E.t.         | Stöds   |
+| Personlig Microsoft-konto | Ej tillämpligt         | Stöds   |
 | Azure AD-konto           | Stöds   | Stöds   |
 
 ## <a name="v10-and-v20-optional-claims-set"></a>v 1.0 och v 2.0 valfria anspråks uppsättningar
@@ -49,7 +49,7 @@ Den uppsättning valfria anspråk som är tillgängliga som standard för progra
 
 **Tabell 2: v 1.0 och v 2.0 valfri anspråks uppsättning**
 
-| Namn                       |  Beskrivning   | Tokentyp | Användar typ | Obs!  |
+| Name                       |  Beskrivning   | Tokentyp | Användar typ | Kommentarer  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Tid när användaren senast autentiserades. Se OpenID Connect spec.| JWT        |           |  |
 | `tenant_region_scope`      | Resurs innehavarens region | JWT        |           | |
@@ -76,7 +76,7 @@ De här anspråken ingår alltid i v 1.0 Azure AD-tokens, men ingår inte i v 2.
 
 **Tabell 3: v 2.0 – endast valfria anspråk**
 
-| JWT-anspråk     | Namn                            | Beskrivning                                | Kommentarer |
+| JWT-anspråk     | Name                            | Beskrivning                                | Kommentarer |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP-adress                      | IP-adressen som klienten loggade in från.   |       |
 | `onprem_sid`  | Lokal säkerhets identifierare |                                             |       |
@@ -262,7 +262,7 @@ Det här avsnittet beskriver konfigurations alternativen under valfria anspråk 
    - "DirectoryRole"
    - "Variabeln applicationgroup" (det här alternativet inkluderar endast grupper som är kopplade till programmet)
 
-   Ett exempel:
+   Exempel:
 
     ```json
     "groupMembershipClaims": "SecurityGroup"

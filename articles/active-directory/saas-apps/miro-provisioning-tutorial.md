@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: Zhchia
-ms.openlocfilehash: 31631209a16024e4414cc19bca37166332b427de
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d3dee76ada7a9ed48813928937f8f8da8be4add1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359240"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348049"
 ---
 # <a name="tutorial-configure-miro-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Miro för automatisk användar etablering
 
@@ -70,7 +70,7 @@ Innan du konfigurerar Miro för automatisk användar etablering med Azure AD må
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **Miro** , väljer **Miro** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **Miro**, väljer **Miro** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Miro i resultat listan](common/search-new-app.png)
 

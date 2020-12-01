@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ad6a4d075ea861068ad0c929d92cd2f12efa6121
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 78324cfa58a8ac015b085052bdec7e3793befc1b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516116"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348457"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Självstudie: Azure Active Directory integrering med Signagelive
 
@@ -52,7 +52,7 @@ Gör så här om du vill lägga till Signagelive från galleriet:
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj alternativet **alla program** .
+2. Gå till **företags program** och välj alternativet **alla program** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -60,7 +60,7 @@ Gör så här om du vill lägga till Signagelive från galleriet:
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **Signagelive**i rutan Sök. 
+4. Skriv **Signagelive** i rutan Sök. 
 
      ![Signagelive i resultatlistan](common/search-new-app.png)
 
@@ -105,7 +105,7 @@ Utför följande steg för att konfigurera enkel inloggning med Signagelive i Az
     I rutan **inloggnings-URL** anger du en URL som använder följande mönster:  `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL: en. Kontakta [Signagelive-klientens support team](mailto:support@signagelive.com) för att få värdet. Du kan också se de mönster som visas i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL: en. Kontakta [Signagelive-klientens support team](mailto:support@signagelive.com)för att få värdet. Du kan också se de mönster som visas i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
 5. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **Hämta** för att ladda ned **certifikatet (RAW)** från de angivna alternativen enligt ditt krav. Spara den sedan på din dator.
 
@@ -153,7 +153,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Signagelive.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Signagelive**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program** och väljer sedan **Signagelive**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -169,7 +169,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. I dialog rutan **användare och grupper** väljer du **Britta Simon**i listan **användare** . Klicka sedan på knappen **Välj** längst ned på skärmen.
+5. I dialog rutan **användare och grupper** väljer du **Britta Simon** i listan **användare** . Klicka sedan på knappen **Välj** längst ned på skärmen.
 
 6. Om du förväntar dig ett roll värde i SAML-intyget väljer du i dialog rutan **Välj roll** lämplig roll för användaren i listan. Klicka sedan på knappen **Välj** längst ned på skärmen.
 

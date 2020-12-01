@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 03e89b0da25a915a00c70a9a87bd0f675b8e12d6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bfa9367e06c099e21a54ad8c03f8d5ab853aaafb
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997536"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348083"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicera Fjärrskrivbord med Azure AD-programproxy
 
@@ -130,7 +130,7 @@ Konfigurationen som beskrivs i den här artikeln är till för åtkomst till fj�
 
 | Autentiseringsmetod | Klient konfiguration som stöds |
 | --------------------- | ------------------------------ |
-| Förautentisering    | Webb server för fjärr skrivbord – Windows 7/10 med Internet Explorer eller [Edge krom IE-läge](/deployedge/edge-ie-mode) + RDS-tillägg |
+| Förautentisering    | Webb server för fjärr skrivbord – Windows 7/10 med Internet Explorer eller [Edge krom IE-läge](/deployedge/edge-ie-mode) + RDS-tillägg <br /> *Observera att portalen My Apps endast stöder Edge.* |
 | Förautentisering    | Webb klient för fjärrskrivbordsgateway – HTML5 kompatibel webbläsare, till exempel Microsoft Edge, Internet Explorer 11, Google Chrome, Safari eller Mozilla Firefox (v 55.0 och senare) |
 | Genomströmning | Andra operativ system som stöder Microsoft Fjärrskrivbord programmet |
 

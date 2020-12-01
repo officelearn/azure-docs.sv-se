@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/22/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 224131d1b17c4ed34ee847638633a5a1a494ccaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12879b22e255384701b0cd265b50ed34d5e198c9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894136"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345550"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>Självstudie: Förbered för att distribuera Azure Stack Edge Pro  
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Skapa en ny resurs
 > * Hämta aktiveringsnyckeln
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="get-started"></a>Kom igång
 
@@ -45,7 +45,7 @@ För att distribuera Azure Stack Edge Pro, se följande självstudier i den angi
 
 Nu kan du börja konfigurera Azure-portalen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande är konfigurations kraven för din Azure Stack Edge-resurs, din Azure Stack Edge-enhet och data Center nätverket.
 
@@ -53,18 +53,18 @@ Följande är konfigurations kraven för din Azure Stack Edge-resurs, din Azure 
 
 Innan du börjar ska du kontrollera att:
 
-* Din Microsoft Azure-prenumeration är aktiverad för en Azure Stack Edge-resurs. Se till att du har använt en prenumeration som stöds, till exempel [Microsoft Enterprise-avtal (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)eller [Microsoft Azure-sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/). Prenumerationer med principen betala per användning stöds inte.
+* Din Microsoft Azure-prenumeration är aktiverad för en Azure Stack Edge-resurs. Se till att du har använt en prenumeration som stöds, till exempel [Microsoft Enterprise-avtal (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp)eller [Microsoft Azure-sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/). Prenumerationer med principen betala per användning stöds inte.
 
 * Du har ägar-eller deltagar åtkomst på resurs grupps nivå för Azure Stack Edge/Data Box Gateway, IoT Hub och Azure Storage resurser.
 
-  * Du bör vara **ägare** på prenumerations nivå för att bevilja deltagar åtkomst. Om du vill ge deltagare åtkomst till någon annan går du till **alla tjänster**för  >  **prenumerations**  >  **åtkomst kontroll (IAM)** i Azure Portal och lägger till  >  **+Add**  >  **roll tilldelning**. Mer information finns i [Självstudier: ge en användare åtkomst till Azure-resurser med hjälp av Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+  * Du bör vara **ägare** på prenumerations nivå för att bevilja deltagar åtkomst. Om du vill ge deltagare åtkomst till någon annan går du till **alla tjänster** för  >  **prenumerations**  >  **åtkomst kontroll (IAM)** i Azure Portal och lägger till  >  **+Add**  >  **roll tilldelning**. Mer information finns i [Självstudier: ge en användare åtkomst till Azure-resurser med hjälp av Azure Portal](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
   * Om du vill skapa en Azure Stack gräns-/Data Box Gateway-resurs, bör du ha behörighet som deltagare (eller högre) som är begränsade till resurs grupps nivå. Du måste också kontrol lera att `Microsoft.DataBoxEdge` resurs leverantören är registrerad. Information om hur du registrerar en resurs leverantör finns i [Registrera resurs leverantör](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
   * Om du vill skapa en IoT Hub resurs måste du kontrol lera att Microsoft. providers-providern är registrerad. Information om hur du registrerar den finns i [Registrera resursprovider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
   * Om du vill skapa en lagrings konto resurs måste du igen med deltagar-eller högre åtkomst omfång på resurs grupps nivå. Azure Storage är som standard en registrerad resurs leverantör.
-* Du har administratörs-eller användar åtkomst till Azure Active Directory Graph API. Mer information finns i [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+* Du har administratörs-eller användar åtkomst till Azure Active Directory Graph API. Mer information finns i [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 * Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
-* Du blockeras inte av någon Azure-princip som kon figurer ATS av system administratören. Mer information om principer finns i [snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal).
+* Du blockeras inte av någon Azure-princip som kon figurer ATS av system administratören. Mer information om principer finns i [snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser](../governance/policy/assign-policy-portal.md).
 
 ### <a name="for-the-azure-stack-edge-pro-device"></a>För Azure Stack Edge Pro-enhet
 
@@ -96,7 +96,7 @@ För att skapa en Azure Stack Edge-resurs, utför följande steg i Azure Portal.
 1. Använd dina Microsoft Azure autentiseringsuppgifter för att logga in på 
 
     - Azure Portal på denna URL: [https://portal.azure.com](https://portal.azure.com) .
-    - Eller, Azure Government portalen på denna URL: [https://portal.azure.us](https://portal.azure.us) . Mer information finns i [ansluta till Azure Government med hjälp av portalen](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+    - Eller, Azure Government portalen på denna URL: [https://portal.azure.us](https://portal.azure.us) . Mer information finns i [ansluta till Azure Government med hjälp av portalen](../azure-government/documentation-government-get-started-connect-with-portal.md).
 
 2. I den vänstra rutan väljer du **+ skapa en resurs**. Sök efter och välj **Azure Stack gräns/data Box Gateway**. Välj **Skapa**.
 3. Välj den prenumeration som du vill använda för Azure Stack Edge Pro-enheten. Välj den region där du vill distribuera Azure Stack Edge-resursen. För en lista över alla regioner där Azure Stack Edge-resursen är tillgänglig, se [Azure-produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
@@ -109,14 +109,14 @@ För att skapa en Azure Stack Edge-resurs, utför följande steg i Azure Portal.
 
 3. På fliken **grundläggande** anger eller väljer du följande **projekt information**.
     
-    |Inställningen  |Värde  |
+    |Inställning  |Värde  |
     |---------|---------|
     |Prenumeration    |Detta fylls i automatiskt baserat på den tidigare markeringen. Prenumerationen är kopplad till ditt faktureringskonto. |
-    |Resursgrupp  |Välj en befintlig grupp eller skapa en ny grupp.<br>Lär dig mer om [Azures resurs grupper](../azure-resource-manager/resource-group-overview.md).     |
+    |Resursgrupp  |Välj en befintlig grupp eller skapa en ny grupp.<br>Lär dig mer om [Azures resurs grupper](../azure-resource-manager/management/overview.md).     |
 
 4. Ange eller Välj följande **instans information**.
 
-    |Inställningen  |Värde  |
+    |Inställning  |Värde  |
     |---------|---------|
     |Namn   | Ett eget namn som identifierar resursen.<br>Namnet innehåller mellan 2 och 50 tecken som består av bokstäver, siffror och bindestreck.<br> Namnet börjar och slutar med en bokstav eller en siffra.        |
     |Region     |För en lista över alla regioner där Azure Stack Edge-resursen är tillgänglig, se [Azure-produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Om du använder Azure Government är alla myndigheter tillgängliga som de visas i Azure- [regionerna](https://azure.microsoft.com/global-infrastructure/regions/).<br> Välj den plats som är närmast den geografiska region där du vill distribuera enheten.|
@@ -132,7 +132,7 @@ För att skapa en Azure Stack Edge-resurs, utför följande steg i Azure Portal.
 
 6. Välj **Nästa: Granska + skapa**.
 
-7. På fliken **Granska + skapa** granskar du **pris informationen**, **användningsvillkor**och informationen för resursen. Välj kombinations rutan för **Jag har granskat sekretess villkoren**.
+7. På fliken **Granska + skapa** granskar du **pris informationen**, **användningsvillkor** och informationen för resursen. Välj kombinations rutan för **Jag har granskat sekretess villkoren**.
 
     ![Granska Azure Stack gräns resurs information och sekretess villkor](media/azure-stack-edge-deploy-prep/data-box-edge-resource2.png)
 

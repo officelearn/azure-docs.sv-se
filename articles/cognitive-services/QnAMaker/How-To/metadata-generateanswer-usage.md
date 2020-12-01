@@ -9,18 +9,18 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 85abefc8437936ffaedc4811bdd9bed0be32786f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c250868c9d470ee85f765f693aff3e21320fc45e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020695"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346196"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Få ett svar med GenerateAnswer-API och metadata
 
 Använd GenerateAnswer-API: et för att få det förväntade svaret till en användares fråga. När du publicerar en kunskaps bas kan du se information om hur du använder det här API: et på sidan **publicera** . Du kan också konfigurera API: et för att filtrera svar baserat på metadata-Taggar och testa kunskaps basen från slut punkten med parametern testa frågesträngen.
 
-Med QnA Maker kan du lägga till metadata, i form av nyckel-och värdepar, till dina par frågor och svar. Du kan sedan använda den här informationen för att filtrera resultat till användar frågor och lagra ytterligare information som kan användas i uppföljnings konversationer. Mer information finns i [Knowledge Base](../Concepts/knowledge-base.md).
+Med QnA Maker kan du lägga till metadata, i form av nyckel-och värdepar, till dina par frågor och svar. Du kan sedan använda den här informationen för att filtrera resultat till användar frågor och lagra ytterligare information som kan användas i uppföljnings konversationer. Mer information finns i [Knowledge Base](../index.yml).
 
 <a name="qna-entity"></a>
 
@@ -36,13 +36,13 @@ Varje QnA-entitet har ett unikt och beständigt ID. Du kan använda ID: t för a
 
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>Få svars prognoser med GenerateAnswer-API: et
 
-Du kan använda [GenerateAnswer-API: et](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) i din robot eller ditt program för att fråga din kunskaps bas med en användar fråga, för att få den bästa matchningen från frågan och svars paren.
+Du kan använda [GenerateAnswer-API: et](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) i din robot eller ditt program för att fråga din kunskaps bas med en användar fråga, för att få den bästa matchningen från frågan och svars paren.
 
 <a name="generateanswer-endpoint"></a>
 
 ## <a name="publish-to-get-generateanswer-endpoint"></a>Publicera för att hämta GenerateAnswer-slutpunkt
 
-När du har publicerat din kunskaps bas, antingen från [QNA Maker-portalen](https://www.qnamaker.ai)eller med hjälp av API: [et](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), kan du hämta information om din GenerateAnswer-slutpunkt.
+När du har publicerat din kunskaps bas, antingen från [QNA Maker-portalen](https://www.qnamaker.ai)eller med hjälp av API: [et](/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), kan du hämta information om din GenerateAnswer-slutpunkt.
 
 Så här hämtar du information om slut punkten:
 1. Logga in på [https://www.qnamaker.ai](https://www.qnamaker.ai).
@@ -70,9 +70,9 @@ Du anropar GenerateAnswer med en HTTP POST-begäran. Exempel kod som visar hur d
 
 POST-begäran använder:
 
-* Obligatoriska [URI-parametrar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
+* Obligatoriska [URI-parametrar](/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
 * Nödvändig huvud egenskap, `Authorization` , för säkerhet
-* Egenskaper för nödvändig [brödtext](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto).
+* Egenskaper för nödvändig [brödtext](/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto).
 
 GenerateAnswer-URL: en har följande format:
 
@@ -108,7 +108,7 @@ Föregående JSON begärde bara svar som är 30% eller högre än tröskel poän
 
 ## <a name="generateanswer-response-properties"></a>Egenskaper för GenerateAnswer-svar
 
-[Svaret](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) är ett JSON-objekt, inklusive all information som du behöver för att Visa svaret och nästa gång i konversationen, om det är tillgängligt.
+[Svaret](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) är ett JSON-objekt, inklusive all information som du behöver för att Visa svaret och nästa gång i konversationen, om det är tillgängligt.
 
 ```json
 {
@@ -136,7 +136,7 @@ Föregående JSON svarade med ett svar med en poäng på 38,5%.
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Använda QnA Maker med en robot i C #
 
-Bot Framework ger till gång till QnA Makerens egenskaper med GetAnswer- [API: et](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__&preserve-view=true):
+Bot Framework ger till gång till QnA Makerens egenskaper med GetAnswer- [API: et](/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?preserve-view=true&view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -155,7 +155,7 @@ Föregående JSON begärde bara svar som är 30% eller högre än tröskel poän
 
 ## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Använda QnA Maker med en robot i Node.js
 
-Bot Framework ger till gång till QnA Makerens egenskaper med GetAnswer- [API: et](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-&preserve-view=true):
+Bot Framework ger till gång till QnA Makerens egenskaper med GetAnswer- [API: et](/javascript/api/botbuilder-ai/qnamaker?preserve-view=true&view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');
@@ -277,7 +277,7 @@ Du kan söka igenom den publicerade KB, använda `isTest=false` eller i test-KB 
 
 |Kod|Förklaring|
 |:--|--|
-|2xx|Klart|
+|2xx|Success|
 |400|Parametrarna för begäran är felaktiga eftersom nödvändiga parametrar saknas, är felaktiga eller för stora|
 |400|Frågans brödtext är felaktig, vilket innebär att JSON saknas, är felaktig eller för stor|
 |401|Ogiltig nyckel|

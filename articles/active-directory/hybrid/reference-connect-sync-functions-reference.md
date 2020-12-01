@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6c8be064ade8182355c320e948b3b60b846033d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279779"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348066"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: Functions reference
 I Azure AD Connect används funktioner för att manipulera ett attributvärde under synkroniseringen.  
@@ -48,7 +48,7 @@ Typerna uttrycks med följande syntax:
 * **var** – en variant av (nästan) någon annan typ
 * **void** – returnerar inte ett värde
 
-Funktionerna med typerna **mvbin**, **mvstr**och **mvref** kan bara användas med flervärdesattribut. Funktioner med **bin**-, **Str**-och **Ref** -arbete på både enkelvärdesattribut och attribut med flera värden.
+Funktionerna med typerna **mvbin**, **mvstr** och **mvref** kan bara användas med flervärdesattribut. Funktioner med **bin**-, **Str**-och **Ref** -arbete på både enkelvärdesattribut och attribut med flera värden.
 
 ## <a name="functions-reference"></a>Referens för funktioner
 
@@ -124,7 +124,7 @@ Funktionerna med typerna **mvbin**, **mvstr**och **mvref** kan bara användas me
   * [Fel](#error)
   * [IIF](#iif)
   * [Välj](#select)
-  * [Byta](#switch)
+  * [Switch](#switch)
   * [Vilken](#where)
   * [För](#with)
 * **Text**
@@ -703,7 +703,7 @@ Funktionen InStr söker efter den första förekomsten av en del sträng i en st
 
 `num InStr(str stringcheck, str stringmatch)`  
 `num InStr(str stringcheck, str stringmatch, num start)`  
-`num InStr(str stringcheck, str stringmatch, num start , enum compare)`
+`num InStr(str stringcheck, str stringmatch, num start, enum compare)`
 
 * stringcheck: strängen som ska genomsökas
 * stringmatch: strängen som ska hittas

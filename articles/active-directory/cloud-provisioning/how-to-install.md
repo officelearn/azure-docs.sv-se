@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3960b8afeb9d7ecc80aa49fc13eee4977fa5494
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4c4ba11dabc8e805f3604afc2fc4388840ac67cf
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173978"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348542"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Installera agenten för Azure AD Connect-molnetablering
 Det här dokumentet vägleder dig genom installations processen för den Azure Active Directory (Azure AD) Connect-programetablerings agenten och hur du konfigurerar den för första gången i Azure Portal.
@@ -58,11 +58,11 @@ Följ dessa steg om du vill installera agenten.
    ![Skapa gMSA](media/how-to-install/install-12.png)</br>
  11. På skärmen **anslut Active Directory** väljer du **Lägg till katalog**. Logga sedan in med ditt Active Directory administratörs konto. Den här åtgärden lägger till din lokala katalog. 
  12. Du kan också hantera inställningen för de domänkontrollanter som agenten ska använda genom att välja **Välj domänkontrollantens prioritet** och sortera listan över domänkontrollanter.   Klicka på **OK**.
-  ![Beställ domän controlllers](media/how-to-install/install-2a.png)</br>
+  ![Beställ domänkontrollanter](media/how-to-install/install-2a.png)</br>
  13. Välj **Nästa**.
   ![Anslut Active Directory skärmen](media/how-to-install/install-3a.png)</br>
  14.  På skärmen **installations** skärm för Agent bekräftar du inställningar och kontot som ska skapas och klickar på **Bekräfta**.
-  ![Bekräfta settngs](media/how-to-install/install-11.png)</br>
+  ![Bekräfta inställningar](media/how-to-install/install-11.png)</br>
  15. När den här åtgärden har slutförts bör du se **att Agent installationen är klar.** Välj **Avsluta**.
   ![Skärmen konfiguration slutförd](media/how-to-install/install-4a.png)</br>
 1. Välj **Stäng** om du fortfarande ser det första **Microsoft Azure AD ansluta agenten för etablering av agent paket** .

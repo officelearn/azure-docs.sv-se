@@ -3,12 +3,12 @@ title: Azure Event Grid leverans och försök igen
 description: Beskriver hur Azure Event Grid levererar händelser och hur de hanterar meddelanden som inte levererats.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 7bf8fd3a647e28d18a7ca1e658761f9226d1153a
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 9a7bde33e322183f86c3c51d30bb004d06fa1406
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981110"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345361"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelande leverans och försök igen
 
@@ -54,6 +54,22 @@ az eventgrid event-subscription create \
 Mer information om hur du använder Azure CLI med Event Grid finns i [dirigera lagrings händelser till webb slut punkter med Azure CLI](../storage/blobs/storage-blob-event-quickstart.md).
 
 ## <a name="retry-schedule-and-duration"></a>Schema och varaktighet för omförsök
+
+När EventGrid tar emot ett fel för ett händelse leverans försök, bestämmer EventGrid om det ska försöka igen eller ta bort den eller ta bort händelsen baserat på typen av fel. 
+
+Om felet som returnerades av den prenumererade slut punkten är konfigurations relaterat fel som inte kan åtgärdas med återförsök (till exempel om slut punkten tas bort), EventGrid den antingen att den tar bort obeställbara meddelanden eller släpper händelsen om den inte har kon figurer ATS.
+
+Nedan visas de typer av slut punkter för vilka försök inte sker:
+
+| Typ av slutpunkt | Felkoder |
+| --------------| -----------|
+| Azure-resurser | 400 Felaktig begäran, 413 begär ande enhet för stor, 403 förbjuden | 
+| Webhook | 400 Felaktig begäran, 413 begär ande enhet för stor, 403 förbjuden, 404 hittades inte, 401 obehörig |
+ 
+> [!NOTE]
+> Om Dead-Letter inte har kon figurer ATS för slut punkten försvinner händelserna när ovanstående fel inträffar, så Överväg att konfigurera obeställbara meddelanden om du inte vill att dessa typer av händelser ska släppas.
+
+Om felet som returnerades av den prenumererade slut punkten inte finns i listan ovan, utför EventGrid det nya försöket med principer som beskrivs nedan:
 
 Event Grid väntar 30 sekunder på ett svar när ett meddelande har levererats. Efter 30 sekunder, om slut punkten inte har svarat, placeras meddelandet i kö för att försöka igen. Event Grid använder en princip för en exponentiell backoff-återförsök för händelse leverans. Event Grid försöker leverera enligt följande schema på bästa möjliga sätt:
 
@@ -256,16 +272,16 @@ Event Grid betraktar **endast** följande HTTP-svarskod som lyckade leveranser. 
 
 ### <a name="failure-codes"></a>Felkoder
 
-Alla andra koder som inte finns i ovanstående uppsättning (200-204) betraktas som felaktiga och kommer att göras om. Vissa har specifika principer för återförsök som är knutna till dem som beskrivs nedan, och alla andra följer standard modellen för exponentiella säkerhets kopiering. Det är viktigt att komma ihåg att på grund av den mycket parallella typen av Event Grids arkitektur, är återförsöket icke-deterministiskt. 
+Alla andra koder som inte finns i ovanstående uppsättning (200-204) betraktas som felaktiga och kommer att göras om (om det behövs). Vissa har specifika principer för återförsök som är knutna till dem som beskrivs nedan, och alla andra följer standard modellen för exponentiella säkerhets kopiering. Det är viktigt att komma ihåg att på grund av den mycket parallella typen av Event Grids arkitektur, är återförsöket icke-deterministiskt. 
 
 | Statuskod | Omprövnings beteende |
 | ------------|----------------|
-| 400 – Felaktig begäran | Försök igen om 5 minuter eller mer (obeställbara meddelanden kön omedelbart om obeställbara meddelanden kön-konfigurationen) |
-| 401 – Ej behörig | Försök igen om 5 minuter eller mer |
-| 403 förbud | Försök igen om 5 minuter eller mer |
-| 404 – Hittades inte | Försök igen om 5 minuter eller mer |
+| 400 – Felaktig begäran | Inte nytt försök |
+| 401 – Ej behörig | Försök igen om 5 minuter eller mer för resurs slut punkter i Azure |
+| 403 – Förbjuden | Inte nytt försök |
+| 404 – Hittades inte | Försök igen om 5 minuter eller mer för resurs slut punkter i Azure |
 | 408 Timeout för begäran | Försök igen om 2 minuter eller mer |
-| 413 begär ande enheten är för stor | Försök igen om 10 sekunder eller mer (obeställbara meddelanden kön omedelbart om obeställbara meddelanden kön-konfigurationen) |
+| 413 begär ande enheten är för stor | Inte nytt försök |
 | 503 Tjänsten är inte tillgänglig | Försök igen om 30 sekunder eller mer |
 | Alla andra | Försök igen om 10 sekunder eller mer |
 

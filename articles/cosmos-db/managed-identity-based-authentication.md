@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b3bd6a71898576ac23cdd10c1eb52e1ef3a39b95
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: cfef6ce0fb38f074f854d5ceb77677843e44b91b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336596"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345737"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Använd systemtilldelade hanterade identiteter för att få åtkomst till Azure Cosmos DB data
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -68,9 +68,9 @@ I det här scenariot läser Function-appen temperaturen i Aquarium och skriver s
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Skärm bild som visar fönstret Lägg till roll tilldelning.":::
 
-   * **Roll** : Välj **DocumentDB-konto deltagare**
-   * **Tilldela åtkomst till** : Välj **Funktionsapp** under avsnittet **Välj systemtilldelad hanterad identitet** .
-   * **Välj** : fönstret fylls i med alla Function-appar i din prenumeration som har en **hanterad system identitet**. I det här fallet väljer du appen **FishTankTemperatureService** -funktion: 
+   * **Roll**: Välj **DocumentDB-konto deltagare**
+   * **Tilldela åtkomst till**: Välj **Funktionsapp** under avsnittet **Välj systemtilldelad hanterad identitet** .
+   * **Välj**: fönstret fylls i med alla Function-appar i din prenumeration som har en **hanterad system identitet**. I det här fallet väljer du appen **FishTankTemperatureService** -funktion: 
 
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Skärm bild som visar fönstret Lägg till roll tilldelning ifyllt med exempel.":::
 
@@ -214,7 +214,7 @@ namespace Monitor
 }
 ```
 
-Nu är du redo att [distribuera din Function-app](../azure-functions/functions-create-first-function-vs-code.md).
+Nu är du redo att [distribuera din Function-app](../azure-functions/create-first-function-vs-code-csharp.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

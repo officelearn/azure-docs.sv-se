@@ -5,16 +5,16 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: ceff3127eba724ba9aa9bc8f9398d0f27ba687eb
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5aab021ab5194b4af18e3ff1b2c154ed74710353
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376627"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346128"
 ---
 # <a name="change-default-answer-for-a-qna-maker-resource"></a>Ändra standard svar för en QnA Maker resurs
 
-Standard svaret för en kunskaps bas är tänkt att returneras när det inte går att hitta något svar. Om du använder ett klient program, till exempel [Azure bot service](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna), kan det också ha ett separat standard svar, vilket indikerar att inget svar uppfyllde Poäng tröskelvärdet.
+Standard svaret för en kunskaps bas är tänkt att returneras när det inte går att hitta något svar. Om du använder ett klient program, till exempel [Azure bot service](/azure/bot-service/bot-builder-howto-qna), kan det också ha ett separat standard svar, vilket indikerar att inget svar uppfyllde Poäng tröskelvärdet.
 
 ## <a name="types-of-default-answer"></a>Typer av standard svar
 
@@ -24,21 +24,21 @@ Det finns två typer av standard svar i din kunskaps bas. Det är viktigt att f�
 
 |Typer av standard svar|Beskrivning av svar|
 |--|--|
-|KB-svar när inget svar har fastställts|`No good match found in KB.` – När [GenerateAnswer-API: n](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) inte hittar något matchande svar på frågan, `DefaultAnswer` returneras inställningen för App Service. Alla kunskaps baser i samma QnA Maker resurs delar samma standard svars text.<br>Du kan hantera inställningen i Azure Portal, via App Service eller med REST-API: er för att [Hämta](https://docs.microsoft.com/rest/api/appservice/webapps/listapplicationsettings) eller [Uppdatera](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings) inställningen.|
-|Instruktions text för uppföljnings instruktioner|När du använder en uppföljnings fråga i ett konversations flöde kanske du inte behöver ett svar i QnA-paret eftersom du vill att användaren ska välja från uppföljnings anvisningarna. I det här fallet anger du en speciell text genom att ställa in standard svars texten, som returneras med varje förutsägelse för uppföljnings instruktioner. Texten är avsedd att visas som instruktions text för att välja uppföljnings instruktioner. Ett exempel på den här standard svars texten är `Please select from the following choices` . Den här konfigurationen förklaras i nästa avsnitt i det här dokumentet. Kan också anges som en del av kunskaps bas definitionen för att `defaultAnswerUsedForExtraction` använda [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
+|KB-svar när inget svar har fastställts|`No good match found in KB.` – När [GenerateAnswer-API: n](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) inte hittar något matchande svar på frågan, `DefaultAnswer` returneras inställningen för App Service. Alla kunskaps baser i samma QnA Maker resurs delar samma standard svars text.<br>Du kan hantera inställningen i Azure Portal, via App Service eller med REST-API: er för att [Hämta](/rest/api/appservice/webapps/listapplicationsettings) eller [Uppdatera](/rest/api/appservice/webapps/updateapplicationsettings) inställningen.|
+|Instruktions text för uppföljnings instruktioner|När du använder en uppföljnings fråga i ett konversations flöde kanske du inte behöver ett svar i QnA-paret eftersom du vill att användaren ska välja från uppföljnings anvisningarna. I det här fallet anger du en speciell text genom att ställa in standard svars texten, som returneras med varje förutsägelse för uppföljnings instruktioner. Texten är avsedd att visas som instruktions text för att välja uppföljnings instruktioner. Ett exempel på den här standard svars texten är `Please select from the following choices` . Den här konfigurationen förklaras i nästa avsnitt i det här dokumentet. Kan också anges som en del av kunskaps bas definitionen för att `defaultAnswerUsedForExtraction` använda [REST API](/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
 
 |Typer av standard svar|Beskrivning av svar|
 |--|--|
-|KB-svar när inget svar har fastställts|`No good match found in KB.` – När [GenerateAnswer-API: n](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) inte hittar något matchande svar på frågan visas ett standard text svar. I QnA Maker hanterad (förhands granskning) kan du ange den här texten i **inställningarna** för din kunskaps bas. <br><br> ![QnA Maker hanterad (förhands granskning) ange standard svar](../media/qnamaker-how-change-default-answer/qnamaker-v2-change-default-answer.png)|
-|Instruktions text för uppföljnings instruktioner|När du använder en uppföljnings fråga i ett konversations flöde kanske du inte behöver ett svar i QnA-paret eftersom du vill att användaren ska välja från uppföljnings anvisningarna. I det här fallet anger du en speciell text genom att ställa in standard svars texten, som returneras med varje förutsägelse för uppföljnings instruktioner. Texten är avsedd att visas som instruktions text för att välja uppföljnings instruktioner. Ett exempel på den här standard svars texten är `Please select from the following choices` . Den här konfigurationen förklaras i nästa avsnitt i det här dokumentet. Du kan också ange detta som en del av en kunskaps bas definition med `defaultAnswerUsedForExtraction` hjälp av [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
+|KB-svar när inget svar har fastställts|`No good match found in KB.` – När [GenerateAnswer-API: n](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) inte hittar något matchande svar på frågan visas ett standard text svar. I QnA Maker hanterad (förhands granskning) kan du ange den här texten i **inställningarna** för din kunskaps bas. <br><br> ![QnA Maker hanterad (förhands granskning) ange standard svar](../media/qnamaker-how-change-default-answer/qnamaker-v2-change-default-answer.png)|
+|Instruktions text för uppföljnings instruktioner|När du använder en uppföljnings fråga i ett konversations flöde kanske du inte behöver ett svar i QnA-paret eftersom du vill att användaren ska välja från uppföljnings anvisningarna. I det här fallet anger du en speciell text genom att ställa in standard svars texten, som returneras med varje förutsägelse för uppföljnings instruktioner. Texten är avsedd att visas som instruktions text för att välja uppföljnings instruktioner. Ett exempel på den här standard svars texten är `Please select from the following choices` . Den här konfigurationen förklaras i nästa avsnitt i det här dokumentet. Du kan också ange detta som en del av en kunskaps bas definition med `defaultAnswerUsedForExtraction` hjälp av [REST API](/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
 
 ---
 
 ### <a name="client-application-integration"></a>Integrering av klient program
 
-För ett klient program, till exempel en robot med **Azure bot service** , kan du välja bland följande scenarier:
+För ett klient program, till exempel en robot med **Azure bot service**, kan du välja bland följande scenarier:
 
 * Använd kunskaps bas inställningen
 * Använd annan text i klient programmet för att särskilja när ett svar returneras men inte uppfyller Poäng tröskelvärdet. Texten kan antingen vara statisk text Sparad i kod eller lagras i klient programmets inställnings lista.

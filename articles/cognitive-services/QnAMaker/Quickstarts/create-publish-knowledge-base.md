@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: b22c73b3f0626b9938608e88c3382e3f5e8d97fc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f1712a51fcd35c348f6177b670a7686898a0c78b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993139"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346146"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabb start: skapa, träna och publicera QnA Maker kunskaps bas
 
@@ -212,5 +212,4 @@ Om du inte fortsätter med nästa snabb start tar du bort QnA Maker-och bot Fram
 Mer information:
 
 * [Markdown-format i svar](../reference-markdown-format.md)
-* QnA Maker [data källor](../concepts/knowledge-base.md).
-
+* QnA Maker [data källor](../index.yml).

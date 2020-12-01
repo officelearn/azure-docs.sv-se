@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: 975c92256ea0993badde0faf840a939f42901059
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: cf5a7a5902484536d0cf2a1844be469f29e15f4b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95753705"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348474"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>Så här använder du utvärderings aktiverade API: er för kontinuerlig åtkomst i dina program
 
@@ -57,7 +57,7 @@ När dessa villkor är uppfyllda kan appen extrahera och avkoda anspråks utmani
 ```csharp
 if (APIresponse.IsSuccessStatusCode)
 {
-    // . . .
+    // ...
 }
 else
 {
@@ -99,7 +99,7 @@ catch (MsalUiRequiredException)
             .ExecuteAsync()
             .ConfigureAwait(false);
     }
-    // . . .
+    // ...
 ```
 
 När ditt program är redo att hantera anspråks utmaningen som returneras av en CAE-aktiverad resurs, kan du tala om för Microsoft Identity att din app är CAE-klar. Om du vill göra detta i MSAL-programmet skapar du en offentlig klient med hjälp av-klient funktionerna i "CP1".

@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 90abd46e73ecb50b5e6de40218571d0ec899752e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8af3da5d04f9aaafc18299f4837660694ee34b51
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012957"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345277"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 
@@ -55,7 +55,7 @@ Om du är ägare till en arbets yta kan du lägga till och ta bort roller för a
 - [PowerShell](../role-based-access-control/role-assignments-powershell.md)
 - [Azure CLI](../role-based-access-control/role-assignments-cli.md)
 - [REST-API](../role-based-access-control/role-assignments-rest.md)
-- [Azure Resource Manager-mallar](../role-based-access-control/role-assignments-template.md)
+- [Azure Resource Manager mallar](../role-based-access-control/role-assignments-template.md)
 
 Om du har installerat [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md)kan du använda CLI-kommandon för att tilldela roller till användare:
 
@@ -175,7 +175,7 @@ Följande tabell är en sammanfattning av Azure Machine Learning aktiviteter och
 | Skapa nytt beräknings kluster | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `/workspaces/computes/write` |
 | Skapa en ny beräknings instans | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `/workspaces/computes/write` |
 | Sändning av vilken typ av körning som helst | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
-| Publicera en pipeline-slutpunkt | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Publicera pipeliner och slut punkter | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Distribuera en registrerad modell på en AKS/ACI-resurs | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Poäng till en distribuerad AKS-slutpunkt | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (när du inte använder Azure Active Directory auth) eller `"/workspaces/read"` (när du använder token auth) |
 | Åtkomst till lagring med interaktiva antecknings böcker | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |

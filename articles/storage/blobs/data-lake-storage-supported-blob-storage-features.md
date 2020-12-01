@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 900021e258bb96c0d0c83ef182262515449ad5df
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 982f4a9cdf3984bae79cd11dad2bd637a1772f05
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912594"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348508"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Blob Storage-funktioner som är tillgängliga i Azure Data Lake Storage Gen2
 
@@ -35,7 +35,7 @@ Följande tabell visar hur varje Blob Storage-funktion stöds med Data Lake Stor
 |PowerShell-kommandon för Blob Storage|Allmänt tillgänglig|Allmänt tillgänglig|[Snabb start: Ladda upp, ladda ned och lista blobar med PowerShell](storage-quickstart-blobs-powershell.md)|
 |Blob Storage Azure CLI-kommandon|Allmänt tillgänglig|Allmänt tillgänglig|[Snabb start: skapa, ladda ned och lista blobar med Azure CLI](storage-quickstart-blobs-cli.md)|
 |API: er för Blob Storage|Allmänt tillgänglig|Allmänt tillgänglig|[Snabbstart: Azure Blob Storage-klientbiblioteket v12 för .NET](storage-quickstart-blobs-dotnet.md)<br>[Snabb start: hantera blobbar med Java V12 SDK](storage-quickstart-blobs-java.md)<br>[Snabb start: hantera blobbar med python V12 SDK](storage-quickstart-blobs-python.md)<br>[Snabb start: hantera blobbar med Java Script V12 SDK i Node.js](storage-quickstart-blobs-nodejs.md)|
-|Diagnostikloggar|Allmänt tillgänglig|Förhandsgranskning |[Analysloggning i Azure Storage](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Diagnostikloggar|Allmänt tillgänglig|Förhandsgranskning |[Loggning med Azure-lagringsanalys](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Arkiv åtkomst nivå|Allmänt tillgänglig|Stöds inte|[Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring](storage-blob-storage-tiers.md)|
 |Policyer för livs cykel hantering (skiktning)|Allmänt tillgänglig|Stöds inte ännu|[Hantera Azure Blob Storage-livscykeln](storage-lifecycle-management-concepts.md)|
 |Principer för livs cykel hantering (ta bort BLOB)|Allmänt tillgänglig|Allmänt tillgänglig|[Hantera Azure Blob Storage-livscykeln](storage-lifecycle-management-concepts.md)|
@@ -44,9 +44,11 @@ Följande tabell visar hur varje Blob Storage-funktion stöds med Data Lake Stor
 |Statiska webbplatser|Förhandsgranskning|Förhandsgranskning|[Hantering av statisk webbplats i Azure Storage](storage-blob-static-website.md)|
 |Oåterkalleligt lagrings utrymme|Förhandsgranskning|Förhandsgranskning|[Lagra affärs kritiska BLOB-data med oföränderlig lagring](storage-blob-immutable-storage.md)|
 |Mjuk borttagning av behållare|Förhandsgranskning|Förhandsgranskning|[Mjuk borttagning för behållare (förhands granskning)](soft-delete-container-overview.md)|
+|Azure Storage inventering|Förhandsgranskning|Förhandsgranskning|[Använd Azure Storage inventering för att hantera BLOB-data (för hands version)](blob-inventory.md)|
+|BLOB-mjuk borttagning|Stöds inte ännu|Stöds inte ännu|[Mjuk borttagning för blobar](storage-blob-soft-delete.md)|
 |BLOB-mjuk borttagning|Stöds inte ännu|Stöds inte ännu|[Mjuk borttagning för blobar](./soft-delete-blob-overview.md)|
 |Blobfuse|Allmänt tillgänglig|Allmänt tillgänglig|[Montera Blob Storage som ett fil system med blobfuse](storage-how-to-mount-container-linux.md)|
-|Redundansväxling av konto|Stöds inte ännu|Stöds inte ännu|[Haveri beredskap och redundansväxling av konto](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Redundansväxling av kund hanterat konto|Stöds inte ännu|Stöds inte ännu|[Haveri beredskap och redundansväxling av konto](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |BLOB container ACL|Stöds inte<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|Stöds inte<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Se den relaterade anteckningen under den här tabellen.|
 |Kund-tillhandahållna nycklar|Stöds inte ännu|Stöds inte ännu|[Ange en krypterings nyckel för en begäran till Blob Storage](encryption-customer-provided-keys.md)|
 |Anpassade domäner|Stöds inte ännu|Stöds inte ännu|[Mappa en anpassad domän till en Azure Blob Storage-slutpunkt](storage-custom-domain-name.md)|

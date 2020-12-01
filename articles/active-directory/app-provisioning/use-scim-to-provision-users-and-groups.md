@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 19942e5400be63dfde48b9653282fb93bcb1ec42
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f524eae791ab3944fb326b867e5f6823a35b432c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174823"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348202"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Självstudie – Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure AD
 
@@ -199,29 +199,21 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
   - [Skapa användare](#create-user) ([Request](#request)  /  [svar](#response)på begäran)
   - [Hämta användare](#get-user) ([Request](#request-1)  /  [svar](#response-1)på begäran)
   - [Hämta användare efter fråga](#get-user-by-query) ([begär](#request-2)  /  [svar](#response-2))
-  - [Hämta användare efter fråga – noll resultat](#get-user-by-query---zero-results) ([begär](#request-3) 
-/  [svar](#response-3))
-  - [Uppdatera användare [Egenskaper för flera värden]](#update-user-multi-valued-properties) ([begär](#request-4)  /   [svar](#response-4))
-  - [Uppdatera användare [Egenskaper för enstaka värde]](#update-user-single-valued-properties) ([begär](#request-5) 
-/  [svar](#response-5)) 
-  - [Inaktivera användare](#disable-user) ([Request](#request-14)  / 
- [svar](#response-14)på begäran)
-  - [Ta bort användare](#delete-user) (svar på[begäran](#request-6)  / 
- [Response](#response-6))
+  - [Hämta användare efter fråga – noll resultat](#get-user-by-query---zero-results) ([begär](#request-3)  /  [svar](#response-3))
+  - [Uppdatera användare [Egenskaper för flera värden]](#update-user-multi-valued-properties) ([begär](#request-4)  /  [svar](#response-4))
+  - [Uppdatera användare [Egenskaper för enstaka värde]](#update-user-single-valued-properties) ([begär](#request-5)  /  [svar](#response-5)) 
+  - [Inaktivera användare](#disable-user) ([Request](#request-14)  /  [svar](#response-14)på begäran)
+  - [Ta bort användare](#delete-user) (svar på[begäran](#request-6)  /  [Response](#response-6))
 
 
 [Grupp åtgärder](#group-operations)
-  - [Skapa grupp](#create-group) ( [begär](#request-7)  /  [svar](#response-7))
-  - [Hämta grupp](#get-group) ( [Request](#request-8)  /  [Response](#response-8))
+  - [Skapa grupp](#create-group) ([begär](#request-7)  /  [svar](#response-7))
+  - [Hämta grupp](#get-group) ([Request](#request-8)  /  [Response](#response-8))
   - [Hämta grupp efter DisplayName](#get-group-by-displayname) ([Request](#request-9)  /  [svar](#response-9)på begäran)
-  - [Uppdaterings grupp [attribut för icke-medlem]](#update-group-non-member-attributes) ([begär](#request-10) /
-  [svar](#response-10))
-  - [Uppdatera grupp [Lägg till medlemmar]](#update-group-add-members) ( [begär](#request-11)  /
- [svar](#response-11))
-  - [Uppdaterings grupp [ta bort medlemmar]](#update-group-remove-members) (svar på [begäran](#request-12)  /
- [Response](#response-12))
-  - [Ta bort grupp](#delete-group) ([begär](#request-13)  /
- [svar](#response-13))
+  - [Uppdaterings grupp [attribut för icke-medlem]](#update-group-non-member-attributes) ([begär](#request-10)  /  [svar](#response-10))
+  - [Uppdatera grupp [Lägg till medlemmar]](#update-group-add-members) ([begär](#request-11)  /  [svar](#response-11))
+  - [Uppdaterings grupp [ta bort medlemmar]](#update-group-remove-members) (svar på[begäran](#request-12)  /  [Response](#response-12))
+  - [Ta bort grupp](#delete-group) ([begär](#request-13)  /  [svar](#response-13))
 
 ### <a name="user-operations"></a>Användar åtgärder
 
@@ -750,7 +742,7 @@ Minsta fält för TLS 1,2 cipher-paket:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>IP-intervall
-Azure AD Provisioning-tjänsten fungerar för närvarande under IP-intervallen för AzureActiveDirectory som visas [här](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Du kan lägga till IP-intervallen som visas i AzureActiveDirectory-taggen för att tillåta trafik från Azure AD Provisioning-tjänsten till ditt program. Observera att du måste granska listan över IP-adressintervall noggrant för beräknade adresser. En adress som "40.126.25.32" kunde representeras i listan över IP-adressintervall som "40.126.0.0/18". Du kan också program mässigt hämta listan över IP-intervall med hjälp av följande [API](/rest/api/virtualnetwork/servicetags/list).
+Azure AD Provisioning-tjänsten fungerar för närvarande under IP-intervallen för AzureActiveDirectory som visas [här](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Du kan lägga till IP-intervallen som visas i AzureActiveDirectory-taggen för att tillåta trafik från Azure AD Provisioning-tjänsten till ditt program. Observera att du måste granska listan över IP-adressintervall noggrant för beräknade adresser. En adress som "40.126.25.32" kunde representeras i listan över IP-adressintervall som "40.126.0.0/18". Du kan också hämta listan över IP-adressintervall via programmering med följande [API](/rest/api/virtualnetwork/servicetags/list).
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Steg 3: Bygg en SCIM-slutpunkt
 
@@ -1176,7 +1168,7 @@ När den första cykeln har startats kan du välja **etablerings loggar** i den 
 Om du skapar ett program som ska användas av fler än en klient kan du göra det tillgängligt i Azure AD-programgalleriet. Detta gör det enkelt för organisationer att identifiera programmet och konfigurera etablering. Det är enkelt att publicera din app i Azure AD-galleriet och göra etableringen tillgänglig för andra. Kolla in stegen [här](../develop/v2-howto-app-gallery-listing.md). Microsoft kommer att samar beta med dig för att integrera ditt program i vårt galleri, testa din slut punkt och publicera onboarding- [dokumentation](../saas-apps/tutorial-list.md) för kunder att använda.
 
 ### <a name="gallery-onboarding-checklist"></a>Check lista för Galleri registrering
-Följ check listan nedan för att se till att ditt program är inbyggt och att kunderna har en smidig distributions upplevelse. Informationen kommer att samlas in från dig när du registrerar dig i galleriet. 
+Följ check listan nedan för att säkerställa att ditt program registreras snabbt och att kunderna har en smidig distributions upplevelse. Informationen kommer att samlas in från dig när du registrerar dig i galleriet. 
 > [!div class="checklist"]
 > * Stöd för en [SCIM 2,0 ](#step-2-understand-the-azure-ad-scim-implementation) -användare och grupp slut punkt (endast en krävs, men båda rekommenderas)
 > * Stöd minst 25 begär Anden per sekund per klient för att säkerställa att användare och grupper etableras och avetableras utan fördröjning (krävs)

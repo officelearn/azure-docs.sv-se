@@ -3,12 +3,12 @@ title: Fråga kunskaps basen – QnA Maker
 description: 'En kunskaps bas måste publiceras. När den har publicerats frågas kunskaps basen vid körnings förutsägelse slut punkten med generateAnswer-API: et.'
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e8dd056a7b6357b8342d3059e17baa88db92b404
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: d8f986299edee46bf5cace7a9f4c805c29b3ce0c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376734"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346213"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Fråga kunskaps basen efter svar
 
@@ -18,7 +18,7 @@ En kunskaps bas måste publiceras. När den har publicerats frågas kunskaps bas
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
 
-Den utbildade och [publicerade](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QNA Maker kunskaps basen tar emot en användar fråga, från en robot eller något annat klient program, i [GenerateAnswer-API: et](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Följande diagram illustrerar processen när användar frågan tas emot.
+Den utbildade och [publicerade](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QNA Maker kunskaps basen tar emot en användar fråga, från en robot eller något annat klient program, i [GenerateAnswer-API: et](../how-to/metadata-generateanswer-usage.md). Följande diagram illustrerar processen när användar frågan tas emot.
 
 ![Ranknings modell processen för en användar fråga](../media/qnamaker-concepts-knowledgebase/ranker-v1.png)
 
@@ -28,7 +28,7 @@ Processen beskrivs i följande tabell.
 
 |Steg|Syfte|
 |--|--|
-|1|Klient programmet skickar användar frågan till [GenerateAnswer-API: et](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
+|1|Klient programmet skickar användar frågan till [GenerateAnswer-API: et](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker förbearbetar användar frågan med språk identifiering, stavnings-och ord separatorer.|
 |3|Den här förbearbetningen görs för att ändra användar frågan för bästa Sök resultat.|
 |4|Den här ändrade frågan skickas till ett Azure Kognitiv sökning-index som tar emot `top` antalet resultat. Om rätt svar inte finns i dessa resultat ökar du värdet `top` något. Normalt är ett värde på 10 för `top` Works i 90% av frågorna.|
@@ -41,7 +41,7 @@ Funktioner som används inkluderar, men är inte begränsade till semantik på W
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
 
-Den utbildade och [publicerade](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QNA Maker kunskaps basen tar emot en användar fråga, från en robot eller något annat klient program, i [GenerateAnswer-API: et](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Följande diagram illustrerar processen när användar frågan tas emot.
+Den utbildade och [publicerade](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QNA Maker kunskaps basen tar emot en användar fråga, från en robot eller något annat klient program, i [GenerateAnswer-API: et](../how-to/metadata-generateanswer-usage.md). Följande diagram illustrerar processen när användar frågan tas emot.
 
 ![Ranknings modell processen för för hands versionen av användar frågan](../media/qnamaker-concepts-knowledgebase/ranker-v2.png)
 
@@ -51,7 +51,7 @@ Processen beskrivs i följande tabell.
 
 |Steg|Syfte|
 |--|--|
-|1|Klient programmet skickar användar frågan till [GenerateAnswer-API: et](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
+|1|Klient programmet skickar användar frågan till [GenerateAnswer-API: et](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker förbearbetar användar frågan med språk identifiering, stavnings-och ord separatorer.|
 |3|Den här förbearbetningen görs för att ändra användar frågan för bästa Sök resultat.|
 |4|Den här ändrade frågan skickas till ett Azure Kognitiv sökning-index som tar emot `top` antalet resultat. Om rätt svar inte finns i dessa resultat ökar du värdet `top` något. Normalt är ett värde på 10 för `top` Works i 90% av frågorna.|

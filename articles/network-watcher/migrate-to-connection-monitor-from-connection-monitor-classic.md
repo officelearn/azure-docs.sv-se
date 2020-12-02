@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: eed68ff7e6b002e7a5985b336686b646a1a9acee
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a97f3bf3a479d956747755a421d7946f7aafd4f1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522964"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494247"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrera till anslutnings övervakaren från anslutnings övervakaren (klassisk)
 
@@ -64,5 +64,5 @@ När migreringen har påbörjats sker följande ändringar:
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om anslutnings övervakaren finns i:
-* [Migrera från Övervakare av nätverksprestanda till anslutnings övervakaren](/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor)
+* [Migrera från Övervakare av nätverksprestanda till anslutnings övervakaren](./migrate-to-connection-monitor-from-network-performance-monitor.md)
 * [Skapa anslutnings övervakare med hjälp av Azure Portal](./connection-monitor-create-using-portal.md)

@@ -8,17 +8,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 7afc16beaacee5b75d57c4e4216a105734d20a09
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: bd18a26a1c199e1ecc32cfc371d2931b1dee0c3f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637079"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494978"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Felsök Data Factory-problem
 > [!NOTE]
@@ -65,7 +65,7 @@ Expressinstallationen för Data Management Gateway kräver Internet Explorer ell
 Starta **Data Management Gateway Configuration Manager** på gateway-datorn och Använd fliken **fel sökning** för att testa anslutningen till SQL Server från gateway-datorn. Mer information om fel sökning av problem med anslutning/Gateway finns i [Felsöka Gateway-problem](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .   
 
 ### <a name="problem-input-slices-are-in-waiting-state-forever"></a>Problem: angivna sektorer är i vänte läge för alltid
-Sektorerna kan vara i **vänte** läge på grund av olika orsaker. En av de vanligaste orsakerna är att den **externa** egenskapen inte har angetts till **True** . Alla data uppsättningar som skapas utanför omfånget för Azure Data Factory ska markeras med **extern** egenskap. Den här egenskapen anger att data är externa och inte backas upp av några pipelines i data fabriken. Datasektorerna markeras som **Klar** när datauppsättningen är tillgänglig i respektive lager.
+Sektorerna kan vara i **vänte** läge på grund av olika orsaker. En av de vanligaste orsakerna är att den **externa** egenskapen inte har angetts till **True**. Alla data uppsättningar som skapas utanför omfånget för Azure Data Factory ska markeras med **extern** egenskap. Den här egenskapen anger att data är externa och inte backas upp av några pipelines i data fabriken. Datasektorerna markeras som **Klar** när datauppsättningen är tillgänglig i respektive lager.
 
 I följande exempel kan du se hur egenskapen **external** används. Du kan också ange **extern Aldata** _ när du ställer in external till true.
 
@@ -97,7 +97,7 @@ Mer info om den här egenskapen finns i artikeln om [datauppsättningar](data-fa
 }
 ```
 
-Lös problemet genom att lägga till egenskapen _ *external* * och det valfria **extern Aldata** -avsnittet i JSON-definitionen för tabellen indatamängd och återskapa tabellen.
+Lös problemet genom att lägga till egenskapen _ *external** och det valfria **extern Aldata** -avsnittet i JSON-definitionen för tabellen indatamängd och återskapa tabellen.
 
 ### <a name="problem-hybrid-copy-operation-fails"></a>Problem: det går inte att utföra hybrid kopiering
 Se [Felsök Gateway-problem](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) för steg för att felsöka problem med att kopiera till/från ett lokalt data lager med hjälp av data Management Gateway.

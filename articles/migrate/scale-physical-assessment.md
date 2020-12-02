@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/19/2020
 ms.author: hamusa
-ms.openlocfilehash: 227e27d25ad5d0c61ed4f36c234222a079315619
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6009975337f8f4caaf43e4b8b715e42c6ce2ffdc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317144"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494587"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Utvärdera ett stort antal fysiska servrar för migrering till Azure
 
@@ -44,7 +44,7 @@ När du planerar för utvärdering av ett stort antal fysiska servrar finns det 
  
 Använd de gränser som sammanfattas i den här tabellen för planering.
 
-**Planering** | **Begränsningar**
+**Planering** | **Gränser**
 --- | --- 
 **Azure Migrate projekt** | Utvärdera upp till 35 000 servrar i ett projekt.
 **Azure Migrate-installation** | En apparat kan identifiera upp till 1000 servrar.<br/> En installation kan bara associeras med ett enda Azure Migrate-projekt.<br/> Ett valfritt antal enheter kan associeras med ett enda Azure Migrate-projekt. <br/><br/> 
@@ -73,7 +73,7 @@ I enlighet med dina planerings krav gör du följande:
 1. Skapa ett Azure Migrate-projekt.
 2. Lägg till verktyget Azure Migrate Server Assessment i projekten.
 
-[Läs mer](how-to-add-tool-first-time.md)
+[Läs mer](./create-manage-projects.md)
 
 ## <a name="create-and-review-an-assessment"></a>Skapa och granska en utvärdering
 

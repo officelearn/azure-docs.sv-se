@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: b6fed24c7de87424bde94b864d4a9db91828a510
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0d4630cad94a30e0dd53785c512e452d7b4a7d38
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315776"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494451"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Felsöka Azure Migrate-installationen och identifieringen
 
@@ -31,7 +31,7 @@ Om du får felet "den tillhandahållna manifest filen är ogiltig: ogiltig OVF-m
 2. Om distributionen fortfarande Miss lyckas och du använder VMware vSphere-klienten för att distribuera OVF-filen kan du prova att distribuera den via vSphere-webbklienten. Om distributionen fortfarande Miss lyckas kan du prova att använda en annan webbläsare.
 3. Om du använder vSphere-webbklienten och försöker distribuera den på vCenter Server 6,5 eller 6,7 försöker du att distribuera de ägg som finns direkt på ESXi-värden:
    - Anslut till ESXi-värden direkt (i stället för vCenter Server) med webb klienten (https://<*host IP Address*>/UI).
-   - I **hem**  >  **inventering**väljer du mall för **fil**  >  **distribution OVF**. Bläddra till de ägg och slutför distributionen.
+   - I **hem**  >  **inventering** väljer du mall för **fil**  >  **distribution OVF**. Bläddra till de ägg och slutför distributionen.
 4. Kontakta Azure Migrate support om distributionen fortfarande Miss lyckas.
 
 ## <a name="cant-connect-to-the-internet"></a>Det går inte att ansluta till Internet
@@ -56,8 +56,8 @@ Se till att du använder rätt autentiseringsuppgifter.
 Ett fel vid synkronisering av datum och tid (802) anger att Server klockan kanske inte är synkroniserad med den aktuella tiden med mer än fem minuter. Ändra klockan på den insamlade datorn så att den matchar den aktuella tiden:
 
 1. Öppna en administratörs kommando tolk på den virtuella datorn.
-2. Kör **w32tm/TZ**för att kontrol lera tids zonen.
-3. Kör **w32tm/resync**för att synkronisera tiden.
+2. Kör **w32tm/TZ** för att kontrol lera tids zonen.
+3. Kör **w32tm/resync** för att synkronisera tiden.
 
 
 ## <a name="unabletoconnecttoserver"></a>"UnableToConnectToServer"
@@ -80,7 +80,7 @@ Om du får det här anslutnings felet kanske du inte kan ansluta till vCenter Se
     - [Lär dig mer](./migrate-appliance.md#appliance---vmware) om de Azure-roller och behörigheter som krävs.
 - Fel 60039, "installationen kanske inte kan registreras Azure Migrate projektet" kan inträffa om registreringen Miss lyckas eftersom det Azure Migrate-projekt som används för att registrera installationen inte kan hittas.
     - I Azure Portal och kontrol lera om projektet finns i resurs gruppen.
-    - Om projektet inte finns skapar du ett nytt Azure Migrate-projekt i resurs gruppen och registrerar enheten igen. [Lär dig hur du](./how-to-add-tool-first-time.md#create-a-project-and-add-a-tool) skapar ett nytt projekt.
+    - Om projektet inte finns skapar du ett nytt Azure Migrate-projekt i resurs gruppen och registrerar enheten igen. [Lär dig hur du](./create-manage-projects.md#create-a-project-for-the-first-time) skapar ett nytt projekt.
 
 ## <a name="error-6003060031-key-vault-management-operation-failed"></a>Fel 60030/60031: Key Vault hanterings åtgärd misslyckades
 
@@ -157,8 +157,8 @@ Om detta inte fungerar och du identifierar VMware-servrar:
 
 Om identifierade virtuella datorer inte visas i portalen eller om VM-data är inaktuella, väntar du några minuter. Det tar upp till 30 minuter för ändringar i identifierade VM-konfigurationsdata som visas i portalen. Det kan ta några timmar innan ändringar i program data visas. Om det inte finns några data efter den här tiden kan du prova att uppdatera enligt följande
 
-1. I **servrar**  >  **Azure Migrate Server utvärdering**väljer du **Översikt**.
-2. Under **Hantera**väljer du **agenthälsa**.
+1. I **servrar**  >  **Azure Migrate Server utvärdering** väljer du **Översikt**.
+2. Under **Hantera** väljer du **agenthälsa**.
 3. Välj **Uppdatera agent**.
 4. Vänta tills uppdaterings åtgärden har slutförts. Nu bör du se uppdaterad information.
 
@@ -179,8 +179,8 @@ Den här statusen visas om din CSV-överföring misslyckades på grund av ett ve
 ## <a name="do-not-see-application-details-even-after-updating-guest-credentials"></a>Se inte programinformation trots att gäst uppgifter har uppdaterats
 Program identifieringen körs en gång var 24: e timme. Om du vill se informationen omedelbart uppdaterar du enligt följande. Det kan ta några minuter beroende på Nej. identifierade virtuella datorer.
 
-1. I **servrar**  >  **Azure Migrate Server utvärdering**väljer du **Översikt**.
-2. Under **Hantera**väljer du **agenthälsa**.
+1. I **servrar**  >  **Azure Migrate Server utvärdering** väljer du **Översikt**.
+2. Under **Hantera** väljer du **agenthälsa**.
 3. Välj **Uppdatera agent**.
 4. Vänta tills uppdaterings åtgärden har slutförts. Nu bör du se uppdaterad information.
 

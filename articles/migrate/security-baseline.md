@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 31463855ffe24a4e8766dcefaa6397f890d9dcac
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 7a79ace9739d212b1284b2cb8f0b1d3c7f3c7f5e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435074"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494469"
 ---
 # <a name="azure-security-baseline-for-azure-migrate"></a>Azures säkerhets bas linje för Azure Migrate
 
@@ -24,7 +24,7 @@ Om du vill se hur Azure Migrate helt mappar till Azures säkerhets mätning, se 
 
 ## <a name="identity-management"></a>Identitetshantering
 
-*Mer information finns i [Azure Security Benchmark: Identitetshantering](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*Mer information finns i [Azure Security Benchmark: Identitetshantering](../security/benchmarks/security-controls-v2-identity-management.md).*
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Standardisera Azure Active Directory som centralt system för identiteter och autentisering
 
@@ -42,7 +42,7 @@ Azure AD stöder extern identitet som gör det möjligt för användare utan Mic
 
 - [Skapa och konfigurera en Azure AD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
 
-- [Använda en extern identitetsprovider för appar](/azure/active-directory/b2b/identity-providers) 
+- [Använda en extern identitetsprovider för appar](../active-directory/external-identities/identity-providers.md) 
 
 - [Vad är identitetsskyddspoängen i Azure Active Directory](../active-directory/fundamentals/identity-secure-score.md)
 
@@ -102,9 +102,9 @@ Azure Advanced Threat Protection (ATP) är en säkerhetslösning som kan använd
 
 - [Granska aktivitetsrapporter i Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md) 
 
-- [Så visar du riskfyllda inloggningar för Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [Så visar du riskfyllda inloggningar för Azure AD](../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [Så här identifierar du Azure AD-användare som har flaggats för riskfylld aktivitet](/azure/active-directory/reports-monitoring/concept-user-at-risk) 
+- [Så här identifierar du Azure AD-användare som har flaggats för riskfylld aktivitet](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Så här övervakar du användarnas identitets- och åtkomstrelaterade aktiviteter i Azure Security Center](../security-center/security-center-identity-access.md) 
 
@@ -118,7 +118,7 @@ Azure Advanced Threat Protection (ATP) är en säkerhetslösning som kan använd
 
 ## <a name="privileged-access"></a>Privilegierad åtkomst
 
-*Mer information finns i [Azure Security Benchmark: Privilegierad åtkomst](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*Mer information finns i [Azure Security Benchmark: Privilegierad åtkomst](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
 ### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Begränsa administrativ åtkomst till affärskritiska system
 
@@ -160,7 +160,7 @@ Vissa Azure-tjänster har stöd för lokala användare och roller som inte hante
 
 Du bör se till att autentiseringsuppgifterna (som lösenord, certifikat eller smartkort) för nödåtkomstkonton är skyddade och bara kända av personer som har behörighet att använda dem i nödfall.
 
-- [Hantera konton för nödåtkomst i Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Hantera konton för nödåtkomst i Azure AD](../active-directory/roles/security-emergency-access.md)
 
 **Övervakning i Azure Security Center**: Ej tillämpligt
 
@@ -196,7 +196,7 @@ Använd inbyggda roller för att allokera behörighet och skapa bara en anpassad
 
 ## <a name="data-protection"></a>Dataskydd
 
-*Mer information finns i [Azure Security Benchmark: Dataskydd](/azure/security/benchmarks/security-controls-v2-data-protection).*
+*Mer information finns i [Azure Security Benchmark: Dataskydd](../security/benchmarks/security-controls-v2-data-protection.md).*
 
 ### <a name="dp-2-protect-sensitive-data"></a>DP-2: Skydda känsliga data
 
@@ -250,7 +250,7 @@ Verktyget Migreringsverktyg i Azure Migrate replikerar data från diskarna för 
 
 ## <a name="asset-management"></a>Tillgångshantering
 
-*Mer information finns i [Azure Security Benchmark: Tillgångshantering](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*Mer information finns i [Azure Security Benchmark: Tillgångshantering](../security/benchmarks/security-controls-v2-asset-management.md).*
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: Se till att säkerhetsteamet har insyn i risker för tillgångar
 
@@ -280,7 +280,7 @@ Azure Migrate tillåter inte körning av ett program eller installation av progr
 
 - [Azure Security Center till gångs lager hantering](../security-center/asset-inventory.md) 
 
-- [Beslutsguide för namngivning och taggning av resurser](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Beslutsguide för namngivning och taggning av resurser](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Övervakning i Azure Security Center**: Ej tillämpligt
 
@@ -341,7 +341,7 @@ Azure Security Center kan också avisera om vissa misstänkta aktiviteter, till 
 
 - [Aktivera Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [Skydd mot hot i Azure Security Center](/azure/security-center/threat-protection)
+- [Skydd mot hot i Azure Security Center](../security-center/azure-defender.md)
 
 **Azure Security Center-övervakning**: Ja
 
@@ -381,7 +381,7 @@ Många organisationer väljer att använda Azure Sentinel för "heta" data som a
 
 ## <a name="incident-response"></a>Incidenthantering
 
-*Mer information finns i [Azure Security Benchmark: Incidentsvar](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*Mer information finns i [Azure Security Benchmark: Incidentsvar](../security/benchmarks/security-controls-v2-incident-response.md).*
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: Förberedelse – uppdatera processen för svar på incidenter i Azure
 
@@ -463,7 +463,7 @@ Markera även resurser med taggar och skapa ett namngivningssystem för att iden
 
 - [Säkerhetsaviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Använda taggar för att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
+- [Använda taggar för att organisera dina Azure-resurser](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
@@ -504,7 +504,7 @@ Se till att följa reglerna för intrångstester i Microsoft Cloud så att dina 
 
 ## <a name="governance-and-strategy"></a>Styrning och strategi
 
-*Mer information finns i [Azure Security Benchmark: Styrning och strategi](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*Mer information finns i [Azure Security Benchmark: Styrning och strategi](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: Definiera en strategi för tillgångshantering och dataskydd 
 
@@ -529,11 +529,11 @@ Strategin bör omfatta dokumenterad vägledning, policyer och standarder för f�
 -   Lämpliga kryptografiska standarder
 
 Läs mer i följande referenser:
-- [Rekommendationer för en säkerhetsarkitektur i Azure – lagring, data och kryptering](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Rekommendationer för en säkerhetsarkitektur i Azure – lagring, data och kryptering](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Grundläggande Azure-säkerhet – säkerhet, kryptering och lagring av data i Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework – regelverk kring datasäkerhet och kryptering i Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework – regelverk kring datasäkerhet och kryptering i Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark – hantering av tillgångar](/azure/security/benchmarks/security-controls-v2-asset-management)
 
@@ -684,5 +684,5 @@ Läs mer i följande referenser:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer i [Översikten över Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Läs mer om [säkerhetsbaslinjer för Azure](/azure/security/benchmarks/security-baselines-overview)
+- Läs mer i [Översikten över Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Läs mer om [säkerhetsbaslinjer för Azure](../security/benchmarks/security-baselines-overview.md)

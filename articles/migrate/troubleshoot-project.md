@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: f2245e13f348706f662055408196ea7a26484811
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: af9254bc536dedc425aac53199665ae399e60a5a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314648"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494417"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Felsöka Azure Migrate-projekt
 
@@ -19,7 +19,7 @@ Den här artikeln hjälper dig att felsöka problem när du skapar och hanterar 
 
 ## <a name="how-to-add-new-project"></a>Hur lägger jag till nya projekt?
 
-Du kan ha flera Azure Migrate projekt i en prenumeration. [Lär dig hur](how-to-add-tool-first-time.md) du skapar ett projekt för första gången eller [lägger till ytterligare](create-manage-projects.md#create-additional-projects) projekt.
+Du kan ha flera Azure Migrate projekt i en prenumeration. [Lär dig hur](./create-manage-projects.md) du skapar ett projekt för första gången eller [lägger till ytterligare](create-manage-projects.md#create-additional-projects) projekt.
 
 ## <a name="what-azure-permissions-are-needed"></a>Vilka Azure-behörigheter behövs?
 
@@ -40,13 +40,13 @@ Du kan utvärdera upp till 35 000 virtuella VMware-datorer eller upp till 35 000
 
 ## <a name="can-i-upgrade-old-project"></a>Kan jag uppgradera gamla projekt?
 
-Det går inte att uppdatera projekt från den tidigare versionen av Azure Migrate. Du måste [skapa ett nytt projekt](how-to-add-tool-first-time.md)och lägga till verktyg i det.
+Det går inte att uppdatera projekt från den tidigare versionen av Azure Migrate. Du måste [skapa ett nytt projekt](./create-manage-projects.md)och lägga till verktyg i det.
 
 ## <a name="cant-create-a-project"></a>Det går inte att skapa ett projekt
 
 Om du försöker skapa ett projekt och påträffar ett distributions fel:
 
-- Försök att skapa projektet igen om det är ett tillfälligt fel. I **distributioner**klickar du på **distribuera igen** för att försöka igen.
+- Försök att skapa projektet igen om det är ett tillfälligt fel. I **distributioner** klickar du på **distribuera igen** för att försöka igen.
 - Kontrol lera att du har deltagar-eller ägar behörigheter i prenumerationen.
 - Om du distribuerar i en nyligen tillagd geografi väntar du en stund och försöker igen.
 - Om du får felet "förfrågningar måste innehålla användar identitets rubriker", kan detta tyda på att du inte har åtkomst till den Azure Active Directory (Azure AD) av organisationen. Om så är fallet:
@@ -61,7 +61,7 @@ Ta bort ett projekt [genom att följa dessa anvisningar](create-manage-projects.
 
 ## <a name="added-tools-dont-show"></a>Verktyg som lagts till visas inte
 
-Kontrol lera att du har valt rätt projekt. I Azure Migrate hubb >- **servrar** eller i **databaser**klickar du på **ändra** bredvid **migrera projekt (ändra)** i det övre högra hörnet på skärmen. Välj rätt prenumeration och projekt namn > **OK**. Sidan bör uppdateras med de verktyg som har lagts till i det valda projektet.
+Kontrol lera att du har valt rätt projekt. I Azure Migrate hubb >- **servrar** eller i **databaser** klickar du på **ändra** bredvid **migrera projekt (ändra)** i det övre högra hörnet på skärmen. Välj rätt prenumeration och projekt namn > **OK**. Sidan bör uppdateras med de verktyg som har lagts till i det valda projektet.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
 ms.author: rahugup
-ms.openlocfilehash: 185979fcc0eeaebbe1c3b09d74050e05899737af
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 3cd8d29a498a6a00fa8fff679afc969b339934b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376807"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494349"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migrera virtuella VMware-datorer till Azure (utan agent) – PowerShell
 
@@ -38,7 +38,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 Innan du börjar de här självstudierna bör du:
 
 1. [Slutför identifierings självstudien](tutorial-discover-vmware.md) för att förbereda Azure och VMware för migrering.
-2. Vi rekommenderar att du slutför den andra självstudien för att [utvärdera virtuella VMware-datorer](tutorial-assess-vmware.md) innan du migrerar dem till Azure.
+2. Vi rekommenderar att du slutför den andra självstudien för att [utvärdera virtuella VMware-datorer](./tutorial-assess-vmware-azure-vm.md) innan du migrerar dem till Azure.
 3. Du har Azure PowerShell- `Az` modulen. Om du behöver installera eller uppgradera Azure PowerShell, följ den här [guiden för att installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="install-azure-migrate-powershell-module"></a>Installera Azure Migrate PowerShell-modul
@@ -117,10 +117,10 @@ $DiscoveredServers = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.
 
 [Azure Migrate: Server migreringen](migrate-services-overview.md#azure-migrate-server-migration-tool) utnyttjar flera Azure-resurser för att migrera virtuella datorer. Server migrationen etablerar följande resurser i samma resurs grupp som projektet.
 
-- **Service Bus** : Server-migreringen använder Service Bus för att skicka meddelanden om dirigering av replikering till enheten.
-- **Gateway Storage-konto** : Server Migration använder Gateway Storage-kontot för att lagra statusinformation om de virtuella datorer som replikeras.
-- **Logg lagrings konto** : Azure Migrate-installationen överför replik loggar för virtuella datorer till ett logg lagrings konto. Azure Migrate använder replikeringsinformation på de replik hanterade diskarna.
-- **Nyckel valv** : Azure Migrates enheten använder nyckel valvet för att hantera anslutnings strängar för Service Bus och åtkomst nycklar för de lagrings konton som används i replikeringen.
+- **Service Bus**: Server-migreringen använder Service Bus för att skicka meddelanden om dirigering av replikering till enheten.
+- **Gateway Storage-konto**: Server Migration använder Gateway Storage-kontot för att lagra statusinformation om de virtuella datorer som replikeras.
+- **Logg lagrings konto**: Azure Migrate-installationen överför replik loggar för virtuella datorer till ett logg lagrings konto. Azure Migrate använder replikeringsinformation på de replik hanterade diskarna.
+- **Nyckel valv**: Azure Migrates enheten använder nyckel valvet för att hantera anslutnings strängar för Service Bus och åtkomst nycklar för de lagrings konton som används i replikeringen.
 
 Innan du replikerar den första virtuella datorn i Azure Migrate-projektet kör du följande skript för att etablera infrastrukturen för replikering. Det här skriptet etablerar och konfigurerar de ovannämnda resurserna så att du kan börja migrera dina virtuella VMware-datorer.
 
@@ -480,11 +480,8 @@ Write-Output $StopReplicationJob.State
     - Håll arbetsbelastningar i körning och kontinuerligt tillgängliga genom att replikera virtuella Azure-datorer till en sekundär region med Site Recovery. [Läs mer](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - För ökad säkerhet:
     - Lås och begränsa inkommande trafik åtkomst med [Azure Security Center – just-in-Time-administration](../security-center/security-center-just-in-time.md).
-    - Begränsa nätverkstrafik till hanteringsslutpunkter med [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
+    - Begränsa nätverkstrafik till hanteringsslutpunkter med [nätverkssäkerhetsgrupper](../virtual-network/network-security-groups-overview.md).
     - Distribuera [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) för att säkra diskar och skydda data från stöld och obehörig åtkomst.
     - Läs mer om [ att skydda IaaS-resurser](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) och besök [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - För övervakning och hantering:
 -  Överväg att distribuera [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) för att övervaka användning och utgifter.
-
-
-

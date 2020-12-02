@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: c5bf559ec7bf85e92cf21e3d4c493cae1361ea7c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e4782bf09b8c27132417f6021927408e18755104
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968034"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494026"
 ---
 # <a name="what-is-azure-network-watcher"></a>Vad är Azure Network Watcher?
 
@@ -31,7 +31,7 @@ I Azure Network Watcher finns verktyg för att övervaka, diagnostisera, visa m�
 
 Slutpunkterna kan vara en annan virtuell dator (VM), ett fullständigt domännamn (FQDN), en URI (Uniform Resource Identifier) eller en IPv4-adress. *Anslutningsövervakaren* övervakar regelbundet kommunikationen och informerar dig om tillgänglighet, svarstid och ändringar i nätverkstopologin mellan den virtuella datorn och slutpunkten. Du kan till exempel ha en virtuell webbserverdator som kommunicerar med en virtuell databasserverdator. Någon i organisationen kan, utan att du känner till det, tillämpa en anpassad väg eller nätverkssäkerhetsregel på den virtuella webbserverdatorn, den virtuella databasserverdatorn eller undernätet.
 
-Om en slutpunkt inte kan nås, informerar anslutningens felsökning dig om orsaken. Möjliga orsaker är DNS-problem med namnmatchning, CPU, minne eller brandvägg i operativsystemet på en virtuell dator, hopptypen för en anpassad väg, eller en säkerhetsregel för den virtuella datorn eller undernätet i den utgående anslutningen. Läs mer om [säkerhetsregler](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json#security-rules) och [hopptyper för vägar](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) i Azure.
+Om en slutpunkt inte kan nås, informerar anslutningens felsökning dig om orsaken. Möjliga orsaker är DNS-problem med namnmatchning, CPU, minne eller brandvägg i operativsystemet på en virtuell dator, hopptypen för en anpassad väg, eller en säkerhetsregel för den virtuella datorn eller undernätet i den utgående anslutningen. Läs mer om [säkerhetsregler](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) och [hopptyper för vägar](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) i Azure.
 
 Anslutningsövervakaren visar också den minsta, genomsnittliga och högsta svarstid som observerats över tid. När du har sett vilken svarstid en anslutning har, kan du kanske minska svarstiden genom att flytta Azure-resurserna till olika Azure-regioner. Läs mer om hur du avgör [relativa svarstider mellan Azure-regioner och Internetleverantörer](#determine-relative-latencies-between-azure-regions-and-internet-service-providers), samt hur du övervakar kommunikationen mellan en virtuell dator och en slutpunkt med [anslutningsövervakaren](connection-monitor.md). Om du hellre vill testa en anslutning vid en specifik tidpunkt, i stället för att övervaka anslutningen över tid som du gör med anslutningsövervakaren, använder du [anslutningsfelsökning](#connection-troubleshoot).
 

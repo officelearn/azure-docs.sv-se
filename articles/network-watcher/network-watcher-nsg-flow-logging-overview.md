@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 792908236c4f240db64bd3899474d779d5b0570c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b6f66813ea23f6c9d4b47a3733d0c72c683d0676
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018111"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493992"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödesloggning för nätverkssäkerhetsgrupper
 
@@ -59,7 +59,7 @@ Flödes loggar är källan till sanningen för all nätverks aktivitet i din mol
 **Huvudkoncept**
 
 - Programdefinierade nätverk ordnas runt virtuella nätverk (virtuella nätverk) och undernät. Säkerheten för dessa virtuella nätverk och undernät kan hanteras med hjälp av en NSG.
-- En nätverks säkerhets grupp (NSG) innehåller en lista över _säkerhets regler_ som tillåter eller nekar nätverks trafik i resurser som den är ansluten till. NSG: er kan kopplas till undernät, enskilda virtuella datorer eller enskilda nätverks gränssnitt (NIC) som är anslutna till virtuella datorer (Resource Manager). Mer information finns i [Översikt över nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json).
+- En nätverks säkerhets grupp (NSG) innehåller en lista över _säkerhets regler_ som tillåter eller nekar nätverks trafik i resurser som den är ansluten till. NSG: er kan kopplas till undernät, enskilda virtuella datorer eller enskilda nätverks gränssnitt (NIC) som är anslutna till virtuella datorer (Resource Manager). Mer information finns i [Översikt över nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Alla trafikflöden i nätverket utvärderas med hjälp av reglerna i tillämpliga NSG.
 - Resultatet av dessa utvärderingar är NSG Flow-loggar. Flödes loggar samlas in via Azure-plattformen och kräver ingen ändring av kund resurserna.
 - Obs! regler är av två typer – avslutande & icke-avslutande, var och en med olika loggnings beteenden.
@@ -395,7 +395,7 @@ Ibland visas inte loggar om dina virtuella datorer inte är aktiva eller om det 
 
 Stöd för automatisering via ARM-mallar är för närvarande inte tillgängligt för NSG-flödesloggar. Mer information finns i [funktions meddelandet](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) .
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Vad gör NSG Flow-loggarna?**
 

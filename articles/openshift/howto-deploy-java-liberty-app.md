@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: Java, jakartaee, Java-part, mikroprofil, öppen-frihet, WebSphere-frihet, Aro, OpenShift, Red Hat
-ms.openlocfilehash: 41891b58942efbfd705747cc16219185f2a2daa2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0c17c911d1eefe646785314a26b6a9b1e964ca67
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018400"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493958"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Distribuera ett Java-program med öppen frihet/WebSphere-frihet på ett Azure Red Hat OpenShift 4-kluster
 
@@ -25,26 +25,26 @@ Den här guiden visar hur du kör ditt Java-, Java-, [Jakarta](https://jakarta.e
 Slutför följande krav för att kunna gå igenom den här guiden.
 
 > [!NOTE]
-> För att kunna skapa och köra ett OpenShift-kluster krävs minst 40 kärnor i Azure Red Hat OpenShift. Standard kvoten för Azure-resurser för en ny Azure-prenumeration uppfyller inte det här kravet. Om du vill begära en ökning av resurs gränsen, se [standard kvot: öka gränserna efter VM-serien](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests). Observera att den kostnads fria utvärderings prenumerationen inte är berättigad till en kvot ökning, [Uppgradera till en prenumeration där du betalar per](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription) användning innan du begär en kvot ökning.
+> För att kunna skapa och köra ett OpenShift-kluster krävs minst 40 kärnor i Azure Red Hat OpenShift. Standard kvoten för Azure-resurser för en ny Azure-prenumeration uppfyller inte det här kravet. Om du vill begära en ökning av resurs gränsen, se [standard kvot: öka gränserna efter VM-serien](../azure-portal/supportability/per-vm-quota-requests.md). Observera att den kostnads fria utvärderings prenumerationen inte är berättigad till en kvot ökning, [Uppgradera till en prenumeration där du betalar per](../cost-management-billing/manage/upgrade-azure-subscription.md) användning innan du begär en kvot ökning.
 
 1. Förbered en lokal dator med UNIX-liknande operativ system installerat (till exempel Ubuntu, macOS).
 1. Installera en Java SE-implementering (till exempel [AdoptOpenJDK openjdk 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
 1. Installera [maven](https://maven.apache.org/download.cgi) 3.5.0 eller högre.
 1. Installera [Docker](https://docs.docker.com/get-docker/) för ditt operativ system.
-1. Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 2.0.75 eller senare.
+1. Installera [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) 2.0.75 eller senare.
 1. Kontrol lera och installera [`envsubst`](https://command-not-found.com/envsubst) om det inte redan är förinstallerat i operativ systemet.
 1. Klona koden för det här exemplet i det lokala systemet. Exemplet finns på [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro).
-1. Följ instruktionerna i [skapa ett Azure Red Hat OpenShift 4-kluster](/azure/openshift/tutorial-create-cluster).
+1. Följ instruktionerna i [skapa ett Azure Red Hat OpenShift 4-kluster](./tutorial-create-cluster.md).
 
    Även om steget "Hämta en pull-hemlighet i Red Hat" är märkt som valfritt **krävs det för den här artikeln**.  Pull-hemligheten gör det möjligt för ditt Azure Red Hat OpenShift-kluster att hitta Open frihet-operatorn.
 
    Om du planerar att köra minnes intensiva program i klustret anger du rätt storlek på den virtuella datorn för arbetsnoderna med hjälp av `--worker-vm-size` parametern. Till exempel `Standard_E4s_v3` är den minsta storleken på virtuella datorer för att installera ElasticSearch-operatören på ett kluster. Mer information finns i:
 
-   * [Azure CLI för att skapa ett kluster](https://docs.microsoft.com/cli/azure/aro?view=azure-cli-latest&preserve-view=true#az-aro-create)
-   * [Virtuella dator storlekar som stöds för minnesoptimerade](/azure/openshift/support-policies-v4#memory-optimized)
+   * [Azure CLI för att skapa ett kluster](/cli/azure/aro?preserve-view=true&view=azure-cli-latest#az-aro-create)
+   * [Virtuella dator storlekar som stöds för minnesoptimerade](./support-policies-v4.md#memory-optimized)
    * [Krav för att installera ElasticSearch-operatören](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-deploying.html#cluster-logging-deploy-eo-cli_cluster-logging-deploying)
 
-1. Anslut till klustret genom att följa stegen i [ansluta till ett Azure Red Hat OpenShift 4-kluster](/azure/openshift/tutorial-connect-cluster).
+1. Anslut till klustret genom att följa stegen i [ansluta till ett Azure Red Hat OpenShift 4-kluster](./tutorial-connect-cluster.md).
    * Se till att följa stegen i "installera OpenShift CLI" eftersom vi använder `oc` kommandot senare i den här artikeln.
    * Skriv ner kluster konsolens URL som ser ut så här `https://console-openshift-console.apps.<random>.<region>.aroapp.io/` .
    * Anteckna `kubeadmin` autentiseringsuppgifterna.
@@ -314,7 +314,7 @@ oc delete -f openlibertyapplication.yaml
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort ARO-klustret genom att följa stegen i [själv studie kursen: ta bort ett Azure Red Hat OpenShift 4-kluster](/azure/openshift/tutorial-delete-cluster)
+Ta bort ARO-klustret genom att följa stegen i [själv studie kursen: ta bort ett Azure Red Hat OpenShift 4-kluster](./tutorial-delete-cluster.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

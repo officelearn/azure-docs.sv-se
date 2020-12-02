@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 53a10123bf3304ab9c949146d7cad6b904c8323d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c87290b36ec77e834a0d0fcd99e9a8bdb05675b5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317210"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494706"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Arbeta med den tidigare versionen av Azure Migrate
 
@@ -31,13 +31,13 @@ Det finns två versioner av tjänsten Azure Migrate:
 
 ## <a name="upgrade-between-versions"></a>Uppgradera mellan versioner
 
-Du kan inte uppgradera projekt eller komponenter i den tidigare versionen till den nya versionen. Du måste [skapa ett nytt Azure Migrate-projekt](create-manage-projects.md)och [lägga till verktyg för utvärdering och migrering](how-to-add-tool-first-time.md) i det. Använd självstudierna för att lära dig hur du använder verktyg för bedömning och migrering som är tillgängliga. Om du har en Log Analytics arbets yta som är kopplad till ett klassiskt projekt kan du koppla den till ett projekt med aktuell version när du har tagit bort det klassiska projektet.
+Du kan inte uppgradera projekt eller komponenter i den tidigare versionen till den nya versionen. Du måste [skapa ett nytt Azure Migrate-projekt](create-manage-projects.md)och [lägga till verktyg för utvärdering och migrering](./create-manage-projects.md) i det. Använd självstudierna för att lära dig hur du använder verktyg för bedömning och migrering som är tillgängliga. Om du har en Log Analytics arbets yta som är kopplad till ett klassiskt projekt kan du koppla den till ett projekt med aktuell version när du har tagit bort det klassiska projektet.
 
 ## <a name="find-projects-from-previous-version"></a>Hitta projekt från tidigare versioner
 
 Hitta projekt från föregående version på följande sätt:
 
-1. I Azure Portal > **alla tjänster**söker du efter och väljer **Azure Migrate**. 
+1. I Azure Portal > **alla tjänster** söker du efter och väljer **Azure Migrate**. 
 2. På Azure Migrate-instrumentpanelen finns ett meddelande och en länk för att komma åt gamla Azure Migrate-projekt.
 3. Klicka på länken för att öppna klassiska projekt.
 
@@ -45,7 +45,7 @@ Hitta projekt från föregående version på följande sätt:
 
 Sök efter och ta bort projekt från den tidigare versionen enligt följande:
 
-1. I Azure Portal > **alla tjänster**söker du efter och väljer **Azure Migrate**. 
+1. I Azure Portal > **alla tjänster** söker du efter och väljer **Azure Migrate**. 
 2. På Azure Migrate-instrumentpanelen finns ett meddelande och en länk för att komma åt gamla Azure Migrate-projekt.
 3. Klicka på länken för att öppna klassiska projekt.
 4. Välj det projekt som du vill ta bort och ta bort det. 
@@ -85,7 +85,7 @@ En dator flyttas bara till ett senare steg om den tidigare har passerat. Om en d
 
 Vyn för Azure-beredskap i utvärderingen visar beredskapsstatus för varje virtuell dator.
 
-**Beredskap** | **Tillstånd** | **Detaljer**
+**Beredskap** | **Stat** | **Information**
 --- | --- | ---
 Redo för Azure | Inga kompatibilitetsproblem. Datorn kan migreras med Azure, och den kommer att startas i Azure med fullständig support för Azure. | För förberedda virtuella datorer rekommenderar Azure Migrate en VM-storlek i Azure.
 Villkorligt redo för Azure | Datorn kan starta i Azure, men kanske inte har fullständig support för Azure. Till exempel en dator med en äldre version av Windows Server som inte stöds i Azure. | Azure Migrate förklarar beredskaps problemen och ger åtgärder.
@@ -97,7 +97,7 @@ Beredskap okänd | Azure Migrate kan inte identifiera Azure-beredskap, vanligt v
 Beredskapen tar hänsyn till ett antal VM-egenskaper, för att identifiera om den virtuella datorn kan köras i Azure.
 
 
-**Egenskap** | **Detaljer** | **Beredskap**
+**Egenskap** | **Information** | **Beredskap**
 --- | --- | ---
 **Start typ** | BIOS stöds. UEFI stöds inte. | Villkoret klart om start typen är UEFI.
 **Kärnor** | Datorer Core <= det maximala antalet kärnor (128) som stöds för en virtuell Azure-dator.<br/><br/> Om prestanda historiken är tillgänglig, Azure Migrate beakta de använda kärnorna.<br/>Om en bekvämlighets faktor anges i utvärderings inställningarna multipliceras antalet använda kärnor av den praktiska faktorn.<br/><br/> Om det inte finns någon prestanda historik använder Azure Migrate tilldelade kärnor, utan att använda den praktiska faktorn. | Redo om det är mindre än eller lika med begränsningar.
@@ -114,7 +114,7 @@ Tillsammans med VM-egenskaper tittar Azure Migrate också på gäst operativ sys
 
 Följande logik används.
 
-**Operativsystem** | **Detaljer** | **Beredskap**
+**Operativsystem** | **Information** | **Beredskap**
 --- | --- | ---
 Windows Server 2016 och alla SPs | Azure ger fullständig support. | Redo för Azure
 Windows Server 2012 R2 och alla SPs | Azure ger fullständig support. | Redo för Azure
@@ -207,7 +207,7 @@ Om du vill konfigurera beroende visualisering associerar du en Log Analytics-arb
 
 Om du vill använda beroende visualisering associerar du en Log Analytics arbets yta med ett migreringsjobb. Du kan bara skapa eller koppla en arbets yta i samma prenumeration där migreringsjobbet skapas.
 
-1. Om du vill bifoga en Log Analytics arbets yta till ett projekt i **översikt**> **Essentials**klickar du på **kräver konfiguration**.
+1. Om du vill bifoga en Log Analytics arbets yta till ett projekt i **översikt**> **Essentials** klickar du på **kräver konfiguration**.
 2. Du kan skapa en ny arbets yta eller bifoga en befintlig:
   - Ange ett namn för att skapa en ny arbets yta. Arbets ytan skapas i en region i samma Azure- [geografi](https://azure.microsoft.com/global-infrastructure/geographies/) som migreringsjobbet.
   - När du ansluter en befintlig arbets yta kan du välja mellan alla tillgängliga arbets ytor i samma prenumeration som migreringsjobbet. Endast de arbets ytor som har skapats i en [tjänstkarta region som stöds](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions). Se till att du har "läsare"-åtkomst till arbets ytan för att koppla en arbets yta.
@@ -219,7 +219,7 @@ Om du vill använda beroende visualisering associerar du en Log Analytics arbets
 
 När du har konfigurerat en arbets yta laddar du ned och installerar agenter på varje lokal dator som du vill utvärdera. Om du dessutom har datorer som saknar Internet anslutning måste du ladda ned och installera [Log Analytics Gateway](../azure-monitor/platform/gateway.md) på dem.
 
-1. I **Översikt**klickar du på **Hantera**  >  **datorer**och väljer den dator som krävs.
+1. I **Översikt** klickar du på **Hantera**  >  **datorer** och väljer den dator som krävs.
 2. I kolumnen **beroenden** klickar du på **installera agenter**.
 3. På sidan **beroenden** laddar du ned och installerar Microsoft Monitoring Agent (MMA) och beroende agenten på varje virtuell dator som du vill utvärdera.
 4. Kopiera arbetsytans ID och nyckel. Du behöver dessa när du installerar MMA på den lokala datorn.
@@ -235,7 +235,7 @@ Så här installerar du agenten på en Windows-dator:
 1. Dubbelklicka på den hämtade agenten.
 2. På sidan **Välkommen** klickar du på **Nästa**. På sidan **licens villkor** klickar du på **Jag accepterar** att godkänna licensen.
 3. I **målmappen**, Behåll eller ändra standardmappen för installationen > **Nästa**.
-4. I **installations alternativ för agent**väljer du **Azure Log Analytics**  >  **Nästa**.
+4. I **installations alternativ för agent** väljer du **Azure Log Analytics**  >  **Nästa**.
 5. Klicka på **Lägg** till för att lägga till en ny Log Analytics-arbetsyta. Klistra in det arbetsyte-ID och den nyckel som du kopierade från portalen. Klicka på **Nästa**.
 
 Du kan installera agenten från kommando raden eller med en automatiserad metod som Configuration Manager. [Lär dig mer](../azure-monitor/platform/log-analytics-agent.md#installation-options) om att använda dessa metoder för att installera MMA-agenten.
@@ -303,12 +303,12 @@ Beroende data som samlas in av Tjänstkarta är tillgängliga för frågor i arb
 Så här kör du Kusto-frågorna:
 
 1. När du har installerat agenterna går du till portalen och klickar på **Översikt**.
-2. I **Översikt**går du till avsnittet **Essentials** i projektet och klickar på arbets ytans namn bredvid **OMS-arbetsytan**.
-3. Klicka på **allmänna**loggar på sidan Log Analytics arbets yta  >  **Logs**.
+2. I **Översikt** går du till avsnittet **Essentials** i projektet och klickar på arbets ytans namn bredvid **OMS-arbetsytan**.
+3. Klicka på **allmänna** loggar på sidan Log Analytics arbets yta  >  **Logs**.
 4. Skriv din fråga för att samla in beroende data med Azure Monitor loggar. Sök efter exempel frågor i nästa avsnitt.
 5. Kör frågan genom att klicka på Kör. 
 
-[Läs mer](../azure-monitor/log-query/get-started-portal.md) om hur du skriver Kusto-frågor. 
+[Läs mer](../azure-monitor/log-query/log-analytics-tutorial.md) om hur du skriver Kusto-frågor. 
 
 ### <a name="sample-azure-monitor-logs-queries"></a>Exempel på Azure Monitor loggar frågor
 

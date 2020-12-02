@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: d2493a3a1e4fbb49c0b7f6dad29771b6e9faae8e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 15a23ab5b05ad1093069b4297ad1d292beeb3a42
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146815"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494961"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Hög tillgänglighet med Media Services och video på begäran (VOD)
 
@@ -26,7 +26,7 @@ ms.locfileid: "93146815"
 
 ## <a name="high-availability-for-vod"></a>Hög tillgänglighet för VOD
 
-Design mönstret med hög tillgänglighet kallas [Geodes](https://docs.microsoft.com/azure/architecture/patterns/geodes) i dokumentationen för Azure-arkitekturen. Den beskriver hur duplicerade resurser distribueras till olika geografiska regioner för att tillhandahålla skalbarhet och återhämtning.  Du kan använda Azure-tjänster för att skapa en sådan arkitektur som beskriver många design överväganden för hög tillgänglighet, till exempel redundans, hälso övervakning, belastnings utjämning och säkerhets kopiering och återställning av data.  En sådan arkitektur beskrivs nedan med information om varje tjänst som används i lösningen samt hur enskilda tjänster kan användas för att skapa en arkitektur med hög tillgänglighet för ditt VOD-program.
+Design mönstret med hög tillgänglighet kallas [Geodes](/azure/architecture/patterns/geodes) i dokumentationen för Azure-arkitekturen. Den beskriver hur duplicerade resurser distribueras till olika geografiska regioner för att tillhandahålla skalbarhet och återhämtning.  Du kan använda Azure-tjänster för att skapa en sådan arkitektur som beskriver många design överväganden för hög tillgänglighet, till exempel redundans, hälso övervakning, belastnings utjämning och säkerhets kopiering och återställning av data.  En sådan arkitektur beskrivs nedan med information om varje tjänst som används i lösningen samt hur enskilda tjänster kan användas för att skapa en arkitektur med hög tillgänglighet för ditt VOD-program.
 
 ### <a name="sample"></a>Exempel
 
@@ -36,7 +36,7 @@ Det finns ett exempel som kan användas för att bekanta dig med hög tillgängl
 
 Tjänsterna som används i den här exempel arkitekturen är:
 
-| Ikon | Namn | Beskrivning |
+| Ikon | Name | Beskrivning |
 | :--: | ---- | ----------- |
 |![Detta är ikonen för Media Services-kontot.](media/media-services-high-availability-encoding/azure-media-services.svg)| Media Services-konto | **Beskrivning:**<br>Ett Media Services konto är start punkten för att hantera, kryptera, koda, analysera och strömma medie innehåll i Azure. Den är kopplad till en Azure Storage konto resurs. Kontot och alla tillhör ande lagrings enheter måste finnas i samma Azure-prenumeration.<br><br>**VOD användning:**<br>Det här är de tjänster som du använder för att koda och leverera dina video-och ljud till gångar.  För hög tillgänglighet skulle du ställa in minst två Media Services konton, var och en i en annan region. [Läs mer om Azure Media Services](media-services-overview.md). |
 |![Det här är lagrings konto ikonen.](media/media-services-high-availability-encoding/storage-account.svg)| Lagringskonto | **Beskrivning:**<br>Ett Azure Storage-konto innehåller alla dina Azure Storage data objekt: blobbar, filer, köer, tabeller och diskar. Data är tillgängliga från var som helst i världen via HTTP eller HTTPS.<br><br>Varje Media Services konto, i varje region, har ett lagrings konto i samma region.<br><br>**VOD användning:**<br>Du kan lagra indata och utdata för bearbetning och strömning av VOD. [Läs mer om Azure Storage](../../storage/common/storage-introduction.md). |
@@ -87,4 +87,4 @@ Det här diagrammet på hög nivå visar arkitekturen för det exempel som tillh
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Kolla av [kod exempel](https://docs.microsoft.com/samples/browse/?products=azure-media-services)
+* Kolla av [kod exempel](/samples/browse/?products=azure-media-services)

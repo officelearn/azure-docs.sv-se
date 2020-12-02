@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 15e45143d1da5ac405b3e408df197ab04b4dea39
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 0f4f4d934361f1e59eceaaccca680f0cf155bb04
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412280"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348967"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Komma igång med Azure Enterprise-portalen
 
@@ -44,33 +44,33 @@ Azure-kunder med ett Enterprise-avtal (EA) kan tilldela fem olika administratör
 - Avdelningsadministratör (skrivskyddad)
 - Kontoägare
 
-Varje roll har olika grader av begränsningar och behörigheter. Mer information finner du i artikeln [Organisationsstruktur och behörigheter per roll](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-ea-roles#organization-structure-and-permissions-by-role).
+Varje roll har olika grader av begränsningar och behörigheter. Mer information finner du i artikeln [Organisationsstruktur och behörigheter per roll](./understand-ea-roles.md#organization-structure-and-permissions-by-role).
 
 ## <a name="activate-your-enrollment-create-a-subscription-and-other-administrative-tasks"></a>Aktivera en registrering, skapa en prenumeration och andra administrativa uppgifter
 
-Mer information om hur du aktiverar registreringen, skapar en avdelning eller en prenumeration, lägger till administratörer och kontoägare, och andra administrativa uppgifter finns i [Administration i Azure EA-portalen](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration).
+Mer information om hur du aktiverar registreringen, skapar en avdelning eller en prenumeration, lägger till administratörer och kontoägare, och andra administrativa uppgifter finns i [Administration i Azure EA-portalen](./ea-portal-administration.md).
 
-Om du vill veta mer om hur du överför en Enterprise-prenumeration till en prenumeration där du betalar per användning kan du läsa mer i [Azure Enterprise-överföringar](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-transfers).
+Om du vill veta mer om hur du överför en Enterprise-prenumeration till en prenumeration där du betalar per användning kan du läsa mer i [Azure Enterprise-överföringar](./ea-transfers.md).
 
 ## <a name="view-usage-summary-and-download-reports"></a>Visa användningssammanfattning och nedladdning av rapporter
 
 Du kan hantera och agera på din Azure EA-faktura. Din faktura är en representation av din räkning och du bör därför granska den för att se om den är korrekt.
 
-Läs [Fakturor för Azure Enterprise-registrering](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-enrollment-invoices) för att se användningssammanfattningar, ladda ned rapporter och hantera registreringsfakturor.
+Läs [Fakturor för Azure Enterprise-registrering](./ea-portal-enrollment-invoices.md) för att se användningssammanfattningar, ladda ned rapporter och hantera registreringsfakturor.
 
 ## <a name="now-that-youre-familiar-with-the-basics-here-are-some-additional-links-to-help-you-get-onboarded"></a>Nu när du känner till grunderna kan du använda dessa länkar för att komma igång
 
-[Prissättning för Azure EA](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-pricing-overview) innehåller information om hur användningen beräknas och förklarar priser för olika Azure-tjänster i Enterprise-avtalet där beräkningarna är mer komplexa.
+[Prissättning för Azure EA](./ea-pricing-overview.md) innehåller information om hur användningen beräknas och förklarar priser för olika Azure-tjänster i Enterprise-avtalet där beräkningarna är mer komplexa.
 
-Läs [Reserverade instanser av virtuella Azure EA-datorer](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-vm-reservations) om du vill veta mer om hur du kan spara pengar i din företagsregistrering med hjälp av reserverade VM-instanser i Azure.
+Läs [Reserverade instanser av virtuella Azure EA-datorer](./ea-portal-vm-reservations.md) om du vill veta mer om hur du kan spara pengar i din företagsregistrering med hjälp av reserverade VM-instanser i Azure.
 
-Läs [REST-API:er för Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis) för att få information om vilka REST-API:er du bör använda med din Azure Enterprise-registrering och en förklaring till hur du löser vanliga problem med REST-API:er.
+Läs [REST-API:er för Azure Enterprise](./ea-portal-rest-apis.md) för att få information om vilka REST-API:er du bör använda med din Azure Enterprise-registrering och en förklaring till hur du löser vanliga problem med REST-API:er.
 
-Artikeln [Azure EA-avtal och ändringar](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) beskriver hur Azure EA-avtal och ändringar kan påverka åtkomst, användning och betalningar för Azure-tjänster.
+Artikeln [Azure EA-avtal och ändringar](./ea-portal-agreements.md) beskriver hur Azure EA-avtal och ändringar kan påverka åtkomst, användning och betalningar för Azure-tjänster.
 
-Artikeln [Azure Marketplace](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-azure-marketplace) förklarar hur EA-kunder och -partner kan se Marketplace-avgifter och aktivera Azure Marketplace-köp.
+Artikeln [Azure Marketplace](./ea-azure-marketplace.md) förklarar hur EA-kunder och -partner kan se Marketplace-avgifter och aktivera Azure Marketplace-köp.
 
-I artikeln [Administration i Azure EA-portalen för partner](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-partner-portal-administration) förklaras några vanliga uppgifter som en EA-administratör hos en partner kan utföra i Azure EA-portalen.
+I artikeln [Administration i Azure EA-portalen för partner](./ea-partner-portal-administration.md) förklaras några vanliga uppgifter som en EA-administratör hos en partner kan utföra i Azure EA-portalen.
 
 ## <a name="get-started-on-azure-ea---faq"></a>Komma igång med Azure EA – Vanliga frågor och svar
 
@@ -124,7 +124,7 @@ Utifrån dina behov kan du använda samma kostnadsställe för att spåra använ
 
 Om du till exempel vill spåra kostnaden för ett särskilt projekt där flera avdelningar är inblandade kan du definiera kostnadsstället på en prenumerationsnivå för att spåra användningen och kostnaderna.
 
-Du kan inte definiera ett kostnadsställe på servicenivå. Om du vill spåra användning på servicenivå kan du använda funktionen _Tagg_ , som finns på servicenivå.
+Du kan inte definiera ett kostnadsställe på servicenivå. Om du vill spåra användning på servicenivå kan du använda funktionen _Tagg_, som finns på servicenivå.
 
 ### <a name="how-do-i-track-usage-and-spend-by-different-departments-in-my-organization"></a>Hur spårar jag användning och utgifter av olika avdelningar i min organisation?
 
@@ -132,7 +132,7 @@ Du kan skapa så många avdelningar som du behöver under din Azure EA-registrer
 
 När du har skapat avdelningar och prenumerationer kan du se data i användningsrapporten. Den här informationen kan hjälpa dig att spåra användning samt hantera kostnader och utgifter på avdelningsnivå.
 
-Du kan även komma åt användningsdata via rapporterings-API:et. Detaljerad information och exempelkod finns i [REST-API:er för Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Du kan även komma åt användningsdata via rapporterings-API:et. Detaljerad information och exempelkod finns i [REST-API:er för Azure Enterprise](./ea-portal-rest-apis.md).
 
 ### <a name="can-i-set-a-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>Kan jag ange en utgiftskvot och få aviseringar när jag närmar mig min gräns?
 
@@ -144,7 +144,7 @@ Du definierar utgiftskvoten genom att välja en avdelning och sedan välja redig
 
 Om du använder _resursgrupper_ och _taggar_ spåras den här informationen på servicenivå, och du kan komma åt den i nedladdningsfilen (CSV) för detaljerad användning. Se [ladda ned användningsrapport](https://ea.azure.com/report/downloadusage) i Azure Enterprise-portalen.
 
-Du kan även komma åt användning via API. Detaljerad information och exempelkod finns i [REST-API:er för Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Du kan även komma åt användning via API. Detaljerad information och exempelkod finns i [REST-API:er för Azure Enterprise](./ea-portal-rest-apis.md).
 
 > [!NOTE]
 > Du kan endast använda taggar på resurser som stöder Azure Resource Manager-åtgärder. Om du har skapat en virtuell dator, ett virtuellt nätverk eller lagring via den klassiska distributionsmodellen (t.ex. via den klassiska portalen) kan du inte använda en tagg på den resursen. Du måste distribuera dessa resurser igen via Resource Manager för att stödja taggning. Alla andra resurser stöder taggning.

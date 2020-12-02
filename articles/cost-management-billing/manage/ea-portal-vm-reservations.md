@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 16e325f029fc4c317a61db62df97ded5c213e0e5
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 7c8a35e7c8ecd0952f8e02b66c5071253d9b0445
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132541"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348933"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Reserverade instanser av virtuella Azure EA-datorer
 
@@ -65,7 +65,7 @@ Med reserverade instanser kan du minska dina kostnader för virtuella datorer me
 
 Om du vill köpa en reserverad instans för en virtuell Azure-dator måste en Enterprise Azure-registreringsadministratör aktivera köpalternativet _Reserve Instance_ (Reservera instans). Alternativet finns i avsnittet _Enrollment Detail_ (Registreringsinformation) på fliken _Enrollment_ (Registrering) i [Azure EA-portalen](https://ea.azure.com/).
 
-När EA-registreringen har aktiverats för att lägga till reserverade instanser kan alla kontoinnehavare med en aktiv prenumeration associerad kopplad till EA-registreringen köpa en reserverad instans för virtuell dator i [Azure-portalen](https://aka.ms/reservations). Mer information finns i [Prepay for virtual machines and save money with Reserved Virtual Machine Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md) (Förskottsbetala för virtuella datorer och spara pengar med reserverade instanser för virtuell dator).
+När EA-registreringen har aktiverats för att lägga till reserverade instanser kan alla kontoinnehavare med en aktiv prenumeration associerad kopplad till EA-registreringen köpa en reserverad instans för virtuell dator i [Azure-portalen](https://aka.ms/reservations). Mer information finns i [Prepay for virtual machines and save money with Reserved Virtual Machine Instances](../../virtual-machines/prepay-reserved-vm-instances.md) (Förskottsbetala för virtuella datorer och spara pengar med reserverade instanser för virtuell dator).
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>Så här visar du köpinformation om reserverade instanser
 

@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: f18f1184f921aca4f2c1e33ac00dcf14c63b24eb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bb8a52a2258143e1c68ca46ac31a8c986b1bcfe7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95893366"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457133"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration i Azure EA-portalen
 
@@ -282,13 +282,13 @@ Du kan administrera kostnader och användning för Azure EA i Azure EA-portalen.
 
 De olika rollerna har olika åtkomstnivå och behörighet.
 
-Du kan läsa mer om användarroller under [Enterprise user roles](/azure/cost-management-billing/manage/understand-ea-roles#enterprise-user-roles) (Roller för företagsanvändare).
+Du kan läsa mer om användarroller under [Enterprise user roles](./understand-ea-roles.md#enterprise-user-roles) (Roller för företagsanvändare).
 
 ## <a name="add-an-azure-ea-account"></a>Lägga till ett Azure EA-konto
 
 Azure EA-kontot är en organisationsenhet i Azure EA-portalen. Den används för att administrera prenumerationer samt för rapportering. Om du ska kunna komma åt och använda Azure-tjänster måste du eller någon annan skapa ett konto åt dig.
 
-Du kan läsa mer om Azure-konton under [Lägga till ett konto](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration#add-an-account).
+Du kan läsa mer om Azure-konton under [Lägga till ett konto](#add-an-account).
 
 ## <a name="enterprise-devtest-offer"></a>Enterprise Dev/Test-erbjudande
 
@@ -361,7 +361,7 @@ Ta bort en prenumeration där du är kontoinnehavare:
 
 Bara kontoadministratörer kan avbryta prenumerationer.
 
-Mer information finns i [Vad händer när jag har sagt upp min prenumeration?](cancel-azure-subscription.md#what-happens-after-i-cancel-my-subscription).
+Mer information finns i [Vad händer när jag har sagt upp min prenumeration?](cancel-azure-subscription.md#what-happens-after-subscription-cancellation).
 
 ## <a name="delete-an-account"></a>Ta bort ett konto
 

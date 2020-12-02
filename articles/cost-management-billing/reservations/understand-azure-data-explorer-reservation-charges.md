@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: af2dc8378d1f1fe952a568ecb4bd89d088e3e3d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b222e4ff519fbe2fbb4fa58b39555ac9fead0917
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147230"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352923"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Förstå hur reservationsrabatten tillämpas för Azure Data Explorer
 
@@ -29,7 +29,7 @@ När du avslutar en resurs tillämpas reservationsrabatten automatiskt på en an
 En reservationsrabatt tillämpas på Azure Data Explorer-påläggsförbrukningen timme för timme. För Azure Data Explorer-resurser som inte körs hela timmen tillämpas reservationsrabatten automatiskt för andra Azure Data Explorer-resurser som matchar reservationsattributen. Rabatten kan tillämpas på Azure Data Explorer-resurser som körs samtidigt. Om du inte har några Azure Data Explorer-resurser som körs timmen ut och som matchar reservationsattributen får du inte valuta för reservationsrabatten under den timmen.
 
 > [!NOTE]
-> * Vi **rekommenderar starkt** att köpa [reservationskapacitet](../../virtual-machines/windows/prepay-reserved-vm-instances.md) för de virtuella datorer som används för Azure Data Explorer-klustret för att maximera besparingarna för reserverad kapacitet.
+> * Vi **rekommenderar starkt** att köpa [reservationskapacitet](../../virtual-machines/prepay-reserved-vm-instances.md) för de virtuella datorer som används för Azure Data Explorer-klustret för att maximera besparingarna för reserverad kapacitet.
 > * Med reservationsköpet tillämpas rabatterna på alla regioner.
 
 ## <a name="examples"></a>Exempel

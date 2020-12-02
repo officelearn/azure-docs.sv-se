@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 17b978d3f4faebd3870868bceeea4572288ecb07
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 647009854ef5a0c0811fc303914f724272f1a3f5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965365"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486665"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Distributionsguide för SAP BusinessObjects BI-plattform för Linux i Azure
 
@@ -37,7 +37,7 @@ I det här exemplet används under produkt version och fil systemets layout
 - Azure Database for MySQL (version: 8.0.15)
 - MySQL C API-koppling – libmysqlclient (version: 6.1.11)
 
-| Filsystem        | Beskrivning                                                                                                               | Storlek (GB)             | Ägare  | Grupp  | Storage                    |
+| Filsystem        | Description                                                                                                               | Storlek (GB)             | Ägare  | Grupp  | Storage                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/sap           | Fil systemet för installation av SAP BOBI-instans, standard webb program för Tomcat och databas driv rutiner (om det behövs) | Rikt linjer för SAP-storlek | bl1adm | sapsys | Hanterad Premium disk – SSD |
 | /usr/sap/frsinput  | Monterings katalogen är för delade filer över alla BOBI-värdar som ska användas som indatafilens lagrings katalog  | Affärs behov         | bl1adm | sapsys | Azure NetApp Files         |
@@ -615,7 +615,7 @@ För andra DBMS-distributioner för CMS-databasen hänvisar du till [DBMS-distri
 
 Fil databas servern (FRS) refererar till disk katalogerna där innehåll som rapporter, universum och anslutningar lagras. Den delas mellan alla program servrar i systemet. Så du måste se till att den har hög tillgänglighet.
 
-På Azure kan du antingen välja [Azure Premium-filer](../../../storage/files/storage-files-introduction.md) eller [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) för fil resurs som har utformats för hög tillgänglighet och hög tålighet. Mer information finns i avsnittet om [redundans](https://docs.microsoft.com/azure/storage/files/storage-files-planning#redundancy) för Azure Files.
+På Azure kan du antingen välja [Azure Premium-filer](../../../storage/files/storage-files-introduction.md) eller [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) för fil resurs som har utformats för hög tillgänglighet och hög tålighet. Mer information finns i avsnittet om [redundans](../../../storage/files/storage-files-planning.md#redundancy) för Azure Files.
 
 > [!NOTE]
 > SMB-protokollet för Azure Files är allmänt tillgängligt, men NFS-protokollet stöd för Azure Files är för närvarande en för hands version. Mer information finns [i stöd för NFS 4,1 för Azure Files nu i för hands version](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/)
@@ -667,7 +667,7 @@ Azure Site Recovery-tjänsten kan användas för att replikera Virtual Machines 
 
   Du kan använda Azure NetApp Files replikering mellan regioner, som för närvarande är en för [hands version](https://azure.microsoft.com/en-us/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/) som använder NetApp SnapMirror® Technology. Endast ändrade block skickas över nätverket i ett komprimerat, effektivt format. Den här tillverkarspecifika tekniken minimerar mängden data som krävs för att replikera över regionerna, vilket sparar kostnader för data överföring. Den förkortar också replikerings tiden så att du kan få ett mindre återställnings punkt mål (återställnings punkt mål). Mer information hittar du i [krav och överväganden för att använda replikering över flera regioner](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md) .
 
-- **Azure Premium-filer** har endast stöd för lokalt REDUNDANT (LRS) och Zone-redundant lagring (ZRS). I DR-strategin för Azure Premium-filer kan du använda [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) eller [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/) för att kopiera filer till ett annat lagrings konto i en annan region. Mer information finns i [haveri beredskap och redundans för lagrings konton](../../../storage/common/storage-disaster-recovery-guidance.md)
+- **Azure Premium-filer** har endast stöd för lokalt REDUNDANT (LRS) och Zone-redundant lagring (ZRS). I DR-strategin för Azure Premium-filer kan du använda [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) eller [Azure PowerShell](/powershell/module/az.storage/) för att kopiera filer till ett annat lagrings konto i en annan region. Mer information finns i [haveri beredskap och redundans för lagrings konton](../../../storage/common/storage-disaster-recovery-guidance.md)
 
 #### <a name="cms-database"></a>CMS-databas
 
@@ -695,4 +695,4 @@ Följande är en rekommendation för haveri beredskap för varje nivå som anvä
 - [Konfigurera katastrof återställning för en distribution med flera nivåer av SAP-appar](../../../site-recovery/site-recovery-sap.md)
 - [Azure Virtual Machines planera och implementera SAP](planning-guide.md)
 - [Azure Virtual Machines distribution för SAP](deployment-guide.md)
-- [Azure Virtual Machines DBMS-distribution för SAP](dbms-guide.md)
+- [Azure Virtual Machines DBMS-distribution för SAP](./dbms_guide_general.md)

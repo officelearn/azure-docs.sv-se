@@ -4,15 +4,15 @@ description: I den här artikeln beskrivs hur Azure Analysis Services använder 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b40be802f30bac8438f10c4ab60e1c196c9f7164
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 551bae56565140da3754e74a23b1cc18087f1171
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833800"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487447"
 ---
 # <a name="authentication-and-user-permissions"></a>Autentisering och användarbehörigheter
 
@@ -24,7 +24,7 @@ Azure Analysis Services stöder [Azure AD B2B-samarbete](../active-directory/ext
 
 ## <a name="authentication"></a>Autentisering
 
-Alla klient program och verktyg använder ett eller flera av de Analysis Services [klient biblioteken](/analysis-services/client-libraries?view=azure-analysis-services-current) (AMO, MSOLAP, ADOMD) för att ansluta till en server. 
+Alla klient program och verktyg använder ett eller flera av de Analysis Services [klient biblioteken](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) (AMO, MSOLAP, ADOMD) för att ansluta till en server. 
 
 Alla tre klient biblioteken stöder både det interaktiva flödet i Azure AD och icke-interaktiva autentiseringsmetoder. De två icke-interaktiva metoderna, Active Directory lösen ord och Active Directory integrerade autentiseringsmetoder kan användas i program som använder AMOMD och MSOLAP. Dessa två metoder resulterar aldrig i popup-dialogrutor.
 

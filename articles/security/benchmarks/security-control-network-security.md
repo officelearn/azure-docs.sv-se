@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bd69f239a1c65040c44da776186ab8d955f5e333
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3a232f8e8c35e265a8243ac79e465c03f6b9650e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693211"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487872"
 ---
 # <a name="security-control-network-security"></a>Säkerhets kontroll: nätverks säkerhet
 
@@ -76,7 +76,7 @@ Använd Azure Security Center just-in-Time Network Access för att konfigurera N
 
 Använd Azure Security Center anpassad nätverks härdning för att rekommendera NSG-konfigurationer som begränsar portar och käll-IP-adresser baserat på faktisk trafik och hot information.
 
-- [Så här konfigurerar du DDoS-skydd](../../virtual-network/manage-ddos-protection.md)
+- [Så här konfigurerar du DDoS-skydd](../../ddos-protection/manage-ddos-protection.md)
 
 - [Så här distribuerar du Azure-brandvägg](../../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -150,7 +150,7 @@ Definiera och implementera standardinställda säkerhetskonfigurationer för nä
 
 Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resources Manager-mallar, Azure RBAC-kontroller och-principer, i en enda skiss definition. Du kan använda skissen för nya prenumerationer och finjustera kontroll och hantering genom versions hantering.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Azure Policy exempel för nätverk](../../governance/policy/samples/built-in-policies.md#network)
 

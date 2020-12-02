@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: d73efd7a64d0118cea11ca9b0a35f659ce7fee6a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a646588616b874e40b1ed2a5a0b5e691b075075d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791298"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487311"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Ring buffertens mål kod för utökade händelser i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,10 +28,10 @@ Du vill ha ett fullständigt kod exempel för det enklaste sättet att samla in 
 I det här avsnittet presenteras ett Transact-SQL-kod exempel som:
 
 1. Skapar en tabell med data att demonstrera med.
-2. Skapar en session för en befintlig utökad händelse, nämligen **SQLServer.sql_statement_starting** .
+2. Skapar en session för en befintlig utökad händelse, nämligen **SQLServer.sql_statement_starting**.
 
-   * Händelsen är begränsad till SQL-uttryck som innehåller en viss uppdaterings sträng: **instruktion som% Update tabEmployee%** .
-   * Väljer att skicka utdata för händelsen till ett mål av typen ring-buffert, nämligen  **package0.ring_buffer** .
+   * Händelsen är begränsad till SQL-uttryck som innehåller en viss uppdaterings sträng: **instruktion som% Update tabEmployee%**.
+   * Väljer att skicka utdata för händelsen till ett mål av typen ring-buffert, nämligen  **package0.ring_buffer**.
 3. Startar händelsesessionen.
 4. Utfärdar ett par enkla SQL UPDATE-instruktioner.
 5. Utfärdar ett SQL SELECT-uttryck för att hämta händelse utdata från ringbufferten.
@@ -218,7 +218,7 @@ GO
 
 Vi använde `ssms.exe` för att köra kod exemplet.
 
-För att visa resultaten klickade vi på cellen under kolumn rubriken **target_data_XML** .
+För att visa resultaten klickade vi på cellen under kolumn rubriken **target_data_XML**.
 
 Sedan klickade du på cellen under kolumn rubriken **target_data_XML** i resultat fönstret. Då klickar du på fliken skapad en annan fil i ssms.exe där innehållet i resultat cellen visades, som XML.
 

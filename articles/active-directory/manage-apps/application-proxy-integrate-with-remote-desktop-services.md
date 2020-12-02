@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bfa9367e06c099e21a54ad8c03f8d5ab853aaafb
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: bfe8af8c30bbc2bc66c363fbd85f6764a48c28a1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348083"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488076"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicera Fjärrskrivbord med Azure AD-programproxy
 
@@ -130,9 +130,11 @@ Konfigurationen som beskrivs i den här artikeln är till för åtkomst till fj�
 
 | Autentiseringsmetod | Klient konfiguration som stöds |
 | --------------------- | ------------------------------ |
-| Förautentisering    | Webb server för fjärr skrivbord – Windows 7/10 med Internet Explorer eller [Edge krom IE-läge](/deployedge/edge-ie-mode) + RDS-tillägg <br /> *Observera att portalen My Apps endast stöder Edge.* |
+| Förautentisering    | Webb server för fjärr skrivbord – Windows 7/10 med Internet Explorer * eller [Edge krom IE-läge](/deployedge/edge-ie-mode) + fjärr skrivbords tillägg för ActiveX |
 | Förautentisering    | Webb klient för fjärrskrivbordsgateway – HTML5 kompatibel webbläsare, till exempel Microsoft Edge, Internet Explorer 11, Google Chrome, Safari eller Mozilla Firefox (v 55.0 och senare) |
 | Genomströmning | Andra operativ system som stöder Microsoft Fjärrskrivbord programmet |
+
+* Edge krom IE-läge krävs när portalen Mina appar används för att komma åt appen för fjärr skrivbord.  
 
 Flödet för förautentisering ger högre säkerhets fördelar än genom strömnings flödet. Med förautentisering kan du använda funktioner i Azure AD-autentisering, t. ex. enkel inloggning, villkorlig åtkomst och tvåstegsverifiering för dina lokala resurser. Du ser också till att endast autentiserad trafik når nätverket.
 

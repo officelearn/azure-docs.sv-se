@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: mohitku
 ms.reviewer: tyao
-ms.openlocfilehash: a24f9e78de34b17977a1876cbefb473cc2610db0
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 4c710792dd7966fad76b33954fdf7c2253cf18f0
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95550132"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488246"
 ---
 # <a name="tuning-web-application-firewall-waf-for-azure-front-door"></a>Justera brand vägg för webbaserade program (WAF) för Azure-front dörr
  
@@ -136,7 +136,7 @@ En fördel med att använda en undantags lista är att bara den matchnings varia
  
 Det är viktigt att tänka på att undantag är en global inställning. Det innebär att den konfigurerade undantagen gäller för all trafik som passerar genom din WAF, inte bara en speciell webbapp eller URI. Detta kan till exempel vara ett problem om *1 = 1* är en giltig begäran i bröd texten för en viss webbapp, men inte för andra i samma WAF-princip. Om det är bra att använda olika undantags listor för olika program, bör du överväga att använda olika WAF-principer för varje program och tillämpa dem på varje program klient del.
  
-När du konfigurerar exkluderings listor för hanterade regler kan du välja att undanta alla regler inom en regel uppsättning, alla regler inom en regel grupp eller en enskild regel. En undantags lista kan konfigureras med [PowerShell](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-4.7.0&viewFallbackFrom=azps-3.5.0), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext_front_door_az_network_front_door_waf_policy_managed_rules_exclusion_add), [REST API](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)eller Azure Portal.
+När du konfigurerar exkluderings listor för hanterade regler kan du välja att undanta alla regler inom en regel uppsättning, alla regler inom en regel grupp eller en enskild regel. En undantags lista kan konfigureras med [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-4.7.0&viewFallbackFrom=azps-3.5.0), [Azure CLI](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext_front_door_az_network_front_door_waf_policy_managed_rules_exclusion_add), [REST API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)eller Azure Portal.
 
 * Undantag på regel nivå
   * Att tillämpa undantag på en regel nivå innebär att de angivna undantagen inte analyseras mot den enskilda regeln, medan de fortfarande analyseras av alla andra regler i regel uppsättningen. Detta är den mest detaljerade nivån för undantag och kan användas för att finjustera den hanterade regel uppsättningen baserat på den information som du hittar i WAF-loggarna när du felsöker en händelse.
@@ -181,7 +181,7 @@ I exemplet nedan har vi skapat en anpassad regel med två villkor. Det första v
 
 Med hjälp av en anpassad regel kan du vara mest detaljerad när du finjusterar dina WAF-regler och hanterar falska positiva identifieringar. I det här fallet vidtar vi inte åtgärder baserat på värdet för `comment` begär ande texten, som kan finnas på flera webbplatser eller i appar i samma WAF-princip. Genom att inkludera ett annat villkor som också matchar i en viss begär ande-URI `/api/Feedbacks/` , ser vi till att den här anpassade regeln verkligen gäller för det explicita användnings fall som vi testats ut. Detta säkerställer att samma attack, om det utförs mot olika villkor, fortfarande kommer att inspekteras och förhindras av WAF-motorn.
 
-![Loggas](../media/waf-front-door-tuning/custom-rule.png)
+![Logga](../media/waf-front-door-tuning/custom-rule.png)
 
 När du utforskar loggen kan du se att `ruleName_s` fältet innehåller det namn som angavs för den anpassade regel som vi skapade: `redirectcomment` . I `action_s` fältet kan du se att *omdirigerings* åtgärden vidtogs för den här händelsen. I `details_matches_s` fältet kan vi se information om båda villkoren matchades.
 
@@ -193,7 +193,7 @@ Att inaktivera en regel är en fördel när du är säker på att alla begär An
  
 Att inaktivera en regel är dock en global inställning som gäller för alla klient dels värdar som är kopplade till WAF-principen. När du väljer att inaktivera en regel kan du lämna sårbarheter som exponeras utan skydd eller identifiering för andra klient dels värdar som är kopplade till WAF-principen.
  
-Om du vill använda Azure PowerShell för att inaktivera en hanterad regel, se [`PSAzureManagedRuleOverride`](https://docs.microsoft.com/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?view=azps-4.7.0&preserve-view=true) objekt dokumentationen. Om du vill använda Azure CLI kan du läsa mer i [`az network front-door waf-policy managed-rules override`](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?view=azure-cli-latest&preserve-view=true) dokumentationen.
+Om du vill använda Azure PowerShell för att inaktivera en hanterad regel, se [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?preserve-view=true&view=azps-4.7.0) objekt dokumentationen. Om du vill använda Azure CLI kan du läsa mer i [`az network front-door waf-policy managed-rules override`](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?preserve-view=true&view=azure-cli-latest) dokumentationen.
 
 ![WAF-regler](../media/waf-front-door-tuning/waf-rules.png)
 

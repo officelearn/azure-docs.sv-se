@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8b7490723d3930a151abf1d3f72bb957e02e5988
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d88792f50e0e79dd0313694cf979761054551eac
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975509"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487532"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrera virtuella Azure-datorer till Managed Disks i Azure
 
@@ -27,7 +27,7 @@ Du kan migrera till Managed Disks i följande scenarier:
 |---------|---------|
 |Konvertera fristående virtuella datorer och virtuella datorer i en tillgänglighetsuppsättning till hanterade diskar     |[Konvertera virtuella datorer för att använda hanterade diskar](convert-unmanaged-to-managed-disks.md)         |
 |Konvertera en enskild virtuell dator från klassisk till Resource Manager på Managed disks     |[Skapa en virtuell dator från en klassisk virtuell hård disk](create-vm-specialized-portal.md)         |
-|Konvertera alla virtuella datorer i ett vNet från klassiskt läge till Resource Manager på Managed disks     |[Migrera IaaS-resurser från klassisk till Resource Manager](migration-classic-resource-manager-ps.md) och [konvertera sedan en virtuell dator från ohanterade diskar till Managed disks](convert-unmanaged-to-managed-disks.md)         |
+|Konvertera alla virtuella datorer i ett vNet från klassiskt läge till Resource Manager på Managed disks     |[Migrera IaaS-resurser från klassisk till Resource Manager](../migration-classic-resource-manager-ps.md) och [konvertera sedan en virtuell dator från ohanterade diskar till Managed disks](convert-unmanaged-to-managed-disks.md)         |
 |Uppgradera virtuella datorer med ohanterade standard diskar till virtuella datorer med hanterade Premium-diskar     | Konvertera först [en virtuell Windows-dator från ohanterade diskar till hanterade diskar](convert-unmanaged-to-managed-disks.md). [Uppdatera sedan lagrings typen för en hanterad disk](convert-disk-storage.md).         |
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]

@@ -2,19 +2,19 @@
 title: Växla aktivitet i Azure Data Factory
 description: Med växel aktiviteten kan du styra bearbetnings flödet baserat på ett villkor.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd5bb37d54183020e233774a778d27f5d4588bb4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81418022"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486033"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Växla aktivitet i Azure Data Factory
 
@@ -67,13 +67,13 @@ Växel aktiviteten ger samma funktioner som en switch-instruktion i programmerin
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
-name | Växel aktivitetens namn. | Sträng | Ja
-typ | Måste anges för att *Växla** | Sträng | Ja
-uttryck | Uttryck som måste utvärderas till sträng värde | Uttryck med resultat typs sträng | Ja
-fall | En uppsättning ärenden som innehåller ett värde och en uppsättning aktiviteter som ska köras när värdet matchar uttrycks utvärderingen. Måste innehålla minst ett fall. Det finns en Max gräns på 25 fall. | Matris med Case-objekt | Ja
-defaultActivities | Uppsättning aktiviteter som körs när uttrycks utvärderingen inte är uppfyllt. | Matris med aktiviteter | Ja
+name | Växel aktivitetens namn. | Sträng | Yes
+typ | Måste anges för att *Växla** | Sträng | Yes
+uttryck | Uttryck som måste utvärderas till sträng värde | Uttryck med resultat typs sträng | Yes
+fall | En uppsättning ärenden som innehåller ett värde och en uppsättning aktiviteter som ska köras när värdet matchar uttrycks utvärderingen. Måste innehålla minst ett fall. Det finns en Max gräns på 25 fall. | Matris med Case-objekt | Yes
+defaultActivities | Uppsättning aktiviteter som körs när uttrycks utvärderingen inte är uppfyllt. | Matris med aktiviteter | Yes
 
 ## <a name="example"></a>Exempel
 

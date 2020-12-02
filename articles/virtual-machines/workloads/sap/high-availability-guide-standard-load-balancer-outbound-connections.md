@@ -14,21 +14,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/16/2020
+ms.date: 12/01/2020
 ms.author: radeltch
-ms.openlocfilehash: a6b62e9c894c25b2c3cd064524881ae5db51ec5a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9c9979699b5bcb3636adc0f9b58331568ea9cad1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968544"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486310"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Offentlig slut punkts anslutning för Virtual Machines med Azure Standard Load Balancer i SAP-scenarier med hög tillgänglighet
 
 Omfånget för den här artikeln är att beskriva konfigurationer som kommer att aktivera utgående anslutning till offentliga slut punkter. Konfigurationerna är huvudsakligen i sammanhanget med hög tillgänglighet med pacemaker för SUSE/RHEL.  
 
-Om du använder pacemaker med Azure stängsel-agenten i din lösning för hög tillgänglighet måste de virtuella datorerna ha utgående anslutning till Azures hanterings-API.  
-Artikeln visar flera alternativ som gör att du kan välja det alternativ som passar bäst för ditt scenario.  
+Om du använder pacemaker med Azure stängsel-agenten i din lösning för hög tillgänglighet måste de virtuella datorerna ha utgående anslutning till Azures hanterings-API. Artikeln visar flera alternativ som gör att du kan välja det alternativ som passar bäst för ditt scenario.  
 
 ## <a name="overview"></a>Översikt
 
@@ -42,12 +41,12 @@ När virtuella datorer utan offentliga IP-adresser placeras i backend-poolen fö
 
 Om en virtuell dator tilldelas en offentlig IP-adress, eller om den virtuella datorn finns i backend-poolen för en belastningsutjämnare med en offentlig IP-adress, kommer den att ha utgående anslutning till offentliga slut punkter.  
 
-SAP-system innehåller ofta känsliga affärs data. Det är sällan acceptabelt för virtuella datorer som är värdar för SAP-system att ha offentliga IP-adresser. På samma gång finns det scenarier som kräver utgående anslutning från den virtuella datorn till offentliga slut punkter.  
+SAP-system innehåller ofta känsliga affärs data. Det är sällan acceptabelt för virtuella datorer som är värdar för SAP-system som kan nås via offentliga IP-adresser. På samma gång finns det scenarier som kräver utgående anslutning från den virtuella datorn till offentliga slut punkter.  
 
 Exempel på scenarier som kräver åtkomst till Azures offentliga slut punkt är:  
-- Använda Azures stängsel-agent som en avgränsnings funktion i pacemaker-kluster
-- Azure Backup
-- Azure Site Recovery  
+- Azure-stängsel-agenten kräver åtkomst till **Management.Azure.com** och **login.microsoftonline.com**  
+- [Azure Backup](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)
+- [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls)  
 - Använda offentliga lagrings platser för att korrigera operativ systemet
 - Data flödet SAP-program kan kräva utgående anslutning till den offentliga slut punkten
 
@@ -70,7 +69,7 @@ Läs följande dokument först:
 * [Virtuella nätverk – användardefinierade regler](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) – Azure-routning – koncept och regler  
 * [Säkerhets grupper tjänst Taggar](../../../virtual-network/network-security-groups-overview.md#service-tags) – hur du fören klar nätverks säkerhets grupperna och brand Väggs konfigurationen med service märken
 
-## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Ytterligare extern Azure-Standard Load Balancer för utgående anslutningar till Internet
+## <a name="option-1-additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Alternativ 1: ytterligare extern Azure-Standard Load Balancer för utgående anslutningar till Internet
 
 Ett alternativ för att få en utgående anslutning till offentliga slut punkter, utan att tillåta inkommande anslutning till den virtuella datorn från den offentliga slut punkten, är att skapa en andra belastningsutjämnare med offentlig IP-adress, lägga till de virtuella datorerna i backend-poolen för den andra belastningsutjämnaren och definiera enbart [utgående regler](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules).  
 Använd [nätverks säkerhets grupper](../../../virtual-network/network-security-groups-overview.md) för att kontrol lera de offentliga slut punkterna som är tillgängliga för utgående samtal från den virtuella datorn.  
@@ -120,7 +119,7 @@ Konfigurationen skulle se ut så här:
 
    Mer information om nätverks säkerhets grupper i Azure finns i [säkerhets grupper ](../../../virtual-network/network-security-groups-overview.md). 
 
-## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Azure-brandvägg för utgående anslutningar till Internet
+## <a name="option-2-azure-firewall-for-outbound-connections-to-internet"></a>Alternativ 2: Azure-brandvägg för utgående anslutningar till Internet
 
 Ett annat alternativ för att få en utgående anslutning till offentliga slut punkter, utan att tillåta inkommande anslutning till den virtuella datorn från offentliga slut punkter, är med Azure-brandväggen. Azure-brandväggen är en hanterad tjänst med inbyggd hög tillgänglighet och kan omfatta flera Tillgänglighetszoner.  
 Du måste också distribuera en [användardefinierad väg](../../../virtual-network/virtual-networks-udr-overview.md#custom-routes)som är associerad med ett undernät där virtuella datorer och Azure Load Balancer distribueras, peka på Azure-brandväggen för att dirigera trafik via Azure-brandväggen.  
@@ -170,7 +169,7 @@ Arkitekturen skulle se ut så här:
    1. Väg namn: ToMyAzureFirewall, adressprefix: **0.0.0.0/0**. Typ av nästa hopp: Välj virtuell installation. Adress till nästa hopp: Ange den privata IP-adressen för den brand vägg som du konfigurerade: **11.97.1.4**.  
    1. Spara
 
-## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Använda proxy för pacemaker-anrop till Azure Management API
+## <a name="option-3-using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Alternativ 3: använda proxy för pacemaker-anrop till Azure Management API
 
 Du kan använda proxy för att tillåta pacemaker-anrop till den offentliga slut punkten för Azure Management API.  
 
@@ -221,9 +220,9 @@ Om du vill tillåta att pacemaker kommunicerar med Azures hanterings-API utför 
      sudo pcs property set maintenance-mode=false
      ```
 
-## <a name="other-solutions"></a>Andra lösningar
+## <a name="other-options"></a>Andra alternativ
 
-Om utgående trafik dirigeras via brand vägg från tredje part:
+Om utgående trafik dirigeras via tredje part, URL-baserad brand Väggs-proxy:
 
 - Om du använder Azure stängsel-agenten kontrollerar du att brand Väggs konfigurationen tillåter utgående anslutning till Azure Management API: `https://management.azure.com` och `https://login.microsoftonline.com`   
 - Om du använder uppdaterings infrastrukturen för Azures offentliga Azure-moln för att tillämpa uppdateringar och uppdateringar, se [Azures offentliga moln uppdaterings infrastruktur 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)

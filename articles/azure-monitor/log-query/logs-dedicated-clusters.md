@@ -6,24 +6,23 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: d261640dfdb59b2b06cfe3066fca26640a0bed54
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: a68501bd1189993b4dd0c2acdecaa7434fa51dcc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874652"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488042"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor loggar dedicerade kluster
 
-Azure Monitor loggar dedikerade kluster är ett distributions alternativ som är tillgängligt för att bättre betjäna kunder med stora volymer. Kunder som inhämtar mer än 4 TB data per dag kommer att använda dedikerade kluster. Kunder med dedikerade kluster kan välja vilka arbets ytor som ska finnas i dessa kluster.
+Azure Monitor loggar dedikerade kluster är ett distributions alternativ som gör att du kan Azure Monitor logga kunder på en avancerad funktion. Kunder med dedikerade kluster kan välja vilka arbets ytor som ska finnas i dessa kluster.
 
-Förutom stöd för hög volym finns det andra fördelar med att använda dedikerade kluster:
+De funktioner som kräver dedikerade kluster är:
 
-- **Hastighets begränsning** – en kund kan bara ha högre inmatnings [hastighets gränser](../service-limits.md#data-ingestion-volume-rate) på dedikerat kluster.
-- **Funktioner** – vissa företags funktioner är bara tillgängliga i dedikerade kluster – särskilt Kundhanterade nycklar (CMK) och stöd för att säkra. 
-- **Konsekvens** – kunder har sina egna dedikerade resurser och påverkar inte andra kunder som kör på samma delade infrastruktur.
-- **Kostnads effektivitet** – det kan vara mer kostnads effektivt att använda dedikerat kluster eftersom de tilldelade kapacitets nivåerna för kapacitet tar hänsyn till all kluster inmatning och gäller alla dess arbets ytor, även om några av dem är små och inte berättigade till kapacitets reservations rabatt.
-- Frågor **över flera arbets ytor** körs snabbare om alla arbets ytor finns i samma kluster.
+- **[Kundhanterade nycklar](../platform/customer-managed-keys.md)** – kryptera kluster data med hjälp av nycklar som tillhandahålls och styrs av kunden.
+- **[Säker databas](../platform/customer-managed-keys.md#customer-lockbox-preview)** kan styra åtkomst begär Anden från Microsofts support tekniker för data.
+- **[Dubbel kryptering](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** skyddar mot ett scenario där en av krypteringsalgoritmer eller nycklar kan komprometteras. I det här fallet fortsätter det extra krypterings lagret att skydda dina data.
+- **[Flera arbets ytor](../log-query/cross-workspace-query.md)** – om en kund använder mer än en arbets yta för produktion kan det vara bra att använda dedicerat kluster. Frågor över flera arbets ytor kommer att köras snabbare om alla arbets ytor finns i samma kluster. Det kan också vara mer kostnads effektivt att använda dedicerat kluster som tilldelade kapacitets nivåer för kapacitet, ta hänsyn till all kluster inmatning och gäller alla dess arbets ytor, även om några av dem är små och inte berättigade till kapacitets reservations rabatt.
 
 Dedikerade kluster kräver att kunderna genomför med en kapacitet på minst 1 TB data inmatning per dag. Det är enkelt att migrera till ett dedikerat kluster. Ingen data förlust eller tjänst avbrott. 
 

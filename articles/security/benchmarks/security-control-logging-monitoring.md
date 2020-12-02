@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e88976bfbf5d033d6f5dc2318a6383e01ceb791d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8492e986b378ea19f8c3c4cb7f94fcb0f155b427
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409084"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487855"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Säkerhets kontroll: loggning och övervakning
 
@@ -96,7 +96,7 @@ Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel e
 
 - [Publicera Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [Förstå Log Analytics arbets yta](../../azure-monitor/log-query/get-started-portal.md)
+- [Förstå Log Analytics arbets yta](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Så här utför du anpassade frågor i Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 

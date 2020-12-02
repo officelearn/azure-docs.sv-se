@@ -72,7 +72,7 @@
     - name: Bästa praxis
       href: network-best-practices.md
     - name: DDoS Protection-regelverk
-      href: 'https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices'
+      href: ../../ddos-protection/fundamental-best-practices.md
     - name: DDoS Protection-säkerhetsbaslinje
       href: ddos-protection-security-baseline.md
     - name: Överflödig DNS och övertagande av underdomäner

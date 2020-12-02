@@ -13,14 +13,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/29/2020
+ms.date: 12/01/2020
 ms.author: radeltch
-ms.openlocfilehash: 6e906e6c86d615852191e2fd65a2b1a58695ed34
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b111dae035e7a055628642fe7c460734199ff608
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968561"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486350"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Konfigurera pacemaker på Red Hat Enterprise Linux i Azure
 
@@ -69,6 +69,7 @@ Läs följande SAP-anteckningar och dokument först:
   * [Installera och konfigurera en Red Hat Enterprise Linux 7,4 (och senare) High-Availability kluster på Microsoft Azure](https://access.redhat.com/articles/3252491)
   * [Att tänka på när du antar RHEL 8 – hög tillgänglighet och kluster](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/high-availability-and-clusters_considerations-in-adopting-rhel-8)
   * [Konfigurera SAP S/4HANA ASCS/ERS med fristående server 2 (ENSA2) i pacemaker på RHEL 7,6](https://access.redhat.com/articles/3974941)
+  * [RHEL för SAP-erbjudanden på Azure](https://access.redhat.com/articles/5456301)
 
 ## <a name="cluster-installation"></a>Kluster installation
 
@@ -80,7 +81,7 @@ Läs följande SAP-anteckningar och dokument först:
 
 Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
 
-1. **[A]** -register. Det här steget krävs inte om du använder RHEL 8. x HA-aktiverade avbildningar.  
+1. **[A]** -register. Det här steget är inte obligatoriskt, om du använder RHEL SAP HA-aktiverade avbildningar.  
 
    Registrera dina virtuella datorer och koppla dem till en pool som innehåller databaser för RHEL 7.
 
@@ -90,9 +91,9 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Genom att koppla en pool till en Azure Marketplace PAYG RHEL-avbildning, kommer du i praktiken att faktureras effektivt för din RHEL-användning: en gång för PAYG-avbildningen och en gång för RHEL-rättigheterna i poolen som du ansluter. För att minimera detta tillhandahåller Azure nu BYOS RHEL-avbildningar. Mer information finns [här](../redhat/byos.md).
+   Genom att koppla en pool till en Azure Marketplace PAYG RHEL-avbildning, kommer du i praktiken att faktureras effektivt för din RHEL-användning: en gång för PAYG-avbildningen och en gång för RHEL-rättigheterna i poolen som du ansluter. För att minimera detta tillhandahåller Azure nu BYOS RHEL-avbildningar. Mer information finns [här](../redhat/byos.md).  
 
-1. **[A]** aktivera RHEL för SAP databaser. Det här steget krävs inte om du använder RHEL 8. x HA-aktiverade avbildningar.  
+1. **[A]** aktivera RHEL för SAP databaser. Det här steget är inte obligatoriskt, om du använder RHEL SAP HA-aktiverade avbildningar.  
 
    Aktivera följande databaser för att installera de nödvändiga paketen.
 

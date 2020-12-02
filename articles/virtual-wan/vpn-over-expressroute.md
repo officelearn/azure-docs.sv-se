@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6c6f71277c276bed603989774637bd95999de333
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b8dde3ed76587e2343edaec8626287853ec6ef9b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023540"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487515"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>ExpressRoute-kryptering: IPsec över ExpressRoute för virtuellt WAN
 
@@ -95,7 +95,7 @@ Plats resursen är samma som icke-ExpressRoute VPN-platser för ett virtuellt WA
 
    Om BGP är aktiverat kommer det att gälla alla anslutningar som skapats för den här platsen i Azure. Konfiguration av BGP på ett virtuellt WAN-nätverk motsvarar att konfigurera BGP på en Azure VPN-gateway. 
    
-   Din lokala BGP-peer-adress *får inte* vara samma som IP-adressen för ditt VPN till enheten eller adress utrymmet för det virtuella nätverket för VPN-platsen. Använd en annan IP-adress på VPN-enheten för din BGP-peer-IP. Det kan vara en adress som tilldelats till loopback-gränssnittet på enheten. Det kan dock *inte* vara en APIPA (169,254.*x*. *x*). Ange den här adressen i motsvarande lokala nätverksgateway som representerar platsen. För BGP-krav, se [om BGP med Azure VPN gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   Din lokala BGP-peer-adress *får inte* vara samma som IP-adressen för ditt VPN till enheten eller adress utrymmet för det virtuella nätverket för VPN-platsen. Använd en annan IP-adress på VPN-enheten för din BGP-peer-IP. Det kan vara en adress som tilldelats till loopback-gränssnittet på enheten. Det kan dock *inte* vara en APIPA (169,254.*x*. *x*). Ange den här adressen på motsvarande VPN-plats som representerar platsen. För BGP-krav, se [om BGP med Azure VPN gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 1. Välj **Nästa: granska + skapa >** för att kontrol lera inställnings värden och skapa VPN-platsen. Om du har valt **hubbar** för anslutning upprättas anslutningen mellan det lokala nätverket och HUBBENS VPN-gateway.
 

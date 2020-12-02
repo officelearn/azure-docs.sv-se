@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2020
+ms.date: 12/01/2020
 ms.author: memildin
-ms.openlocfilehash: 6b54f02b39e233dcf35f0d18682ca102883d76c3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 85dffd4d96a78bab9dd890d9ad37572f3e524f06
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791876"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487940"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Konfigurera e-postaviseringar för säkerhets aviseringar 
 
@@ -31,9 +31,9 @@ Om du vill definiera egna inställningar för e-postmeddelanden Azure Security C
 
 För att undvika aviserings utmattning begränsar Security Center volymen utgående e-post. Security Center skickar för varje prenumeration:
 
-- högst **fyra** e-postmeddelanden per dag för aviseringar med **hög allvarlighets grad**
-- högst **två** e-postmeddelanden per dag för aviseringar med **medelhög allvarlighets grad**
-- högst **ett** e-postmeddelande per dag för aviseringar med **låg allvarlighets grad**
+- högst ett e-postmeddelande per **6 timmar** (4 e-postmeddelanden per dag) för aviseringar med **hög allvarlighets grad**
+- högst ett e-postmeddelande per **12 timmar** (2 e-postmeddelanden per dag) för aviseringar med **medelhög allvarlighets grad**
+- högst ett e-postmeddelande per **24 timmar** för aviseringar med **låg allvarlighets grad**
 
 :::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="Konfigurera information om den kontakt som får e-postmeddelanden om säkerhets aviseringar." :::
  
@@ -44,7 +44,7 @@ För att undvika aviserings utmattning begränsar Security Center volymen utgåe
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|Kostnadsfri|
 |Nödvändiga roller och behörigheter:|**Säkerhetsadministratör**<br>**Prenumerations ägare** |
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
@@ -52,20 +52,19 @@ För att undvika aviserings utmattning begränsar Security Center volymen utgåe
 
 Du kan skicka e-postmeddelanden till enskilda användare eller till alla användare med vissa Azure-roller.
 
-1. Välj den relevanta prenumerationen från Security Center **pris & inställningar** och välj **e-postaviseringar** .
+1. Välj den relevanta prenumerationen från Security Center **pris & inställningar** och välj **e-postaviseringar**.
 
 1. Definiera mottagarna för dina meddelanden med ett eller båda av dessa alternativ:
 
     - Välj från de tillgängliga rollerna i list rutan.
     - Ange vissa e-postadresser avgränsade med kommatecken. Det finns ingen gräns för antalet e-postadresser som du kan ange.
 
-1. Om du vill använda säkerhets kontakt information för din prenumeration väljer du **Spara** .
+1. Om du vill använda säkerhets kontakt information för din prenumeration väljer du **Spara**.
 
 
-## <a name="next-steps"></a>Nästa steg
-
+## <a name="see-also"></a>Se även
 Mer information om säkerhets aviseringar finns i följande sidor:
 
 - [Säkerhets aviseringar – en referens guide](alerts-reference.md)– lär dig mer om säkerhets aviseringar som du kan se i Azure Security Center skydds modul för hot
 - [Hantera och åtgärda säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md)– lär dig hantera och reagera på säkerhets aviseringar
-- [Automatisera svar på Security Center-utlösare](workflow-automation.md)– Använd Automation för att svara på Security Center utlösare med anpassad meddelande logik
+- [Arbets flödes automatisering](workflow-automation.md)– automatisera svar på aviseringar med anpassad meddelande logik

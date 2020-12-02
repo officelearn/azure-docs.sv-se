@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2020
 ms.author: amsriva
-ms.openlocfilehash: b9154b124f89a8b672c58d5e7bce28c0833e8a8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9d7fb8be1894ffa5f8c35e16e1ed3aa0949b3ff
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84988029"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488212"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>VPN Gateway klassisk till Resource Manager-migrering
 VPN-gatewayer kan nu migreras från den klassiska distributions modellen till Resource Manager. Du kan läsa mer om Azure Resource Manager [funktioner och förmåner](../azure-resource-manager/management/overview.md). I den här artikeln beskriver vi hur du migrerar från klassiska distributioner till en nyare Resource Manager-baserad modell. 
 
-VPN-gatewayer migreras som en del av VNet-migreringen från klassisk till Resource Manager. Den här migreringen görs ett VNet i taget. Det finns inga ytterligare krav vad gäller verktyg eller förutsättningar för migrering. Migrerings stegen är identiska med befintlig VNet-migrering och dokumenteras på [IaaS Resources-sidan](../virtual-machines/windows/migration-classic-resource-manager-ps.md). Det finns ingen data Sök vägs nedtid under migreringen och därmed fortsätter befintliga arbets belastningar utan förlust av lokal anslutning under migreringen. Den offentliga IP-adress som är associerad med VPN-gatewayen ändras inte under migreringsprocessen. Detta innebär att du inte behöver konfigurera om den lokala routern när migreringen är klar.  
+VPN-gatewayer migreras som en del av VNet-migreringen från klassisk till Resource Manager. Den här migreringen görs ett VNet i taget. Det finns inga ytterligare krav vad gäller verktyg eller förutsättningar för migrering. Migrerings stegen är identiska med befintlig VNet-migrering och dokumenteras på [IaaS Resources-sidan](../virtual-machines/migration-classic-resource-manager-ps.md). Det finns ingen data Sök vägs nedtid under migreringen och därmed fortsätter befintliga arbets belastningar utan förlust av lokal anslutning under migreringen. Den offentliga IP-adress som är associerad med VPN-gatewayen ändras inte under migreringsprocessen. Detta innebär att du inte behöver konfigurera om den lokala routern när migreringen är klar.  
 
 Modellen i Resource Manager skiljer sig från den klassiska modellen och består av virtuella nätverks-gatewayer, lokala nätverks-gatewayer och anslutnings resurser. Dessa representerar själva VPN-gatewayen, den lokala platsen som representerar lokalt adress utrymme och anslutningar mellan båda. När migreringen är klar är dina gatewayer inte tillgängliga i den klassiska modellen och alla hanterings åtgärder på virtuella nätverks-gatewayer, lokala nätverksgateway och anslutnings objekt måste utföras med hjälp av Resource Manager-modellen.
 
@@ -66,5 +66,4 @@ Eftersom vi transformerar VNet till VNet-anslutning utan att behöva lokala plat
 * Upprätta en explicit anslutning från det virtuella nätverket till den lokala Nätverksgatewayen som representerar lokal plats. Detta kräver också att du ändrar konfigurationen på den lokala routern för att skapa och konfigurera IPsec-tunneln.
 
 ## <a name="next-steps"></a>Nästa steg
-När du har lärt dig om stödet för migrering av VPN gateway går du till [plattforms stöd för migrering av IaaS-resurser från klassisk till Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-ps.md) för att komma igång.
-
+När du har lärt dig om stödet för migrering av VPN gateway går du till [plattforms stöd för migrering av IaaS-resurser från klassisk till Resource Manager](../virtual-machines/migration-classic-resource-manager-ps.md) för att komma igång.

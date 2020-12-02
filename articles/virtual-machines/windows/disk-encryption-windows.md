@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e0409f289289aaebc760473f1f74130b34fbdd39
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ad40515475a10f41fd7ab1d8d44f89673877f054
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357733"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488328"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Azure Disk Encryption-scenarier på virtuella Windows-datorer
 
@@ -135,7 +135,7 @@ I följande tabell visas parametrarna för Resource Manager-mallen för befintli
 | keyVaultName | Namnet på nyckel valvet som BitLocker-nyckeln ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` eller Azure CLI-kommandot `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | Namnet på den resurs grupp som innehåller nyckel valvet|
 |  keyEncryptionKeyURL | URL: en för nyckel krypterings nyckeln, i formatet https:// &lt; Key Vault-name &gt; . Vault.Azure.net/Key/ &lt; nyckel-name &gt; . Lämna fältet tomt om du inte vill använda en KEK. |
-| volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden är _OS_ , _data_ och _alla_. 
+| volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden är _OS_, _data_ och _alla_. 
 | forceUpdateTag | Skicka ett unikt värde som ett GUID varje gång åtgärden måste tvingas köras. |
 | resizeOSDisk | Vill du ändra storlek på operativ systemets partition så att den upptar full OS VHD innan du delar upp system volymen. |
 | location | Platser för alla resurser. |
@@ -264,8 +264,8 @@ Azure Disk Encryption fungerar inte för följande scenarier, funktioner och tek
 - Skapa en avbildning eller ögonblicks bild av en krypterad virtuell dator och använda den för att distribuera ytterligare virtuella datorer.
 - Virtuella Gen2-datorer (se: [stöd för virtuella datorer i generation 2 på Azure](../generation-2.md#generation-1-vs-generation-2-capabilities))
 - Virtuella datorer i M-serien med Skrivningsaccelerator diskar.
-- Använda ADE på en virtuell dator som har diskar som är krypterade med [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md) (SSE + CMK). Att använda SSE + CMK till en datadisk på en virtuell dator som är krypterad med ADE är ett scenario som inte stöds.
-- Migrering av en virtuell dator som är krypterad med ADE eller **som har varit** krypterad med ade, till kryptering på [Server sidan med Kundhanterade nycklar](disk-encryption.md).
+- Använda ADE på en virtuell dator som har diskar som är krypterade med [kryptering på Server sidan med Kundhanterade nycklar](../disk-encryption.md) (SSE + CMK). Att använda SSE + CMK till en datadisk på en virtuell dator som är krypterad med ADE är ett scenario som inte stöds.
+- Migrering av en virtuell dator som är krypterad med ADE eller **som har varit** krypterad med ade, till kryptering på [Server sidan med Kundhanterade nycklar](../disk-encryption.md).
 - [Azure VM-storlekar utan lokal temporär disk](../azure-vms-no-temp-disk.md); Mer specifikt, DV4, Dsv4, Ev4 och Esv4.
 
 ## <a name="next-steps"></a>Nästa steg

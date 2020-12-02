@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 06/30/2020
+ms.date: 12/01/2020
 ms.author: victorh
-ms.openlocfilehash: 3323f73c137905fbe677c68d3830d7f609fa0172
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 906687e08c9f31890a9ecec9154079e704512832
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85611585"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485730"
 ---
 # <a name="deploy-a-security-partner-provider"></a>Distribuera en säkerhetspartnerprovider
 
@@ -21,14 +21,18 @@ ms.locfileid: "85611585"
 Mer information om vilka scenarier som stöds och rikt linjer för bästa praxis finns i [Vad är leverantörer av säkerhets partner?](trusted-security-partners.md)
 
 
-Integrerade SECaaS-partner från tredje part är nu tillgängliga i alla offentliga moln regioner i Azure. **Zscaler** -integrering kommer att vara allmänt tillgänglig 3 juli 2020. **Check Point** är en SECaaS-partner som stöds och som är i för hands version den 3 juli 2020. **iboss** -integrering kommer att vara allmänt tillgänglig den 31 juli 2020.
+Integrerade SECaaS-partner (Security as a Service) från tredje part är nu tillgängliga: 
+
+- **Zscaler**
+- **[Check Point](check-point-overview.md)**
+- **iboss**
 
 ## <a name="deploy-a-third-party-security-provider-in-a-new-hub"></a>Distribuera en säkerhets leverantör från tredje part i en ny hubb
 
 Hoppa över det här avsnittet om du distribuerar en tredjeparts-Provider till en befintlig hubb.
 
 1. Logga in på Azure Portal på https://portal.azure.com.
-2. I **Sök**skriver du **Firewall Manager** och väljer den under **tjänster**.
+2. I **Sök** skriver du **Firewall Manager** och väljer den under **tjänster**.
 3. Navigera till **komma igång**. Välj **Visa skyddade virtuella nav**.
 4. Välj **Skapa ny säker virtuell hubb**.
 5. Ange prenumeration och resurs grupp, Välj en region som stöds och Lägg till din hubb och virtuella WAN-information. 
@@ -55,7 +59,7 @@ När hubben har skapats och säkerhets partnern har kon figurer ATS fortsätter 
 
 Du kan också välja en befintlig hubb i ett virtuellt WAN-nätverk och konvertera det till en *säker virtuell hubb*.
 
-1. I **komma igång**väljer du **Visa skyddade virtuella nav**.
+1. I **komma igång** väljer du **Visa skyddade virtuella nav**.
 2. Välj **konvertera befintliga hubbar**.
 3. Välj en prenumeration och en befintlig hubb. Följ resten av stegen för att distribuera en provider från tredje part i en ny hubb.
 
@@ -81,8 +85,8 @@ Om du vill konfigurera tunnlar till den virtuella hubbens VPN Gateway behöver t
 1. Följ de anvisningar som medföljer din partner för att slutföra installationen. Detta inkluderar att skicka AAD-information för att identifiera och ansluta till hubben, uppdatera de utgående principerna och kontrol lera anslutnings status och loggar.
 
    - [Zscaler: konfigurera Microsoft Azure virtuell WAN-integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration).
-   - [Check Point (för hands version): konfigurera Microsoft Azure virtuell WAN-integration](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
-   - [iboss (för hands version): konfigurera Microsoft Azure virtuell WAN-integration](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security). 
+   - [Check Point: konfigurera Microsoft Azure virtuell WAN-integration](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
+   - [iboss: konfigurera Microsoft Azure virtuell WAN-integration](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security). 
    
 2. Du kan titta på statusen för att skapa tunnel på Azures virtuella WAN-portal i Azure. När tunnlarna visar **anslutna** i både Azure och partner portalen fortsätter du med nästa steg för att ställa in vägar för att välja vilka grenar och virtuella nätverk som ska skicka Internet trafik till partnern.
 
@@ -95,11 +99,11 @@ Om du vill konfigurera tunnlar till den virtuella hubbens VPN Gateway behöver t
 3. Välj hubben och navigera till **flödes inställningar**.
 
    När du distribuerar en tredjeparts-Provider i hubben konverteras hubben till en *säker virtuell hubb*. Detta säkerställer att leverantören av tredje part annonserar en router med 0.0.0.0/0 (standard) till hubben. VNet-anslutningar och platser som är anslutna till navet får dock inte den här vägen om du inte väljer vilka anslutningar som ska hämta den här standard vägen.
-4. Under **Internet trafik**väljer du **VNet-till-Internet** eller **Branch-till-Internet** eller båda så att vägar konfigureras via den tredje parten.
+4. Under **Internet trafik** väljer du **VNet-till-Internet** eller **Branch-till-Internet** eller båda så att vägar konfigureras via den tredje parten.
 
    Detta anger bara vilken typ av trafik som ska dirigeras till hubben, men den påverkar inte vägarna på virtuella nätverk eller grenar än. Dessa vägar sprids inte till alla virtuella nätverk/grenar som är kopplade till hubben som standard.
 5. Du måste välja **säkra anslutningar** och välja de anslutningar som vägarna ska ställas in på. Detta anger vilka virtuella nätverk/grenar som kan börja skicka Internet trafik till tredje parts-providern.
-6. Från **väg inställningar**väljer du **säkra anslutningar** under Internet trafik och väljer sedan det VNet eller de grenar (*platser* i virtuella WAN-nätverk) som ska skyddas. Välj **säker Internet trafik**.
+6. Från **väg inställningar** väljer du **säkra anslutningar** under Internet trafik och väljer sedan det VNet eller de grenar (*platser* i virtuella WAN-nätverk) som ska skyddas. Välj **säker Internet trafik**.
    ![Säker Internet trafik](media/deploy-trusted-security-partner/secure-internet-traffic.png)
 7. Gå tillbaka till sidan hubbar. Hubbens **providerns säkerhets partner** status bör nu  **skyddas**.
 

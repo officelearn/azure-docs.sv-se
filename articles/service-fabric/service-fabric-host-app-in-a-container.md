@@ -3,18 +3,18 @@ title: Distribuera en .NET-app i en behållare till Azure Service Fabric
 description: Lär dig hur du använder en container med ett befintligt .NET-program med hjälp av Visual Studio och hur du felsöker containrar i Service Fabric lokalt. Programmet i containern skickas via push-teknik till ett Azure-containerregister och distribueras till ett Service Fabric-kluster. När det har distribuerats till Azure använder programmet Azure SQL DB för att spara data.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: b7c841c1185cb2e289a230eb1078a13d4ccd48f8
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8be9de495fa6bc5689a2dba5384f5df3112cbb38
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889943"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485560"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudiekurs: Distribuera ett .NET-program i en Windows-container till Azure Service Fabric
 
 I den här självstudiekursen lär du dig hur du skapar en container för ett befintligt ASP.NET-program och hur du paketerar programmet som ett Service Fabric-program.  Kör containrarna lokalt i Service Fabric-utvecklingsklustret och distribuera sedan programmet till Azure.  Programmet sparar data i [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md).
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -35,7 +35,7 @@ I de här självstudierna får du lära dig att
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Ladda ned och kör Fabrikam Fiber CallCenter
 
-1. Ladda ned exempelprogrammet [Fabrikam Fiber CallCenter][link-fabrikam-github].  Klicka på länken för att **ladda ned arkiv** .  Gå till katalogen *sourceCode* i filen *fabrikam.zip* och extrahera filen *sourceCode.zip* och sedan katalogen *VS2015* till datorn.
+1. Ladda ned exempelprogrammet [Fabrikam Fiber CallCenter][link-fabrikam-github].  Klicka på länken för att **ladda ned arkiv**.  Gå till katalogen *sourceCode* i filen *fabrikam.zip* och extrahera filen *sourceCode.zip* och sedan katalogen *VS2015* till datorn.
 
 2. Kontrollera att Fabrikam Fiber CallCenter-programmet skapas och körs utan fel.  Starta Visual Studio som **administratör** och öppna filen [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Tryck på F5 för att felsöka och köra programmet.
 
@@ -43,11 +43,11 @@ I de här självstudierna får du lära dig att
 
 ## <a name="containerize-the-application"></a>Använd programmet med en container
 
-1. Högerklicka på projektet **FabrikamFiber.Web** > **Lägg till** > **Stöd för Container Orchestrator** .  Välj **Service Fabric** som initierare för containern och klicka på **OK** .
+1. Högerklicka på projektet **FabrikamFiber.Web** > **Lägg till** > **Stöd för Container Orchestrator**.  Välj **Service Fabric** som initierare för containern och klicka på **OK**.
 
 2. Om du uppmanas till det klickar du på **Ja** för att växla Docker till Windows-behållare nu.
 
-   Ett nytt Service Fabric-programprojekt **FabrikamFiber.CallCenterApplication** skapas i lösningen.  En Dockerfile läggs till i det befintliga **FabrikamFiber.Web** -projektet.  En **PackageRoot** -katalog läggs också till i **FabrikamFiber.Web** -projektet, som innehåller tjänstmanifestet och inställningarna för den nya FabrikamFiber.Web-tjänsten.
+   Ett nytt Service Fabric-programprojekt **FabrikamFiber.CallCenterApplication** skapas i lösningen.  En Dockerfile läggs till i det befintliga **FabrikamFiber.Web**-projektet.  En **PackageRoot**-katalog läggs också till i **FabrikamFiber.Web**-projektet, som innehåller tjänstmanifestet och inställningarna för den nya FabrikamFiber.Web-tjänsten.
 
    Containern är nu redo att byggas och paketeras i ett Service Fabric-program. När du har containeravbildningen klar på datorn kan du lägga den i valfritt containerregister och hämta den till valfri värd för körning.
 
@@ -109,7 +109,7 @@ Write-Host "Server name is $servername"
 
 ## <a name="update-the-web-config"></a>Uppdatera webbkonfiguration
 
-I projektet **FabrikamFiber.Web** uppdaterar du anslutningssträngen i filen **web.config** så att den pekar på SQL Server i containern.  Uppdatera *Server* -delen i anslutningssträngen så att det blir servernamnet som skapades med föregående skript. Det bör vara något som liknar ”fab-fiber-751718376.database.windows.net”. I följande XML-fil behöver du bara uppdatera `connectionString` attributet. `providerName` `name` attributen och behöver inte ändras.
+I projektet **FabrikamFiber.Web** uppdaterar du anslutningssträngen i filen **web.config** så att den pekar på SQL Server i containern.  Uppdatera *Server*-delen i anslutningssträngen så att det blir servernamnet som skapades med föregående skript. Det bör vara något som liknar ”fab-fiber-751718376.database.windows.net”. I följande XML-fil behöver du bara uppdatera `connectionString` attributet. `providerName` `name` attributen och behöver inte ändras.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
@@ -118,7 +118,7 @@ I projektet **FabrikamFiber.Web** uppdaterar du anslutningssträngen i filen **w
 ```
 
 >[!NOTE]
->Du kan använda vilken SQL-Server som helst för lokal felsökning så länge den kan nås från värden, men **localdb** stöder inte `container -> host`-kommunikation. Om du vill använda en annan SQL-databas när du skapar ett versionsbygge av ditt webbprogram, lägger du till ytterligare en anslutningssträng i filen *web.release.config* .
+>Du kan använda vilken SQL-Server som helst för lokal felsökning så länge den kan nås från värden, men **localdb** stöder inte `container -> host`-kommunikation. Om du vill använda en annan SQL-databas när du skapar ett versionsbygge av ditt webbprogram, lägger du till ytterligare en anslutningssträng i filen *web.release.config*.
 
 ## <a name="run-the-containerized-application-locally"></a>Kör programmet i containern lokalt
 
@@ -151,16 +151,16 @@ Du kan:
 
 I den här självstudiekursen skapar du ett kluster från Visual Studio, vilket är idealiskt för testscenarier. Om du skapar ett kluster på något annat sätt eller om du använder ett befintligt kluster kan du kopiera och klistra in anslutningens slutpunkt eller välja den från din prenumeration.
 
-Öppna FabrikamFiber.Web -> PackageRoot -> ServiceManifest.xml i Solution Explorer innan du börjar. Anteckna porten för webbklientdelen som visas i **Slutpunkt** .
+Öppna FabrikamFiber.Web -> PackageRoot -> ServiceManifest.xml i Solution Explorer innan du börjar. Anteckna porten för webbklientdelen som visas i **Slutpunkt**.
 
 När du skapar klustret:
 
-1. Högerklicka på **FabrikamFiber.CallCenterApplication** -programprojektet i Solution Explorer och välj **Publicera** .
+1. Högerklicka på **FabrikamFiber.CallCenterApplication**-programprojektet i Solution Explorer och välj **Publicera**.
 2. Logga in med ditt Azure-konto så att du får åtkomst till dina prenumerationer.
 3. Under List rutan för **anslutnings slut punkten** väljer du alternativet **Skapa nytt kluster...** .
-4. Ändra följande inställningar i dialogrutan **Skapa kluster** :
+4. Ändra följande inställningar i dialogrutan **Skapa kluster**:
 
-    a. Ange namnet på klustret i fältet **Klusternamn** , samt den prenumeration och plats som du vill använda. Anteckna namnet på klusterresursgruppen.
+    a. Ange namnet på klustret i fältet **Klusternamn**, samt den prenumeration och plats som du vill använda. Anteckna namnet på klusterresursgruppen.
 
     b. Valfritt: Du kan ändra antalet noder. Som standard har du tre noder, vilket är det som krävs för att testa scenarier i Service Fabric.
 
@@ -169,11 +169,11 @@ När du skapar klustret:
     d. Välj fliken **information om virtuell dator** . Ange det lösen ord som du vill använda för den Virtual Machines (VM) som utgör klustret. Användarnamnet och lösenordet kan användas för att fjärransluta till de virtuella datorerna. Du måste också välja en virtuell datorstorlek och du kan ändra VM-avbildning om det behövs.
 
     > [!IMPORTANT]
-    > Välj en SKU som stöder körningscontainrar. Windows Server-operativsystemet på klusternoderna måste vara kompatibla med Windows Server-operativsystemet för din container. Mer information finns i [Kompatibilitet mellan operativsystem för Windows Server-containrar och värdoperativsystem](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Den här guiden skapar en Docker-avbildning baserat på Windows Server 2016 LTSC som standard. Containrar som bygger på den här avbildningen kan köras på kluster som skapas med Windows Server 2016 Datacenter med Containers. Men om du skapar ett kluster eller använder ett befintligt kluster baserat på en annan version av Windows Server, måste du ändra den OS-avbildning som behållaren baseras på. Öppna **Dockerfile** i **projektet fabrikamfiber. Web** Project, kommentera ut alla befintliga instruktioner som `FROM` baseras på en tidigare version av Windows Server och Lägg till en `FROM` instruktion som baseras på den önskade versions tag gen på [sidan Windows Server Core DockerHub](https://hub.docker.com/_/microsoft-windows-servercore). För ytterligare information om Windows Server Core-versioner, stöd för tids linjer och versions hantering, se [information om Windows Server Core-utgåvor](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info). 
+    > Välj en SKU som stöder körningscontainrar. Windows Server-operativsystemet på klusternoderna måste vara kompatibla med Windows Server-operativsystemet för din container. Mer information finns i [Kompatibilitet mellan operativsystem för Windows Server-containrar och värdoperativsystem](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Den här guiden skapar en Docker-avbildning baserat på Windows Server 2016 LTSC som standard. Containrar som bygger på den här avbildningen kan köras på kluster som skapas med Windows Server 2016 Datacenter med Containers. Men om du skapar ett kluster eller använder ett befintligt kluster baserat på en annan version av Windows Server, måste du ändra den OS-avbildning som behållaren baseras på. Öppna **Dockerfile** i **projektet fabrikamfiber. Web** Project, kommentera ut alla befintliga instruktioner som `FROM` baseras på en tidigare version av Windows Server och Lägg till en `FROM` instruktion som baseras på den önskade versions tag gen på [sidan Windows Server Core DockerHub](https://hub.docker.com/_/microsoft-windows-servercore). För ytterligare information om Windows Server Core-versioner, stöd för tids linjer och versions hantering, se [information om Windows Server Core-utgåvor](/windows-server/get-started/windows-server-release-info). 
 
     e. På fliken **Avancerat** visar du programporten som ska öppnas i lastbalanseraren när klustret distribueras. Det här är den port som du antecknade innan du började skapa klustret. Du kan också lägga till en befintlig Application Insights-nyckel som används för att dirigera programmets loggfiler.
 
-    f. När du har ändrat inställningarna klickar du på knappen **Skapa** .
+    f. När du har ändrat inställningarna klickar du på knappen **Skapa**.
 
 5. Åtgärden tar flera minuter. Utdatafönstret visar när klustret har skapats.
 
@@ -229,11 +229,11 @@ $vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
 
 ## <a name="deploy-the-application-to-azure"></a>Distribuera appen till Azure
 
-Nu när programmet är klart kan du distribuera det till klustret i Azure direkt från Visual Studio.  Högerklicka på **FabrikamFiber.CallCenterApplication** -programprojektet i Solution Explorer och välj **Publicera** .  I **Anslutningens slutpunkt** väljer du slutpunkten för klustret som du skapade tidigare.  I **Azure Container Registry** väljer du behållarregistret som du skapade tidigare.  Publicera programmet till klustret i Azure genom att klicka på **Publicera** .
+Nu när programmet är klart kan du distribuera det till klustret i Azure direkt från Visual Studio.  Högerklicka på **FabrikamFiber.CallCenterApplication**-programprojektet i Solution Explorer och välj **Publicera**.  I **Anslutningens slutpunkt** väljer du slutpunkten för klustret som du skapade tidigare.  I **Azure Container Registry** väljer du behållarregistret som du skapade tidigare.  Publicera programmet till klustret i Azure genom att klicka på **Publicera**.
 
 ![Publicera programmet][publish-app]
 
-Följ distributionsförloppet i utdatafönstret När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen och programporten. Till exempel `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
+Följ distributionsförloppet i utdatafönstret När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen och programporten. Exempelvis `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
 
 ![Skärm bild av start sidan för Fabrikam fiber CallCenter-programmet som körs på azure.com. På sidan visas en instrument panel med en lista med support samtal.][fabrikam-web-page-deployed]
 

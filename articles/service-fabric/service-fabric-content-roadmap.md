@@ -3,12 +3,12 @@ title: Läs mer om Azure Service Fabric
 description: Lär dig mer om grundläggande begrepp och viktiga områden i Azure Service Fabric. Ger en utökad översikt över Service Fabric och hur du skapar mikrotjänster.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 07b41f10430592e6035bfe0179cb717d0bc5c8b0
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 36215dd3419050cf498a749b5caf927c3c4e275a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681745"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485458"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Vill du veta mer om Service Fabric?
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Service Fabric har ett stort ytdiagram, men det är mycket att lära sig.  Den här artikeln innehåller en sammanfattning av Service Fabric och beskriver viktiga begrepp, programmerings modeller, program livs cykel, testning, kluster och hälso övervakning. Läs [översikten](service-fabric-overview.md) och [Vad är mikrotjänster?](service-fabric-overview-microservices.md) för en introduktion och hur Service Fabric kan användas för att skapa mikrotjänster. Den här artikeln innehåller ingen omfattande innehålls lista, men länkar till översikt och att komma igång-artiklar för varje Service Fabric. 
@@ -51,7 +51,7 @@ I följande diagram visas relationen mellan program och tjänst instanser, parti
 
 Replikerna för varje partition sprids över klustrets noder, vilket gör att den namngivna tjänstens tillstånd kan [skalas](service-fabric-concepts-scalability.md). När data behöver växa, ökar partitionerna och Service Fabric balansering av partitioner mellan noder för att effektivt kunna använda maskin varu resurser. Om du lägger till nya noder i klustret kommer Service Fabric att ombalansera partitionens repliker över det ökade antalet noder. Övergripande program prestanda förbättras och konkurrens för åtkomst till minnes minskningar. Om noderna i klustret inte används effektivt kan du minska antalet noder i klustret. Service Fabric åter balanserar om partitionens repliker över det minskade antalet noder för att bättre kunna använda maskin varan på varje nod.
 
-Inom en partition har tillstånds lösa namngivna tjänster instanser och tillstånds känsliga namngivna tjänster har repliker. Vanligt vis har tillstånds lösa namngivna tjänster bara en enda partition eftersom de inte har något internt tillstånd, även om [det finns undantag](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-partitioning#partition-service-fabric-stateless-services). Partition instanserna tillhandahåller [tillgänglighet](service-fabric-availability-services.md). Om en instans Miss lyckas fortsätter andra instanser att fungera normalt och sedan Service Fabric skapar en ny instans. Tillstånds känsliga namngivna tjänster upprätthåller sin status inom repliker och varje partition har en egen replik uppsättning. Läs-och skriv åtgärder utförs på en replik (kallas primär). Ändringar av tillstånd från Skriv åtgärder replikeras till flera andra repliker (kallas aktiva sekundära). Om en replik skulle krascha skapar Service Fabric en ny replik från befintliga repliker.
+Inom en partition har tillstånds lösa namngivna tjänster instanser och tillstånds känsliga namngivna tjänster har repliker. Vanligt vis har tillstånds lösa namngivna tjänster bara en enda partition eftersom de inte har något internt tillstånd, även om [det finns undantag](./service-fabric-concepts-partitioning.md#partition-service-fabric-stateless-services). Partition instanserna tillhandahåller [tillgänglighet](service-fabric-availability-services.md). Om en instans Miss lyckas fortsätter andra instanser att fungera normalt och sedan Service Fabric skapar en ny instans. Tillstånds känsliga namngivna tjänster upprätthåller sin status inom repliker och varje partition har en egen replik uppsättning. Läs-och skriv åtgärder utförs på en replik (kallas primär). Ändringar av tillstånd från Skriv åtgärder replikeras till flera andra repliker (kallas aktiva sekundära). Om en replik skulle krascha skapar Service Fabric en ny replik från befintliga repliker.
 
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Tillståndslösa och tillståndskänsliga mikrotjänster för Service Fabric
 Med Service Fabric kan du skapa program som består av mikrotjänster eller containrar. Tillståndslösa mikrotjänster (till exempel protokollgatewayar och webbproxyservrar) har inte ett föränderligt tillstånd utanför en begäran och svaret från tjänsten. Arbetsroller i Azure Cloud Services är ett exempel på en tillståndslös tjänst. Tillståndskänsliga mikrotjänster (till exempel användarkonton, databaser, enheter, kundvagnar och köer) har ett föränderligt och auktoritärt tillstånd bortom begäran och svaret. Dagens program med Internetskala består av en kombination av tillståndslösa och tillståndskänsliga mikrotjänster. 
@@ -66,7 +66,7 @@ Varför har tillstånds känsliga mikrotjänster tillsammans med tillstånds lö
 ## <a name="supported-programming-models"></a>Programmeringsmodeller som stöds
 Service Fabric erbjuder flera olika sätt att skriva och hantera dina tjänster. Tjänster kan använda Service Fabric API: er för att dra full nytta av plattformens funktioner och program ramverk. Tjänster kan också vara alla kompilerade körbara program som skrivits på valfritt språk och som finns på ett Service Fabric-kluster. Mer information finns i [programmerings modeller som stöds](service-fabric-choose-framework.md).
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Containrar
 Som standard distribuerar Service Fabric och aktiverar tjänster som processer. Service Fabric kan även distribuera tjänster i [behållare](service-fabric-containers-overview.md). Det är viktigt att du blandar tjänster i processer och tjänster i behållare i samma program. Service Fabric stöder distribution av Linux-behållare och Windows-behållare på Windows Server 2016. Du kan distribuera befintliga program, tillstånds lösa tjänster eller tillstånds känsliga tjänster i behållare. 
 
 ### <a name="reliable-services"></a>Reliable Services

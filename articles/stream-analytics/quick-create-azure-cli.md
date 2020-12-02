@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 4e50560d2f090c99d1f354ebbc11ab2357dd61e8
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 48ef9cc48f48cec92ae57774e5d89e300ee43385
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874737"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485390"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Snabb start: skapa ett Azure Stream Analytics jobb med hjälp av Azure CLI
 
@@ -94,7 +94,7 @@ Följande kod block i Azure CLI skapar ett Blob Storage-konto som används för 
    az storage account keys list -g streamanalyticsrg -n <storage-account>
    ```
 
-3. Skapa en behållare för att lagra blobar med kommandot [az storage container create](/cli/azure/storage/container). Du kan använda lagrings konto nyckeln för att ge åtgärden att skapa behållaren. Mer information om hur du auktoriserar data åtgärder med Azure CLI finns i [bevilja åtkomst till BLOB-eller köa data med Azure CLI](../storage/common/authorize-data-operations-cli.md).
+3. Skapa en behållare för att lagra blobar med kommandot [az storage container create](/cli/azure/storage/container). Du kan använda lagrings konto nyckeln för att ge åtgärden att skapa behållaren. Mer information om hur du auktoriserar data åtgärder med Azure CLI finns i [bevilja åtkomst till BLOB-eller köa data med Azure CLI](../storage/blobs/authorize-data-operations-cli.md).
 
    ```azurecli
    az storage container create \

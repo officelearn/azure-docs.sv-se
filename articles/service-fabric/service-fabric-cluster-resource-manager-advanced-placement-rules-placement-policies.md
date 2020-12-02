@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fbfec218c1bf1d018157fc6d78c700991f332a13
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5a4586c9c1be51b0ebbdebcf0c23289fc39f9eda
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172800"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485509"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Placerings principer för Service Fabric-tjänster
 Placerings principer är ytterligare regler som kan användas för att styra tjänst placeringen i vissa olika, mindre vanliga scenarier. Några exempel på scenarier är:
@@ -150,7 +150,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> För närvarande stöds principen bara för tillstånds lösa tjänster med [aktiverings läget ExclusiveProcess Service Package](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet).
+> För närvarande stöds principen bara för tillstånds lösa tjänster med [aktiverings läget ExclusiveProcess Service Package](/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet).
 >
 
 > [!WARNING]
@@ -158,7 +158,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> Att använda ett högt värde för [MinInstanceCount](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) med den här placerings principen kan leda till låsta program uppgraderingar. Om du till exempel har ett kluster med fem noder och anger InstanceCount = 10, kommer du att ha två instanser på varje nod. Om du anger MinInstanceCount = 9 kan ett försök att uppgradera appen bli fastnat. med MinInstanceCount = 8 kan detta undvikas.
+> Att använda ett högt värde för [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) med den här placerings principen kan leda till låsta program uppgraderingar. Om du till exempel har ett kluster med fem noder och anger InstanceCount = 10, kommer du att ha två instanser på varje nod. Om du anger MinInstanceCount = 9 kan ett försök att uppgradera appen bli fastnat. med MinInstanceCount = 8 kan detta undvikas.
 >
 
 ## <a name="next-steps"></a>Nästa steg

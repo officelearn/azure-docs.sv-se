@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: memildin
-ms.openlocfilehash: a80747a88087e1ad3a70f198a260e41a6848e34f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 07a94685fb3655aa5aa21a8658b9d975c764daff
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445658"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512286"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender för SQL-servrar på datorer 
 
@@ -30,10 +30,10 @@ Du ser aviseringar när det finns misstänkta databas aktiviteter, potentiella s
 
 |Aspekt|Information|
 |----|:----|
-|Versions tillstånd:|Förhandsgranskning<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|**Azure Defender för SQL-servrar på datorer** faktureras enligt [pris sidan](security-center-pricing.md)|
 |Skyddade SQL-versioner:|Azure SQL Server (alla versioner som omfattas av Microsofts support)|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Nej](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 ## <a name="set-up-azure-defender-for-sql-servers-on-machines"></a>Konfigurera Azure Defender för SQL-servrar på datorer
@@ -68,7 +68,7 @@ Båda beskrivs nedan.
 
         ![Hitta din arbets yta som inte är standard enligt title](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
-1. Ställ in alternativet för **Azure Defender för SQL Server på datorer (för hands version)** till **på**. 
+1. Ställ in alternativet för **Azure Defender för SQL-servrar på datorer** som planerar **på**. 
 
     ![Sidan Security Center prissättning med valfria planer](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)
 
@@ -79,7 +79,7 @@ Båda beskrivs nedan.
 
 
 1. Du kan också konfigurera e-postavisering om säkerhets aviseringar. 
-    Du kan ange en lista över mottagare som ska få ett e-postmeddelande när Security Center aviseringar genereras. E-postmeddelandet innehåller en direkt länk till aviseringen i Azure Security Center med all relevant information. Mer information finns i [Konfigurera e-postaviseringar för säkerhets aviseringar](security-center-provide-security-contact-details.md).
+    Du kan ange en lista över mottagare som ska få ett e-postmeddelande när Security Center aviseringar genereras. E-postmeddelandet innehåller en direkt adress till aviseringen i Azure Security Center med all relevant information. Mer information finns i [Konfigurera e-postaviseringar för säkerhets aviseringar](security-center-provide-security-contact-details.md).
 
 
 

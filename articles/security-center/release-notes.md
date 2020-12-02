@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/30/2020
 ms.author: memildin
-ms.openlocfilehash: 5ac96d703ea646d26b84d6d6486d9ee44ad87cd2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0dbd208cea64a3b2dc22f7603f654127e5b46294
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490133"
+ms.locfileid: "96511771"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -30,6 +30,44 @@ Om du vill veta mer om *planerade* ändringar som kommer snart till Security Cen
 > [!TIP]
 > Om du söker efter objekt som är äldre än sex månader hittar du dem i [arkivet för vad som är nytt i Azure Security Center](release-notes-archive.md).
 
+
+## <a name="december-2020"></a>December 2020
+
+Uppdateringar i december inkluderar:
+
+- [Azure Defender för SQL-servrar på datorer är allmänt tillgänglig](#azure-defender-for-sql-servers-on-machines-is-generally-available)
+- [Azure Defender for SQL-stöd för Azure Synapse Analytics-dedikerad SQL-pool är allmänt tillgänglig](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
+
+### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>Azure Defender för SQL-servrar på datorer är allmänt tillgänglig
+
+Azure Security Center erbjuder två Azure Defender-planer för SQL-servrar:
+
+- **Azure Defender för Azure SQL Database-servrar** – skyddar dina Azure-inhemska SQL-servrar 
+- **Azure Defender för SQL-servrar på datorer** – utökar samma skydd till dina SQL-servrar i hybrid miljöer, i molnet och i lokala miljöer
+
+Med det här meddelandet skyddar **Azure Defender för SQL** nu dina databaser och deras data oavsett var de befinner sig.
+
+Azure Defender för SQL innehåller funktioner för sårbarhets bedömning. Verktyget för sårbarhets bedömning innehåller följande avancerade funktioner:
+
+- **Bas linje konfiguration** (ny!) för att intelligent förfina resultaten av sårbarhets ökningar till dem som kan representera verkliga säkerhets problem. När du har fastställt ditt grundläggande säkerhets tillstånd rapporterar verktyget för sårbarhets bedömning endast avvikelser från det aktuella bas läget. Resultat som matchar bas linjen betraktas som att skicka efterföljande genomsökningar. På så sätt kan du och din analytiker fokusera på det som är viktigt.
+- **Detaljerad information** som hjälper dig att *förstå* de identifierade avgörandena och varför de relaterar till dina resurser.
+- **Reparations skript** som hjälper dig att minimera identifierade risker.
+
+Läs mer om [Azure Defender för SQL](defender-for-sql-introduction.md).
+
+
+### <a name="azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available"></a>Azure Defender for SQL-stöd för Azure Synapse Analytics-dedikerad SQL-pool är allmänt tillgänglig
+
+Azure Synapse Analytics (tidigare SQL DW) är en analys tjänst som kombinerar företags data lager hantering och stor data analys. Dedikerade SQL-pooler är företags data lager funktionerna i Azure dataSynapses. Läs mer i [Vad är Azure Synapse Analytics (tidigare SQL DW)?](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
+
+Azure Defender för SQL skyddar dina dedikerade SQL-pooler med:
+
+- **Avancerat skydd** för att identifiera hot och attacker 
+- **Funktioner för sårbarhets bedömning** för att identifiera och åtgärda felaktig säkerhet
+
+Azure Defender för SQL har stöd för Azure Synapse Analytics SQL-pooler läggs automatiskt till i Azure SQL Database-paket i Azure Security Center. Du hittar en ny "Azure Defender för SQL"-flik på din Synapse-arbetsyta på sidan Azure Portal.
+
+Läs mer om [Azure Defender för SQL](defender-for-sql-introduction.md).
 
 ## <a name="november-2020"></a>November 2020
 
@@ -740,119 +778,3 @@ Sex principer relaterade till avancerad data säkerhet för SQL-datorer är för
 - E-postaviseringar till administratörer och prenumerations ägare måste vara aktiverade i avancerade data säkerhets inställningar i SQL Server
 
 Läs mer om [inbyggda principer](./policy-reference.md).
-
-
-
-
-
-## <a name="june-2020"></a>Juni 2020
-
-Uppdateringarna i juni inkluderar:
-- [Secure score-API (för hands version)](#secure-score-api-preview)
-- [Avancerad data säkerhet för SQL-datorer (Azure, andra moln och lokal) (för hands version)](#advanced-data-security-for-sql-machines-azure-other-clouds-and-on-prem-preview)
-- [Två nya rekommendationer för att distribuera Log Analytics agent till Azure Arc-datorer (för hands version)](#two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview)
-- [Nya principer för att skapa kontinuerliga konfigurationer för export och automatisering av arbets flöden i skala](#new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale)
-- [Ny rekommendation för att använda NSG: er för att skydda virtuella datorer som inte är Internet-riktade](#new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines)
-- [Nya principer för att aktivera hot skydd och avancerad data säkerhet](#new-policies-for-enabling-threat-protection-and-advanced-data-security)
-
-
-
-### <a name="secure-score-api-preview"></a>Secure score-API (för hands version)
-
-Nu kan du komma åt dina poäng via [Secure score-API: t](/rest/api/securitycenter/securescores/) (för närvarande i för hands version). API-metoderna ger flexibiliteten att fråga data och skapa en egen rapporterings mekanism för dina säkra poäng över tid. Du kan till exempel använda **Secure Scores** -API: et för att hämta poängen för en speciell prenumeration. Dessutom kan du använda API: et för **säker Poäng** för att visa en lista över säkerhets kontrollerna och de aktuella poängen för dina prenumerationer.
-
-Exempel på externa verktyg som möjliggörs med Secure score-API: et finns i avsnittet [Secure Scores i vår GitHub-community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
-
-Läs mer om [säkra poäng-och säkerhets kontroller i Azure Security Center](secure-score-security-controls.md).
-
-
-
-### <a name="advanced-data-security-for-sql-machines-azure-other-clouds-and-on-prem-preview"></a>Avancerad data säkerhet för SQL-datorer (Azure, andra moln och lokal) (för hands version)
-
-Azure Security Center avancerade data säkerhet för SQL-datorer skyddar nu SQL-servrar som finns i Azure, i andra moln miljöer och till och med lokala datorer. Detta utökar skydds inställningarna för dina Azure-inhemska SQL-servrar för att fullt stödja hybrid miljöer.
-
-Avancerad data säkerhet ger sårbarhets bedömning och Avancerat skydd för dina SQL-datorer oavsett var de befinner sig.
-
-Konfigurations åtgärder omfattar två steg:
-
-1. Distribuera Log Analytics agenten till SQL Servers värddator för att tillhandahålla anslutningen till Azure-kontot.
-
-1. Aktivera det valfria paketet på Security Center pris-och inställnings sida.
-
-Lär dig mer om [Avancerad data säkerhet för SQL-datorer](defender-for-sql-usage.md).
-
-
-
-### <a name="two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview"></a>Två nya rekommendationer för att distribuera Log Analytics agent till Azure Arc-datorer (för hands version)
-
-Två nya rekommendationer har lagts till för att hjälpa till att distribuera [Log Analytics agenten](../azure-monitor/platform/log-analytics-agent.md) till dina Azure Arc-datorer och se till att de skyddas av Azure Security Center:
-
-- **Log Analytics agenten ska installeras på dina Windows-baserade Azure Arc-datorer (för hands version)**
-- **Log Analytics agent ska installeras på Linux-baserade Azure Arc-datorer (för hands version)**
-
-De här nya rekommendationerna visas i samma fyra säkerhets kontroller som den befintliga (relaterade) rekommendationen, **övervaknings agenten ska installeras på datorerna**: åtgärda säkerhetskonfigurationer, tillämpa anpassningsbar program kontroll, tillämpa system uppdateringar och Aktivera Endpoint Protection.
-
-Rekommendationerna innehåller också snabb korrigerings funktionen som hjälper dig att påskynda distributions processen. 
-
-Läs mer om de här två nya rekommendationerna i tabellen med [rekommendationer för beräkning och appar](recommendations-reference.md#recs-computeapp) .
-
-Läs mer om hur Azure Security Center använder agenten i [Vad är Log Analytics agenten?](faq-data-collection-agents.md#what-is-the-log-analytics-agent).
-
-Läs mer om [tillägg för Azure Arc-datorer](../azure-arc/servers/manage-vm-extensions.md).
-
-
-### <a name="new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale"></a>Nya principer för att skapa kontinuerliga konfigurationer för export och automatisering av arbets flöden i skala
-
-Att automatisera organisationens övervaknings-och incident svars processer kan avsevärt förbättra tiden det tar att undersöka och minimera säkerhets incidenter.
-
-Om du vill distribuera dina automatiserings konfigurationer i organisationen använder du de här inbyggda "DeployIfdNotExist" Azure-principerna för att skapa och konfigurera [kontinuerliga](continuous-export.md) metoder för export och [automatisering av arbets flöde](workflow-automation.md) :
-
-Du hittar principerna i Azure policy:
-
-
-|Mål  |Policy  |Princip-ID  |
-|---------|---------|---------|
-|Kontinuerlig export till händelsehubben|[Distribuera export till händelsehubben för aviseringar och rekommendationer i Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
-|Löpande export till Log Analytics arbets yta|[Distribuera export till Log Analytics-arbetsytan för aviseringar och rekommendationer i Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
-|Arbets flödes automatisering för säkerhets aviseringar|[Distribuera arbetsflödesautomation för Azure Security Center-aviseringar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
-|Arbets flödes automatisering för säkerhets rekommendationer|[Distribuera arbetsflödesautomation för Azure Security Center-rekommendationer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
-||||
-
-Kom igång med [automatiserings mallar för arbets flöden](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
-
-Lär dig mer om att använda de två export principerna i [Konfigurera automatisering av arbets flöden i skala med hjälp av de angivna principerna](workflow-automation.md#configure-workflow-automation-at-scale-using-the-supplied-policies) och [Konfigurera en löpande export](continuous-export.md#set-up-a-continuous-export).
-
-
-### <a name="new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines"></a>Ny rekommendation för att använda NSG: er för att skydda virtuella datorer som inte är Internet-riktade
-
-Säkerhets kontrollen "implementera rekommenderade säkerhets metoder" innehåller nu följande nya rekommendation:
-
-- **Virtuella datorer som inte är baserade på Internet bör skyddas med nätverks säkerhets grupper**
-
-En befintlig rekommendation, **virtuella datorer som riktas mot Internet bör skyddas med nätverks säkerhets grupper**, skiljer sig inte mellan Internet-riktade och icke-Internetbaserade virtuella datorer. För båda, genererade en rekommendation med hög allvarlighets grad om en virtuell dator inte var tilldelad till en nätverks säkerhets grupp. Den nya rekommendationen separerar datorer som inte är på Internet för att minska antalet falska positiva identifieringar och undvika onödiga aviseringar med hög allvarlighets grad.
-
-Läs mer i tabellen med [nätverks rekommendationer](recommendations-reference.md#recs-network) .
-
-
-
-
-### <a name="new-policies-for-enabling-threat-protection-and-advanced-data-security"></a>Nya principer för att aktivera hot skydd och avancerad data säkerhet
-
-De nya principerna nedan lades till i ASC-standardinitiativet och är utformade för att hjälpa till med att aktivera skydd av hot eller avancerad data säkerhet för relevanta resurs typer.
-
-Du hittar principerna i Azure policy:
-
-
-| Policy                                                                                                                                                                                                                                                                | Princip-ID                            |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
-| [Avancerad data säkerhet ska vara aktiverat på Azure SQL Database servrar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
-| [Avancerad data säkerhet ska vara aktiverat på SQL-servrar på datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |
-| [Avancerat skydd bör vara aktiverat på Azure Storage konton](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)           | 308fbb08-4ab8-4e67-9b29-592e93fb94fa |
-| [Avancerat skydd bör vara aktiverat på Azure Key Vault valv](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)           | 0e6763cc-5078-4e64-889d-ff4d9a839047 |
-| [Avancerat skydd bör vara aktiverat på Azure App Service planer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)                | 2913021d-f2fd-4f3d-b958-22354e2bdbcb |
-| [Avancerat skydd bör vara aktiverat på Azure Container Registry register](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4)   | c25d9a16-bc35-4e15-a7e5-9db606bf9ed4 |
-| [Avancerat skydd bör vara aktiverat på Azure Kubernetes service-kluster](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f523b5cd1-3e23-492f-a539-13118b6d1e3a)   | 523b5cd1-3e23-492f-a539-13118b6d1e3a |
-| [Avancerat skydd bör vara aktiverat på Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
-|                                                                                                                                                                                                                                                                       |                                      |
-
-Läs mer om [skydd av hot i Azure Security Center](azure-defender.md).

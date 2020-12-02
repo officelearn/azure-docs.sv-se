@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 5a35d939c12639770e25c3096c77f13d31310f85
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 90942e4deebdc65fe26ce94f04a15fe2b8c0684c
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492020"
+ms.locfileid: "96512077"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Felsöka prestanda problem i Azure-filresurser
 
@@ -74,11 +74,12 @@ Om det program som du använder är en enkel tråds teknik kan den här konfigur
 
 ### <a name="cause"></a>Orsak
 
-Det gick inte att hitta den virtuella datorn för klienten (VM) i en annan region än fil resursen.
+Det gick inte att hitta den virtuella datorn för klienten (VM) i en annan region än fil resursen. Andra orsaker till hög latens kan bero på svars tiden som orsakas av klienten eller nätverket.
 
 ### <a name="solution"></a>Lösning
 
 - Kör programmet från en virtuell dator som finns i samma region som fil resursen.
+- För ditt lagrings konto granskar du transaktions måtten **SuccessE2ELatency** och  **SuccessServerLatency** via **Azure Monitor** i Azure Portal. En stor skillnad mellan SuccessE2ELatency-och SuccessServerLatency-mått är en indikation på svars tiden som troligt vis orsakas av nätverket eller klienten. Se [transaktions mått](storage-files-monitoring-reference.md#transaction-metrics) i Azure Files övervaknings data referens.
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Klienten kunde inte uppnå maximalt data flöde som stöds av nätverket
 

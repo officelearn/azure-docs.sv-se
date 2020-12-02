@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 186b1c46303be59e191a1754361e07a2003b997a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfeb040893ae2be5842959ed8458bd713bebe6ee
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87036190"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512145"
 ---
 # <a name="os-start-up--computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>OS-start – datorn har startats om oväntat eller ett oväntat fel uppstod
 
@@ -37,31 +37,27 @@ När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm 
 
 ## <a name="cause"></a>Orsak
 
-Datorn försöker utföra en inledande start av en [generaliserad avbildning](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), men påträffar problem på grund av en anpassad svarsfil (unattend.xml) som bearbetas. Anpassade svarsfiler stöds inte i Azure. 
+Datorn försöker utföra en inledande start av en [generaliserad avbildning](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), men påträffar problem på grund av en anpassad svarsfil (Unattend.xml) som bearbetas. **Anpassade svarsfiler stöds inte i Azure**. 
 
 Svars filen är en särskild XML-fil som innehåller inställnings definitioner och värden för de konfigurations inställningar som du vill automatisera under installationen av en Windows Server-installation av operativ systemet. Konfigurations alternativen innehåller instruktioner för hur du partitionerar diskar, var du hittar Windows-avbildningen som ska installeras, vilka produkt nycklar som ska användas och andra kommandon som du vill köra.
 
-I Azure stöds inte anpassade svarsfiler. Det här felet kan inträffa om du har angett en anpassad **Unattend.xml** -fil med hjälp av `sysprep /unattend:<your file’s name>` alternativet.
+Det går inte att använda anpassade svarsfiler i Azure. Den här situationen uppstår därför när en avbildning förbereds för användning i Azure, men du angav en anpassad Unattend.xml-fil med hjälp av **Sysprep** med en flagga som liknar följande kommando:
 
-I Azure använder du alternativet för att **Ange OOBE (out-of-Box Experience)** i **Sysprep.exe**eller använder i `sysprep /oobe` stället för Unattend.xml-filen.
+`sysprep /oobe /generalize /unattend:<your file’s name> /shutdown`
 
-Det här problemet skapas oftast när du använder **Sysprep.exe** med en lokal virtuell dator för att överföra en GENERALISERAD virtuell dator till Azure. I det här fallet kanske du också är intresse rad av att ladda upp en generaliserad virtuell dator på ett korrekt sätt.
+I Azure använder du alternativet för att **Ange OOBE (out-of-Box Experience)** i **GUI för system förberedelse verktyget** eller använder `sysprep /oobe` i stället för Unattend.xml-filen.
+
+Det här problemet skapas oftast när du använder Sysprep med en lokal virtuell dator för att överföra en generaliserad virtuell dator till Azure. I det här fallet kanske du också är intresse rad av att ladda upp en generaliserad virtuell dator på ett korrekt sätt.
 
 ## <a name="solution"></a>Lösning
 
-### <a name="replace-unattended-answer-file-option"></a>Alternativet Ersätt obevakad svarsfil
+### <a name="do-not-use-unattendxml"></a>Använd inte Unattend.xml
 
-Den här situationen uppstår när en avbildning förbereds för användning i Azure, men den använde en anpassad svarsfil, som inte stöds i Azure, och du har använt **Sysprep** med en flagga som liknar följande kommando:
-
-`sysprep /oobe /generalize /unattend:<NameOfYourAnswerFile.XML> /shutdown`
-
-- I föregående kommando ersätter du `<NameOfYourAnswerFile.XML>` med namnet på filen.
-
-Åtgärda problemet genom att följa [Azure-vägledningen om hur du förbereder/fångar en avbildning](../windows/upload-generalized-managed.md) och förbereder en ny generaliserad avbildning. Använd inte flagga under Sysprep `/unattend:<answerfile>` . Använd i stället bara flaggorna nedan:
+Åtgärda problemet genom att följa [Azure-vägledningen om hur du förbereder/fångar en avbildning](../windows/upload-generalized-managed.md) och förbereder en ny generaliserad avbildning. **Använd inte `/unattend:<your file’s name>` flagga** under Sysprep. Använd i stället bara flaggorna nedan:
 
 `sysprep /oobe /generalize /shutdown`
 
-- OOBE ( **out-of-Box-Experience** ) är den inställning som stöds för virtuella Azure-datorer.
+- OOBE (out-of-Box-Experience) är den inställning som stöds för virtuella Azure-datorer.
 
 Du kan också använda **GUI-verktyget för system förberedelse** för att utföra samma uppgift som kommandot ovan genom att välja de alternativ som visas nedan:
 

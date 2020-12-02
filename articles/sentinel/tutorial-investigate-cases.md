@@ -14,19 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: c1873e21db1c586453dc9e9fe890268d8797303a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: aa9160f01ed0040123bd8ac932cfd2443f557bb6
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367014"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511737"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Självstudie: undersöka incidenter med Azure Sentinel
 
 > [!IMPORTANT]
-> Undersöknings diagrammet är för närvarande en offentlig för hands version.
-> Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Undersöknings diagrammet är för närvarande en för **hands version**. Se [kompletterande användnings villkor för Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) för hands versioner av ytterligare juridiska villkor som gäller för Azure-funktioner som är i beta, för hands version eller på annat sätt ännu inte släppts till allmän tillgänglighet.
 
 
 Den här självstudien hjälper dig att undersöka incidenter med Azure Sentinel. När du har anslutit dina data källor till Azure Sentinel vill du bli meddelad när något misstänkt inträffar. För att du ska kunna göra detta kan du med Azure Sentinel skapa avancerade aviserings regler som genererar incidenter som du kan tilldela och undersöka.
@@ -46,7 +44,7 @@ En incident kan innehålla flera aviseringar. Det är en agg regering av alla re
 
 ## <a name="how-to-investigate-incidents"></a>Så här undersöker du incidenter
 
-1. Välj **incidenter**. På sidan **incidenter** kan du se hur många incidenter du har, hur många som är öppna, hur många som är inställda på att **pågå**och hur många som är stängda. För varje incident kan du se tiden det har inträffat och status för incidenten. Titta på allvarlighets graden för att bestämma vilka incidenter som ska hanteras först.
+1. Välj **incidenter**. På sidan **incidenter** kan du se hur många incidenter du har, hur många som är öppna, hur många som är inställda på att **pågå** och hur många som är stängda. För varje incident kan du se tiden det har inträffat och status för incidenten. Titta på allvarlighets graden för att bestämma vilka incidenter som ska hanteras först.
 
     ![Visa allvarlighets grad för incident](media/tutorial-investigate-cases/incident-severity.png)
 
@@ -83,7 +81,9 @@ Så här använder du undersöknings diagrammet:
 1. Välj en incident och välj sedan **Undersök**. Då kommer du till undersöknings diagrammet. Grafen innehåller en illustrations karta över de entiteter som är direkt anslutna till aviseringen och varje resurs som är ansluten ytterligare.
 
    > [!IMPORTANT] 
-   > Du kommer bara att kunna undersöka incidenten om du använde enhets mappnings fälten när du konfigurerade din analys regel. Undersöknings diagrammet kräver att den ursprungliga incidenten innehåller entiteter.
+   > - Du kommer bara att kunna undersöka incidenten om du använde enhets mappnings fälten när du konfigurerade din analys regel. Undersöknings diagrammet kräver att den ursprungliga incidenten innehåller entiteter.
+   >
+   > - Azure Sentinel stöder för närvarande undersökning av **incidenter upp till 30 dagar gammal**.
 
    ![Visa karta](media/tutorial-investigate-cases/map1.png)
 
@@ -99,7 +99,7 @@ Så här använder du undersöknings diagrammet:
 
     ![Visa relaterade aviseringar](media/tutorial-investigate-cases/related-alerts.png)
 
-1. För varje utforsknings fråga kan du välja alternativet för att öppna de råa händelse resultaten och frågan som används i Log Analytics, genom att välja **händelser \> **.
+1. För varje utforsknings fråga kan du välja alternativet för att öppna de råa händelse resultaten och frågan som används i Log Analytics, genom att välja **händelser \>**.
 
 1. För att förstå incidenten ger grafen en parallell tids linje.
 
@@ -123,7 +123,7 @@ När du har löst en viss incident (till exempel när undersökningen har nått 
 
 När du har valt rätt klassificering lägger du till en beskrivande text i fältet **kommentar** . Detta är användbart i händelse av att du behöver referera till den här incidenten igen. Klicka på **Använd** när du är klar så stängs incidenten.
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="Skärm bild som visar de klassificeringar som är tillgängliga i listan Välj klassificering.":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien har du lärt dig hur du kommer igång med att undersöka incidenter med hjälp av Azure Sentinel. Fortsätt till självstudien för att [svara på hot med automatiserade spel böcker](tutorial-respond-threats-playbook.md).

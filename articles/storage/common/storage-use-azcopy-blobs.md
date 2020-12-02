@@ -4,16 +4,16 @@ description: Den här artikeln innehåller en samling av AzCopy-exempel kommando
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 12/01/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 294adce3dc312003d72336bd0752ba3aba5eaace
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1c9c271fed094bf4777af73d588551f66f4db6f5
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792862"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512128"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Överföra data med AzCopy och Blob Storage
 
@@ -31,7 +31,7 @@ Se artikeln [Kom igång med AZCopy](storage-use-azcopy-v10.md) för att ladda ne
 >
 > Om du hellre vill använda en SAS-token för att auktorisera åtkomst till BLOB-data kan du lägga till denna token i resurs-URL: en i varje AzCopy-kommando.
 >
-> Till exempel `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+> Exempel: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="create-a-container"></a>Skapa en container
 
@@ -56,6 +56,7 @@ Det här avsnittet innehåller följande exempel:
 > * Ladda upp en katalog
 > * Ladda upp innehållet i en katalog 
 > * Ladda upp vissa filer
+> * Ladda upp en fil med index-Taggar
 
 > [!TIP]
 > Du kan ändra uppladdnings åtgärden med valfria flaggor. Här är några exempel.
@@ -153,6 +154,27 @@ Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-afte
 
 Mer detaljerad information finns i referens dokument för [AzCopy-kopiering](storage-ref-azcopy-copy.md) .
 
+### <a name="upload-a-file-with-index-tags"></a>Ladda upp en fil med index-Taggar
+
+Du kan ladda upp en fil och lägga till [taggar för BLOB-index (för hands version)](../blobs/storage-manage-find-blobs.md) till mål-bloben.  
+
+Om du använder Azure AD-auktorisering måste ditt säkerhets objekt tilldelas rollen som [ägare av lagrings-BLOB-data](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) eller så måste den ges behörighet till `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure Resource Provider-åtgärden](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via en anpassad Azure-roll. Om du använder en SAS-token (signatur för delad åtkomst) måste denna token ge åtkomst till blobens Taggar via `t` SAS-behörigheten.
+
+Om du vill lägga till taggar använder du `--blob-tags` alternativet tillsammans med ett URL-kodat nyckel/värde-par. Om du till exempel vill lägga till en nyckel `my tag` och ett värde `my tag value` lägger du till `--blob-tags='my%20tag=my%20tag%20value'` mål parametern. 
+
+Avgränsa flera index-Taggar med hjälp av ett et-tecken ( `&` ).  Om du till exempel vill lägga till en nyckel `my second tag` och ett värde blir `my second tag value` den fullständiga alternativ strängen `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` .
+
+I följande exempel visas hur du använder `--blob-tags` alternativet.
+
+|    |     |
+|--------|-----------|
+| **Ladda upp en fil** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **Ladda upp en katalog** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`|
+| **Ladda upp katalog innehåll** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+
+> [!NOTE]
+> Om du anger en katalog för källan, kommer alla blobar som kopieras till målet att ha samma taggar som du anger i kommandot.
+
 ## <a name="download-files"></a>Ladda ned filer
 
 Du kan använda [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot för att ladda ned blobbar, kataloger och behållare till den lokala datorn.
@@ -199,7 +221,7 @@ Det här exemplet resulterar i en katalog med namnet `C:\myDirectory\myBlobDirec
 
 ### <a name="download-the-contents-of-a-directory"></a>Hämta innehållet i en katalog
 
-Du kan ladda ned innehållet i en katalog utan att kopiera den innehåller själva katalogen genom att använda jokertecknet (*).
+Du kan ladda ned innehållet i en katalog utan att kopiera själva katalogen med hjälp av jokertecknet (*).
 
 > [!NOTE]
 > För närvarande stöds det här scenariot endast för konton som inte har ett hierarkiskt namn område.
@@ -297,6 +319,7 @@ Det här avsnittet innehåller följande exempel:
 > * Kopiera en katalog till ett annat lagrings konto
 > * Kopiera en behållare till ett annat lagrings konto
 > * Kopiera alla behållare, kataloger och filer till ett annat lagrings konto
+> * Kopiera blobbar till ett annat lagrings konto med index Taggar
 
 De här exemplen fungerar också med konton som har ett hierarkiskt namn område. [Med åtkomst till flera protokoll på data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) kan du använda samma URL-syntax ( `blob.core.windows.net` ) för dessa konton.
 
@@ -321,6 +344,9 @@ Använd samma URL-syntax ( `blob.core.windows.net` ) för konton som har ett hie
 | **Exempel** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
 | **Exempel** (hierarkiskt namn område) | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
 
+> [!NOTE]
+> Om käll-blobarna har index-Taggar och du vill behålla dessa taggar måste du tillämpa dem igen på mål-bloben. Information om hur du ställer in index taggar finns i avsnittet [Kopiera blobbar till ett annat lagrings konto med index Taggar](#copy-between-accounts-and-add-index-tags) i den här artikeln.  
+
 ### <a name="copy-a-directory-to-another-storage-account"></a>Kopiera en katalog till ett annat lagrings konto
 
 Använd samma URL-syntax ( `blob.core.windows.net` ) för konton som har ett hierarkiskt namn område.
@@ -341,6 +367,9 @@ Använd samma URL-syntax ( `blob.core.windows.net` ) för konton som har ett hie
 | **Exempel** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 | **Exempel** (hierarkiskt namn område)| `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 
+> [!NOTE]
+> Om käll-blobarna har index-Taggar och du vill behålla dessa taggar måste du tillämpa dem igen på mål-bloben. Information om hur du ställer in index taggar finns i avsnittet [Kopiera blobbar till ett annat lagrings konto med index Taggar](#copy-between-accounts-and-add-index-tags) i den här artikeln. 
+
 ### <a name="copy-all-containers-directories-and-blobs-to-another-storage-account"></a>Kopiera alla behållare, kataloger och blobbar till ett annat lagrings konto
 
 Använd samma URL-syntax ( `blob.core.windows.net` ) för konton som har ett hierarkiskt namn område.
@@ -350,6 +379,36 @@ Använd samma URL-syntax ( `blob.core.windows.net` ) för konton som har ett hie
 | **Syntax** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/' --recursive` |
 | **Exempel** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive` |
 | **Exempel** (hierarkiskt namn område)| `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive` |
+
+> [!NOTE]
+> Om käll-blobarna har index-Taggar och du vill behålla dessa taggar måste du tillämpa dem igen på mål-bloben. Information om hur du ställer in index taggar finns i avsnittet **Kopiera blobbar till ett annat lagrings konto med index Taggar** nedan. 
+
+<a id="copy-between-accounts-and-add-index-tags"></a>
+
+### <a name="copy-blobs-to-another-storage-account-with-index-tags"></a>Kopiera blobbar till ett annat lagrings konto med index Taggar
+
+Du kan kopiera blobar till ett annat lagrings konto och lägga till [BLOB-Taggar (för hands version)](../blobs/storage-manage-find-blobs.md) till mål-bloben.
+
+Om du använder Azure AD-auktorisering måste ditt säkerhets objekt tilldelas rollen som [ägare av lagrings-BLOB-data](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) eller så måste den ges behörighet till `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure Resource Provider-åtgärden](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via en anpassad Azure-roll. Om du använder en SAS-token (signatur för delad åtkomst) måste denna token ge åtkomst till blobens Taggar via `t` SAS-behörigheten.
+
+Om du vill lägga till taggar använder du `--blob-tags` alternativet tillsammans med ett URL-kodat nyckel/värde-par. 
+
+Om du till exempel vill lägga till en nyckel `my tag` och ett värde `my tag value` lägger du till `--blob-tags='my%20tag=my%20tag%20value'` mål parametern. 
+
+Avgränsa flera index-Taggar med hjälp av ett et-tecken ( `&` ).  Om du till exempel vill lägga till en nyckel `my second tag` och ett värde blir `my second tag value` den fullständiga alternativ strängen `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` .
+
+I följande exempel visas hur du använder `--blob-tags` alternativet.
+
+|    |     |
+|--------|-----------|
+| **Blob** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **Katalog** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **Container** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags="--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **Konto** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive --blob-tags="--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+
+> [!NOTE]
+> Om du anger en katalog, behållare eller ett konto för källan, kommer alla blobar som kopieras till målet att ha samma taggar som du anger i kommandot. 
+
 
 ## <a name="synchronize-files"></a>Synkronisera filer
 

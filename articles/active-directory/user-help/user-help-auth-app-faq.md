@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 65bd5a89d132a575817480d0609109a3f379e969
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f0cb7d4ebe428da4a370433b3e90a829f30489db
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833970"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512213"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Vanliga frågor och svar om Microsoft Authenticator-appen
 
@@ -32,6 +32,14 @@ Microsoft Authenticator-appen ersatte Azure Authenticator-appen och det är den 
 **F**: registreras en enhet som kan ge företaget eller tjänst åtkomst till min enhet?
 
 S **: när** du registrerar en enhet får enheten åtkomst till din organisations tjänster och ger inte din organisation åtkomst till din enhet.
+
+## <a name="too-many-app-permissions"></a>För många app-behörigheter
+
+**F**: Varför begär appen så många behörigheter?
+
+**A**: här är en fullständig lista över behörigheter som kan tillfrågas och hur de används av appen. Vilka behörigheter som visas beror på vilken typ av telefon du har.
+
+- **Plats**. Ibland vill din organisation veta din plats innan du får åtkomst till vissa resurser. Appen kommer att begära den här behörigheten endast om din organisation har en princip som kräver plats. 
 
 ### <a name="legacy-apns-support-deprecated"></a>Äldre APN-stöd är inaktuellt
 

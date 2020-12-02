@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: c4ddffa5f9e9ff4b313f05c9cedb3cb207695225
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4765c0c43cfd9760eb5b4392604bfaeedc69c388
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129711"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511448"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introduktion till Stream Analytics fönster funktioner
 
@@ -36,7 +36,7 @@ Hoppande fönster hoppar framåt i tid med en fast period. Det kan vara lätt at
 
 ## <a name="sliding-window"></a>Glidande fönster
 
-Glidande fönster, till skillnad från rullande-eller hoppande-fönster, utmatnings händelser endast för punkter i tid när innehållet i fönstret faktiskt ändras. Med andra ord när en händelse anges eller stänger fönstret. Varje fönster har minst en händelse, t. ex. När det gäller hoppande-fönster, kan händelser tillhöra mer än ett glidande fönster
+Glidande fönster, till skillnad från rullande-eller hoppande-fönster, utmatnings händelser endast för punkter i tid när innehållet i fönstret faktiskt ändras. Med andra ord när en händelse anges eller stänger fönstret. I så fall har varje fönster minst en händelse. Som liknar hoppande-fönster kan händelser tillhöra mer än ett glidande fönster.
 
 ![Stream Analytics glidande fönster](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 

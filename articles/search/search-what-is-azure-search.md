@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/24/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 1d5047a9be6b4cf53304858d12a0cb7b49b575ca
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c36a88317f71d08094b43d06cc7ba86985a73ca0
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499925"
+ms.locfileid: "96511856"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Vad är Azure Cognitive Search?
 
@@ -22,10 +22,11 @@ Azure Kognitiv sökning ([tidigare kallat "Azure Search"](whats-new.md#new-servi
 
 När du skapar en Kognitiv sökning-tjänst får du:
 
-+ en sökmotor som utför indexering och frågekörningen
-+ AI – centrerad analys och omvandling av bilder och avskiljande text under indexering
-+ beständig lagring av Sök index som du skapar och hanterar
-+ ett frågespråk för att skriva enkla till komplexa frågor
++ En sökmotor som utför indexering och frågekörningen
++ Beständig lagring av Sök index som du skapar och hanterar
++ Ett frågespråk för att skriva enkla till komplexa frågor
++ AI – centrerad analys, som skapar sökbart innehåll av bilder, rå text, programfiler
++ Integrering med Azure-data via Sök indexerare, automatisera data import och uppdatering
 
 En Sök tjänst är arkitekturad mellan de externa data lager som innehåller dina data som inte har indexerats och en klient-app som skickar förfrågningar till ett sökindex och hanterar svaret.
 

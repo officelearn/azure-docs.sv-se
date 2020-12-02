@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: a5c0d8bb47b337b0415565a0b6dad5c6822d0b94
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fd71f4eb56974b93637c23eddc81e5f33ce788b8
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781744"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512162"
 ---
 # <a name="azcopy-copy"></a>azcopy kopiera
 
@@ -107,6 +107,14 @@ Ladda upp filer och kataloger med hjälp av en SAS-token och jokertecken (*):
 ```azcopy
 azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
+
+Ladda upp filer och kataloger för att Azure Storage konto och ange taggar för frågesträngar som har kodats i bloben. 
+
+- Om du vill ange Taggar {Key = "bort bort", val = "foo"} och {Key = "bort bort 2", val = "bar"}, använder du följande syntax: `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+    
+- Nycklar och värden är URL-kodade och nyckel/värde-par avgränsas med ett et-tecken (&)
+
+- När du anger taggar på Blobbarna, finns det ytterligare behörigheter (t för taggar) i SAS utan vilken tjänsten ger auktoriseringsfel tillbaka.
 
 Hämta en enda fil med hjälp av OAuth-autentisering. Om du ännu inte har loggat in på AzCopy kör du `azcopy login` kommandot innan du kör följande kommando.
 
@@ -214,9 +222,19 @@ Kopiera en delmängd av buckets med hjälp av en symbol för jokertecken (*) i B
 - azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
+Överför filer och kataloger till Azure Storage kontot och ange de angivna taggarna för frågesträngen i bloben. 
+
+- Om du vill ange Taggar {Key = "bort bort", val = "foo"} och {Key = "bort bort 2", val = "bar"}, använder du följande syntax: `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+        
+- Nycklar och värden är URL-kodade och nyckel/värde-par avgränsas med ett et-tecken (&)
+    
+- När du anger taggar på Blobbarna, finns det ytterligare behörigheter (t för taggar) i SAS utan vilken tjänsten ger auktoriseringsfel tillbaka.
+
 ## <a name="options"></a>Alternativ
 
 **--säkerhets kopiering** Aktiverar Windows-SeBackupPrivilege för uppladdningar eller SeRestorePrivilege för hämtningar för att tillåta AzCopy att se och läsa alla filer, oavsett deras fil Systems behörigheter och för att återställa alla behörigheter. Kräver att kontot som kör AzCopy redan har dessa behörigheter (till exempel har administratörs rättigheter eller är medlem i `Backup Operators` gruppen). Den här flaggan aktiverar privilegier som kontot redan har.
+
+**--BLOB-Taggar** sträng uppsättnings taggar på blobbar för att kategorisera data i ditt lagrings konto.
 
 **--BLOB-Type** -strängen definierar BLOB-typen vid målet. Detta används för att ladda upp blobar och när du kopierar mellan konton (standard `Detect` ). Giltiga värden är `Detect` , `BlockBlob` , `PageBlob` och `AppendBlob` . När du kopierar mellan konton `Detect` använder värdet AzCopy för att fastställa typen av käll-BLOB för att fastställa typen av BLOB för målet. När du laddar upp en fil, `Detect` fastställer om filen är en VHD-eller VHDX-fil baserat på fil namns tillägget. Om filen är en VHD-eller VHDX-fil behandlar AzCopy filen som en Page blob. (standard "identifiering")
 

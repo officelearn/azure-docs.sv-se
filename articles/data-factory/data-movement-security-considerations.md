@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: b381f2f1871ea7e26950d5b02d5906a50c6129d3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9e34ce05d055e6933ecfbacf672bb8b1eba544bd
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445005"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512315"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhets överväganden för data förflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -32,7 +32,7 @@ I en Data Factory-lösning skapar du en eller flera data[pipelines](concepts-pip
 
 Även om Data Factory bara är tillgängligt i några regioner, är tjänsten för data flyttning [tillgänglig globalt](concepts-integration-runtime.md#integration-runtime-location) för att säkerställa att data efterlevs, effektivitets och minskade kostnader för utgående nätverks trafik. 
 
-Azure Data Factory lagrar inga data utom länkade autentiseringsuppgifter för tjänsten för moln data lager som krypteras med hjälp av certifikat. Med Data Factory skapar du data drivna arbets flöden för att dirigera data flödet mellan [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats)och bearbetning av data med hjälp av [beräknings tjänster](compute-linked-services.md) i andra regioner eller i en lokal miljö. Du kan också övervaka och hantera arbets flöden med hjälp av SDK: er och Azure Monitor.
+Azure Data Factory inklusive Integration Runtime lagrar inga data förutom länkade autentiseringsuppgifter för moln data lager, som krypteras med hjälp av certifikat. Med Data Factory skapar du data drivna arbets flöden för att dirigera data flödet mellan [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats)och bearbetning av data med hjälp av [beräknings tjänster](compute-linked-services.md) i andra regioner eller i en lokal miljö. Du kan också övervaka och hantera arbets flöden med hjälp av SDK: er och Azure Monitor.
 
 Data Factory har certifierats för:
 
@@ -173,7 +173,7 @@ Följande tabell innehåller utgående port-och domän krav för företags brand
 
 Följande tabell innehåller krav på inkommande portar för Windows-brand väggen:
 
-| Ingående portar | Description                              |
+| Ingående portar | Beskrivning                              |
 | ------------- | ---------------------------------------- |
 | 8060 (TCP)    | Krävs av PowerShell-krypterings-cmdleten enligt beskrivningen i [kryptera autentiseringsuppgifter för lokala data lager i Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md)och av Credential Manager-programmet för att på ett säkert sätt ange autentiseringsuppgifter för lokala data lager på integration runtime med egen värd. |
 

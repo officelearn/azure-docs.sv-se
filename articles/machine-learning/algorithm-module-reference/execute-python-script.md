@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2020
-ms.openlocfilehash: e0da478e221fe392135362cd74cbdd8baca101ef
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 12/02/2020
+ms.openlocfilehash: 360f0ce60a35bc96c6dd8e46d636f07124d01255
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421370"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511924"
 ---
 # <a name="execute-python-script-module"></a>Köra Python-skript modul
 
@@ -37,7 +37,7 @@ Azure Machine Learning använder Anaconda-distributionen av python, som innehål
 
 En fullständig lista finns i avsnittet [förinstallerade python-paket](#preinstalled-python-packages).
 
-Om du vill installera paket som inte finns i den förinstallerade listan (till exempel *scikit-Diverse* ) lägger du till följande kod i skriptet: 
+Om du vill installera paket som inte finns i den förinstallerade listan (till exempel *scikit-Diverse*) lägger du till följande kod i skriptet: 
 
 ```python
 import os
@@ -59,6 +59,36 @@ if spec is None:
 
 > [!WARNING]
 > Excute Python-skript module stöder inte installation av paket som är beroende av extra interna bibliotek med kommando som "apt-get", till exempel Java, PyODBC och så vidare. Detta beror på att den här modulen körs i en enkel miljö med python förinstallerat endast och med icke-administratörs behörighet.  
+
+## <a name="access-to-registered-datasets"></a>Åtkomst till registrerade data uppsättningar
+
+Du kan referera till följande exempel kod för att få åtkomst till [registrerade data uppsättningar](../how-to-create-register-datasets.md) på din arbets yta:
+
+```Python
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    # Execution logic goes here
+    print(f'Input pandas.DataFrame #1: {dataframe1}')
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    ws = run.experiment.workspace
+
+    from azureml.core import Dataset
+    dataset = Dataset.get_by_name(ws, name='test-register-tabular-in-designer')
+    dataframe1 = dataset.to_pandas_dataframe()
+     
+    # If a zip file is connected to the third input port,
+    # it is unzipped under "./Script Bundle". This directory is added
+    # to sys.path. Therefore, if your zip file contains a Python file
+    # mymodule.py you can import it using:
+    # import mymodule
+
+    # Return value must be of a sequence of pandas.DataFrame
+    # E.g.
+    #   -  Single return value: return dataframe1,
+    #   -  Two return values: return dataframe1, dataframe2
+    return dataframe1,
+```
 
 ## <a name="upload-files"></a>Ladda upp filer
 EXECUTE Python-skript module stöder överföring av filer med hjälp av [Azure Machine Learning python SDK](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-).
@@ -197,9 +227,9 @@ Resultatet av eventuella beräkningar av den inbäddade python-koden måste ange
 
 Modulen returnerar två data uppsättningar:  
   
-+ **Resultat data uppsättning 1** , som definieras av den första data ramen som returnerade Pandas i ett Python-skript.
++ **Resultat data uppsättning 1**, som definieras av den första data ramen som returnerade Pandas i ett Python-skript.
 
-+ **Resultat data uppsättning 2** , som definieras av den andra returnerade data ramen Pandas i ett Python-skript.
++ **Resultat data uppsättning 2**, som definieras av den andra returnerade data ramen Pandas i ett Python-skript.
 
 ## <a name="preinstalled-python-packages"></a>Förinstallerade python-paket
 De förinstallerade paketen är:

@@ -8,16 +8,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: 36f519ce41ccfbfb48ca696ed2a61c6131a75998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca3dd410474af0a42a3cd5b4217c3bba90b8ff1a
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906317"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511992"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Skydda resurser i Windows administrations Center med Security Center
 
-Windows administrations Center är ett hanterings verktyg för dina Windows-servrar. Det är en enda plats för system administratörer som har till gång till de flesta av de vanligaste administratörs verktygen. Inifrån Windows administrations Center kan du direkt publicera dina lokal-servrar i Azure Security Center. Du kan sedan Visa en sammanfattning av dina säkerhets rekommendationer och aviseringar direkt i Windows administrations Center-upplevelsen.
+Windows administrations Center är ett hanterings verktyg för dina Windows-servrar. Det är en enda plats för system administratörer som har till gång till de flesta av de vanligaste administratörs verktygen. Inifrån Windows administrations Center kan du direkt publicera dina lokala servrar i Azure Security Center. Du kan sedan Visa en sammanfattning av dina säkerhets rekommendationer och aviseringar direkt i Windows administrations Center-upplevelsen.
 
 > [!NOTE]
 > Din Azure-prenumeration och den associerade Log Analytics arbets ytan måste båda ha Azure Defender aktiverat för att kunna aktivera integrering av Windows administrations Center.
@@ -29,7 +29,7 @@ När du har registrerat en server från Windows administrations Center till Azur
 * Visa säkerhets aviseringar och rekommendationer i Security Center tillägget i Windows administrations Center
 * Visa säkerhets position och hämta ytterligare detaljerad information om dina hanterade Windows administrations Center-servrar i Security Center inom Azure Portal (eller via ett API)
 
-Genom att kombinera dessa två verktyg blir Security Center det enda fönstret av glas för att visa all din säkerhets information, oavsett resurs: skydda dina Windows administrations Center-hanterade lokal-servrar, dina virtuella datorer och eventuella ytterligare PaaS-arbetsbelastningar.
+Genom att kombinera dessa två verktyg blir Security Center det enda fönstret av glas för att visa all din säkerhets information, oavsett resurs: skydda dina Windows administrations Center hanterade lokala servrar, dina virtuella datorer och eventuella ytterligare PaaS arbets belastningar.
 
 ## <a name="onboard-windows-admin-center-managed-servers-into-security-center"></a>Publicera Windows administrations Center-hanterade servrar i Security Center
 
@@ -65,6 +65,6 @@ Från Azure Security Center:
 
 * Om du vill visa säkerhets rekommendationer för alla dina Windows administrations Center-servrar öppnar du [till gångs inventering](asset-inventory.md) och filtrerar till den typ av dator som du vill undersöka. Välj fliken **virtuella datorer och datorer** .
 
-* Öppna **säkerhets aviseringar**för att Visa säkerhets aviseringar för alla dina Windows administrations Center-servrar. Klicka på **filter** och se till att **endast** "icke-Azure" är valt:
+* Öppna **säkerhets aviseringar** för att Visa säkerhets aviseringar för alla dina Windows administrations Center-servrar. Klicka på **filter** och se till att **endast** "icke-Azure" är valt:
 
     :::image type="content" source="./media/windows-admin-center-integration/filtering-alerts-by-environment.png" alt-text="Filtrera säkerhets aviseringar för hanterade servrar i Windows administrations Center" lightbox="./media/windows-admin-center-integration/filtering-alerts-by-environment.png":::

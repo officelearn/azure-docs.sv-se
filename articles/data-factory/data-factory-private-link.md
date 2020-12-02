@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: c21b4d746d763f41f4360cf93f67939bcd6dc49f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8d28a1f2040cfec7b81081754a6abd3bc3e14439
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632693"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511482"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure privat länk för Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Med hjälp av en privat Azure-länk kan du ansluta till olika PaaS-distributioner (Platform as a Service) i Azure via en privat slut punkt. En privat slut punkt är en privat IP-adress inom ett särskilt virtuellt nätverk och undernät. En lista över PaaS-distributioner som stöder funktionen för privat länk finns i [dokumentationen för privat länk](../private-link/index.yml). 
+Med hjälp av en privat Azure-länk kan du ansluta till olika plattformar som en tjänst (PaaS) distributioner i Azure via en privat slut punkt. En privat slut punkt är en privat IP-adress inom ett särskilt virtuellt nätverk och undernät. En lista över PaaS-distributioner som stöder funktionen för privat länk finns i [dokumentationen för privat länk](../private-link/index.yml). 
 
 ## <a name="secure-communication-between-customer-networks-and-azure-data-factory"></a>Säker kommunikation mellan kund nätverk och Azure Data Factory 
 Du kan konfigurera ett virtuellt Azure-nätverk som en logisk representation av ditt nätverk i molnet. Detta ger följande fördelar:
@@ -53,18 +53,45 @@ Kommunikationen med att Azure Data Factory tjänsten går via en privat länk oc
 ![Diagram över privat länk för Azure Data Factory arkitektur.](./media/data-factory-private-link/private-link-architecture.png)
 
 Att aktivera tjänsten för privata Länkar för var och en av de föregående kommunikations kanalerna har följande funktioner:
-- **Stöds** :
+- **Stöds**:
    - Du kan skapa och övervaka data fabriken i det virtuella nätverket, även om du blockerar all utgående kommunikation.
    - Kommando kommunikationen mellan den lokala integrerings körningen och tjänsten Azure Data Factory kan utföras på ett säkert sätt i en privat nätverks miljö. Trafiken mellan den lokala integrerings körningen och Azure Data Factory tjänsten går via en privat länk. 
-- **Stöds inte för närvarande** :
+- **Stöds inte för närvarande**:
    - Interaktiv redigering som använder en lokal integrerings körning, till exempel testa anslutning, bläddra i Mapplista och tabell lista, Hämta schema och förhandsgranska data, går via en privat länk.
-   - Den nya versionen av den egna värdbaserade integrerings körningen kan hämtas automatiskt från Microsoft Download Center om du aktiverar AutoUpdate.
+   - Den nya versionen av den egna värdbaserade integrerings körningen kan hämtas automatiskt från Microsoft Download Center om du aktiverar automatisk uppdatering.
 
    > [!NOTE]
    > För funktioner som inte stöds för närvarande måste du fortfarande konfigurera den tidigare nämnda domänen och porten i det virtuella nätverket eller företagets brand vägg. 
 
 > [!WARNING]
 > När du skapar en länkad tjänst ser du till att dina autentiseringsuppgifter lagras i ett Azure Key Vault. Annars fungerar inte autentiseringsuppgifterna när du aktiverar privat länk i Azure Data Factory.
+
+## <a name="dns-changes-for-private-endpoints"></a>DNS-ändringar för privata slut punkter
+När du skapar en privat slut punkt uppdateras DNS CNAME-resursposten för Data Factory till ett alias i en under domän med prefixet "privatelink". Som standard skapar vi också en [privat DNS-zon](https://docs.microsoft.com/azure/dns/private-dns-overview)som motsvarar under domänen "privatelink" med DNS a-resursposter för de privata slut punkterna.
+
+När du löser slut punkts-URL: en för Data Factory från en plats utanför VNet med den privata slut punkten, matchas den mot den offentliga slut punkten för Data Factory-tjänsten. Vid matchning från det VNet som är värd för den privata slut punkten matchas slut punktens URL-adress till den privata slut punktens IP-adress.
+
+För det illustrerat exemplet ovan kommer DNS-resursposterna för Data Factory ' DataFactoryA ', när de löses från utanför det virtuella nätverk som är värd för den privata slut punkten, att vara:
+
+| Namn | Typ | Värde |
+| ---------- | -------- | --------------- |
+| DataFactoryA. {region}. DataFactory. Azure. net | CNAME   | DataFactoryA. {region}. privatelink. DataFactory. Azure. net |
+| DataFactoryA. {region}. privatelink. DataFactory. Azure. net | CNAME   | Den offentliga slut punkten för < Data Factory-tjänst > |
+| Den offentliga slut punkten för < Data Factory-tjänst >  | A | Den offentliga IP-adressen för < Data Factory-tjänsten > |
+
+DNS-resursposterna för DataFactoryA, när de löses i det VNet som är värd för den privata slut punkten, blir:
+
+| Namn | Typ | Värde |
+| ---------- | -------- | --------------- |
+| DataFactoryA. {region}. DataFactory. Azure. net | CNAME   | DataFactoryA. {region}. privatelink. DataFactory. Azure. net |
+| DataFactoryA. {region}. privatelink. DataFactory. Azure. net   | A | IP-adress för < privat slutpunkt > |
+
+Om du använder en anpassad DNS-server i nätverket måste klienterna kunna matcha FQDN för Data Factory slut punkten till den privata slut punktens IP-adress. Du bör konfigurera DNS-servern så att den delegerar din privata länk under domän till den privata DNS-zonen för det virtuella nätverket, eller konfigurera A-poster för ' DataFactoryA. {region}. privatelink. DataFactory. Azure. net med den privata slut punktens IP-adress.
+
+Mer information om hur du konfigurerar en egen DNS-server för att stödja privata slut punkter finns i följande artiklar:
+- [Namnmatchning för resurser i virtuella nätverk i Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [DNS-konfiguration för privata slut punkter](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Konfigurera en privat länk för Azure Data Factory
 Du kan skapa privata slut punkter med hjälp av [Azure Portal](../private-link/create-private-endpoint-portal.md).

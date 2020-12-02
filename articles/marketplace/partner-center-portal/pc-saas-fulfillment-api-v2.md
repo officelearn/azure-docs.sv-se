@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d6449a00886b7366bcd1f6e2fcec910fd3cb38db
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1ea326cc4537176c0ddcff070f4dc3b3f77f4b58
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461040"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512043"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>SaaS-API version 2 på den kommersiella marknaden
 
@@ -20,7 +20,7 @@ Den här artikeln beskriver de API: er som gör det möjligt för partner att s�
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>Hantera livs cykeln för SaaS-prenumeration
 
-Den kommersiella Marketplace hanterar hela livs cykeln för en SaaS-prenumeration efter köpet av slutanvändaren.  Den använder landnings sidan, API: er för utförande, åtgärds-API: er och webhook som en mekanism för att driva den faktiska aktiveringen av SaaS-prenumeration, användning, uppdateringar och uppsägning.  Slutanvändarens faktura baseras på statusen för den SaaS-prenumeration som Microsoft underhåller. 
+Den kommersiella Marketplace hanterar hela livs cykeln för en SaaS-prenumeration efter köpet av slutanvändaren. Den använder landnings sidan, API: er för utförande, åtgärds-API: er och webhook som en mekanism för att driva den faktiska aktiveringen av SaaS-prenumeration, användning, uppdateringar och uppsägning. Slutanvändarens faktura baseras på statusen för den SaaS-prenumeration som Microsoft underhåller. 
 
 ### <a name="states-of-a-saas-subscription"></a>Tillstånd för en SaaS-prenumeration
 
@@ -44,11 +44,11 @@ Ett exempel på ett sådant anrop är `https://contoso.com/signup?token=<blob>` 
 
 Landnings sidans URL måste vara igång hela dagen, varje dag och redo att ta emot nya samtal från Microsoft hela tiden. Om landnings sidan blir otillgänglig kan kunderna inte registrera sig för SaaS-tjänsten och börja använda den.
 
-Därefter måste utgivaren skicka tillbaka *token* till Microsoft genom att anropa [SaaS lösnings-API](#resolve-a-purchased-subscription)och ange token som värde för `x-ms-marketplace-token header` parametern header.  Till följd av anropet till API-anropet, utbyts token för information om SaaS-inköpet, till exempel unikt ID för köpet, inköpt erbjudande-ID och inköps plan-ID.
+Därefter måste utgivaren skicka tillbaka *token* till Microsoft genom att anropa [SaaS lösnings-API](#resolve-a-purchased-subscription)och ange token som värde för `x-ms-marketplace-token header` parametern header. Till följd av anropet till API-anropet, utbyts token för information om SaaS-inköpet, till exempel unikt ID för köpet, inköpt erbjudande-ID och inköps plan-ID.
 
 På landnings sidan ska kunden vara inloggad på det nya eller befintliga SaaS-kontot via Azure Active Directory (enkel inloggning) i Azure AD.
 
-Utgivaren bör implementera SSO för att tillhandahålla den användar upplevelse som krävs av Microsoft för det här flödet. Se till att använda Azure AD-programmet med flera innehavare och Tillåt både arbets-och skol konton eller personliga Microsoft-konton vid konfigurering av SSO.  Detta krav gäller endast landnings sidan för användare som omdirigeras till SaaS-tjänsten när de redan har loggat in med Microsoft-autentiseringsuppgifter. SSO krävs inte för alla inloggningar till SaaS-tjänsten.
+Utgivaren bör implementera SSO för att tillhandahålla den användar upplevelse som krävs av Microsoft för det här flödet. Se till att använda Azure AD-programmet med flera innehavare och Tillåt både arbets-och skol konton eller personliga Microsoft-konton vid konfigurering av SSO. Detta krav gäller endast landnings sidan för användare som omdirigeras till SaaS-tjänsten när de redan har loggat in med Microsoft-autentiseringsuppgifter. SSO krävs inte för alla inloggningar till SaaS-tjänsten.
 
 > [!NOTE]
 >Om SSO kräver att en administratör måste bevilja behörighet till en app, måste beskrivningen av erbjudandet i Partner Center avslöja att åtkomst på administratörs nivå krävs. Den här informationen är att följa de [kommersiella certifierings principerna för marknads platsen](/legal/marketplace/certification-policies#10003-authentication-options).
@@ -82,11 +82,11 @@ Det går bara att uppdatera en aktiv prenumeration. När prenumerationen uppdate
 
 ##### <a name="update-initiated-from-the-commercial-marketplace"></a>Uppdatering initierad från den kommersiella marknads platsen
 
-I det här flödet ändrar kunden prenumerations planen eller antalet platser från Azure Portal eller Microsoft 365 administrations Center.  
+I det här flödet ändrar kunden prenumerations planen eller antalet platser från Azure Portal eller Microsoft 365 administrations Center.
 
-1. När en uppdatering har angetts anropar Microsoft utgivarens webhook-URL, som kon figurer ATS i fältet **anslutnings-webhook** i Partner Center, med ett lämpligt värde för *Action* och andra relevanta parametrar.  
+1. När en uppdatering har angetts anropar Microsoft utgivarens webhook-URL, som kon figurer ATS i fältet **anslutnings-webhook** i Partner Center, med ett lämpligt värde för *Action* och andra relevanta parametrar. 
 1. Utgivarens sida bör göra nödvändiga ändringar i SaaS-tjänsten och meddela Microsoft när du är färdig genom att anropa [uppdaterings status för åtgärds-API](#update-the-status-of-an-operation).
-1. Om korrigeringen skickas med statusen *misslyckad* slutförs inte uppdaterings processen på Microsoft-sidan.  SaaS-prenumerationen behåller den befintliga planen och antalet platser.
+1. Om korrigeringen skickas med statusen *misslyckad* slutförs inte uppdaterings processen på Microsoft-sidan. SaaS-prenumerationen behåller den befintliga planen och antalet platser.
 
 > [!NOTE]
 > Utgivaren ska starta KORRIGERINGen för att [Uppdatera status för åtgärds-API](#update-the-status-of-an-operation) med ett misslyckat/framgångs svar *inom en tids period på 10 sekunder* efter att ha tagit emot webhook-meddelandet. Om korrigering av åtgärds status inte tas emot inom 10 sekunder, korrigeras ändrings planen *automatiskt som lyckad*. 
@@ -101,7 +101,7 @@ I det här flödet ändrar kunden prenumerations planen eller antalet platser so
 
 1. Utgivar koden måste anropa [API för ändrings plan](#change-the-plan-on-the-subscription) och/eller [API för ändrings antal](#change-the-quantity-of-seats-on-the-saas-subscription) innan du gör den begärda ändringen på utgivarens sida. 
 
-1. Microsoft kommer att tillämpa ändringen på prenumerationen och sedan meddela utgivaren via **anslutningens webhook** att tillämpa samma ändring.  
+1. Microsoft kommer att tillämpa ändringen på prenumerationen och sedan meddela utgivaren via **anslutningens webhook** att tillämpa samma ändring.
 
 1. Först om utgivaren gör den nödvändiga ändringen i SaaS-prenumerationen och meddela Microsoft när ändringen görs genom att anropa [uppdaterings status för åtgärds-API](#update-the-status-of-an-operation).
 
@@ -113,7 +113,7 @@ Sekvensen med API-anrop för ett uppdaterings scenario som initieras från utgiv
 
 Det här läget anger att kundens betalning för SaaS-tjänsten inte har tagits emot. Utgivaren kommer att meddelas om den här ändringen av Microsoft i SaaS prenumerations status. Meddelandet görs via ett anrop till webhook med *Åtgärds* parametern inställd på *pausad*.
 
-Utgivaren kan eventuellt göra ändringar i SaaS-tjänsten på utgivarens sida. Vi rekommenderar att utgivaren gör informationen tillgänglig för den inaktiverade kunden och begränsar eller blockerar kundens åtkomst till SaaS-tjänsten.  Det finns en sannolikhet att betalningen aldrig tas emot.
+Utgivaren kan eventuellt göra ändringar i SaaS-tjänsten på utgivarens sida. Vi rekommenderar att utgivaren gör informationen tillgänglig för den inaktiverade kunden och begränsar eller blockerar kundens åtkomst till SaaS-tjänsten. Det finns en sannolikhet att betalningen aldrig tas emot.
 
 Microsoft ger kunden en 30-dagars Grace-period innan prenumerationen avbryts automatiskt. När en prenumeration har tillståndet *Suspended* :
 
@@ -126,26 +126,26 @@ Prenumerations tillståndet ändras till inaktive rad på Microsoft-sidan innan 
 
 Den här åtgärden anger att kundens betalnings instrument har blivit giltigt igen, en betalning har gjorts för SaaS-prenumerationen och att prenumerationen återställs. Om så är fallet: 
 
-1. Microsoft anropar webhook med en *Åtgärds* parameter inställd på värdet *Återställ* .  
+1. Microsoft anropar webhook med en *Åtgärds* parameter inställd på värdet *Återställ* .
 1. Utgivaren ser till att prenumerationen fungerar som den ska på utgivarens sida.
-1. Utgivaren anropar [API: et för korrigerings åtgärden](#update-the-status-of-an-operation) med statusen lyckades.  
+1. Utgivaren anropar [API: et för korrigerings åtgärden](#update-the-status-of-an-operation) med statusen lyckades.
 1. Återställningen lyckas och Kunden debiteras igen för SaaS-prenumerationen. 
 
 Om korrigeringen skickas med statusen *Miss* slutförs återställnings processen på Microsoft-sidan och prenumerationen förblir *inaktive* rad.
 
-Endast en pausad prenumeration kan återställas.  Den inaktiverade SaaS-prenumerationen förblir i ett *inaktiverat* tillstånd när den återställs.  När den här åtgärden har slutförts *aktive* ras prenumerationens status.
+Endast en pausad prenumeration kan återställas. Den inaktiverade SaaS-prenumerationen förblir i ett *inaktiverat* tillstånd när den återställs. När den här åtgärden har slutförts *aktive* ras prenumerationens status.
 
 #### <a name="renewed-subscribed"></a>Förnyad (*prenumererad*)
 
-SaaS-prenumerationen förnyas automatiskt av Microsoft i slutet av prenumerations perioden på en månad eller ett år.  Standardinställningen för inställningen automatisk förnyelse är *True* för alla SaaS-prenumerationer. Aktiva SaaS-prenumerationer fortsätter att förnyas med en vanlig takt. Microsoft meddelar inte utgivaren när en prenumeration förnyas. En kund kan inaktivera automatisk förnyelse för en SaaS-prenumeration via Microsoft 365 admin-portalen eller via Azure Portal.  I det här fallet avbryts SaaS-prenumerationen automatiskt när den aktuella fakturerings perioden är slut.  Kunder kan också avbryta SaaS-prenumerationen när som helst.
+SaaS-prenumerationen förnyas automatiskt av Microsoft i slutet av prenumerations perioden på en månad eller ett år. Standardinställningen för inställningen automatisk förnyelse är *True* för alla SaaS-prenumerationer. Aktiva SaaS-prenumerationer fortsätter att förnyas med en vanlig takt. Microsoft meddelar inte utgivaren när en prenumeration förnyas. En kund kan inaktivera automatisk förnyelse för en SaaS-prenumeration via Microsoft 365 admin-portalen. I det här fallet avbryts SaaS-prenumerationen automatiskt när den aktuella fakturerings perioden är slut. Kunder kan också avbryta SaaS-prenumerationen när som helst.
 
-Endast aktiva prenumerationer förnyas automatiskt.  Prenumerationerna förblir aktiva under förnyelse processen och om automatisk förnyelse har slutförts.  Efter förnyelsen uppdateras start-och slutdatumen för prenumerations perioden till den nya termen datum.
+Endast aktiva prenumerationer förnyas automatiskt. Prenumerationerna förblir aktiva under förnyelse processen och om automatisk förnyelse har slutförts. Efter förnyelsen uppdateras start-och slutdatumen för prenumerations perioden till den nya termen datum.
 
 Om en automatisk förnyelse Miss lyckas på grund av ett problem med betalningen kommer prenumerationen att *inaktive* ras och utgivaren kommer att meddelas.
 
 #### <a name="canceled-unsubscribed"></a>Avbruten (avbruten av *prenumeration*) 
 
-Prenumerationerna når detta tillstånd som svar på en explicit kund-eller CSP-åtgärd genom att avbryta en prenumeration från utgivarens webbplats, Azure Portal eller Microsoft 365 administrations Center.  En prenumeration kan också avbrytas implicit, som ett resultat av inbetalning av avgifter, efter att ha *avbrutit* tillståndet i 30 dagar.
+Prenumerationerna når detta tillstånd som svar på en explicit kund-eller CSP-åtgärd genom att avbryta en prenumeration från utgivarens webbplats, Azure Portal eller Microsoft 365 administrations Center. En prenumeration kan också avbrytas implicit, som ett resultat av inbetalning av avgifter, efter att ha *avbrutit* tillståndet i 30 dagar.
 
 När utgivaren får ett uppsägnings-webhook-anrop bör de behålla kund information för återställning på begäran under minst sju dagar. Sedan kan kunddata tas bort.
 
@@ -163,7 +163,7 @@ I det här avsnittet dokumenteras API: er för SaaS-prenumeration och åtgärder
 * Hämta en lista över väntande program åtgärder som väntar på att bekräftas av utgivaren.
 
 > [!NOTE]
-> TLS version 1,2-versionen kommer att verkställas snart den lägsta versionen för HTTPS-kommunikation. Se till att du använder den här TLS-versionen i din kod.  TLS-versionerna 1,0 och 1,1 kommer snart att bli föråldrade.
+> TLS version 1,2-versionen kommer att verkställas snart den lägsta versionen för HTTPS-kommunikation. Se till att du använder den här TLS-versionen i din kod. TLS-versionerna 1,0 och 1,1 kommer snart att bli föråldrade.
 
 ### <a name="subscription-apis"></a>Prenumerations-API: er
 

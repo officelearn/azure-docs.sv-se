@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 046cca4e683a8f14893bf48ac8601b138a7c28a7
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: daa7c657a47414b01197bed3644caefeda98af1c
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630285"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512179"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 och 8600-migrering till Azure File Sync
 
@@ -175,7 +175,7 @@ Det finns flera tillgängliga replikeringsinställningar. Läs mer om de olika t
 Välj endast från något av följande två alternativ:
 
 * *Lokalt Redundant lagring (LRS)*.
-* *Zon redundant lagring (ZRS)* , som inte är tillgänglig i alla Azure-regioner.
+* *Zon redundant lagring (ZRS)*, som inte är tillgänglig i alla Azure-regioner.
 
 > [!NOTE]
 > Endast LRS-och ZRS-redundans typer är kompatibla med de stora Azure-filresurserna i 100-TiB-kapacitet.
@@ -320,8 +320,8 @@ I slutet av fas 3 har du kört dina data Transformation service-jobb från StorS
 
 Det finns två huvudsakliga strategier för att komma åt Azure-fil resurser:
 
-* **Azure File Sync** : [Distribuera Azure File Sync](#deploy-azure-file-sync) till en lokal Windows Server-instans. Azure File Sync har alla fördelar med en lokal cache, precis som StorSimple.
-* **Direkt delning – åtkomst** : [distribuera direkt delning – åtkomst](#deploy-direct-share-access). Använd den här strategin om ditt åtkomst scenario för en specifik Azure-filresurs inte drar nytta av lokal cachelagring, eller om du inte längre har möjlighet att vara värd för en lokal Windows Server-instans. Här kommer dina användare och appar fortsätta att komma åt SMB-resurser via SMB-protokollet. De här resurserna finns inte längre på en lokal server utan direkt i molnet.
+* **Azure File Sync**: [Distribuera Azure File Sync](#deploy-azure-file-sync) till en lokal Windows Server-instans. Azure File Sync har alla fördelar med en lokal cache, precis som StorSimple.
+* **Direkt delning – åtkomst**: [distribuera direkt delning – åtkomst](#deploy-direct-share-access). Använd den här strategin om ditt åtkomst scenario för en specifik Azure-filresurs inte drar nytta av lokal cachelagring, eller om du inte längre har möjlighet att vara värd för en lokal Windows Server-instans. Här kommer dina användare och appar fortsätta att komma åt SMB-resurser via SMB-protokollet. De här resurserna finns inte längre på en lokal server utan direkt i molnet.
 
 Du bör redan ha bestämt vilket alternativ som passar dig bäst i [steg 1](#phase-1-prepare-for-migration) i den här hand boken.
 
@@ -413,12 +413,12 @@ Den här metoden för migrering kräver vissa stillestånds tider för dina anv�
 
 När du använder Azure File Sync för en Azure-filresurs är det viktigt att du bestämmer att hela namn området har laddats ned till servern *innan* du påbörjar en lokal Robocopy. Hur lång tid det tar att ladda ned ditt namn område beror på antalet objekt i Azure-filresursen. Det finns två metoder för att avgöra om ditt namn område har anlänt på servern.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 Du kan använda Azure Portal för att se när ditt namn område har anlänt.
 
 * Logga in på Azure Portal och gå till din Sync-grupp. Kontrol lera synkroniseringsstatus för Sync-gruppen och Server slut punkten.
-* Den intressanta riktningen är Ladda ned. Om Server slut punkten har nyligen allokerats visas den **inledande synkroniseringen** , som anger att namn området fortfarande kommer att avslutas.
+* Den intressanta riktningen är Ladda ned. Om Server slut punkten har nyligen allokerats visas den **inledande synkroniseringen**, som anger att namn området fortfarande kommer att avslutas.
 När du har ändrat vad som helst men den **inledande synkroniseringen** fylls ditt namn område i fullständigt på servern. Nu kan du fortsätta med en lokal RoboCopy.
 
 #### <a name="windows-server-event-viewer"></a>Windows Server-Loggboken
@@ -429,7 +429,7 @@ Du kan också använda Loggboken på Windows Server-instansen för att se när n
 1. Gå till och öppna **Microsoft\FileSync\Agent\Telemetry**.
 1. Leta efter den senaste **händelse 9102** som motsvarar en slutförd Sync-session.
 1. Välj **information** och bekräfta att du tittar på en händelse där **SyncDirection** -värdet **hämtas**.
-1. Under tiden där ditt namn område har laddats ned till servern, kommer det att finnas en enskild händelse med **scenario** , värdet **FullGhostedSync** och **HResult**  =  **0**.
+1. Under tiden där ditt namn område har laddats ned till servern, kommer det att finnas en enskild händelse med **scenario**, värdet **FullGhostedSync** och **HResult**  =  **0**.
 1. Om du saknar den händelsen kan du också söka efter andra **9102-händelser** med **SyncDirection**  =  **nedladdning** och **scenario**  =  **"RegularSync"**. Att hitta någon av dessa händelser indikerar också att namn området har laddat ned och synkroniseringen har slutförts till vanliga synkroniseringar, oavsett om det finns något att synkronisera eller inte för tillfället.
 
 ### <a name="a-final-robocopy"></a>En slutgiltig RoboCopy
@@ -448,7 +448,7 @@ Nu finns det skillnader mellan den lokala Windows Server-instansen och StorSimpl
 RoboCopy har flera parametrar. I följande exempel visas ett färdigt kommando och en lista över orsaker till att välja dessa parametrar.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Lägg
@@ -475,6 +475,14 @@ Lägg
    :::column-end:::
    :::column span="1":::
       Utdata till konsol fönstret. Används tillsammans med utdata i en loggfil.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /NP
+   :::column-end:::
+   :::column span="1":::
+      Utelämnar loggning av förloppet för att hålla loggen läsbar.
    :::column-end:::
 :::row-end:::
 :::row:::

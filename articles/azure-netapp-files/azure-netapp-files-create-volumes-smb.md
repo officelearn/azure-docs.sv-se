@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: 9740506da2c03996db756175551867ed43575a7c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 682a97738e94c2a8188b4976a229d6a850a5b6ac
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488187"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512009"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -31,7 +31,7 @@ Du måste redan ha konfigurerat en kapacitetspool.
 Ett undernät måste delegeras till Azure NetApp Files.  
 [Delegera ett undernät till Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
-## <a name="requirements-for-active-directory-connections"></a>Krav för Active Directory anslutningar
+## <a name="requirements-for-active-directory-connections"></a>Krav för Active Directory-anslutningar
 
  Du måste skapa Active Directory anslutningar innan du skapar en SMB-volym. Kraven för Active Directory anslutningar är följande: 
 
@@ -84,7 +84,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
 
 * Azure NetApp Files stöder [LDAP-signering](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), vilket möjliggör säker överföring av LDAP-trafik mellan Azure NetApp Files-tjänsten och de [Active Directory domän kontrol Lanterna](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Om du följer anvisningarna i Microsoft Advisory [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) för LDAP-signering bör du aktivera funktionen LDAP-signering i Azure NetApp Files genom att markera rutan **LDAP-signering** i fönstret [Anslut Active Directory](#create-an-active-directory-connection) . 
 
-    Konfiguration av [LDAP-kanals bindning](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) har ingen inverkan på den Azure NetApp Files tjänsten. 
+    Enbart [LDAP-kanals bindnings](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) konfiguration har ingen påverkan på den Azure NetApp Files tjänsten. Men om du använder både LDAP-kanalens bindning och säker LDAP (till exempel LDAPs eller `start_tls` ), kommer SMB-volymen att Miss sen att skapas.
 
 Se Azure NetApp Files [FAQ (FAQ](./azure-netapp-files-faqs.md#smb-faqs) ) om ytterligare AD-information. 
 
@@ -119,10 +119,10 @@ Ytterligare AADDS-överväganden gäller för Azure NetApp Files:
 
 När du skapar en Active Directory anslutning noterar du följande information för AADDS:
 
-* Du hittar information om **primärt** DNS-, **sekundärt DNS** -och **AD DNS-domännamn** på AADDS-menyn.  
+* Du hittar information om **primärt** DNS-, **sekundärt DNS**-och **AD DNS-domännamn** på AADDS-menyn.  
 För DNS-servrar används två IP-adresser för att konfigurera Active Directory-anslutningen. 
 * **Sökvägen till organisationsenheten** är `OU=AADDC Computers` .  
-Den här inställningen konfigureras i **Active Directory anslutningar** under **NetApp-konto** :
+Den här inställningen konfigureras i **Active Directory anslutningar** under **NetApp-konto**:
 
   ![Sökväg till organisationsenhet](../media/azure-netapp-files/azure-netapp-files-org-unit-path.png)
 

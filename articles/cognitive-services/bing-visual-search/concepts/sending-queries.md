@@ -10,19 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
-ms.openlocfilehash: e8a8b843345d21d38c11789b09003a4b82f768f5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 37d9352b6384ee2b5e95903f35d531bd672b25b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369502"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490983"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Skicka Sök frågor till API för visuell sökning i Bing
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 I den här artikeln beskrivs parametrarna och attributen för begär Anden som skickas till API för visuell sökning i Bing, samt objektet Response. 
 
@@ -89,7 +89,7 @@ Här följer frågeparametrarna som din begäran bör ange. Du bör minst ta med
 
 Här följer huvudena som din begäran bör ange. `Content-Type` `Ocp-Apim-Subscription-Key` Rubrikerna och är de enda huvuden som krävs, men du bör även inkludera `User-Agent` , `X-MSEdge-ClientID` , `X-MSEdge-ClientIP` och `X-Search-Location` .
 
-| Sidhuvud | Description |
+| Huvud | Description |
 | --- | --- |
 | <a name="acceptlanguage"></a>Accept-Language  | Valfritt begärandehuvud.<br /><br /> En kommaavgränsad lista över språk som ska användas för användargränssnittssträngar. Listan är i fallande prioritetsordning. Mer information, bland annat om det förväntade formatet, finns i [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Det är huvudet och [setLang](#setlang)-frågeparametern utesluter varandra&mdash;ange inte båda två.<br /><br /> Om du anger huvudet måste du även ange frågeparametern [cc](#cc). För att fastställa vilken marknad som resultat ska returneras för använder Bing det första språk som stöds på listan och kombinerar det med parametervärdet `cc`. Om listan inte innehåller något språk som stöds hittar Bing det närmaste språket och marknaden som har stöd för begäran, eller så använder Bing en aggregerad eller standardmarknad för resultatet. Se rubriken för att fastställa på vilken marknad Bing används `BingAPIs-Market` .<br /><br /> Använd enbart det här huvudet och `cc`-frågeparametern om du anger flera språk. Annars kan du använda frågeparametrarna [mkt](#mkt) och [setLang](#setlang).<br /><br /> En användargränssnittssträng är en sträng som används som en etikett i ett användargränssnitt. Det finns några användargränssnittssträngar i JSON-svarsobjekt. Alla länkar till Bing.com-egenskaper i svarsobjekten använder det angivna språket.  |
 | <a name="contenttype"></a>Content-Type  |     |

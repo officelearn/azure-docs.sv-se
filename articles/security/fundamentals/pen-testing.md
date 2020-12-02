@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2020
 ms.author: terrylan
-ms.openlocfilehash: dfacf124f8db0e5323c9abff56c4a78f85f6f014
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af61b6ee1e69d175f47170df30f75832033d61d5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816141"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489725"
 ---
 # <a name="penetration-testing"></a>Intrångstest
 
@@ -46,7 +46,7 @@ Standard test som du kan utföra är:
 En typ av Penn test som du inte kan utföra är någon typ av dos [-attack (Denial of Service)](https://en.wikipedia.org/wiki/Denial-of-service_attack) . Det här testet omfattar att initiera en DoS-attack eller utföra relaterade tester som kan fastställa, demonstrera eller simulera alla typer av DoS-attacker.
 
 >[!Note]
->Microsoft samarbetar med BreakingPoint Cloud för att skapa ett gränssnitt där du kan generera trafik mot DDoS Protection-aktiverade offentliga IP-adresser för simuleringar. Om du vill veta mer om moln simulering för Bryt punkter, se [validera DDoS-identifiering](../../virtual-network/manage-ddos-protection.md#validate-ddos-detection).
+>Microsoft samarbetar med BreakingPoint Cloud för att skapa ett gränssnitt där du kan generera trafik mot DDoS Protection-aktiverade offentliga IP-adresser för simuleringar. Om du vill veta mer om moln simulering för Bryt punkter, se [validera DDoS-identifiering](../../ddos-protection/manage-ddos-protection.md#validate-and-test).
 
 ## <a name="next-steps"></a>Nästa steg
 

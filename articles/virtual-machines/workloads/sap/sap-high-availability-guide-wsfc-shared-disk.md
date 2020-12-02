@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 079a1aed500014b5ec3f14c1cf6ece97e104558e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e46aa79bc84f3eba218932c1e8a463584de3f1bb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958531"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488961"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Klustra en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure
 
@@ -33,7 +33,7 @@ Windows Server-redundanskluster är grunden för en hög tillgänglig SAP-ASCS/S
 
 Ett redundanskluster är en grupp med 1 + n-oberoende servrar (noder) som arbetar tillsammans för att öka tillgängligheten för program och tjänster. Om ett nodfel inträffar beräknar Windows Server-redundanskluster antalet fel som kan uppstå och fortfarande upprätthåller ett felfritt kluster för att tillhandahålla program och tjänster. Du kan välja mellan olika kvorumresurser för att nå redundanskluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Läs följande artikel innan du påbörjar uppgifterna i den här artikeln:
 
 * [Azure Virtual Machines hög tillgänglighets arkitektur och scenarier för SAP NetWeaver][sap-high-availability-architecture-scenarios]
@@ -52,7 +52,7 @@ Tjänsten Azure Load Balancer tillhandahåller en *intern belastningsutjämnare*
 Distribuera den interna belastningsutjämnaren i resurs gruppen som innehåller klusternoderna. Konfigurera sedan alla nödvändiga regler för port vidarebefordran med hjälp av avsöknings portarna för den interna belastningsutjämnaren. Klienter kan ansluta via det virtuella värd namnet. DNS-servern matchar klustrets IP-adress och den interna belastningsutjämnaren hanterar port vidarebefordran till klustrets aktiva nod.
 
 > [!IMPORTANT]
-> Flytande IP stöds inte på en sekundär NIC-IP-konfiguration i belastnings Utjämnings scenarier. Mer information finns i [begränsningar för Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Om du behöver ytterligare IP-adress för den virtuella datorn distribuerar du ett andra nätverkskort.  
+> Flytande IP stöds inte på en sekundär NIC-IP-konfiguration i belastnings Utjämnings scenarier. Mer information finns i [begränsningar för Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Om du behöver ytterligare IP-adress för den virtuella datorn distribuerar du ett andra nätverkskort.  
 
 ![Bild 1: konfiguration av Windows-redundanskluster i Azure utan en delad disk][sap-ha-guide-figure-1001]
 

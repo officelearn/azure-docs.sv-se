@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 36c101acc9e272ca0860649aad1a5e18fb5000a5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 23a5ea2d3ffc1511bea66bb8bc3c4282b6d16cc2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957341"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489130"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA skalbart system på Red Hat Enterprise Linux 
 
@@ -221,7 +221,7 @@ För konfigurationen som presenteras i det här dokumentet distribuerar du sju v
       1. Välj **OK**.
 
    > [!IMPORTANT]
-   > Flytande IP stöds inte på en sekundär NIC-IP-konfiguration i belastnings Utjämnings scenarier. Mer information finns i [begränsningar för Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Om du behöver ytterligare IP-adress för den virtuella datorn distribuerar du ett andra nätverkskort.    
+   > Flytande IP stöds inte på en sekundär NIC-IP-konfiguration i belastnings Utjämnings scenarier. Mer information finns i [begränsningar för Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Om du behöver ytterligare IP-adress för den virtuella datorn distribuerar du ett andra nätverkskort.    
    
    > [!Note]
    > När virtuella datorer utan offentliga IP-adresser placeras i backend-poolen för intern (ingen offentlig IP-adress) standard Azure-belastningsutjämnare, kommer det inte att finnas någon utgående Internet anslutning, om inte ytterligare konfiguration utförs för att tillåta routning till offentliga slut punkter. Mer information om hur du uppnår utgående anslutningar finns i Översikt över [offentliga slut punkter för Virtual Machines med Azure standard Load Balancer i SAP-scenarier med hög tillgänglighet](./high-availability-guide-standard-load-balancer-outbound-connections.md).  

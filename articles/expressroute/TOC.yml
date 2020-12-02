@@ -162,6 +162,8 @@
           href: expressroute-howto-coexist-resource-manager.md
         - name: Skapa en zonredundant VNet-gateway i Azure-tillgänglighetszoner
           href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
+    - name: Planera och hantera kostnader
+      href: plan-manage-cost.md
     - name: Flytta från klassisk distribution till Resource Manager
       items:
         - name: Flytta en krets från klassisk till Resource Manager

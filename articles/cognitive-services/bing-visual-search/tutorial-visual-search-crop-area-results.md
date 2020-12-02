@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/31/2019
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 14b32e4d666a81b8cba0e23c99b5878b1d9d4351
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 0ad73d7086a2066517c24a8b10a7f54503535942
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368074"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490303"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Självstudie: Beskär en avbildning med Visuell sökning i Bing SDK för C #
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Med Visuell sökning i Bing SDK kan du beskära en avbildning innan du hittar liknande online-avbildningar. Det här programmet Beskär en enskild person från en avbildning som innehåller flera personer och returnerar sedan Sök resultaten som innehåller liknande avbildningar som finns online.
 
@@ -42,7 +42,7 @@ Den här självstudien visar hur du:
 * En version av [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 * [NuGet-paketet för anpassad sökning](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) installerat.
-    - Från Solution Explorer i Visual Studio högerklickar du på projektet och väljer **Hantera NuGet-paket** på menyn. Installera `Microsoft.Azure.CognitiveServices.Search.CustomSearch`-paketet. När du installerar NuGet-paketet för anpassad sökning installeras även följande sammansättningar:
+    - Från Solution Explorer i Visual Studio högerklickar du på projektet och väljer **Hantera NuGet-paket** på menyn. Installera paketet `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. När du installerar NuGet-paketet för anpassad sökning installeras även följande sammansättningar:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json

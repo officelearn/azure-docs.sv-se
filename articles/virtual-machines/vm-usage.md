@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: d43f94d3555a660d6b7c8f755eebfec253d31dc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b845d547224fb173d2a4b156575778783e0281fa
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322989"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488575"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Förstå användningen av virtuella Azure-datorer
 Genom att analysera Azures användnings data kan kraftfulla förbruknings insikter uppnås – insikter som kan möjliggöra bättre kostnads hantering och allokering i hela organisationen. Det här dokumentet ger en detaljerad genom gång av information om din Azure Compute-förbrukning. Om du vill ha mer information om allmän Azure-användning går du till att [förstå din faktura](../cost-management-billing/understand/review-individual-bill.md).
@@ -24,7 +24,7 @@ Genom att analysera Azures användnings data kan kraftfulla förbruknings insikt
 Börja med att [Hämta din användnings information](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Tabellen nedan innehåller definitionen och exempel på användnings värden för Virtual Machines som distribueras via Azure Resource Manager. Det här dokumentet innehåller ingen detaljerad information för virtuella datorer som distribueras via vår klassiska modell.
 
 
-| Field | Innebörd | Exempel värden | 
+| Fält | Innebörd | Exempel värden | 
 |---|---|---|
 | Datum för användning | Det datum då resursen användes | `11/23/2017` |
 | Meter ID | Identifierar den översta tjänst som den här användningen tillhör| `Virtual Machines`|
@@ -33,11 +33,11 @@ Börja med att [Hämta din användnings information](../cost-management-billing/
 | Meter Region| Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret ligger.|  `JA East`|
 | Enhet| Identifierar i vilken enhet tjänsten debiteras. Beräknings resurser faktureras per timme.| `Hours`|
 | Förbrukad| Mängden av den resurs som har för bruk ATS under den dagen. För Compute debiterar vi varje minut som den virtuella datorn kördes för en given timme (upp till 6 decimaler av noggrannhet).| `1, 0.5`|
-| Resursplats  | Identifierar det datacenter där resursen körs.| `JA East`|
+| Resource Location  | Identifierar det datacenter där resursen körs.| `JA East`|
 | Consumed Service | Den Azure-plattform som du använde.| `Microsoft.Compute`|
 | Resursgrupp | Resursgruppen där den distribuerade resursen körs. Mer information finns i [Azure Resource Manager översikt.](../azure-resource-manager/management/overview.md)|`MyRG`|
 | Instance ID | Resursens identifierare. Identifieraren innehåller namnet du angav för resursen när den skapades. För virtuella datorer kommer instans-ID: t innehålla SubscriptionId, ResourceGroupName och VMName (eller skalnings uppsättningens namn för användning av skalnings uppsättningar).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>eller<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
-| Taggar| Tagg som du tilldelar till resursen. Använd taggar för att gruppera faktureringsposter. Lär dig att tagga Virtual Machines med [CLI](./linux/tag.md) eller [PowerShell](./windows/tag.md) som bara är tillgängligt för virtuella Resource Manager-datorer.| `{"myDepartment":"RD","myUser":"myName"}`|
+| Taggar| Tagg som du tilldelar till resursen. Använd taggar för att gruppera faktureringsposter. Lär dig att tagga Virtual Machines med [CLI](./tag-cli.md) eller [PowerShell](./tag-portal.md) som bara är tillgängligt för virtuella Resource Manager-datorer.| `{"myDepartment":"RD","myUser":"myName"}`|
 | Ytterligare info | Tjänstspecifika metadata. För virtuella datorer fyller vi i följande data i fältet ytterligare information: <br><br> Bildtyp-bestämd bild som du körde. Hitta den fullständiga listan över strängar som stöds under avbildnings typer.<br><br> Tjänst typ: den storlek som du har distribuerat.<br><br> VMName: namnet på den virtuella datorn. Det här fältet är bara ifyllt för virtuella datorer med skalnings uppsättningar. Om du behöver ditt VM-namn för virtuella datorer med skalnings uppsättningar kan du se det i instans-ID-strängen ovan.<br><br> UsageType: här anges vilken typ av användning detta representerar.<br><br> ComputeHR är beräknings timmen för den underliggande virtuella datorn, t. ex. Standard_D1_v2.<br><br> ComputeHR_SW är avgiften för program varan om den virtuella datorn använder Premium program vara, t. ex. Microsoft R Server. | Virtual Machines<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Premium program vara<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 
 ## <a name="image-type"></a>Avbildnings typ
@@ -76,7 +76,7 @@ Region namnet som fyllts i i fältet resurs plats i användnings informationen v
 | chinaeast | Kina, östra|
 | chinanorth | Kina, norra|
 | eastasia | Asien, östra|
-| eastus | East US|
+| USA, östra | East US|
 | usaöstra2 | USA, östra 2|
 | GermanyCentral | DE centrala|
 | GermanyNortheast | DE nordöstra|
@@ -103,7 +103,7 @@ Region namnet som fyllts i i fältet resurs plats i användnings informationen v
 | Europa, västra | Europa, västra|
 | Usavästracentrala | Indien, västra|
 | westus | USA, västra|
-| westus2 | USA, västra 2|
+| USA, västra 2 | USA, västra 2|
 
 
 ## <a name="virtual-machine-usage-faq"></a>Vanliga frågor om användning av virtuell dator

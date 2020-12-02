@@ -1,7 +1,7 @@
 ---
 title: Custom Speech översikt – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: Custom Speech är en uppsättning online-verktyg som gör att du kan utvärdera och förbättra all tal-till-text-precision för dina program, verktyg och produkter. Allt det krävs för att komma igång är en fåtal av test-ljudfiler. Följ länkarna nedan för att börja skapa en anpassad tal-till-text-upplevelse.
+description: Custom Speech är en uppsättning online-verktyg som gör att du kan utvärdera och förbättra Microsofts tal-till-text-precision för dina program, verktyg och produkter.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 7f8fb0488c863868b1076ad5b3fa7868d1880a6b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 96b8e4031520e1a0540fca7d84b3f9ae1cca9c22
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353790"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490354"
 ---
 # <a name="what-is-custom-speech"></a>Vad är Custom Speech?
 
-[Custom Speech](https://aka.ms/customspeech) är en uppsättning UI-baserade verktyg som gör att du kan utvärdera och förbättra Microsofts tal-till-text-precision för dina program och produkter. Allt det krävs för att komma igång är en fåtal av test-ljudfiler. Följ länkarna nedan för att börja skapa en anpassad tal-till-text-upplevelse.
+[Custom Speech](https://aka.ms/customspeech) är en uppsättning UI-baserade verktyg som gör att du kan utvärdera och förbättra Microsofts tal-till-text-precision för dina program och produkter. Allt det behöver för att komma igång är en fåtal av test-ljudfiler. Följ länkarna i den här artikeln för att börja skapa en anpassad tal-till-text-upplevelse.
 
 ## <a name="whats-in-custom-speech"></a>Vad är i Custom Speech?
 
@@ -27,51 +27,51 @@ Innan du kan göra något med Custom Speech behöver du ett Azure-konto och en r
 
 Det här diagrammet visar de delar som utgör den [Custom Speech portalen](https://aka.ms/customspeech). Använd länkarna nedan för att lära dig mer om varje steg.
 
-![Markerar de olika komponenterna som utgör Custom Speechs portalen.](./media/custom-speech/custom-speech-overview.png)
+![Diagram som visar de komponenter som utgör Custom Speechs portalen.](./media/custom-speech/custom-speech-overview.png)
 
-1. [Prenumerera och skapa ett projekt](#set-up-your-azure-account) – skapa ett Azure-konto och prenumerera på tal tjänsten. Den här enhetliga prenumerationen ger dig åtkomst till tal översättning av tal till text, text till tal, tal översättning och [Custom Speech-portalen](https://speech.microsoft.com/customspeech). Sedan använder du din röst tjänst prenumeration och skapar ditt första Custom Speech-projekt.
+1. [Prenumerera och skapa ett projekt](#set-up-your-azure-account). Skapa ett Azure-konto och prenumerera på tal tjänsten. Den här enhetliga prenumerationen ger dig åtkomst till tal översättning av tal till text, text till tal, tal översättning och [Custom Speech-portalen](https://speech.microsoft.com/customspeech). Sedan kan du använda prenumerationen för din röst tjänst för att skapa ditt första Custom Speech-projekt.
 
-1. [Ladda upp test data](./how-to-custom-speech-test-and-train.md) – Ladda upp test data (ljudfiler) för att utvärdera Microsofts tal-till-text-erbjudande för dina program, verktyg och produkter.
+1. [Ladda upp test data](./how-to-custom-speech-test-and-train.md). Ladda upp test data (ljudfiler) för att utvärdera Microsoft tal-till-text-erbjudandet för dina program, verktyg och produkter.
 
-1. [Granska igenkännings kvalitet](how-to-custom-speech-inspect-data.md) – Använd [Custom Speech portalen](https://speech.microsoft.com/customspeech) för att spela upp ljud som laddats upp och kontrol lera kvaliteten på test data. Information om kvantitativa mått finns i [Granska data](how-to-custom-speech-inspect-data.md).
+1. [Inspektera igenkännings kvaliteten](how-to-custom-speech-inspect-data.md). Använd [Custom Speech-portalen](https://speech.microsoft.com/customspeech) för att spela upp ljud som laddats upp och granska kvaliteten på test data. Information om kvantitativa mått finns i [Granska data](how-to-custom-speech-inspect-data.md).
 
-1. [Utvärdera och förbättra precisionen](how-to-custom-speech-evaluate-data.md) – utvärdera och förbättra noggrannheten hos tal-till-text-modellen. [Custom Speech-portalen](https://speech.microsoft.com/customspeech) ger en *fel frekvens i Word* som kan användas för att avgöra om det krävs ytterligare utbildning. Om du är nöjd med noggrannheten kan du använda API: erna för Speech service direkt. Om du vill förbättra noggrannheten med ett relativt genomsnitt på 5%-20%, använder du fliken **utbildning** i portalen för att ladda upp ytterligare tränings data, till exempel rapporter om mänsklig skrift och relaterad text.
+1. [Utvärdera och förbättra noggrannheten](how-to-custom-speech-evaluate-data.md). Utvärdera och förbättra noggrannheten hos tal-till-text-modellen. [Custom Speech Portal](https://speech.microsoft.com/customspeech) ger en *fel frekvens för Word*, som du kan använda för att avgöra om det krävs ytterligare utbildning. Om du är nöjd med noggrannheten kan du använda API: erna för Speech service direkt. Om du vill förbättra noggrannheten med ett relativt genomsnitt på 5% till 20% använder du fliken **utbildning** i portalen för att ladda upp ytterligare tränings data, t. ex. person etiketter och relaterad text.
 
-1. [Träna och distribuera en modell](how-to-custom-speech-train-model.md) – förbättra noggrannheten hos din tal-till-text-modell genom att tillhandahålla skrivna avskrifter (10 – 1 000 timmar) och relaterad text (<200 MB) tillsammans med ljud test data. Dessa data hjälper till att träna tal-till-text-modellen. Efter utbildningen, testa om och om du är nöjd med resultatet kan du distribuera din modell till en anpassad slut punkt.
+1. [Träna och distribuera en modell](how-to-custom-speech-train-model.md). Förbättra noggrannheten i tal-till-text-modellen genom att tillhandahålla skrivna avskrifter (10 till 1 000 timmar) och relaterad text (<200 MB) tillsammans med dina ljud test data. Dessa data hjälper till att träna tal-till-text-modellen. Efter inlärningen testar du om. Om du är nöjd med resultatet kan du distribuera din modell till en anpassad slut punkt.
 
 ## <a name="set-up-your-azure-account"></a>Konfigurera ditt Azure-konto
 
-Det krävs ett Azure-konto och en röst tjänst prenumeration innan du kan använda [Custom Speech Portal](https://speech.microsoft.com/customspeech) för att skapa en anpassad modell. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](overview.md#try-the-speech-service-for-free).
+Du måste ha ett Azure-konto och en röst tjänst prenumeration innan du kan använda [Custom Speech Portal](https://speech.microsoft.com/customspeech) för att skapa en anpassad modell. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](overview.md#try-the-speech-service-for-free).
 
 > [!NOTE]
-> Se till att skapa standard prenumerationer (S0), kostnads fria (F0) prenumerationer stöds inte.
+> Kom ihåg att skapa en standard prenumeration (S0). Kostnads fria (F0) prenumerationer stöds inte.
 
 När du har skapat ett Azure-konto och en röst tjänst prenumeration måste du logga in på [Custom Speech Portal](https://speech.microsoft.com/customspeech) och ansluta din prenumeration.
 
-1. Logga in på [Custom Speech portalen](https://aka.ms/custom-speech).
-1. Välj den prenumeration du behöver för att arbeta med och skapa ett tal projekt.
-1. Om du vill ändra din prenumeration använder du **kugg hjuls** -ikonen som finns i det övre navigerings fönstret.
+1. Logga in på [Custom Speech Portal](https://aka.ms/custom-speech).
+1. Välj den prenumeration du behöver för att arbeta i och skapa ett tal projekt.
+1. Om du vill ändra din prenumeration väljer du knappen kugg hjuls på den översta menyn.
 
 ## <a name="how-to-create-a-project"></a>Så här skapar du ett projekt
 
-Innehåll som data, modeller, tester och slut punkter organiseras i **projekt** i [Custom Speech portalen](https://speech.microsoft.com/customspeech). Varje projekt är specifika för en domän och ett land/språk. Du kan till exempel skapa ett projekt för Call Center som använder engelska i USA.
+Innehåll som data, modeller, tester och slut punkter organiseras i *projekt* i [Custom Speech portalen](https://speech.microsoft.com/customspeech). Varje projekt är specifika för en domän och ett land/språk. Du kan till exempel skapa ett projekt för Call Center som använder engelska i USA.
 
-Om du vill skapa ditt första projekt väljer du tal **-till-text/anpassad tal** och klickar sedan på **nytt projekt**. Följ anvisningarna i guiden för att skapa projektet. När du har skapat ett projekt bör du se fyra flikar: **data**, **testning**, **utbildning** och **distribution**. Använd länkarna som beskrivs i [Nästa steg](#next-steps) för att lära dig hur du använder varje flik.
+Skapa ditt första projekt genom att välja **tal-till-text/anpassad tal** och välj sedan **nytt projekt**. Följ anvisningarna i guiden för att skapa projektet. När du har skapat ett projekt bör du se fyra flikar: **data**, **testning**, **utbildning** och **distribution**. Använd länkarna som beskrivs i [Nästa steg](#next-steps) för att lära dig hur du använder varje flik.
 
 > [!IMPORTANT]
 > [Custom Speech portalen](https://aka.ms/custom-speech) uppdaterades nyligen! Om du har skapat tidigare data, modeller, tester och publicerade slut punkter i CRIS.ai-portalen eller med API: er, måste du skapa ett nytt projekt i den nya portalen för att ansluta till dessa gamla entiteter.
 
 ## <a name="model-lifecycle"></a>Modell livs cykel
 
-Det anpassade talet använder både **bas modeller** och **anpassade modeller**. Varje språk har en eller flera **bas modeller**. När en ny tal modell släpps till den vanliga tal tjänsten importeras den också till den Custom Speech tjänsten som en ny **bas modell**. De uppdateras vanligt vis var 3-6 månad, och äldre modeller blir mindre användbara över tid eftersom den senaste modellen vanligt vis har högre noggrannhet.
+Custom Speech använder både *bas modeller* och *anpassade modeller*. Varje språk har en eller flera bas modeller. När en ny tal modell släpps till tjänsten vanliga tal, importeras den också till Custom Speech tjänsten som en ny bas modell. De uppdateras varje 3 till 6 månader. Äldre modeller blir vanligt vis mindre användbara över tid eftersom den senaste modellen vanligt vis har högre noggrannhet.
 
-**Anpassade modeller** skapas däremot genom att anpassa en vald bas modell till ett visst kund scenario. Du kan fortsätta att använda en viss anpassad modell under en längre tids period när du har kommit till en som uppfyller dina behov, men vi rekommenderar att du regelbundet uppdaterar till den senaste bas modellen och tränar med ytterligare data.
+Anpassade modeller skapas däremot genom att anpassa en vald bas modell till ett visst kund scenario. Du kan fortsätta att använda en viss anpassad modell under en längre tid efter att du har en som motsvarar dina behov. Men vi rekommenderar att du regelbundet uppdaterar till den senaste bas modellen och tränar om den med tiden med ytterligare data. 
 
 Andra viktiga villkor som rör modell livs cykeln är:
 
-* **Anpassning**: ta en bas modell och anpassa den till domänen/scenariot med hjälp av text data och/eller ljud data
-* **Avkodning**: använda en modell och utföra tal igenkänning (avkoda ljud till text)
-* **Slut punkt**: en användarspecifik distribution av antingen en bas modell eller en anpassad modell som *endast* är tillgänglig för en angiven användare.
+* **Anpassning**: ta en bas modell och anpassa den till domänen/scenariot med hjälp av text data och/eller ljuddata.
+* **Avkodning**: använda en modell och utföra tal igenkänning (avkodning av ljud i text).
+* **Slut punkt**: en användarspecifik distribution av antingen en bas modell eller en anpassad modell som *endast* är tillgänglig för en specifik användare.
 
 ### <a name="expiration-timeline"></a>Tids linje för förfallo datum
 
@@ -79,16 +79,16 @@ När nya modeller och nya funktioner blir tillgängliga och äldre, tas mindre e
 
 **Bas modeller** 
 
-* Anpassning: tillgänglig i 1 år. När modellen har importer ATS är den tillgänglig i 1 år för att skapa anpassade modeller. Efter ett år måste nya anpassade modeller skapas från en senare bas modell version.  
-* Avkodning: tillgänglig i 2 år efter import. Det innebär att du kan skapa en slut punkt och använda batch-avskrift för 2 år med den här modellen. 
-* Slut punkter: tillgängliga på samma tids linje som avkodning
+* Anpassning: tillgängligt i ett år. När modellen har importer ATS är den tillgänglig i ett år för att skapa anpassade modeller. Efter ett år måste nya anpassade modeller skapas från en senare bas modell version.  
+* Avkodning: tillgänglig i två år efter importen. Så du kan skapa en slut punkt och använda batch-avskrift för två år med den här modellen. 
+* Slut punkter: tillgängliga på samma tids linje som avkodning.
 
 **Anpassade modeller**
 
-* Avkodning: tillgänglig i 2 år efter att modellen har skapats. Det innebär att du kan använda den anpassade modellen i 2 år (batch/Real/test) när den har skapats. Efter 2 år **bör du träna modellen** på grund av att bas modellen är föråldrad för anpassning.  
-* Slut punkter: tillgängliga på samma tids linje som avkodning
+* Avkodning: tillgänglig i två år efter att modellen har skapats. Så du kan använda den anpassade modellen i två år (batch/Real/test) när den har skapats. Efter två år *bör du träna modellen* på grund av att bas modellen normalt sett är föråldrad för anpassning.  
+* Slut punkter: tillgängliga på samma tids linje som avkodning.
 
-När antingen en bas modell eller anpassad modell upphör att gälla, kommer den alltid att återgå till den **senaste bas modell versionen**. Därför kommer din implementering aldrig att brytas, men det kan bli mindre exakt för *dina data* om anpassade modeller upphör att gälla. Du kan se förfallo datum för en modell på följande platser i Custom Speech-portalen:
+När antingen en bas modell eller anpassad modell upphör att gälla, kommer den alltid att återgå till den *senaste bas modell versionen*. Därför kommer din implementering aldrig att brytas, men det kan bli mindre exakt för *dina data* om anpassade modeller upphör att gälla. Du kan se förfallo datum för en modell på följande platser i Custom Speech-portalen:
 
 * Sammanfattning av modell utbildning
 * Information om modell utbildning

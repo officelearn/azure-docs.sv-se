@@ -4,12 +4,12 @@ description: I den här snabb starten skriver du Java-kod med Azure-Messaging-Se
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: ab0ba2bb2814ba12a49f4044cbbb7a0ce56f5fc8
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 011dbfef1155b82daca216e9519db07188260130
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452603"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489555"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-java"></a>Skicka meddelanden till ett Azure Service Bus ämne och ta emot meddelanden från prenumerationer till ämnet (Java)
 I den här snabb starten skriver du Java-kod med Azure-Messaging-Service Bus-paketet för att skicka meddelanden till ett Azure Service Bus ämne och sedan ta emot meddelanden från prenumerationer till det avsnittet.
@@ -226,7 +226,7 @@ Se följande dokumentation och exempel:
 
 - [Azure Service Bus klient bibliotek för Java – viktigt](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
 - [Exempel på GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/servicebus/azure-messaging-servicebus/src/samples)
-- [Java API-referens](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-preview&preserve-view=true)
+- [Java API-referens](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-preview)
 
 
 [Azure SDK for Java]: /java/api/overview/azure/
@@ -235,4 +235,3 @@ Se följande dokumentation och exempel:
 [SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
 [SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
-

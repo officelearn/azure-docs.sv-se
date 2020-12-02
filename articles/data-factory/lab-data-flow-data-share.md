@@ -1,18 +1,18 @@
 ---
 title: Data integrering med Azure Data Factory och Azure-Dataresurs
 description: Kopiera, transformera och dela data med Azure Data Factory och Azure-dataresursen
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 11f4e7c50acc8256722949a50760c574d3b9d9e9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0a578f1edb51efd5f0905e663d42bf5a6fbfc783
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318240"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489062"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Data integrering med Azure Data Factory och Azure-Dataresurs
 
@@ -22,23 +22,23 @@ När kunderna går in på sina moderna informations lager och analys projekt, be
 
 Genom att aktivera kod fri ETL/ELT för att skapa en omfattande vy över dina data, kan förbättringar i Azure Data Factory hjälpa dina data tekniker att på ett säkert sätt få mer data, och därmed mer värde, till ditt företag. Med Azure Data Share kan du göra affärer till företags delning på ett styrt sätt.
 
-I den här workshopen använder du Azure Data Factory (ADF) för att mata in data från Azure SQL Database till Azure Data Lake Storage Gen2 (ADLS Gen2). När du har landat data i sjön kommer du att omvandla det genom att mappa data flöden, Data Factory: s inbyggda omvandlings tjänst och dela in dem i Azure Synapse Analytics (tidigare SQL DW). Sedan delar du tabellen med transformerade data tillsammans med ytterligare data med hjälp av Azure Data Share. 
+I den här workshopen använder du Azure Data Factory (ADF) för att mata in data från Azure SQL Database till Azure Data Lake Storage Gen2 (ADLS Gen2). När du har landat data i sjön kommer du att omvandla det genom att mappa data flöden, Data Factory: s inbyggda omvandlings tjänst och dela in dem i Azure Synapse Analytics. Sedan delar du tabellen med transformerade data tillsammans med ytterligare data med hjälp av Azure Data Share. 
 
 De data som används i det här labbet är New York taxi-data. Om du vill importera den till databasen i SQL Database laddar du ned [taxi-data BACPAC-filen](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **Azure-prenumeration** : Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-* **Azure SQL Database** : om du inte har en SQL-databas kan du läsa om hur du [skapar ett SQL DB-konto](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)
+* **Azure SQL Database**: om du inte har en SQL-databas kan du läsa om hur du [skapar ett SQL DB-konto](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)
 
-* **Azure Data Lake Storage Gen2 lagrings konto** : om du inte har ett ADLS Gen2 lagrings konto kan du läsa om hur du [skapar ett ADLS Gen2 lagrings konto](../storage/common/storage-account-create.md).
+* **Azure Data Lake Storage Gen2 lagrings konto**: om du inte har ett ADLS Gen2 lagrings konto kan du läsa om hur du [skapar ett ADLS Gen2 lagrings konto](../storage/common/storage-account-create.md).
 
-* **Azure Synapse Analytics (tidigare SQL DW)** : om du inte har en Azure Synapse-analys (tidigare SQL DW) lär du dig hur du [skapar en Azure Synapse Analytics-instans](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+* **Azure Synapse Analytics (tidigare SQL DW)**: om du inte har en Azure Synapse-analys (tidigare SQL DW) lär du dig hur du [skapar en Azure Synapse Analytics-instans](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
-* **Azure Data Factory** : om du inte har skapat en data fabrik, se så här [skapar du en data fabrik](./quickstart-create-data-factory-portal.md).
+* **Azure Data Factory**: om du inte har skapat en data fabrik, se så här [skapar du en data fabrik](./quickstart-create-data-factory-portal.md).
 
-* **Azure-Data resurs** : om du inte har skapat en data resurs, se så här [skapar du en data resurs](../data-share/share-your-data.md#create-a-data-share-account).
+* **Azure-Data resurs**: om du inte har skapat en data resurs, se så här [skapar du en data resurs](../data-share/share-your-data.md#create-a-data-share-account).
 
 ## <a name="set-up-your-azure-data-factory-environment"></a>Konfigurera din Azure Data Factorys miljö
 
@@ -280,7 +280,7 @@ Det data flöde som skapats i det här steget inre kopplar samman data uppsättn
 1. Anropa din data uppsättning "AggregatedTaxiData". Välj "SQLDW" som länkad tjänst. Välj **Skapa ny tabell** och namnge den nya tabellen dbo. AggregateTaxiData. Klicka på OK när du är färdig
 
     ![Portal mottagare 4](media/lab-data-flow-data-share/sink4.png)
-1. Gå till fliken **Inställningar** för mottagaren. Eftersom vi skapar en ny tabell måste vi välja **Återskapa tabell** under tabell åtgärd. Avmarkera **Aktivera mellanlagring** , som växlar om vi infogar rad för rad eller i batch.
+1. Gå till fliken **Inställningar** för mottagaren. Eftersom vi skapar en ny tabell måste vi välja **Återskapa tabell** under tabell åtgärd. Avmarkera **Aktivera mellanlagring**, som växlar om vi infogar rad för rad eller i batch.
 
     ![Portal mottagare 5](media/lab-data-flow-data-share/sink5.png)
 
@@ -308,7 +308,7 @@ Du har nu slutfört data fabriks delen av det här labbet. Publicera dina resurs
 
 ## <a name="share-data-using-azure-data-share"></a>Dela data med Azure Data Share
 
-I det här avsnittet får du lära dig hur du konfigurerar en ny data resurs med hjälp av Azure Portal. Detta innebär att du kan skapa en ny data resurs som innehåller data uppsättningar från Azure Data Lake Store Gen2 och Azure Synapse Analytics (tidigare SQL Data Warehouse). Sedan kan du konfigurera ett ögonblicks bild schema, vilket ger data förbrukare möjlighet att automatiskt uppdatera de data som delas med dem. Sedan bjuder du in mottagare till data resursen. 
+I det här avsnittet får du lära dig hur du konfigurerar en ny data resurs med hjälp av Azure Portal. Detta innebär att du kan skapa en ny data resurs som innehåller data uppsättningar från Azure Data Lake Store Gen2 och Azure Synapse Analytics. Sedan kan du konfigurera ett ögonblicks bild schema, vilket ger data förbrukare möjlighet att automatiskt uppdatera de data som delas med dem. Sedan bjuder du in mottagare till data resursen. 
 
 När du har skapat en data resurs kan du växla hatt och bli *data konsument*. Som data konsument går du igenom flödet för att acceptera en inbjudan om data delning, konfigurerar var du vill att data ska tas emot och mappa data uppsättningar till olika lagrings platser. Sedan kommer du att utlösa en ögonblicks bild, som kopierar de data som delas med dig till det angivna målet. 
 
@@ -342,7 +342,7 @@ När du har skapat en data resurs kan du växla hatt och bli *data konsument*. S
 
     ![Lägg till data uppsättning 1](media/lab-data-flow-data-share/add-dataset.png)
 
-1. Välj **Azure Synapse Analytics** (tidigare SQL Data Warehouse) om du vill välja en tabell från Azure Synapse Analytics som dina ADF-omvandlingar landats i.
+1. Välj **Azure Synapse Analytics** om du vill välja en tabell från Azure Synapse Analytics att dina ADF-omvandlingar landats i.
 
     ![Lägg till SQL för data uppsättning](media/lab-data-flow-data-share/add-dataset-sql.png)
 
@@ -434,7 +434,7 @@ Du kan uppmanas att välja en prenumeration. Se till att du väljer den prenumer
 
 1. För **data resurs konto** väljer du **DataConsumer**. Du kan också skapa ett nytt data resurs konto. 
 
-1. Bredvid **mottaget resurs namn** , ser du att standard resurs namnet är det namn som angavs av data leverantören. Ge delningen ett eget namn som beskriver de data som du ska ta emot, t. ex. **TaxiDataShare**.
+1. Bredvid **mottaget resurs namn**, ser du att standard resurs namnet är det namn som angavs av data leverantören. Ge delningen ett eget namn som beskriver de data som du ska ta emot, t. ex. **TaxiDataShare**.
 
     ![Inbjudan accepterar](media/lab-data-flow-data-share/consumer-accept.png)
 

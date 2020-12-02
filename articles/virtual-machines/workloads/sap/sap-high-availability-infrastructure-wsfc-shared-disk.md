@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 205a290d2483a032ed6b5579dbedd555f9f6d02f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 00d0aa10f2beda3d7b8508e5ca823e020dc79d95
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005528"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489147"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Förbered Azure-infrastrukturen för SAP-HA med hjälp av ett Windows-redundanskluster och en delad disk för SAP ASCS/SCS
 
@@ -203,7 +203,7 @@ Värd namnen och IP-adresserna för det presenterade scenariot är:
 SAP ASCS, SAP SCS och den nya SAP-ERS2 använder du virtuella värdnamn och virtuella IP-adresser. I Azure krävs en [belastningsutjämnare](../../../load-balancer/load-balancer-overview.md) för att använda en virtuell IP-adress. Vi rekommenderar starkt att du använder [standard Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
 
 > [!IMPORTANT]
-> Flytande IP stöds inte på en sekundär NIC-IP-konfiguration i belastnings Utjämnings scenarier. Mer information finns i [begränsningar för Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Om du behöver ytterligare IP-adress för den virtuella datorn distribuerar du ett andra nätverkskort.    
+> Flytande IP stöds inte på en sekundär NIC-IP-konfiguration i belastnings Utjämnings scenarier. Mer information finns i [begränsningar för Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Om du behöver ytterligare IP-adress för den virtuella datorn distribuerar du ett andra nätverkskort.    
 
 
 I följande lista visas konfigurationen av belastningsutjämnaren (A) SCS/ERS. Konfigurationen för både SAP ASCS och ERS2 i utförs i samma Azure Load Balancer.  

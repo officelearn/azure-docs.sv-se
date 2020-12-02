@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 06/19/2020
-ms.openlocfilehash: 304e1ab475213bde2644c8241905408ade5672ed
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 193e7bd78046a1d73cb55171c15c9cb6a7278297
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489972"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490048"
 ---
 # <a name="what-is-a-test-drive"></a>Vad är en provkörning?
 
@@ -24,7 +24,7 @@ Dina kunder får även nytta av en test-enhet. Genom att göra det möjligt för
 
 Test enheter är hanterade instanser som startar din lösning eller program på begäran för kunder som begär det. När en Test Drive-instans har tilldelats är den tillgänglig för användning av den kunden under en angiven period. När perioden har upphört tas den bort för att skapa en plats för en annan kund.
 
-Som utgivare hanterar och konfigurerar du inställningarna för test enheten i Partner Center. Teknisk konfigurations information varierar beroende på typen av erbjudande. Detaljerad vägledning finns i [teknisk konfiguration för test enheten](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
+Som utgivare hanterar och konfigurerar du inställningarna för test enheten i Partner Center. Teknisk konfigurations information varierar beroende på typen av erbjudande. Detaljerad vägledning finns i [teknisk konfiguration för test enheten](./test-drive-technical-configuration.md).
 
 Potentiella kunder identifierar din testenhet som ett centrum för ditt erbjudande på [AppSource](https://appsource.microsoft.com/en-US/). De ger sina kontakt uppgifter och samtycker till ditt erbjudandes villkor och sekretess policy och får sedan till gång till förkonfigurerad miljö för att testa den under en viss period. Kunderna får en praktisk, själv guidad utvärderings version av produktens viktiga funktioner och fördelar och du får en värdefull lead.
 
@@ -43,7 +43,7 @@ Det finns olika test enheter tillgängliga på den kommersiella marknads platsen
 - Logic app (endast i support läge)
 - Power BI
 
-Mer information om hur du konfigurerar en av dessa test enheter finns i [teknisk konfiguration för test enhet](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration). 
+Mer information om hur du konfigurerar en av dessa test enheter finns i [teknisk konfiguration för test enhet](./test-drive-technical-configuration.md). 
 
 ### <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager testen het
 
@@ -65,7 +65,7 @@ En värdbaserad testen het tar bort komplexiteten i installationen genom att lå
 
 ### <a name="logic-app-test-drive"></a>Test enhet för Logic app
 
-Den här typen av test enhet är inte värd för Microsoft och använder Azure Resource Manager ARM-mallar för Dynamics AX/CRM-erbjudande typer. Du måste köra ARM-mallen för att skapa nödvändiga resurser i din Azure-prenumeration. Logic app-testenheten är för närvarande endast i support läge och rekommenderas inte av Microsoft för information om hur du konfigurerar en Logic app-testenhet, se [teknisk konfiguration av test enhet](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
+Den här typen av test enhet är inte värd för Microsoft och använder Azure Resource Manager ARM-mallar för Dynamics AX/CRM-erbjudande typer. Du måste köra ARM-mallen för att skapa nödvändiga resurser i din Azure-prenumeration. Logic app-testenheten är för närvarande endast i support läge och rekommenderas inte av Microsoft för information om hur du konfigurerar en Logic app-testenhet, se [teknisk konfiguration av test enhet](./test-drive-technical-configuration.md).
 
 ### <a name="power-bi-test-drive"></a>Power BI testen het
 

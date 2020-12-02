@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 526947c4d2db9fd87727fdd60c33bcaa9e75c6ff
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8a82fd6e6dc1bea0804c429f3af46884f004de69
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699873"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489776"
 ---
-# <a name="azure-network-security-overview"></a>Översikt över Azure Network Security
+# <a name="azure-network-security-overview"></a>Översikt över nätverkssäkerhet i Azure
 
 Nätverks säkerhet kan definieras som processen att skydda resurser från obehörig åtkomst eller attack genom att tillämpa kontroller på nätverks trafiken. Målet är att säkerställa att endast legitim trafik tillåts. Azure innehåller en robust nätverks infrastruktur som stöder dina anslutnings krav för program och tjänster. Nätverks anslutningen är möjlig mellan resurser som finns i Azure, mellan lokala och Azure-värdbaserade resurser och till och från Internet och Azure.
 
@@ -332,7 +332,7 @@ Microsoft tillhandahåller DDoS-skydd som kallas **Basic** som en del av Azure-p
 
 Läs mer:
 
-* [Översikt över DDOS-skydd](../../virtual-network/ddos-protection-overview.md)
+* [Översikt över DDOS-skydd](../../ddos-protection/ddos-protection-overview.md)
 
 ## <a name="azure-front-door"></a>Azure Front Door
 

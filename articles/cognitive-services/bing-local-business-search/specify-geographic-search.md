@@ -10,19 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 210de0ef2cfbaec676528b4788bebecaa34136e4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2e72abd777ac4834385fd916b730d438b8540203
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095092"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490269"
 ---
 # <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>Använd geografiska gränser för att filtrera resultat från Bing-API: et för lokal affärs sökning
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 I Bing-API: et för lokal Business search kan du ange gränser för det specifika geografiska område som du vill söka efter `localCircularView` med `localMapView` parametrarna eller. Se till att du bara använder en parameter i dina frågor. 
 

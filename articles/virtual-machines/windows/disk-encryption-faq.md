@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6fedefccf57364e690415542114030ba7ce12b49
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3f02c90dd6c751909434f3f2af9b8eb81ee1c4b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974099"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488382"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Vanliga frågor och svar om Azure Disk Encryption för virtuella Windows-datorer
 
@@ -55,15 +55,15 @@ Nej, Azure Disk Encryption krypterar bara monterade volymer.
 
 ## <a name="what-is-storage-server-side-encryption"></a>Vad är kryptering av lagring på Server Sidan?
 
-Kryptering av lagring på Server sidan krypterar Azure Managed disks i Azure Storage. Hanterade diskar krypteras som standard med kryptering på Server sidan med en plattforms-hanterad nyckel (från och med den 10 juni 2017). Du kan hantera kryptering av hanterade diskar med dina egna nycklar genom att ange en kundhanterad nyckel. Mer information finns i [kryptering på Server sidan av Azure Managed disks](disk-encryption.md).
+Kryptering av lagring på Server sidan krypterar Azure Managed disks i Azure Storage. Hanterade diskar krypteras som standard med kryptering på Server sidan med en plattforms-hanterad nyckel (från och med den 10 juni 2017). Du kan hantera kryptering av hanterade diskar med dina egna nycklar genom att ange en kundhanterad nyckel. Mer information finns i [kryptering på Server sidan av Azure Managed disks](../disk-encryption.md).
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>Hur skiljer sig Azure Disk Encryption från lagrings Server sidans kryptering med kundhanterad nyckel och när ska jag använda varje lösning?
 
 Azure Disk Encryption tillhandahåller kryptering från slut punkt till slut punkt för OS-disken, data diskarna och den tillfälliga disken med en kundhanterad nyckel.
 
 - Om dina krav omfattar kryptering av alla ovanstående och kryptering från slut punkt till slut punkt använder du Azure Disk Encryption. 
-- Om dina krav inkluderar kryptering av endast data i vila med kundhanterad nyckel använder du [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md). Det går inte att kryptera en disk med både Azure Disk Encryption-och kryptering av lagring på Server sidan med Kundhanterade nycklar.
-- Om du använder ett scenario som kallas i [scenarier som inte stöds för Windows](disk-encryption-windows.md#unsupported-scenarios)kan du överväga [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md). 
+- Om dina krav inkluderar kryptering av endast data i vila med kundhanterad nyckel använder du [kryptering på Server sidan med Kundhanterade nycklar](../disk-encryption.md). Det går inte att kryptera en disk med både Azure Disk Encryption-och kryptering av lagring på Server sidan med Kundhanterade nycklar.
+- Om du använder ett scenario som kallas i [scenarier som inte stöds för Windows](disk-encryption-windows.md#unsupported-scenarios)kan du överväga [kryptering på Server sidan med Kundhanterade nycklar](../disk-encryption.md). 
 - Om din organisations princip tillåter att du krypterar innehåll i vila med en Azure-hanterad nyckel krävs ingen åtgärd – innehållet krypteras som standard. För hanterade diskar krypteras innehållet i lagrings utrymmet som standard med kryptering på Server sidan med en plattforms-hanterad nyckel. Nyckeln hanteras av Azure Storages tjänsten. 
 
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Hur gör jag för att rotera hemligheter eller krypterings nycklar?

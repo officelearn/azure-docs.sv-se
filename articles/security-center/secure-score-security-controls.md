@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2020
 ms.author: memildin
-ms.openlocfilehash: 0e853a4ce1e3891ddffd2f9fb1315da49a896933
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 3cd536d051f3e227ba86429ae3f1633bf6c2e82f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433230"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490541"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Säkerhetspoäng i Azure Security Center
 
@@ -80,7 +80,7 @@ Exempel på verktyg som byggts ovanpå Secure score-API: et finns i avsnittet [S
 
 ### <a name="get-your-secure-score-from-azure-resource-graph-arg"></a>Få dina säkra Poäng från Azure Resource Graph (ARG)
 
-Azure Resource Graph ger direkt åtkomst till resursinformation i dina moln miljöer med robusta funktioner för filtrering, gruppering och sortering. Det är ett snabbt och effektivt sätt att fråga information i Azure-prenumerationer program mässigt eller inifrån Azure Portal. [Lär dig mer om Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/).
+Azure Resource Graph ger direkt åtkomst till resursinformation i dina moln miljöer med robusta funktioner för filtrering, gruppering och sortering. Det är ett snabbt och effektivt sätt att fråga information i Azure-prenumerationer program mässigt eller inifrån Azure Portal. [Lär dig mer om Azure Resource Graph](../governance/resource-graph/index.yml).
 
 För att komma åt säkra Poäng för flera prenumerationer med ARG:
 

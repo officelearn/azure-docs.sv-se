@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: f107ba4dd0150e9727183d0bd334c9279de17337
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cfa68bde2462cefd6f690247cfd1e3bd2e3dbc74
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950014"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489215"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA skala upp med Azure NetApp Files på Red Hat Enterprise Linux
 
@@ -230,7 +230,7 @@ Först måste du skapa Azure NetApp Files volymerna. Utför sedan följande steg
 7.  När du skapar en virtuell dator kommer vi inte att lägga till någon disk eftersom alla våra monterings punkter kommer att finnas på NFS-resurser från Azure NetApp Files. 
 
 > [!IMPORTANT]
-> Flytande IP stöds inte på en sekundär NIC-IP-konfiguration i belastnings Utjämnings scenarier. Mer information finns i [begränsningar för Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Om du behöver ytterligare IP-adress för den virtuella datorn distribuerar du ett andra nätverkskort.    
+> Flytande IP stöds inte på en sekundär NIC-IP-konfiguration i belastnings Utjämnings scenarier. Mer information finns i [begränsningar för Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Om du behöver ytterligare IP-adress för den virtuella datorn distribuerar du ett andra nätverkskort.    
 
 > [!NOTE] 
 > När virtuella datorer utan offentliga IP-adresser placeras i backend-poolen för intern (ingen offentlig IP-adress) standard Azure-belastningsutjämnare, kommer det inte att finnas någon utgående Internet anslutning, om inte ytterligare konfiguration utförs för att tillåta routning till offentliga slut punkter. Mer information om hur du uppnår utgående anslutningar finns i Översikt över [offentliga slut punkter för Virtual Machines med Azure standard Load Balancer i SAP-scenarier med hög tillgänglighet](./high-availability-guide-standard-load-balancer-outbound-connections.md).

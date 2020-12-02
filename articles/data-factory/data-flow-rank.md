@@ -1,19 +1,19 @@
 ---
 title: Ranknings omvandling i data flöde för mappning
 description: Så här använder du Azure Data Factory dess ranknings omvandling för data flöde generera en rangordnings kolumn
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/05/2020
-ms.openlocfilehash: 8584d1b64191cc5258c6eeeef9ae4125bf1a2c65
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b7adb6bf13cba5f886b442515e8ba5661cfeb8ef
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044742"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490932"
 ---
 # <a name="rank-transformation-in-mapping-data-flow"></a>Ranknings omvandling i data flöde för mappning 
 

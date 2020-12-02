@@ -8,17 +8,17 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 09/15/2020
-ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01232aa101e2964354acfbeb6cea341a0da33ca6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331666"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489901"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox för Microsoft Azure
 
 > [!NOTE]
-> Din organisation måste ha ett support avtal för [Azure](https://azure.microsoft.com/support/plans/) med en minimal **utvecklings**nivå för att använda den här funktionen.
+> Din organisation måste ha ett support avtal för [Azure](https://azure.microsoft.com/support/plans/) med en minimal **utvecklings** nivå för att använda den här funktionen.
 
 Customer Lockbox för Microsoft Azure tillhandahåller ett gränssnitt med vilket kunderna kan granska och godkänna eller avvisa begäranden om kunddataåtkomst. Den används i fall där en Microsoft-tekniker behöver åtkomst till kundinformation under en supportförfrågan.
 
@@ -64,7 +64,7 @@ Customer Lockbox är för närvarande aktiverat för begäranden om fjärrskrivb
 - Skaluppsättningar för virtuella datorer – Windows och Linux
 
 > [!NOTE]
-> IaaS klassiska instanser stöds inte av Customer Lockbox. Om du har arbets belastningar som körs på IaaS klassiska instanser rekommenderar vi att du migrerar dem från klassiska till Resource Manager-distributions modeller. Anvisningar finns i [Plattformsstödd migrering av IaaS-resurser från klassisk till Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+> IaaS klassiska instanser stöds inte av Customer Lockbox. Om du har arbets belastningar som körs på IaaS klassiska instanser rekommenderar vi att du migrerar dem från klassiska till Resource Manager-distributions modeller. Anvisningar finns i [Plattformsstödd migrering av IaaS-resurser från klassisk till Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 #### <a name="detailed-audit-logs"></a>Detaljerade granskningsloggar
 
@@ -149,6 +149,6 @@ Customer Lockbox-begäranden utlöses inte i följande scenarier för teknisk su
 
 ## <a name="next-steps"></a>Nästa steg
 
-Customer Lockbox är automatiskt tillgängligt för alla kunder som har en [Support plan för Azure](https://azure.microsoft.com/support/plans/) med en minimal **utvecklings**nivå.
+Customer Lockbox är automatiskt tillgängligt för alla kunder som har en [Support plan för Azure](https://azure.microsoft.com/support/plans/) med en minimal **utvecklings** nivå.
 
 När du har en berättigad Support plan krävs ingen åtgärd för att aktivera Customer Lockbox. Customer Lockbox förfrågningar initieras av en Microsoft-tekniker om den här åtgärden krävs för att försätta ett support ärende som har arkiverats från någon i din organisation.

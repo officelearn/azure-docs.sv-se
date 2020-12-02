@@ -5,13 +5,13 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: 0791ed6882feedeab47b75eff6a69bf0a49ab7ee
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 11/30/2020
+ms.openlocfilehash: 82133f990c1714276aa13ff22c3f19d0993d16df
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341302"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488722"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Vanliga frågor och svar om Azure Synapse Link för Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -22,7 +22,7 @@ Azure Synapse-länken för Azure Cosmos DB skapar en tätt integrerad integrerin
 
 ### <a name="is-azure-synapse-link-supported-for-all-azure-cosmos-db-apis"></a>Stöds Azure Synapse-länken för alla Azure Cosmos DB API: er?
 
-I den offentliga för hands versionen stöds Azure Synapse-länken för API: et för Azure Cosmos DB SQL (Core) och för Azure Cosmos DB-API för MongoDB. 
+Azure Synapse-länken stöds för API: et för Azure Cosmos DB SQL (Core) och för Azure Cosmos DB-API för MongoDB. 
 
 ### <a name="is-azure-synapse-link-supported-for-multi-region-azure-cosmos-db-accounts"></a>Stöds Azure Synapse-länken för Azure Cosmos DB konton i flera regioner?
 
@@ -32,7 +32,7 @@ När du planerar att konfigurera ett Azure Cosmos DBs konto för flera regioner 
 
 ### <a name="can-i-choose-to-enable-azure-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>Kan jag välja att bara aktivera Azure Synapse-länken för vissa regioner och inte alla regioner i ett konto med flera regioner?
 
-I för hands versionen när Azure Synapse-länken är aktive rad för ett konto med flera regioner skapas analys lagret i alla regioner. Underliggande data är optimerade för data flöde och transaktions konsekvens i transaktions arkivet.
+När Azure Synapse-länken är aktive rad för ett konto med flera regioner skapas analys lagret i alla regioner. Underliggande data är optimerade för data flöde och transaktions konsekvens i transaktions arkivet.
 
 ### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>Stöds säkerhets kopiering och återställning av Azure Synapse Link-aktiverade konton?
 
@@ -42,9 +42,13 @@ När Synapse-länken är aktive rad på ett databas konto kommer Azure Cosmos DB
 
 ### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>Kan jag inaktivera funktionen Azure Synapse-länk för mitt Azure Cosmos DB konto?
 
-När Synapse Link-funktionen har aktiverats på kontonivå kan du för närvarande inte inaktivera den. Du kommer inte att debiteras om Synapse Link-funktionen aktiveras på kontonivå och det inte finns några analysarkivaktiverade containrar. 
+När Synapse Link-funktionen har aktiverats på kontonivå kan du för närvarande inte inaktivera den. Du kommer inte att debiteras om Synapse Link-funktionen aktiveras på kontonivå och det inte finns några analysarkivaktiverade containrar.
 
 Om du behöver inaktivera funktionen har du två alternativ. Det första är att ta bort och Azure Cosmos DB-kontot, skapa ett nytt och sedan migrera data om det behövs. Det andra alternativet är att öppna en supportbegäran för att få hjälp med att migrera data till ett annat konto.
+
+### <a name="does-analytical-store-have-any-impact-on-cosmos-db-transactional-slas"></a>Påverkar analys lagringen Cosmos DB transaktions service avtal?
+
+Nej, det finns ingen inverkan.
 
 ## <a name="azure-cosmos-db-analytical-store"></a>Azure Cosmos DB analys lager
 
@@ -73,7 +77,7 @@ Ja, rader och uppdateringar av data i transaktions arkivet visas i analys lagret
 Du kan bara komma åt och köra frågor mot analysarkivet med hjälp av de olika körningar som tillhandahålls av Azure Synapse Analytics. Du kan bara köra frågor mot och analysera analysarkivet med:
 
 * Synapse Spark med fullständigt stöd för Scala, python, SparkSQL och C#. Synapse Spark är centralt för datateknik och vetenskapsscenarier
-* SQL serverlös med T-SQL-språk och stöd för välbekanta BI-verktyg (till exempel Power BI Premium)
+* SQL-pool utan server med T-SQL-språk och stöd för välbekanta BI-verktyg (till exempel Power BI Premium osv.)
 
 ### <a name="can-i-connect-to-analytical-store-from-synapse-sql-provisioned"></a>Kan jag ansluta till ett analys lager från Synapse SQL etablerad?
 
@@ -121,7 +125,12 @@ Alla transaktionella uppdateringar och borttagningar kopieras till analys lagret
 
 ### <a name="what-is-the-billing-model-of-azure-synapse-link-for-azure-cosmos-db"></a>Vad är fakturerings modellen för Azure Synapse-länken för Azure Cosmos DB?
 
-[Azure Cosmos DB Analytical Store](analytical-store-introduction.md) är tillgängligt i den offentliga för hands versionen utan några avgifter för analys butiken fram till den 30 augusti 2020. Synapse Spark och Synapse SQL debiteras via [Synapse service-förbrukning](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+I fakturerings modellen för Azure Synapse-länken ingår kostnader som uppstår med hjälp av Azure Cosmos DB analys lager och Synapse Runtime. Mer information finns i artikeln om priser för [Azure Cosmos DB analys lager](analytical-store-introduction.md#analytical-store-pricing) och [Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/) .
+
+### <a name="what-is-the-billing-impact-if-i-enable-synapse-link-in-my-azure-cosmos-db-database-account"></a>Vad är fakturerings effekten om jag aktiverar Synapse-länk i mitt Azure Cosmos DB databas konto?
+
+Inga. Du debiteras bara när du skapar en aktive rad behållare för analys lager och börjar läsa in data.
+
 
 ## <a name="security"></a>Säkerhet
 
@@ -136,10 +145,10 @@ Autentisering med analys lagret är detsamma som i ett transaktions lager. För 
 |Azure Synapse runtime |Aktuellt stöd |
 |---------|---------|
 |Azure Synapse Spark-pooler | Läsa, skriva (via transaktions lager), tabell, tillfällig vy |
-|Azure Synapse SQL Server-pooler    | Läsa, Visa |
+|Azure Synapse server utan SQL-pool    | Läsa, Visa |
 |Azure Synapse SQL etablerad   |  Inte tillgängligt |
 
-### <a name="do-my-azure-synapse-spark-tables-sync-with-my-azure-synapse-sql-serverless-tables-the-same-way-they-do-with-azure-data-lake"></a>Synkroniserar mina Azure Synapse Spark-tabeller med mina Azure Synapse SQL Server-tabeller på samma sätt som med Azure Data Lake?
+### <a name="do-my-azure-synapse-spark-tables-sync-with-my-azure-synapse-serverless-sql-pool-tables-the-same-way-they-do-with-azure-data-lake"></a>Synkroniserar mina Azure Synapse Spark-tabeller med mina Azure Synapse-servrar utan SQL-pool på samma sätt som de gör med Azure Data Lake?
 
 Den här funktionen är för närvarande inte tillgänglig.
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 877200cbafbe68fa6161025572abfddad651e172
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308120"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490728"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Konceptuell förståelse för X. 509 CA-certifikat i IoT-branschen
 
@@ -40,6 +40,8 @@ Ett särskiljande attribut för X. 509-CA-autentisering är en en-till-många-re
 Ett annat viktigt attribut för X. 509-CA-autentiseringen är förenkling av logistik för leverans kedja. Säker autentisering av enheter kräver att varje enhet har en unik hemlighet som en nyckel som grund för förtroende. I certifikatbaserad autentisering är den här hemligheten en privat nyckel. Ett typiskt enhets tillverknings flöde omfattar flera steg och förmyndare komponenter. Att säkert hantera enhetens privata nycklar över flera förmyndare komponenter och upprätthålla förtroende är svårt och dyrt. Att använda certifikat utfärdare löser problemet genom att logga varje övervakare i en kryptografisk förtroende kedja i stället för att lita på dem med privata enhets nycklar. Varje övervakare i tur och ordning signerar enheter i respektive process steg i tillverknings flödet. Det totala resultatet är en optimal leverans kedja med inbyggd ansvars linje genom att använda den kryptografiska förtroende kedjan. Det är värt att notera att den här processen ger störst säkerhet när enheterna skyddar sina unika privata nycklar. I detta fall rekommenderar vi att du använder HSM (Secure modules) som kan generera privata nycklar som aldrig kommer att se dagen.
 
 Den här artikeln ger en heltäckande vy av hur du använder 509 med X., från leverans kedja till enhets anslutning, samtidigt som du använder ett verkligt världs exempel för att stärka förståelse.
+
+Du kan också använda registrerings grupper med Azure-IoT Hub Device Provisioning Service (DPS) för att hantera etablering av enheter till hubbar. Mer information om hur du använder DPS för att etablera X. 509-certifikat enheter finns i [Självstudier: etablera flera X. 509-enheter med hjälp av registrerings grupper](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
 
 ## <a name="introduction"></a>Introduktion
 
@@ -75,7 +77,7 @@ Processen för att skapa ett Self-Signed X. 509-CA-certifikat liknar köpet med 
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Registrera X. 509-certifikatet för att IoT Hub
 
-Företags-X måste registrera X. 509-CA: n för att IoT Hub där den ska kunna autentisera smarta X-widgetar när de ansluter. Detta är en engångs process som gör det möjligt att autentisera och hantera valfritt antal enheter med smarta X-widgetar. Den här processen är engångs på grund av en en-till-många-relation mellan auktoritets certifikat och enheter och utgör även en av de största fördelarna med att använda metoden X. 509 CA-autentisering. Alternativet är att ladda upp enskilda certifikat tumavtrycken för varje enhet med Smart-X-widget och därmed lägga till drifts kostnader.
+Företags-X måste registrera X. 509-CA: n för att IoT Hub där den ska kunna autentisera smarta X-widgetar när de ansluter. Detta är en engångs process som gör det möjligt att autentisera och hantera valfritt antal enheter med smarta X-widgetar. Detta är en engångs process på grund av en en-till-många-relation mellan CA-certifikat och enhets certifikat som har signerats av CA-certifikatet eller ett mellanliggande certifikat. Den här relationen är en av de största fördelarna med att använda metoden X. 509 CA-autentisering. Alternativet är att ladda upp enskilda certifikat tumavtrycken för varje enhet med Smart-X-widget och därmed lägga till drifts kostnader.
 
 Att registrera X. 509 CA-certifikatet är en två stegs process, certifikat uppladdning och certifikats bevis.
 

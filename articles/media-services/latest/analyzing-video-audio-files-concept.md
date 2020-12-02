@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: c00af3a128685dfbd2435b65fe4d00107ca22ba4
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: f4784cc2e1b0276caf8326df8fad93b12f0d551d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94744365"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490082"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analysera video-och ljudfiler med Azure Media Services
 
@@ -42,12 +42,12 @@ Som en viktig påminnelse måste du följa alla tillämpliga lagar i din använd
 
 Media Services stöder för närvarande följande inbyggda Analyzer-för hands inställningar:  
 
-|**Förvals namn**|**Scenario**|**Detaljer**|
+|**Förvals namn**|**Scenario**|**Information**|
 |---|---|---|
 |[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analysera ljud standard|För inställningen används en fördefinierad uppsättning av AI-baserade analys åtgärder, inklusive tal avskrifter. För närvarande stöder för inställningen bearbetning av innehåll med ett enda ljud spår som innehåller tal på ett och samma språk. Du kan ange språket för ljud nytto lasten i indata med BCP-47-formatet för ' language tag-region '. Språk som stöds är engelska ("en-US" och "en-GB"), spanska (' es-ES ' och ' es-MX '), franska (fr-FR), italienska ("IT-IT"), japanska (' ja-JP '). portugisiska ("pt-BR"), kinesiska (' zh-CN '), tyska ("de-DE"), arabiska (' ar-tex ' och ' ar-SY '), ryska (' ru-RU '), hindi (' Hi-IN ') och koreanska (' ko-KR ').<br/><br/> Om språket inte har angetts eller är inställt på null väljer automatisk språk identifiering det första språket som identifieras och fortsätter med det valda språket under filens varaktighet. Funktionen för automatisk språk identifiering stöder för närvarande engelska, kinesiska, franska, tyska, italienska, japanska, spanska, ryska och portugisiska. Den stöder inte dynamisk växling mellan språk när det första språket har identifierats. Funktionen för automatisk språk identifiering fungerar bäst med ljud inspelningar med tydligt discernible tal. Om automatisk språk identifiering inte kan hitta språket, går avskriften tillbaka till engelska.|
-|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyserar ljud Basic|I det här läget utförs tal-till-text-avskrift och generering av en VTT-under text fil. Utdata från det här läget är en JSON-fil för insikter som bara innehåller nyckelord, avskrifter och tids inställnings information. Automatisk språk identifiering och talare diarization ingår inte i det här läget. Listan över språk som stöds finns [här](https://go.microsoft.com/fwlink/?linkid=2109463)|
-|[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analysera ljud och video|Extraherar insikter (avancerade metadata) från både ljud och video och matar ut en JSON-format fil. Du kan ange om du bara vill extrahera ljud insikter när du bearbetar en videofil. Mer information finns i [Analysera video](analyze-videos-tutorial-with-api.md).|
-|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Identifiera ansikten som finns i videon|Beskriver de inställningar som ska användas när du analyserar en video för att identifiera alla ytor som finns.|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyserar ljud Basic|I det här läget utförs tal-till-text-avskrift och generering av en VTT-under text fil. Utdata från det här läget är en JSON-fil för insikter som bara innehåller nyckelord, avskrifter och tids inställnings information. Automatisk språk identifiering och talare diarization ingår inte i det här läget. Listan över språk som stöds finns [här](#built-in-presets)|
+|[VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analysera ljud och video|Extraherar insikter (avancerade metadata) från både ljud och video och matar ut en JSON-format fil. Du kan ange om du bara vill extrahera ljud insikter när du bearbetar en videofil. Mer information finns i [Analysera video](analyze-videos-tutorial-with-api.md).|
+|[FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset)|Identifiera ansikten som finns i videon|Beskriver de inställningar som ska användas när du analyserar en video för att identifiera alla ytor som finns.|
 
 ### <a name="audioanalyzerpreset-standard-mode"></a>AudioAnalyzerPreset standard läge
 
@@ -85,7 +85,7 @@ Utdata innehåller en JSON-fil (insights.jspå) med alla insikter som finns i vi
 
 ### <a name="transcript"></a>avskrifts
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Rad-ID.|
 |text|Själva avskriften.|
@@ -123,7 +123,7 @@ Exempel:
 
 ### <a name="ocr"></a>stöd
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|ID för OCR-linje.|
 |text|OCR-text.|
@@ -166,7 +166,7 @@ Exempel:
 
 ### <a name="faces"></a>ytor
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Ansikts-ID.|
 |name|Ansikts namnet. Det kan vara okänt #0, ett identifierat kändis eller en kundutbildad person.|
@@ -211,7 +211,7 @@ Exempel:
 
 ### <a name="shots"></a>bilder
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Bild-ID.|
 |Nyckel rutor|En lista över nyckel bild rutor i instansen (var och en har ett ID och en lista över instanser av instans intervallet). Nyckel bilds instanser har ett thumbnailId-fält med nyckel rutans miniatyr-ID.|
@@ -268,7 +268,7 @@ Exempel:
 
 ### <a name="statistics"></a>uppgifterna
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |CorrespondenceCount|Antal korrespondens i videon.|
 |WordCount|Antalet ord per talare.|
@@ -281,7 +281,7 @@ Exempel:
 
 Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). Till exempel 0-0,1, 0,1-0,2.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Sentiment-ID.|
 |averageScore |Medelvärdet av alla resultat från alla instanser av sentiment-typ positiv/neutral/negativ|
@@ -316,7 +316,7 @@ Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). 
 
 ### <a name="labels"></a>Etiketter
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Etikett-ID: t.|
 |name|Etikett namnet (till exempel "dator", "TV").|
@@ -374,7 +374,7 @@ Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). 
 
 ### <a name="keywords"></a>nyckelord
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Nyckelords-ID: t.|
 |text|Nyckelords texten.|
@@ -425,7 +425,7 @@ VisualContentModeration-blocket innehåller tidsintervall som Video Indexer hitt
 
 Videor som innehåller vuxen eller vågat innehåll kan endast vara tillgängliga för privat vy. Användare kan skicka en begäran om en mänsklig granskning av innehållet, vilket innebär att `IsAdult` attributet innehåller resultatet av mänsklig granskning.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|ID för moderator för visuellt innehåll.|
 |adultScore|Den vuxen poängen (från Content moderator).|

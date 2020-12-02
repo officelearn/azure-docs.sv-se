@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: daed8dc62fdfd86ecf785a0bfd83b2b6c0b4cc03
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e2be62180907e94401548774b3403db0f36caca3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026951"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488484"
 ---
 Att placera virtuella datorer i en enda region minskar det fysiska avståndet mellan instanserna. Att placera dem i en enda tillgänglighets zon kommer också att ta dem fysiskt närmare varandra. I takt med att Azure-utrymmet växer kan en enda tillgänglighets zon sträcka sig över flera fysiska data Center, vilket kan leda till en nätverks fördröjning som påverkar ditt program. 
 
@@ -82,7 +82,7 @@ Om det finns en närhets placerings grupp `Not Aligned` kan du stop\deallocate o
 Om det uppstår ett allokeringsfel på grund av distributions begränsningar kan du behöva stop\deallocate alla resurser i den påverkade närhets placerings gruppen (inklusive de justerade resurserna) först och sedan starta om dem för att återställa justeringen.
 
 ## <a name="best-practices"></a>Bästa praxis 
-- Använd närhets placerings grupper tillsammans med accelererat nätverk för lägsta latens. Mer information finns i [skapa en virtuell Linux-dator med accelererat nätverk](../articles/virtual-network/create-vm-accelerated-networking-cli.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) eller [skapa en virtuell Windows-dator med accelererat nätverk](../articles/virtual-network/create-vm-accelerated-networking-powershell.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
+- Använd närhets placerings grupper tillsammans med accelererat nätverk för lägsta latens. Mer information finns i [skapa en virtuell Linux-dator med accelererat nätverk](../articles/virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [skapa en virtuell Windows-dator med accelererat nätverk](../articles/virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Distribuera alla VM-storlekar i en enda mall. För att undvika landning på maskin vara som inte stöder alla VM-SKU: er och storlekar som du behöver, måste du ta med alla program nivåer i en enda mall så att de kan distribueras på samma gång.
 - Om du kör skript för distributionen med PowerShell, CLI eller SDK kan du få ett allokeringsfel `OverconstrainedAllocationRequest` . I det här fallet bör du stoppa/frigöra alla befintliga virtuella datorer och ändra ordningen i distributions skriptet så att den börjar med VM-SKU: n/storlekarna som misslyckades. 
 - När du återanvänder en befintlig placerings grupp som de virtuella datorerna togs bort från, väntar du tills borttagningen har slutförts innan du lägger till virtuella datorer i den.

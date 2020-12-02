@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 550418761e91a8292761d7595ff32d939c0d542e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9410a38f7bc7a787fc439b5ad51f4a49f76771f8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350406"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488790"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Övervaka Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -83,7 +83,7 @@ De mått och loggar som du kan samla in beskrivs i följande avsnitt.
 
 Azure Cosmos DB ger en anpassad upplevelse för att arbeta med mått. Du kan analysera mått för Azure Cosmos DB med mått från andra Azure-tjänster med hjälp av Metric Explorer genom att öppna **mått** från **Azure Monitor** -menyn. Mer information om hur du använder det här verktyget finns i [komma igång med Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) . Du kan också kontrol lera hur du övervakar [svars tiden på Server sidan](monitor-server-side-latency.md), hur du [begär enhets användning](monitor-request-unit-usage.md)och [normaliserad enhets användning](monitor-normalized-request-units.md) för Azure Cosmos DB resurser.
 
-En lista över de plattforms mått som samlas in för Azure Cosmos DB finns i avsnittet [övervaknings Azure Cosmos DB data referens mått] övervaka-Cosmos-DB-reference. MD # metrics)-artikeln.
+En lista över de plattforms mått som samlas in för Azure Cosmos DB finns i artikeln [övervaknings Azure Cosmos db data referens mått](monitor-cosmos-db-reference.md#metrics) .
 
 Alla mått för Azure Cosmos DB finns i namn området **Cosmos DB standard mått**. Du kan använda följande dimensioner med dessa mått när du lägger till ett filter i ett diagram:
 
@@ -176,7 +176,7 @@ Azure Monitor aviseringar proaktivt meddela dig när viktiga villkor finns i din
 
 I följande tabell visas till exempel några aviserings regler för dina resurser. Du hittar en detaljerad lista över varnings regler från Azure Portal. Mer information finns i [så här konfigurerar du aviserings](create-alerts.md) artikeln.  
 
-| Aviseringstyp | Condition (Väderförhållanden) | Beskrivning  |
+| Aviseringstyp | Condition (Väderförhållanden) | Description  |
 |:---|:---|:---|
 |Hastighets begränsning på enheter för programbegäran (mått varning) |Dimensions namn: StatusCode, operator: lika med, dimensions värden: 429  | Varningar om behållaren eller en databas har överskridit gränsen för allokerat data flöde. |
 |Regionen har redundansväxlats |Operator: större än, sammansättnings typ: antal, tröskel värde: 1 | När en enskild region har redundansväxlats. Den här aviseringen är användbar om du inte har aktiverat automatisk redundans. |

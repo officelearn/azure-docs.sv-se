@@ -3,12 +3,12 @@ title: Översikt över Azure Service Bus-meddelanden | Microsoft Docs
 description: Den här artikeln innehåller en översikt över Azure Service Bus, en fullständigt hanterad meddelande Broker för företags integrering.
 ms.topic: overview
 ms.date: 11/20/2020
-ms.openlocfilehash: bb894800482cb2b7b4e5d699ab050bd5c93ad038
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ca04b4a41489fba61e7c0ee2bb3f4f7f0b8b80f4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345311"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489487"
 ---
 # <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
 Microsoft Azure Service Bus är en fullständigt hanterad meddelande tjänst för företags meddelanden med meddelande köer och offentliga prenumerations ämnen. Service Bus används för att frikoppla program och tjänster från varandra, vilket ger följande fördelar:
@@ -23,9 +23,9 @@ Data överförs mellan olika program och tjänster med *meddelanden*. Ett meddel
 Några vanliga scenarier för meddelanden är:
 
 * *Meddelanden*. Överför affärs data, till exempel försäljnings-eller inköps order, journaler eller lager förflyttningar.
-* Frikopplade *program*. Förbättra tillförlitligheten och skalbarheten för program och tjänster. Tillverkare och konsument behöver inte vara online eller tillgängliga på samma gång. [Belastningen är utjämnad](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling) så att trafik toppar inte overtax en tjänst. 
-* *Belastnings utjämning*. Tillåt att flera [konkurrerande användare](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) kan läsa från en kö på samma gång, och samtidigt få exklusiv ägande rätt till vissa meddelanden. 
-* *Ämnen och prenumerationer*. Aktivera 1:*n* relationer mellan [utgivare och prenumeranter](https://docs.microsoft.com/azure/architecture/patterns/publisher-subscriber), så att prenumeranter kan välja specifika meddelanden från en publicerad meddelande ström.
+* Frikopplade *program*. Förbättra tillförlitligheten och skalbarheten för program och tjänster. Tillverkare och konsument behöver inte vara online eller tillgängliga på samma gång. [Belastningen är utjämnad](/azure/architecture/patterns/queue-based-load-leveling) så att trafik toppar inte overtax en tjänst. 
+* *Belastnings utjämning*. Tillåt att flera [konkurrerande användare](/azure/architecture/patterns/competing-consumers) kan läsa från en kö på samma gång, och samtidigt få exklusiv ägande rätt till vissa meddelanden. 
+* *Ämnen och prenumerationer*. Aktivera 1:*n* relationer mellan [utgivare och prenumeranter](/azure/architecture/patterns/publisher-subscriber), så att prenumeranter kan välja specifika meddelanden från en publicerad meddelande ström.
 * *Transaktioner*. Gör att du kan utföra flera åtgärder, allt inom ramen för en atomisk transaktion. Följande åtgärder kan till exempel utföras i omfånget för en transaktion.  
 
     1. Hämta ett meddelande från en kö.
@@ -138,11 +138,11 @@ För skydd mot oönskad trafik tillhandahåller Service Bus [säkerhetsfunktione
 
 Fullständigt stöd för Service Bus klient bibliotek är tillgängliga via Azure SDK.
 
-- [Azure Service Bus för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/service-bus?view=azure-dotnet&preserve-view=true)
-- [Azure Service Bus bibliotek för Java](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-stable&preserve-view=true)
+- [Azure Service Bus för .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true&view=azure-dotnet)
+- [Azure Service Bus bibliotek för Java](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-stable)
 - [Azure Service Bus Provider för Java JMS 2,0](how-to-use-java-message-service-20.md)
-- [Azure Service Bus moduler för Java Script och TypeScript](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
-- [Azure Service Bus bibliotek för python](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
+- [Azure Service Bus moduler för Java Script och TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true&view=azure-node-latest)
+- [Azure Service Bus bibliotek för python](/python/api/overview/azure/servicebus?preserve-view=true&view=azure-python)
 
 [Azure Service Bus primärt protokoll är AMQP 1,0](service-bus-amqp-overview.md) och kan användas från valfri AMQP 1,0-kompatibel protokoll klient. Flera AMQP-klienter med öppen källkod har exempel som tydligt demonstrerar Service Bus samverkan. Granska [AMQP 1,0-protokoll guiden](service-bus-amqp-protocol-guide.md) för att förstå hur du använder Service Bus-funktioner med AMQP 1,0-klienter direkt.
 

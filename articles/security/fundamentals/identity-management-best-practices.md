@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 94cb40522a9e463fea2efae329daf910b5386cdd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: bf593eab54233ab65435585485dd8e3940f5addb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832610"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489827"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Rekommenderade säkerhets metoder för Azure Identity Management och åtkomst kontroll
 
@@ -229,12 +229,12 @@ Att skydda privilegie rad åtkomst är ett viktigt första steg för att skydda 
 
 Privilegierade konton är konton som administrerar och hanterar IT-system. Cyberhot-angripare riktar dessa konton för att få åtkomst till en organisations data och system. För att skydda privilegie rad åtkomst bör du isolera konton och system från risken att exponeras för en obehörig användare.
 
-Vi rekommenderar att du utvecklar och följer en översikt för att skydda privilegie rad åtkomst mot cyberhot-attacker. Information om hur du skapar en detaljerad översikt för att skydda identiteter och åtkomst som hanteras eller rapporteras i Azure AD, Microsoft Azure, Microsoft 365 och andra moln tjänster finns [i skydda privilegie rad åtkomst för Hybrid-och moln distributioner i Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md).
+Vi rekommenderar att du utvecklar och följer en översikt för att skydda privilegie rad åtkomst mot cyberhot-attacker. Information om hur du skapar en detaljerad översikt för att skydda identiteter och åtkomst som hanteras eller rapporteras i Azure AD, Microsoft Azure, Microsoft 365 och andra moln tjänster finns [i skydda privilegie rad åtkomst för Hybrid-och moln distributioner i Azure AD](../../active-directory/roles/security-planning.md).
 
-Följande sammanfattar de bästa metoderna för att [skydda privilegie rad åtkomst för Hybrid-och moln distributioner i Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md):
+Följande sammanfattar de bästa metoderna för att [skydda privilegie rad åtkomst för Hybrid-och moln distributioner i Azure AD](../../active-directory/roles/security-planning.md):
 
 **Bästa praxis**: hantera, kontrol lera och övervaka åtkomst till privilegierade konton.   
-**Information**: aktivera [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md). När du har aktiverat Privileged Identity Management får du e-postaviseringar om roll ändringar för privilegie rad åtkomst. De här meddelandena ger tidig varning när ytterligare användare läggs till i privilegierade roller i din katalog.
+**Information**: aktivera [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md). När du har aktiverat Privileged Identity Management får du e-postaviseringar om roll ändringar för privilegie rad åtkomst. De här meddelandena ger tidig varning när ytterligare användare läggs till i privilegierade roller i din katalog.
 
 **Bästa praxis**: se till att alla kritiska administratörs konton hanteras av Azure AD-konton.
 **Information**: ta bort alla konsument konton från viktiga administratörs roller (till exempel Microsoft-konton som hotmail.com, live.com och Outlook.com).
@@ -261,10 +261,10 @@ Följande sammanfattar de bästa metoderna för att [skydda privilegie rad åtko
 **Bästa praxis**: definiera minst två nödfalls åtkomst konton.   
 **Information**: åtkomst konton för nöd situationer begränsar privilegie rad åtkomst i en befintlig Azure Active Directorys miljö. Dessa konton är mycket privilegierade och har inte tilldelats till vissa individer. Konton för nöd åtkomst är begränsade till scenarier där normala administrativa konton inte kan användas. Organisationerna måste begränsa nöd kontots användning enbart till den nödvändiga tiden.
 
-Utvärdera de konton som är tilldelade eller berättigade till den globala administratörs rollen. Om du inte ser några moln konton med hjälp av `*.onmicrosoft.com` domänen (avsedd för nöd åtkomst) skapar du dem. Mer information finns i [Hantera administratörs konton för nöd åtkomst i Azure AD](../../active-directory/users-groups-roles/directory-emergency-access.md).
+Utvärdera de konton som är tilldelade eller berättigade till den globala administratörs rollen. Om du inte ser några moln konton med hjälp av `*.onmicrosoft.com` domänen (avsedd för nöd åtkomst) skapar du dem. Mer information finns i [Hantera administratörs konton för nöd åtkomst i Azure AD](../../active-directory/roles/security-emergency-access.md).
 
 **Bästa praxis**: ha en "Break glas"-process på plats i händelse av en nöd situation.
-**Information**: Följ stegen för att [skydda privilegie rad åtkomst för Hybrid-och moln distributioner i Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md).
+**Information**: Följ stegen för att [skydda privilegie rad åtkomst för Hybrid-och moln distributioner i Azure AD](../../active-directory/roles/security-planning.md).
 
 **Bästa praxis**: Kräv att alla kritiska administratörs konton är lösen ords lösa (önskade) eller kräver Multi-Factor Authentication.
 **Information**: Använd [Microsoft Authenticator-appen](../../active-directory/authentication/howto-authentication-passwordless-phone.md) för att logga in på ett Azure AD-konto utan att använda ett lösen ord. Precis som [Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-identity-verification), använder Microsoft Authenticator nyckelbaserad autentisering för att aktivera autentiseringsuppgifter som är knutna till en enhet och använder bio metrisk autentisering eller PIN-kod.
@@ -284,25 +284,25 @@ Kräv Azure AD Multi-Factor Authentication vid inloggning för alla enskilda anv
 **Information**: Använd Microsoft 365 angrepps simulator eller ett erbjudande från tredje part för att köra realistiska angrepps scenarier i din organisation. Detta kan hjälpa dig att hitta sårbara användare innan ett verkligt angrepp uppstår.
 
 **Bästa praxis**: vidta åtgärder för att minimera de oftast använda angripna teknikerna.  
-**Information**: [identifiera Microsoft-konton i administrativa roller som måste växlas till arbets-eller skol konton](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
+**Information**: [identifiera Microsoft-konton i administrativa roller som måste växlas till arbets-eller skol konton](../../active-directory/roles/security-planning.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
 
-[Se till att separata användar konton och vidarebefordran av e-post för globala administratörs konton](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)  
+[Se till att separata användar konton och vidarebefordran av e-post för globala administratörs konton](../../active-directory/roles/security-planning.md)  
 
-[Kontrol lera att lösen orden för administrativa konton nyligen har ändrats](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
+[Kontrol lera att lösen orden för administrativa konton nyligen har ändrats](../../active-directory/roles/security-planning.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
 
-[Aktivera synkronisering av lösen ords-hash](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)  
+[Aktivera synkronisering av lösen ords-hash](../../active-directory/roles/security-planning.md#turn-on-password-hash-synchronization)  
 
-[Kräv Multi-Factor Authentication för användare i alla privilegierade roller samt exponerade användare](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
+[Kräv Multi-Factor Authentication för användare i alla privilegierade roller samt exponerade användare](../../active-directory/roles/security-planning.md#require-multi-factor-authentication-for-users-in-privileged-roles-and-exposed-users)  
 
-[Få Microsoft 365 säkra poäng (om du använder Microsoft 365)](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#obtain-your-office-365-secure-score-if-using-office-365)  
+[Få Microsoft 365 säkra poäng (om du använder Microsoft 365)](../../active-directory/roles/security-planning.md#obtain-your-microsoft-365-secure-score-if-using-microsoft-365)  
 
-[Läs Microsoft 365 säkerhets vägledning (om du använder Microsoft 365)](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
+[Läs Microsoft 365 säkerhets vägledning (om du använder Microsoft 365)](../../active-directory/roles/security-planning.md#review-the-microsoft-365-security-and-compliance-guidance-if-using-microsoft-365)  
 
-[Konfigurera Microsoft 365 aktivitets övervakning (om du använder Microsoft 365)](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#configure-office-365-activity-monitoring-if-using-office-365)  
+[Konfigurera Microsoft 365 aktivitets övervakning (om du använder Microsoft 365)](../../active-directory/roles/security-planning.md#configure-microsoft-365-activity-monitoring-if-using-microsoft-365)  
 
-[Upprätta incidenter/svars plan för nöd situationer](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#establish-incidentemergency-response-plan-owners)  
+[Upprätta incidenter/svars plan för nöd situationer](../../active-directory/roles/security-planning.md#establish-incidentemergency-response-plan-owners)  
 
-[Skydda lokala privilegierade administratörs konton](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)
+[Skydda lokala privilegierade administratörs konton](../../active-directory/roles/security-planning.md#turn-on-password-hash-synchronization)
 
 Om du inte skyddar privilegie rad åtkomst kanske du upptäcker att du har för många användare i privilegierade roller och är mer sårbara för attacker. Skadliga aktörer, inklusive cyberhot-angripare, använder ofta administratörs konton och andra delar av privilegie rad åtkomst för att få åtkomst till känsliga data och system med hjälp av stöld av autentiseringsuppgifter.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a6d4e7f4ca7288b36f6801b9ddb362b7e936862d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9dda02e483f3437237837a9b3b8bdcbcf84fcd1d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843629"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489606"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Azures säkerhets bas linje för Service Bus
 
@@ -34,9 +34,9 @@ Du kan också skydda ditt Azure Service Bus namn område med hjälp av brand vä
 
 - [Tillåt åtkomst till Azure Service Bus namnrymd från vissa IP-adresser eller intervall](service-bus-ip-filtering.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1,2: övervaka och logga konfigurationen och trafiken för virtuella nätverk, undernät och nätverks gränssnitt
 
@@ -52,21 +52,21 @@ Använd Azure Security Center och följ rekommendationerna för nätverks skydd 
 
 - [Förstå nätverks säkerhet som tillhandahålls av Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: neka kommunikation med kända skadliga IP-adresser
 
 **Vägledning**: Aktivera DDoS Protection standard på de virtuella nätverk som är kopplade till dina Service Bus namn områden för att skydda mot distribuerade DDoS-attacker (Denial-of-Service). Använd Azure Security Center integrerad Hot information för att neka kommunikation med kända skadliga eller oanvända Internet-IP-adresser.
 
-- [Så här konfigurerar du DDoS-skydd](../virtual-network/manage-ddos-protection.md)
+- [Så här konfigurerar du DDoS-skydd](../ddos-protection/manage-ddos-protection.md)
 
 - [Azure Security Center integrerad Hot information](../security-center/azure-defender.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="15-record-network-packets"></a>1,5: registrera nätverks paket
 
@@ -74,9 +74,9 @@ Använd Azure Security Center och följ rekommendationerna för nätverks skydd 
 
 - [Så här aktiverar du Network Watcher](../network-watcher/network-watcher-create.md)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: Distribuera nätverksbaserade intrångs identifiering/system för skydd mot intrång (ID/IP-adresser)
 
@@ -86,9 +86,9 @@ Använd Azure Security Center och följ rekommendationerna för nätverks skydd 
 
 - [Så här lägger du till en brand Väggs regel i Service Bus namn områden för en angiven IP-adress](service-bus-ip-filtering.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1,8: minimera komplexitet och administrativa kostnader för nätverks säkerhets regler
 
@@ -96,9 +96,9 @@ Använd Azure Security Center och följ rekommendationerna för nätverks skydd 
 
 - [Förstå och använda service märken](../virtual-network/service-tags-overview.md)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: underhåll standardkonfigurationer för nätverks enheter
 
@@ -109,7 +109,7 @@ Använd Azure Security Center och följ rekommendationerna för nätverks skydd 
 
 Du kan också skapa anpassade princip definitioner om de inbyggda definitionerna inte passar din organisations behov.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Inbyggd Azure-princip för Service Bus namnrymd](./policy-reference.md#azure-service-bus-messaging)
 
@@ -117,9 +117,9 @@ Du kan också skapa anpassade princip definitioner om de inbyggda definitionerna
 
 - [Så här skapar du en Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="110-document-traffic-configuration-rules"></a>1,10: dokumentera trafik konfigurations regler
 
@@ -135,9 +135,9 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 - [Så här skapar du en NSG med en säkerhets konfiguration](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1,11: Använd automatiserade verktyg för att övervaka konfigurationer för nätverks resurser och identifiera ändringar
 
@@ -147,9 +147,9 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 - [Så här skapar du aviseringar i Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
@@ -167,9 +167,9 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 - [Komma igång med Azure Monitor och SIEM-integrering från tredje part](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: Aktivera gransknings loggning för Azure-resurser
 
@@ -179,9 +179,9 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 - [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](../azure-monitor/platform/activity-log.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurera säkerhets logg lagrings kvarhållning
 
@@ -189,23 +189,23 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 - [Ange logg lagrings parametrar för Log Analytics arbets ytor](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="26-monitor-and-review-logs"></a>2,6: övervaka och granska loggar
 
 **Vägledning**: analysera och övervaka loggar för avvikande beteende och granska regelbundet resultat som är relaterade till dina Service Bus entiteter. Använd Azure Monitor för att granska loggar och köra frågor om loggdata relaterade till Service Bus.
 
-- [Mer information om arbets ytan Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Mer information om arbets ytan Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Så här utför du anpassade frågor i Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 - [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: aktivera aviseringar för avvikande aktiviteter
 
@@ -217,9 +217,9 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 - [Så här aviserar du om Log Analytics-loggdata](../azure-monitor/learn/tutorial-response.md)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ## <a name="identity-and-access-control"></a>Identitets- och åtkomstkontroll
 
@@ -235,9 +235,9 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 - [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3,2: ändra standard lösen ord där tillämpligt
 
@@ -247,9 +247,9 @@ Data Plans åtkomst till Service Bus styrs via Azure AD med hjälp av hanterade 
 
 - [Förstå signaturer för delad åtkomst för Service Bus](service-bus-sas.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3,3: Använd dedikerade administrativa konton
 
@@ -267,9 +267,9 @@ Du kan också skapa anpassade princip definitioner om de inbyggda definitionerna
 
 - [Använda Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: Använd Azure Active Directory enkel inloggning (SSO)
 
@@ -279,21 +279,21 @@ Du kan också skapa anpassade princip definitioner om de inbyggda definitionerna
 
 - [Förstå SSO med Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Använd Multi-Factor Authentication för all Azure Active Directory-baserad åtkomst
 
 **Vägledning**: aktivera Azure Active Directory Multi-Factor Authentication (MFA) och följ Azure Security Center identitets-och åtkomst hanterings rekommendationer som hjälper dig att skydda dina Service Bus-aktiverade resurser.
 
-- [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Aktivera MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 - [Övervaka identitet och åtkomst i Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3,6: Använd säkra, Azure-hanterade arbets stationer för administrativa uppgifter
 
@@ -301,11 +301,11 @@ Du kan också skapa anpassade princip definitioner om de inbyggda definitionerna
 
 - [Lär dig mer om arbets stationer med privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Aktivera MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3,7: Logga och Avisera om misstänkta aktiviteter från administrativa konton
 
@@ -313,11 +313,11 @@ Du kan också skapa anpassade princip definitioner om de inbyggda definitionerna
 
 - [Så här identifierar du Azure AD-användare som har flaggats för riskfylld aktivitet](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Övervaka användarnas identitets-och åtkomst aktiviteter i Azure Security Center](../security-center/security-center-identity-access.md)
+- [Så här övervakar du användarnas identitets- och åtkomstrelaterade aktiviteter i Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3,8: hantera endast Azure-resurser från godkända platser
 
@@ -325,21 +325,21 @@ Du kan också skapa anpassade princip definitioner om de inbyggda definitionerna
 
 - [Så här konfigurerar du Azure AD-namngivna platser](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Använd Azure Active Directory
 
 **Vägledning**: använda Azure Active Directory (AD) som central autentiserings-och auktoriserings system för Azure-resurser som Service Bus. Detta möjliggör Azure-rollbaserad åtkomst kontroll (Azure RBAC) till administrativa känsliga resurser.
 
-- [Så här skapar och konfigurerar du en Azure AD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Skapa och konfigurera en Azure AD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 - [Ge åtkomst till Service Bus resurser med Azure Active Directory](authenticate-application.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: granska och stäm regelbundet av användar åtkomst
 
@@ -353,9 +353,9 @@ I ytterligare roterar du Service Bus namn områdets signatur för delad åtkomst
 
 - [Förstå signaturer för delad åtkomst för Service Bus namnrymd](service-bus-sas.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3,11: övervakaren försöker komma åt inaktiverade autentiseringsuppgifter
 
@@ -363,27 +363,27 @@ I ytterligare roterar du Service Bus namn områdets signatur för delad åtkomst
 
 Du kan effektivisera den här processen genom att skapa diagnostikinställningar för Azure AD-användarkonton och skicka gransknings loggar och inloggnings loggar till en Log Analytics-arbetsyta. I Azure Monitor kan du sedan konfigurera önskade logg aviseringar för vissa åtgärder som inträffar i loggarna.
 
-- [Så här integrerar du Azures aktivitets loggar i Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+- [Så här integrerar du Azures aktivitetsloggar i Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Ge åtkomst till Service Bus resurser med Azure Active Directory](authenticate-application.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3,12: varning vid inloggnings beteende för konto
 
 **Vägledning**: Använd Azure Active Directorys funktioner för identitets skydd och identifiering av risker för att konfigurera automatiserade svar på identifierade misstänkta åtgärder som rör dina Service Bus-aktiverade resurser. Du bör aktivera automatiserade svar via Azure Sentinel för att implementera din organisations säkerhets svar.
 
-- [Visa Azure AD-riskfyllda inloggningar](../active-directory/identity-protection/overview-identity-protection.md)
+- [Så visar du riskfyllda inloggningar för Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Så här konfigurerar och aktiverar du risk principer för identitets skydd](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
 - [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3,13: ge Microsoft åtkomst till relevant kund information under support scenarier
 
@@ -391,9 +391,9 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 - [Lista över Customer Lockbox tjänster som stöds](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ## <a name="data-protection"></a>Dataskydd
 
@@ -405,9 +405,9 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 - [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: isolera system som lagrar eller bearbetar känslig information
 
@@ -421,9 +421,9 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 - [Så här skapar du en Virtual Network](../virtual-network/quick-create-portal.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4,3: övervaka och blockera obehörig överföring av känslig information
 
@@ -439,11 +439,11 @@ Microsoft hanterar den underliggande infrastrukturen för Azure Service Bus och 
 
 - [Förstå nätverks säkerhets grupper och service märken](../virtual-network/network-security-groups-overview.md)
 
-- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
+- [Förstå skydd av kunddata i Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Azure Security Center-övervakning**: Inte tillämpligt
 
-**Ansvars område**: delat
+**Ansvar**: Delad
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: kryptera all känslig information under överföring
 
@@ -451,9 +451,9 @@ Microsoft hanterar den underliggande infrastrukturen för Azure Service Bus och 
 
 - [Information om säkerhetsfunktioner i Service Bus finns i nätverks säkerhet](network-security.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvars område**: delat
+**Ansvar**: Delad
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4,5: Använd ett aktivt identifierings verktyg för att identifiera känsliga data
 
@@ -461,11 +461,11 @@ Microsoft hanterar den underliggande infrastrukturen för Azure Service Bus och 
 
 För den underliggande plattform som hanteras av Microsoft behandlar Microsoft allt kund innehåll som känsligt och går till fantastiska längder för att skydda mot kund data förlust och exponering. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
 
-- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
+- [Förstå skydd av kunddata i Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvars område**: delat
+**Ansvar**: Delad
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
 
@@ -473,9 +473,9 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 - [Lär dig mer om Azure RBAC och tillgängliga roller för Azure Service Bus](authenticate-application.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: kryptera känslig information i vila
 
@@ -483,9 +483,9 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 - [Så här konfigurerar du Kundhanterade nycklar för kryptering Azure Service Bus](configure-customer-managed-key.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: logg och varning vid ändringar av kritiska Azure-resurser
 
@@ -493,9 +493,9 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 - [Så här skapar du aviseringar för Azure aktivitets logg händelser](../azure-monitor/platform/alerts-activity-log.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ## <a name="inventory-and-asset-management"></a>Inventerings- och tillgångshantering
 
@@ -511,17 +511,17 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 - [Förstå Azure RBAC](../role-based-access-control/overview.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="62-maintain-asset-metadata"></a>6,2: underhåll till gångens metadata
 
 **Vägledning**: Använd taggar till Azure-resurser som ger metadata till att logiskt organisera dem i en taxonomi.
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6,3: ta bort obehöriga Azure-resurser
 
@@ -533,17 +533,17 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 - [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6,4: definiera och underhålla inventering av godkända Azure-resurser
 
 **Vägledning**: skapa en inventering av godkända Azure-resurser och godkänd program vara för beräknings resurser enligt organisationens behov.
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6,5: övervaka för ej godkända Azure-resurser
 
@@ -555,13 +555,13 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 Använd dessutom Azure Resource Graph för att fråga och identifiera resurser i prenumerationerna.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Så här skapar du frågor med Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="69-use-only-approved-azure-services"></a>6,9: Använd endast godkända Azure-tjänster
 
@@ -572,13 +572,13 @@ Använd dessutom Azure Resource Graph för att fråga och identifiera resurser i
 
 Du kan också skapa anpassade princip definitioner om de inbyggda definitionerna inte passar din organisations behov.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Så här nekar du en speciell resurs typ med Azure Policy](../governance/policy/samples/index.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6,11: begränsa användarnas möjlighet att interagera med Azure Resource Manager
 
@@ -586,9 +586,9 @@ Du kan också skapa anpassade princip definitioner om de inbyggda definitionerna
 
 - [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ## <a name="secure-configuration"></a>Säker konfiguration
 
@@ -607,43 +607,43 @@ Använd Azure Policy alias i namn området "Microsoft. Service Bus" om du vill s
 
 - [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7,3: underhåll säker Azure-resurs-konfigurationer
 
 **Vägledning**: Använd Azure policy [neka] och [distribuera om det inte finns] för att genomdriva säkra inställningar för dina Service Bus-aktiverade resurser eller program.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Mer information om Azure Policys effekter](../governance/policy/concepts/effects.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: Distribuera konfigurations hanterings verktyg för Azure-resurser
 
 **Vägledning**: Använd Azure policy alias i namn området "Microsoft. Service Bus" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Dessutom kan du utveckla en process och pipeline för att hantera princip undantag.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9: implementera automatisk konfigurations övervakning för Azure-resurser
 
 **Vägledning**: Använd Azure policy alias i namn området "Microsoft. Service Bus" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure Policy [audit], [neka] och [distribuera om det inte finns] för att automatiskt tillämpa konfigurationer för dina Azure Service Bus-distributioner och relaterade resurser.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="711-manage-azure-secrets-securely"></a>7,11: Hantera Azure-hemligheter på ett säkert sätt
 
@@ -655,9 +655,9 @@ Använd Azure Policy alias i namn området "Microsoft. Service Bus" om du vill s
 
 - [Så här skapar du en Key Vault](../key-vault/general/quick-create-portal.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7,12: hantera identiteter säkert och automatiskt
 
@@ -669,19 +669,19 @@ Använd hanterade identiteter för att tillhandahålla Azure-tjänster med en au
 
 - [Konfigurera Kundhanterade nycklar för Service Bus](configure-customer-managed-key.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminera oavsiktlig exponering för autentiseringsuppgifter
 
-**Vägledning**: implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault.
+**Vägledning**: implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Credential Scanner uppmanar också till att flytta identifierade autentiseringsuppgifter till en säkrare plats som Azure Key Vault.
 
 - [Konfigurera inloggnings skannern](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ## <a name="malware-defense"></a>Skydd mot skadlig kod
 
@@ -693,9 +693,9 @@ Använd hanterade identiteter för att tillhandahålla Azure-tjänster med en au
 
 Microsofts program mot skadlig kod har Aktiver ATS på den underliggande värden som stöder Azure-tjänster, men det körs inte på kund innehåll.
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvars område**: delat
+**Ansvar**: Delad
 
 ## <a name="data-recovery"></a>Dataåterställning
 
@@ -707,9 +707,9 @@ Microsofts program mot skadlig kod har Aktiver ATS på den underliggande värden
 
 - [Förstå geo-katastrof återställning för Azure Service Bus](service-bus-geo-dr.md)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: Utför fullständig säkerhets kopiering av systemet och säkerhetskopiera alla Kundhanterade nycklar
 
@@ -721,9 +721,9 @@ Säkerställ vanliga automatiserade säkerhets kopieringar av Key Vault hemlighe
 
 - [Säkerhetskopiera Key Vault hemligheter](/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: validera alla säkerhets kopior inklusive Kundhanterade nycklar
 
@@ -733,9 +733,9 @@ Säkerställ vanliga automatiserade säkerhets kopieringar av Key Vault hemlighe
 
 - [Återställa Key Vault-nycklar i Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: se till att skydda säkerhets kopior och Kundhanterade nycklar
 
@@ -745,9 +745,9 @@ Säkerställ vanliga automatiserade säkerhets kopieringar av Key Vault hemlighe
 
 - [Konfigurera ett nyckel valv med nycklar](../event-hubs/configure-customer-managed-key.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ## <a name="incident-response"></a>Incidenthantering
 
@@ -763,9 +763,9 @@ Säkerställ vanliga automatiserade säkerhets kopieringar av Key Vault hemlighe
 
 - [Använd NIST hanterings guide för dator säkerhet för att hjälpa till med att skapa din egen incident svars plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10,2: skapa en incident bedömnings-och prioriterings procedur
 
@@ -777,29 +777,29 @@ Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings sy
 
 - [Använda taggar för att organisera dina Azure-resurser](../azure-resource-manager/management/tag-resources.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="103-test-security-response-procedures"></a>10,3: testa säkerhets svars procedurer
 
-**Vägledning**: utföra övningar för att testa dina Systems incident svars funktioner på en vanlig takt. Identifiera svaga punkter och luckor och ändra planen efter behov.
+**Vägledning**: utföra övningar för att testa dina Systems incident svars funktioner på en vanlig takt. Identifiera svaga punkter och luckor, och ändra planen efter behov.
 
 - [NIST: guide för test, utbildning och övnings program för IT-planer och funktioner](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10,4: Ange kontakt information för säkerhets incidenter och konfigurera aviseringar för säkerhets incidenter
 
 **Vägledning**: kontakt information om säkerhets incidenter kommer att användas av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att dina data har använts av en olagligt eller obehörig part. Granska incidenter när du är säker på att problemen är lösta. 
 
-- [Så här ställer du in Azure Security Center säkerhets kontakt](../security-center/security-center-provide-security-contact-details.md)
+- [Så här ställer du in säkerhetskontakt i Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10,5: införliva säkerhets aviseringar i ditt incident svars system
 
@@ -807,11 +807,11 @@ Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings sy
 
 - [Så här konfigurerar du kontinuerlig export](../security-center/continuous-export.md) 
 
-- [Strömma aviseringar till Azure Sentinel](../sentinel/connect-azure-security-center.md)
+- [Så här strömmar du aviseringar till Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10,6: automatisera svaret på säkerhets aviseringar
 
@@ -821,9 +821,9 @@ Använd funktionen för automatisering av arbets flöde Azure Security Center f�
 
 - [Konfigurera automatisering av arbets flöden i Security Center](../security-center/workflow-automation.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Penetrationstester och Red Team-tester
 
@@ -831,17 +831,17 @@ Använd funktionen för automatisering av arbets flöde Azure Security Center f�
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att åtgärda alla viktiga säkerhets brister
 
-**Vägledning**: Följ Microsoft Cloud inträngande test för att se till att dina inträngande tester inte strider mot Microsofts principer. Använd Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft-hanterad moln infrastruktur, tjänster och program. 
+**Vägledning**: Följ Microsoft Cloud inträngande test för att se till att dina inträngande tester inte strider mot Microsofts principer. Använd Microsofts strategi och utförande av ”red team”-aktiviteter och intrångstester live mot molninfrastruktur, tjänster och appar som hanteras av Microsoft. 
 
-- [Inträngande test regler för engagemang](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
+- [Regler för intrångstester](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
-- [Microsoft Cloud röd team indelning](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [”Red team”-aktiviteter i Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvars område**: delat
+**Ansvar**: Delad
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Se [Azures säkerhets benchmark](../security/benchmarks/overview.md)
-- Läs mer om [Azures säkerhets bas linjer](../security/benchmarks/security-baselines-overview.md)
+- Läs mer om [säkerhetsbaslinjer för Azure](../security/benchmarks/security-baselines-overview.md)

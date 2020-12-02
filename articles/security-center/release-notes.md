@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/30/2020
 ms.author: memildin
-ms.openlocfilehash: f26fffe8e6b2be6ede064b4750d012b3e4535c66
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 5ac96d703ea646d26b84d6d6486d9ee44ad87cd2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433327"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490133"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -129,7 +129,7 @@ Läs mer om hur du [exporterar Security Center data kontinuerligt](continuous-ex
 
 - Omfattande data för rekommendationen från Azure Resource Graph (ARG). ARG är en Azure-tjänst som är utformad för att tillhandahålla effektiv resurs utforskning. Du kan använda ARG för att fråga i skala över en specifik uppsättning prenumerationer så att du effektivt kan styra din miljö. 
 
-    För Azure Security Center kan du använda ARG och [KQL (Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) för att fråga efter en mängd säkerhets position data.
+    För Azure Security Center kan du använda ARG och [KQL (Kusto Query Language)](/azure/data-explorer/kusto/query/) för att fråga efter en mängd säkerhets position data.
 
     Om du tidigare har efterfrågat den här rekommendationen i ARG, var den enda tillgängliga informationen att rekommendationen måste åtgärdas på en dator. Följande fråga för den förbättrade versionen returnerar alla system uppdateringar som saknas grupperade efter dator.
 
@@ -172,7 +172,7 @@ Huvud funktioner:
 
 [Lär dig mer om att distribuera den integrerade sårbarhets-skannern till dina hybrid datorer](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
-[Läs mer om Azure Arc-aktiverade servrar](https://docs.microsoft.com/azure/azure-arc/servers/).
+[Läs mer om Azure Arc-aktiverade servrar](../azure-arc/servers/index.yml).
 
 
 ### <a name="azure-firewall-recommendation-added-preview"></a>Azure Firewall-rekommendation har lagts till (för hands version)
@@ -206,7 +206,7 @@ Läs mer i [ta bort en standard från din instrument panel](update-regulatory-co
 
 Azure Resource Graph är en tjänst i Azure som är utformad för att tillhandahålla effektiv resurs utforskning med möjlighet att fråga i skala över en specifik uppsättning prenumerationer så att du effektivt kan styra din miljö. 
 
-För Azure Security Center kan du använda ARG och [KQL (Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) för att fråga efter en mängd säkerhets position data. Exempel:
+För Azure Security Center kan du använda ARG och [KQL (Kusto Query Language)](/azure/data-explorer/kusto/query/) för att fråga efter en mängd säkerhets position data. Exempel:
 
 - Till gångs lager använder (ARG)
 - Vi har dokumenterat en exempel-ARG-fråga för att [identifiera konton utan Multi-Factor Authentication (MFA) aktiverat](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
@@ -295,7 +295,7 @@ extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
 
 Läs mer på följande länkar:
 - [Skapa frågor med Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
-- [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/)
 
 
 ## <a name="september-2020"></a>September 2020

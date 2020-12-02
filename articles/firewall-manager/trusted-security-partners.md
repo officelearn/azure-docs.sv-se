@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 12/01/2020
 ms.author: victorh
-ms.openlocfilehash: 3c09e75a98e5342ab54710e05466755d86705b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 923c6b685d20ff68788e7d9cfcb45ebaecb535e3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399439"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490116"
 ---
 # <a name="what-are-security-partner-providers"></a>Vad är en säkerhetspartnerprovider?
 
@@ -22,7 +22,7 @@ Med en snabb konfiguration kan du skydda en hubb med en säkerhets partner som s
 
 Du kan distribuera skyddade hubbar som kon figurer ATS med valfri säkerhets partner i flera Azure-regioner för att få anslutning och säkerhet för dina användare överallt i världen. Med möjligheten att använda säkerhets partner erbjudandet för Internet-SaaS program trafik och Azure-brandväggen för privat trafik i de skyddade hubbarna kan du nu börja bygga din säkerhets gräns på Azure som är nära dina globalt distribuerade användare och program.
 
-De säkerhets partner som stöds är **ZScaler**, **Check Point** (för hands version) och **iboss** (för hands version).
+De säkerhets partner som stöds är **Zscaler**, **[Check Point](check-point-overview.md)** och **iboss**.
 
 ![Säkerhetspartnerprovidrar](media/trusted-security-partners/trusted-security-partners.png)
 

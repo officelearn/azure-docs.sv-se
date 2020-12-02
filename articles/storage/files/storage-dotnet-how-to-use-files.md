@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0196330df01f98e216c39bcc689eac2bde2f4cd9
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e112060db4a44884d3094a939b03ff106ba72e65
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629350"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492207"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Utveckla för Azure Files med .NET
 
@@ -316,7 +316,7 @@ Mer information om hur du skapar och använder signaturer för delad åtkomst fi
 
 Från och med version 5. x av Azure Files klient biblioteket kan du kopiera en fil till en annan fil, en fil till en BLOB eller en blob till en fil.
 
-Du kan också använda AzCopy för att kopiera en fil till en annan eller kopiera en blob till en fil eller till ett annat sätt runt. Se [Kom igång med AZCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+Du kan också använda AzCopy för att kopiera en fil till en annan eller kopiera en blob till en fil eller till ett annat sätt runt. Se [Kom igång med AZCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 > [!NOTE]
 > Om du kopierar en blobb till en fil eller en fil till en blobb måste du använda en signatur för delad åtkomst (SAS) för att auktorisera åtkomst till källobjektet, även om du kopierar inom samma lagringskonto.
@@ -624,7 +624,7 @@ Mer information om Azure Files finns i följande resurser:
 
 ### <a name="tooling-support-for-file-storage"></a>Verktygsstöd för File Storage
 
-- [Kom igång med AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)
+- [Kom igång med AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 - [Felsöka Azure Files-problem i Windows](./storage-troubleshoot-windows-file-connection-problems.md)
 
 ### <a name="reference"></a>Referens

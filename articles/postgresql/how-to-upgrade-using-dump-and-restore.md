@@ -6,18 +6,18 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: e756e033c8e5b2508dca9bde76ad16be26a940fa
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 42bbe1c9f4056ae0dae0ccd59b452db90a7c63c5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505792"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493669"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>Uppgradera PostgreSQL-databasen med hjälp av dumpa och Återställ
 
 Du kan uppgradera din PostgreSQL-server som distribueras i Azure Database for PostgreSQL-enskild server genom att migrera dina databaser till en högre huvud versions server med hjälp av följande metoder.
 * **Offline** -Metod med postgresql [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) och [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) som medför stillestånds tid för att migrera data. Det här dokumentet beskriver den här metoden för uppgradering/migrering.
-* **Online** -metod med [Database migration service](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS). Med den här metoden kan du minska stillestånds tiden och hålla mål databasen synkroniserad med med källan och du kan välja när du vill klippa ut. Det finns dock några krav och begränsningar som kan åtgärdas med hjälp av DMS. Mer information finns i [dokumentation om DMS](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal). 
+* **Online** -metod med [Database migration service](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) (DMS). Med den här metoden kan du minska stillestånds tiden och hålla mål databasen synkroniserad med med källan och du kan välja när du vill klippa ut. Det finns dock några krav och begränsningar som kan åtgärdas med hjälp av DMS. Mer information finns i [dokumentation om DMS](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md). 
 
  Följande tabell innehåller några rekommendationer baserat på databasens storlek och scenarier.
 
@@ -28,7 +28,7 @@ Du kan uppgradera din PostgreSQL-server som distribueras i Azure Database for Po
 | Liten – medels databaser (10 GB – 100 GB) | X | X |
 | Stora databaser (> 100 GB) |  | X |
 | Kan ge ett drift stopp vid uppgraderingen (oavsett databasens storlek) | X |  |
-| Kan du hantera [krav för](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal#prerequisites)DMS, inklusive en omstart? |  | X |
+| Kan du hantera [krav för](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md#prerequisites)DMS, inklusive en omstart? |  | X |
 | Kan du undvika DDLs och ej loggade tabeller under uppgraderings processen? | |  X |
 
 Den här guiden innehåller några metoder för offline-migrering och exempel som visar hur du kan migrera från käll servern till mål servern som kör en senare version av PostgreSQL.
@@ -115,9 +115,9 @@ Om du inte har en PostgreSQL-klient eller om du vill använda Azure Cloud Shell 
 
 | **Databas storlek** | **Uppskattad tids åtgång** | 
 | ----- | ------ |
-| 1 GB  | 1-2 minuter |
+| 1 GB  | 1-2 minuter |
 | 5 GB | 8-10 minuter |
-| 10 GB | 15-20 minuter |
+| 10 GB | 15-20 minuter |
 | 50 GB | 1 – 1,5 timmar |
 | 100 GB | 2,5 – 3 timmar|
    

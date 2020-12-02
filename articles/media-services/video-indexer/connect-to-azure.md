@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: juliako
-ms.openlocfilehash: 3f159a11dc9607daf479c13f6612cab0175dae0c
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 282e1ef98a3c0d6e152b56a180a639c86d004af9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94634896"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493108"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa ett Video Indexer-konto som är anslutet till Azure
 
@@ -45,7 +45,7 @@ Om du flyttar från en *utvärdering* till *betald* video Indexer konto kan du v
 
     Du använder den här medlemmen när du ansluter ditt Video Indexer-konto till Azure.
 
-    Den här användaren bör vara medlem i din Azure-prenumeration med antingen en **ägar** roll eller både rollen **deltagare** och **administratör för användar åtkomst** . En användare kan läggas till två gånger, med två roller. En gång med deltagare och en gång med administratör för användar åtkomst. Mer information finns i [Visa en användares åtkomst till Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/check-access).
+    Den här användaren bör vara medlem i din Azure-prenumeration med antingen en **ägar** roll eller både rollen **deltagare** och **administratör för användar åtkomst** . En användare kan läggas till två gånger, med två roller. En gång med deltagare och en gång med administratör för användar åtkomst. Mer information finns i [Visa en användares åtkomst till Azure-resurser](../../role-based-access-control/check-access.md).
 
     ![åtkomst kontroll](./media/create-account/access-control-iam.png)
 
@@ -53,7 +53,7 @@ Om du flyttar från en *utvärdering* till *betald* video Indexer konto kan du v
 
 * Registrera EventGrid-resurs leverantören med hjälp av Azure Portal.
 
-    I [Azure Portal](https://portal.azure.com/)går du till **prenumerationer** -> [prenumeration]-> **ResourceProviders**.
+    I [Azure Portal](https://portal.azure.com/)går du till **prenumerationer**-> [prenumeration]->**ResourceProviders**.
 
     Sök efter **Microsoft. Media** och **Microsoft. EventGrid**. Om du inte har statusen "registrerad" klickar du på **Registrera**. Det tar några minuter att registrera sig.
 
@@ -127,7 +127,7 @@ Om anslutningen till Azure misslyckades kan du försöka felsöka problemet geno
     2. Välj [autentiseringsmetod för tjänstens huvud namn](../previous/media-services-portal-get-started-with-aad.md).
     3. Hämta klient-ID och klient hemlighet
 
-        När du har valt **Inställningar** -> **nycklar** , Lägg till **Beskrivning** , tryck på **Spara** och nyckel värdet fylls i.
+        När du har valt **Inställningar** -> **nycklar**, Lägg till **Beskrivning**, tryck på **Spara** och nyckel värdet fylls i.
 
         Om nyckeln upphör att gälla måste konto ägaren kontakta Video Indexer support för att förnya nyckeln.
 
@@ -147,7 +147,7 @@ Ange följande information i dialog rutan:
 |Prenumerations-ID:t|Azure-prenumerationen som den här anslutningen ska skapas under. Prenumerations-ID kan hämtas från Azure Portal. Välj **alla tjänster** i den vänstra panelen och Sök efter "prenumerationer". Välj **prenumerationer** och välj önskat ID i listan med dina prenumerationer.|
 |Namn på Azure Media Services resurs grupp|Namnet på resurs gruppen där du skapade Media Services-kontot.|
 |Medie tjänst resurs namn|Namnet på det Azure Media Services konto som du skapade i föregående avsnitt.|
-|Program-ID|Azure AD-programmets ID (med behörigheter för det angivna Media Services kontot) som du skapade i föregående avsnitt.|
+|Program-ID:t|Azure AD-programmets ID (med behörigheter för det angivna Media Services kontot) som du skapade i föregående avsnitt.|
 |Program nyckel|Den Azure AD-programnyckel som du skapade i föregående avsnitt. |
 
 ## <a name="import-your-content-from-the-trial-account"></a>Importera ditt innehåll från *utvärderings* kontot

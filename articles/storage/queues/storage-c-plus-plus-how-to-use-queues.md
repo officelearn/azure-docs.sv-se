@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: f31a883a2b10f37d6a4a7a91fff37739e340ac60
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 73d88f69057dc6fe39f6329e89eb72ecebf853f0
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348856"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491986"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Så använder du Queue Storage från C++
 
@@ -23,7 +23,7 @@ ms.locfileid: "93348856"
 
 ## <a name="overview"></a>Översikt
 
-I den här guiden får du lära dig hur du utför vanliga scenarier med Azure Queue Storage-tjänsten. Exemplen är skrivna i C++ och använder [Azure Storage-klientbiblioteket för C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). De scenarier som beskrivs är att **Infoga** , **Granska** , **Hämta** och **ta bort** Kömeddelanden, samt **skapa och ta bort köer**.
+I den här guiden får du lära dig hur du utför vanliga scenarier med Azure Queue Storage-tjänsten. Exemplen är skrivna i C++ och använder [Azure Storage-klientbiblioteket för C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). De scenarier som beskrivs är att **Infoga**, **Granska**, **Hämta** och **ta bort** Kömeddelanden, samt **skapa och ta bort köer**.
 
 > [!NOTE]
 > För den här guiden krävs Azure Storage-klientbiblioteket för C++ version 1.0.0 eller senare. Den rekommenderade versionen är Storage-klientbibliotek 2.2.0, som är tillgängligt via [NuGet](https://www.nuget.org/packages/wastorage) eller [GitHub](https://github.com/Azure/azure-storage-cpp/).
@@ -60,7 +60,7 @@ Lägg till följande include-instruktioner överst i C++-filen där du vill anv�
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Konfigurera en anslutnings sträng för Azure Storage
 
-En Azure Storage-klient använder en förvaringsanslutningssträng för att lagra slutpunkter och autentiseringsuppgifter för åtkomst av datahanteringstjänster. När du kör i ett klient program måste du ange lagrings anslutnings strängen i följande format, med namnet på ditt lagrings konto och lagrings åtkomst nyckeln för det lagrings konto som anges i [Azure Portal](https://portal.azure.com) för värdena *AccountName* och *AccountKey* . Information om lagrings konton och åtkomst nycklar finns i [om Azure Storage-konton](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json). Det här exemplet visar hur du kan deklarera ett statiskt fält för lagring av anslutningssträngen:
+En Azure Storage-klient använder en förvaringsanslutningssträng för att lagra slutpunkter och autentiseringsuppgifter för åtkomst av datahanteringstjänster. När du kör i ett klient program måste du ange lagrings anslutnings strängen i följande format, med namnet på ditt lagrings konto och lagrings åtkomst nyckeln för det lagrings konto som anges i [Azure Portal](https://portal.azure.com) för värdena *AccountName* och *AccountKey* . Information om lagrings konton och åtkomst nycklar finns i [om Azure Storage-konton](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). Det här exemplet visar hur du kan deklarera ett statiskt fält för lagring av anslutningssträngen:
 
 ```cpp
 // Define the connection-string with your values.

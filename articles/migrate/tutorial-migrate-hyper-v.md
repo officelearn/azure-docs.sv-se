@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 038d0ec817d4f81371546e8d7aa4b48b299c8d98
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 2d31c5b90f37f336b48118e4f4adde4777f8cf4a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302555"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493142"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrera virtuella Hyper-V-datorer till Azure 
 
@@ -22,7 +22,7 @@ Den här självstudien är den tredje i en serie som visar hur du bedömer och m
 > [!NOTE]
 > Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudierna använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. 
 
- I de här självstudierna får du lära dig att
+ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Lägg till verktyget Azure Migrate: Migreringsverktyg för Server.
@@ -45,7 +45,6 @@ Innan du börjar de här självstudierna bör du:
 4. Vi rekommenderar att du  [bedömer virtuella Hyper-V-datorer](tutorial-assess-hyper-v.md) innan du migrerar dem till Azure, men du behöver inte.
 5. Gå till det redan skapade projektet eller [skapa ett nytt projekt](https://docs.microsoft.com/azure/migrate/create-manage-projects)
 6. Verifiera behörigheter för ditt Azure-konto – ditt Azure-konto måste ha behörighet att skapa en virtuell dator och skriva till en Azure-hanterad disk.
-
 
 ## <a name="download-and-install-the-provider"></a>Hämta och installera providern
 

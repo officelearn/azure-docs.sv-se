@@ -4,12 +4,12 @@ description: Lär dig hur du kör en agent lös migrering av virtuella VMware-da
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 7eb918a844b1cd542664ac7e5aec2736ceba0e6f
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 202886bc0a7738f8211cfea6d90a380c7bac82b8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301635"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492955"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrera virtuella VMware-datorer till Azure (utan agent)
 
@@ -21,7 +21,7 @@ Den här självstudien är den tredje i en serie som visar hur du bedömer och m
 > Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudierna använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. 
 
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Lägg till Azure-migrering: Migreringsverktyg för Server.
@@ -38,7 +38,7 @@ Innan du börjar de här självstudierna bör du:
 
 1. [Slutför den första självstudien](./tutorial-discover-vmware.md) för att förbereda Azure och VMware för migrering.
 2. Vi rekommenderar att du slutför den andra självstudien för att [utvärdera virtuella VMware-datorer](./tutorial-assess-vmware-azure-vm.md) innan du migrerar dem till Azure, men du behöver inte. 
-3. Gå till det redan skapade projektet eller [skapa ett nytt projekt](https://docs.microsoft.com/azure/migrate/create-manage-projects)
+3. Gå till det redan skapade projektet eller [skapa ett nytt projekt](./create-manage-projects.md)
 4. Verifiera behörigheter för ditt Azure-konto – ditt Azure-konto måste ha behörighet att skapa en virtuell dator och skriva till en Azure-hanterad disk.
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Konfigurera Azure Migrate-enheten

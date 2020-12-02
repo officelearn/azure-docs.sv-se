@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e41be54ce2017b303543a2e53eabbecb3ddc2978
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 616cbb8f72a94868dbe283ba513947d8c7f9fd68
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843340"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492037"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Övervaka Azure Queue Storage
 
@@ -47,7 +47,7 @@ Azure Queue Storage samlar in samma typer av övervaknings data som andra Azure-
 
 Se [data referens för lagrings övervakning i Azure Queue](monitor-queue-storage-reference.md) för detaljerad information om mått och loggar mått som skapats av Azure Queue Storage.
 
-Mått och loggar i Azure Monitor endast stöd för Azure Resource Manager lagrings konton. Azure Monitor stöder inte klassiska lagrings konton. Om du vill använda mått eller loggar på ett klassiskt lagrings konto måste du migrera till ett Azure Resource Manager lagrings konto. Se [migrera till Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+Mått och loggar i Azure Monitor endast stöd för Azure Resource Manager lagrings konton. Azure Monitor stöder inte klassiska lagrings konton. Om du vill använda mått eller loggar på ett klassiskt lagrings konto måste du migrera till ett Azure Resource Manager lagrings konto. Se [migrera till Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 Du kan fortsätta använda klassiska mått och loggar om du vill. Faktum är att klassiska mått och loggar är tillgängliga parallellt med mått och loggar i Azure Monitor. Stödet finns kvar tills Azure Storage avslutar tjänsten med äldre mått och loggar.
 
@@ -107,7 +107,7 @@ Allmän vägledning finns i [skapa diagnostisk inställning för att samla in pl
 2. I list rutan **lagrings konto** väljer du det lagrings konto som du vill arkivera loggarna till, klickar på **OK** -knappen och väljer sedan knappen **Spara** .
 
    > [!NOTE]
-   > Innan du väljer ett lagrings konto som export mål, se [arkivera Azures resurs loggar](/azure/azure-monitor/platform/resource-logs-collect-storage) för att förstå krav på lagrings kontot.
+   > Innan du väljer ett lagrings konto som export mål, se [arkivera Azures resurs loggar](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) för att förstå krav på lagrings kontot.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Strömma loggar till Azure Event Hubs
 
@@ -157,7 +157,7 @@ Här är ett exempel:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
-En beskrivning av varje parameter finns i [arkivera Azures resurs loggar via Azure PowerShell](/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-azure-powershell).
+En beskrivning av varje parameter finns i [arkivera Azures resurs loggar via Azure PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Strömma loggar till en händelsehubb
 
@@ -171,7 +171,7 @@ Här är ett exempel:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
-En beskrivning av varje parameter finns i [strömma data till Event Hubs via PowerShell-cmdletar](/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-powershell-cmdlets).
+En beskrivning av varje parameter finns i [strömma data till Event Hubs via PowerShell-cmdletar](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 #### <a name="send-logs-to-log-analytics"></a>Skicka loggar till Log Analytics
 
@@ -185,11 +185,11 @@ Här är ett exempel:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
-Mer information finns i [strömma Azure resurs loggar till Log Analytics arbets ytan i Azure Monitor](/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+Mer information finns i [strömma Azure resurs loggar till Log Analytics arbets ytan i Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. Öppna först [Azure Cloud Shell](/azure/cloud-shell/overview), eller om du har [installerat](/cli/azure/install-azure-cli) Azure CLI lokalt öppnar du ett kommando konsol program, till exempel Windows PowerShell.
+1. Öppna först [Azure Cloud Shell](../../cloud-shell/overview.md), eller om du har [installerat](/cli/azure/install-azure-cli) Azure CLI lokalt öppnar du ett kommando konsol program, till exempel Windows PowerShell.
 
 2. Om din identitet är associerad med fler än en prenumeration ställer du in din aktiva prenumeration på prenumerationen på det lagrings konto som du vill aktivera loggar för.
 
@@ -215,7 +215,7 @@ Här är ett exempel:
 
 `az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
 
-En beskrivning av varje parameter finns i [arkivera resurs loggar via Azure CLI](/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-the-azure-cli).
+En beskrivning av varje parameter finns i [arkivera resurs loggar via Azure CLI](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Strömma loggar till en händelsehubb
 
@@ -229,7 +229,7 @@ Här är ett exempel:
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
-En beskrivning av varje parameter finns i [strömma data till Event Hubs via Azure CLI](/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-azure-cli).
+En beskrivning av varje parameter finns i [strömma data till Event Hubs via Azure CLI](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 #### <a name="send-logs-to-log-analytics"></a>Skicka loggar till Log Analytics
 
@@ -243,11 +243,11 @@ Här är ett exempel:
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
- Mer information finns i [strömma Azure resurs loggar till Log Analytics arbets ytan i Azure Monitor](/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+ Mer information finns i [strömma Azure resurs loggar till Log Analytics arbets ytan i Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 
 # <a name="template"></a>[Mall](#tab/template)
 
-Om du vill visa en Azure Resource Manager mall som skapar en diagnostisk inställning, se [diagnostisk inställning för Azure Storage](/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
+Om du vill visa en Azure Resource Manager mall som skapar en diagnostisk inställning, se [diagnostisk inställning för Azure Storage](../../azure-monitor/samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
 
 ---
 
@@ -519,7 +519,7 @@ Du kan komma åt och läsa loggdata som skickas till händelsehubben med hjälp 
 
 Du kan komma åt loggar som skickas till en Log Analytics arbets yta genom att använda Azure Monitor logg frågor.
 
-Mer information finns i [Kom igång med Log Analytics i Azure Monitor](../../azure-monitor/log-query/get-started-portal.md).
+Mer information finns i [Kom igång med Log Analytics i Azure Monitor](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Data lagras i tabellen **StorageQueueLogs** .
 
@@ -585,7 +585,7 @@ Använd de här frågorna för att hjälpa dig att övervaka dina Azure Storage-
     | render piechart
     ```
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Stöder Azure Storage mått för Managed Disks eller ohanterade diskar?**
 

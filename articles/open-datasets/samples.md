@@ -7,12 +7,12 @@ ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/06/2020
-ms.openlocfilehash: 470ed0ea4b129c12041007487b61929843b1de34
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: eddfcc36c6440ce155d7b9d81031db449cfa8d2b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654804"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492445"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Exempel på Jupyter Notebooks visar hur du kan utöka data med öppna data uppsättningar 
 Exemplet Jupyter Notebooks för Azure Open data uppsättningar visar hur du läser in öppna data uppsättningar och använder dem för att utöka demonstrations data. Tekniker inkluderar användning av Apache Spark-och Pandas för att bearbeta data.
@@ -40,7 +40,7 @@ Exemplet Jupyter Notebooks för Azure Open data uppsättningar visar hur du läs
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudie: Regressions modellering med automatiserad maskin inlärning och en öppen data uppsättning](../machine-learning/tutorial-auto-train-models.md?context=azure%252fopen-datasets%252fcontext%252fopen-datasets-context)
+* [Självstudie: Regressions modellering med automatiserad maskin inlärning och en öppen data uppsättning](../machine-learning/tutorial-auto-train-models.md?context=azure%2fopen-datasets%2fcontext%2fopen-datasets-context)
 * [Python SDK för öppna data uppsättningar](/python/api/azureml-opendatasets/azureml.opendatasets)
 * [Azure Open Datasets-katalog](https://azure.microsoft.com/services/open-datasets/catalog/)
 * [Skapa Azure Machine Learning data uppsättning från öppen data uppsättning](how-to-create-azure-machine-learning-dataset-from-open-dataset.md)

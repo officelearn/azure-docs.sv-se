@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 7d41893d734037e466ad786641fed98c461adcfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21d9f318ef18b7ffb49a95ce495c09f1fa46ec1a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86231819"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491323"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-the-azure-portal"></a>Konfigurera cirkulations inställningar för en offentlig IP-adress med hjälp av Azure Portal
 
@@ -38,17 +38,11 @@ Som standard är cirkulations inställningen för offentlig IP-adress inställd 
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nu.
 
-## <a name="register-the-feature-for-your-subscription"></a>Registrera funktionen för din prenumeration
-Funktionen routning för inställningar är för närvarande en för hands version. Registrera funktionen för prenumerationen med hjälp av Azure PowerShell på följande sätt:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
-```
-
 ## <a name="create-a-public-ip-address-with-a-routing-preference"></a>Skapa en offentlig IP-adress med en cirkulations inställning
 1. Logga in på [Azure-portalen](https://preview.portal.azure.com/).
 2. Välj **Skapa en resurs**. 
 3. I rutan Sök skriver du *offentlig IP-adress*.
-3. I Sök resultaten väljer du **offentlig IP-adress**. Sedan väljer du **skapa**på sidan **offentlig IP-adress** .
+3. I Sök resultaten väljer du **offentlig IP-adress**. Sedan väljer du **skapa** på sidan **offentlig IP-adress** .
 3. I **Inställningar för routning** väljer du **Internet**.
 
       ![Skapa en offentlig IP-adress](./media/routing-preference-portal/pip-new.png)

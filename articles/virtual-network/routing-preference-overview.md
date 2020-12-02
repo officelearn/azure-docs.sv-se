@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 171ae04a70f3639981e74d20d260a03359a0f2c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f5653e4c184e88bce86026681dde1aee9e14d49
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187446"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491425"
 ---
 # <a name="what-is-routing-preference-preview"></a>Vad är cirkulations inställningar (för hands version)?
 
@@ -70,19 +70,7 @@ För lagring använder primära slut punkter alltid **Microsofts globala nätver
 * Azure DataLake
 
 ## <a name="pricing"></a>Prissättning
-Pris skillnaden mellan båda alternativen återspeglas i priset för utgående data överföring i Internet. Routning via **Microsofts globala nätverks** data överförings pris är detsamma som aktuellt pris för utgående Internet. Besök [pris sidan för Azure bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/) för den senaste pris informationen. Routning via **offentlig Internet** priss ätts lägre enligt tabellen nedan:
-
-| Region för utgående källa | 0-5 GB/månad | 5 GB – 10 TB/månad | 10-50 TB/månad | 50-150 TB/månad | 150-500 TB/månad |
-| --- | --- | --- | --- | --- | --- |
-| Zon 1 | $0/GB | $0.085/GB | $0.065/GB | $0.06/GB | $0.04/GB |
-| Zon 2 | $0/GB | $0,11/GB | $0.075/GB | $0,07/GB | $0.06/GB  |
-
-[Kontakta oss](https://azure.microsoft.com/overview/sales-number/) för en månads volym över 500 TB.
-* Zon 1 – Australien, centrala Australien, centrala 2, centrala Kanada, Östra Kanada, norra Europa, västra Europa, Frankrike, södra, Tyskland, norra (offentlig), Tyskland, västra centrala (offentlig), Norge, östra, Norge, västra, Schweiz, norra, Schweiz, västra, Storbritannien, södra, Storbritannien, västra, centrala USA, östra USA, östra USA 2, norra centrala USA, södra centrala USA, västra USA, västra USA 2, västra centrala USA.
-
-* Zon 2 – Asien, östra, Sydostasien, östra Australien, sydöstra Australien, centrala Indien, södra Indien, västra Indien, Östra Japan, västra Japan, Korea, centrala och Sydkorea, södra.
-
-* Zon 3 – södra Brasilien, södra Afrika, sydöstra Sydafrika, västra USA, Förenade Arabemiraten Central och Förenade Arabemiraten Nord.
+Pris skillnaden mellan båda alternativen återspeglas i priset för utgående data överföring i Internet. Routning via **Microsofts globala nätverks** data överförings pris är detsamma som aktuellt pris för utgående Internet. Besök [pris sidan för Azure bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/) för den senaste pris informationen. 
 
 ## <a name="availability"></a>Tillgänglighet
 

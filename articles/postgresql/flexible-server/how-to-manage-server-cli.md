@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 06341f8630684519a456d5ef89144ae3c0934b23
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 278f8f816909a7e365d7e45d04c5169950e79a65
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423155"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493686"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-by-using-the-azure-cli"></a>Hantera en Azure Database for PostgreSQL-flexibel server med hjälp av Azure CLI
 
@@ -43,7 +43,7 @@ az account set --subscription <subscription id>
 
 ## <a name="scale-compute-and-storage"></a>Skala beräkning och lagring
 
-Du kan enkelt skala upp beräknings nivån, virtuella kärnor och lagringen med hjälp av följande kommando. En lista över alla Server åtgärder som du kan köra finns i Översikt över [AZ postgres-flexibla servrar](https://docs.microsoft.com/cli/azure/postgres/flexible-server) .
+Du kan enkelt skala upp beräknings nivån, virtuella kärnor och lagringen med hjälp av följande kommando. En lista över alla Server åtgärder som du kan köra finns i Översikt över [AZ postgres-flexibla servrar](/cli/azure/postgres/flexible-server) .
 
 ```azurecli-interactive
 az postgres flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v3 --storage-size 6144
@@ -104,7 +104,7 @@ Det finns ett antal program som du kan använda för att ansluta till Azure Data
     CREATE DATABASE postgresdb;
     ```
 
-3. I kommando tolken kör du följande kommando för att växla anslutning till den nyligen skapade databasen **postgresdb** :
+3. I kommando tolken kör du följande kommando för att växla anslutning till den nyligen skapade databasen **postgresdb**:
 
     ```bash
     \c postgresdb
@@ -131,7 +131,7 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 
 ## <a name="delete-a-server"></a>Ta bort en server
 
-Om du vill ta bort den Azure Database for PostgreSQL flexibla servern kör du kommandot [AZ postgres flexibl-Server Delete](https://docs.microsoft.com/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete) .
+Om du vill ta bort den Azure Database for PostgreSQL flexibla servern kör du kommandot [AZ postgres flexibl-Server Delete](/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete) .
 
 ```azurecli-interactive
 az postgres flexible-server delete --resource-group myresourcegroup --name mydemoserver

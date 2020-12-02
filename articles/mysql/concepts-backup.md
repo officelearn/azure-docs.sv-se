@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 05cc6579d83fe0cd861f3f91b8d44297963f8101
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: a124f576b2540399d27fcd97e0e58476dba4ba4b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433282"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492819"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Säkerhets kopiering och återställning i Azure Database for MySQL
 
@@ -38,11 +38,11 @@ Säkerhetskopieringar av transaktionsloggar sker var femte minut.
 Det allmänna lagrings utrymmet är den server dels lagring som stöder [generell användning](concepts-pricing-tiers.md) och minnesoptimerade [nivå](concepts-pricing-tiers.md) Server. För servrar med generell lagring upp till 4 TB sker fullständiga säkerhets kopieringar varje vecka. Differentiella säkerhets kopieringar sker två gånger om dagen. Säkerhetskopieringar av transaktionsloggar sker var femte minut. Säkerhets kopieringarna i generell användning av lagrings utrymme på 4 TB är inte ögonblicks bilds och använder IO-bandbredd vid tidpunkten för säkerhets kopieringen. För stora databaser (> 1 TB) på 4 TB-lagring rekommenderar vi att du
 
 - Etablering av mer IOPs till konto för säkerhets kopiering av IOs eller
-- Du kan också migrera till allmän lagring som stöder upp till 16 TB lagrings utrymme om den underliggande lagrings infrastrukturen är tillgänglig i dina önskade [Azure-regioner](/azure/mysql/concepts-pricing-tiers#storage). Det kostar inget extra att tillhandahålla lagring med upp till 16 TB. Om du vill ha hjälp med migrering till 16 TB-lagring öppnar du ett support ärende från Azure Portal.
+- Du kan också migrera till allmän lagring som stöder upp till 16 TB lagrings utrymme om den underliggande lagrings infrastrukturen är tillgänglig i dina önskade [Azure-regioner](./concepts-pricing-tiers.md#storage). Det kostar inget extra att tillhandahålla lagring med upp till 16 TB. Om du vill ha hjälp med migrering till 16 TB-lagring öppnar du ett support ärende från Azure Portal.
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Generella lagrings servrar med upp till 16 TB lagring
 
-I en delmängd av [Azure-regioner](/azure/mysql/concepts-pricing-tiers#storage)har alla nyligen etablerade servrar stöd för generell användning av lagrings utrymme på 16 TB. Med andra ord är lagring upp till 16 TB lagrings utrymme standard lagring för alla [regioner](concepts-pricing-tiers.md#storage) där det stöds. Säkerhets kopieringar på dessa 16-TB-lagrings servrar är ögonblicks bilds-baserade. Den första fullständiga säkerhetskopieringen schemaläggs omedelbart efter att en server har skapats. Den första fullständiga säkerhets kopieringen behålls som serverns grundläggande säkerhets kopiering. Efterföljande säkerhetskopieringar av ögonblicksbilder är bara differentiella säkerhetskopieringar.
+I en delmängd av [Azure-regioner](./concepts-pricing-tiers.md#storage)har alla nyligen etablerade servrar stöd för generell användning av lagrings utrymme på 16 TB. Med andra ord är lagring upp till 16 TB lagrings utrymme standard lagring för alla [regioner](concepts-pricing-tiers.md#storage) där det stöds. Säkerhets kopieringar på dessa 16-TB-lagrings servrar är ögonblicks bilds-baserade. Den första fullständiga säkerhetskopieringen schemaläggs omedelbart efter att en server har skapats. Den första fullständiga säkerhets kopieringen behålls som serverns grundläggande säkerhets kopiering. Efterföljande säkerhetskopieringar av ögonblicksbilder är bara differentiella säkerhetskopieringar.
 
 Differentiella säkerhetskopieringar av ögonblicksbilder görs minst en gång per dag. Differentiella säkerhetskopieringar av ögonblicksbilder sker inte enligt ett fast schema. Differentiella ögonblicks bilds säkerhets kopieringar sker var 24: e timme om transaktions loggen (BinLog i MySQL) överskrider 50 GB sedan den senaste differentiella säkerhets Högst sex differentiella ögonblicksbilder tillåts under samma dag.
 

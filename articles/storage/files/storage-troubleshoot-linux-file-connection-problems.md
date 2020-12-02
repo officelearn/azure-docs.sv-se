@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 19fe6be0487772524516172bd32e0562512c4e3c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e680ba10c507ef83591b56652ee8e95c4d665dda
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630183"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492071"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Felsöka Azure Files problem i Linux (SMB)
 
@@ -107,7 +107,7 @@ Om du vill stänga öppna referenser för en fil resurs, katalog eller fil anvä
 
 - Om du inte har en speciell minimi krav på I/O-storlek rekommenderar vi att du använder 1 MiB som I/O-storlek för bästa prestanda.
 - Använd rätt kopierings metod:
-    - Använd [AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) för överföring mellan två fil resurser.
+    - Använd [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för överföring mellan två fil resurser.
     - Genom att använda CP eller DD med parallell kan du förbättra kopierings hastigheten, antalet trådar beror på ditt användnings fall och arbets belastning. I följande exempel används sex: 
     - CP-exempel (CP använder standard block storleken för fil systemet som segment storlek): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` .
     - DD exempel (detta kommando anger explicit segment storlek till 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`

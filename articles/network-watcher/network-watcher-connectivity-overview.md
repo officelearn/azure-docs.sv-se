@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
-ms.openlocfilehash: 6411e019d77b219e40bd91da973e00afda0ff18b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 047da0224cdbdb534ad9080faee4fd48da3840c5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965493"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492462"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introduktion till anslutnings fel sökning i Azure Network Watcher
 
 Funktionen för att felsöka anslutningar i Network Watcher ger möjlighet att kontrol lera en direkt TCP-anslutning från en virtuell dator till en virtuell dator (VM), fullständigt kvalificerat domän namn (FQDN), URI eller IPv4-adress. Nätverks scenarier är komplexa, de implementeras med hjälp av nätverks säkerhets grupper, brand väggar, användardefinierade vägar och resurser som tillhandahålls av Azure. Komplexa konfigurationer gör fel sökning av anslutnings problem. Network Watcher bidrar till att minska tiden för att hitta och identifiera anslutnings problem. Resultaten som returneras kan ge insikter om ett anslutnings problem på grund av ett plattforms-eller användar konfigurations problem. Anslutningen kan kontrol leras med [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md)och [REST API](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> Fel sökning av anslutning kräver att den virtuella datorn som du felsöker från har `AzureNetworkWatcherExtension` VM-tillägget installerat. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json). Tillägget krävs inte på mål slut punkten.
+> Fel sökning av anslutning kräver att den virtuella datorn som du felsöker från har `AzureNetworkWatcherExtension` VM-tillägget installerat. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på mål slut punkten.
 
 ## <a name="response"></a>Svarsåtgärder
 

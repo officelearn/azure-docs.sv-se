@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72718285ff83a23acd21a5e29001ea96e1f061c8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9763a0ac3cba15dcfd66b8fad83230e2b0eb356b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95531363"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491680"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics partitionering av anpassad BLOB-utdata
 
@@ -25,7 +25,7 @@ Anpassade fält eller indatavärden förbättrar underordnade data bearbetnings-
 
 ### <a name="partition-key-options"></a>Partitionsalternativ
 
-Partitionsnyckel eller kolumn namn som används för att partitionera indata kan innehålla alfanumeriska tecken med bindestreck, under streck och blank steg. Det går inte att använda kapslade fält som partitionsnyckel om de inte används tillsammans med alias. Partitionsnyckel måste vara NVARCHAR (MAX), BIGINT, FLOAT eller BIT (1,2 kompatibilitetsnivå eller högre). Mer information finns i [Azure Stream Analytics data typer](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+Partitionsnyckel eller kolumn namn som används för att partitionera indata kan innehålla alfanumeriska tecken med bindestreck, under streck och blank steg. Det går inte att använda kapslade fält som partitionsnyckel om de inte används tillsammans med alias. Partitionsnyckel måste vara NVARCHAR (MAX), BIGINT, FLOAT eller BIT (1,2 kompatibilitetsnivå eller högre). Mer information finns i [Azure Stream Analytics data typer](/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Exempel
 
@@ -73,7 +73,7 @@ Med anpassade mönster för DateTime-sökväg kan du ange ett utdataformat som �
 
 Följande format-token kan användas separat eller i kombination för att uppnå anpassade DateTime-format:
 
-|Format specificerare   |Beskrivning   |Resultat i exempel tid 2018-01-02T10:06:08|
+|Format specificerare   |Description   |Resultat i exempel tid 2018-01-02T10:06:08|
 |----------|-----------|------------|
 |{datetime: åååå}|Året som ett fyrsiffrigt tal|2018|
 |{datetime: MM}|Månad från 01 till 12|01|

@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcdc05ae696a207546eb62160fe89ea38d307058
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362822"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492275"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
 
@@ -165,9 +165,9 @@ Dokumentet lästes och bearbetades av indexeraren, men på grund av ett matchnin
 
 | Orsak | Information/exempel
 | --- | ---
-| Data typen för det eller de fält som extraherats av indexeraren är inte kompatibelt med data modellen för motsvarande mål index fält. | Data fältets_data_i dokumentet med nyckeln 888 har ett ogiltigt värde av typen EDM. String. Den förväntade typen var ' Collection (EDM. String) '. |
-| Det gick inte att extrahera någon JSON-entitet från ett sträng värde. | Det gick inte att parsa värdet ' av typen ' EDM. String ' ' för fält_data_som ett JSON-objekt. Fel: efter parsning av ett värde påträffades ett oväntat Character:. Sökväg '_sökväg_', rad 1, position 3162. ' |
-| Det gick inte att extrahera en samling JSON-entiteter från ett sträng värde.  | Det gick inte att parsa värdet ' av typen ' EDM. String ' ' för fält_data_som en JSON-matris. Fel: efter parsning av ett värde påträffades ett oväntat Character:. Sökväg [0], rad 1, position 27. |
+| Data typen för det eller de fält som extraherats av indexeraren är inte kompatibelt med data modellen för motsvarande mål index fält. | Data fältets _data_ i dokumentet med nyckeln 888 har ett ogiltigt värde av typen EDM. String. Den förväntade typen var ' Collection (EDM. String) '. |
+| Det gick inte att extrahera någon JSON-entitet från ett sträng värde. | Det gick inte att parsa värdet ' av typen ' EDM. String ' ' för fält _data_ som ett JSON-objekt. Fel: efter parsning av ett värde påträffades ett oväntat Character:. Sökväg '_sökväg_', rad 1, position 3162. ' |
+| Det gick inte att extrahera en samling JSON-entiteter från ett sträng värde.  | Det gick inte att parsa värdet ' av typen ' EDM. String ' ' för fält _data_ som en JSON-matris. Fel: efter parsning av ett värde påträffades ett oväntat Character:. Sökväg [0], rad 1, position 27. |
 | En okänd typ upptäcktes i käll dokumentet. | Okänd typ '_okänd_' kan inte indexeras |
 | En inkompatibel notation för geografi punkter användes i käll dokumentet. | Sträng litteraler för well punkt stöds inte. Använd ingångar av polyjson-punkter i stället |
 
@@ -348,8 +348,8 @@ Du kan undvika den här varningen genom att ta reda på vad text kodningen för 
 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Varning: Cosmos DB samlingen "X" har en Lazy-indexerings princip. Vissa data kan gå förlorade
 
-Samlingar med [Lazy](/azure/cosmos-db/index-policy#indexing-mode) indexerings principer kan inte frågas konsekvent, vilket leder till att indexeraren saknar data. Undvik den här varningen genom att ändra indexerings principen till konsekvent.
+Samlingar med [Lazy](../cosmos-db/index-policy.md#indexing-mode) indexerings principer kan inte frågas konsekvent, vilket leder till att indexeraren saknar data. Undvik den här varningen genom att ändra indexerings principen till konsekvent.
 
 ## <a name="warning-the-document-contains-very-long-words-longer-than-64-characters-these-words-may-result-in-truncated-andor-unreliable-model-predictions"></a>Varning! dokumentet innehåller väldigt långa ord (längre än 64 tecken). Dessa ord kan resultera i trunkerade och/eller otillförlitliga modell förutsägelser.
 
-Den här varningen skickas från Textanalyss tjänsten.  I vissa fall är det säkert att ignorera den här varningen, t. ex. när dokumentet innehåller en lång URL (som troligen inte är en nyckel fras eller en sentiment, osv.).  Tänk på att när ett ord är längre än 64 tecken kommer det att trunkeras till 64 tecken som kan påverka modell förutsägelserna.  
+Den här varningen skickas från Textanalyss tjänsten.  I vissa fall är det säkert att ignorera den här varningen, t. ex. när dokumentet innehåller en lång URL (som troligen inte är en nyckel fras eller en sentiment, osv.).  Tänk på att när ett ord är längre än 64 tecken kommer det att trunkeras till 64 tecken som kan påverka modell förutsägelserna.

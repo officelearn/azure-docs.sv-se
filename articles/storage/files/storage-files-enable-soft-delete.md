@@ -4,16 +4,16 @@ description: Lär dig hur du aktiverar mjuk borttagning på Azure-filresurser f�
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 12/01/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 7defa8611080027a67a0d1db1daa4c4a9d44edfe
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ea98b2d9812fb5c848c7e13b94d46a4142595cd4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126149"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492173"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Aktivera mjuk borttagning på Azure-filresurser
 
@@ -26,18 +26,36 @@ I följande avsnitt visas hur du aktiverar och använder mjuk borttagning för A
 ## <a name="getting-started"></a>Komma igång
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-1. Navigera till ditt lagrings konto och välj **mjuk borttagning** under **fil tjänst** .
-1. Välj **aktive rad** för **fil resurs mjuk borttagning** .
+1. Navigera till ditt lagrings konto och välj **mjuk borttagning** under **fil tjänst**.
+1. Välj **aktive rad** för **fil resurs mjuk borttagning**.
 1. Välj **fil resursens kvarhållningsperiod i dagar** och ange ett antal som du väljer.
 1. Välj **Spara** för att bekräfta dina inställningar för datakvarhållning.
 
 :::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Skärm bild av fönstret inställningar för mjuk borttagning av lagrings konto. Markera avsnittet fil resurser, aktivera växling, ange en kvarhållningsperiod och spara. Detta aktiverar mjuk borttagning för alla fil resurser i ditt lagrings konto.":::
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Cmdlets för mjuk borttagning är tillgängliga i version 2.1.3 och senare av [Azure CLI-modulen](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+## <a name="getting-started-with-cli"></a>Komma igång med CLI
+
+Om du vill aktivera mjuk borttagning måste du uppdatera en fil klients tjänst egenskaper. I följande exempel aktive ras mjuk borttagning för alla fil resurser i ett lagrings konto:
+
+```azurecli
+az storage account file-service-properties update --enable-delete-retention true -n yourStorageaccount -g yourResourceGroup
+```
+
+Du kan kontrol lera om mjuk borttagning är aktiverat och visa dess bevarande princip med följande kommando:
+
+```azurecli
+az storage account file-service-properties show -n yourStorageaccount -g yourResourceGroup
+```
+
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ## <a name="prerequisite"></a>Förutsättning
 
-Cmdlets för mjuk borttagning är tillgängliga i [3.0.0](https://www.powershellgallery.com/packages/Az.Storage/3.0.0) -versionen av modulen AZ. Storage. 
+Cmdlets för mjuk borttagning är tillgängliga i 4.8.0 och senare versioner av modulen AZ. Storage. 
 
 ## <a name="getting-started-with-powershell"></a>Komma igång med PowerShell
 
@@ -63,22 +81,42 @@ Get-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName 
 
 Så här återställer du en mjuk borttagen fil resurs:
 
-1. Navigera till ditt lagrings konto och välj **fil resurser** .
+1. Navigera till ditt lagrings konto och välj **fil resurser**.
 1. På bladet fil resurs aktiverar du **Visa borttagna resurser** för att visa alla resurser som har varit mjuka borttagna.
 
     Då visas alla resurser som är i ett **Borttaget** tillstånd.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="Skärm bild av fönstret inställningar för mjuk borttagning av lagrings konto. Markera avsnittet fil resurser, aktivera växling, ange en kvarhållningsperiod och spara. Detta aktiverar mjuk borttagning för alla fil resurser i ditt lagrings konto.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="Om kolumnen Status är kolumnen bredvid kolumnen namn inställt på borttagen, är fil resursen i ett tyst borttaget tillstånd. Och kommer att tas bort permanent efter den angivna kvarhållningsperioden.":::
 
-1. Välj resursen och välj **ångra borttagning** . resursen återställs då.
+1. Välj resursen och välj **ångra borttagning**. resursen återställs då.
 
-    Du kan bekräfta att resursen har återställts eftersom dess status växlar till **aktiv** .
+    Du kan bekräfta att resursen har återställts eftersom dess status växlar till **aktiv**.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="Skärm bild av fönstret inställningar för mjuk borttagning av lagrings konto. Markera avsnittet fil resurser, aktivera växling, ange en kvarhållningsperiod och spara. Detta aktiverar mjuk borttagning för alla fil resurser i ditt lagrings konto.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="Om kolumnen Status är kolumnen bredvid kolumnen namn inställt på aktiv, har fil resursen återställts.":::
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Cmdlets för mjuk borttagning är tillgängliga i 2.1.3-versionen av Azure CLI. Om du vill återställa en mjuk borttagen fil resurs måste du först hämta `--deleted-version` värdet för resursen. Använd följande kommando för att visa alla borttagna resurser för ditt lagrings konto för att hämta värdet:
+
+```azurecli
+az storage share-rm list --storage-account yourStorageaccount --include-deleted
+```
+
+När du har identifierat resursen som du vill återställa kan du använda den med följande kommando för att återställa den:
+
+```azurecli
+az storage share-rm restore -n deletedshare --deleted-version 01D64EB9886F00C4 -g yourResourceGroup --storage-account yourStorageaccount
+```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Cmdlets för mjuk borttagning är tillgängliga i 3.0.0-versionen av modulen AZ. Storage. Om du vill återställa en mjuk borttagen fil resurs använder du följande kommando:
+Cmdlets för mjuk borttagning är tillgängliga i 4.8.0 och senare versioner av modulen AZ. Storage. Om du vill återställa en mjuk borttagen fil resurs måste du först hämta `-DeletedShareVersion` värdet för resursen. Använd följande kommando för att visa alla borttagna resurser för ditt lagrings konto för att hämta värdet:
+
+```azurepowershell-interactive
+Get-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -IncludeDeleted
+```
+
+När du har identifierat resursen som du vill återställa kan du använda den med följande kommando för att återställa den:
 
 ```azurepowershell-interactive
 Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -DeletedShareVersion 01D5E2783BDCDA97
@@ -91,15 +129,22 @@ Om du vill sluta använda mjuk borttagning eller ta bort en fil resurs permanent
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Navigera till ditt lagrings konto och välj **mjuk borttagning** under **Inställningar** .
-1. Under **fil resurser** väljer du **inaktive rad** för **mjuk borttagning av fil resurser** .
+1. Navigera till ditt lagrings konto och välj **mjuk borttagning** under **Inställningar**.
+1. Under **fil resurser** väljer du **inaktive rad** för **mjuk borttagning av fil resurser**.
 1. Välj **Spara** för att bekräfta dina inställningar för datakvarhållning.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Skärm bild av fönstret inställningar för mjuk borttagning av lagrings konto. Markera avsnittet fil resurser, aktivera växling, ange en kvarhållningsperiod och spara. Detta aktiverar mjuk borttagning för alla fil resurser i ditt lagrings konto.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Om du inaktiverar mjuk borttagning kan du omedelbart och permanent ta bort alla fil resurser i ditt lagrings konto.":::
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Cmdlets för mjuk borttagning är tillgängliga i 2.1.3-versionen av Azure CLI. Du kan använda följande kommando för att inaktivera mjuk borttagning på ditt lagrings konto:
+
+```azurecli
+az storage account file-service-properties update --enable-delete-retention false -n yourStorageaccount -g yourResourceGroup
+```
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Cmdlets för mjuk borttagning är tillgängliga i 3.0.0-versionen av modulen AZ. Storage. Du kan använda följande kommando för att inaktivera mjuk borttagning på ditt lagrings konto:
+Cmdlets för mjuk borttagning är tillgängliga i 4.8.0 och senare versioner av modulen AZ. Storage. Du kan använda följande kommando för att inaktivera mjuk borttagning på ditt lagrings konto:
 
 ```azurepowershell-interactive
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false

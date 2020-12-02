@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 319b7a40a87d29454b22a26088df313ef524dc56
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3b54fe1ffd49c12db82a038ad449190a0049133f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545828"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492360"
 ---
 # <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Konfigurera och få åtkomst till loggar i Azure Database for PostgreSQL-flexibel Server
 
@@ -22,21 +22,21 @@ PostgreSQL-loggar finns på varje nod i en flexibel Server. Du kan leverera logg
 
 ## <a name="configure-diagnostic-settings"></a>Konfigurera diagnostikinställningar
 
-Du kan aktivera diagnostikinställningar för postgres-servern med hjälp av Azure Portal, CLI, REST API och PowerShell. Den logg kategori som ska väljas är **PostgreSQLLogs** .
+Du kan aktivera diagnostikinställningar för postgres-servern med hjälp av Azure Portal, CLI, REST API och PowerShell. Den logg kategori som ska väljas är **PostgreSQLLogs**.
 
 Så här aktiverar du resurs loggar med hjälp av Azure Portal:
 
 1. I portalen går du till *diagnostikinställningar* i navigerings menyn på postgres-servern.
    
-2. Välj *Lägg till diagnostisk inställning* .
+2. Välj *Lägg till diagnostisk inställning*.
    :::image type="content" source="media/howto-logging/diagnostic-settings.png" alt-text="Knappen Lägg till diagnostikinställningar":::
 
 3. Ge den här inställningen ett namn. 
 
 4. Välj önskad slut punkt (lagrings konto, händelsehubben, Log Analytics). 
 
-5. Välj logg typen **PostgreSQLLogs** .
-   :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Knappen Lägg till diagnostikinställningar":::
+5. Välj logg typen **PostgreSQLLogs**.
+   :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Välj PostgreSQL-loggar":::
 
 7. Spara inställningen.
 
@@ -71,5 +71,5 @@ Frågan ovan visar resultaten under de senaste 6 timmarna för alla postgres Ser
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Kom igång med Log Analytics-frågor](../../azure-monitor/log-query/get-started-portal.md)
+- [Kom igång med Log Analytics-frågor](../../azure-monitor/log-query/log-analytics-tutorial.md)
 - Lär dig mer om [Azure Event Hub](../../event-hubs/event-hubs-about.md)

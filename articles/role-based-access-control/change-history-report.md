@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 4ccd668fb6afa6787fadeda6ed92ebd954e2b892
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 3e4d75c59d0e3c97b0900dd72a27d4afbf4015c9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657830"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492326"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Visa aktivitets loggar för Azure RBAC-ändringar
 
@@ -48,7 +48,7 @@ Aktivitets loggen på portalen har flera filter. Här är Azure RBAC-relaterade 
 | Händelsekategori | <ul><li>Administrativ</li></ul> |
 | Åtgärd | <ul><li>Skapa roll tilldelning</li><li>Ta bort roll tilldelning</li><li>Skapa eller uppdatera anpassad roll definition</li><li>Ta bort anpassad roll definition</li></ul> |
 
-Mer information om aktivitets loggar finns i [Visa aktivitets loggar för att övervaka åtgärder på resurser](../azure-resource-manager/management/view-activity-logs.md?toc=%252fazure%252fmonitoring-and-diagnostics%252ftoc.json).
+Mer information om aktivitets loggar finns i [Visa aktivitets loggar för att övervaka åtgärder på resurser](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -162,5 +162,5 @@ AzureActivity
 ![Aktivitets loggar med hjälp av Advanced Analytics-portalen – skärm bild](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* [Visa händelser i aktivitetsloggen](../azure-resource-manager/management/view-activity-logs.md?toc=%252fazure%252fmonitoring-and-diagnostics%252ftoc.json)
+* [Visa händelser i aktivitetsloggen](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 * [Övervaka prenumerationsaktivitet med Azure-aktivitetsloggen](../azure-monitor/platform/platform-logs-overview.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5d114017d5e5dfecfe20afc69849763a87aadd41
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b04b9ababfe0e4c2a60d14044b9d3ee120837dc5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015344"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491051"
 ---
 # <a name="automation-with-service-principals"></a>Automatisering med tjänstens huvudnamn
 
@@ -24,14 +24,14 @@ Analysis Services stöder också åtgärder som utförs av hanterade identiteter
 
 ## <a name="create-service-principals"></a>Skapa tjänsthuvudnamn
  
-Tjänstens huvud namn kan skapas i Azure Portal eller med hjälp av PowerShell. Mer information finns i:
+Tjänstens huvud namn kan skapas i Azure Portal eller med hjälp av PowerShell. Du kan läsa mer här:
 
 [Skapa tjänstens huvudnamn – Azure-portalen](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Skapa tjänstens huvudnamn – PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Lagra autentiseringsuppgifter och certifikat till gångar i Azure Automation
 
-Autentiseringsuppgifter och certifikat för tjänstens huvud namn kan lagras på ett säkert sätt i Azure Automation för Runbook-åtgärder. Mer information finns i:
+Autentiseringsuppgifter och certifikat för tjänstens huvud namn kan lagras på ett säkert sätt i Azure Automation för Runbook-åtgärder. Du kan läsa mer här:
 
 [Inloggnings till gångar i Azure Automation](../automation/shared-resources/credentials.md)   
 [Certifikattillgångar i Azure Automation](../automation/shared-resources/certificates.md)
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO och ADOMD 
 
-När du ansluter med klientprogram och webbappar har [AMO- och ADOMD-klientbibliotek](/analysis-services/client-libraries?view=azure-analysis-services-current) version 15.0.2 och senare installerbara paket från NuGet stöd för tjänstens huvudnamn i anslutningssträngar med hjälp av följande syntax: `app:AppID` och lösenord eller `cert:thumbprint`. 
+När du ansluter med klientprogram och webbappar har [AMO- och ADOMD-klientbibliotek](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) version 15.0.2 och senare installerbara paket från NuGet stöd för tjänstens huvudnamn i anslutningssträngar med hjälp av följande syntax: `app:AppID` och lösenord eller `cert:thumbprint`. 
 
 I följande exempel används `appID` och `password` för att utföra en uppdateringsåtgärd för modelldatabasen:
 

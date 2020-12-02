@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
-ms.openlocfilehash: 393c58334f4a1bead7e089d0a64b2d165b67401d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f54283e4e63af22b30bddf97456eed75de3806cc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317184"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492972"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Utvärdera ett stort antal virtuella Hyper-V-datorer för migrering till Azure
 
@@ -44,7 +44,7 @@ När du planerar för utvärdering av ett stort antal virtuella Hyper-V-datorer 
  
 Använd de gränser som sammanfattas i den här tabellen för planering.
 
-**Planering** | **Begränsningar**
+**Planering** | **Gränser**
 --- | --- 
 **Azure Migrate projekt** | Utvärdera upp till 35 000 virtuella datorer i ett projekt.
 **Azure Migrate-installation** | En apparat kan identifiera upp till 5000 virtuella datorer.<br/> En apparat kan ansluta till upp till 300 Hyper-V-värdar.<br/> En installation kan bara associeras med ett enda Azure Migrate-projekt.<br/> Ett valfritt antal enheter kan associeras med ett enda Azure Migrate-projekt. <br/><br/> 
@@ -75,7 +75,7 @@ I enlighet med dina planerings krav gör du följande:
 1. Skapa ett Azure Migrate projekt.
 2. Lägg till verktyget Azure Migrate Server Assessment i projekten.
 
-[Läs mer](how-to-add-tool-first-time.md)
+[Läs mer](./create-manage-projects.md)
 
 ## <a name="create-and-review-an-assessment"></a>Skapa och granska en utvärdering
 

@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 1b29565e18b2da2087cc15966b30b433a42fb603
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 32aa94c986c90b7bd46b9f5561021c34c0f142af
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629809"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492100"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 
@@ -30,22 +30,22 @@ ms.locfileid: "94629809"
 
 Filerna kommer att lagras i molnet i [Azure-filresurser](storage-files-introduction.md). Azure-filresurser kan användas på två sätt: genom att direkt montera dessa Server lös Azure-filresurser (SMB) eller genom att cachelagra Azure-filresurser lokalt med Azure File Sync. Vilket distributions alternativ du väljer ändrar de aspekter du behöver tänka på när du planerar för distributionen. 
 
-- **Direkt montering av en Azure-fil resurs** : eftersom Azure Files ger SMB-åtkomst kan du montera Azure-filresurser lokalt eller i molnet med hjälp av standard-SMB-klienten som är tillgänglig i Windows, MacOS och Linux. Eftersom Azure-filresurser är utan server, behöver distributionen för produktions scenarier inte hantera en fil server eller NAS-enhet. Det innebär att du inte behöver tillämpa program varu korrigeringar eller byta ut fysiska diskar. 
+- **Direkt montering av en Azure-fil resurs**: eftersom Azure Files ger SMB-åtkomst kan du montera Azure-filresurser lokalt eller i molnet med hjälp av standard-SMB-klienten som är tillgänglig i Windows, MacOS och Linux. Eftersom Azure-filresurser är utan server, behöver distributionen för produktions scenarier inte hantera en fil server eller NAS-enhet. Det innebär att du inte behöver tillämpa program varu korrigeringar eller byta ut fysiska diskar. 
 
-- **Cachelagra Azure-filresurser lokalt med Azure File Sync** : Azure File Sync gör det möjligt att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibiliteten, prestandan och kompatibiliteten för en lokal fil server. Azure File Sync transformerar en lokal (eller moln) Windows Server till ett snabbt cacheminne för Azure-filresursen. 
+- **Cachelagra Azure-filresurser lokalt med Azure File Sync**: Azure File Sync gör det möjligt att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibiliteten, prestandan och kompatibiliteten för en lokal fil server. Azure File Sync transformerar en lokal (eller moln) Windows Server till ett snabbt cacheminne för Azure-filresursen. 
 
 ## <a name="management-concepts"></a>Hanterings begrepp
 En Azure File Sync distribution har tre grundläggande hanterings objekt:
 
-- **Azure-fil resurs** : en Azure-filresurs är en moln fil resurs utan server, som tillhandahåller *moln slut punkten* för en Azure File Sync synkroniseringsrelation. Filer i en Azure-filresurs kan nås direkt med SMB eller det fileraste protokollet, men vi rekommenderar att du huvudsakligen kommer åt filerna via Windows Server-cachen när Azure-filresursen används med Azure File Sync. Detta beror på att Azure Files idag saknar en effektiv mekanism för ändrings identifiering som Windows Server har, så att ändringar i Azure-filresursen direkt tar tid att sprida tillbaka till Server slut punkterna.
-- **Server slut punkt** : sökvägen på Windows-servern som synkroniseras med en Azure-filresurs. Detta kan vara en speciell mapp på en volym eller volymens rot. Flera Server slut punkter kan finnas på samma volym om deras namn rymder inte överlappar varandra.
-- **Sync-grupp** : objektet som definierar den synkroniserade relationen mellan en **moln slut punkt** eller Azure-filresurs och en server slut punkt. Slutpunkter i en synkroniseringsgrupp synkroniseras med varandra. Om du till exempel har två distinkta uppsättningar med filer som du vill hantera med Azure File Sync skapar du två synkroniserade grupper och lägger till olika slut punkter i varje synkroniseringsresurs.
+- **Azure-fil resurs**: en Azure-filresurs är en moln fil resurs utan server, som tillhandahåller *moln slut punkten* för en Azure File Sync synkroniseringsrelation. Filer i en Azure-filresurs kan nås direkt med SMB eller det fileraste protokollet, men vi rekommenderar att du huvudsakligen kommer åt filerna via Windows Server-cachen när Azure-filresursen används med Azure File Sync. Detta beror på att Azure Files idag saknar en effektiv mekanism för ändrings identifiering som Windows Server har, så att ändringar i Azure-filresursen direkt tar tid att sprida tillbaka till Server slut punkterna.
+- **Server slut punkt**: sökvägen på Windows-servern som synkroniseras med en Azure-filresurs. Detta kan vara en speciell mapp på en volym eller volymens rot. Flera Server slut punkter kan finnas på samma volym om deras namn rymder inte överlappar varandra.
+- **Sync-grupp**: objektet som definierar den synkroniserade relationen mellan en **moln slut punkt** eller Azure-filresurs och en server slut punkt. Slutpunkter i en synkroniseringsgrupp synkroniseras med varandra. Om du till exempel har två distinkta uppsättningar med filer som du vill hantera med Azure File Sync skapar du två synkroniserade grupper och lägger till olika slut punkter i varje synkroniseringsresurs.
 
 ### <a name="azure-file-share-management-concepts"></a>Hanterings koncept för Azure-filresurs
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
 ### <a name="azure-file-sync-management-concepts"></a>Principer för Azure File Sync hantering
-Sync-grupper distribueras till **Storage Sync-tjänster** , som är toppnivå objekt som registrerar servrar som ska användas med Azure File Sync och innehåller grupp relationerna. Tjänsten Storage Sync service är en peer med lagrings konto resursen och kan distribueras på samma sätt till Azure-resurs grupper. En tjänst för synkronisering av lagring kan skapa synkroniserade grupper som innehåller Azure-filresurser över flera lagrings konton och flera registrerade Windows-servrar.
+Sync-grupper distribueras till **Storage Sync-tjänster**, som är toppnivå objekt som registrerar servrar som ska användas med Azure File Sync och innehåller grupp relationerna. Tjänsten Storage Sync service är en peer med lagrings konto resursen och kan distribueras på samma sätt till Azure-resurs grupper. En tjänst för synkronisering av lagring kan skapa synkroniserade grupper som innehåller Azure-filresurser över flera lagrings konton och flera registrerade Windows-servrar.
 
 Innan du kan skapa en Sync-grupp i en tjänst för synkronisering av lagring måste du först registrera en Windows-Server med tjänsten för synkronisering av lagring. Detta skapar ett **registrerat Server** objekt som representerar en förtroende relation mellan servern eller klustret och tjänsten för synkronisering av lagring. Om du vill registrera en tjänst för synkronisering av lagring måste du först installera Azure File Sync-agenten på-servern. En enskild server eller ett kluster kan bara registreras med en lagrings tjänst för synkronisering i taget.
 
@@ -213,9 +213,9 @@ Azure File Sync stöder inte datadeduplicering och moln nivåer på samma volym 
 ### <a name="distributed-file-system-dfs"></a>Distributed File System (DFS)
 Azure File Sync stöder interop med DFS-namnområden (DFS-N) och DFS Replication (DFS-R).
 
-**DFS-namnrymder (DFS-n)** : Azure File Sync stöds fullt ut på DFS-n-servrar. Du kan installera Azure File Sync agenten på en eller flera DFS-N-medlemmar för att synkronisera data mellan server slut punkterna och moln slut punkten. Mer information finns i [Översikt över DFS-namnrymder](/windows-server/storage/dfs-namespaces/dfs-overview).
+**DFS-namnrymder (DFS-n)**: Azure File Sync stöds fullt ut på DFS-n-servrar. Du kan installera Azure File Sync agenten på en eller flera DFS-N-medlemmar för att synkronisera data mellan server slut punkterna och moln slut punkten. Mer information finns i [Översikt över DFS-namnrymder](/windows-server/storage/dfs-namespaces/dfs-overview).
  
-**DFS Replication (DFS-r)** : eftersom DFS-r och Azure File Sync båda är lösningar för replikering rekommenderar vi i de flesta fall att du ersätter DFS-R med Azure File Sync. Det finns dock flera scenarier där du vill använda DFS-R och Azure File Sync tillsammans:
+**DFS Replication (DFS-r)**: eftersom DFS-r och Azure File Sync båda är lösningar för replikering rekommenderar vi i de flesta fall att du ersätter DFS-R med Azure File Sync. Det finns dock flera scenarier där du vill använda DFS-R och Azure File Sync tillsammans:
 
 - Du migrerar från en DFS-R-distribution till en Azure File Sync-distribution. Mer information finns i [Migrera en DFS Replication (DFS-R) distribution till Azure File Sync](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
 - Alla lokala servrar som behöver en kopia av dina fildata kan vara anslutna direkt till Internet.
@@ -368,7 +368,7 @@ Microsofts interna antivirus lösningar, Windows Defender och System Center Endp
 > Antivirus leverantörer kan kontrol lera kompatibiliteten mellan sina produkter och Azure File Sync med hjälp av [Testsviten Azure File Sync Antivirus kompatibilitet](https://www.microsoft.com/download/details.aspx?id=58322)som är tillgänglig för hämtning på Microsoft Download Center.
 
 ## <a name="backup"></a>Backup 
-Om moln skiktning är aktiverat ska lösningar som direkt säkerhetskopierar Server slut punkten eller en virtuell dator där Server slut punkten finns inte användas. Moln nivåer gör att endast en delmängd av dina data lagras på Server slut punkten, med den fullständiga data uppsättningen som finns i Azure-filresursen. Beroende på vilken säkerhets kopierings lösning som används kommer filer i nivå antingen att hoppas över och inte säkerhets kopie ras (eftersom de har attributet FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS), eller så kommer de att återkallas till disk, vilket resulterar i höga utgående kostnader. Vi rekommenderar att du använder en lösning för säkerhets kopiering i molnet för att säkerhetskopiera Azure-filresursen direkt. Mer information finns i [om säkerhets kopiering av Azure-filresurser](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) eller kontakta säkerhets kopierings leverantören för att se om de stöder säkerhets kopiering av Azure-filresurser.
+Om moln skiktning är aktiverat ska lösningar som direkt säkerhetskopierar Server slut punkten eller en virtuell dator där Server slut punkten finns inte användas. Moln nivåer gör att endast en delmängd av dina data lagras på Server slut punkten, med den fullständiga data uppsättningen som finns i Azure-filresursen. Beroende på vilken säkerhets kopierings lösning som används kommer filer i nivå antingen att hoppas över och inte säkerhets kopie ras (eftersom de har attributet FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS), eller så kommer de att återkallas till disk, vilket resulterar i höga utgående kostnader. Vi rekommenderar att du använder en lösning för säkerhets kopiering i molnet för att säkerhetskopiera Azure-filresursen direkt. Mer information finns i [om säkerhets kopiering av Azure-filresurser](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) eller kontakta säkerhets kopierings leverantören för att se om de stöder säkerhets kopiering av Azure-filresurser.
 
 Om du föredrar att använda en lokal lösning för säkerhets kopiering ska säkerhets kopieringar utföras på en server i den synkroniserade grupp där moln nivå inaktive ras. När du utför en återställning använder du alternativen på volym-eller fil nivå återställning. Filer som återställs med alternativet Återställning på filnivå synkroniseras till alla slut punkter i Sync-gruppen och befintliga filer ersätts med den version som återställs från säkerhets kopian.  Återställningar på volym nivå ersätter inte nyare fil versioner i Azure-filresursen eller andra server slut punkter.
 

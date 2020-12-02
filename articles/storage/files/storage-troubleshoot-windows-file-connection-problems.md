@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e446ec08d63c44566b2f45c1427999536d0be703
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: aef332e54fa650e1abbebe671560238d7eb318de
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188725"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492054"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Felsöka Azure Files problem i Windows (SMB)
 
@@ -147,7 +147,7 @@ Fel 1816 uppstår när du når den övre gränsen för samtidiga öppna referens
 
 ### <a name="solution"></a>Lösning
 
-Minska antalet samtidiga öppna referenser genom att stänga några referenser och försök sedan igen. Mer information finns i [Check lista för Microsoft Azure Storage prestanda och skalbarhet](../blobs/storage-performance-checklist.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+Minska antalet samtidiga öppna referenser genom att stänga några referenser och försök sedan igen. Mer information finns i [Check lista för Microsoft Azure Storage prestanda och skalbarhet](../blobs/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 Om du vill visa öppna referenser för en fil resurs, katalog eller fil använder du PowerShell-cmdleten [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) .  
 
@@ -262,7 +262,7 @@ Du kan se långsamma prestanda när du försöker överföra filer till Azure Fi
 - Om du inte har en speciell minimi krav på I/O-storlek rekommenderar vi att du använder 1 MiB som I/O-storlek för bästa prestanda.
 -   Om du känner till den slutliga storleken på en fil som du utökar med skrivningar, och program varan inte har kompatibilitetsproblem när den skrivna filen i filen innehåller nollor, ställer du in fil storleken i förväg i förväg i stället för att göra varje Skriv en utökad skrivning.
 -   Använd rätt kopierings metod:
-    -   Använd [AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) för överföring mellan två fil resurser.
+    -   Använd [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för överföring mellan två fil resurser.
     -   Använd [Robocopy](./storage-files-deployment-guide.md#robocopy) mellan fil resurser på en lokal dator.
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Överväganden för Windows 8,1 eller Windows Server 2012 R2
@@ -401,7 +401,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 Cmdleten utför dessa kontroller nedan i följd och ger vägledning för felen:
 1. CheckADObjectPasswordIsCorrect: kontrol lera att lösen ordet som har kon figurer ATS på den AD-identitet som representerar lagrings kontot matchar lagrings kontots kerb1-eller kerb2-nyckel. Om lösen ordet är felaktigt kan du köra [Update-AzStorageAccountADObjectPassword](./storage-files-identity-ad-ds-update-password.md) för att återställa lösen ordet. 
 2. CheckADObject: bekräfta att det finns ett objekt i Active Directory som representerar lagrings kontot och har rätt SPN (tjänstens huvud namn). Om SPN inte har kon figurer ATS korrekt kör du cmdleten Set-AD som returnerades i fel söknings-cmdleten för att konfigurera SPN.
-3. CheckDomainJoined: kontrol lera att klient datorn är domänansluten till AD. Om datorn inte är domänansluten till AD, se den här [artikeln](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) för domän kopplings instruktion.
+3. CheckDomainJoined: kontrol lera att klient datorn är domänansluten till AD. Om datorn inte är domänansluten till AD, se den här [artikeln](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain) för domän kopplings instruktion.
 4. CheckPort445Connectivity: kontrol lera att port 445 är öppen för SMB-anslutning. Om den begärda porten inte är öppen kan du läsa fel söknings verktyget [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) för anslutnings problem med Azure Files.
 5. CheckSidHasAadUser: kontrol lera att den inloggade AD-användaren är synkroniserad med Azure AD. Om du vill se om en särskild AD-användare är synkroniserad med Azure AD kan du ange parametern-UserName och-Domain i indataparametrarna. 
 6. CheckGetKerberosTicket: försöker hämta en Kerberos-biljett för att ansluta till lagrings kontot. Om det inte finns någon giltig Kerberos-token kör du cmdleten Klist get CIFS/Storage-Account-name. File. Core. Windows. net. kontrol lera felkoden för att rot orsaka att biljett hämtningen Miss lyckas.

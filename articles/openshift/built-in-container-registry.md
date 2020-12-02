@@ -6,12 +6,12 @@ ms.author: jiangma
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 0a6449e6b728ee690dd6ddee192868aaeb3511ad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9ed53721b66dc03bad24e0510e0c8a970c61aec1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911047"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492428"
 ---
 # <a name="configure-built-in-container-registry-for-azure-red-hat-openshift-4"></a>Konfigurera inbyggt containerregister för Azure Red Hat OpenShift 4
 
@@ -26,9 +26,9 @@ I den här artikeln ska du konfigurera det inbyggda registret för behållar avb
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har ett befintligt ARO-kluster. Om du behöver ett ARO-kluster går du till självstudien för ARO och [skapar ett Azure Red Hat OpenShift 4-kluster](/azure/openshift/tutorial-create-cluster). Se till att skapa klustret med `--pull-secret` argumentet till `az aro create` .  Detta är nödvändigt för att konfigurera Azure Active Directory autentisering och det inbyggda behållar registret.
+Den här artikeln förutsätter att du har ett befintligt ARO-kluster. Om du behöver ett ARO-kluster går du till självstudien för ARO och [skapar ett Azure Red Hat OpenShift 4-kluster](./tutorial-create-cluster.md). Se till att skapa klustret med `--pull-secret` argumentet till `az aro create` .  Detta är nödvändigt för att konfigurera Azure Active Directory autentisering och det inbyggda behållar registret.
 
-När du har klustret kan du ansluta till klustret genom att följa stegen i [ansluta till ett Azure Red Hat OpenShift 4-kluster](/azure/openshift/tutorial-connect-cluster).
+När du har klustret kan du ansluta till klustret genom att följa stegen i [ansluta till ett Azure Red Hat OpenShift 4-kluster](./tutorial-connect-cluster.md).
    * Se till att följa stegen i "installera OpenShift CLI" eftersom vi använder `oc` kommandot senare i den här artikeln.
    * Anteckna kluster konsolens URL, som ser ut så här `https://console-openshift-console.apps.<random>.<region>.aroapp.io/` . Värdena för `<random>` och `<region>` kommer att användas senare i den här artikeln.
    * Anteckna `kubeadmin` autentiseringsuppgifterna. De kommer också att användas senare i den här artikeln.

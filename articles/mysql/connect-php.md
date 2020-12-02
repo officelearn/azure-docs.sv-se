@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: b93bc4d1adfa2787f14106707b3848ebfe5c57bc
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: cb3b711c532ccf44bebf08d42b5284db458cf5b7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021209"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492666"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>Snabb start: använda PHP för att ansluta och fråga efter data i Azure Database for MySQL
 Den här snabbstarten visar hur du ansluter till en Azure Database för MySQL med hjälp av ett [PHP](https://secure.php.net/manual/intro-whatis.php)-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen.
@@ -24,13 +24,13 @@ För den här snabb starten behöver du:
 - Skapa en Azure Database for MySQL enskild server med [Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> eller [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) om du inte har något.
 - Baserat på om du använder offentlig eller privat åtkomst utför du **en** av åtgärderna nedan för att aktivera anslutningen.
 
-    |Action| Anslutningsmetod|Instruktionsguide|
+    |Åtgärd| Anslutningsmetod|Instruktionsguide|
     |:--------- |:--------- |:--------- |
     | **Konfigurera brandväggsregler** | Offentliga | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
     | **Konfigurera tjänstens slut punkt** | Offentliga | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
     | **Konfigurera privat länk** | Privat | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
-- [Skapa en databas och icke-administratörs användare](/azure/mysql/howto-create-users?tabs=single-server)
+- [Skapa en databas och icke-administratörs användare](./howto-create-users.md?tabs=single-server)
 - Installera den senaste PHP-versionen för ditt operativ system
     - [PHP på macOS](https://secure.php.net/manual/install.macosx.php)
     - [PHP på Linux](https://secure.php.net/manual/install.unix.php)

@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: ae73885016a40cd3cf79de968ca7c07c51f1400a
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 3fe63deb8115c0043023301c6d0dc3731e97743f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336071"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492633"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Läs repliker i Azure Database for MySQL-flexibel Server
 
@@ -55,7 +55,7 @@ Om en käll Server inte har några befintliga replik servrar, kommer källan fö
 När du startar arbets flödet skapa replik skapas en tom Azure Database for MySQL-server. Den nya servern fylls med de data som fanns på käll servern. Skapande tiden beror på mängden data på källan och tiden sedan den senaste veckovis fullständiga säkerhets kopieringen. Tiden kan vara från några minuter till flera timmar.
 
 > [!NOTE]
-> Läs repliker skapas med samma server konfiguration som källan. Replik Server konfigurationen kan ändras efter att den har skapats. Replik servern skapas alltid i samma resurs grupp, samma plats och samma prenumeration som käll servern. Om du vill skapa en replik server till en annan resurs grupp eller en annan prenumeration kan du [Flytta replik servern](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) när du har skapat den. Vi rekommenderar att replik serverns konfiguration ska hållas på lika stora eller större värden än källan för att säkerställa att repliken kan fortsätta med källan.
+> Läs repliker skapas med samma server konfiguration som källan. Replik Server konfigurationen kan ändras efter att den har skapats. Replik servern skapas alltid i samma resurs grupp, samma plats och samma prenumeration som käll servern. Om du vill skapa en replik server till en annan resurs grupp eller en annan prenumeration kan du [Flytta replik servern](../../azure-resource-manager/management/move-resource-group-and-subscription.md) när du har skapat den. Vi rekommenderar att replik serverns konfiguration ska hållas på lika stora eller större värden än källan för att säkerställa att repliken kan fortsätta med källan.
 
 Lär dig hur du [skapar en Läs replik i Azure Portal](how-to-read-replicas-portal.md).
 
@@ -97,7 +97,7 @@ Det finns ingen automatisk redundans mellan käll-och replik servrar.
 
 Läs repliker är avsedd för skalning av Läs intensiva arbets belastningar och har inte utformats för att uppfylla hög tillgänglighets behoven hos en server. Det finns ingen automatisk redundans mellan käll-och replik servrar. Att stoppa replikeringen på en Läs replik för att ta den online i Läs-/skriv läge är det sätt som den manuella redundansväxlingen utförs med.
 
-Eftersom replikeringen är asynkron finns det en fördröjning mellan källan och repliken. Mängden fördröjning kan påverkas av ett antal faktorer, t. ex. hur mycket hög belastningen som körs på käll servern och fördröjningen mellan data Center. I de flesta fall varierar replikfördröjning mellan några sekunder och några minuter. Du kan spåra den faktiska replikeringens fördröjning med hjälp av mått *replik fördröjningen* , som är tillgänglig för varje replik. Det här måttet visar tiden sedan den senaste återspelade transaktionen. Vi rekommenderar att du identifierar den genomsnittliga fördröjningen genom att iaktta din replik fördröjning under en viss tids period. Du kan ställa in en avisering på replik fördröjningen, så att om den går utanför det förväntade intervallet kan du vidta åtgärder.
+Eftersom replikeringen är asynkron finns det en fördröjning mellan källan och repliken. Mängden fördröjning kan påverkas av ett antal faktorer, t. ex. hur mycket hög belastningen som körs på käll servern och fördröjningen mellan data Center. I de flesta fall varierar replikfördröjning mellan några sekunder och några minuter. Du kan spåra den faktiska replikeringens fördröjning med hjälp av mått *replik fördröjningen*, som är tillgänglig för varje replik. Det här måttet visar tiden sedan den senaste återspelade transaktionen. Vi rekommenderar att du identifierar den genomsnittliga fördröjningen genom att iaktta din replik fördröjning under en viss tids period. Du kan ställa in en avisering på replik fördröjningen, så att om den går utanför det förväntade intervallet kan du vidta åtgärder.
 
 > [!Tip]
 > Om du redundansväxlas till repliken kommer fördröjningen vid den tidpunkt då du avlänkar repliken från källan att indikera hur mycket data som förloras.
@@ -126,7 +126,7 @@ När ditt program har bearbetat läsningar och skrivningar har du slutfört redu
 | Borttagen källa och fristående servrar | När en käll server tas bort, stoppas replikeringen till alla Läs repliker. Dessa repliker blir automatiskt fristående servrar och kan acceptera både läsningar och skrivningar. Själva käll servern tas bort. |
 | Användarkonton | Användare på käll servern replikeras till läsa repliker. Du kan bara ansluta till en Läs replik med de användar konton som är tillgängliga på käll servern. |
 | Serverparametrar | I syfte att förhindra att data blir osynkroniserade samt att undvika potentiell dataförlust eller skadade data är vissa serverparametrar låsta från att uppdateras vid användning av skrivskyddade repliker. <br> Följande Server parametrar är låsta på både käll-och replik servern:<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler)Parametern är låst på replik servrarna. <br> Om du vill uppdatera en av parametrarna ovan på käll servern, måste du ta bort replik servrar, uppdatera parametervärdet på källan och återskapa repliker. |
-| Annat | – Det finns inte stöd för att skapa en replik av en replik. <br> -InMemory-tabeller kan orsaka att repliker inte längre är synkroniserade. Detta är en begränsning av MySQL-replikeringstrafiken. Mer information finns i [referens dokumentationen för MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) . <br>– Kontrol lera att käll Server tabellerna har primär nycklar. Brist på primär nycklar kan leda till replikeringsfördröjning mellan källan och replikerna.<br>– Granska den fullständiga listan över begränsningar för MySQL-replikering i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) |
+| Övrigt | – Det finns inte stöd för att skapa en replik av en replik. <br> -InMemory-tabeller kan orsaka att repliker inte längre är synkroniserade. Detta är en begränsning av MySQL-replikeringstrafiken. Mer information finns i [referens dokumentationen för MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) . <br>– Kontrol lera att käll Server tabellerna har primär nycklar. Brist på primär nycklar kan leda till replikeringsfördröjning mellan källan och replikerna.<br>– Granska den fullständiga listan över begränsningar för MySQL-replikering i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) |
 
 ## <a name="next-steps"></a>Nästa steg
 

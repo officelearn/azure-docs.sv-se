@@ -6,16 +6,16 @@ author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 756604b71efd1715ae3b4ca3d5eebf0fdfa41e34
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 988b9d364f09a4c88bcaab1fe81ae80c8de5d4d9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129804"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491578"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense i Azure Stream Analytics verktyg för Visual Studio Code
 
-IntelliSense är tillgängligt för [Stream Analytics frågespråk](/stream-analytics-query/stream-analytics-query-language-reference?bc=https%253a%252f%252fdocs.microsoft.com%252fazure%252fbread%252ftoc.json&toc=https%253a%252f%252fdocs.microsoft.com%252fazure%252fstream-analytics%252ftoc.json) i [Azure Stream Analytics Tools för vs Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview). IntelliSense är ett stöd för kod komplettering som innehåller ett antal funktioner: list medlemmar, parameter information, snabb information och fullständig ord. IntelliSense-funktioner anropas ibland av andra namn som "kod komplettering", "innehålls stöd" och "kodtips".
+IntelliSense är tillgängligt för [Stream Analytics frågespråk](/stream-analytics-query/stream-analytics-query-language-reference?bc=https%253a%2f%2fdocs.microsoft.com%2fazure%2fbread%2ftoc.json&toc=https%253a%2f%2fdocs.microsoft.com%2fazure%2fstream-analytics%2ftoc.json) i [Azure Stream Analytics Tools för vs Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview). IntelliSense är ett stöd för kod komplettering som innehåller ett antal funktioner: list medlemmar, parameter information, snabb information och fullständig ord. IntelliSense-funktioner anropas ibland av andra namn som "kod komplettering", "innehålls stöd" och "kodtips".
 
 ![IntelliSense-demonstration](./media/vs-code-intellisense/intellisense.gif)
 
@@ -37,7 +37,7 @@ I Stream Analytics Tools för VS Code-IntelliSense finns olika typer av slut fö
 |Slutförande     |  Typ       |
 | ----- | ------- |
 | Nyckelord | `keyword`
-| Funktioner | `build-in function`, `user defined function`  |
+| Functions | `build-in function`, `user defined function`  |
 | Data uppsättnings namn| `input`, `output`, `intermediate result set`|
 | Kolumn namn för data uppsättning|`input`, `intermediate result set`|
 

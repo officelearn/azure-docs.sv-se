@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: a49dbdace01396656c3114df0bc0d4589aff57c1
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 5a35d939c12639770e25c3096c77f13d31310f85
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916499"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492020"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Felsöka prestanda problem i Azure-filresurser
 
@@ -196,7 +196,7 @@ Nya ändringar av SMB Multichannel Config-inställningar utan ommontering.
 
 ### <a name="cause"></a>Orsak  
 
-Hög antal fil ändrings meddelanden på fil resurser kan resultera i avsevärd hög fördröjning. Detta inträffar vanligt vis med webbplatser som finns på fil resurser med en djup kapslad katalog struktur. Ett typiskt scenario är IIS-värdbaserade webb program där fil ändrings meddelanden installeras för varje katalog i standard konfigurationen. Varje ändring ([ReadDirectoryChangesW](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) på den resurs som SMB-klienten är registrerad för skickar ett ändrings meddelande från fil tjänsten till klienten, som tar system resurser, och utfärdar förvärrade med antalet ändringar. Detta kan orsaka resurs begränsning och därmed resultera i högre svars tid på klient sidan. 
+Hög antal fil ändrings meddelanden på fil resurser kan resultera i avsevärd hög fördröjning. Detta inträffar vanligt vis med webbplatser som finns på fil resurser med en djup kapslad katalog struktur. Ett typiskt scenario är IIS-värdbaserade webb program där fil ändrings meddelanden installeras för varje katalog i standard konfigurationen. Varje ändring ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) på den resurs som SMB-klienten är registrerad för skickar ett ändrings meddelande från fil tjänsten till klienten, som tar system resurser, och utfärdar förvärrade med antalet ändringar. Detta kan orsaka resurs begränsning och därmed resultera i högre svars tid på klient sidan. 
 
 För att bekräfta kan du använda Azure-mått i portalen – 
 

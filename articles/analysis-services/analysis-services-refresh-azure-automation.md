@@ -4,20 +4,20 @@ description: I den här artikeln beskrivs hur du kodar modell uppdateringar för
 author: chrislound
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/01/2020
 ms.author: chlound
-ms.openlocfilehash: fe811c81d0774393f40dc5c8403d1af8b22da109
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 7c801511b6f24cf5ef04d55bb195e3a4c62d7b6d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019145"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491255"
 ---
 # <a name="refresh-with-azure-automation"></a>Uppdatera med Azure Automation
 
 Med hjälp av Azure Automation-och PowerShell-Runbooks kan du utföra automatiserade data uppdaterings åtgärder på tabell modeller i Azure Analysis.  
 
-Exemplet i den här artikeln använder [SQLServer PowerShell-modulen](/powershell/module/sqlserver/?view=sqlserver-ps). En PowerShell-PowerShell-Runbook som visar hur du uppdaterar en modell finns längre fram i den här artikeln.  
+Exemplet i den här artikeln använder [SQLServer PowerShell-modulen](/powershell/module/sqlserver/?view=sqlserver-ps&preserve-view=true). En PowerShell-PowerShell-Runbook som visar hur du uppdaterar en modell finns längre fram i den här artikeln.  
 
 ## <a name="authentication"></a>Autentisering
 
@@ -30,9 +30,9 @@ Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth
 
 ### <a name="install-sqlserver-modules-from-powershell-gallery"></a>Installera SqlServer-moduler från PowerShell-galleriet.
 
-1. I ditt Azure Automation konto klickar du på **moduler**och **bläddrar sedan till galleriet**.
+1. I ditt Azure Automation konto klickar du på **moduler** och **bläddrar sedan till galleriet**.
 
-2. Sök efter **SQLServer**i Sök fältet.
+2. Sök efter **SQLServer** i Sök fältet.
 
     ![Sök i moduler](./media/analysis-services-refresh-azure-automation/1.png)
 
@@ -56,7 +56,7 @@ Tjänstens huvud namn som du skapar måste ha Server administratörs behörighet
 
     ![Skärm bild som visar sidan "autentiseringsuppgifter" med åtgärden "Lägg till en autentiseringsuppgift" vald.](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Ange information om autentiseringsuppgiften. I **användar namn**anger du program-ID för tjänstens huvud namn (AppID) och anger sedan tjänstens huvud namns hemlighet i **lösen ord**.
+2. Ange information om autentiseringsuppgiften. I **användar namn** anger du program-ID för tjänstens huvud namn (AppID) och anger sedan tjänstens huvud namns hemlighet i **lösen ord**.
 
     ![Skapa autentiseringsuppgift](./media/analysis-services-refresh-azure-automation/7.png)
 
@@ -64,7 +64,7 @@ Tjänstens huvud namn som du skapar måste ha Server administratörs behörighet
 
     ![Skärm bild som visar sidan "Runbooks" med åtgärden "Importera en Runbook" vald.](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Bläddra till [Refresh-Model.ps1](#sample-powershell-runbook) -filen, ange ett **namn** och en **Beskrivning**och klicka sedan på **skapa**.
+4. Bläddra till [Refresh-Model.ps1](#sample-powershell-runbook) -filen, ange ett **namn** och en **Beskrivning** och klicka sedan på **skapa**.
 
     > [!NOTE]
     > Använd skript från [exemplet PowerShell-Runbook](#sample-powershell-runbook) längst ned i det här dokumentet för att skapa en fil med namnet Refresh-Model.ps1 och spara till en lokal dator som ska importeras till Runbook.
@@ -82,7 +82,7 @@ Tjänstens huvud namn som du skapar måste ha Server administratörs behörighet
 
     ![Skärm bild som visar sidan "Översikt" med åtgärden "starta" vald.](./media/analysis-services-refresh-azure-automation/11.png)
 
-7. Fyll i parametrarna **databasename**, **ANALYSISSERVER**och **REFRESHTYPE** och klicka sedan på **OK**. **WEBHOOKDATA** -parametern krävs inte när runbook körs manuellt.
+7. Fyll i parametrarna **databasename**, **ANALYSISSERVER** och **REFRESHTYPE** och klicka sedan på **OK**. **WEBHOOKDATA** -parametern krävs inte när runbook körs manuellt.
 
     ![Starta runbooken](./media/analysis-services-refresh-azure-automation/12.png)
 
@@ -96,11 +96,11 @@ Runbooken kan konfigureras för att utlösa uppdatering av Azure Analysis Servic
 
 Detta kan konfigureras på följande sätt:
 
-1. I Automation Runbook klickar du på **scheman**och lägger sedan **till ett schema**.
+1. I Automation Runbook klickar du på **scheman** och lägger sedan **till ett schema**.
  
     ![Skapa schema](./media/analysis-services-refresh-azure-automation/14.png)
 
-2. Klicka på **Schemalägg**  >  **skapa ett nytt schema**och fyll sedan i informationen.
+2. Klicka på **Schemalägg**  >  **skapa ett nytt schema** och fyll sedan i informationen.
 
     ![Konfigurera schema](./media/analysis-services-refresh-azure-automation/15.png)
 
@@ -117,9 +117,9 @@ Detta kan konfigureras på följande sätt:
 Om du vill använda runbooken genom att använda Azure Data Factory måste du först skapa en **webhook** för runbooken. **Webhooken** tillhandahåller en URL som kan anropas via en Azure Data Factory webb aktivitet.
 
 > [!IMPORTANT]
-> Om du vill skapa en **webhook**måste status för runbooken vara **publicerad**.
+> Om du vill skapa en **webhook** måste status för runbooken vara **publicerad**.
 
-1. I din Automation-Runbook klickar du på **Webhooks**och sedan på **Lägg till webhook**.
+1. I din Automation-Runbook klickar du på **Webhooks** och sedan på **Lägg till webhook**.
 
    ![Lägg till webhook](./media/analysis-services-refresh-azure-automation/17.png)
 
@@ -202,7 +202,7 @@ $_Credential = Get-AutomationPSCredential -Name "ServicePrincipal"
 
 # If runbook was called from Webhook, WebhookData will not be null.
 if ($WebhookData)
-{ 
+{ 
     # Retrieve AAS details from Webhook request body
     $atmParameters = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
     Write-Output "CredentialName: $($atmParameters.CredentialName)"

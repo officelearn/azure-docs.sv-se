@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/18/2020
-ms.openlocfilehash: 42e15da2fd31d163bc8822a347101704b27e1222
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 000ab3e3911c65554622a48d34abda79d60411df
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913424"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492394"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>Snabb start: skapa en Azure Database for PostgreSQL-server med hjälp av Azure Portal
 
@@ -45,7 +45,7 @@ Gå till [Azure Portal](https://portal.azure.com/) för att skapa en Azure Datab
    |Resursgrupp|*myresourcegroup*| En ny eller en befintlig resurs grupp från din prenumeration.|
    |Servernamn |*mydemoserver*|Ett unikt namn som identifierar Azure Database för PostgreSQL-servern. Domän namnet *postgres.Database.Azure.com* läggs till i det Server namn som du anger. Servernamnet får bara innehålla gemener, siffror och bindestreck (-). Det måste innehålla mellan 3 och 63 tecken.|
    |Datakälla | Inget | Välj **Ingen** om du vill skapa en ny server från grunden. Välj endast **säkerhets kopiering** om du har återställt från en geo-säkerhetskopia av en befintlig server.|
-   |Användarnamn för administratör |*myadmin*| Ange ditt användar namn för Server administratör. Den kan inte börja med **PG_** och dessa värden är inte tillåtna: **azure_superuser** , **azure_pg_admin** , **admin** , **administratör** , **rot** , **gäst** eller **offentlig**.|
+   |Användarnamn för administratör |*myadmin*| Ange ditt användar namn för Server administratör. Den kan inte börja med **PG_** och dessa värden är inte tillåtna: **azure_superuser**, **azure_pg_admin**, **admin**, **administratör**, **rot**, **gäst** eller **offentlig**.|
    |Lösenord |ditt lösenord| Ett nytt lösen ord för Server administratörs användaren. Det måste innehålla 8 till 128 tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0 till 9) och icke-alfanumeriska tecken (till exempel!, $, #,%).|
    |Plats|önskad plats| Välj en plats i list rutan.|
    |Version|Senaste huvudversion| Den senaste PostgreSQL-huvudversionen, om du inte har andra särskilda krav.|
@@ -57,7 +57,7 @@ Gå till [Azure Portal](https://portal.azure.com/) för att skapa en Azure Datab
 
 5. Välj **Granska + skapa** för att granska dina val. Välj **Skapa** för att etablera servern. Den här åtgärden kan ta några minuter.
     > [!NOTE]
-    > En tom databas, **postgres** , skapas. Du hittar också en **azure_maintenance** databas som används för att avgränsa hanterade tjänst processer från användar åtgärder. Du har inte åtkomst till **azure_maintenance** databasen.
+    > En tom databas, **postgres**, skapas. Du hittar också en **azure_maintenance** databas som används för att avgränsa hanterade tjänst processer från användar åtgärder. Du har inte åtkomst till **azure_maintenance** databasen.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-database-portal/deployment-success.png" alt-text="lyckad distribution.":::
@@ -65,7 +65,7 @@ Gå till [Azure Portal](https://portal.azure.com/) för att skapa en Azure Datab
 [Har du problem? Berätta för oss.](https://aka.ms/postgres-doc-feedback)
 
 ## <a name="configure-a-firewall-rule"></a>Konfigurera en brandväggsregel
-Som standard är den server som du skapar inte offentligt tillgänglig. Du måste ge behörighet till din IP-adress. Gå till Server resursen i Azure Portal och välj **anslutnings säkerhet** på den vänstra menyn för Server resursen. Om du inte är säker på hur du hittar din resurs, se [Öppna resurser](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
+Som standard är den server som du skapar inte offentligt tillgänglig. Du måste ge behörighet till din IP-adress. Gå till Server resursen i Azure Portal och välj **anslutnings säkerhet** på den vänstra menyn för Server resursen. Om du inte är säker på hur du hittar din resurs, se [Öppna resurser](../azure-resource-manager/management/manage-resources-portal.md#open-resources).
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-database-portal/add-current-ip-firewall.png" alt-text="Skärm bild som visar brand Väggs regler för anslutnings säkerhet.":::

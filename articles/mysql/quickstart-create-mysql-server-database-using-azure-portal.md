@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: 4282294ff54fd3da3f764f53efc8b040b9522191
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f71bcc1fd3b92a32a3e6d9fa056bae7131a663bd
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542260"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492615"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Snabb start: skapa en Azure Database for MySQL-server med hjälp av Azure Portal
 
@@ -22,14 +22,14 @@ Azure Database for MySQL är en hanterad tjänst som du använder för att köra
 En Azure-prenumeration krävs. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-an-azure-database-for-mysql-single-server"></a>Skapa en Azure Database for MySQL enskild server
-1. Gå till [Azure Portal](https://portal.azure.com/) om du vill skapa en MySQL-databas för enskild server. Sök efter och välj **Azure Database for MySQL** :
+1. Gå till [Azure Portal](https://portal.azure.com/) om du vill skapa en MySQL-databas för enskild server. Sök efter och välj **Azure Database for MySQL**:
 
    >[!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/find-azure-mysql-in-portal.png" alt-text="Hitta Azure Database for MySQL":::
 
 1. Välj **Lägg till**.
 
-2. På sidan **välj Azure Database for MySQL distributions alternativ** väljer du  **enskild server** :
+2. På sidan **välj Azure Database for MySQL distributions alternativ** väljer du  **enskild server**:
    >[!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/choose-singleserver.png" alt-text="Skärm bild som visar alternativet enskild server.":::
 
@@ -45,9 +45,9 @@ En Azure-prenumeration krävs. Om du inte har en Azure-prenumeration kan du skap
    Servernamn | **mydemoserver** | Ange ett unikt namn. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
    Datakälla |**Inga** | Välj **Ingen** om du vill skapa en ny server från grunden. Välj endast **säkerhets kopiering** om du återställer från en geo-säkerhetskopia av en befintlig server.
    Plats |Önskad plats | Välj en plats i listan.
-   Version | Senaste huvudversion| Använd den senaste huvud versionen. Se [alla versioner som stöds](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
-   Beräkning och lagring | Använd standardinställningarna| Standard pris nivån är **generell användning** med **4 virtuella kärnor** och **100 GB** lagring. Kvarhållning av säkerhets kopior har angetts till **7 dagar** , med alternativet **geografiskt redundant** säkerhets kopiering.<br/>Gå igenom sidan med [priser](https://azure.microsoft.com/pricing/details/mysql/) och uppdatera standardinställningarna om du behöver.
-   Användarnamn för administratör | **mydemoadmin** | Ange användar namnet för Server administratören. Du kan inte använda **azure_superuser** , **administratör** , **administratör** , **rot** , **gäst** eller **offentlig** för administratörs användar namnet.
+   Version | Senaste huvudversion| Använd den senaste huvud versionen. Se [alla versioner som stöds](../postgresql/concepts-supported-versions.md).
+   Beräkning och lagring | Använd standardinställningarna| Standard pris nivån är **generell användning** med **4 virtuella kärnor** och **100 GB** lagring. Kvarhållning av säkerhets kopior har angetts till **7 dagar**, med alternativet **geografiskt redundant** säkerhets kopiering.<br/>Gå igenom sidan med [priser](https://azure.microsoft.com/pricing/details/mysql/) och uppdatera standardinställningarna om du behöver.
+   Användarnamn för administratör | **mydemoadmin** | Ange användar namnet för Server administratören. Du kan inte använda **azure_superuser**, **administratör**, **administratör**, **rot**, **gäst** eller **offentlig** för administratörs användar namnet.
    Lösenord | Ett lösenord | Ett nytt lösen ord för Server administratörs användaren. Lösen ordet måste vara mellan 8 och 128 tecken långt och innehålla en kombination av versaler eller gemener, siffror och icke-alfanumeriska tecken (!, $, #,% osv.).
   
 
@@ -67,7 +67,7 @@ En Azure-prenumeration krävs. Om du inte har en Azure-prenumeration kan du skap
 
 Som standard skyddas den nya servern med en brand vägg. För att ansluta måste du ge åtkomst till din IP-adress genom att utföra följande steg:
 
-1. Gå till **anslutnings säkerhet** i den vänstra rutan för Server resursen. Om du inte vet hur du hittar din resurs, se [så här öppnar du en resurs](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
+1. Gå till **anslutnings säkerhet** i den vänstra rutan för Server resursen. Om du inte vet hur du hittar din resurs, se [så här öppnar du en resurs](../azure-resource-manager/management/manage-resources-portal.md#open-resources).
 
    >[!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Skärm bild som visar sidan anslutnings säkerhets > brand Väggs regler.":::
@@ -151,9 +151,9 @@ Om du vill ta bort servern kan du välja **ta bort** på sidan **Översikt** fö
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
->[Bygg en PHP-app i Windows med MySQL](../app-service/app-service-web-tutorial-php-mysql.md) <br/>
+>[Bygg en PHP-app i Windows med MySQL](../app-service/tutorial-php-mysql-app.md) <br/>
 
 > [!div class="nextstepaction"]
->[Bygga PHP-app på Linux med MySQL](../app-service/containers/tutorial-php-mysql-app.md)<br/><br/>
+>[Bygga PHP-app på Linux med MySQL](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%3fpivots%3dplatform-linux)<br/><br/>
 
 [Hittar du inte det du letar efter? Berätta för oss.](https://aka.ms/mysql-doc-feedback)

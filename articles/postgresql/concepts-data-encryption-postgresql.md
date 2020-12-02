@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 078b0fe63cf89f2736a8707ad561c798c4818317
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 23961a03d1da1137d92ecd3b8003241120b11d80
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242423"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493791"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database for PostgreSQL data kryptering för enskild server med en kundhanterad nyckel
 
@@ -35,9 +35,9 @@ Data kryptering med Kundhanterade nycklar för Azure Database for PostgreSQL ens
 
 ## <a name="terminology-and-description"></a>Terminologi och beskrivning
 
-**Data krypterings nyckel (DEK)** : en symmetrisk AES256-nyckel som används för att kryptera en partition eller data block. Kryptering av varje data block med en annan nyckel gör det svårare att analysera krypteringen. Åtkomst till DEKs krävs av resurs leverantören eller program instansen som krypterar och dekrypterar ett särskilt block. När du ersätter en DEK med en ny nyckel måste endast data i det associerade blocket krypteras igen med den nya nyckeln.
+**Data krypterings nyckel (DEK)**: en symmetrisk AES256-nyckel som används för att kryptera en partition eller data block. Kryptering av varje data block med en annan nyckel gör det svårare att analysera krypteringen. Åtkomst till DEKs krävs av resurs leverantören eller program instansen som krypterar och dekrypterar ett särskilt block. När du ersätter en DEK med en ny nyckel måste endast data i det associerade blocket krypteras igen med den nya nyckeln.
 
-**Nyckel krypterings nyckel (KEK)** : en krypterings nyckel som används för att kryptera DEKs. En KEK som aldrig lämnar Key Vault gör att DEKs själva krypteras och kontrol leras. Entiteten som har åtkomst till KEK kan skilja sig från den entitet som kräver DEK. Eftersom KEK krävs för att dekryptera DEKs är KEK en enda punkt med vilken DEKs kan tas bort effektivt genom borttagning av KEK.
+**Nyckel krypterings nyckel (KEK)**: en krypterings nyckel som används för att kryptera DEKs. En KEK som aldrig lämnar Key Vault gör att DEKs själva krypteras och kontrol leras. Entiteten som har åtkomst till KEK kan skilja sig från den entitet som kräver DEK. Eftersom KEK krävs för att dekryptera DEKs är KEK en enda punkt med vilken DEKs kan tas bort effektivt genom borttagning av KEK.
 
 DEKs, som krypteras med KeyExchange, lagras separat. Endast en entitet med åtkomst till KEK kan dekryptera dessa DEKs. Mer information finns i [säkerhet i kryptering i vila](../security/fundamentals/encryption-atrest.md).
 
@@ -47,9 +47,9 @@ DEKs, som krypteras med KeyExchange, lagras separat. Endast en entitet med åtko
 
 För att en PostgreSQL-Server ska kunna använda Kundhanterade nycklar som lagras i Key Vault för kryptering av DEK ger en Key Vault administratör följande åtkomst behörighet till servern:
 
-* **Hämta** : för att hämta den offentliga delen och egenskaperna i nyckel valvet.
-* **wrapKey** : för att kunna kryptera Dek. Den krypterade DEK lagras i Azure Database for PostgreSQL.
-* **unwrapKey** : för att kunna dekryptera Dek. Azure Database for PostgreSQL behöver det dekrypterade DEK för att kryptera/dekryptera data
+* **Hämta**: för att hämta den offentliga delen och egenskaperna i nyckel valvet.
+* **wrapKey**: för att kunna kryptera Dek. Den krypterade DEK lagras i Azure Database for PostgreSQL.
+* **unwrapKey**: för att kunna dekryptera Dek. Azure Database for PostgreSQL behöver det dekrypterade DEK för att kryptera/dekryptera data
 
 Nyckel valvs administratören kan också [Aktivera loggning av Key Vault gransknings händelser](../azure-monitor/insights/key-vault-insights-overview.md), så att de kan granskas senare.
 
@@ -93,8 +93,8 @@ När du konfigurerar data kryptering med en kundhanterad nyckel i Key Vault, kr�
 
 * Om vi skapar en tidpunkt för återställning av servern för din Azure Database for PostgreSQL enskild server, som har data kryptering aktive rad, är den nya servern i *otillgängligt* tillstånd. Du kan åtgärda Server tillstånd genom [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) eller [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
 * Om vi skapar en Läs replik för Azure Database for PostgreSQL enskild server, som har data kryptering aktiverat, blir replik servern i ett *otillgängligt* tillstånd. Du kan åtgärda Server tillstånd genom [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) eller [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
-* Om du tar bort ett nyckel valv kommer Azure Database for PostgreSQL enskild server inte att kunna komma åt nyckeln och övergår till *otillgängligt* tillstånd. Återställ [Key Vault](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) och verifiera om data krypteringen för att göra servern *tillgänglig*.
-* Om vi tar bort nyckeln från nyckel valvet, kommer Azure Database for PostgreSQL enskild server inte att kunna komma åt nyckeln och kommer att övergå till *otillgängligt* tillstånd. Återställ [nyckeln](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) och verifiera om data krypteringen för att göra servern *tillgänglig*.
+* Om du tar bort ett nyckel valv kommer Azure Database for PostgreSQL enskild server inte att kunna komma åt nyckeln och övergår till *otillgängligt* tillstånd. Återställ [Key Vault](../key-vault/general/key-vault-recovery.md) och verifiera om data krypteringen för att göra servern *tillgänglig*.
+* Om vi tar bort nyckeln från nyckel valvet, kommer Azure Database for PostgreSQL enskild server inte att kunna komma åt nyckeln och kommer att övergå till *otillgängligt* tillstånd. Återställ [nyckeln](../key-vault/general/key-vault-recovery.md) och verifiera om data krypteringen för att göra servern *tillgänglig*.
 * Om den nyckel som lagras i Azure-nyckelpar upphör att gälla blir nyckeln ogiltig och den Azure Database for PostgreSQL enskilda servern övergår till *otillgängligt* tillstånd. Förläng utgångs datumet för nyckeln med [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) och verifiera sedan om data krypteringen för att göra servern *tillgänglig*.
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Återkallning av åtkomst till oavsiktlig nyckel från Key Vault

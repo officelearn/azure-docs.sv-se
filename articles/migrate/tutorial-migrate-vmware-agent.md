@@ -4,19 +4,19 @@ description: Lär dig hur du kör en agent-baserad migrering av virtuella VMware
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 437dbce1c577b5d837ad0c70e8e8865ba59cf9e6
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 46f23953e6572b752f8773bc9db86be946ccf212
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302759"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493005"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrera virtuella VMware-datorer till Azure (agent-baserad)
 
 Den här artikeln visar hur du migrerar lokala virtuella VMware-datorer till Azure med hjälp av [Azure Migrate: Migreringsverktyg för Server](migrate-services-overview.md#azure-migrate-server-migration-tool) med agent-baserad migrering.  Du kan också migrera virtuella VMware-datorer med hjälp av agent-baserad migrering. [Jämför](server-migrate-overview.md#compare-migration-methods) metoderna.
 
 
- I de här självstudierna får du lära dig att
+ I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Förbered Azure för att arbeta med Azure Migrate.
 > * Förbered för agent-baserad migrering. Konfigurera ett VMware-konto så att Azure Migrate kan identifiera datorer för migrering. Konfigurera ett konto så att mobilitets tjänst agenten kan installeras på datorer som du vill migrera och Förbered en dator för att fungera som replikeringsfil.
@@ -133,7 +133,6 @@ Se till att VMware-servrar och virtuella datorer uppfyller kraven för migrering
 
 > [!NOTE]
 > Agent-baserad migrering med Azure Migrate Server-migrering baseras på funktionerna i tjänsten Azure Site Recovery. Vissa krav kan vara länkade till Site Recovery-dokumentationen.
-
 
 ## <a name="set-up-the-replication-appliance"></a>Konfigurera replikerings enheten
 

@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: e949f1ac5259ba35772ce98c2ee88e5ea66c2d84
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: b57bafdc3f4748bf634955334424941b55e02fd8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221170"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492377"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Skapa en Azure AD-klient för Azure Red Hat OpenShift
 
@@ -21,7 +21,7 @@ ms.locfileid: "92221170"
 > Följ den här guiden för att [skapa ett Azure Red Hat OpenShift 4-kluster](tutorial-create-cluster.md).
 > Om du har frågor kan du [kontakta oss](mailto:arofeedback@microsoft.com).
 
-Microsoft Azure Red Hat OpenShift kräver en [Azure Active Directory-klient (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) som du kan använda för att skapa klustret. En *klient* organisation är en dedikerad instans av Azure AD som en organisation eller app-utvecklare får när de skapar en relation med Microsoft genom att registrera sig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är distinkt och åtskild från andra Azure AD-klienter och har sina egna arbets-och skol identiteter och app-registreringar.
+Microsoft Azure Red Hat OpenShift kräver en [Azure Active Directory-klient (Azure AD)](../active-directory/develop/quickstart-create-new-tenant.md) som du kan använda för att skapa klustret. En *klient* organisation är en dedikerad instans av Azure AD som en organisation eller app-utvecklare får när de skapar en relation med Microsoft genom att registrera sig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är distinkt och åtskild från andra Azure AD-klienter och har sina egna arbets-och skol identiteter och app-registreringar.
 
 Om du inte redan har en Azure AD-klient kan du följa de här anvisningarna för att skapa en.
 

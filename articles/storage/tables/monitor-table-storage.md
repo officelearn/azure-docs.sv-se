@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e5b54f0eb3f068e1697b8541373ed84692448a59
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: da6a1f4590257d43d2604913f2cbcedf29ea1eb6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844837"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491782"
 ---
 # <a name="monitoring-azure-table-storage"></a>Övervaka Azure Table Storage
 
@@ -46,7 +46,7 @@ Azure Table Storage samlar in samma typer av övervaknings data som andra Azure-
 
 Se [data referens för Azure Table Storage-övervakning](monitor-table-storage-reference.md) för detaljerad information om mått och loggar mått som skapats av Azure Table Storage.
 
-Mått och loggar i Azure Monitor endast stöd för Azure Resource Manager lagrings konton. Azure Monitor stöder inte klassiska lagrings konton. Om du vill använda mått eller loggar på ett klassiskt lagrings konto måste du migrera till ett Azure Resource Manager lagrings konto. Se [migrera till Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+Mått och loggar i Azure Monitor endast stöd för Azure Resource Manager lagrings konton. Azure Monitor stöder inte klassiska lagrings konton. Om du vill använda mått eller loggar på ett klassiskt lagrings konto måste du migrera till ett Azure Resource Manager lagrings konto. Se [migrera till Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 Du kan fortsätta använda klassiska mått och loggar om du vill. Faktum är att klassiska mått och loggar är tillgängliga parallellt med mått och loggar i Azure Monitor. Stödet finns kvar tills Azure Storage avslutar tjänsten med äldre mått och loggar.
 
@@ -576,7 +576,7 @@ Använd de här frågorna för att hjälpa dig att övervaka dina Azure Storage-
     | sort by count_ desc 
     | render piechart
     ```
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Stöder Azure Storage mått för Managed Disks eller ohanterade diskar?**
 

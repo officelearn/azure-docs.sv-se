@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 1eddca26152f27ced20bbae66b3265639b97e64e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 266862a1691387caf1b1ffa9a47b0e60e84970d8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629503"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492139"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) ) som är bransch standard och [NFS-protokollet (Network File System](https://en.wikipedia.org/wiki/Network_File_System) ) (för hands version). Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -184,7 +184,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 
     - Azure File Sync bevarar och replikerar alla godtyckliga ACL: er, eller DACL: er (oavsett om de är Active Directory-baserade eller lokala) till alla Server slut punkter som den synkroniserar till. 
     
-    Du kan referera till att [auktorisera åtkomst till Azure Storage](../common/storage-auth.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) för en omfattande åter givning av alla protokoll som stöds på Azure Storage Services. 
+    Du kan referera till att [auktorisera åtkomst till Azure Storage](../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för en omfattande åter givning av alla protokoll som stöds på Azure Storage Services. 
     
 * <a id="encryption-at-rest"></a>
 **Hur kan jag se till att min Azure-filresurs är krypterad i vila?**  

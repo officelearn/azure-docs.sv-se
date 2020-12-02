@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: a53f947eb2a44cc8773be8ee2b2bd03ca899be22
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7c250f1351d83d213c5c7af5b00d7a648c5d8bc6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95521010"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499670"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Viktig information om Microsoft Azure Storage Explorer
 
@@ -559,7 +559,7 @@ Kopiering, hämtning och lagring mellan regioner av diskar drivs av AzCopy v10.
         
 ### <a name="new"></a>Ny
 
-* Du kan nu använda Storage Explorer för att få åtkomst till dina BLOB-data via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Om du är inloggad och Storage Explorer inte kan hämta nycklarna för ditt lagrings konto, används en OAuth-token för att autentisera när du interagerar med dina data.
+* Du kan nu använda Storage Explorer för att få åtkomst till dina BLOB-data via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Om du är inloggad och Storage Explorer inte kan hämta nycklarna för ditt lagrings konto, används en OAuth-token för att autentisera när du interagerar med dina data.
 * Storage Explorer stöder nu ADLS Gen2 lagrings konton. När Storage Explorer upptäcker att hierarkiskt namn område har Aktiver ATS för ett lagrings konto visas "(ADLS Gen2 för hands version) bredvid namnet på ditt lagrings konto. Storage Explorer kan identifiera om hierarkiskt namn område är aktiverat när du är inloggad eller om du har kopplat ditt lagrings konto med namn och nyckel. För ADLS Gen2 lagrings konton kan du använda Storage Explorer för att:
   * Skapa och ta bort behållare
   * Hantera behållar egenskaper och behörigheter (vänster sida)
@@ -628,7 +628,7 @@ Kopiering, hämtning och lagring mellan regioner av diskar drivs av AzCopy v10.
         
 ### <a name="new"></a>Ny
 
-* Du kan nu använda Storage Explorer för att få åtkomst till dina BLOB-data via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Om du är inloggad och Storage Explorer inte kan hämta nycklarna för ditt lagrings konto, används en OAuth-token för att autentisera när du interagerar med dina data.
+* Du kan nu använda Storage Explorer för att få åtkomst till dina BLOB-data via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Om du är inloggad och Storage Explorer inte kan hämta nycklarna för ditt lagrings konto, används en OAuth-token för att autentisera när du interagerar med dina data.
 * Storage Explorer stöder nu ADLS Gen2 lagrings konton. När Storage Explorer upptäcker att hierarkiskt namn område har Aktiver ATS för ett lagrings konto visas "(ADLS Gen2 för hands version) bredvid namnet på ditt lagrings konto. Storage Explorer kan identifiera om hierarkiskt namn område är aktiverat när du är inloggad eller om du har kopplat ditt lagrings konto med namn och nyckel. För ADLS Gen2 lagrings konton kan du använda Storage Explorer för att:
   * Skapa och ta bort behållare
   * Hantera behållar egenskaper och behörigheter (vänster sida)
@@ -683,7 +683,7 @@ Kopiering, hämtning och lagring mellan regioner av diskar drivs av AzCopy v10.
 
 ### <a name="new"></a>Ny
 
-* Du kan nu använda Storage Explorer för att få åtkomst till dina BLOB-data via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Om du är inloggad och Storage Explorer inte kan hämta nycklarna för ditt lagrings konto, används en OAuth-token för att autentisera när du interagerar med dina data.
+* Du kan nu använda Storage Explorer för att få åtkomst till dina BLOB-data via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Om du är inloggad och Storage Explorer inte kan hämta nycklarna för ditt lagrings konto, används en OAuth-token för att autentisera när du interagerar med dina data.
 * Storage Explorer stöder nu ADLS Gen2 lagrings konton. När Storage Explorer upptäcker att hierarkiskt namn område har Aktiver ATS för ett lagrings konto visas "(ADLS Gen2 för hands version) bredvid namnet på ditt lagrings konto. Storage Explorer kan identifiera om hierarkiskt namn område är aktiverat när du är inloggad eller om du har kopplat ditt lagrings konto med namn och nyckel. För ADLS Gen2 lagrings konton kan du använda Storage Explorer för att:
   * Skapa och ta bort behållare
   * Hantera behållar egenskaper och behörigheter (vänster sida)

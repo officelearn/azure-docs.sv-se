@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 83d291ae72e79ec3600015fac07ee4ab80fe5df4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b7f6d30ffa849f78b0f7baa2d84e4fb01f3bf192
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843561"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500350"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Skydda och använda principer på virtuella datorer i Azure
 
@@ -41,7 +41,7 @@ Kryptering påverkar inte prestandan hos hanterade diskar. Krypteringen kostar i
 
 Du kan förlita dig på plattforms hanterade nycklar för kryptering av din hanterade disk, eller så kan du hantera kryptering med hjälp av dina egna nycklar. Om du väljer att hantera kryptering med dina egna nycklar kan du ange en *kundhanterad nyckel* som ska användas för att kryptera och dekryptera alla data i Managed disks. 
 
-Mer information om kryptering på Server sidan finns i artiklarna för [Windows](windows/disk-encryption.md) eller [Linux](linux/disk-encryption.md).
+Mer information om kryptering på Server sidan finns i artiklarna för [Windows](./disk-encryption.md) eller [Linux](./disk-encryption.md).
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -73,4 +73,4 @@ Med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Gå igenom stegen för att övervaka säkerheten för virtuella datorer med hjälp av Azure Security Center för [Linux](../security/fundamentals/overview.md) eller [Windows](windows/tutorial-azure-security.md).
+- Gå igenom stegen för att övervaka säkerheten för virtuella datorer med hjälp av Azure Security Center för [Linux](../security/fundamentals/overview.md) eller [Windows](./tutorial-azure-security.md).

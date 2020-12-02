@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e6e3e1769b6043599d606b84b531ec908519d4c7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9377a21415c22e7b68d850ca1a95f931e62fe573
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955573"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499738"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault tillägg för virtuell dator för Linux
 
@@ -35,9 +35,9 @@ Key Vault VM-tillägget stöder dessa Linux-distributioner:
 - PEM
 
 ## <a name="prerequisities"></a>Prerequisities
-  - Key Vault instans med certifikat. Se [skapa en Key Vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
-  - VM/VMSS måste ha tilldelats en [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
-  - Åtkomst principen för Key Vault måste anges med hemligheter `get` och `list` behörighet för VM/VMSS-hanterad identitet för att hämta en hemlig del av certifikatet. Se [hur du autentiserar till Key Vault](/azure/key-vault/general/authentication) och [tilldelar en Key Vault åtkomst princip](/azure/key-vault/general/assign-access-policy-cli).
+  - Key Vault instans med certifikat. Se [skapa en Key Vault](../../key-vault/general/quick-create-portal.md)
+  - VM/VMSS måste ha tilldelats en [hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md)
+  - Åtkomst principen för Key Vault måste anges med hemligheter `get` och `list` behörighet för VM/VMSS-hanterad identitet för att hämta en hemlig del av certifikatet. Se [hur du autentiserar till Key Vault](../../key-vault/general/authentication.md) och [tilldelar en Key Vault åtkomst princip](../../key-vault/general/assign-access-policy-cli.md).
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
@@ -86,9 +86,9 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Namn | Värde/exempel | Datatyp |
+| Name | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | datum |
+| apiVersion | 2019-07-01 | date |
 | utgivare | Microsoft.Azure.KeyVault | sträng |
 | typ | KeyVaultForLinux | sträng |
 | typeHandlerVersion | 1,0 | int |
@@ -109,7 +109,7 @@ Azure VM-tillägg kan distribueras med Azure Resource Manager mallar. Mallar är
 JSON-konfigurationen för ett tillägg för virtuell dator måste kapslas i den virtuella datorns resurs fragment, särskilt `"resources": []` objekt för mallen för den virtuella datorn och i händelse av skalnings uppsättning för virtuella datorer under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` objekt.
 
  > [!NOTE]
-> VM-tillägget kräver att system-eller användarens hanterade identitet tilldelas till autentisering till Key Vault.  Se [hur du autentiserar till Key Vault och tilldelar en Key Vault åtkomst princip.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+> VM-tillägget kräver att system-eller användarens hanterade identitet tilldelas till autentisering till Key Vault.  Se [hur du autentiserar till Key Vault och tilldelar en Key Vault åtkomst princip.](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 > 
 
 ```json

@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: mimckitt
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/02/2020
+ms.date: 11/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: 45bcfdb544d3951feb40a821b601ce60ecc0feaf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 90bc98d63b45e43c9325eed4fe019b18f52d0de8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356781"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500299"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tidigare generationer av virtuella dator storlekar
 
@@ -64,7 +64,7 @@ Mbit/s = 10^6 byte per sekund och GiB = 1 024^3 byte.
 
 ## <a name="nvv2-series"></a>NVv2-serien
 
-**Nyare storleks rekommendation** : [NVv3-serien](nvv3-series.md)
+**Nyare storleks rekommendation**: [NVv3-serien](nvv3-series.md)
 
 De virtuella datorerna i NVv2-serien drivs av [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU-och NVIDIA grid-teknik med Intel Broadwell-processorer. Dessa virtuella datorer är avsedda för GPU-accelererade grafik program och virtuella skriv bord där kunder vill visualisera sina data, simulera resultat för att visa, arbeta med CAD eller återge och strömma innehåll. Dessutom kan de virtuella datorerna köra enskilda precisions arbets belastningar som kodning och åter givning. NVv2 Virtual Machines stöder Premium Storage och levereras med två gånger system minnet (RAM) jämfört med dess föregående NV-serie.  
 
@@ -86,7 +86,7 @@ Mer information om hur du ändrar storlek på en virtuell Linux-dator finns i [�
 
 ### <a name="basic-a"></a>Basic A  
 
-**Nyare storleks rekommendation** : [AV2-serien](av2-series.md)
+**Nyare storleks rekommendation**: [AV2-serien](av2-series.md)
 
 Premium Storage: stöds inte
 
@@ -116,7 +116,7 @@ I den klassiska distributionsmodellen skiljer sig vissa namn på VM-storlekarna 
 
 ### <a name="a-series"></a>A-serien  
 
-**Nyare storleks rekommendation** : [AV2-serien](av2-series.md)
+**Nyare storleks rekommendation**: [AV2-serien](av2-series.md)
 
 ACU: 50–100
 
@@ -141,7 +141,7 @@ Premium Storage caching: stöds inte
 
 ### <a name="a-series---compute-intensive-instances"></a>A-serien – beräkningsintensiva instanser  
 
-**Nyare storleks rekommendation** : [AV2-serien](av2-series.md)
+**Nyare storleks rekommendation**: [AV2-serien](av2-series.md)
 
 ACU: 225
 
@@ -161,13 +161,13 @@ Storlekarna i A8–A11- och H-serien kallas även för *beräkningsintensiva ins
 <sup>1</sup> För MPI-program aktive ras det dedikerade RDMA-backend-nätverket av FDR InfiniBand-nätverket, vilket ger mycket låg latens och hög bandbredd.  
 
 > [!NOTE]
-> De virtuella datorerna A8 – A11 planeras för att dra på 3/2021. Vi rekommenderar starkt att du inte skapar några nya A8-A11 virtuella datorer. Migrera befintliga virtuella A8-A11-datorer till nyare och kraftfulla VM-storlekar med höga prestanda, till exempel H, HB, HC, HBv2, samt generella beräknings storlekar för virtuella datorer som D, E och F för bättre pris-prestanda. Mer information finns i [Guide för HPC-migrering](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> De [virtuella datorerna A8 – A11 planeras för att dra på 3/2021](https://azure.microsoft.com/updates/a8-a11-azure-virtual-machine-sizes-will-be-retired-on-march-1-2021/). Vi rekommenderar starkt att du inte skapar några nya A8-A11 virtuella datorer. Migrera befintliga virtuella A8-A11-datorer till nyare och kraftfulla VM-storlekar med höga prestanda, till exempel H, HB, HC, HBv2, samt generella beräknings storlekar för virtuella datorer som D, E och F för bättre pris-prestanda. Mer information finns i [Guide för HPC-migrering](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 <br>
 
 ### <a name="d-series"></a>D-serien  
 
-**Nyare storleks rekommendation** : [Dav4-serien](dav4-dasv4-series.md), [DV4-serien](dv4-dsv4-series.md) och [Ddv4-serien](ddv4-ddsv4-series.md)
+**Nyare storleks rekommendation**: [Dav4-serien](dav4-dasv4-series.md), [DV4-serien](dv4-dsv4-series.md) och [Ddv4-serien](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -188,7 +188,7 @@ Premium Storage caching: stöds inte
 
 ### <a name="d-series---memory-optimized"></a>D-serien-minnesoptimerade  
 
-**Nyare storleks rekommendation** : [Dav4-serien](dav4-dasv4-series.md), [DV4-serien](dv4-dsv4-series.md) och [Ddv4-serien](ddv4-ddsv4-series.md)
+**Nyare storleks rekommendation**: [Dav4-serien](dav4-dasv4-series.md), [DV4-serien](dv4-dsv4-series.md) och [Ddv4-serien](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -209,7 +209,7 @@ Premium Storage caching: stöds inte
 
 ### <a name="preview-dc-series"></a>För hands version: DC-serien
 
-**Nyare storleks rekommendation** : [DCsv2-serien](dcv2-series.md)
+**Nyare storleks rekommendation**: [DCsv2-serien](dcv2-series.md)
 
 Premium Storage: stöds
 
@@ -224,12 +224,12 @@ DC-serien använder den senaste generationen av 3,7 GHz Intel XEON E-2176G-proce
 
 > [!IMPORTANT]
 >
-> Virtuella datorer i VM-serien är [generation 2 virtuella datorer](./linux/generation-2.md#creating-a-generation-2-vm) och stöder bara `Gen2` avbildningar.
+> Virtuella datorer i VM-serien är [generation 2 virtuella datorer](./generation-2.md#creating-a-generation-2-vm) och stöder bara `Gen2` avbildningar.
 
 
 ### <a name="ds-series"></a>DS-serien  
 
-**Nyare storleks rekommendation** : [Dasv4-serien](dav4-dasv4-series.md), [Dsv4-serien](dv4-dsv4-series.md) och [Ddsv4-serien](ddv4-ddsv4-series.md)
+**Nyare storleks rekommendation**: [Dasv4-serien](dav4-dasv4-series.md), [Dsv4-serien](dv4-dsv4-series.md) och [Ddsv4-serien](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -250,7 +250,7 @@ Premium Storage caching: stöds
 
 ### <a name="ds-series---memory-optimized"></a>DS-seriens minnesoptimerade  
 
-**Nyare storleks rekommendation** : [Dasv4-serien](dav4-dasv4-series.md), [Dsv4-serien](dv4-dsv4-series.md) och [Ddsv4-serien](ddv4-ddsv4-series.md)
+**Nyare storleks rekommendation**: [Dasv4-serien](dav4-dasv4-series.md), [Dsv4-serien](dv4-dsv4-series.md) och [Ddsv4-serien](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1, 2</sup>
 
@@ -272,7 +272,7 @@ Premium Storage caching: stöds
 
 ### <a name="ls-series"></a>Ls-serien
 
-**Nyare storleks rekommendation** : [Lsv2-serien](lsv2-series.md)
+**Nyare storleks rekommendation**: [Lsv2-serien](lsv2-series.md)
 
 Ls-serien stöder upp till 32 virtuella processorer i [E5 v3-familjen med Intel® Xeon®-processorn](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Ls-serien uppnår samma processorprestanda som G/GS-serien och levereras med 8 GiB minne per virtuell processor.
 
@@ -297,7 +297,7 @@ Det maximala disk data flödet som är möjligt med virtuella datorer i LS-serie
 
 ### <a name="gs-series"></a>GS-serien
 
-**Nyare storleks rekommendation** : [Easv4-serien](eav4-easv4-series.md), [Esv4-serien](ev4-esv4-series.md), [Edsv4-serien](edv4-edsv4-series.md) och [M-serien](m-series.md)
+**Nyare storleks rekommendation**: [Easv4-serien](eav4-easv4-series.md), [Esv4-serien](ev4-esv4-series.md), [Edsv4-serien](edv4-edsv4-series.md) och [M-serien](m-series.md)
 
 ACU: 180-240 <sup>1</sup>
 
@@ -323,7 +323,7 @@ Premium Storage caching: stöds
 
 ### <a name="g-series"></a>G-serien
 
-**Nyare storleks rekommendation** : [Eav4-serien](eav4-easv4-series.md), [Ev4-serien](ev4-esv4-series.md) och [Edv4-serien](edv4-edsv4-series.md) och [M-serien](m-series.md)
+**Nyare storleks rekommendation**: [Eav4-serien](eav4-easv4-series.md), [Ev4-serien](ev4-esv4-series.md) och [Edv4-serien](edv4-edsv4-series.md) och [M-serien](m-series.md)
 
 ACU: 180–240
 
@@ -343,7 +343,7 @@ Premium Storage caching: stöds inte
 <br>
 
 ### <a name="nv-series"></a>NV-serien
-**Nyare storleks rekommendation** : [NVv3-serien](nvv3-series.md) och [NVv4-serien](nvv4-series.md)
+**Nyare storleks rekommendation**: [NVv3-serien](nvv3-series.md) och [NVv4-serien](nvv4-series.md)
 
 De virtuella datorerna med NV-serien drivs av [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU: er och NVIDIA grid-teknik för snabbare program och virtuella skriv bord där kunderna kan visualisera data eller simuleringar. Användare kan visualisera sina grafik intensiva arbets flöden på NV-instanserna för att få överlägsen grafik kapacitet och dessutom köra enskilda precisions arbets belastningar som kodning och åter givning. Virtuella datorer i NV-serien drivs också av Intel Xeon E5-2690 v3-processorer (Haswell).
 
@@ -367,7 +367,7 @@ Minnes bebetjänings uppdateringar: stöds inte
 <br>
 
 ### <a name="nc-series"></a>NC-serien
-**Nyare storleks rekommendation** : [NC T4 v3-serien](nct4-v3-series.md)
+**Nyare storleks rekommendation**: [NC T4 v3-serien](nct4-v3-series.md)
 
 Virtuella datorer i NC-serien drivs av [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) -kortet och Intel Xeon E5-2690 v3-processorn (Haswell). Användare kan gå igenom data snabbare genom att använda CUDA för energi gransknings program, krasch simulering, Ray-spårad åter givning, djup inlärning med mera. NC24r-konfigurationen ger ett nätverks gränssnitt med låg latens och hög genom strömning som är optimerat för tätt sammansatta parallella dator arbets belastningar.
 
@@ -394,7 +394,7 @@ Virtuella datorer i NC-serien drivs av [NVIDIA Tesla K80](https://www.nvidia.com
 
 
 ### <a name="ncv2-series"></a>NCv2-serien
-**Nyare storleks rekommendation** : [NC T4 v3-serien](nct4-v3-series.md) och [NC-V100 v3-serien](ncv3-series.md)
+**Nyare storleks rekommendation**: [NC T4 v3-serien](nct4-v3-series.md) och [NC-V100 v3-serien](ncv3-series.md)
 
 Virtuella datorer i NCv2-serien drivs av NVIDIA Tesla P100-GPU: er. Dessa GPU: er kan ge mer än dubbelt så många beräknings prestanda som NC-serien. Kunderna kan dra nytta av dessa uppdaterade GPU: er för traditionella HPC-arbetsbelastningar som till exempel behållar modellering, DNA-sekvensering, protein analys, Monte Carlo-simuleringar och andra. Förutom GPU: er är virtuella datorer i NCv2-serien också baserade på Broadwell-processorer (Intel Xeon E5-2690 v4).
 
@@ -422,7 +422,7 @@ NC24rs v2-konfigurationen ger ett nätverks gränssnitt med låg fördröjning o
 <br>
 
 ### <a name="nd-series"></a>ND-serien
-**Nyare storleks rekommendation** : [NDv2-serien](ndv2-series.md) och [NC-V100 v3-serien](ncv3-series.md)
+**Nyare storleks rekommendation**: [NDv2-serien](ndv2-series.md) och [NC-V100 v3-serien](ncv3-series.md)
 
 De virtuella datorerna i ND-serien är ett nytt tillägg till GPU-familjen som är utformad för AI-och djup inlärnings arbets belastningar. De erbjuder utmärkt prestanda för utbildning och härledning. ND-instanser drivs av [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) -GPU: er och Intel Xeon E5-2690 v4-processorer (Broadwell). Dessa instanser ger utmärkta prestanda för flytt ALS åtgärder med enkel precision, för AI-arbetsbelastningar som använder Microsoft Cognitive Toolkit, TensorFlow, caffe och andra ramverk. ND-serien erbjuder även en mycket större GPU-minnes storlek (24 GB), vilket gör det möjligt att få plats med mycket större neurala NET-modeller. I likhet med NC-serien erbjuder ND-serien en konfiguration med ett sekundärt nätverk med låg latens, högt data flöde via RDMA och InfiniBand-anslutning så att du kan köra storskaliga utbildnings jobb över flera GPU: er.
 

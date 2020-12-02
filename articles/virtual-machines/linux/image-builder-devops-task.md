@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 88bbd83d7ac5b834255c9b4d46d7cef4394f15d3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a3016900b6265bfd56ad1a5a71f70efc01181af5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968675"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499262"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Azure Image Builder-DevOps uppgift
 
@@ -65,7 +65,7 @@ Ange följande aktivitets egenskaper:
 
 Välj i den nedrullningsbara menyn vilken prenumeration du vill att bild verktyget ska köras. Använd samma prenumeration där dina käll avbildningar finns och var bilderna ska distribueras. Du måste auktorisera Image Builder Contributor åtkomst till prenumerationen eller resurs gruppen.
 
-### <a name="resource-group"></a>Resource Group
+### <a name="resource-group"></a>Resursgrupp
 
 Använd resurs gruppen där den tillfälliga avbildnings mal len artefakt ska lagras. När du skapar en mall för en mall skapas ytterligare en tillfällig Image Builder-resurs grupp `IT_<DestinationResourceGroup>_<TemplateName>_guid` . Den tillfälliga resurs gruppen lagrar metadata för avbildningen, till exempel skript. I slutet av uppgiften tas avbildnings mallens artefakt och resurs grupp för tillfällig avbildnings byggare bort.
  
@@ -139,7 +139,7 @@ Välj knappen för att **bygga sökväg** för att välja den build-mapp som du 
 
 I följande exempel förklaras hur det fungerar:
 
-:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Välj Lägg till en artefakt i versions pipelinen.":::
+:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="En katalog struktur som visar hierarkin.":::
 
 
 * Windows-filer finns i `C:\` . En katalog med namnet `buildArtifacts` skapas som innehåller `webapp` katalogen.
@@ -154,7 +154,7 @@ I följande exempel förklaras hur det fungerar:
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
-* Linux-på Linux-system placeras Bygg artefakterna i `/tmp` katalogen. Men på många Linux-OSs i en omstart tas katalogen/tmp-katalogens innehåll bort. Om du vill att artefakterna ska finnas i avbildningen måste du skapa en annan katalog och kopiera dem.  Till exempel:
+* Linux-på Linux-system placeras Bygg artefakterna i `/tmp` katalogen. Men på många Linux-OSs i en omstart tas katalogen/tmp-katalogens innehåll bort. Om du vill att artefakterna ska finnas i avbildningen måste du skapa en annan katalog och kopiera dem.  Exempel:
 
     ```bash
     sudo mkdir /lib/buildArtifacts
@@ -176,7 +176,7 @@ I följande exempel förklaras hur det fungerar:
 > Avbildnings verktyget tar inte bort Bygg artefakterna automatiskt, men vi rekommenderar starkt att du alltid har kod för att ta bort Bygg artefakterna.
 > 
 
-* Windows-Image Builder distribuerar filer till `c:\buildArtifacts` katalogen. Katalogen är beständig. du måste ta bort katalogen. Du kan ta bort den i skriptet som du kör. Till exempel:
+* Windows-Image Builder distribuerar filer till `c:\buildArtifacts` katalogen. Katalogen är beständig. du måste ta bort katalogen. Du kan ta bort den i skriptet som du kör. Exempel:
 
     ```PowerShell
     # Clean up buildArtifacts directory
@@ -186,7 +186,7 @@ I följande exempel förklaras hur det fungerar:
     Remove-Item -Path "C:\buildArtifacts" -Force 
     ```
     
-* Linux – build-artefakterna placeras i `/tmp` katalogen. Men på många Linux-OSs på en omstart `/tmp` raderas katalog innehållet. Vi rekommenderar att du har kod för att ta bort innehållet och inte förlitar dig på operativ systemet för att ta bort innehållet. Till exempel:
+* Linux – build-artefakterna placeras i `/tmp` katalogen. Men på många Linux-OSs på en omstart `/tmp` raderas katalog innehållet. Vi rekommenderar att du har kod för att ta bort innehållet och inte förlitar dig på operativ systemet för att ta bort innehållet. Exempel:
 
     ```bash
     sudo rm -R "/tmp/AppsAndImageBuilderLinux"
@@ -194,7 +194,7 @@ I följande exempel förklaras hur det fungerar:
     
 #### <a name="total-length-of-image-build"></a>Total längd på avbildnings version
 
-Den totala längden kan inte ändras i DevOps pipeline-aktiviteten ännu. Standardvärdet är 240 minuter. Om du vill öka [buildTimeoutInMinutes](./image-builder-json.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#properties-buildtimeoutinminutes)kan du använda en AZ CLI-uppgift i versions pipelinen. Konfigurera uppgiften för att kopiera en mall och skicka den. Ett exempel finns i den här [lösningen](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)eller använda AZ PowerShell.
+Den totala längden kan inte ändras i DevOps pipeline-aktiviteten ännu. Standardvärdet är 240 minuter. Om du vill öka [buildTimeoutInMinutes](./image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-buildtimeoutinminutes)kan du använda en AZ CLI-uppgift i versions pipelinen. Konfigurera uppgiften för att kopiera en mall och skicka den. Ett exempel finns i den här [lösningen](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)eller använda AZ PowerShell.
 
 
 #### <a name="storage-account"></a>Lagringskonto
@@ -312,9 +312,9 @@ Nej. Ett unikt Mallnamn används och tas sedan bort.
 
 Om ett build-problem uppstår tar DevOps-aktiviteten inte bort den mellanlagrings resurs gruppen. Du kan komma åt den mellanlagrings resurs grupp som innehåller anpassnings loggen för build.
 
-Du kommer att se ett fel i DevOps-loggen för aktiviteten VM Image Builder och se platsen anpassning. log. Till exempel:
+Du kommer att se ett fel i DevOps-loggen för aktiviteten VM Image Builder och se platsen anpassning. log. Exempel:
 
-:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Välj Lägg till en artefakt i versions pipelinen.":::
+:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Exempel på DevOps-aktivitets fel som visar ett fel.":::
 
 Mer information om fel sökning finns i [Felsöka Azure Image Builder-tjänsten](image-builder-troubleshoot.md). 
 
@@ -330,7 +330,7 @@ template name:  t_1556938436xxx
 
 ```
 
-Resurs artefakten för avbildnings mal len finns i den resurs grupp som ursprungligen angavs i uppgiften. När du är klar med fel sökningen tar du bort artefakten. Om du tar bort med Azure Portal, i resurs gruppen, väljer du **Visa dolda typer**för att Visa artefakten.
+Resurs artefakten för avbildnings mal len finns i den resurs grupp som ursprungligen angavs i uppgiften. När du är klar med fel sökningen tar du bort artefakten. Om du tar bort med Azure Portal, i resurs gruppen, väljer du **Visa dolda typer** för att Visa artefakten.
 
 
 ## <a name="next-steps"></a>Nästa steg

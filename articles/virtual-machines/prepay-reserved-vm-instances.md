@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
-ms.openlocfilehash: 5df56b304463ab981026fbe0c82d831d83d702c3
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: f23d1fb0162abf05fba97c2f6fb02be9238fabd2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93380264"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500367"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances-linux"></a>Spara kostnader med Azure Reserved VM Instances (Linux)
 
@@ -86,7 +86,7 @@ Reserverade VM-instanser är tillgängliga för de flesta VM-storlekar med vissa
 
 ## <a name="buy-a-reserved-vm-instance"></a>Köp en reserverad VM-instans
 
-Du kan köpa en reserverad virtuell dator instans i [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Betala för reservationen [i förväg eller via månadsbetalningar](../cost-management-billing/reservations/monthly-payments-reservations.md).
+Du kan köpa en reserverad virtuell dator instans i [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Betala för reservationen [i förväg eller via månadsbetalningar](../cost-management-billing/reservations/prepare-buy-reservation.md).
 Dessa krav gäller för att köpa en reserverad VM-instans:
 
 - Du måste ha ägar rollen för minst en EA-prenumeration eller en prenumeration med en taxa enligt principen betala per användning.
@@ -110,7 +110,7 @@ Om du har ett EA-avtal kan du använda **alternativet Lägg till fler** för att
 |Region    |Den Azure-region som omfattas av reservationen.|    
 |Storlek på virtuell dator     |Storleken på de virtuella dator instanserna.|
 |Optimera för     |Flexibilitet för storlek på virtuell dator instans är markerad som standard. Klicka på **Avancerade inställningar** för att ändra storlek på flexibiliteten för instans storlek för att tillämpa reservations rabatten på andra virtuella datorer i samma [storleks grupp för virtuell dator](reserved-vm-instance-size-flexibility.md). Om du prioriterar kapaciteten prioriteras datacenterkapaciteten för dina distributioner. Det ger ytterligare förtroende för möjligheten att starta de virtuella dator instanserna när du behöver dem. Kapacitets prioritet är bara tillgängligt när reservations omfånget är en enskild prenumeration. |
-|Term        |Ett år eller tre år. Det finns också en 5 års period som endast är tillgänglig för virtuella HBv2-datorer.|
+|Period        |Ett år eller tre år. Det finns också en 5 års period som endast är tillgänglig för virtuella HBv2-datorer.|
 |Kvantitet    |Antalet instanser som köps i reservationen. Antalet är antalet aktiva VM-instanser som kan hämta fakturerings rabatten. Om du till exempel kör 10 Standard_D2 virtuella datorer i USA, kan du ange kvantitet som 10 för att maximera fördelarna med alla virtuella datorer som körs. |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
@@ -158,6 +158,4 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
     - [Förstå reservationsanvändning för en prenumeration med Betala per användning-priser](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
     - [Förstå reservationsanvändning för din Enterprise-registrering](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
     - [Kostnader för Windows-programvara ingår inte i reservationer](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
-    - [Azure-reservationer i ett CSP-program (Cloud Solution Provider) i Partnercenter](https://docs.microsoft.com/partner-center/azure-reservations)
-
-
+    - [Azure-reservationer i ett CSP-program (Cloud Solution Provider) i Partnercenter](/partner-center/azure-reservations)

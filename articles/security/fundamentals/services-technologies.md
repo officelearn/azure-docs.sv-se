@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: a4cc6e31e49243af8fa52ac568bcbba660bcde7e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8a33e9d462f3105bfee295ac82384a38325f7c7c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842744"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498803"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Säkerhets tjänster och tekniker som är tillgängliga i Azure
 
@@ -71,7 +71,7 @@ Med tiden kommer den här listan att ändras och växa, precis som Azure gör. S
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|En molnbaserad databas för autentisering som stöder en molnbaserad katalog med flera klienter och flera identitets hanterings tjänster i Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|En identitets hanterings tjänst som gör det möjligt att styra hur kunder registrerar, loggar in och hanterar sina profiler när de använder Azure-baserade program.   |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)| En molnbaserad och hanterad version av Active Directory Domain Services. |
-| [Azure AD-Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| En säkerhets bestämmelse som använder flera olika former av autentisering och verifiering innan åtkomst till skyddad information tillåts. |
+| [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| En säkerhets bestämmelse som använder flera olika former av autentisering och verifiering innan åtkomst till skyddad information tillåts. |
 
 ## <a name="backup-and-disaster-recovery"></a>Säkerhets kopiering och haveri beredskap
 |Tjänst|Beskrivning|
@@ -91,5 +91,5 @@ Med tiden kommer den här listan att ändras och växa, precis som Azure gör. S
 | [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)| En global DNS-belastningsutjämnare.|
 | [Azure Application Proxy](../../active-directory/manage-apps/application-proxy.md)| En autentiserande klient del som används för att skydda fjärråtkomst för webb program som finns lokalt. |
 |[Azure Firewall](../../firewall/overview.md)|En hanterad, molnbaserad nätverks säkerhets tjänst som skyddar dina Azure Virtual Network-resurser.|
-|[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)|Kombinerat med bästa praxis för program design, ger skydd mot DDoS-attacker.|
+|[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)|Kombinerat med bästa praxis för program design, ger skydd mot DDoS-attacker.|
 |[Virtual Network tjänst slut punkter](../../virtual-network/virtual-network-service-endpoints-overview.md)|Utökar det virtuella nätverkets privata adress utrymme och identiteten för ditt VNet till Azure-tjänsterna, via en direkt anslutning.|

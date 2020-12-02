@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: dd755e1bc220d61aa540a0e7da9e3f174bde9d76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba971919037230cb6c09e627fde448647063b5b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652932"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498429"
 ---
 # <a name="lsv2-series"></a>Lsv2-serien
 
@@ -51,7 +51,7 @@ Bursting: stöds<br>
 
 <sup>4</sup> virtuella datorer i Lsv2-serien tillhandahåller inte värd-cache för datadisk eftersom den inte drar nytta av Lsv2-arbetsbelastningar.
 
-Virtuella datorer med <sup>5</sup> Lsv2- [serien kan överföra](linux/disk-bursting.md) disk prestanda i upp till 30 minuter i taget. 
+Virtuella datorer med <sup>5</sup> Lsv2- [serien kan överföra](./disk-bursting.md) disk prestanda i upp till 30 minuter i taget. 
 
 <sup>6</sup> virtuella datorer med mer än 64 virtuella processorer kräver ett av de gäst operativ system som stöds:
 

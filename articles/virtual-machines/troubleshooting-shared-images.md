@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: d15f58a2d87483e8e2fd6711481bfe8866ca1548
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 74e1dc12be9bfec57d76357a335b46a55912f6df
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920618"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500282"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Felsöka delade avbildnings gallerier i Azure
 
@@ -137,7 +137,7 @@ Om du har problem med att utföra åtgärder på delade avbildnings gallerier, b
 
 *ZRS lagrings konto typen stöds inte i den här regionen.*  
 **Orsak**: du har valt standard Zone-redundant lagring (ZRS) i en region som ännu inte har stöd för det.  
-**Lösning**: ändra lagrings konto typen till **Premium- \_ LRS** eller **standard- \_ LRS**. Läs vår dokumentation för den senaste [listan med regioner](/azure/storage/common/storage-redundancy#zone-redundant-storage) med ZRS Preview aktive rad.
+**Lösning**: ändra lagrings konto typen till **Premium- \_ LRS** eller **standard- \_ LRS**. Läs vår dokumentation för den senaste [listan med regioner](../storage/common/storage-redundancy.md#zone-redundant-storage) med ZRS Preview aktive rad.
 
 ## <a name="creating-or-updating-image-versions"></a>Skapa eller uppdatera avbildnings versioner ##
 

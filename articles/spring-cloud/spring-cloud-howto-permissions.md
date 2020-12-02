@@ -7,15 +7,15 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: edd9898580c60199b761b24b172a366069f09cb2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 0c0b3bd81e0f73a7879382e28516378bd722bc17
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516196"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498650"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Så här använder du behörigheter i Azure våren Cloud
-Den här artikeln visar hur du skapar anpassade roller som delegerar behörigheter till Azure våren Cloud-resurser. Anpassade roller utökar [inbyggda Azure-roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) med olika lager behörigheter.
+Den här artikeln visar hur du skapar anpassade roller som delegerar behörigheter till Azure våren Cloud-resurser. Anpassade roller utökar [inbyggda Azure-roller](../role-based-access-control/built-in-roles.md) med olika lager behörigheter.
 
 Vi kommer att implementera följande anpassade roller:
 
@@ -54,26 +54,26 @@ Följ de här stegen för att börja definiera en roll.
    ![Lägg till behörigheter start](media/spring-cloud-permissions/add-permissions.png)
 
 ### <a name="search-for-azure-spring-cloud-permissions"></a>Sök efter Azure våren Cloud-behörigheter:
-7. Sök efter *Microsoft. app*i rutan Sök.
+7. Sök efter *Microsoft. app* i rutan Sök.
 Välj *Microsoft Azure våren Cloud*.
 
    ![Välj moln för Azure våren](media/spring-cloud-permissions/spring-cloud-permissions.png)
 
 8. Välj behörigheter för rollen utvecklare:
 
-Från **Microsoft. AppPlatform/våren**väljer du:
+Från **Microsoft. AppPlatform/våren** väljer du:
 * Skriva: skapa eller uppdatera Azure våren Cloud Service-instansen
 * Läs: få Azure våren Cloud Service-instans
 * Övrigt: lista test nycklar för Azure våren Cloud Service instance
 
-Från **Microsoft. AppPlatform/våren/Apps**väljer du:
+Från **Microsoft. AppPlatform/våren/Apps** väljer du:
 * Läs: Läs Microsoft Azure våren Cloud Application
 * Övrigt: Hämta Microsoft Azure fjäder moln program resurs överförings-URL
 
-Från **Microsoft. AppPlatform/våren/Apps/bindningar**väljer du:
+Från **Microsoft. AppPlatform/våren/Apps/bindningar** väljer du:
 * Läs: Läs Microsoft Azure fjäder moln program bindning
 
-Från **Microsoft. AppPlatform/våren/Apps/distributioner**väljer du:
+Från **Microsoft. AppPlatform/våren/Apps/distributioner** väljer du:
 * Skriv: Skriv Microsoft Azure fjäder moln program distribution
 * Läsa: Läs Microsoft Azure fjäder moln program distribution
 * Övrigt: starta Microsoft Azure fjäder moln program distribution
@@ -81,16 +81,16 @@ Från **Microsoft. AppPlatform/våren/Apps/distributioner**väljer du:
 * Övrigt: starta om Microsoft Azure fjäder moln program distribution
 * Övrigt: Hämta Microsoft Azure fjäder moln program distributions logg filens URL
 
-Från **Microsoft. AppPlatform/våren/Apps/Domains**väljer du:
+Från **Microsoft. AppPlatform/våren/Apps/Domains** väljer du:
 * Läsa: läsa Microsoft Azure vår moln program anpassad domän
 
-Från **Microsoft. AppPlatform/våren/certificates**väljer du:
+Från **Microsoft. AppPlatform/våren/certificates** väljer du:
 * Läs: Läs Microsoft Azure våren Cloud Certificate
 
-Från **Microsoft. AppPlatform/locations/operationResults/våren**väljer du:
+Från **Microsoft. AppPlatform/locations/operationResults/våren** väljer du:
 * Läs: Läs åtgärds resultat
 
-Från **Microsoft. AppPlatform/locations/operationStatus/operationId**väljer du:
+Från **Microsoft. AppPlatform/locations/operationStatus/operationId** väljer du:
 * Läsa: Läs åtgärds status
 
     [![Skapa Developler-behörigheter ](media/spring-cloud-permissions/developer-permissions-box.png)](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
@@ -107,7 +107,7 @@ Den här proceduren definierar en roll med behörighet att distribuera, testa oc
 1. Upprepa proceduren för att navigera i prenumeration, resurs grupp och åtkomst kontroll (IAM).
 2. Välj behörigheter för DevOps-ingenjörs rollen:
 
-Från **Microsoft. AppPlatform/våren**väljer du:
+Från **Microsoft. AppPlatform/våren** väljer du:
 * Skriva: skapa eller uppdatera Azure våren Cloud Service-instansen
 * Ta bort: ta bort Azure våren Cloud Service-instansen
 * Läs: få Azure våren Cloud Service-instans
@@ -116,19 +116,19 @@ Från **Microsoft. AppPlatform/våren**väljer du:
 * Övrigt: lista test nycklar för Azure våren Cloud Service instance
 * Övrigt: återskapa test nyckeln för Azure våren Cloud Service instance
 
-Från **Microsoft. AppPlatform/våren/Apps**väljer du:
+Från **Microsoft. AppPlatform/våren/Apps** väljer du:
 * Skriv: Skriv Microsoft Azure våren Cloud Application
 * Ta bort: ta bort Microsoft Azure våren Cloud Application
 * Läs: Läs Microsoft Azure våren Cloud Application
 * Övrigt: Hämta Microsoft Azure fjäder moln program resurs överförings-URL
 * Övrigt: Verifiera Microsoft Azure vår anpassade domän för moln program
 
-Från **Microsoft. AppPlatform/våren/Apps/bindningar**väljer du:
+Från **Microsoft. AppPlatform/våren/Apps/bindningar** väljer du:
 * Skriv: Skriv Microsoft Azure fjäder moln program bindning
 * Ta bort: ta bort Microsoft Azure fjäder moln program bindning
 * Läs: Läs Microsoft Azure fjäder moln program bindning
 
-Från **Microsoft. AppPlatform/våren/Apps/distributioner**väljer du:
+Från **Microsoft. AppPlatform/våren/Apps/distributioner** väljer du:
 * Skriv: Skriv Microsoft Azure fjäder moln program distribution
 * Ta bort: ta bort Azure våren Cloud Application Deployment
 * Läsa: Läs Microsoft Azure fjäder moln program distribution
@@ -137,18 +137,18 @@ Från **Microsoft. AppPlatform/våren/Apps/distributioner**väljer du:
 * Övrigt: starta om Microsoft Azure fjäder moln program distribution
 * Övrigt: Hämta Microsoft Azure fjäder moln program distributions logg filens URL
 
-Från **Microsoft. AppPlatform/våren/Apps/distributioner/SKU: er**väljer du:
+Från **Microsoft. AppPlatform/våren/Apps/distributioner/SKU: er** väljer du:
 * Läs: Visa lista över tillgängliga SKU: er för program distribution
 
-Från **Microsoft. AppPlatform/locations**väljer du:
+Från **Microsoft. AppPlatform/locations** väljer du:
 * Övrigt: kontrol lera namn tillgänglighet
 
 Från Microsoft. AppPlatform/locations/operationResults/våren Select: Read: Läs åtgärds resultat
 
-Från **Microsoft. AppPlatform/locations/operationStatus/operationId**väljer du:
+Från **Microsoft. AppPlatform/locations/operationStatus/operationId** väljer du:
 * Läsa: Läs åtgärds status
 
-Från **Microsoft. AppPlatform/SKU: er**väljer du:
+Från **Microsoft. AppPlatform/SKU: er** väljer du:
 * Läsa: lista tillgängliga SKU: er
 
    [![Behörigheter ](media/spring-cloud-permissions/dev-ops-permissions.png) för dev/op](media/spring-cloud-permissions/dev-ops-permissions.png#lightbox)
@@ -166,23 +166,23 @@ Den här proceduren definierar en roll med behörighet att distribuera, testa oc
 
 2. Välj behörigheter för rollen som tillförlitlig teknik för OPS-site:
 
-Från **Microsoft. AppPlatform/våren**väljer du:
+Från **Microsoft. AppPlatform/våren** väljer du:
 * Läs: få Azure våren Cloud Service-instans
 * Övrigt: lista test nycklar för Azure våren Cloud Service instance
 
-Från **Microsoft. AppPlatform/våren/Apps**väljer du:
+Från **Microsoft. AppPlatform/våren/Apps** väljer du:
 * Läs: Läs Microsoft Azure våren Cloud Application
 
-Från **Microsoft. AppPlatform/Apps/distributioner**väljer du:
+Från **Microsoft. AppPlatform/Apps/distributioner** väljer du:
 * Läsa: Läs Microsoft Azure fjäder moln program distribution
 * Övrigt: starta Microsoft Azure fjäder moln program distribution
 * Övrigt: stoppa Microsoft Azure fjäder moln program distribution
 * Övrigt: starta om Microsoft Azure fjäder moln program distribution
 
-Från **Microsoft. AppPlatform/locations/operationResults/våren**väljer du:
+Från **Microsoft. AppPlatform/locations/operationResults/våren** väljer du:
 * Läs: Läs åtgärds resultat
 
-Från **Microsoft. AppPlatform/locations/operationStatus/operationId**väljer du:
+Från **Microsoft. AppPlatform/locations/operationStatus/operationId** väljer du:
 * Läsa: Läs åtgärds status
 
    [![Ops/SRE-behörigheter ](media/spring-cloud-permissions/ops-sre-permissions.png)](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
@@ -202,7 +202,7 @@ Denna roll för Jenkins/GitHub-åtgärder kan skapa och konfigurera allt i Azure
 
 3. Välj behörigheter för Azure-pipeline/Provisioning-rollen:
   
-Från **Microsoft. AppPlatform/våren**väljer du:
+Från **Microsoft. AppPlatform/våren** väljer du:
 * Skriva: skapa eller uppdatera Azure våren Cloud Service-instansen
 * Ta bort: ta bort Azure våren Cloud Service-instansen
 * Läs: få Azure våren Cloud Service-instans
@@ -211,19 +211,19 @@ Från **Microsoft. AppPlatform/våren**väljer du:
 * Övrigt: lista test nycklar för Azure våren Cloud Service instance
 * Övrigt: återskapa test nyckeln för Azure våren Cloud Service instance
 
-Från **Microsoft. AppPlatform/våren/Apps**väljer du:
+Från **Microsoft. AppPlatform/våren/Apps** väljer du:
 * Skriv: Skriv Microsoft Azure våren Cloud Application
 * Ta bort: ta bort Microsoft Azure våren Cloud Application
 * Läs: Läs Microsoft Azure våren Cloud Application
 * Övrigt: Hämta Microsoft Azure fjäder moln program resurs överförings-URL
 * Övrigt: Verifiera Microsoft Azure vår anpassade domän för moln program
 
-Från **Microsoft. AppPlatform/våren/Apps/bindningar**väljer du:
+Från **Microsoft. AppPlatform/våren/Apps/bindningar** väljer du:
 * Skriv: Skriv Microsoft Azure fjäder moln program bindning
 * Ta bort: ta bort Microsoft Azure fjäder moln program bindning
 * Läs: Läs Microsoft Azure fjäder moln program bindning
 
-Från **Microsoft. AppPlatform/våren/Apps/distributioner**väljer du:
+Från **Microsoft. AppPlatform/våren/Apps/distributioner** väljer du:
 * Skriv: Skriv Microsoft Azure fjäder moln program distribution
 * Ta bort: ta bort Azure våren Cloud Application Deployment
 * Läsa: Läs Microsoft Azure fjäder moln program distribution
@@ -232,19 +232,19 @@ Från **Microsoft. AppPlatform/våren/Apps/distributioner**väljer du:
 * Övrigt: starta om Microsoft Azure fjäder moln program distribution
 * Övrigt: Hämta Microsoft Azure fjäder moln program distributions logg filens URL
 
-Från **Microsoft. AppPlatform/SKU: er**väljer du:
+Från **Microsoft. AppPlatform/SKU: er** väljer du:
 * Läsa: lista tillgängliga SKU: er
 
-Från **Microsoft. AppPlatform/locations**väljer du:
+Från **Microsoft. AppPlatform/locations** väljer du:
 * Övrigt: kontrol lera namn tillgänglighet
 
-Från **Microsoft. AppPlatform/locations/operationResults/våren**väljer du:
+Från **Microsoft. AppPlatform/locations/operationResults/våren** väljer du:
 * Läs: Läs åtgärds resultat
 
-Från **Microsoft. AppPlatform/locations/operationStatus/operationId**väljer du:
+Från **Microsoft. AppPlatform/locations/operationStatus/operationId** väljer du:
 * Läsa: Läs åtgärds status
 
-Från **Microsoft. AppPlatform/SKU: er**väljer du:
+Från **Microsoft. AppPlatform/SKU: er** väljer du:
 * Läsa: lista tillgängliga SKU: er
 
    [![Pipeline-behörigheter ](media/spring-cloud-permissions/pipelines-permissions-box.png)](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)  
@@ -257,9 +257,9 @@ Från **Microsoft. AppPlatform/SKU: er**väljer du:
 
 
 ## <a name="see-also"></a>Se även
-* [Skapa eller uppdatera anpassade roller i Azure med Microsoft Azure-portalen](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal)
+* [Skapa eller uppdatera anpassade roller i Azure med Microsoft Azure-portalen](../role-based-access-control/custom-roles-portal.md)
 
 Mer information om tre metoder som definierar en anpassad behörighet finns i:
-* [Klona en roll](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#clone-a-role)
-* [Börja från början](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-scratch)
-* [Starta från JSON](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-json)
+* [Klona en roll](../role-based-access-control/custom-roles-portal.md#clone-a-role)
+* [Börja från början](../role-based-access-control/custom-roles-portal.md#start-from-scratch)
+* [Starta från JSON](../role-based-access-control/custom-roles-portal.md#start-from-json)

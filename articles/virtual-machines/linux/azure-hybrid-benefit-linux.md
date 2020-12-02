@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 35bed58f95deebb78d8e787c8bc3f522ce7004df
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: f4dce87533927eebef792987b87d148e6a5268b4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326977"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500622"
 ---
 # <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Azure Hybrid-förmån – hur det gäller för Virtuella Linux-datorer
 
@@ -188,4 +188,4 @@ Det här avsnittet innehåller en lista över vanliga problem som kan påträffa
 | "Åtgärden kunde inte slutföras eftersom våra poster visar att du inte har aktiverat Red Hat Cloud Access på din Azure-prenumeration..." | För att kunna använda förmånen med virtuella datorer i RHEL måste du först registrera din Azure-prenumeration (er) med Red Hat Cloud Access. Besök den här länken om du vill veta mer om hur du registrerar Azure-prenumerationer för Red Hat Cloud Access
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur du skapar och uppdaterar virtuella datorer och lägger till licens typer (RHEL_BYOS SLES_BYOS) för Azure Hybrid-förmån med hjälp av [Azure CLI här.](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest&preserve-view=true)
+* Lär dig hur du skapar och uppdaterar virtuella datorer och lägger till licens typer (RHEL_BYOS SLES_BYOS) för Azure Hybrid-förmån med hjälp av [Azure CLI här.](/cli/azure/vm?preserve-view=true&view=azure-cli-latest)

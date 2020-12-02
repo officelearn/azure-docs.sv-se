@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 7d11fa8605d9cd5f335b6be56097caf7a5222bbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3d3ce8218030bc8ba6c59b26b7360bf2299e02a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006949"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499823"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Övervaka Site Recovery med Azure Monitor-loggar
 
@@ -36,7 +36,7 @@ Du behöver det här:
 
 - Minst en dator som skyddas i ett Recovery Services-valv.
 - En Log Analytics arbets yta för att lagra Site Recovery loggar. [Lär dig mer om](../azure-monitor/learn/quick-create-workspace.md) att konfigurera en arbets yta.
-- En grundläggande förståelse för hur du skriver, kör och analyserar logg frågor i Log Analytics. [Läs mer](../azure-monitor/log-query/get-started-portal.md).
+- En grundläggande förståelse för hur du skriver, kör och analyserar logg frågor i Log Analytics. [Läs mer](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Vi rekommenderar att du läser igenom [vanliga övervaknings frågor](monitoring-common-questions.md) innan du börjar.
 
@@ -46,7 +46,7 @@ Vi rekommenderar att du läser igenom [vanliga övervaknings frågor](monitoring
 
     ![Skärm bild som visar alternativet Lägg till diagnostisk inställning.](./media/monitoring-log-analytics/add-diagnostic.png)
 
-2. I **diagnostikinställningar**anger du ett namn och markerar kryss rutan **Skicka till Log Analytics**.
+2. I **diagnostikinställningar** anger du ett namn och markerar kryss rutan **Skicka till Log Analytics**.
 3. Välj prenumerationen Azure Monitor loggar och Log Analytics arbets ytan.
 4. Välj **Azure-diagnostik** i växla.
 5. I listan logg väljer du alla loggar med prefixet **AzureSiteRecovery**. Klicka sedan på **OK**.

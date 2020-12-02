@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: tal till text, tal till text program
-ms.openlocfilehash: f26d896397a950bc2c5f5d1f66dca6a01da045d7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 102289fd233a744952f37568abf77a753953637e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015230"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499653"
 ---
 # <a name="what-is-speech-to-text"></a>Vad är tal-till-text?
 
@@ -48,7 +48,7 @@ Exempel koden för talet SDK finns på GitHub. De här exemplen beskriver vanlig
 
 ## <a name="customization"></a>Anpassning
 
-Förutom standard modellen för tal tjänster kan du skapa anpassade modeller. Anpassningen hjälper till att undvika hinder för tal igenkänning, till exempel talad stil, vokabulär och bakgrunds brus, se [Custom Speech](how-to-custom-speech.md). Anpassnings alternativ varierar beroende på språk och nationella inställningar, se [språk som stöds](./language-support.md) för att kontrol lera stödet.
+Förutom standard modellen för tal tjänster kan du skapa anpassade modeller. Anpassningen hjälper till att undvika hinder för tal igenkänning, till exempel talad stil, vokabulär och bakgrunds brus, se [Custom Speech](./custom-speech-overview.md). Anpassnings alternativ varierar beroende på språk och nationella inställningar, se [språk som stöds](./language-support.md) för att kontrol lera stödet.
 
 ## <a name="batch-transcription"></a>Batch-transkription
 

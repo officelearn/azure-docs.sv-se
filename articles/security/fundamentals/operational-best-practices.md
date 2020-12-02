@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 98ba7c63e057e1f6b1f37a6529b6e94e2f514d6d
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 86874a60d48ddcbdaca5ae779ad554ee58cc233b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701039"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498854"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metod tips för Azure drift säkerhet
 Den här artikeln innehåller en uppsättning metod tips för att skydda dina data, program och andra till gångar i Azure.
@@ -195,7 +195,7 @@ Genom att använda [tjänst slut punkter](../../virtual-network/virtual-network-
 
 Vi ser ofta kunders lokala resurser som tar emot angrepp tillsammans med sina resurser i Azure. Om du ansluter en lokal miljö till Azure minimerar du exponeringen för lokala resurser till det offentliga Internet.
 
-Azure har två DDoS [tjänst erbjudanden](../../virtual-network/ddos-protection-overview.md) som ger skydd mot nätverks attacker:
+Azure har två DDoS [tjänst erbjudanden](../../ddos-protection/ddos-protection-overview.md) som ger skydd mot nätverks attacker:
 
 - Grundläggande skydd integreras i Azure som standard utan extra kostnad. Skalan och kapaciteten för det globalt distribuerade Azure-nätverket ger skydd mot vanliga attacker på nätverks nivå genom att alltid övervaka trafik övervakning och i real tid. Basic kräver ingen användar konfiguration eller program ändringar och hjälper till att skydda alla Azure-tjänster, inklusive PaaS-tjänster som Azure DNS.
 - Med standard skydd får du avancerade funktioner för DDoS-minskning mot nätverks attacker. Det är automatiskt anpassat för att skydda dina Azure-resurser. Det är enkelt att aktivera skydd när du skapar virtuella nätverk. Du kan också göra det när det har skapats och inga program-eller resurs ändringar krävs.

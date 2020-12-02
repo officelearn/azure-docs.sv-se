@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 52230d6b13c4210e0ff8e85d0a3efe39af55f6e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6fcf5980cf64b5fc088dfa295ef6221ffda6de9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935066"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499942"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Samla in och analysera loggdata för Azure Kognitiv sökning
 
@@ -25,7 +25,7 @@ När du ställer in diagnostikloggning uppmanas du att ange en lagrings funktion
 
 | Resurs | Används för |
 |----------|----------|
-| [Skicka till Log Analytics-arbetsytan](../azure-monitor/learn/tutorial-resource-logs.md) | Händelser och mått skickas till en Log Analytics-arbetsyta, som kan frågas i portalen för att returnera detaljerad information. En introduktion finns i [Kom igång med Azure Monitor loggar](../azure-monitor/log-query/get-started-portal.md) |
+| [Skicka till Log Analytics-arbetsytan](../azure-monitor/learn/tutorial-resource-logs.md) | Händelser och mått skickas till en Log Analytics-arbetsyta, som kan frågas i portalen för att returnera detaljerad information. En introduktion finns i [Kom igång med Azure Monitor loggar](../azure-monitor/log-query/log-analytics-tutorial.md) |
 | [Arkivera med Blob Storage](../storage/blobs/storage-blobs-overview.md) | Händelser och mått arkiveras i en BLOB-behållare och lagras i JSON-filer. Loggarna kan vara ganska detaljerade (per timme/minut) som är användbara för att söka efter en speciell incident men inte för en öppen undersökning. Använd en JSON-redigerare för att visa en rå logg fil eller Power BI för att sammanställa och visualisera loggdata.|
 | [Strömma till Händelsehubben](../event-hubs/index.yml) | Händelser och mät värden strömmas till en Azure Event Hubs-tjänst. Välj det här som en alternativ data insamlings tjänst för mycket stora loggar. |
 
@@ -68,7 +68,7 @@ För Blob Storage tar det en timme innan behållarna visas i Blob Storage. Det f
 
 Två tabeller innehåller loggar och mått för Azure Kognitiv sökning: **AzureDiagnostics** och **AzureMetrics**.
 
-1. Under **övervakning**väljer du **loggar**.
+1. Under **övervakning** väljer du **loggar**.
 
 1. Ange **AzureMetrics** i frågefönstret. Kör den här enkla frågan för att bekanta dig med de data som samlas in i den här tabellen. Bläddra i tabellen om du vill visa mått och värden. Observera antalet poster överst, och om tjänsten har samlat in måtten för ett tag kan du behöva justera tidsintervallet för att få en hanterbar data uppsättning.
 
@@ -120,7 +120,7 @@ AzureDiagnostics
 
 Loggade händelser som registrerats av Azure Monitor inkluderar de som är relaterade till indexering och frågor. **AzureDiagnostics** -tabellen i Log Analytics samlar in drift data som rör frågor och indexering.
 
-| OperationName | Beskrivning |
+| OperationName | Description |
 |---------------|-------------|
 | ServiceStats | Den här åtgärden är ett rutin anrop för att [Hämta tjänst statistik](/rest/api/searchservice/get-service-statistics), antingen kallat direkt eller implicit för att fylla i en portal översikts sida när den läses in eller uppdateras. |
 | Fråga. search |  Fråga begär Anden mot ett index se [övervaka frågor](search-monitor-queries.md) för information om loggade frågor.|
@@ -189,7 +189,7 @@ Blob Storage används för att arkivera loggfiler. Du kan Visa logg filen med va
 
 1. I Azure Portal öppnar du ditt lagrings konto. 
 
-2. Klicka på **blobbar**i det vänstra navigerings fönstret. Du bör se **Insights-logs-operationlogs** och **Insights-Metrics-pt1m**. Dessa behållare skapas av Azure Kognitiv sökning när loggdata exporteras till Blob Storage.
+2. Klicka på **blobbar** i det vänstra navigerings fönstret. Du bör se **Insights-logs-operationlogs** och **Insights-Metrics-pt1m**. Dessa behållare skapas av Azure Kognitiv sökning när loggdata exporteras till Blob Storage.
 
 3. Klicka på mapphierarkin tills du når. JSON-filen.  Använd snabb menyn för att hämta filen.
 

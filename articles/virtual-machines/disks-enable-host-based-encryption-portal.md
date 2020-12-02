@@ -8,20 +8,20 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4498e78b408f64ab5bc00b9f8730559b90c95d57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd74872bc1c46f3dddda1b6d15f14f26dc2187cb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88817909"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499381"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Använd Azure Portal för att aktivera kryptering från slut punkt till slut punkt med kryptering på värden
 
 När du aktiverar kryptering på värden krypteras data som lagras på den virtuella dator värden i vila och flöden krypteras till lagrings tjänsten. För konceptuell information om kryptering på värden, samt andra typer av hanterade disk krypterings typer, se:
 
-* Linux: [kryptering på värd-från-slutpunkt-till-slutpunkt-kryptering för dina VM-data](./linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+* Linux: [kryptering på värd-från-slutpunkt-till-slutpunkt-kryptering för dina VM-data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
-* Windows: [kryptering på värd-från-slutpunkt-till-slutpunkt-kryptering för dina VM-data](./windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+* Windows: [kryptering på värd-från-slutpunkt-till-slutpunkt-kryptering för dina VM-data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 ## <a name="restrictions"></a>Begränsningar
 
@@ -63,7 +63,7 @@ Du måste distribuera en ny virtuell dator för att aktivera kryptering på vär
 1. På bladet **diskar** väljer du **Ja** för **kryptering på värden**.
 1. Gör de återstående valen som du vill.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Skärm bild av bladet grunderna för att skapa virtuella datorer, region och V M storlek är markerade.":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Skärm bild av bladet disk för skapande av virtuell dator, kryptering på värd är markerat.":::
 
 1. Slutför distributions processen för den virtuella datorn och gör de val som passar din miljö.
 

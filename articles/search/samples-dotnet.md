@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: d068365cc8197a579c0b043d3fff2da3d54eb803
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ab6408621616a4be62631391456f73e90fced752
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687211"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499007"
 ---
 # <a name="net-c-code-samples-for-azure-cognitive-search"></a>Kod exempel för .NET (C#) för Azure Kognitiv sökning
 
 Lär dig mer om C#-kod exemplen som demonstrerar funktionerna i Azure Kognitiv sökning. De primära databaserna är följande:
 
-| Lagringsplats | Beskrivning |
+| Lagringsplats | Description |
 |------------|-------------|
 | [Azure-SDK – för-NET/SDK/search/Azure.Search.Documents/samples/](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/samples) | Exempel som producerats av Azure SDK-teamet som levereras med Azure.Search.Documents-klient biblioteket i SDK: n. Du kan också granska [enhets testerna](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/tests) för klient biblioteket för att se hur olika API: er anropas. |
 | [Azure-samples/Azure-Search-dotNet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) | Exempel som medföljer instruktions artiklar i dokumentationen, inklusive [hur du använder .net-klient biblioteket](search-howto-dotnet-sdk.md).|
@@ -32,7 +32,7 @@ Lär dig mer om C#-kod exemplen som demonstrerar funktionerna i Azure Kognitiv s
 
 Azure SDK för .NET innehåller många exempel och en [exempel på README](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/README.md) som beskriver var och en. Listan nedan visas för din bekvämlighet.
 
-| Exempel | Beskrivning |
+| Exempel | Description |
 |---------|-------------|
 | ["Hello World", synkront](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample01a_HelloWorld.md) | Visar hur du skapar en klient, autentiserar och hanterar fel med hjälp av synkrona metoder.|
 | ["Hello World", asynkront](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample01b_HelloWorldAsync.md) | Visar hur du skapar en klient, autentiserar och hanterar fel med hjälp av asynkrona metoder.  |
@@ -44,9 +44,9 @@ Azure SDK för .NET innehåller många exempel och en [exempel på README](https
 
 ## <a name="documentation-samples"></a>Dokumentationsexempel
 
-Följande exempel har en associerad artikel i [Azure kognitiv sökning-dokumentationen](https://docs.microsoft.com/azure/search/).
+Följande exempel har en associerad artikel i [Azure kognitiv sökning-dokumentationen](./index.yml).
 
-| Exempel | Beskrivning |
+| Exempel | Description |
 |---------|-------------|
 | [Start](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) | Källkod för [snabb start: skapa ett sökindex ](search-get-started-dotnet.md).  |
 | [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | Käll kod för [att använda .net-klient biblioteket](search-howto-dotnet-sdk.md) |
@@ -60,9 +60,9 @@ Följande exempel har en associerad artikel i [Azure kognitiv sökning-dokumenta
 
 ## <a name="standalone-samples-and-solutions"></a>Fristående exempel och lösningar
 
-| Exempel | Beskrivning |
+| Exempel | Description |
 |---------|-------------|
 | [Azure-Search – Power-färdigheter](https://github.com/Azure-Samples/azure-search-power-skills)  | Källkod för förbrukade anpassade kunskaper som du kan använda i dina vunna lösningar.  |
-| [Lösningsaccelerator för kunskapsutvinning](https://docs.microsoft.com/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Innehåller mallar, stödfiler och analys rapporter som hjälper dig att prototypa en lösning för kunskaps utvinning från slut punkt till slut punkt.  |
+| [Lösningsaccelerator för kunskapsutvinning](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Innehåller mallar, stödfiler och analys rapporter som hjälper dig att prototypa en lösning för kunskaps utvinning från slut punkt till slut punkt.  |
 | [Covid-19 Sök i app-lagringsplatsen](https://github.com/liamca/covid19search) | Käll kods lagrings plats för den Kognitiv sökning baserade [Covid-19 Sökappen](https://covid19search.azurewebsites.net/) |
 | [JFK](https://github.com/Microsoft/AzureSearch_JFK_Files) | Läs mer om [JFK-lösningen](https://www.microsoft.com/ai/ai-lab-jfk-files). |

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 91dfb3cb07cca8ec89c77dea43f1cd075db11bbf
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: ed2cb967b24ce5abdebadfe29847ae1a16b4e745
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014772"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498752"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Översikt över Azure Virtual Machines-säkerhet
 Den här artikeln innehåller en översikt över de centrala Azure-säkerhetsfunktioner som kan användas med virtuella datorer.
@@ -117,7 +117,7 @@ Site Recovery:
 Läs mer:
 
 * [Vad är Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
-* [Hur fungerar Azure Site Recovery?](/azure/site-recovery/azure-to-azure-architecture)
+* [Hur fungerar Azure Site Recovery?](../../site-recovery/azure-to-azure-architecture.md)
 * [Vilka arbets belastningar skyddas av Azure Site Recovery?](../../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>Virtuellt nätverk
@@ -128,7 +128,7 @@ Ett virtuellt Azure-nätverk är en logisk konstruktion som byggts ovanpå den f
 
 Läs mer:
 
-* [Översikt över Azure Network Security](network-overview.md)
+* [Översikt över nätverkssäkerhet i Azure](network-overview.md)
 * [Översikt över Virtual Network](../../virtual-network/virtual-networks-overview.md)
 * [Nätverksfunktioner och partnerskap för företags scenarier](https://azure.microsoft.com/blog/networking-enterprise/)
 

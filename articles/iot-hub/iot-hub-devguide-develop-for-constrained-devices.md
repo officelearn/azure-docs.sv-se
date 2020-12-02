@@ -10,12 +10,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9010ff582f05e81e17e280e20f180ceccf0e746f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a43eb2537ebc09ffcb524a4426d7a8c9bec560b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81733194"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500010"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Utveckla för begränsade enheter med hjälp av Azure IoT C SDK
 
@@ -30,7 +30,10 @@ C SDK är tillgängligt i Package form från apt-get, NuGet och MBED. Om du vill
 
 Bygg C SDK för begränsade enheter.
 
-### <a name="prerequisites"></a>Krav
+> [!NOTE]
+> Embedded C SDK är ett alternativ för begränsade enheter som stöder BYON-metoden (ta med din egen nätverks lösning). IoT-utvecklare har frihet att ta MQTT-klienten, TLS och socket som de väljer för att skapa en enhets lösning. [Läs mer om Embedded C SDK](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot).
+
+### <a name="prerequisites"></a>Förutsättningar
 
 Följ den här [installations guiden för C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) för att förbereda utvecklings miljön för att bygga C SDK. Innan du kommer till steget för att skapa med cmake kan du anropa cmake-flaggor för att ta bort oanvända funktioner.
 

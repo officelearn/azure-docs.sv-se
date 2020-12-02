@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 730a29ff579ce6a1970ceafad5891611b52c059d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7ed2a672f0f7149240e799b5529a7a3a6836a702
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972296"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499313"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrera dina IaaS-resurser till Azure Resource Manager den 1 mars 2023 
 
@@ -45,12 +45,12 @@ Börja planera migreringen till Azure Resource Manager, idag.
    - Du kan också fråga Azure Resource Graph genom att använda [portalen](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22) eller [PowerShell](../governance/resource-graph/concepts/work-with-data.md) för att visa en lista över alla flaggade virtuella datorer (klassisk) och relaterad information för de valda prenumerationerna. 
    - Den 8 februari och den 2 september 2020 skickade vi ut e-postmeddelanden till prenumerations ägare med en lista över alla prenumerationer som innehåller dessa virtuella datorer (klassisk). Använd dem för att bygga den här listan. 
 
-1. [Läs mer](./windows/migration-classic-resource-manager-overview.md) om hur du migrerar dina virtuella [Linux](./linux/migration-classic-resource-manager-plan.md) -och [Windows](./windows/migration-classic-resource-manager-plan.md) -datorer (klassisk) till Azure Resource Manager. Mer information finns i [vanliga frågor och svar om klassisk att Azure Resource Manager migrering](./migration-classic-resource-manager-faq.md).
+1. [Läs mer](./migration-classic-resource-manager-overview.md) om hur du migrerar dina virtuella [Linux](./migration-classic-resource-manager-plan.md) -och [Windows](./migration-classic-resource-manager-plan.md) -datorer (klassisk) till Azure Resource Manager. Mer information finns i [vanliga frågor och svar om klassisk att Azure Resource Manager migrering](./migration-classic-resource-manager-faq.md).
 
-1. Vi rekommenderar att du startar planeringen genom att använda [verktyget Platform support migration](./windows/migration-classic-resource-manager-overview.md) för att migrera dina befintliga virtuella datorer med tre enkla steg: validera, Förbered och genomför. Verktyget är utformat för att migrera dina virtuella datorer inom minimalt till ingen stillestånds tid. 
+1. Vi rekommenderar att du startar planeringen genom att använda [verktyget Platform support migration](./migration-classic-resource-manager-overview.md) för att migrera dina befintliga virtuella datorer med tre enkla steg: validera, Förbered och genomför. Verktyget är utformat för att migrera dina virtuella datorer inom minimalt till ingen stillestånds tid. 
 
    1. Det första steget, validera, har ingen inverkan på din befintliga distribution och innehåller en lista över alla scenarier som inte stöds för migrering. 
-   1. Gå igenom [listan med lösningar](./windows/migration-classic-resource-manager-overview.md#unsupported-features-and-configurations) för att åtgärda distributionen och gör den redo för migrering. 
+   1. Gå igenom [listan med lösningar](./migration-classic-resource-manager-overview.md#unsupported-features-and-configurations) för att åtgärda distributionen och gör den redo för migrering. 
    1. Helst när alla verifierings fel har åtgärd ATS bör du inte stöta på några problem under förbereda och genomföra. När genomförandet har genomförts migreras distributionen till Azure Resource Manager och kan sedan hanteras via nya API: er som exponeras av Azure Resource Manager. 
 
    Om migreringen inte är lämplig för migreringen kan du utforska [andra beräknings erbjudanden](/azure/architecture/guide/technology-choices/compute-decision-tree) för migreringen. Eftersom det finns många Azure Compute-erbjudanden, och de skiljer sig från varandra, kan vi inte tillhandahålla en sökväg för migrering till plattformar som stöds.  

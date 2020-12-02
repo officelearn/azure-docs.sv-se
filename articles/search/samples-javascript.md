@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 6bcdb4a48f71e28514229116c10bd25747b55616
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 234c70fffb6f353c670d23624cc446fdaf6bd886
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701831"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498973"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>JavaScript-kod exempel för Azure Kognitiv sökning
 
 Lär dig mer om exempel på JavaScript-kod som demonstrerar funktionerna i Azure Kognitiv sökning. De primära databaserna är följande:
 
-| Lagringsplats | Beskrivning |
+| Lagringsplats | Description |
 |------------|-------------|
 | [Azure-SDK-för-JS/tree/master/SDK/Sök/Sök-dokument](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents) | Exempel som producerats av Azure SDK-teamet som levereras med Azure.Search.Documents-klient biblioteket i SDK: n. Du kan också granska [enhets testerna](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/test) för klient biblioteket för att se hur olika API: er anropas. |
 | [Azure-samples/Azure-Search-JavaScript-samples](https://github.com/Azure-Samples/azure-search-javascript-samples) | Kod exempel som följer med instruktions artiklar, inklusive [snabb start: skapa ett Sök index i Java Script](search-get-started-javascript.md).|
@@ -31,7 +31,7 @@ Lär dig mer om exempel på JavaScript-kod som demonstrerar funktionerna i Azure
 
 Azure SDK för Java innehåller flera exempel och en [komma igång-sida](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/README.md#getting-started) som omfattar paket installation, klient konfiguration och fel sökning. Sidan beskriver även följande exempel kategorier, som visas här för din bekvämlighet.
 
-| Exempel | Beskrivning |
+| Exempel | Description |
 |---------|-------------|
 | [index](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexes) | Visar hur du skapar, uppdaterar, hämtar, visar och tar bort [Sök index](search-what-is-an-index.md). Den här exempel kategorin innehåller också ett exempel på tjänst statistik. |
 | [dataSourceConnections (för indexerare)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/dataSourceConnections) | Visar hur du skapar, uppdaterar, hämtar, visar och tar bort indexerare data källor, som krävs för indexerare-baserad indexering av [Azure-datakällor som stöds](search-indexer-overview.md#supported-data-sources). |
@@ -44,7 +44,7 @@ Azure SDK för Java innehåller flera exempel och en [komma igång-sida](https:/
 
 SDK innehåller också TypeScript-exempel som visas här för din bekvämlighet.
 
-| Exempel | Beskrivning |
+| Exempel | Description |
 |---------|-------------|
 | [index](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexes) | Visar hur du skapar, uppdaterar, hämtar, visar och tar bort [Sök index](search-what-is-an-index.md). Den här exempel kategorin innehåller också ett exempel på tjänst statistik. |
 | [dataSourceConnections (för indexerare)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/dataSourceConnections) | Visar hur du skapar, uppdaterar, hämtar, visar och tar bort indexerare data källor, som krävs för indexerare-baserad indexering av [Azure-datakällor som stöds](search-indexer-overview.md#supported-data-sources). |
@@ -55,14 +55,14 @@ SDK innehåller också TypeScript-exempel som visas här för din bekvämlighet.
 
 ## <a name="documentation-samples"></a>Dokumentationsexempel
 
-Följande exempel har en associerad artikel i [Azure kognitiv sökning-dokumentationen](https://docs.microsoft.com/azure/search/).
+Följande exempel har en associerad artikel i [Azure kognitiv sökning-dokumentationen](./index.yml).
 
-| Exempel | Beskrivning | 
+| Exempel | Description | 
 |---------|-------------|
 | [Start](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Källkod för [snabb start: skapa ett Sök index i Java Script](search-get-started-javascript.md).  |
 
 ## <a name="standalone-samples"></a>Fristående exempel
 
-| Exempel | Beskrivning |
+| Exempel | Description |
 |---------|-------------|
 | [Azure-Search-reakta-Template](https://github.com/dereklegenzoff/azure-search-react-template) | Reagera på mall för Azure Kognitiv sökning (github.com) |

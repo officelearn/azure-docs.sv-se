@@ -4,16 +4,16 @@ description: Lär dig hur du ansluter till och hämtar data från en Analysis Se
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 93b1e9a2ea052a39e891cf9084b632f434c341df
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 4abe1e9c6f9d7b62792936f816b9c46a937be41a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013703"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499432"
 ---
 # <a name="connecting-to-servers"></a>Ansluta till servrar
 
@@ -21,7 +21,7 @@ Den här artikeln beskriver hur du ansluter till en server med hjälp av data mo
 
 ## <a name="client-libraries"></a>Klientbibliotek
 
-[Hämta de senaste klient biblioteken](/analysis-services/client-libraries?view=azure-analysis-services-current)
+[Hämta de senaste klient biblioteken](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)
 
 Alla anslutningar till en server, oavsett typ, kräver uppdaterade AMO-, ADOMD.NET-och OLEDB-klientcertifikat för att ansluta till och gränssnitt med en Analysis Services-server. För SSMS, Visual Studio, Excel 2016 och senare och Power BI, installeras eller uppdateras de senaste klient biblioteken med månads versioner. Men i vissa fall är det möjligt att ett program kanske inte har det senaste. Till exempel när principer fördröjer uppdateringar eller Microsoft 365 uppdateringar finns på den uppskjutna kanalen.
 
@@ -35,7 +35,7 @@ När du skapar en Analysis Services-server i Azure anger du ett unikt namn och d
 ```
 <protocol>://<region>/<servername>
 ```
- Om protokollet är en sträng i **Azure**är region den URI där servern skapades (till exempel westus.asazure.Windows.net) och servername är namnet på din unika server i regionen.
+ Om protokollet är en sträng i **Azure** är region den URI där servern skapades (till exempel westus.asazure.Windows.net) och servername är namnet på din unika server i regionen.
 
 ### <a name="get-the-server-name"></a>Hämta Server namnet
 
@@ -79,7 +79,7 @@ Med äldre versioner av Excel kan användarna ansluta till en Azure Analysis Ser
 
 ## <a name="connect-as-a-linked-server-from-sql-server"></a>Anslut som en länkad server från SQL Server
 
-SQL Server kan ansluta till en Azure Analysis Services resurs som en [länkad server](/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) genom att ange MSOLAP som Provider för data källa. Innan du konfigurerar en länkad server anslutning måste du installera det senaste [MSOLAP-klient biblioteket](/analysis-services/client-libraries?view=azure-analysis-services-current) (Provider). 
+SQL Server kan ansluta till en Azure Analysis Services resurs som en [länkad server](/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) genom att ange MSOLAP som Provider för data källa. Innan du konfigurerar en länkad server anslutning måste du installera det senaste [MSOLAP-klient biblioteket](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) (Provider). 
 
 För att länkade Server anslutningar ska Azure Analysis Services, måste MSOLAP-providern instansieras utanför SQL Server processen. När du konfigurerar alternativ för länkad server kontrollerar du att alternativet **Tillåt InProcess** **inte är markerat**.
 

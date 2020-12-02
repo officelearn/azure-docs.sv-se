@@ -15,18 +15,18 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 2bc1878739c9ce23cb1448eee87d71575823a2f6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a21df6e5f8d437415bb5376969d56d26153b5c5f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740302"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500469"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Självstudie: övervaka en virtuell Linux-dator i Azure
 
 Azure Monitoring använder agenter för att samla in start-och prestanda data från virtuella Azure-datorer, lagra data i Azure Storage och göra dem tillgängliga via portalen, Azure PowerShell-modulen och Azure CLI. Avancerad övervakning levereras med Azure Monitor for VMs genom att samla in prestanda mått, identifiera program komponenter som är installerade på den virtuella datorn och innehåller prestanda diagram och beroende karta.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Aktivera startdiagnostik på en virtuell dator
@@ -40,7 +40,7 @@ I de här självstudierna får du lära dig att
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Kopiera kodblocket genom att välja **Kopiera** , klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
@@ -52,7 +52,7 @@ Du behöver en virtuell dator för att kunna se diagnostik och mått i praktiken
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Skapa nu en virtuell dator med [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). Följande exempel skapar en virtuell dator som heter *myVM* , och SSH-nycklar skapas om de inte redan finns på *~/.ssh/* :
+Skapa nu en virtuell dator med [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). Följande exempel skapar en virtuell dator som heter *myVM*, och SSH-nycklar skapas om de inte redan finns på *~/.ssh/*:
 
 ```azurecli-interactive
 az vm create \
@@ -118,8 +118,8 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
 En virtuell Linux-dator har en dedikerad värd i Azure som den interagerar med. Mått samlas in automatiskt för värden och kan visas i Azure Portal:
 
-1. I Azure Portal, klicka på **Resource Groups** , välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
-1. Om du vill se status för den virtuella värddatorn väljer du **Mått** på fönstret för den virtuella datorn och väljer något av *[Värd]* -måtten under **Tillgängliga mått** .
+1. I Azure Portal, klicka på **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
+1. Om du vill se status för den virtuella värddatorn väljer du **Mått** på fönstret för den virtuella datorn och väljer något av *[Värd]*-måtten under **Tillgängliga mått**.
 
     ![Visa värdmått](./media/tutorial-monitoring/monitor-host-metrics.png)
 
@@ -127,9 +127,9 @@ En virtuell Linux-dator har en dedikerad värd i Azure som den interagerar med. 
 
 Så här aktiverar du övervakning av den virtuella Azure-datorn med Azure Monitor for VMs:
 
-1. I Azure Portal: Klicka på **Resource Groups** , välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
+1. I Azure Portal: Klicka på **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
 
-2. På sidan virtuell dator i avsnittet **övervakning** väljer du **insikter (för hands version)** .
+2. På sidan virtuell dator i avsnittet **övervakning** väljer du **insikter (för hands version)**.
 
 3. Välj **Testa nu** på sidan **Insights (för hands version)** .
 
@@ -150,11 +150,11 @@ När du har aktiverat övervakning kan du behöva vänta flera minuter innan du 
 
 Azure Monitor for VMs innehåller en uppsättning prestanda diagram som riktar sig mot flera nyckeltal (KPI: er) för att hjälpa dig att avgöra hur väl en virtuell dator fungerar. Utför följande steg för att komma åt från den virtuella datorn.
 
-1. I Azure Portal: Klicka på **Resource Groups** , välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
+1. I Azure Portal: Klicka på **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
 
-2. På sidan virtuell dator i avsnittet **övervakning** väljer du **insikter (för hands version)** .
+2. På sidan virtuell dator i avsnittet **övervakning** väljer du **insikter (för hands version)**.
 
-3. Välj fliken **prestanda** .
+3. Välj fliken **Prestanda**.
 
 På den här sidan ingår inte bara prestanda användnings diagram, utan även en tabell som visar för varje logisk disk som identifieras, dess kapacitet, användning och total genomsnitt per mått.
 
@@ -164,7 +164,7 @@ Du kan skapa aviseringar baserat på specifika prestandamått. Aviseringar kan t
 
 I följande exempel skapas en avisering för genomsnittlig CPU-användning.
 
-1. I Azure Portal: Klicka på **Resource Groups** , välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
+1. I Azure Portal: Klicka på **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
 
 2. Klicka på **Aviseringsregler** på bladet för den virtuella datorn och klicka sedan på **Lägg till metrisk varning** längst upp på aviseringsbladet.
 
@@ -174,7 +174,7 @@ I följande exempel skapas en avisering för genomsnittlig CPU-användning.
 
 5. Du kan också markera kryssrutan för *E-postägare, deltagare och läsare* om du vill skicka ett e-postmeddelande. Standardåtgärden är att visa en avisering i portalen.
 
-6. Klicka på **OK** .
+6. Klicka på **OK**.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -192,4 +192,4 @@ I den här självstudien har du konfigurerat och visat prestanda för den virtue
 Gå vidare till nästa kurs om du vill veta mer om Azure Security Center.
 
 > [!div class="nextstepaction"]
-> [Hantera säkerheten för virtuella datorer](tutorial-azure-security.md)
+> [Hantera säkerheten för virtuella datorer](../tutorial-azure-security.md)

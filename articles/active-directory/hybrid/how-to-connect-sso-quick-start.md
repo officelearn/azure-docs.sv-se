@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40d77f4ebb897884f03377e6d9f1243a6d436766
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295034"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500214"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory sömlös enkel inloggning: snabb start
 
@@ -37,7 +37,7 @@ Se till att följande krav är uppfyllda:
 
 * **Konfigurera din Azure AD Connect Server**: om du använder [direktautentisering](how-to-connect-pta.md) som inloggnings metod krävs ingen ytterligare krav kontroll. Om du använder [Password-hash-synkronisering](how-to-connect-password-hash-synchronization.md) som inloggnings metod och om det finns en brand vägg mellan Azure AD Connect och Azure AD, kontrollerar du att:
    - Du använder version 1.1.644.0 eller senare av Azure AD Connect. 
-   - Om din brand vägg eller proxy tillåter kan du lägga till anslutningarna till listan över tillåtna ** \* Msappproxy.net** -URL: er via port 443. Om inte, Tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)som uppdateras varje vecka. Den här förutsättningen gäller endast när du aktiverar funktionen. Det krävs inte för faktiska användar inloggningar.
+   - Om din brand vägg eller proxy tillåter kan du lägga till anslutningarna till listan över tillåtna **\* Msappproxy.net** -URL: er via port 443. Om inte, Tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)som uppdateras varje vecka. Den här förutsättningen gäller endast när du aktiverar funktionen. Det krävs inte för faktiska användar inloggningar.
 
     >[!NOTE]
     >Azure AD Connect-versionerna 1.1.557.0, 1.1.558.0, 1.1.561.0 och 1.1.614.0 har ett problem som rör hash-synkronisering av lösen ord. Om du _inte_ tänker använda Lösenordssynkronisering i samband med direktautentisering kan du läsa mer i [Azure AD Connect viktig information](./reference-connect-version-history.md) .
@@ -107,7 +107,7 @@ Du kan gradvis distribuera sömlös SSO till dina användare med hjälp av anvis
 Dessutom måste du aktivera en princip inställning för intranät zon som kallas **Tillåt uppdateringar till statusfältet via skript** genom att Grupprincip. 
 
 >[!NOTE]
-> Följande anvisningar fungerar bara för Internet Explorer och Google Chrome i Windows (om det delar en uppsättning betrodda webbplats-URL: er med Internet Explorer). Läs nästa avsnitt för instruktioner om hur du konfigurerar Mozilla Firefox och Google Chrome på macOS.
+> Följande anvisningar fungerar bara för Internet Explorer, Microsoft Edge och Google Chrome i Windows (om det delar en uppsättning betrodda webbplats-URL: er med Internet Explorer). Läs nästa avsnitt för instruktioner om hur du konfigurerar Mozilla Firefox och Google Chrome på macOS.
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Varför behöver du ändra användarnas intranät zons inställningar?
 
@@ -117,14 +117,14 @@ Det finns två sätt att ändra användares intranät zon inställningar:
 
 | Alternativ | Administrativa överväganden | Användarupplevelse |
 | --- | --- | --- |
-| Grup princip | Admin låser redigerings inställningarna för zonen Intranät | Användare kan inte ändra sina egna inställningar |
+| Grupprincip | Admin låser redigerings inställningarna för zonen Intranät | Användare kan inte ändra sina egna inställningar |
 | Grup princip inställningar |  Admin tillåter redigering av inställningar för zonen Intranät | Användare kan ändra sina egna inställningar |
 
 ### <a name="group-policy-option---detailed-steps"></a>Alternativet "grup princip" – detaljerade steg
 
 1. Öppna Redigeraren Grupprinciphantering-verktyget.
 2. Redigera grup principen som används för vissa eller alla dina användare. I det här exemplet används **standard domän principen**.
-3. Bläddra till **användar konfigurations**  >  **princip**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Internet Explorer Internet Explorer**  >  **Internet Control Panel**på  >  **säkerhets sidan**. Välj sedan **plats till zon tilldelnings lista**.
+3. Bläddra till **användar konfigurations**  >  **principer**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Internet Explorer Internet Explorer**  >  **Internet Control Panel** på  >  **säkerhets sidan**. Välj sedan **plats till zon tilldelnings lista**.
     ![Skärm bild som visar "säkerhets sidan" med "plats till zon tilldelnings lista" vald.](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Aktivera principen och ange sedan följande värden i dialog rutan:
    - **Värde namn**: Azure AD-URL: en där Kerberos-biljetterna vidarebefordras.
@@ -144,7 +144,7 @@ Det finns två sätt att ändra användares intranät zon inställningar:
 
     ![Skärm bild som visar fönstret "Visa innehåll" med en zon tilldelning markerad.](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Bläddra till princip för **användar konfiguration**  >  **Policy**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Internet Explorer Internet Explorer**  >  **Internet Control Panel**  >  **säkerhets sida**  >  **intranät zon**. Välj sedan **Tillåt uppdateringar av statusfältet via skript**.
+6. Bläddra till **användar konfigurations**  >  **principer**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Internet Explorer Internet Explorer**  >  **Internet Control Panel**  >  **säkerhets sida**  >  **zonen Intranät**. Välj sedan **Tillåt uppdateringar av statusfältet via skript**.
 
     ![Skärm bild som visar sidan "intranät zon" med "Tillåt uppdateringar till statusfält via skript" markerat.](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -161,10 +161,10 @@ Det finns två sätt att ändra användares intranät zon inställningar:
     ![Skärm bild som visar "registret" markerat och "register objekt" valt.](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Ange följande värden i lämpliga fält och klicka på **OK**.
-   - **Nyckel Sök väg**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-SSO.com\autologon***
-   - **Värde namn**: ***https***
-   - **Värdetyp**: ***REG_DWORD***
-   - **Värde data**: ***00000001***
+   - **Nyckel Sök väg**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-SSO.com\autologon_* _
+   - _* Värde namn * *: **_https_*_
+   - _* Värdetyp * *: **_REG_DWORD_*_
+   - _* Värde data * *: **_00000001_*_
  
      ![Skärm bild som visar fönstret "nya register egenskaper".](./media/how-to-connect-sso-quick-start/sso16.png)
  
@@ -176,7 +176,7 @@ Det finns två sätt att ändra användares intranät zon inställningar:
 
 I Mozilla Firefox används inte Kerberos-autentisering automatiskt. Varje användare måste manuellt lägga till Azure AD-URL: en i sina Firefox-inställningar med hjälp av följande steg:
 1. Kör Firefox och ange `about:config` i adress fältet. Stäng alla meddelanden som visas.
-2. Sök efter **nätverket. inställningar för Negotiate-auth. Trusted-URI: er** . Den här inställningen listar Firefoxs betrodda platser för Kerberos-autentisering.
+2. Sök efter inställningen _ *nätverk. Negotiate-auth. Trusted-URI** Preference. Den här inställningen listar Firefoxs betrodda platser för Kerberos-autentisering.
 3. Högerklicka och välj **ändra**.
 4. Ange `https://autologon.microsoftazuread-sso.com` i fältet.
 5. Välj **OK** och öppna sedan webbläsaren igen.

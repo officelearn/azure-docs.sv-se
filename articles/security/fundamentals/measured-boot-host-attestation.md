@@ -8,19 +8,19 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
-ms.openlocfilehash: 73ae811c17a578cafc557b0cda9e98b101dd5c03
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f4906d4e0590df047bac4ee15cb0e996a59c3d5b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557826"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498871"
 ---
 # <a name="measured-boot-and-host-attestation"></a>Uppmätt start-och värd attestering
 Den här artikeln beskriver hur Microsoft garanterar integritet och säkerhet för värdar genom uppmätt start och värd attestering.
 
 ## <a name="measured-boot"></a>Uppmätt start
 
-[Trusted Platform Module](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-top-node) (TPM) är en manipulerad, kryptografiskt, säker gransknings komponent med inbyggd program vara som tillhandahålls av en betrodd tredje part. Start konfigurations loggen innehåller hash-länkade mätningar som registrerats i den plattforms konfigurations register (PCR) när värden senast genomgick start ordningen. Följande bild visar den här inspelnings processen. Genom att lägga till en tidigare hashad mätning i nästa måttets hash och köra hash-algoritmen i unionen uppnår du hash-länkning.
+[Trusted Platform Module](/windows/security/information-protection/tpm/trusted-platform-module-top-node) (TPM) är en manipulerad, kryptografiskt, säker gransknings komponent med inbyggd program vara som tillhandahålls av en betrodd tredje part. Start konfigurations loggen innehåller hash-länkade mätningar som registrerats i den plattforms konfigurations register (PCR) när värden senast genomgick start ordningen. Följande bild visar den här inspelnings processen. Genom att lägga till en tidigare hashad mätning i nästa måttets hash och köra hash-algoritmen i unionen uppnår du hash-länkning.
 
 ![Diagram som visar hash-kedje för värd attesterings tjänsten.](./media/measured-boot-host-attestation/hash-chaining.png)
 
@@ -54,8 +54,8 @@ UEFI ( [säker start](secure-boot.md) ) garanterar att endast betrodda lågnivå
 ## <a name="next-steps"></a>Nästa steg
 Mer information om vad vi gör för att driva plattforms integritet och säkerhet finns i:
 
-- [Säkerhet för inbyggd program vara](firmware.md)
+- [Säkerhet för inbyggd programvara](firmware.md)
 - [Säker start](secure-boot.md)
-- [Project-Cerberus](project-cerberus.md)
+- [Project Cerberus](project-cerberus.md)
 - [Kryptering i vila](encryption-atrest.md)
 - [Hypervisor-säkerhet](hypervisor.md)

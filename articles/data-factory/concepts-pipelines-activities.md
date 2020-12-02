@@ -3,18 +3,18 @@ title: Pipelines och aktiviteter i Azure Data Factory
 description: Läs mer om pipelines och aktiviteter i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 93d741d22ac03c132954a48731451f891042d7b4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ceaced5860976b0fa9f84903804700f778ed9550
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003078"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500095"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
 
@@ -57,7 +57,7 @@ Datatransformeringsaktivitet | Compute-miljö
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
 [Azure Machine Learning Studio (klassisk) aktiviteter: batch-körning och uppdaterings resurs](transform-data-using-machine-learning.md) | Azure VM
-[Lagrad procedur](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics (tidigare SQL Data Warehouse) eller SQL Server
+[Lagrad procedur](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics eller SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Anpassad aktivitet](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks-anteckningsbok](transform-data-databricks-notebook.md) | Azure Databricks
@@ -106,7 +106,7 @@ Så här definieras en pipeline i JSON-format:
 }
 ```
 
-Tagg | Beskrivning | Typ | Obligatorisk
+Tagga | Beskrivning | Typ | Obligatorisk
 --- | ----------- | ---- | --------
 name | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, en siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" </li></ul> | Sträng | Yes
 beskrivning | Ange texten som beskriver vad pipeline används till. | Sträng | No
@@ -141,7 +141,7 @@ I körningsaktiviteter ingår [dataförflyttning](#data-movement-activities) och
 
 I följande tabell beskrivs egenskaperna i definitionen för aktivitets-JSON:
 
-Tagg | Beskrivning | Krävs
+Tagga | Beskrivning | Krävs
 --- | ----------- | ---------
 name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | Yes</li></ul>
 beskrivning | Text som beskriver vad aktiviteten används till | Yes
@@ -206,7 +206,7 @@ Kontrollaktiviteter har följande toppnivåstruktur:
 }
 ```
 
-Tagg | Beskrivning | Krävs
+Tagga | Beskrivning | Krävs
 --- | ----------- | --------
 name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför.<br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | Yes</li><ul>
 beskrivning | Text som beskriver vad aktiviteten används till | Yes

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 357f44149cb17976556c1e4609f6f2af531b80ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f36502eb464f051cd50b51245db69fa76daa915
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935780"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499551"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Partiell terms ökning och mönster med specialtecken (jokertecken, regex, mönster)
 
@@ -160,7 +160,7 @@ Oavsett om du utvärderar analyser eller om du flyttar framåt med en speciell k
 
 Inbyggda eller fördefinierade analyser kan anges efter namn på en `analyzer` egenskap i en fält definition, utan ytterligare konfiguration som krävs i indexet. Följande exempel visar hur du ställer in analys funktionen `whitespace` för ett fält. 
 
-För andra scenarier och mer information om andra inbyggda analyser, se [fördefinierade analys listor](/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+För andra scenarier och mer information om andra inbyggda analyser, se [fördefinierade analys listor](./index-add-custom-analyzers.md#predefined-analyzers-reference). 
 
 ```json
     {

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: a3ff2a1f92cabb61f58d70b732738e613afa7cd9
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 87bc411903604a7068f346604853a2a61c9a6f1c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025641"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499194"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspektera Custom Speech-data
 
@@ -99,8 +99,8 @@ De filer som exporteras till data används som en helt ny data uppsättning och 
 
 - [Utvärdera dina data](how-to-custom-speech-evaluate-data.md)
 - [Träna modellen](how-to-custom-speech-train-model.md)
-- [Förbättra din modell](how-to-custom-speech-improve-accuracy.md)
-- [Distribuera din modell](how-to-custom-speech-deploy-model.md)
+- [Förbättra din modell](./how-to-custom-speech-evaluate-data.md)
+- [Distribuera din modell](./how-to-custom-speech-train-model.md)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

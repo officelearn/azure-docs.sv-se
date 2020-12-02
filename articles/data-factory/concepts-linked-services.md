@@ -3,20 +3,20 @@ title: Det finns inte några länkade tjänster i Azure Data Factory
 description: Lär dig mer om länkade tjänster i Data Factory. Länkade tjänster länkar beräknings-/data lager till Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 3d49422af01e38884b5d8ff871fbe84254938944
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 172694363b482edf6d463aa74b85e81c91fa6a9c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434130"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500112"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Det finns inte några länkade tjänster i Azure Data Factory
 
@@ -32,7 +32,7 @@ Om du inte har använt Data Factory, se [Introduktion till Azure Data Factory](i
 
 ## <a name="overview"></a>Översikt
 
-En datafabrik kan ha en eller flera pipelines. En **pipeline** är en logisk gruppering av **aktiviteter** som tillsammans utför en aktivitet. Aktiviteterna i en pipeline definierar åtgärder som ska utföras på dina data. Du kan till exempel använda en kopierings aktivitet för att kopiera data från SQL Server till Azure Blob Storage. Sedan kan du använda en Hive-aktivitet som kör ett Hive-skript på ett Azure HDInsight-kluster för att bearbeta data från Blob Storage för att skapa utdata. Slutligen kan du använda en andra kopierings aktivitet för att kopiera utdata till Azure Synapse Analytics (tidigare SQL Data Warehouse), utöver de Business Intelligence (BI) rapporterings lösningarna skapas. Mer information om pipelines och aktiviteter finns i [pipeline och aktiviteter](concepts-pipelines-activities.md) i Azure Data Factory.
+En datafabrik kan ha en eller flera pipelines. En **pipeline** är en logisk gruppering av **aktiviteter** som tillsammans utför en aktivitet. Aktiviteterna i en pipeline definierar åtgärder som ska utföras på dina data. Du kan till exempel använda en kopierings aktivitet för att kopiera data från SQL Server till Azure Blob Storage. Sedan kan du använda en Hive-aktivitet som kör ett Hive-skript på ett Azure HDInsight-kluster för att bearbeta data från Blob Storage för att skapa utdata. Slutligen kan du använda en andra kopierings aktivitet för att kopiera utmatnings data till Azure Synapse Analytics, som bygger på de rapporterande lösningarna för Business Intelligence (BI). Mer information om pipelines och aktiviteter finns i [pipeline och aktiviteter](concepts-pipelines-activities.md) i Azure Data Factory.
 
 Nu är en **data uppsättning** en namngiven vy av data som bara pekar eller refererar till de data som du vill använda i dina **aktiviteter** som indata och utdata.
 
@@ -68,10 +68,10 @@ I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
 Egenskap | Beskrivning | Krävs |
 -------- | ----------- | -------- |
-name | Namnet på den länkade tjänsten. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Ja |
-typ | Typ av länkad tjänst. Till exempel: AzureBlobStorage (data Store) eller AzureBatch (Compute). Se beskrivningen av typeProperties. | Ja |
-typeProperties | Typ egenskaperna är olika för varje data lager eller beräkning. <br/><br/> Information om vilka data lagrings typer som stöds och deras typ egenskaper finns i artikeln [Översikt över koppling](copy-activity-overview.md#supported-data-stores-and-formats) . Gå till artikeln data Store Connector om du vill veta mer om typ egenskaper som är speciella för ett data lager. <br/><br/> För beräknings typer som stöds och deras typ egenskaper, se [Compute-länkade tjänster](compute-linked-services.md). | Ja |
-connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime (om ditt data lager finns i ett privat nätverk). Om inget värde anges används standard Azure Integration Runtime. | Inga
+name | Namnet på den länkade tjänsten. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Yes |
+typ | Typ av länkad tjänst. Till exempel: AzureBlobStorage (data Store) eller AzureBatch (Compute). Se beskrivningen av typeProperties. | Yes |
+typeProperties | Typ egenskaperna är olika för varje data lager eller beräkning. <br/><br/> Information om vilka data lagrings typer som stöds och deras typ egenskaper finns i artikeln [Översikt över koppling](copy-activity-overview.md#supported-data-stores-and-formats) . Gå till artikeln data Store Connector om du vill veta mer om typ egenskaper som är speciella för ett data lager. <br/><br/> För beräknings typer som stöds och deras typ egenskaper, se [Compute-länkade tjänster](compute-linked-services.md). | Yes |
+connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime (om ditt data lager finns i ett privat nätverk). Om inget värde anges används standard Azure Integration Runtime. | No
 
 ## <a name="linked-service-example"></a>Exempel på länkad tjänst
 

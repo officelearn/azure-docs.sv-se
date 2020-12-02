@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6519f9d549c513e03400366447812a170f9ab41c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: acdddcd95883d13393838a47281fb888ac2f9274
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978670"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500401"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium-lagring: design för hög prestanda
 
@@ -119,7 +119,7 @@ Det bästa sättet att mäta prestanda kraven för ditt program är att använda
 
 PerfMon-räknarna är tillgängliga för processor, minne och, varje logisk disk och fysisk disk på servern. När du använder Premium Storage-diskar med en virtuell dator är räknarna för fysiska diskar för varje Premium Storage-disk och räknare för logiska diskar för varje volym som skapas på Premium Storage-diskarna. Du måste samla in värdena för diskarna som är värdar för din program arbets belastning. Om det finns en till en mappning mellan logiska och fysiska diskar kan du referera till fysiska disk räknare. Se i övrigt räknare för logiska diskar. I Linux genererar kommandot iostat en processor-och disk användnings rapport. Disk användnings rapporten innehåller statistik per fysisk enhet eller partition. Om du har en databas server med data och loggar på separata diskar samlar du in dessa data för båda diskarna. I tabellen nedan beskrivs räknare för diskar, processorer och minne:
 
-| Räknare | Beskrivning | PerfMon | Iostat |
+| Räknare | Description | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **IOPS eller transaktioner per sekund** |Antalet I/O-begäranden som har utfärdats till lagrings disken per sekund. |Disk läsningar/SEK <br> Disk skrivningar/SEK |TPS <br> r/s <br> w/s |
 | **Disk läsningar och skrivningar** |% av Läs-och skriv åtgärder som utförts på disken. |% Disk Läs tid <br> Disk skrivnings tid i procent |r/s <br> w/s |
@@ -222,7 +222,7 @@ Men om du har samma program på Premium Storage behöver du en mindre VM-storlek
 
 I tabellen nedan sammanfattas kostnads nedbrytningen för det här scenariot för standard och Premium Storage.
 
-| &nbsp; | **Standard** | **Premium** |
+| &nbsp; | **Standard** | **Denaturering** |
 | --- | --- | --- |
 | **Kostnad för virtuell dator per månad** |$1 570,58 (standard \_ D14) |$1 003,66 (standard \_ DS13) |
 | **Kostnad för diskar per månad** |$1 638,40 (32 x 1 – TB diskar) |$544,34 (4 x P30 diskar) |
@@ -279,7 +279,7 @@ Följande är de rekommenderade diskens cacheinställningar för data diskar,
 
 | **Inställning av diskcachelagring** | **rekommendation när du ska använda den här inställningen** |
 | --- | --- |
-| Ingen |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
+| Inget |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
 | ReadOnly |Konfigurera Host-cache som skrivskyddat för skrivskyddade och Läs-och skriv diskar. |
 | ReadWrite |Konfigurera Host-cache enbart som ReadWrite om ditt program hanterar skrivningen av cachelagrade data korrekt till beständiga diskar vid behov. |
 
@@ -307,9 +307,9 @@ Du kan till exempel använda dessa rikt linjer för att SQL Server som körs på
 
 För alla Premium-SSD eller Ultra disks kan du eventuellt inaktivera "barriärer" för fil system på disken för att förbättra prestandan när det är känt att det inte finns några cacheminnen som kan förlora data.  Om Azure-diskcachelagring är inställt på ReadOnly eller ingen kan du inaktivera barriärer.  Men om cachelagring är inställt på ReadWrite bör barriärerna förbli aktiverade för att säkerställa Skriv tåligheten.  Barriärer är vanligt vis aktiverade som standard, men du kan inaktivera barriärer med någon av följande metoder beroende på typ av fil system:
 
-* För **reiserFS**använder du alternativet barriär = ingen montering för att inaktivera barriärer.  Använd barriär = Flush för att uttryckligen aktivera hinder.
-* För **EXT3/Ext4**använder du alternativet barriär = 0 montering för att inaktivera barriärer.  Använd barriär = 1 för att uttryckligen aktivera barriärer.
-* För **xfs**använder du monterings alternativet nobarriär för att inaktivera barriärer.  Använd barriärer för att uttryckligen aktivera barriärer.  Observera att i senare Linux-kernel-versioner säkerställer utformningen av XFS-filsystemet alltid hållbarhet och inaktive ring av barriärer har ingen påverkan.  
+* För **reiserFS** använder du alternativet barriär = ingen montering för att inaktivera barriärer.  Använd barriär = Flush för att uttryckligen aktivera hinder.
+* För **EXT3/Ext4** använder du alternativet barriär = 0 montering för att inaktivera barriärer.  Använd barriär = 1 för att uttryckligen aktivera barriärer.
+* För **xfs** använder du monterings alternativet nobarriär för att inaktivera barriärer.  Använd barriärer för att uttryckligen aktivera barriärer.  Observera att i senare Linux-kernel-versioner säkerställer utformningen av XFS-filsystemet alltid hållbarhet och inaktive ring av barriärer har ingen påverkan.  
 
 ## <a name="disk-striping"></a>Disk randning
 
@@ -319,7 +319,7 @@ I Windows kan du använda lagrings utrymmen för att Stripa diskar tillsammans. 
 
 Viktigt: med Serverhanteraren användar gränssnitt kan du ange det totala antalet kolumner upp till 8 för en stripe-volym. När du ansluter fler än åtta diskar använder du PowerShell för att skapa volymen. Med hjälp av PowerShell kan du ange antalet kolumner som motsvarar antalet diskar. Till exempel, om det finns 16 diskar i en enda stripe-uppsättning. Ange 16 kolumner i parametern *NumberOfColumns* för PowerShell-cmdleten *New-VirtualDisk* .
 
-I Linux använder du MDADM-verktyget för att Stripa diskar tillsammans. Detaljerade anvisningar om hur du tar bort diskar i Linux, se [Konfigurera programvaru-RAID på Linux](linux/configure-raid.md).
+I Linux använder du MDADM-verktyget för att Stripa diskar tillsammans. Detaljerade anvisningar om hur du tar bort diskar i Linux, se [Konfigurera programvaru-RAID på Linux](/previous-versions/azure/virtual-machines/linux/configure-raid).
 
 *Rand storlek*  
 En viktig konfiguration i disk ränder är stripe-storleken. Stripe-storlek eller block storlek är det minsta data segmentet som programmet kan adressera på en stripe-volym. Stripe-storleken som du konfigurerar beror på typen av program och dess fråge mönster. Om du väljer fel rand storlek kan det leda till i/o-fel i i/o, vilket leder till försämrade prestanda för ditt program.

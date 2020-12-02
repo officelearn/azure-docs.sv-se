@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: aec8448cb82480397f561e095420bbd49982d4b2
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 11f5fcd74b228fa2d57658f5c268e3bebc3c7e93
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093046"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499534"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analysera loggar och mått med diagnostikinställningar
 
@@ -31,7 +31,7 @@ Välj den logg kategori och den mått kategori som du vill övervaka.
 
 ## <a name="logs"></a>Loggar
 
-|Logga | Beskrivning |
+|Logga | Description |
 |----|----|
 | **ApplicationConsole** | Konsol logg för alla kund program. |
 | **SystemLogs** | För närvarande är endast [vår moln konfigurations Server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) loggar i den här kategorin. |
@@ -40,7 +40,7 @@ Välj den logg kategori och den mått kategori som du vill övervaka.
 
 En fullständig lista över mått finns i [moln mått för våren](./spring-cloud-concept-metrics.md#user-metrics-options).
 
-Kom igång genom att aktivera någon av dessa tjänster för att ta emot data. Information om hur du konfigurerar Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
+Kom igång genom att aktivera någon av dessa tjänster för att ta emot data. Information om hur du konfigurerar Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 ## <a name="configure-diagnostics-settings"></a>Konfigurera diagnostikinställningar
 
@@ -48,7 +48,7 @@ Kom igång genom att aktivera någon av dessa tjänster för att ta emot data. I
 1. Välj alternativet **diagnostikinställningar** och välj sedan **Lägg till diagnostikinställningar**.
 1. Ange ett namn för inställningen och välj sedan var du vill skicka loggarna. Du kan välja en valfri kombination av följande tre alternativ:
     * **Arkivera till ett lagrings konto**
-    * **Strömma till en Event Hub**
+    * **Strömma till en händelsehubb**
     * **Skicka till Log Analytics**
 
 1. Välj vilken logg kategori och vilken mått kategori du vill övervaka och ange sedan kvarhållningsperiod (i dagar). Retentions tiden gäller endast för lagrings kontot.
@@ -82,7 +82,7 @@ Det finns olika metoder för att visa loggar och mått enligt beskrivningen unde
 
 ### <a name="use-log-analytics"></a>Använda Log Analytics
 
-1. I Azure Portal väljer du **Log Analytics**i det vänstra fönstret.
+1. I Azure Portal väljer du **Log Analytics** i det vänstra fönstret.
 1. Välj den Log Analytics arbets yta som du valde när du lade till diagnostikinställningar.
 1. Öppna fönstret **loggs ökning** genom att välja **loggar**.
 1. I sökrutan **tabeller** ,
@@ -135,7 +135,7 @@ Mer information om hur du skickar diagnostikinformation till en Event Hub finns 
 
 ## <a name="analyze-the-logs"></a>Analysera loggarna
 
-Azure Log Analytics körs med en Kusto-motor så att du kan skicka frågor till dina loggar för analys. En snabb introduktion till att köra frågor mot loggar med hjälp av Kusto finns i [själv studie kursen om Log Analytics](../azure-monitor/log-query/get-started-portal.md).
+Azure Log Analytics körs med en Kusto-motor så att du kan skicka frågor till dina loggar för analys. En snabb introduktion till att köra frågor mot loggar med hjälp av Kusto finns i [själv studie kursen om Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Program loggar ger viktig information och utförliga loggar om programmets hälsa, prestanda och mycket annat. I nästa avsnitt finns några enkla frågor som hjälper dig att förstå programmets aktuella och tidigare tillstånd.
 
@@ -178,7 +178,7 @@ AppPlatformLogsforSpring
 
 Azure Monitor ger omfattande stöd för att skicka frågor till program loggar med hjälp av Log Analytics. Mer information om den här tjänsten finns [i kom igång med logg frågor i Azure Monitor](../azure-monitor/log-query/get-started-queries.md). Mer information om hur du skapar frågor för att analysera dina program loggar finns i [Översikt över logg frågor i Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
-## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar
 
 ### <a name="how-to-convert-multi-line-java-stack-traces-into-a-single-line"></a>Hur konverterar du flera rader i Java stack-spår till en enda rad?
 

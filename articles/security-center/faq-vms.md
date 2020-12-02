@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: ff8d726203c5ddfae63a74a7a364c6f2b9ca783e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 32023fca15de9d3f9258bc05166c3cff4184ea15
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085147"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499857"
 ---
 # <a name="faq---questions-about-virtual-machines"></a>Vanliga frågor och svar om virtuella datorer
 
 
 ## <a name="what-types-of-virtual-machines-are-supported"></a>Vilka typer av virtuella datorer stöds?
 
-Övervakning och rekommendationer är tillgängliga för virtuella datorer som skapats med hjälp av både [klassiska distributions modeller för och Resource Manager](/azure/azure-resource-manager/management/deployment-models).
+Övervakning och rekommendationer är tillgängliga för virtuella datorer som skapats med hjälp av både [klassiska distributions modeller för och Resource Manager](../azure-resource-manager/management/deployment-models.md).
 
 Se [plattformar som stöds i Azure Security Center](security-center-os-coverage.md) för en lista över plattformar som stöds.
 

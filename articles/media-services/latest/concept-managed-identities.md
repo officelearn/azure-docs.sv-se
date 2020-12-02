@@ -8,20 +8,20 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.author: inhenkel
-ms.openlocfilehash: a0ded2a1ad5cd590ab5715edebde2ab19e399e8d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d0811e8f9183ee334d413bcad69f2c7b32023be3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687112"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499364"
 ---
 # <a name="managed-identities-and-trusted-storage-with-media-services"></a>Hanterade identiteter och betrodd lagring med Media Services
 
-Media Services kan användas med [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för att aktivera betrodd lagring. När du skapar ett Media Services konto måste du associera det med ett lagrings konto. Media Services kan komma åt lagrings kontot med hjälp av systemautentisering. Media Services verifierar att Media Services kontot och lagrings kontot finns i samma prenumeration och verifierar att användaren som lägger till associationen har åtkomst till lagrings kontot med Azure Resource Manager RBAC.
+Media Services kan användas med [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md) för att aktivera betrodd lagring. När du skapar ett Media Services konto måste du associera det med ett lagrings konto. Media Services kan komma åt lagrings kontot med hjälp av systemautentisering. Media Services verifierar att Media Services kontot och lagrings kontot finns i samma prenumeration och verifierar att användaren som lägger till associationen har åtkomst till lagrings kontot med Azure Resource Manager RBAC.
 
 ## <a name="trusted-storage"></a>Betrodd lagring
 
-Men om du vill använda en brand vägg för att skydda ditt lagrings konto måste du använda hanterad identitets autentisering. Den ger Media Services åtkomst till lagrings kontot som har kon figurer ATS med en brand vägg eller en VNet-begränsning via betrodd lagrings åtkomst.  Mer information om betrodda Microsoft-tjänster finns i [konfigurera Azure Storage brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services).
+Men om du vill använda en brand vägg för att skydda ditt lagrings konto måste du använda hanterad identitets autentisering. Den ger Media Services åtkomst till lagrings kontot som har kon figurer ATS med en brand vägg eller en VNet-begränsning via betrodd lagrings åtkomst.  Mer information om betrodda Microsoft-tjänster finns i [konfigurera Azure Storage brand väggar och virtuella nätverk](../../storage/common/storage-network-security.md#trusted-microsoft-services).
 
 ## <a name="media-services-managed-identity-scenarios"></a>Medie tjänster hanterade identitets scenarier
 
@@ -57,4 +57,4 @@ De här självstudierna innehåller båda scenarierna ovan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om vilka hanterade identiteter som kan utföras för dig och dina Azure-program finns i [Azure AD Managed identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Mer information om vilka hanterade identiteter som kan utföras för dig och dina Azure-program finns i [Azure AD Managed identiteter](../../active-directory/managed-identities-azure-resources/overview.md).

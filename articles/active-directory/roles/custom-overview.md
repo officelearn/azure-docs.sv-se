@@ -1,6 +1,6 @@
 ---
-title: Anpassade administratörs roller i Azure Active Directory | Microsoft Docs
-description: Lär dig att förstå anpassade Azure AD-roller i Azure Active Directory (Azure AD) med rollbaserad åtkomst kontroll och resurs omfång.
+title: Översikt över Azure Active Directory rollbaserad åtkomst kontroll (RBAC)
+description: Lär dig hur du förstår delarna i en roll tilldelning och begränsad omfattning i Azure Active Directory.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,25 +8,26 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 11/05/2020
+ms.date: 11/20/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0785d8070a60ae7594ea0b182a0238bf6b4b6a58
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4f694a46fddbc84968b3267842aa19108d051590
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95899470"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499245"
 ---
-# <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Anpassade administratörs roller i Azure Active Directory (för hands version)
+# <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Översikt över rollbaserad åtkomst kontroll i Azure Active Directory
 
-Den här artikeln beskriver hur du förstår anpassade Azure AD-roller i Azure Active Directory (Azure AD) med rollbaserad åtkomst kontroll och resurs omfång. Anpassade Azure AD-roller visar de underliggande behörigheterna för de [inbyggda rollerna](permissions-reference.md), så att du kan skapa och ordna dina egna anpassade roller. Med den här metoden kan du ge åtkomst på ett mer detaljerat sätt än inbyggda roller, när de behövs. I den första versionen av anpassade Azure AD-roller ingår möjligheten att skapa en roll för att tilldela behörigheter för att hantera app-registreringar. Med tiden kommer ytterligare behörigheter för organisations resurser som företags program, användare och enheter att läggas till.  
+Den här artikeln beskriver hur du förstår den rollbaserade åtkomst kontrollen Azure Active Directory (Azure AD). Med Azure AD-roller kan du ge dina administratörer detaljerade behörigheter genom att följa principen om minsta behörighet. Inbyggda och anpassade Azure AD-roller fungerar på begrepp som liknar de som du hittar i [det rollbaserade Access Control-systemet för Azure-resurser](../../role-based-access-control/overview.md) (Azure-roller). [Skillnaden mellan de här två rollbaserade åtkomst kontroll systemen](../../role-based-access-control/rbac-and-directory-admin-roles.md) är:
 
-Dessutom stöder anpassade Azure AD-roller tilldelningar per resurs, utöver de mer traditionella tilldelningarna i hela organisationen. Den här metoden ger dig möjlighet att bevilja åtkomst till att hantera vissa resurser (till exempel en app-registrering) utan att ge åtkomst till alla resurser (alla registrerings program).
+- Azure AD-roller styr åtkomsten till Azure AD-resurser, till exempel användare, grupper och program med hjälp av Graph API
+- Azure-roller styr åtkomst till Azure-resurser, till exempel virtuella datorer eller lagrings enheter med Azure Resource Management
 
-Rollbaserad åtkomst kontroll i Azure AD är en offentlig för hands version av Azure AD och är tillgänglig med en betald Azure AD-licensserver. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
+Båda systemen innehåller liknande roll definitioner och roll tilldelningar som används. Behörigheter för Azure AD-roller kan dock inte användas i anpassade Azure-roller och vice versa.
 
 ## <a name="understand-azure-ad-role-based-access-control"></a>Förstå rollbaserad åtkomst kontroll i Azure AD
 
@@ -41,22 +42,18 @@ Inbyggda och anpassade Azure AD-roller fungerar på begrepp som liknar [rollbase
 Följande är de övergripande steg som Azure AD använder för att avgöra om du har åtkomst till en hanterings resurs. Använd den här informationen för att felsöka åtkomst problem.
 
 1. En användare (eller tjänstens huvud namn) hämtar en token till Microsoft Graph eller Azure AD Graph-slutpunkten.
-
 1. Användaren gör ett API-anrop till Azure Active Directory (Azure AD) via Microsoft Graph eller Azure AD Graph med Utfärdad token.
-
 1. Beroende på omständigheterna vidtar Azure AD en av följande åtgärder:
-
-    - Utvärderar användarens roll medlemskap baserat på [wids-anspråk](../../active-directory-b2c/access-tokens.md) i användarens åtkomsttoken.
-    - Hämtar alla roll tilldelningar som gäller för användaren, antingen direkt eller via grupp medlemskap, till den resurs som åtgärden utförs på.
-
+   - Utvärderar användarens roll medlemskap baserat på [wids-anspråk](../../active-directory-b2c/access-tokens.md) i användarens åtkomsttoken.
+   - Hämtar alla roll tilldelningar som gäller för användaren, antingen direkt eller via grupp medlemskap, till den resurs som åtgärden utförs på.
 1. Azure AD avgör om åtgärden i API-anropet ingår i de roller som användaren har för den här resursen.
 1. Om användaren inte har någon roll med åtgärden i det begärda omfånget beviljas inte åtkomst. Annars beviljas åtkomst.
 
-### <a name="role-assignments"></a>Rolltilldelningar
+## <a name="role-assignment"></a>Rolltilldelning
 
-En roll tilldelning är det objekt som bifogar en roll definition till en användare i ett visst omfång för att bevilja åtkomst till Azure AD-resurser. Åtkomst beviljas genom att en rolltilldelning skapas, och åtkomst återkallas genom att en rolltilldelning tas bort. På grund av detta består en roll tilldelning av tre element:
+En roll tilldelning är en Azure AD-resurs som bifogar en *roll definition* till en *användare* i ett visst *omfång* för att bevilja åtkomst till Azure AD-resurser. Åtkomst beviljas genom att en rolltilldelning skapas, och åtkomst återkallas genom att en rolltilldelning tas bort. På grund av detta består en roll tilldelning av tre element:
 
-- Användare (en person som har en användar profil i Azure Active Directory)
+- Azure AD-användare
 - Rolldefinition
 - Resursomfång
 
@@ -68,7 +65,7 @@ Följande diagram visar ett exempel på en rolltilldelning. I det här exemplet 
 
 ### <a name="security-principal"></a>Säkerhetsobjekt
 
-Ett säkerhets objekt representerar den användare som ska tilldelas åtkomst till Azure AD-resurser. En *användare* är en person som har en användar profil i Azure Active Directory.
+Ett säkerhets objekt representerar den användare som ska tilldelas åtkomst till Azure AD-resurser. En användare är en person som har en användar profil i Azure Active Directory.
 
 ### <a name="role"></a>Roll
 
@@ -81,15 +78,12 @@ En roll definition eller roll är en samling behörigheter. En roll definition v
 
 Ett omfång är begränsningen av tillåtna åtgärder till en viss Azure AD-resurs som en del av en roll tilldelning. När du tilldelar en roll kan du ange ett omfång som begränsar administratörens åtkomst till en speciell resurs. Om du till exempel vill ge en utvecklare en anpassad roll, men bara för att hantera en specifik program registrering, kan du inkludera den specifika program registreringen som ett omfång i roll tilldelningen.
 
-  > [!Note]
-  > Anpassade roller kan tilldelas i katalog omfattning och resurs omfång. De kan ännu inte tilldelas i det administrativa enhets omfånget.
-  > Inbyggda roller kan tilldelas i katalog omfattning och i vissa fall administrativa enhets omfång. De kan ännu inte tilldelas till Azure AD-resursens omfång.
-
 ## <a name="required-license-plan"></a>Obligatorisk licens plan
 
 [!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
+- [Förstå Azure AD-roller](concept-understand-roles.md)
 - Skapa anpassade roll tilldelningar med hjälp av [Azure Portal, Azure AD PowerShell och Graph API](custom-create.md)
 - [Visa tilldelningarna för en anpassad roll](custom-view-assignments.md)

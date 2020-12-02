@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad97a822aaa6477616a6661a579df6c4ec82729
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f65ab02e06319519548eaa2c02120691a0ceef02
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919891"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498565"
 ---
 # <a name="build-resilience-in-your-identity-and-access-management-infrastructure"></a>Bygg återhämtning i din infrastruktur för identitets-och åtkomst hantering
 
@@ -40,11 +40,11 @@ I kontexten för din identitets infrastruktur kan du använda återhämtning fö
 
 ## <a name="why-worry-about-disruption"></a>Varför bekymra dig om avbrott?
 
-Varje anrop till Authentication system är underkastat avbrott om någon komponent i kedjan av anrop till Azure AD Miss lyckas. Det innebär att om någon del av infrastrukturen har ett problem kan arbetet avbrytas eftersom användarna inte kan komma åt de program som de behöver. Därför är det viktigt att minska antalet autentiserings anrop och antalet beroenden i dessa anrop till din återhämtning. Programutvecklare kan kontrol lera viss kontroll över hur ofta token begärs. Du kan till exempel samar beta med dina utvecklare för att se till att de använder Azure AD Managed-identiteter för sina program närhelst det är möjligt. 
+Varje anrop till Authentication system är beroende av avbrott om någon del av anropet Miss lyckas. När autentiseringen avbryts på grund av de underliggande komponent felen kommer användarna inte att få åtkomst till sina program. Därför är det viktigt att minska antalet autentiserings anrop och antalet beroenden i dessa anrop till din återhämtning. Programutvecklare kan kontrol lera viss kontroll över hur ofta token begärs. Du kan till exempel samar beta med dina utvecklare för att se till att de använder Azure AD Managed-identiteter för sina program närhelst det är möjligt. 
 
 I ett tokenbaserat autentiseringsprotokoll som Azure AD, måste en användares program (klient) Hämta en säkerhetstoken från identitets systemet innan den kan komma åt ett program eller en annan resurs. Under giltighets perioden kan en klient presentera samma token flera gånger för att få åtkomst till programmet.
 
-När den token som visas för programmet upphör att gälla avvisar programmet token och klienten måste skaffa en ny token från Azure AD. Att förvärva en ny token kan kräva användar interaktion, till exempel meddelande om autentiseringsuppgifter. Minskning av frekvensen av autentiseringsbegäranden med längre livs längds tokens minskar risken. Du måste dock balansera token Life med den risk som skapats av färre princip utvärderingar. Mer information om hur du hanterar livs längd för token finns i den här artikeln om hur du [optimerar omautentiserings-prompter](https://docs.microsoft.com/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime).
+När den token som visas för programmet upphör att gälla avvisar programmet token och klienten måste skaffa en ny token från Azure AD. Att förvärva en ny token kan kräva användar interaktion, t. ex. autentiseringsuppgifter för autentiseringsuppgifter eller för att uppfylla andra krav för autentiserings systemet. Att minska frekvensen för autentiserings anrop med längre livs längds tokens minskar onödig interaktion. Du måste dock balansera token Life med den risk som skapats av färre princip utvärderingar. Mer information om hur du hanterar livs längd för token finns i den här artikeln om hur du [optimerar omautentiserings-prompter](https://docs.microsoft.com/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime).
 
 ## <a name="ways-to-increase-resilience"></a>Sätt att öka återhämtningen
 I följande diagram visas sex konkreta sätt som du kan öka återhämtningen på. Varje metod beskrivs i detalj i artiklarna som är länkade i nästa steg i den här artikeln.

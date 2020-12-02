@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.date: 10/30/2020
-ms.openlocfilehash: ce07a0667b1fd4b439f061966e4ee0b1112578c4
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bab84b12c871c621b5a317ba8b47f9b18c91bff3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413215"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500197"
 ---
 # <a name="deploy-enterprise-java-applications-to-azure-with-jboss-eap-on-red-hat-enterprise-linux"></a>Distribuera företags-Java-program till Azure med JBoss EAP på Red Hat Enterprise Linux
 
@@ -31,7 +31,7 @@ JBoss EAP och RHEL innehåller allt du behöver för att skapa, köra, distribue
 
   Om du inte har EAP-rättighet kan du hämta en [JBoss EAP-utvärderings prenumeration](https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/evaluation) innan du börjar. Om du vill skapa en ny Red Hat-prenumeration går du till [Red Hat-kund Portal](https://access.redhat.com/) och konfigurerar ett konto.
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+* [Azure CLI](/cli/azure/overview).
 
 * RHEL alternativ. Välj betala per användning (PAYG) eller ta din egen prenumeration (BYOS). Med BYOS måste du aktivera din [Red Hat Cloud Access](https://access.redhat.com/) RHEL Gold-avbildning innan du distribuerar snabb starts mal len.
 
@@ -123,7 +123,7 @@ Detta start skript använder EAP_HOME/bin/standalone.conf-filen för att ange vi
 
 Mer information om tillgängliga fristående konfigurationsfiler och hur du använder dem finns i [konfigurations filer för fristående servrar för eap 7,2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/jboss_eap_management#standalone_server_configuration_files) eller [fristående server konfigurationsfiler för EAP 7,3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/jboss_eap_management#standalone_server_configuration_files). 
 
-Använd argumentet för att starta JBoss EAP med en annan konfiguration `--server-config` . Till exempel:
+Använd argumentet för att starta JBoss EAP med en annan konfiguration `--server-config` . Exempel:
     
  ```
  $EAP_HOME/bin/standalone.sh --server-config=standalone-full.xml
@@ -164,9 +164,9 @@ Om du vill använda BYOS för RHEL OS måste du ha en giltig Red Hat-prenumerati
 
    1. Vänta tills de guld bilderna i Red Hat är tillgängliga i din Azure-prenumeration. Dessa bilder är vanligt vis tillgängliga inom tre timmar efter det att de har lagts in.
     
-3. Godkänn de allmänna villkoren för Azure Marketplace för RHEL BYOS-avbildningar. Du kan slutföra den här processen genom att köra följande Azure CLI-kommandon. Mer information finns i [RHEL BYOS Gold-avbildningarna i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos) -dokumentationen. Det är viktigt att du kör den senaste versionen av Azure CLI.
+3. Godkänn de allmänna villkoren för Azure Marketplace för RHEL BYOS-avbildningar. Du kan slutföra den här processen genom att köra följande Azure CLI-kommandon. Mer information finns i [RHEL BYOS Gold-avbildningarna i Azure](./byos.md) -dokumentationen. Det är viktigt att du kör den senaste versionen av Azure CLI.
 
-   1. Öppna en Azure CLI-session och autentisera med ditt Azure-konto. Mer information finns i [Logga in med Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+   1. Öppna en Azure CLI-session och autentisera med ditt Azure-konto. Mer information finns i [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli).
 
    1. Kontrol lera att RHEL BYOS-avbildningarna är tillgängliga i din prenumeration genom att köra följande CLI-kommando. Om du inte får några resultat här ser du till att Azure-prenumerationen har Aktiver ATS för RHEL BYOS-avbildningar.
    
@@ -203,7 +203,7 @@ Du kan distribuera mallen på följande sätt:
   New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri <raw link to the template which can be obtained from github>
   ```
  
-  Information om hur du installerar och konfigurerar Azure PowerShell finns i [PowerShell-dokumentationen](https://docs.microsoft.com/powershell/azure/).  
+  Information om hur du installerar och konfigurerar Azure PowerShell finns i [PowerShell-dokumentationen](/powershell/azure/).  
 
 - **Azure CLI**. Distribuera mallen genom att köra följande kommandon:
 
@@ -215,7 +215,7 @@ Du kan distribuera mallen på följande sätt:
   az group deployment create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
   ```
 
-  Information om hur du installerar och konfigurerar Azure CLI finns i [Installera CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+  Information om hur du installerar och konfigurerar Azure CLI finns i [Installera CLI](/cli/azure/install-azure-cli).
 
 - **Azure-portalen**. Du kan distribuera till Azure Portal genom att gå till Azures snabb starts mallar enligt vad som anges i nästa avsnitt. När du är i snabb starten väljer du knappen **distribuera till Azure** eller **Bläddra på GitHub** .
 
@@ -231,10 +231,10 @@ Du kan börja med någon av följande snabb starts mallar för JBoss-EAP på RHE
 
 ## <a name="resource-links"></a>Resurs länkar
 
-* [Azure Hybrid-förmån](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)
-* [Konfigurera en Java-app för Azure App Service](https://docs.microsoft.com/azure/app-service/configure-language-java)
+* [Azure Hybrid-förmån](../../windows/hybrid-use-benefit-licensing.md)
+* [Konfigurera en Java-app för Azure App Service](../../../app-service/configure-language-java.md)
 * [JBoss-EAP på Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)
-* [JBoss-EAP på Azure App Service Linux](https://docs.microsoft.com/azure/app-service/quickstart-java)
+* [JBoss-EAP på Azure App Service Linux](../../../app-service/quickstart-java.md)
 * [Distribuera JBoss-EAP på Azure App Service](https://github.com/JasonFreeberg/jboss-on-app-service)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -242,6 +242,6 @@ Du kan börja med någon av följande snabb starts mallar för JBoss-EAP på RHE
 * Läs mer om [JBoss EAP 7,2](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/).
 * Läs mer om [JBoss EAP 7,3](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.3/).
 * Läs mer om [hantering av Red Hat-prenumeration](https://access.redhat.com/products/red-hat-subscription-management).
-* Lär dig mer om [Red Hat-arbetsbelastningar på Azure](https://aka.ms/rhel-docs).
+* Lär dig mer om [Red Hat-arbetsbelastningar på Azure](./overview.md).
 * Distribuera [JBoss-EAP på en virtuell RHEL-dator eller skalnings uppsättning för virtuella datorer från Azure Marketplace](https://aka.ms/AMP-JBoss-EAP).
 * Distribuera [JBoss EAP på en virtuell RHEL-dator eller skalnings uppsättning för virtuella datorer från Azures snabb starts mallar](https://aka.ms/Quickstart-JBoss-EAP).

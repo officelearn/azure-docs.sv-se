@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 7098744fe012c994e311696a376cd7ed0dc9ac53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9520196c8dce9ea511c2f3b799bd12b34c6f988f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076624"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499755"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Lägg till en disk till en virtuell Linux-dator
 
@@ -34,7 +34,7 @@ az vm disk attach \
 
 ## <a name="attach-an-existing-disk"></a>Ansluta en befintlig disk
 
-Om du vill koppla en befintlig disk letar du reda på disk-ID och skickar ID: t till kommandot [AZ VM disk Attach](/cli/azure/vm/disk?view=azure-cli-latest) . Följande exempel frågar efter en disk med namnet *myDataDisk* i *myResourceGroup*och kopplar den sedan till den virtuella datorn med namnet *myVM*:
+Om du vill koppla en befintlig disk letar du reda på disk-ID och skickar ID: t till kommandot [AZ VM disk Attach](/cli/azure/vm/disk?view=azure-cli-latest) . Följande exempel frågar efter en disk med namnet *myDataDisk* i *myResourceGroup* och kopplar den sedan till den virtuella datorn med namnet *myVM*:
 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
@@ -70,7 +70,7 @@ sdb     1:0:1:0      14G
 sdc     3:0:0:0      50G
 ```
 
-Här `sdc` är den disk som vi vill ha, eftersom den är 50G. Om du inte är säker på vilken disk som den endast baseras på en storlek kan du gå till sidan för virtuella datorer i portalen, välja **diskar**och kontrol lera LUN-numret för disken under **data diskar**. 
+Här `sdc` är den disk som vi vill ha, eftersom den är 50G. Om du inte är säker på vilken disk som den endast baseras på en storlek kan du gå till sidan för virtuella datorer i portalen, välja **diskar** och kontrol lera LUN-numret för disken under **data diskar**. 
 
 
 ### <a name="format-the-disk"></a>Formatera disken
@@ -182,4 +182,4 @@ Det finns två sätt att aktivera TRIMNINGs stöd i din virtuella Linux-dator. S
 ## <a name="next-steps"></a>Nästa steg
 
 * För att säkerställa att din virtuella Linux-dator har kon figurer ATS korrekt kan du granska prestanda rekommendationerna [optimera dina Linux-datorer](optimization.md) .
-* Utöka lagrings kapaciteten genom att lägga till ytterligare diskar och [Konfigurera RAID](configure-raid.md) för ytterligare prestanda.
+* Utöka lagrings kapaciteten genom att lägga till ytterligare diskar och [Konfigurera RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) för ytterligare prestanda.

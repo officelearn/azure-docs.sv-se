@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1976848f9c91b5fd5e136e027b83456bbbe0b3b4
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 15e5d257259bb4dfc98528cb726dbd2cc1f9a903
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317443"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498735"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Skicka meddelanden till och ta emot meddelanden från Azure Service Bus köer (.NET)
 I den här självstudien skapar du ett .NET Core-konsolprogram för att skicka meddelanden till och ta emot meddelanden från en Service Bus kö med hjälp av **Azure. Messaging. Service Bus** -paketet. 
@@ -289,5 +289,4 @@ Se följande dokumentation och exempel:
 
 - [Azure Service Bus klient bibliotek för .NET – viktigt](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [Exempel på GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
-- [.NET API-referens](https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus?view=azure-dotnet-preview&preserve-view=true)
-
+- [.NET API-referens](/dotnet/api/azure.messaging.servicebus?preserve-view=true&view=azure-dotnet-preview)

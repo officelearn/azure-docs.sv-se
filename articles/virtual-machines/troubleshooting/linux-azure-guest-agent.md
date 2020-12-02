@@ -11,16 +11,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: axelg
-ms.openlocfilehash: 9e3b376cfaf5379acaf92713c42509471200d066
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: fc609b60c9d5d4d4734c3d73cbda87935b533caf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95550116"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500265"
 ---
 # <a name="troubleshooting-azure-linux-guest-agent"></a>Felsöka Azure Linux-gäst Gent
 
-[Azure Linux-gästen agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) är en virtuell dator agent (VM). Den gör det möjligt för den virtuella datorn att kommunicera med infrastruktur styrenheten (den underliggande fysiska server som den virtuella datorn finns på) på IP-168.63.129.16. Den här IP-adressen är en virtuell offentlig IP-adress som underlättar kommunikationen. Mer information finns i [Vad är IP-168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+[Azure Linux-gästen agent](../extensions/agent-linux.md) är en virtuell dator agent (VM). Den gör det möjligt för den virtuella datorn att kommunicera med infrastruktur styrenheten (den underliggande fysiska server som den virtuella datorn finns på) på IP-168.63.129.16. Den här IP-adressen är en virtuell offentlig IP-adress som underlättar kommunikationen. Mer information finns i [Vad är IP-168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## <a name="checking-agent-status-and-version"></a>Kontrollerar agent status och version
 

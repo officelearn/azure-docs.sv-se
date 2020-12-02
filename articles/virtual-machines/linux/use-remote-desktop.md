@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 05241715663ac2cbb90e16f345398f863541e6ed
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: efcfb2fd431dd9626ddcf918127964672b0e5ce0
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972211"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500486"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure
 Virtuella Linux-datorer (VM: ar) i Azure hanteras vanligt vis från kommando raden med hjälp av en SSH-anslutning (Secure Shell). När du har använt New to Linux eller för snabb fel söknings scenarier kan det vara enklare att använda fjärr skrivbord. Den här artikeln beskriver hur du installerar och konfigurerar en Skriv bords miljö ([xfce](https://www.xfce.org)) och fjärr skrivbord ([xrdp](http://xrdp.org)) för din virtuella Linux-dator med hjälp av distributions modellen för Resource Manager.
@@ -84,7 +84,7 @@ sudo passwd azureuser
 
 
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Skapa en regel för nätverks säkerhets grupp för fjärr skrivbords trafik
-Om du vill tillåta fjärr skrivbords trafik att komma åt din virtuella Linux-dator måste en regel för nätverks säkerhets grupp skapas som tillåter TCP på port 3389 att komma åt den virtuella datorn. Mer information om regler för nätverks säkerhets grupper finns i [Vad är en nätverks säkerhets grupp?](../../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) Du kan också [använda Azure Portal för att skapa en regel för nätverks säkerhets grupper](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Om du vill tillåta fjärr skrivbords trafik att komma åt din virtuella Linux-dator måste en regel för nätverks säkerhets grupp skapas som tillåter TCP på port 3389 att komma åt den virtuella datorn. Mer information om regler för nätverks säkerhets grupper finns i [Vad är en nätverks säkerhets grupp?](../../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Du kan också [använda Azure Portal för att skapa en regel för nätverks säkerhets grupper](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 I följande exempel skapas en regel för nätverks säkerhets grupper med [AZ VM Open-port](/cli/azure/vm#az-vm-open-port) på port *3389*. Från Azure CLI, inte SSH-sessionen till den virtuella datorn, öppnar du följande regel för nätverks säkerhets grupp:
 

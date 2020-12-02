@@ -3,20 +3,20 @@ title: Pipeline-körning och utlösare i Azure Data Factory
 description: Den här artikeln innehåller information om hur du kör en pipeline i Azure Data Factory på begäran eller genom att skapa en utlösare.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: e090b4c3b4ecc3870f060aba4b03be3abe2942ec
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c72538de8aba60ce7ed880561b55773c22737f97
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180718"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498633"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pipeline-körning och utlösare i Azure Data Factory
 
@@ -235,7 +235,7 @@ Om du vill att schemautlösaren ska starta en pipelinekörning tar du med en pip
 ### <a name="schema-overview"></a>Översikt över schema
 I följande tabell ges en översikt över de viktigaste schemaelementen relaterade till upprepning och schemaläggning i en utlösare:
 
-| JSON-egenskap | Beskrivning |
+| JSON-egenskap | Description |
 | --- | --- |
 | **/St** | Ett datum/tid-värde. För grundläggande scheman gäller värdet för egenskapen **startTime** den första förekomsten. För komplexa scheman startar utlösaren tidigast vid det angivna värdet för **startTime**. |
 | **endTime** | Slutdatum och tidpunkt för utlösaren. Utlösaren körs inte efter angivet slutdatum och sluttid. Värdet för egenskapen kan inte ha passerat. <!-- This property is optional. --> |
@@ -283,11 +283,11 @@ I följande tabell ges en översikt över de viktigaste schemaelementen relatera
 
 | JSON-egenskap | Typ | Obligatorisk | Standardvärde | Giltiga värden | Exempel |
 | --- | --- | --- | --- | --- | --- |
-| **/St** | sträng | Ja | Inget | ISO 8601 datum/tid | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **mönster** | objekt | Ja | Inget | Ett upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **intervall** | antal | Nej | 1 | 1 till 1000 | `"interval":10` |
-| **endTime** | sträng | Ja | Inget | Ett datum/tid-värde som representerar en tidpunkt i framtiden | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **Ange** | objekt | Nej | Inget | Ett schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **/St** | sträng | Yes | Inget | ISO 8601 datum/tid | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **mönster** | objekt | Yes | Inget | Ett upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **intervall** | antal | No | 1 | 1 till 1000 | `"interval":10` |
+| **endTime** | sträng | Yes | Inget | Ett datum/tid-värde som representerar en tidpunkt i framtiden | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **Ange** | objekt | No | Inget | Ett schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Egenskapen startTime
 I följande tabell visas hur egenskapen **startTime** styr körningen av en utlösare:
@@ -314,7 +314,7 @@ Om flera **schema** element anges är utvärderings ordningen från den största
 
 I följande tabell beskrivs **schedule**-elementen i detalj:
 
-| JSON-element | Beskrivning | Giltiga värden |
+| JSON-element | Description | Giltiga värden |
 | --- | --- | --- |
 | **fördröjning** | Minuter för den timme då utlösaren körs. |– Heltal<br />– Heltalsmatris |
 | **timmarna** | Timmar på dagen då utlösaren körs. |– Heltal<br />– Heltalsmatris |
@@ -338,7 +338,7 @@ Det här avsnittet innehåller exempel på återkommande scheman. Det fokuserar 
 
 I exemplen förutsätts att **intervallvärdet** är 1 och att värdet för **frekvens** är korrekt enligt schema definitionen. Du kan till exempel inte använda **frequency**-värdet ”day” och samtidigt ha en **monthDays**-modifiering i **schedule**-objektet. Dessa typer av begränsningar beskrivs i tabellen i föregående avsnitt.
 
-| Exempel | Beskrivning |
+| Exempel | Description |
 | --- | --- |
 | `{"hours":[5]}` | Kör kl. 05.00 varje dag. |
 | `{"minutes":[15], "hours":[5]}` | Kör kl. 05.15 varje dag. |

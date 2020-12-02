@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/02/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5fe8bf70374a2eec639a0a9365f7d227cf259d06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a55a330f6f4fefb86f2c056cd0ca3b2ba5f4b29
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667256"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499602"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Självstudie: Beställ Sök resultat med hjälp av .NET SDK
 
@@ -35,7 +35,7 @@ En färdig version av koden i den här självstudien finns i följande projekt:
 
 * [5-order-resultat (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/5-order-results)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [2b – Lägg till oändlig rullning (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/2b-add-infinite-scroll) lösning. Projektet kan antingen vara din egen version som skapats från den föregående själv studie kursen eller en kopia från GitHub.
 
@@ -135,7 +135,7 @@ Du behöver inte ändra någon av modellerna för att möjliggöra sortering. En
     Select = new[] { "HotelName", "Description", "Rating"},
     ```
 
-1. Öppna vyn (index. cshtml) och ersätt åter givnings slingan (** &lt; !--Visa hotell data.-- &gt; **) med följande kod.
+1. Öppna vyn (index. cshtml) och ersätt åter givnings slingan (**&lt; !--Visa hotell data.-- &gt;**) med följande kod.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -206,7 +206,7 @@ Du behöver inte ändra någon av modellerna för att möjliggöra sortering. En
 
     Du ser att flera hotell har samma betyg, och att deras utseende visas i den ordning som data hittas, vilket är godtyckligt.
 
-    Innan vi tittar på att lägga till en andra nivå av beställning ska vi lägga till en kod för att Visa intervallet med rums frekvens. Vi lägger till den här koden för att både Visa extrahering av data från en _komplex typ_och så att vi kan diskutera beställnings resultat baserat på pris (billigaste First kanske).
+    Innan vi tittar på att lägga till en andra nivå av beställning ska vi lägga till en kod för att Visa intervallet med rums frekvens. Vi lägger till den här koden för att både Visa extrahering av data från en _komplex typ_ och så att vi kan diskutera beställnings resultat baserat på pris (billigaste First kanske).
 
 ### <a name="add-the-range-of-room-rates-to-the-view"></a>Lägg till intervallet för rums taxa i vyn
 
@@ -965,7 +965,7 @@ Nu ska vi titta på tre exempel på bedömnings profiler och fundera över hur v
 
 ### <a name="resources"></a>Resurser
 
-Mer information finns i följande [lägga till bedömnings profiler i ett Azure kognitiv sökning-index](/azure/search/index-add-scoring-profiles).
+Mer information finns i följande [lägga till bedömnings profiler i ett Azure kognitiv sökning-index](./index-add-scoring-profiles.md).
 
 ## <a name="takeaways"></a>Lärdomar
 

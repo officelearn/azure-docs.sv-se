@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 91ef218abc51cbdf079fd9e1baa8eb2b907087df
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 09415c47432f71310b10c86390c10e55f1ccc4b2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94954213"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498616"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Felsök vanliga problem med Azure våren Cloud
 
@@ -66,7 +66,7 @@ När du felsöker program krascher startar du genom att kontrol lera programmets
 
 
 
-Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
+Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>Mitt program använder stora mängder CPU- eller minnesresurser
 
@@ -88,7 +88,7 @@ Mer information finns i [mått för Azure våren Cloud](spring-cloud-concept-met
 
 Om alla instanser är igång går du till Azure Log Analytics för att skicka frågor till program loggarna och granska din kod logik. Detta hjälper dig att se om någon av dem kan påverka skalningen av skala. Mer information finns i [Analysera loggar och mått med diagnostikinställningar](diagnostic-services.md).
 
-Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Fråga loggarna genom att använda [Kusto-frågespråket](/azure/kusto/query/).
+Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md). Fråga loggarna genom att använda [Kusto-frågespråket](/azure/kusto/query/).
 
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Check lista för att distribuera ditt våren-program till Azure våren Cloud
 
@@ -163,7 +163,7 @@ Om du migrerar en befintlig molnbaserade lösning till Azure måste du se till a
 
 Du kan också kontrol lera klient loggarna för _tjänst registret_ i Azure Log Analytics. Mer information finns i [Analysera loggar och mått med diagnostikinställningar](diagnostic-services.md)
 
-Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Fråga loggarna genom att använda [Kusto-frågespråket](/azure/kusto/query/).
+Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md). Fråga loggarna genom att använda [Kusto-frågespråket](/azure/kusto/query/).
 
 ### <a name="i-want-to-inspect-my-applications-environment-variables"></a>Jag vill kontrol lera miljö variabler för mitt program
 

@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/07/2020
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: a0b5fa16658d3e354bcb4f90ad998997fc844a84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3c1fae2cbf2a1ba8b71dcbc8f6639bda4765f5c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83832800"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498412"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Ange variabel aktivitet i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,11 +27,11 @@ Använd aktiviteten ange variabel för att ange värdet för en befintlig variab
 
 Egenskap | Beskrivning | Krävs
 -------- | ----------- | --------
-name | Namn på aktiviteten i pipeline | ja
-description | Text som beskriver vad aktiviteten gör | nej
-typ | Måste anges till **SetVariable** | ja
-värde | Sträng tecken eller uttrycks objekt värde som variabeln är tilldelad | ja
-variableName | Namnet på den variabel som anges av den här aktiviteten | ja
+name | Namn på aktiviteten i pipeline | yes
+beskrivning | Text som beskriver vad aktiviteten gör | nej
+typ | Måste anges till **SetVariable** | yes
+värde | Sträng tecken eller uttrycks objekt värde som variabeln är tilldelad | yes
+variableName | Namnet på den variabel som anges av den här aktiviteten | yes
 
 ## <a name="incrementing-a-variable"></a>Stegvis ökning av en variabel
 

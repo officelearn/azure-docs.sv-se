@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/23/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3c40e4c7b00a5c78872a60af25e3b19fe08f324
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5efb1df378df323585bc0ca1094451cdb095fe4e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467689"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499789"
 ---
 # <a name="enabling-synapse-workspace-features-on-an-existing-dedicated-sql-pool-formerly-sql-dw"></a>Aktivera Synapse-arbetsytans funktioner på en befintlig dedikerad SQL-pool (tidigare SQL DW)
 
@@ -44,7 +44,7 @@ Följande information gäller när du använder ett dedikerat SQL DW (tidigare S
 
 - **Nätverks säkerhet** Om arbets ytan Synapse som du aktiverade på den befintliga dedikerade SQL-poolen (tidigare SQL DW) är aktive rad för data intrånget-skydd. Skapa en hanterad privat slut punkts anslutning från arbets ytan till den logiska SQL-servern. Godkänn anslutnings förfrågan för privat slutpunkt för att tillåta kommunikation mellan servern och arbets ytan.
 - **Studio** SQL-pooler i **data hubben** en dedikerad SQL-pool (tidigare SQL DW) kan identifieras via verktygs tipset i data hubben. 
-- **skapa en ny dedikerad SQL-pool (tidigare SQL DW)** Nya dedikerade SQL-pooler kan skapas via arbets ytan Synapse och Studio när funktionen arbets yta har Aktiver ATS och etableringen av en ny pool sker på den logiska SQL-servern. De nya resurserna kommer att visas i portalen och Studio när etableringen har slutförts.      
+- **Skapa en ny dedikerad SQL-pool (tidigare SQL DW)** Nya dedikerade SQL-pooler kan skapas via arbets ytan Synapse och Studio när funktionen arbets yta har Aktiver ATS och etableringen av en ny pool sker på den logiska SQL-servern. De nya resurserna kommer att visas i portalen och Studio när etableringen har slutförts.      
 
 ## <a name="next-steps"></a>Nästa steg
 Aktivera [Synapse-arbetsytans funktioner](workspace-connected-create.md) på din befintliga dedikerade SQL-pool (tidigare SQL DW)

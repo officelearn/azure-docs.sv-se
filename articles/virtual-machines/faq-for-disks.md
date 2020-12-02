@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d6cf0ba06293a073fc8fbe26e2386f1852429002
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: dcfef81f2d7f3413489490d97c143fdec7e11bed
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844003"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499330"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -151,7 +151,7 @@ Med Azure disk reservation får du möjlighet att köpa Premium-SSD i de angivna
 Reservationer görs i form av diskar, inte kapacitet. Med andra ord får du en enda P80-disk när du reserverar en P80-disk (32 TiB). du kan sedan inte dela upp den här reservationen i två mindre P70-diskar (16 TiB). Du kan naturligtvis reservera så många eller så få diskar som du vill, inklusive två separata P70-diskar (16 TiB).
 
 **Hur tillämpas Azure disk reservation?**    
-Disk reservationen följer en modell liknande de reserverade virtuella dator instanserna. Skillnaden är att en disk reservation inte kan tillämpas på olika SKU: er, medan en VM-instans kan. Mer information om VM-instanser finns i [Spara kostnader med Azure Reserved VM instances](./linux/prepay-reserved-vm-instances.md) .     
+Disk reservationen följer en modell liknande de reserverade virtuella dator instanserna. Skillnaden är att en disk reservation inte kan tillämpas på olika SKU: er, medan en VM-instans kan. Mer information om VM-instanser finns i [Spara kostnader med Azure Reserved VM instances](./prepay-reserved-vm-instances.md) .     
 
 **Kan jag använda min data lagring via reservationen av Azure-diskar i flera regioner?**    
 Azure disks-reservationen köps för en bestämd region och SKU (som P30 i USA, östra 2) och kan därför inte användas utanför dessa konstruktioner. Du kan alltid köpa ytterligare en Azure disks-reservation för dina disk lagrings behov i andra regioner eller SKU: er.    
@@ -304,7 +304,7 @@ Nej. Azure Site Recovery Azure till Azure-skydd för virtuella datorer med Manag
 
 **Kan jag migrera virtuella datorer med ohanterade diskar som finns på lagrings konton som eller tidigare har krypterats till Managed disks?**
 
-Ja
+Yes
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks och Kryptering för lagringstjänst
 
@@ -342,7 +342,7 @@ Ja. Alla hanterade ögonblicks bilder och avbildningar krypteras automatiskt.
 
 **Kan jag konvertera virtuella datorer med ohanterade diskar som finns på lagrings konton som eller tidigare har krypterats till Managed disks?**
 
-Ja
+Yes
 
 **Kommer en exporterad virtuell hård disk från en hanterad disk eller en ögonblicks bild också att krypteras?**
 

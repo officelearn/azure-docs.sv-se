@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a79ec9a54ae597bc7e9795029dc4292c2c82345
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: fd1c7f5dec57127f92da52be908bd6faa2c90e85
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836401"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500231"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrera till molnbaserad autentisering med stegvis distribution (för hands version)
 
@@ -66,6 +66,8 @@ Följande scenarier stöds för stegvis distribution. Funktionen fungerar endast
 ## <a name="unsupported-scenarios"></a>Scenarier som inte stöds
 
 Följande scenarier stöds inte för stegvis distribution:
+
+- Program eller moln tjänster använder äldre autentisering som POP3 och SMTP.
 
 - Vissa program skickar frågeparametern "domain_hint" till Azure AD under autentiseringen. Dessa flöden fortsätter och användare som är aktiverade för stegvis distribution fortsätter att använda Federation för autentisering.
 

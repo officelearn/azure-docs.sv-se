@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7a5cd7a6019451b27b509aa7f486540c04c29ee2
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 464439516ee86d2fb6f900c3fcaf179095192acf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412654"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498888"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>Säkerhets kontroll: inventering och till gångs hantering
 
@@ -76,7 +76,7 @@ Använd Azure Policy för att ange begränsningar för den typ av resurser som k
 
 Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenumerationer.  Se till att alla Azure-resurser som finns i miljön är godkända.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Så här skapar du frågor med Azure Graph](../../governance/resource-graph/first-query-portal.md)
 
@@ -100,7 +100,7 @@ Använd Azure Security Center fil integritets övervakning (Ändringsspårning) 
 
 - [Så här använder du övervakning av fil integritet](../../security-center/security-center-file-integrity-monitoring.md)
 
-- [Förstå Azure Ändringsspårning](../../automation/change-tracking.md)
+- [Förstå Azure Ändringsspårning](../../automation/change-tracking/overview.md)
 
 - [Så här aktiverar du inventering av virtuella Azure-datorer](../../automation/automation-tutorial-installed-software.md)
 
@@ -122,7 +122,7 @@ Använd Azure Security Center adaptiva program kontroller för att säkerställa
 
 Använd Azure Policy för att begränsa vilka tjänster du kan etablera i din miljö.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Så här nekar du en speciell resurs typ med Azure Policy](../../governance/policy/samples/index.md)
 

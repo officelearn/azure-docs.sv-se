@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 435cb1d52b5505f4f29bd0c31986a1f7f72208fd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e298cb0d1a2c510a096f8ead03f8af7e39c206a8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412875"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498939"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection – utforma elastiska lösningar
 
@@ -113,7 +113,7 @@ Om den offentliga IP-adressen är utsatt för angrepp, värdet för måttet **un
 
 Vi rekommenderar att du konfigurerar en avisering om detta mått. Därefter får du ett meddelande när det finns en aktiv DDoS-åtgärd som utförs på din offentliga IP-adress.
 
-Mer information finns i [hantera Azure DDoS Protection standard med hjälp av Azure Portal](../../virtual-network/manage-ddos-protection.md).
+Mer information finns i [hantera Azure DDoS Protection standard med hjälp av Azure Portal](../../ddos-protection/manage-ddos-protection.md).
 
 #### <a name="web-application-firewall-for-resource-attacks"></a>Brand vägg för webbaserade program för resurs attacker
 
@@ -179,7 +179,7 @@ För ditt DDoS-svars Team rekommenderar vi att du använder simulerings övninga
 
 ### <a name="alerts-during-an-attack"></a>Aviseringar under en attack
 
-Azure DDoS Protection standard identifierar och minimerar DDoS-attacker utan att användaren behöver vidta några åtgärder. Om du vill få ett meddelande när det finns en aktiv åtgärd för en skyddad offentlig IP-adress kan du [Konfigurera en avisering](../../virtual-network/manage-ddos-protection.md) på måttet **under DDoS-attack eller inte**. Du kan välja att skapa aviseringar för de andra DDoS-måtten för att förstå storleken på angreppet, trafik som släpps och annan information.
+Azure DDoS Protection standard identifierar och minimerar DDoS-attacker utan att användaren behöver vidta några åtgärder. Om du vill få ett meddelande när det finns en aktiv åtgärd för en skyddad offentlig IP-adress kan du [Konfigurera en avisering](../../ddos-protection/manage-ddos-protection.md) på måttet **under DDoS-attack eller inte**. Du kan välja att skapa aviseringar för de andra DDoS-måtten för att förstå storleken på angreppet, trafik som släpps och annan information.
 
 #### <a name="when-to-contact-microsoft-support"></a>När du ska kontakta Microsoft-supporten
 
@@ -260,7 +260,7 @@ Den här referens arkitekturen visar hur du konfigurerar DDoS Protection standar
 
 I den här arkitekturen dirigeras trafik till HDInsight-klustret från Internet till den offentliga IP-adress som är associerad med belastningsutjämnaren för HDInsight Gateway. Gateway-belastningsutjämnaren skickar sedan trafiken till Head-noderna eller arbetsnoderna direkt. Eftersom DDoS Protection standard är aktiverat i det virtuella HDInsight-nätverket får alla offentliga IP-adresser i det virtuella nätverket DDoS skydd för Layer 3 och 4. Den här referens arkitekturen kan kombineras med referens arkitekturer för N-nivå och flera regioner.
 
-Mer information om den här referens arkitekturen finns i [utöka Azure HDInsight med hjälp av en Azure Virtual Network](../../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%252fazure%252fvirtual-network%252ftoc.json) -dokumentation.
+Mer information om den här referens arkitekturen finns i [utöka Azure HDInsight med hjälp av en Azure Virtual Network](../../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -dokumentation.
 
 
 > [!NOTE]
@@ -270,4 +270,4 @@ Mer information om den här referens arkitekturen finns i [utöka Azure HDInsigh
 
 * [Delat ansvar i molnet](shared-responsibility.md)
 * [Sidan Azure DDoS Protection produkt](https://azure.microsoft.com/services/ddos-protection/)
-* [Azure DDoS Protection dokumentation](../../virtual-network/ddos-protection-overview.md)
+* [Azure DDoS Protection dokumentation](../../ddos-protection/ddos-protection-overview.md)

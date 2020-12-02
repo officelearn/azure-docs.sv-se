@@ -4,12 +4,12 @@ description: Lär dig mer om Azure Monitors partner och hur du kan komma åt dok
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: d603e130d4e65667edb34121a4c89b7b0e02b819
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 6e707e77f4618d71cb2fa3f32b05895b97658f76
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636749"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500248"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Partnerintegrering i Azure Monitor
 
@@ -263,7 +263,7 @@ Minska incidenter och MTTR med AIOps-plattformen för att eliminera brus, priori
 
 ![SignalFX-logotyp](./media/partners/signalfx.png)
 
-SignalFx är ledaren i drifts information i real tid för data drivna DevOps. Tjänsten identifierar och samlar in mått över alla komponenter i molnet. Den ersätter traditionella punkt verktyg och ger real tids visning i dagens dynamiska miljöer. Med den enorma skalbara SignalFx-plattformen är SaaS-plattformen optimerad för container-och mikrotjänstbaserade arkitekturer och ger kraftfull visualisering, proaktiv avisering och samverkande prioritering funktioner i alla organisationer i alla storlekar. SignalFx integreras direkt med Azure Monitor och via anslutningar med öppen källkod, till exempel *teleympkvistar* , *statistik* och *hämt* för att ge bästa möjliga klass instrument paneler, analyser och aviseringar för Azure.
+SignalFx är ledaren i drifts information i real tid för data drivna DevOps. Tjänsten identifierar och samlar in mått över alla komponenter i molnet. Den ersätter traditionella punkt verktyg och ger real tids visning i dagens dynamiska miljöer. Med den enorma skalbara SignalFx-plattformen är SaaS-plattformen optimerad för container-och mikrotjänstbaserade arkitekturer och ger kraftfull visualisering, proaktiv avisering och samverkande prioritering funktioner i alla organisationer i alla storlekar. SignalFx integreras direkt med Azure Monitor och via anslutningar med öppen källkod, till exempel *teleympkvistar*, *statistik* och *hämt* för att ge bästa möjliga klass instrument paneler, analyser och aviseringar för Azure.
 
 [Dokumentation om signalfx](https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure)
 
@@ -310,6 +310,20 @@ Sumo Logic är en säker, molnbaserad, maskin data analys tjänst som levererar 
 Turbonomic levererar arbets belastnings automatisering för Hybrid moln genom att samtidigt optimera prestanda, kostnad och efterlevnad i real tid. Turbonomic hjälper organisationer att bli elastiska i sin Azure-fastighet genom att kontinuerligt optimera fastigheten för att säkerställa att program ständigt får de resurser som krävs för att leverera sitt service avtal och inget mer för beräkning, lagring och nätverk för IaaS-och PaaS-skiktet. Organisationer kan simulera migreringar, skala arbets belastningar på rätt sätt och dra tillbaka data Center resurser för att ett ansvarsfullt sätt migrera till Azure i tid, inom budgeten, samtidigt som de kan garantera både prestanda och efterlevnad. Turbonomic är API driven och körs som en virtuell dator utan agent i Azure och lokalt.
 
 [Introduktion till Turbonomic](https://turbonomic.com/)
+
+## <a name="partner-tools-with-event-hub-integration"></a>Partner verktyg med Event Hub-integrering
+
+Genom att använda Azure Monitor för att dirigera övervaknings data till en Azure Event Hub kan du enkelt integrera med vissa externa SIEM och övervaknings verktyg. Följande partners är kända för integrering via Händelsehubben. 
+
+| Verktyg | Värd i Azure | Description |
+|:---|:---| :---|
+|  IBM QRadar | No | Microsoft Azure DSM-och Microsoft Azure Event Hub-protokollet kan hämtas från [IBM support-webbplatsen](https://www.ibm.com/support). Du kan lära dig mer om integrering med Azure på [QRADAR DSM-konfiguration](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
+| Splunk | No | [Microsoft Azure Add-On för Splunk](https://splunkbase.splunk.com/app/3757/) är ett projekt med öppen källkod som finns i Splunkbase. <br><br> Om du inte kan installera ett tillägg i din Splunk-instans, om du t. ex. använder en proxy eller som körs på Splunk-molnet, kan du vidarebefordra händelserna till insamlaren för HTTP-Splunk med hjälp av [Azure Function för Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), som utlöses av nya meddelanden i händelsehubben. |
+| SumoLogic | No | Anvisningar för att konfigurera SumoLogic för att använda data från en händelsehubben är tillgängliga vid [insamling av loggar för Azure audit-appen från Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
+| ArcSight | No | Smart Connector för ArcSight Azure Event Hub är tillgängligt som en del av [ArcSight Smart Connector-samlingen](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
+| Syslog-server | No | Om du vill strömma Azure Monitor data direkt till en Syslog-server kan du använda en [lösning som baseras på en Azure-funktion](https://github.com/miguelangelopereira/azuremonitor2syslog/).
+| LogRhythm | No| Anvisningar för att konfigurera LogRhythm för att samla in loggar från en Event Hub finns [här](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+|Logz.io | Yes | Mer information finns i [komma igång med övervakning och loggning med Logz.io för Java-appar som körs på Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
 
 ## <a name="next-steps"></a>Nästa steg

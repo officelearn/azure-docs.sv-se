@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: b0871b6365d78129cd6fdaec82fee14e2b0a7a4b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4fb20b221858c4717d67e0777afbe5c067c00a69
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693451"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499619"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Konfigurera Kundhanterade nycklar för data kryptering i Azure Kognitiv sökning
 
@@ -96,7 +96,7 @@ Du kan ange båda egenskaperna med hjälp av kommandona Portal, PowerShell eller
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 
-+ Om du har en [installation av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)kan du köra följande kommando för att aktivera de nödvändiga egenskaperna.
++ Om du har en [installation av Azure CLI](/cli/azure/install-azure-cli)kan du köra följande kommando för att aktivera de nödvändiga egenskaperna.
 
    ```azurecli-interactive
    az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
@@ -173,7 +173,7 @@ I det här steget ska du skapa en åtkomst princip i Key Vault. Den här princip
 
 ## <a name="5---encrypt-content"></a>5 – Kryptera innehåll
 
-Om du vill lägga till en kundhanterad nyckel på ett index, data källa, färdigheter, indexerare eller synonym mappning måste du använda [sök REST API](https://docs.microsoft.com/rest/api/searchservice/) eller ett SDK. Portalen visar inte synonym kartor eller krypterings egenskaper. När du använder ett giltigt API-index, stöder data källor, färdighetsuppsättningar, indexerare och synonym Maps en **encryptionKey** -egenskap på högsta nivån.
+Om du vill lägga till en kundhanterad nyckel på ett index, data källa, färdigheter, indexerare eller synonym mappning måste du använda [sök REST API](/rest/api/searchservice/) eller ett SDK. Portalen visar inte synonym kartor eller krypterings egenskaper. När du använder ett giltigt API-index, stöder data källor, färdighetsuppsättningar, indexerare och synonym Maps en **encryptionKey** -egenskap på högsta nivån.
 
 I det här exemplet används REST API med värden för Azure Key Vault och Azure Active Directory:
 
@@ -196,7 +196,7 @@ I det här exemplet används REST API med värden för Azure Key Vault och Azure
 
 ## <a name="example-index-encryption"></a>Exempel: index kryptering
 
-Skapa ett krypterat index med hjälp av [create index Azure Kognitiv sökning REST API](https://docs.microsoft.com/rest/api/searchservice/create-index). Använd `encryptionKey` egenskapen för att ange vilken krypterings nyckel som ska användas.
+Skapa ett krypterat index med hjälp av [create index Azure Kognitiv sökning REST API](/rest/api/searchservice/create-index). Använd `encryptionKey` egenskapen för att ange vilken krypterings nyckel som ska användas.
 > [!Note]
 > Ingen av dessa nyckel valvs uppgifter betraktas som hemliga och kan enkelt hämtas genom att bläddra till den relevanta Azure Key Vault nyckel sidan i Azure Portal.
 
@@ -239,7 +239,7 @@ Nu kan du skicka begäran om att skapa index och sedan börja använda indexet s
 
 ### <a name="synonym-map-encryption"></a>Kryptering av synonym mappning
 
-Skapa en krypterad synonym mappning med hjälp av [create synonymer Map Azure Kognitiv sökning REST API](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Använd `encryptionKey` egenskapen för att ange vilken krypterings nyckel som ska användas.
+Skapa en krypterad synonym mappning med hjälp av [create synonymer Map Azure Kognitiv sökning REST API](/rest/api/searchservice/create-synonym-map). Använd `encryptionKey` egenskapen för att ange vilken krypterings nyckel som ska användas.
 
 ```json
 {
@@ -263,7 +263,7 @@ Nu kan du skicka en förfrågan om att skapa synonym mappning och sedan börja a
 
 ## <a name="example-data-source-encryption"></a>Exempel: kryptering av data Källa
 
-Skapa en krypterad data källa med hjälp av [skapa data källa (Azure Kognitiv sökning REST API)](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Använd `encryptionKey` egenskapen för att ange vilken krypterings nyckel som ska användas.
+Skapa en krypterad data källa med hjälp av [skapa data källa (Azure Kognitiv sökning REST API)](/rest/api/searchservice/create-data-source). Använd `encryptionKey` egenskapen för att ange vilken krypterings nyckel som ska användas.
 
 ```json
 {
@@ -289,7 +289,7 @@ Nu kan du skicka begäran om att skapa data källa och sedan börja använda den
 
 ## <a name="example-skillset-encryption"></a>Exempel: färdigheter-kryptering
 
-Skapa en krypterad färdigheter med [REST API för att skapa färdigheter Azure kognitiv sökning](https://docs.microsoft.com/rest/api/searchservice/create-skillset). Använd `encryptionKey` egenskapen för att ange vilken krypterings nyckel som ska användas.
+Skapa en krypterad färdigheter med [REST API för att skapa färdigheter Azure kognitiv sökning](/rest/api/searchservice/create-skillset). Använd `encryptionKey` egenskapen för att ange vilken krypterings nyckel som ska användas.
 
 ```json
 {
@@ -315,7 +315,7 @@ Nu kan du skicka begäran om att skapa färdigheter och sedan börja använda de
 
 ## <a name="example-indexer-encryption"></a>Exempel: indexerare kryptering
 
-Skapa en krypterad indexerare med hjälp av [REST API skapa indexerare Azure Kognitiv sökning](https://docs.microsoft.com/rest/api/searchservice/create-indexer). Använd `encryptionKey` egenskapen för att ange vilken krypterings nyckel som ska användas.
+Skapa en krypterad indexerare med hjälp av [REST API skapa indexerare Azure Kognitiv sökning](/rest/api/searchservice/create-indexer). Använd `encryptionKey` egenskapen för att ange vilken krypterings nyckel som ska användas.
 
 ```json
 {

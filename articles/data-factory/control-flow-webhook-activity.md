@@ -3,20 +3,20 @@ title: Webhook-aktivitet i Azure Data Factory
 description: Webhook-aktiviteten fortsätter inte att köra pipelinen förrän den verifierar den bifogade data uppsättningen med vissa villkor som användaren anger.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 1ce41a5928d5b8a7c7df439ce5321cd15f0cc1d5
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 144006c3d0722bc3211f542b7059bba0bb0cbdbf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634988"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499415"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Webhook-aktivitet i Azure Data Factory
 
@@ -53,17 +53,17 @@ En webhook-aktivitet kan styra körningen av pipeliner via din anpassade kod. Me
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
-**Namn** | Namnet på webhook-aktiviteten. | Sträng | Ja |
-**bastyp** | Måste vara inställt på "webhook". | Sträng | Ja |
-**metodsignatur** | REST API metod för mål slut punkten. | Sträng. Den typ som stöds är "POST". | Ja |
-**adresser** | Mål slut punkten och sökvägen. | En sträng eller ett uttryck med **resultType** -värdet för en sträng. | Ja |
+**Namn** | Namnet på webhook-aktiviteten. | Sträng | Yes |
+**bastyp** | Måste vara inställt på "webhook". | Sträng | Yes |
+**metodsignatur** | REST API metod för mål slut punkten. | Sträng. Den typ som stöds är "POST". | Yes |
+**adresser** | Mål slut punkten och sökvägen. | En sträng eller ett uttryck med **resultType** -värdet för en sträng. | Yes |
 **sidhuvud** | Huvuden som skickas till begäran. Här är ett exempel som anger språk och typ på en begäran: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | En sträng eller ett uttryck med **resultType** -värdet för en sträng. | Ja. En `Content-Type` rubrik som `"headers":{ "Content-Type":"application/json"}` är obligatorisk. |
-**brödtext** | Representerar den nytto last som skickas till slut punkten. | Giltigt JSON eller ett uttryck med **resultType** -värdet för JSON. Se [nytto Last schema för begäran](./control-flow-web-activity.md#request-payload-schema) om schemat för nytto lasten för begäran. | Ja |
-**anspråksautentisering** | Autentiseringsmetoden som används för att anropa slut punkten. De typer som stöds är "grundläggande" och "ClientCertificate". Mer information finns i [Autentisering](./control-flow-web-activity.md#authentication). Om autentisering inte krävs utelämnar du den här egenskapen. | En sträng eller ett uttryck med **resultType** -värdet för en sträng. | Nej |
-**standardvärde** | Hur länge aktiviteten väntar på att återanropet som anges av **callBackUri** ska anropas. Standardvärdet är 10 minuter ("00:10:00"). Värdena har formatet TimeSpan *d* . *HH* : *mm* : *SS* . | Sträng | Nej |
-**Rapportera status vid motringning** | Låter en användare rapportera den misslyckade statusen för en webhook-aktivitet. | Boolesk | Nej |
+**brödtext** | Representerar den nytto last som skickas till slut punkten. | Giltigt JSON eller ett uttryck med **resultType** -värdet för JSON. Se [nytto Last schema för begäran](./control-flow-web-activity.md#request-payload-schema) om schemat för nytto lasten för begäran. | Yes |
+**anspråksautentisering** | Autentiseringsmetoden som används för att anropa slut punkten. De typer som stöds är "grundläggande" och "ClientCertificate". Mer information finns i [Autentisering](./control-flow-web-activity.md#authentication). Om autentisering inte krävs utelämnar du den här egenskapen. | En sträng eller ett uttryck med **resultType** -värdet för en sträng. | No |
+**standardvärde** | Hur länge aktiviteten väntar på att återanropet som anges av **callBackUri** ska anropas. Standardvärdet är 10 minuter ("00:10:00"). Värdena har formatet TimeSpan *d*. *HH*:*mm*:*SS*. | Sträng | No |
+**Rapportera status vid motringning** | Låter en användare rapportera den misslyckade statusen för en webhook-aktivitet. | Boolesk | No |
 
 ## <a name="authentication"></a>Autentisering
 
@@ -119,7 +119,7 @@ Webhook-aktiviteten Miss lyckas när anropet till den anpassade slut punkten Mis
 
 För varje REST API-anrop har klienten nått tids gränsen om slut punkten inte svarar inom en minut. Det här är en standard metod för HTTP-användning. För att åtgärda det här problemet implementerar du ett 202-mönster. I det aktuella fallet returnerar slut punkten 202 (accepterad) och klient avsökningarna.
 
-Tids gränsen på en minut på begäran har inget att göra med aktivitetens tids gräns. Den senare används för att vänta på återanropet som anges av **callbackUri** .
+Tids gränsen på en minut på begäran har inget att göra med aktivitetens tids gräns. Den senare används för att vänta på återanropet som anges av **callbackUri**.
 
 Texten som skickas tillbaka till återanrops-URI: n måste vara giltig JSON. Ange `Content-Type` sidhuvudet till `application/json` .
 

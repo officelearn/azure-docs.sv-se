@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 5cf406dc0577f477858dd8a6570f7975747112e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 048f2585d8e9ac1b10293083bda0900e7ce468bb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891228"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447593"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Anslut till Azure Resource Manager på din Azure Stack Edge Pro-enhet
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Azure Resource Manager tillhandahåller ett hanterings lager som gör att du kan skapa, uppdatera och ta bort resurser i din Azure-prenumeration. Azure Stack Edge Pro-enheten stöder samma Azure Resource Manager-API: er för att skapa, uppdatera och ta bort virtuella datorer i en lokal prenumeration. Med det här stödet kan du hantera enheten på ett sätt som är konsekvent med molnet. 
+Azure Resource Manager har ett hanteringslager som hjälper dig att skapa, uppdatera och ta bort resurser i din Azure-prenumeration. Azure Stack Edge Pro-enheten stöder samma Azure Resource Manager-API: er för att skapa, uppdatera och ta bort virtuella datorer i en lokal prenumeration. Med det här stödet kan du hantera enheten på ett sätt som är konsekvent med molnet. 
 
 I den här självstudien beskrivs hur du ansluter till lokala API: er på din Azure Stack Edge Pro-enhet via Azure Resource Manager med Azure PowerShell.
 
@@ -138,9 +138,9 @@ Windows-klienten måste uppfylla följande krav:
 
     Jämför **huvud** versionen och se till att den är 5,0 eller senare.
 
-    Läs informationen om att [uppgradera befintliga Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) om du har en inaktuell version.
+    Läs informationen om att [uppgradera befintliga Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) om du har en inaktuell version.
 
-    Om du inte \' har PowerShell 5,0 följer du [installationen av Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
+    Om du inte \' har PowerShell 5,0 följer du [installationen av Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
 
     Ett exempel på utdata visas nedan.
 
@@ -175,11 +175,11 @@ Windows-klienten måste uppfylla följande krav:
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
     
-Om din lagrings plats inte är betrodd eller om du behöver mer information, se [verifiera PowerShell-galleriet hjälpmedel](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
+Om din lagrings plats inte är betrodd eller om du behöver mer information, se [verifiera PowerShell-galleriet hjälpmedel](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
 
 ## <a name="step-4-set-up-azure-powershell-on-the-client"></a>Steg 4: Konfigurera Azure PowerShell på klienten 
 
-<!--1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
 
 1. Du kommer att installera Azure PowerShell-moduler på klienten som ska fungera med din enhet.
 
@@ -297,9 +297,9 @@ Kontrol lera att slut punkts namnet har matchats på klienten som du använder f
 Ange Azure Resource Managers miljö och kontrol lera att enheten för klient kommunikation via Azure Resource Manager fungerar bra. Utför följande steg för den här verifieringen:
 
 
-1. Använd `Add-AzureRmEnvironment` cmdleten för att se till att kommunikationen via Azure Resource Manager fungerar korrekt och att API-anropen går genom porten som är dedikerad för Azure Resource Manager-443.
+1. Använd cmdleten `Add-AzureRmEnvironment` för att se till att kommunikationen via Azure Resource Manager fungerar korrekt och att API-anropen går via den port som är dedikerad för Azure Resource Manager, 443.
 
-    `Add-AzureRmEnvironment`Cmdleten lägger till slut punkter och metadata för att aktivera Azure Resource Manager-cmdletar för att ansluta till en ny instans av Azure Resource Manager. 
+    Cmdleten `Add-AzureRmEnvironment` lägger till slutpunkter och metadata så att Azure Resource Manager-cmdletar kan ansluta till en ny instans av Azure Resource Manager. 
 
 
     > [!IMPORTANT]
@@ -319,7 +319,7 @@ Ange Azure Resource Managers miljö och kontrol lera att enheten för klient kom
     AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
     ```
 
-2. Ange miljön som Azure Stack Edge Pro och porten som ska användas för Azure Resource Manager samtal som 443. Du definierar miljön på två sätt:
+2. Konfigurera miljön som Azure Stack Edge Pro och porten som ska användas för anrop till Azure Resource Manager som 443. Du definierar miljön på två sätt:
 
     - Konfigurera miljön. Ange följande kommando:
 
@@ -327,13 +327,13 @@ Ange Azure Resource Managers miljö och kontrol lera att enheten för klient kom
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
     
-    Mer information finns på [set-AzureRMEnvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
+    Mer information finns på [set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
 
     - Definiera miljö inlinjen för varje cmdlet som du kör. Detta säkerställer att alla API-anrop går igenom rätt miljö. Som standard går anropen via Azures offentliga, men du vill att de ska gå igenom den miljö som du har angett för Azure Stack Edge Pro-enhet.
 
     - Se mer information om [hur du växlar AzureRM-miljöer](#switch-environments).
 
-2. Anropa lokala enhets-API: er för att autentisera anslutningarna till Azure Resource Manager. 
+2. Anropa lokala enhets-API:er för att autentisera anslutningarna till Azure Resource Manager. 
 
     1. Dessa autentiseringsuppgifter är för ett lokalt dator konto och används enbart för API-åtkomst.
 

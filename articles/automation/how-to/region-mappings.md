@@ -1,16 +1,16 @@
 ---
 title: Regioner som stöder länkade Log Analytics-arbetsytor
 description: I den här artikeln beskrivs de region mappningar som stöds mellan ett Automation-konto och en Log Analytics arbets yta som relaterar till vissa funktioner i Azure Automation.
-ms.date: 10/19/2020
+ms.date: 12/01/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 23e5293301a2fc311565d0c1c8ec5fd92bebe9b2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 25ddf562f92ca96a505432a58f137657a2bbc4bd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183574"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446975"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regioner som stöder länkade Log Analytics-arbetsytor
 
@@ -31,6 +31,7 @@ Följande tabell visar de mappningar som stöds:
 |---|---|
 |**USA**||
 |Östra USA<sup>1</sup>|EastUS2|
+|EastUS2<sup>2</sup>|Platsen eastus|
 |WestUS2|WestUS2|
 |Usasödracentrala|Usasödracentrala|
 |WestCentralUS|WestCentralUS|
@@ -40,7 +41,7 @@ Följande tabell visar de mappningar som stöds:
 |AustraliaSoutheast|AustraliaSoutheast|
 |Sydostasien|Sydostasien|
 |Kanada|Kanada|
-|ChinaEast2<sup>2</sup>|ChinaEast2|
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |Japanöstra|Japanöstra|
 |**Europa**||
 |UKSouth|UKSouth|
@@ -48,11 +49,13 @@ Följande tabell visar de mappningar som stöds:
 |SwitzerlandNorth|SwitzerlandNorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
-|USGovArizona<sup>2</sup>|USGovArizona|
+|USGovArizona<sup>3</sup>|USGovArizona|
 
 <sup>1</sup> -mappning av öster för Log Analytics arbets ytor till Automation-konton är inte en exakt mappning mellan regioner och regioner, men är rätt mappning.
 
-<sup>2</sup> i den här regionen stöds endast uppdateringshantering och andra funktioner som ändringsspårning och inventering är inte tillgängliga för tillfället.
+<sup>2</sup> EastUS2-mappningen för Log Analytics-arbetsytor till Automation-konton är inte en exakt mappning mellan regioner och regioner, men är rätt mappning.
+
+<sup>3</sup> i den här regionen stöds endast uppdateringshantering och andra funktioner som ändringsspårning och inventering är inte tillgängliga för tillfället.
 
 ## <a name="unlink-a-workspace"></a>Ta bort länk till en arbets yta
 

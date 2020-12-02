@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: fe49dce276a15d9d7bc8ddaa5618c0e43dec62e9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b34ac24cb26bf5db4a49a5ad5b531deb252f4695
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841231"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446118"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Ny DBA i molnet – Hantera Azure SQL Database efter migrering
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -65,7 +65,7 @@ Du skapar inga säkerhets kopior på Azure SQL Database och det beror på att du
 
 |Tjänstnivå|Kvarhållningsperiod i dagar|
 |---|:---:|
-|Grundläggande|7|
+|Basic|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -101,12 +101,12 @@ SQL Database tar säkerhet och sekretess mycket allvarligt. Säkerhet i SQL Data
 
 Det finns två autentiseringsmetoder som erbjuds i SQL Database:
 
-- [Azure Active Directory autentisering](authentication-aad-overview.md)
+- [Azure Active Directory-autentisering](authentication-aad-overview.md)
 - [SQL-autentisering](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 Den traditionella Windows-autentiseringen stöds inte. Azure Active Directory (Azure AD) är en centraliserad tjänst för identitets-och åtkomst hantering. Med det här kan du enkelt tillhandahålla enkel inloggning (SSO) till all personal i din organisation. Det innebär att autentiseringsuppgifterna delas mellan alla Azure-tjänster för enklare autentisering. 
 
-Azure AD har stöd för [Azure ad Multi-Factor Authentication](authentication-mfa-ssms-overview.md) och med [några klick](../../active-directory/hybrid/how-to-connect-install-express.md) kan Azure AD integreras med Windows Server Active Directory. SQL-autentisering fungerar på samma sätt som du har använt den tidigare. Du anger ett användar namn/lösen ord och du kan autentisera användare till valfri databas på en specifik server. Detta gör det också möjligt SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse) att erbjuda Multi-Factor Authentication-och gäst användar konton i en Azure AD-domän. Om du redan har ett Active Directory lokalt kan du federera katalogen med Azure Active Directory för att utöka din katalog till Azure.
+Azure AD har stöd för [Azure ad Multi-Factor Authentication](authentication-mfa-ssms-overview.md) och med [några klick](../../active-directory/hybrid/how-to-connect-install-express.md) kan Azure AD integreras med Windows Server Active Directory. SQL-autentisering fungerar på samma sätt som du har använt den tidigare. Du anger ett användar namn/lösen ord och du kan autentisera användare till valfri databas på en specifik server. Detta gör det också möjligt SQL Database och Azure Synapse Analytics att erbjuda Multi-Factor Authentication-och gäst användar konton i en Azure AD-domän. Om du redan har ett Active Directory lokalt kan du federera katalogen med Azure Active Directory för att utöka din katalog till Azure.
 
 |**Om du...**|**SQL Database/Azure Synapse Analytics**|
 |---|---|
@@ -169,10 +169,10 @@ Kryptering ger en kraftfull mekanism för att skydda och skydda känsliga data f
 I SQL Database är som standard dina data i vila i data-och loggfilerna på underlag rings systemet fullständigt och alltid krypterade via [Transparent datakryptering [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Dina säkerhets kopior krypteras också. Med TDE finns det inga ändringar som krävs på din program sida som har åtkomst till dessa data. Kryptering och dekryptering sker transparent; Därför är namnet.
 För att skydda känsliga data i flygning och i vila tillhandahåller SQL Database en funktion som kallas [Always Encrypted (AE)](/sql/relational-databases/security/encryption/always-encrypted-database-engine). AE är en form av kryptering på klient sidan som krypterar känsliga kolumner i databasen (så att de finns i chiffertexten till databas administratörer och obehöriga användare). Servern tar emot krypterade data att börja med. Nyckeln för Always Encrypted lagras också på klient sidan så att endast auktoriserade klienter kan dekryptera känsliga kolumner. Server-och data administratörer kan inte se känsliga data eftersom krypterings nycklarna lagras på klienten. AE krypterar känsliga kolumner i tabellen från slut punkt till slut punkt från obehöriga klienter till den fysiska disken. AE stöder likhets jämförelser idag, så databas administratörer kan fortsätta att fråga krypterade kolumner som en del av deras SQL-kommandon. Always Encrypted kan användas med en rad olika alternativ för nyckel lagring, till exempel [Azure Key Vault](always-encrypted-azure-key-vault-configure.md), Windows certifikat Arkiv och lokala säkerhetsmoduler för maskin vara.
 
-|**Kännetecken**|**Alltid krypterad**|**Transparent datakryptering**|
+|**Kännetecken**|**Alltid krypterad**|**transparent datakryptering**|
 |---|---|---|
 |**Krypterings omfång**|Slut punkt till slut punkt|Vilande data|
-|**Servern kan komma åt känsliga data**|Nej|Ja, eftersom krypteringen är för vilande data|
+|**Servern kan komma åt känsliga data**|No|Ja, eftersom krypteringen är för vilande data|
 |**Tillåtna T-SQL-åtgärder**|Likhets jämförelse|Alla ytor i T-SQL är tillgängligt|
 |**App-ändringar krävs för att använda funktionen**|Minimal|Mycket minimal|
 |**Krypterings precision**|Kolumn nivå|databasnivå|

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 745d0df07b6d0d01acf0d564df8c242e16f3f56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b49659f67e779b6eb8079492b47fef9419ca6b1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890988"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447508"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Skapa anpassade VM-avbildningar för din Azure Stack Edge Pro-enhet
 
@@ -42,7 +42,7 @@ Utför följande steg för att skapa en Windows VM-avbildning.
     
         `c:\windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown /mode:vm`
    
-       Du kan också läsa [Översikt över Sysprep (System preparation)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+       Du kan också läsa [Översikt över Sysprep (System preparation)](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 Använd den här virtuella hård disken för att skapa och distribuera en virtuell dator på din Azure Stack Edge Pro-enhet.
 
@@ -71,12 +71,12 @@ Utför följande steg för att skapa en virtuell Linux-avbildning.
 
 Använd den här virtuella hård disken för att skapa och distribuera en virtuell dator på din Azure Stack Edge Pro-enhet. Du kan använda följande två Azure Marketplace-avbildningar för att skapa anpassade Linux-avbildningar:
 
-|Objekt namn  |Beskrivning  |Publisher  |
+|Objekt namn  |Description  |Publisher  |
 |---------|---------|---------|
 |[Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |Ubuntu-servern är världens mest populära Linux för moln miljöer.|Canonical|
 |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux är en av de mest populära Linux-distributionerna.     |credativ|
 
-En fullständig lista över Azure Marketplace-avbildningar som kan fungera (för närvarande inte testas) finns på [Azure Marketplace-objekt som är tillgängliga för Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910).
+En fullständig lista över Azure Marketplace-avbildningar som kan fungera (för närvarande inte testas) finns på [Azure Marketplace-objekt som är tillgängliga för Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910).
 
 
 ## <a name="next-steps"></a>Nästa steg

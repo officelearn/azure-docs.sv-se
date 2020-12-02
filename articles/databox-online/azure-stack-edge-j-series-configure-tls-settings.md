@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 9a6b0910fcfd2a632f2520a2fe683b15592017cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15e2d7a144b54f443b8298b20dbfacf78a50f9e1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891180"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447545"
 ---
 # <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-pro-device"></a>Konfigurera TLS 1,2 på Windows-klienter som har åtkomst till Azure Stack Edge Pro-enhet
 
@@ -38,11 +38,11 @@ Utför följande steg för att konfigurera TLS 1,2 på klienten.
 
 Om du vill ställa in systemomfattande TLS 1,2 för din miljö följer du rikt linjerna i dessa dokument:
 
-- [Allmänt – så här aktiverar du TLS 1,2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12)
-- [Så här aktiverar du TLS 1,2 på klienter](https://docs.microsoft.com/configmgr/core/plan-design/security/enable-tls-1-2-client)
-- [Så här aktiverar du TLS 1,2 på plats servrar och fjärranslutna plats system](https://docs.microsoft.com/configmgr/core/plan-design/security/enable-tls-1-2-server)
-- [Protokoll i TLS/SSL (Schannel SSP)](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-ecc-curve-order)
-- [Chiffersviter](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12): Konfigurera bara [TLS cipher Suite-ordningen](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order) se till att du visar dina aktuella chiffersviter och lägga som saknas i följande lista:
+- [Allmänt – så här aktiverar du TLS 1,2](/windows-server/security/tls/tls-registry-settings#tls-12)
+- [Så här aktiverar du TLS 1,2 på klienter](/configmgr/core/plan-design/security/enable-tls-1-2-client)
+- [Så här aktiverar du TLS 1,2 på plats servrar och fjärranslutna plats system](/configmgr/core/plan-design/security/enable-tls-1-2-server)
+- [Protokoll i TLS/SSL (Schannel SSP)](/windows-server/security/tls/manage-tls#configuring-tls-ecc-curve-order)
+- [Chiffersviter](/windows-server/security/tls/tls-registry-settings#tls-12): Konfigurera bara [TLS cipher Suite-ordningen](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order) se till att du visar dina aktuella chiffersviter och lägga som saknas i följande lista:
 
     - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
     - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
@@ -68,7 +68,7 @@ Om du vill ställa in systemomfattande TLS 1,2 för din miljö följer du rikt l
     New-ItemProperty -Path "$HklmSoftwarePath\Policies\Microsoft\Cryptography\Configuration\SSL\00010002" -Name "EccCurves" -PropertyType MultiString -Value @("NistP256", "NistP384")
     ```
     
-    - [Ange minsta RSA Key Exchange-storlek till 2048](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#keyexchangealgorithm---client-rsa-key-sizes).
+    - [Ange minsta RSA Key Exchange-storlek till 2048](/windows-server/security/tls/tls-registry-settings#keyexchangealgorithm---client-rsa-key-sizes).
 
 
 

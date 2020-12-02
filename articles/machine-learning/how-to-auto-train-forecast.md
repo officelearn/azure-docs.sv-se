@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 57b54fbe20df4eb74ee17c7b5ac83d773114463b
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 8c6a27f0cfaafe7e6c1181651e672d0e828af855
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437379"
+ms.locfileid: "96444489"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 
@@ -154,7 +154,7 @@ I följande tabell sammanfattas dessa ytterligare parametrar. I [ForecastingPara
 
 
 Följande kod, 
-* Utnyttjar klassen för [`ForecastingParameters`](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) att definiera prognos parametrar för din experiment utbildning
+* Utnyttjar klassen för [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) att definiera prognos parametrar för din experiment utbildning
 * Anger `time_column_name` `day_datetime` fältet i data uppsättningen. 
 * Definierar `time_series_id_column_names` parametern till `"store"` . Detta säkerställer att **två separata tids serie grupper** skapas för data. en för Store A och B.
 * Ställer in `forecast_horizon` till 50 för att förutsäga för hela test uppsättningen. 

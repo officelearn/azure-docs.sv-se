@@ -1,5 +1,5 @@
 ---
-title: Felsöka Synapse Studio (för hands version)
+title: Felsöka Synapse Studio
 description: Felsöka Azure Synapse Studio
 author: julieMSFT
 ms.service: synapse-analytics
@@ -8,18 +8,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3fe31f83ccc0dcbd2d61a7c70d40a64da08d13a1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a96709c7538bda6d6b338c29dc512902e9ca2c87
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321011"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445851"
 ---
-# <a name="azure-synapse-studio-preview-troubleshooting"></a>Fel sökning för Azure Synapse Studio (för hands version)
+# <a name="azure-synapse-studio-troubleshooting"></a>Fel sökning av Azure Synapse Studio
 
 Den här fel söknings guiden innehåller instruktioner om vilken information som ska tillhandahållas när du öppnar ett support ärende om problem med nätverks anslutningen. Med rätt information kan vi eventuellt lösa problemet snabbare.
 
-## <a name="serverless-sql-pool-preview-service-connectivity-issue"></a>Anslutnings problem för tjänsten Server lös SQL-pool (förhands granskning)
+## <a name="serverless-sql-pool-service-connectivity-issue"></a>Anslutnings problem för Server lös SQL-adresspool
 
 ### <a name="symptom-1"></a>Symptom 1
 
@@ -61,7 +61,7 @@ Hitta objektet vars URL-kolumn matchar följande mönster:
 
 `https://[*A*]-ondemand.database.windows.net:1443/databases/[*B*]/query?api-version=2018-08-01-preview&application=ArcadiaSqlOnDemandExplorer`
 
-Där [ *A* ] är namnet på din arbets yta och "-OnDemand" kan vara "-sqlod" och var [ *B* ] ska vara ett databas namn, till exempel "Master". Det får finnas högst två objekt med samma URL-värde men olika metod värden. ALTERNATIV och POST. Kontrol lera om dessa två objekt har "200" eller "20x" under kolumnen status, där "x" kan vara valfri siffra.
+Där [*A*] är namnet på din arbets yta och "-OnDemand" kan vara "-sqlod" och var [*B*] ska vara ett databas namn, till exempel "Master". Det får finnas högst två objekt med samma URL-värde men olika metod värden. ALTERNATIV och POST. Kontrol lera om dessa två objekt har "200" eller "20x" under kolumnen status, där "x" kan vara valfri siffra.
 
 Om någon av dem har något annat än "20x" och:
 

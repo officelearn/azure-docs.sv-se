@@ -1,6 +1,6 @@
 ---
-title: Använda OpenRowSet i SQL-poolen utan server (för hands version)
-description: Den här artikeln beskriver syntaxen för OpenRowSet i SQL-poolen utan server (för hands version) och förklarar hur du använder argument.
+title: Använda OpenRowSet i SQL-poolen utan Server
+description: Den här artikeln beskriver syntaxen för OpenRowSet i SQL-poolen utan server och förklarar hur du använder argument.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 90a5afb19c9ba5061b9304c739914262bcdbee15
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 97ee6c17d62a924686e3e4f4717d7bb7f4375988
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122708"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446675"
 ---
-# <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Använda OpenRowSet med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
+# <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Använda OpenRowSet med Server lös SQL-pool i Azure Synapse Analytics
 
-`OPENROWSET(BULK...)`Funktionen gör att du kan komma åt filer i Azure Storage. `OPENROWSET` funktionen läser innehåll i en fjärrdatakälla (till exempel fil) och returnerar innehållet som en uppsättning rader. I den serverbaserade SQL-poolen (förhands granskning) kan du komma åt OpenRowSet-providern genom att anropa funktionen OpenRowSet och ange alternativet för Mass rad uppsättning.  
+`OPENROWSET(BULK...)`Funktionen gör att du kan komma åt filer i Azure Storage. `OPENROWSET` funktionen läser innehåll i en fjärrdatakälla (till exempel fil) och returnerar innehållet som en uppsättning rader. I den serverbaserade SQL-poolen kan du komma åt OpenRowSet-providern för OpenRowSet genom att anropa funktionen OpenRowSet och ange alternativet för Mass rad uppsättning.  
 
 `OPENROWSET`Funktionen kan refereras i- `FROM` satsen i en fråga som om den vore ett tabell namn `OPENROWSET` . Det stöder Mass åtgärder via en inbyggd Mass leverantör som gör det möjligt att läsa och returnera data från en fil som en rad uppsättning.
 

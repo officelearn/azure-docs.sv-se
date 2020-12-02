@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/04/2020
 ms.author: alkohli
-ms.openlocfilehash: ff2a473ca008e9b283d03ebb05f35122473d778a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34165071238ca3edf78ab9cca43639c23ce5ed2a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899272"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448710"
 ---
 # <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes lagrings hantering på din Azure Stack Edge Pro GPU-enhet
 
@@ -41,9 +41,9 @@ För att förstå hur lagring hanteras för Kubernetes måste en förstå två A
 
 Lagrings etablering kan vara statisk eller dynamisk. Var och en av etablerings typerna beskrivs i följande avsnitt.
 
-## <a name="staticprovisioning"></a>Statisk etablering
+## <a name="static-provisioning"></a>Statisk etablering
 
-Kubernetes kluster administratörer kan etablera lagringen statiskt. För att göra det kan de använda lagrings Server del baserat på SMB/NFS-filsystem eller använda iSCSI-diskar som ansluter lokalt över nätverket i en lokal miljö, eller till och med Azure Files eller Azure-diskar i molnet. Den här typen av lagring tillhandahålls inte som standard och kluster administratörer måste planera och hantera denna etablering. 
+Administratörer för Kubernetes-kluster kan etablera lagringen statiskt. För att göra det kan de använda lagrings Server del baserat på SMB/NFS-filsystem eller använda iSCSI-diskar som ansluter lokalt över nätverket i en lokal miljö, eller till och med Azure Files eller Azure-diskar i molnet. Den här typen av lagring tillhandahålls inte som standard och kluster administratörer måste planera och hantera denna etablering. 
  
 Här är ett diagram som illustrerar hur statiskt allokerat lagrings utrymme används i Kubernetes: 
 
@@ -58,7 +58,7 @@ Följande steg inträffar:
 1. **Montera PVC till behållaren**: när PVC: n är kopplad till nuvärdet kan du montera denna PVC på en sökväg i din behållare. När program logiken i behållaren läser/skriver från/till den här sökvägen skrivs data till SMB-lagringen.
  
 
-## <a name="dynamicprovisioning"></a>Dynamisk etablering
+## <a name="dynamic-provisioning"></a>Dynamisk etablering
 
 Här är ett diagram som illustrerar hur statiskt allokerat lagrings utrymme används i Kubernetes: 
 
@@ -104,6 +104,26 @@ spec:
 ```
 
 Mer information finns i [distribuera ett tillstånds känsligt program via statisk etablering på Azure Stack Edge Pro via kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
+
+För att få åtkomst till samma statiskt allokerade lagring, är motsvarande volym monterings alternativ för lagrings bindningar för IoT följande: `/home/input`Är sökvägen till den plats där volymen är tillgänglig i behållaren.
+
+```
+{
+"HostConfig": {
+"Mounts": [
+{
+"Target": "/home/input",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+},
+{
+"Target": "/home/output",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+}]
+}
+}
+```
 
 Azure Stack Edge Pro har också en inbyggd `StorageClass` anropad `ase-node-local` som använder ett datadisk utrymme som är kopplat till Kubernetes-noden. Detta `StorageClass` stöder dynamisk etablering. Du kan skapa en `StorageClass` referens i pod-program och ett PV skapas automatiskt åt dig. Mer information finns i Kubernetes- [instrumentpanelen](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) för att fråga efter `ase-node-local StorageClass` .
 

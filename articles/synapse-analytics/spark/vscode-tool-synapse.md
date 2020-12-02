@@ -1,6 +1,6 @@
 ---
 title: Självstudie – Spark & Hive-verktyg för VSCode (Spark-program)
-description: Självstudie – Använd Spark & Hive-verktyg för VSCode för att utveckla Spark-program som är skrivna i python och skicka dem till en server lös Apache Spark pool (för hands version).
+description: Självstudie – Använd Spark & Hive-verktyg för VSCode för att utveckla Spark-program som är skrivna i python och skicka dem till en server lös Apache Spark-pool.
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 09/03/2020
-ms.openlocfilehash: 99b2b04d0f29d92b503cc0bed2460b79cfa6c354
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: eb4a4c2c8d1d52690a07b784640d20d96ff2d600
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315665"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445672"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-vscode-using-a-synapse-workspace"></a>Självstudie: skapa ett Apache Spark program med VSCode med hjälp av en Synapse-arbetsyta
 
@@ -42,7 +42,7 @@ När du uppfyller kraven kan du installera Spark & Hive-verktyg för Visual Stud
 
 3. I rutan Sök anger du **Spark & Hive**.
 
-4. Välj **Spark & Hive-verktyg** från Sök resultaten och välj sedan **Installera** :
+4. Välj **Spark & Hive-verktyg** från Sök resultaten och välj sedan **Installera**:
 
      ![Spark & Hive för Visual Studio Code python-installation](./media/vscode-tool-synapse/install-hdInsight-plugin.png)
 
@@ -156,7 +156,7 @@ for (word, count) in sortedCollection:
 
      ![pyspark interaktiv snabb meny](./media/vscode-tool-synapse/pyspark-interactive-right-click.png)
 
-12. Välj Spark-poolen, om du inte har angett en standard Spark-pool. Efter en liten stund visas det **interaktiva python** -resultatet på en ny flik. Klicka på PySpark för att växla kernel till **Synapse PySpark** , sedan, skicka den markerade koden igen och koden kommer att köras. Med verktygen kan du också skicka in ett kodblock i stället för hela skript filen med hjälp av snabb menyn:
+12. Välj Spark-poolen, om du inte har angett en standard Spark-pool. Efter en liten stund visas det **interaktiva python** -resultatet på en ny flik. Klicka på PySpark för att växla kernel till **Synapse PySpark**, sedan, skicka den markerade koden igen och koden kommer att köras. Med verktygen kan du också skicka in ett kodblock i stället för hela skript filen med hjälp av snabb menyn:
 
      ![ej](./media/vscode-tool-synapse/pyspark-interactive-python-interactive-window.png)
 
@@ -166,7 +166,7 @@ for (word, count) in sortedCollection:
 
      ![Lägg till #%%](./media/vscode-tool-synapse/run-cell.png)
 
-2. Klicka på **Kör cell**. Efter en liten stund visas det interaktiva python-resultatet på en ny flik. Klicka på PySpark för att växla kernel till **Synapse PySpark** , klicka sedan på **Kör cell** igen och koden kommer att köras. 
+2. Klicka på **Kör cell**. Efter en liten stund visas det interaktiva python-resultatet på en ny flik. Klicka på PySpark för att växla kernel till **Synapse PySpark**, klicka sedan på **Kör cell** igen och koden kommer att köras. 
 
      ![Kör cell resultat](./media/vscode-tool-synapse/run-cell-get-results.png)
 
@@ -244,7 +244,7 @@ Du kan utföra olika åtgärder i Azure Explorer i Spark & Hive-verktyg för VSC
 
 2. Klicka på prenumerationen för Synapse-arbetsytan, expandera den och Visa listan med arbets ytor.
 
-3. Högerklicka på en arbets yta och välj sedan **visa Apache Spark program** , sidan Apache Spark program på webbplatsen för Synapse Studio kommer att öppnas.
+3. Högerklicka på en arbets yta och välj sedan **visa Apache Spark program**, sidan Apache Spark program på webbplatsen för Synapse Studio kommer att öppnas.
 
      ![Högerklicka på arbets yta](./media/vscode-tool-synapse/right-click-on-workspace.png)
 
@@ -252,17 +252,17 @@ Du kan utföra olika åtgärder i Azure Explorer i Spark & Hive-verktyg för VSC
 
 4. Expandera en arbets yta, **standard lagring** och **Spark-pooler** visas.
 
-5. Högerklicka på **standard lagring** , så visas den **fullständiga sökvägen för kopiering** och **Öppna i Synapse Studio** . 
+5. Högerklicka på **standard lagring**, så visas den **fullständiga sökvägen för kopiering** och **Öppna i Synapse Studio** . 
 
      ![Högerklicka på standard lagring](./media/vscode-tool-synapse/right-click-on-default-storage.png)
 
-     - Klicka på **Kopiera fullständig sökväg** , den primära ADLS Gen2s kontots URL kommer att kopieras, du kan klistra in den där du behöver från en omfattande
+     - Klicka på **Kopiera fullständig sökväg**, den primära ADLS Gen2s kontots URL kommer att kopieras, du kan klistra in den där du behöver från en omfattande
 
-     - Klicka på **Öppna i Synapse Studio** , det primära lagrings kontot kommer att öppnas i Synapse Studio.
+     - Klicka på **Öppna i Synapse Studio**, det primära lagrings kontot kommer att öppnas i Synapse Studio.
 
      ![standard lagring i Synapse Studio](./media/vscode-tool-synapse/default-storage-in-synapse-studio.png)
 
-6. Expandera **standard lagringen** , det primära lagrings kontot visas.
+6. Expandera **standard lagringen**, det primära lagrings kontot visas.
 
 7. Expandera **Spark-poolerna** visas alla Spark-pooler i arbets ytan.
 

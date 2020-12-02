@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 3087c209b844d691173edbbd8a993c1d0aae319b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be7d477d08b025fd450bfa859e8eb677ba680143
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903632"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446378"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Felsök problem med Azure Stack Edge Pro-beställning
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 ![Prenumeration eller region som inte stöds](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-01.png)
 
-**Föreslagen lösning:**  Se till att du har använt en prenumeration som stöds, till exempel [Microsoft Enterprise-avtal (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)eller [Microsoft Azure-sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/). Prenumerationer enligt principen betala per användning stöds inte. Mer information finns i [Azure Stack Edge Resource-krav](azure-stack-edge-deploy-prep.md#prerequisites).
+**Föreslagen lösning:**  Se till att du har använt en prenumeration som stöds, till exempel [Microsoft Enterprise-avtal (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp)eller [Microsoft Azure-sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/). Prenumerationer enligt principen betala per användning stöds inte. Mer information finns i [Azure Stack Edge Resource-krav](azure-stack-edge-deploy-prep.md#prerequisites).
 
 Det finns en risk att Microsoft kan tillåta en uppgradering av prenumerations typ från fall till fall. Kontakta [Microsoft-supporten](https://azure.microsoft.com/support/options/) så att de kan förstå dina behov och justera dessa gränser på lämpligt sätt.
 
@@ -61,7 +61,7 @@ Mer information finns i [Registrera resurs leverantörer](azure-stack-edge-manag
 
 **Fel:** I Azure Portal väljer du en prenumeration som ska användas för Azure Stack Edge Pro eller Data Box Gateway och får följande fel meddelande:
 
-*Resurs leverantör (er): Microsoft. DataBoxEdge har inte registrerats för prenumerations &lt; prenumerations namnet &gt; och du har inte behörighet att registrera en resurs leverantör för prenumerations &lt; prenumerations namnet &gt; *.
+*Resurs leverantör (er): Microsoft. DataBoxEdge har inte registrerats för prenumerations &lt; prenumerations namnet &gt; och du har inte behörighet att registrera en resurs leverantör för prenumerations &lt; prenumerations namnet &gt;*.
 
 **Föreslagen lösning:** Öka prenumerations åtkomsten eller hitta någon med ägare eller deltagar åtkomst för att registrera resurs leverantören.
 

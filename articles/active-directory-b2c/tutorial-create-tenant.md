@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/22/2020
+ms.date: 11/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dce41f979a46ae2bda568b5db79f0e0304705dd8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c15b3a64b4a0017c5c352e08cebc796537255479
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670201"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447039"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Självstudie: Skapa en klientorganisation i Azure Active Directory B2C
 
@@ -45,30 +45,24 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
     ![Prenumerations klient, katalog + prenumerations filter med vald prenumerations klient](media/tutorial-create-tenant/portal-01-pick-directory.png)
 
-1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs** .
-1. Sök efter **Azure Active Directory B2C** och välj sedan **skapa** .
-1. Välj **Skapa en ny Azure AD B2C-klient** .
+1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**.
+1. Sök efter **Azure Active Directory B2C** och välj sedan **skapa**.
+1. Välj **Skapa en ny Azure AD B2C-klient**.
 
     ![Skapa en ny Azure AD B2C klient som valts i Azure Portal](media/tutorial-create-tenant/portal-02-create-tenant.png)
-    
-1. Ange ett **organisations namn** och ett **första domän namn** . Välj **land eller region** (det kan inte ändras senare) och välj sedan **skapa** .
 
-    Domän namnet används som en del av ditt fullständiga domän namn för klient organisationen. I det här exemplet är klient namnet *contosob2c.onmicrosoft.com* :
+1. På sidan **skapa en katalog** anger du följande:
 
-1. När klienten har skapats väljer du länken Skapa en **ny B2C-klient eller länka till befintlig klient** överst på sidan skapa klient.
+   - **Organisations namn** – ange ett namn för din Azure AD B2C-klient.
+   - **Första domän namn** – ange ett domän namn för Azure AD B2C klient organisationen.
+   - **Land eller region** – Välj land eller region i listan. Det går inte att ändra det här valet senare.
+   - **Prenumeration** – välj din prenumeration i listan.
+   - **Resurs grupp** – Välj en resurs grupp som ska innehålla klient organisationen. Eller Välj **Skapa ny**, ange ett **namn** för resurs gruppen, Välj **resurs gruppens plats** och välj sedan **OK**.
 
-    ![Länk klientens dynamiska länk är markerad i Azure Portal](media/tutorial-create-tenant/portal-04-select-link-sub-link.png)
+    ![Skapa klient organisations formulär i med exempel värden i Azure Portal](media/tutorial-create-tenant/review-and-create-tenant.png)
 
-1. Välj **Länka en befintlig Azure AD B2C-klient till min Azure-prenumeration** . Du måste vara inloggad som ägar roll för att utföra det här steget.
-
-   ![Länka en befintlig prenumerations markering i Azure Portal](media/tutorial-create-tenant/portal-05-link-subscription.png)
-
-1. Välj den **Azure AD B2C klient** som du skapade och välj sedan din **prenumeration** .
-
-    För **Resursgrupp** väljer du **Skapa ny** . Ange ett **namn** för den resurs grupp som ska innehålla klienten, Välj plats för **resurs grupp** och välj sedan **skapa** .
-
-    ![Länka prenumerations inställnings formulär i Azure Portal](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
-    
+1. Välj **Granska + skapa**.
+1. Granska dina katalog inställningar. Välj sedan **Skapa**.
 
 Du kan länka flera Azure AD B2C klienter till en enda Azure-prenumeration för fakturerings syfte. Om du vill länka en klient måste du vara administratör i Azure AD B2C-klienten och tilldelas minst en deltagar roll i Azure-prenumerationen. Se [Länka en Azure AD B2C-klient till en prenumeration](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 
@@ -91,8 +85,8 @@ I stället för att söka efter *Azure AD B2C* i **alla tjänster** varje gång 
 Du behöver bara utföra den här åtgärden en gång. Innan du utför de här stegen bör du kontrol lera att du har växlat till den katalog som innehåller Azure AD B2C klient organisationen enligt beskrivningen i föregående avsnitt, [välja din B2C-innehavaradministratör](#select-your-b2c-tenant-directory).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. I menyn Azure Portal väljer du **alla tjänster** .
-1. I Sök rutan **alla tjänster** söker du efter **Azure AD B2C** , hovrar över Sök resultatet och väljer sedan stjärn ikonen i knapp beskrivningen. **Azure AD B2C** visas nu i Azure Portal under **Favoriter** .
+1. I menyn Azure Portal väljer du **alla tjänster**.
+1. I Sök rutan **alla tjänster** söker du efter **Azure AD B2C**, hovrar över Sök resultatet och väljer sedan stjärn ikonen i knapp beskrivningen. **Azure AD B2C** visas nu i Azure Portal under **Favoriter**.
 1. Om du vill ändra placeringen för den nya favoriten går du till Azure Portal-menyn, väljer **Azure AD B2C** och drar den sedan uppåt eller nedåt till önskad position.
 
     ![Azure AD B2C, Favoriter-menyn Microsoft Azure-portalen](media/tutorial-create-tenant/portal-08-b2c-favorite.png)

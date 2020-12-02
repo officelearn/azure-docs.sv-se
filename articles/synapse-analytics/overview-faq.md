@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor och svar om Azure Synapse Analytics (för hands versioner av arbets ytor)
-description: Vanliga frågor och svar om Azure Synapse Analytics (för hands versioner av arbets ytor)
+title: Vanliga frågor och svar om Azure Synapse
+description: Vanliga frågor och svar om Azure Synapse Analytics
 services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
@@ -9,22 +9,20 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5acfc8c01f375164979e1fb051563fcfb2da3bd3
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 05fef320d558de30830f76031d3b96262ae29f07
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436264"
+ms.locfileid: "96445804"
 ---
-# <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Azure Synapse Analytics (för hands versioner av arbets ytor) vanliga frågor och svar
+# <a name="azure-synapse-analytics-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Synapse Analytics
 
 I den här guiden hittar du de vanligaste frågorna om Azure Synapse Analytics.
 
-[!INCLUDE [preview](includes/note-preview.md)]
-
 ## <a name="general"></a>Allmänt
 
-### <a name="q-what-rbac-roles-exist-and-how-i-use-them-to-secure-a-synapse-workspace"></a>F: vilka RBAC-roller finns och hur jag använder dem för att skydda en Synapse-arbetsyta?
+### <a name="q-what-rbac-roles-exist-and-how-do-i-use-them-to-secure-a-synapse-workspace"></a>F: vilka RBAC-roller finns och hur använder jag dem för att skydda en Synapse-arbetsyta?
 
 A: Azure Synapse introducerar ett antal roller och omfattningar för att tilldela dem för att förenkla säkerheten för din arbets yta.
 

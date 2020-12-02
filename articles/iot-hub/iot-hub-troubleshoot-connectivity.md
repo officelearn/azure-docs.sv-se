@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Technical Support'
 - fasttrack-edit
 - iot
-ms.openlocfilehash: b179bb3566cc19b8033a56348db34cd1f05cee10
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 81558526500f3c01e975d9a963b4a6a98ec6d753
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506404"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446403"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Övervaka, diagnostisera och Felsök från koppling med Azure IoT Hub
 
@@ -34,7 +34,7 @@ I båda fallen är dessa funktioner begränsade till vad IoT Hub kan se, så vi 
 
 ## <a name="event-grid-vs-azure-monitor"></a>Event Grid jämfört med Azure Monitor
 
-Event Grid tillhandahåller en övervaknings lösning med låg latens per enhet som du kan använda för att spåra enhets anslutningar för kritiska enheter och infrastruktur. Azure Monitor tillhandahåller ett mått, *anslutna enheter* , som du kan använda för att övervaka antalet enheter som är anslutna till din IoT Hub och utlösa en avisering när antalet sjunker under ett statiskt tröskelvärde.
+Event Grid tillhandahåller en övervaknings lösning med låg latens per enhet som du kan använda för att spåra enhets anslutningar för kritiska enheter och infrastruktur. Azure Monitor tillhandahåller ett mått, *anslutna enheter*, som du kan använda för att övervaka antalet enheter som är anslutna till din IoT Hub och utlösa en avisering när antalet sjunker under ett statiskt tröskelvärde.
 
 Tänk på följande när du bestämmer om du ska använda Event Grid eller Azure Monitor för ett visst scenario:
 
@@ -58,7 +58,7 @@ I följande avsnitt kan du läsa mer om hur du övervakar anslutnings händelser
 
 * En själv studie kurs om att beställa anslutnings händelser för enheter finns i [beställa enhets anslutnings händelser från Azure IoT Hub med Azure Cosmos DB](iot-hub-how-to-order-connection-state-events.md).
 
-* En själv studie kurs om att skicka e-postaviseringar finns i [skicka e-postaviseringar om Azure IoT Hub händelser med event Grid och Logic Apps](/azure/event-grid/publish-iot-hub-events-to-logic-apps) i Event Grid-dokumentationen.
+* En själv studie kurs om att skicka e-postaviseringar finns i [skicka e-postaviseringar om Azure IoT Hub händelser med event Grid och Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md) i Event Grid-dokumentationen.
 
 ## <a name="azure-monitor-route-connection-events-to-logs"></a>Azure Monitor: dirigera anslutnings händelser till loggar
 
@@ -94,7 +94,7 @@ När du har skapat en diagnostisk inställning för att dirigera IoT Hub resurs 
 
 1. Under **övervakning** i den vänstra rutan i IoT Hub väljer du **loggar**.
 
-1. Om du vill isolera anslutnings fel loggar för IoT Hub anger du följande fråga i Frågeredigeraren och väljer sedan **Kör** :
+1. Om du vill isolera anslutnings fel loggar för IoT Hub anger du följande fråga i Frågeredigeraren och väljer sedan **Kör**:
 
     ```kusto
     AzureDiagnostics

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: f7c7caf6c01c2e7ea9aaf141a2597ef338735d3d
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 986a3c56a1e0dcc79ab472a7e18d7eeb7e2fddb5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173598"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448345"
 ---
 # <a name="prepare-for-an-azure-stack-edge-pro-gpu-device-failure"></a>Förbered för ett Azure Stack Edge Pro GPU-enhets problem
 
@@ -77,7 +77,7 @@ Azure Stack Edge fungerar med Azure Backup och andra data skydds lösningar frå
 
 | Säkerhets kopierings lösningar        | Operativ system som stöds   | Referens                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
-| Microsoft Azure Recovery Services MARS-agenten för Azure Backup | Windows        | [Om MARS-agent](/azure/backup/backup-azure-about-mars)    |
+| Microsoft Azure Recovery Services MARS-agenten för Azure Backup | Windows        | [Om MARS-agent](../backup/backup-azure-about-mars.md)    |
 | Cohesity                | Windows, Linux | [Microsoft Azure integrering, lösning för säkerhets kopiering och återställning kort](https://www.cohesity.com/solution/cloud/azure) <br>Kontakta Cohesity om du vill ha mer information.                          |
 | CommVault               | Windows, Linux | https://www.commvault.com/azure <br>Kontakta CommVault om du vill ha mer information.                          |
 | Veritas                 | Windows, Linux | http://veritas.com/azure <br> Kontakta Veritas om du vill ha mer information.                    |

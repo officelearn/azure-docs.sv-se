@@ -9,16 +9,14 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 382ba871f95b3b36c3f819de8d582ba2c5dc358a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 20f095a058434c36373c30ed2a633db12643814d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316083"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448278"
 ---
-# <a name="machine-learning-capabilities-in-azure-synapse-analytics-workspaces-preview"></a>Machine Learning funktioner i Azure Synapse Analytics (för hands versioner av arbets ytor)
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+# <a name="machine-learning-capabilities-in-azure-synapse-analytics"></a>Machine Learning funktioner i Azure Synapse Analytics
 
 Azure Synapse Analytics erbjuder olika Machine Learning-funktioner. Den här artikeln innehåller en översikt över hur du kan använda Machine Learning i Azure-Synapse.
 
@@ -48,11 +46,11 @@ Tack vare [Azure Data Factory](/azure/data-factory/introduction), en internt int
 
 En viktig del av Machine Learning-processen är att förstå data efter utforskning och visualiseringar.
 
-Beroende på var data lagras, erbjuder Synapse en uppsättning olika verktyg för att utforska och förbereda den för analys och maskin inlärning. Ett av de snabbaste sätten att komma igång med data utforskning använder Apache Spark eller Synapse SQL Server-pooler direkt över data i data Lake.
+Beroende på var data lagras, erbjuder Synapse en uppsättning olika verktyg för att utforska och förbereda den för analys och maskin inlärning. Ett av de snabbaste sätten att komma igång med data utforskning använder Apache Spark eller Server lös SQL-pooler direkt över data i data Lake.
 
 * [Apache Spark för Azure Synapse](../spark/apache-spark-overview.md) erbjuder funktioner för att transformera, förbereda och utforska dina data i stor skala. Dessa Spark-pooler erbjuder verktyg som PySpark/python, Scala och .NET för data bearbetning i stor skala. Med hjälp av kraftfulla visualiserings bibliotek kan data utforsknings upplevelsen förbättras för att hjälpa till att förstå data bättre. [Lär dig mer om hur du utforskar och visualiserar data i Synapse med Spark](../get-started-analyze-spark.md).
 
-* [SYNAPSE SQL Server-pooler](../sql/on-demand-workspace-overview.md) ger ett sätt att utforska data med tsql direkt över data Lake. Synapse SQL Server-pooler erbjuder också vissa inbyggda visualiseringar i Synapse Studio. [Lär dig mer om hur du utforskar data med SYNAPSE SQL Server-pooler](../get-started-analyze-sql-on-demand.md).
+* [SQL-pooler utan server](../sql/on-demand-workspace-overview.md) ger ett sätt att utforska data med tsql direkt över data Lake. SQL-pooler utan server erbjuder även några inbyggda visualiseringar i Synapse Studio. [Lär dig mer om hur du utforskar data med serverbaserade SQL-pooler](../get-started-analyze-sql-on-demand.md).
 
 ### <a name="modeling"></a>Modellering
 

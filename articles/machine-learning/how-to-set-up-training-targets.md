@@ -11,16 +11,16 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: cb10eb0f89ce37bc484c8570995ebaa098c696f1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 492d1370a228fc4fc80880102899c9207a514f57
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541308"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447188"
 ---
 # <a name="configure-and-submit-training-runs"></a>Konfigurera och skicka träningskörningar
 
-I den här artikeln får du lära dig hur du konfigurerar och skickar Azure Machine Learning körs för att träna dina modeller.
+I den här artikeln får du lära dig hur du konfigurerar och skickar Azure Machine Learning körs för att träna dina modeller. Kodfragment i kod förklarar viktiga delar av konfigurationen och sändningen av ett utbildnings skript.  Använd sedan ett av [exempel antecknings böckerna](#notebooks) för att hitta kompletta arbets exempel.
 
 När det gäller utbildning är det vanligt att starta på den lokala datorn och sedan skala ut till ett molnbaserade kluster. Med Azure Machine Learning kan du köra skriptet på olika beräknings mål utan att behöva ändra ditt utbildnings skript.
 
@@ -38,10 +38,10 @@ En [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?prese
 
 Du skickar in ditt utbildnings experiment med ett ScriptRunConfig-objekt.  Det här objektet innehåller:
 
-* **source_directory** : käll katalogen som innehåller ditt utbildnings skript
-* **skript** : det utbildnings skript som ska köras
-* **compute_target** : det beräknings mål som ska köras
-* **miljö** : miljön som ska användas när skriptet körs
+* **source_directory**: käll katalogen som innehåller ditt utbildnings skript
+* **skript**: det utbildnings skript som ska köras
+* **compute_target**: det beräknings mål som ska köras
+* **miljö**: miljön som ska användas när skriptet körs
 * och vissa ytterligare konfigurerbara alternativ (se [referens dokumentationen](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) för mer information)
 
 ## <a name="train-your-model"></a><a id="submit"></a>Träna modellen
@@ -152,7 +152,7 @@ run.wait_for_completion(show_output=True)
 > Mer information om ögonblicks bilder finns i [ögonblicks bilder](concept-azure-machine-learning-architecture.md#snapshots).
 
 > [!IMPORTANT]
-> **Särskilda mappar** Två mappar, *utdata* och *loggar* , tar emot särskild behandling av Azure Machine Learning. När du skriver filer till mappar med namnet *utdata* och *loggar* som är relativa till rot katalogen ( `./outputs` och `./logs` respektive) överförs filerna automatiskt till din körnings historik så att du har åtkomst till dem när körningen är färdig.
+> **Särskilda mappar** Två mappar, *utdata* och *loggar*, tar emot särskild behandling av Azure Machine Learning. När du skriver filer till mappar med namnet *utdata* och *loggar* som är relativa till rot katalogen ( `./outputs` och `./logs` respektive) överförs filerna automatiskt till din körnings historik så att du har åtkomst till dem när körningen är färdig.
 >
 > Om du vill skapa artefakter under träning (till exempel modell filer, kontroll punkter, datafiler eller ritade bilder) skriver du dessa till `./outputs` mappen.
 >
@@ -164,7 +164,7 @@ run.wait_for_completion(show_output=True)
 
 När du startar en utbildning som kör där käll katalogen är en lokal git-lagringsplats, lagras information om lagrings platsen i körnings historiken. Mer information finns i [git-integrering för Azure Machine Learning](concept-train-model-git-integration.md).
 
-## <a name="notebook-examples"></a>Exempel på bärbara datorer
+## <a name="notebook-examples"></a><a name="notebooks"></a>Exempel på bärbara datorer
 
 I de här antecknings böckerna finns exempel på hur du konfigurerar körningar i olika utbildnings scenarier:
 * [Utbildning på olika beräknings mål](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)

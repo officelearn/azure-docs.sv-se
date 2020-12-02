@@ -1,6 +1,6 @@
 ---
-title: Synkronisera Apache Spark för externa tabell definitioner i SQL-poolen utan server (för hands version)
-description: Översikt över hur du frågar Spark-tabeller med Server lös SQL-pool (för hands version)
+title: Synkronisera Apache Spark för externa tabell definitioner i SQL-poolen utan Server
+description: Översikt över hur du frågar Spark-tabeller med en server lös SQL-pool
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea4e7cd009be8a78faa0dcfab44371a350b6a200
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 057a69881b8b407e5d75fa3510ca1c3eb1830bc7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315831"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446500"
 ---
-# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool-preview"></a>Synkronisera Apache Spark för externa definitioner av Azure Synapse-tabeller i SQL-poolen utan server (för hands version)
+# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool"></a>Synkronisera Apache Spark för externa definitioner av Azure Synapse-tabeller i SQL-poolen utan Server
 
-SQL-poolen utan server (för hands version) kan automatiskt synkronisera metadata från Apache Spark. En databas för SQL-poolen utan server skapas för varje databas som finns i Server lös Apache Spark pooler (för hands version). 
+SQL-poolen utan server kan automatiskt synkronisera metadata från Apache Spark. En databas för SQL-poolen utan server skapas för varje databas som finns i Server lös Apache Spark pooler. 
 
 För varje spark-extern tabell som baseras på Parquet och finns i Azure Storage skapas en extern tabell i en server lös SQL-adresspool. Därför kan du stänga av Spark-poolerna och fortfarande fråga Spark-externa tabeller från Server lös SQL-poolen.
 

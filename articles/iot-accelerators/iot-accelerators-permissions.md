@@ -8,16 +8,16 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: f5d816b3d44a6fadd8dd462a14e62de4cdac2a00
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6585718a549c0e0a6eac1ab50788798e1021fef9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995938"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446823"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Använd azureiotsolutions.com-webbplatsen för att distribuera din lösnings Accelerator
 
-Du kan distribuera Azure IoT Solution Accelerators till din Azure-prenumeration från [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com är värd för både Microsoft-acceleratorer med öppen källkod och partner lösningar. Dessa lösnings acceleratorer överensstämmer med [Azure IoT-referens arkitekturen](https://aka.ms/iotrefarchitecture). Du kan använda platsen för att snabbt distribuera en lösnings Accelerator som en demonstrations-eller produktions miljö.
+Du kan distribuera Azure IoT Solution Accelerators till din Azure-prenumeration från [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com är värd för både Microsoft-acceleratorer med öppen källkod och partner lösningar. Dessa lösnings acceleratorer överensstämmer med [Azure IoT-referens arkitekturen](/azure/architecture/reference-architectures/iot). Du kan använda platsen för att snabbt distribuera en lösnings Accelerator som en demonstrations-eller produktions miljö.
 
 ![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
 

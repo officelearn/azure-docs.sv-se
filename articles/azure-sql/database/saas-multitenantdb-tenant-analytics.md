@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 917839b0963477de21062290515d36fd21163a93
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f12c823f609ac309d4b5ddbbaa7d5a076a7bb9ad
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793321"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447286"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analys av flera klienter med extraherade data-multi-Apps-appen
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ SaaS-program som du utvecklar har till gång till en mängd klient data som lagr
 
 Det är enkelt att komma åt data för alla klienter när alla data bara finns i en databas med flera innehavare. Men åtkomsten är mer komplex när den distribueras i stor skala över tusentals databaser. Ett sätt att molndata komplexiteten är att extrahera data till en Analytics-databas eller ett informations lager. Sedan frågar du data lagret för att samla in insikter från biljett data för alla klienter.
 
-I den här självstudien presenteras ett komplett analys scenario för det här exemplet på SaaS-programmet. Först används elastiska jobb för att schemalägga extraheringen av data från varje klient databas. Data skickas till ett analys lager. Analytics Store kan antingen vara ett SQL Database eller en Azure Synapse Analytics (tidigare SQL Data Warehouse). För storskalig data extrahering är [Azure Data Factory](../../data-factory/introduction.md) Commended.
+I den här självstudien presenteras ett komplett analys scenario för det här exemplet på SaaS-programmet. Först används elastiska jobb för att schemalägga extraheringen av data från varje klient databas. Data skickas till ett analys lager. Analytics Store kan antingen vara en SQL Database eller en Azure Synapse-analys. För storskalig data extrahering är [Azure Data Factory](../../data-factory/introduction.md) Commended.
 
 Därefter förstörs sammanställda data i en uppsättning [stjärn schema](https://www.wikipedia.org/wiki/Star_schema) tabeller. Tabellerna består av en central fakta tabell plus relaterade dimensions tabeller:
 
@@ -78,7 +78,7 @@ Se till att följande förhandskrav är slutförda för att kunna slutföra den 
 
 ### <a name="create-data-for-the-demo"></a>Skapa data för demon
 
-I den här självstudien utförs analysen på biljett försäljnings data. I det aktuella steget genererar du biljett data för alla klienter.  Senare extraheras dessa data för analys. *Se till att du har etablerad batchen över klienter enligt beskrivningen ovan, så att du har en meningsfull mängd data* . En tillräckligt stor mängd data kan exponera en rad olika biljett inköps mönster.
+I den här självstudien utförs analysen på biljett försäljnings data. I det aktuella steget genererar du biljett data för alla klienter.  Senare extraheras dessa data för analys. *Se till att du har etablerad batchen över klienter enligt beskrivningen ovan, så att du har en meningsfull mängd data*. En tillräckligt stor mängd data kan exponera en rad olika biljett inköps mönster.
 
 1. I **POWERSHELL ISE** öppnar du *. ..\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* och anger följande värde:
     - **$DemoScenario**  =  **1** Köp biljetter för händelser på alla platser
@@ -87,14 +87,14 @@ I den här självstudien utförs analysen på biljett försäljnings data. I det
 ### <a name="deploy-the-analytics-store"></a>Distribuera Analytics Store
 Det finns ofta flera transaktions shardade-databaser som tillsammans innehåller alla klient data. Du måste aggregera klient data från shardade-databasen till ett analys lager. Agg regeringen möjliggör effektiv data frågor. I den här självstudien används en Azure SQL Database-databas för att lagra aggregerade data.
 
-I följande steg distribuerar du Analytics Store, som kallas **tenantanalytics** . Du distribuerar även fördefinierade tabeller som fylls i senare i självstudien:
+I följande steg distribuerar du Analytics Store, som kallas **tenantanalytics**. Du distribuerar även fördefinierade tabeller som fylls i senare i självstudien:
 1. I PowerShell ISE öppnar du *. ..\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 
 2. Ange $DemoScenario variabel i skriptet så att den matchar ditt val av Analytics Store. I inlärnings syfte rekommenderas att använda databasen utan columnstore.
     - Ange **$DemoScenario**  =  **2** om du vill använda SQL Database utan columnstore
     - Ange **$DemoScenario**  =  **3** om du vill använda SQL Database med columnstore  
 3. Tryck på **F5** för att köra demonstrations skriptet (som anropar skriptet *Deploy-TenantAnalytics \<XX> . ps1* ) som skapar klient analys arkivet. 
 
-Nu när du har distribuerat programmet och fyllt det med intressanta klient data använder du [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) för att ansluta **tenants1-MT- \<User\>** och **Catalog-MT- \<User\>** servrar med hjälp av login = *Developer* , Password = *P \@ ssword1* .
+Nu när du har distribuerat programmet och fyllt det med intressanta klient data använder du [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) för att ansluta **tenants1-MT- \<User\>** och **Catalog-MT- \<User\>** servrar med hjälp av login = *Developer*, Password = *P \@ ssword1*.
 
 ![architectureOverView](./media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
@@ -108,7 +108,7 @@ Utför följande steg i Object Explorer:
 Se följande databas objekt i SSMS-Object Explorer genom att expandera noden analys Arkiv:
 
 - Tabellerna **TicketsRawData** och **EventsRawData** innehåller råa extraherade data från klient databaserna.
-- De stjärn schema tabellerna är **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** och **dim_Dates** .
+- De stjärn schema tabellerna är **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** och **dim_Dates**.
 - Den **sp_ShredRawExtractedData** lagrade proceduren används för att fylla i stjärn schema tabeller från rå data tabeller.
 
 ![Skärm bild som visar S S M-Object Explorer för noden analys lager, inklusive tabeller, vyer och noder.](./media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
@@ -117,7 +117,7 @@ Se följande databas objekt i SSMS-Object Explorer genom att expandera noden ana
 
 ### <a name="create-target-groups"></a>Skapa mål grupper 
 
-Innan du fortsätter bör du kontrol lera att du har distribuerat jobb kontot och jobaccount-databasen. I nästa uppsättning steg används elastiska jobb för att extrahera data från shardade-databasen och för att lagra data i Analytics Store. Sedan shreds det andra jobbet data och lagrar dem i tabeller i stjärn schemat. De här två jobben körs mot två olika mål grupper, nämligen **TenantGroup** och **AnalyticsGroup** . Extraherings jobbet körs mot TenantGroup, som innehåller alla klient databaser. Fragmenterings jobbet körs mot AnalyticsGroup, som bara innehåller analys lagret. Skapa mål grupper med hjälp av följande steg:
+Innan du fortsätter bör du kontrol lera att du har distribuerat jobb kontot och jobaccount-databasen. I nästa uppsättning steg används elastiska jobb för att extrahera data från shardade-databasen och för att lagra data i Analytics Store. Sedan shreds det andra jobbet data och lagrar dem i tabeller i stjärn schemat. De här två jobben körs mot två olika mål grupper, nämligen **TenantGroup** och **AnalyticsGroup**. Extraherings jobbet körs mot TenantGroup, som innehåller alla klient databaser. Fragmenterings jobbet körs mot AnalyticsGroup, som bara innehåller analys lagret. Skapa mål grupper med hjälp av följande steg:
 
 1. I SSMS ansluter du till **jobaccount** -databasen i katalogen – MT- \<User\> .
 2. I SSMS öppnar du *. ..\Learning Modules\Operational Analytics\Tenant Analytics \ TargetGroups. SQL* 
@@ -134,7 +134,7 @@ Transaktioner kan inträffa oftare för *biljett-och kund* information än för 
 Varje jobb extraherar data och publicerar dem i Analytics Store. Det finns ett separat jobb som shreds de extraherade data i analys stjärn schema.
 
 1. I SSMS ansluter du till **jobaccount** -databasen i katalogen – MT- \<User\> Server.
-2. I SSMS öppnar du *. ..\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.SQL* .
+2. I SSMS öppnar du *. ..\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.SQL*.
 3. Ändra @User överst i skriptet och Ersätt `<User>` med det användar namn som användes när du distribuerade Wingtip Ticket SaaS-databasprogram för flera innehavare. 
 4. Tryck på **F5** för att köra skriptet som skapar och kör jobbet som extraherar biljetter och kund data från varje klient databas. Jobbet sparar data i Analytics Store.
 5. Fråga TicketsRawData-tabellen i tenantanalytics-databasen för att säkerställa att tabellen fylls med biljett information från alla klienter.
@@ -154,7 +154,7 @@ Nästa steg är att Shred extraherade rå data till en uppsättning tabeller som
 I det här avsnittet av självstudien definierar och kör du ett jobb som sammanfogar extraherade rå data med data i stjärn schema tabeller. När sammanfognings jobbet är klart raderas rå data, och de tabeller som är klara att fyllas i av nästa klient data extraherings jobb tas bort.
 
 1. I SSMS ansluter du till **jobaccount** -databasen i katalogen – MT- \<User\> .
-2. I SSMS öppnar du *. ..\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.SQL* .
+2. I SSMS öppnar du *. ..\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.SQL*.
 3. Tryck på **F5** för att köra skriptet för att definiera ett jobb som anropar sp_ShredRawExtractedData lagrade proceduren i Analytics Store.
 4. Tillåt tillräckligt med tid för att jobbet ska kunna köras.
     - Kontrol lera **livs cykel** kolumnen i Jobs.jobs_execution tabell för jobb status. Kontrol lera att jobbet **har slutförts** innan du fortsätter. En lyckad körning visar data som liknar följande diagram:
@@ -176,11 +176,11 @@ Använd följande steg för att ansluta till Power BI och för att importera de 
 
     ![Skärm bild som visar dialog rutan SQL Server databas där du kan ange server och databas.](./media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. Välj **databas** i den vänstra rutan och ange sedan användar namn = *utvecklare* och ange Password = *P \@ ssword1* . Klicka på **Anslut** .  
+5. Välj **databas** i den vänstra rutan och ange sedan användar namn = *utvecklare* och ange Password = *P \@ ssword1*. Klicka på **Anslut**.  
 
     ![Skärm bild som visar dialog rutan SQL Server databas där du kan ange ett användar namn och ett lösen ord.](./media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
-6. I **navigerings** fönstret, under Analytics-databasen, väljer du stjärn schema tabeller: fact_Tickets, dim_Events, dim_Venues, dim_Customers och dim_Dates. Välj sedan **load** . 
+6. I **navigerings** fönstret, under Analytics-databasen, väljer du stjärn schema tabeller: fact_Tickets, dim_Events, dim_Venues, dim_Customers och dim_Dates. Välj sedan **load**. 
 
 Grattis! Du har läst in data i Power BI. Nu kan du börja utforska intressanta visualiseringar för att få insikter om dina klienter. Härnäst går du igenom hur analyser kan ge dig möjlighet att tillhandahålla data drivna rekommendationer till affärs teamet för Wingtip-biljetter. Rekommendationerna kan hjälpa till att optimera affärs modellen och kund upplevelsen.
 
@@ -210,7 +210,7 @@ Föregående rityta för Contoso konsert Hall visar att Mad skynda inte inträff
 
 Insikterna i biljett Sälj mönstren kan leda Wingtip-biljetter för att optimera sina affärs modeller. I stället för att debitera alla klienter på samma sätt bör Wingtip införa tjänst nivåer med olika beräknings storlekar. Större platser som behöver sälja fler biljetter per dag kan erbjudas en högre nivå med ett högre service nivå avtal (SLA). Dessa platser kan ha sina databaser placerade i poolen med högre resurs gränser per databas. Varje tjänst nivå kan ha en tilldelning per timme, med ytterligare avgifter som debiteras för att överskrida tilldelningen. Större platser som har regelbundna försäljnings nivåer skulle ha nytta av de högre nivåerna, och Wingtip-biljetter kan använda tjänsten mer effektivt.
 
-Samtidigt har vissa Wingtip-biljetter för kunder klagat att sälja tillräckligt med biljetter för att motivera tjänste kostnaden. I dessa insikter finns det en möjlighet att öka biljett försäljningen för att under utföra platser. Högre försäljning skulle öka det uppfattade värdet för tjänsten. Högerklicka på fact_Tickets och välj **nytt mått** . Ange följande uttryck för det nya måttet med namnet **AverageTicketsSold** :
+Samtidigt har vissa Wingtip-biljetter för kunder klagat att sälja tillräckligt med biljetter för att motivera tjänste kostnaden. I dessa insikter finns det en möjlighet att öka biljett försäljningen för att under utföra platser. Högre försäljning skulle öka det uppfattade värdet för tjänsten. Högerklicka på fact_Tickets och välj **nytt mått**. Ange följande uttryck för det nya måttet med namnet **AverageTicketsSold**:
 
 ```
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))

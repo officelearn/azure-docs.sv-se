@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 39a1f41d97b1f4576d5877e4f35c99b3e189e3b2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f65c1d6fda09d7762a59fb5a932a72ad706a767a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314513"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448017"
 ---
 # <a name="partitioning-tables-in-dedicated-sql-pool"></a>Partitionerings tabeller i dedikerad SQL-pool
 
@@ -30,7 +30,7 @@ Partitionering kan dra nytta av data underhåll och frågans prestanda. Vare sig
 
 ### <a name="benefits-to-loads"></a>Fördelar med att läsa in
 
-Den främsta fördelen med partitionering i dedikerad SQL-pool är att förbättra effektiviteten och prestandan vid inläsning av data genom att använda borttagning av partition, växling och sammanslagning. I de flesta fall är data partitionerade i en datum kolumn som är nära knutna till den ordning som data läses in i databasen. En av de största fördelarna med att använda partitioner för att underhålla data är att undvika transaktions loggning. Även om du helt enkelt infogar, uppdaterar eller tar bort data är det enklaste sättet, med lite tanke och ansträngning, att använda partitionering under inläsnings processen och förbättra prestanda avsevärt.
+Den främsta fördelen med partitionering i dedikerad SQL-pool är att förbättra effektiviteten och prestandan vid inläsning av data genom att använda borttagning av partition, växling och sammanslagning. I de flesta fall är data partitionerade i en datum kolumn som är nära knutna till den ordning som data läses in i SQL-poolen. En av de största fördelarna med att använda partitioner för att underhålla data är att undvika transaktions loggning. Även om du helt enkelt infogar, uppdaterar eller tar bort data är det enklaste sättet, med lite tanke och ansträngning, att använda partitionering under inläsnings processen och förbättra prestanda avsevärt.
 
 Partition växling kan användas för att snabbt ta bort eller ersätta en del av en tabell.  En försäljnings fakta tabell kan till exempel innehålla endast data för de senaste 36 månaderna. I slutet av varje månad tas den äldsta månaden av försäljnings data bort från tabellen.  Dessa data kan tas bort med hjälp av en Delete-instruktion för att ta bort data för den äldsta månaden. 
 
@@ -355,7 +355,7 @@ Om du vill undvika din tabell definition från **rusting** i ditt käll kontroll
     DROP TABLE #partitions;
     ```
 
-Med den här metoden är koden i käll kontrollen fortfarande statisk och partitionernas gränser kan vara dynamiska. utvecklas med databasen över tid.
+Med den här metoden är koden i käll kontrollen fortfarande statisk och partitionernas gränser kan vara dynamiska. utvecklas med SQL-poolen över tid.
 
 ## <a name="next-steps"></a>Nästa steg
 

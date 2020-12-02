@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 9a01dabbd0a3e9d76caaead544be655b9505030d
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 55e9d2d1af863084b080c2de7833712413221050
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289205"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445638"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Skydda dina hanteringsportar med just-in-time-åtkomst
 
@@ -37,7 +37,7 @@ Den här sidan lär dig hur du inkluderar JIT i ditt säkerhets program. Du lär
 |Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md)|
 |Virtuella datorer som stöds:|![Ja ](./media/icons/yes-icon.png) distribuerade virtuella datorer via Azure Resource Manager.<br>![Inga ](./media/icons/no-icon.png) virtuella datorer har distribuerats med klassiska distributions modeller. [Läs mer om de här distributions modellerna](../azure-resource-manager/management/deployment-models.md).<br>![Inga ](./media/icons/no-icon.png) virtuella datorer skyddas av Azure-brandväggar som styrs av [Azure Firewall Manager](../firewall-manager/overview.md)|
 |Nödvändiga roller och behörigheter:|**Reader** -och **SecurityReader** -roller kan båda Visa JIT-status och parametrar.<br>Om du vill skapa anpassade roller som kan fungera med JIT, se [vilka behörigheter som krävs för att konfigurera och använda JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Om du vill skapa en roll med minst privilegier för användare som behöver begära JIT-åtkomst till en virtuell dator och inte utföra några andra JIT-åtgärder, använder du [set-JitLeastPrivilegedRole-skriptet](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) från community-sidorna för Security Center GitHub.|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
@@ -89,9 +89,9 @@ Från Security Center kan du aktivera och konfigurera JIT VM-åtkomsten.
 
     För varje port (anpassat och standard) innehåller fönstret **Lägg till port konfiguration** följande alternativ:
 
-    - **Protokoll** – det protokoll som tillåts på den här porten när en begäran godkänns
-    - **Tillåtna käll** -IP-adresser – IP-intervall som tillåts på den här porten när en begäran godkänns
-    - **Maximal begär ande tid** – maximalt tids period då en bestämd port kan öppnas
+    - **Protokoll**– det protokoll som tillåts på den här porten när en begäran godkänns
+    - **Tillåtna käll**-IP-adresser – IP-intervall som tillåts på den här porten när en begäran godkänns
+    - **Maximal begär ande tid**– maximalt tids period då en bestämd port kan öppnas
 
      1. Ställ in port säkerheten på dina behov.
 
@@ -253,7 +253,7 @@ När en virtuell dator har JIT-aktiverad måste du begära åtkomst för att ans
 
 1. Välj **begär åtkomst**. Fönstret **begär åtkomst** öppnas.
 
-1. Under **begär åtkomst** , för varje virtuell dator, konfigurerar du de portar som du vill öppna och käll-IP-adresserna som porten är öppen på och tids perioden som porten ska vara öppen för. Det går bara att begära åtkomst till de konfigurerade portarna. Varje port har en längsta tillåten tid som härletts från den JIT-konfiguration som du har skapat.
+1. Under **begär åtkomst**, för varje virtuell dator, konfigurerar du de portar som du vill öppna och käll-IP-adresserna som porten är öppen på och tids perioden som porten ska vara öppen för. Det går bara att begära åtkomst till de konfigurerade portarna. Varje port har en längsta tillåten tid som härletts från den JIT-konfiguration som du har skapat.
 
 1. Välj **öppna portar**.
 
@@ -300,7 +300,7 @@ Kör följande i PowerShell:
 
     ```azurepowershell
     $JitPolicyVm1 = (@{
-        id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
+        id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
            number=22;
            endTimeUtc="2020-07-15T17:00:00.3658798Z";

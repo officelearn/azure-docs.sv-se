@@ -10,13 +10,13 @@ ms.subservice: sql-dw
 ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: d9349c5d1c4e6255dc0854537bb7e93e3e636ce8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: e7fc89dcc0e7938ea2958d5c804abe82e20f186d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321069"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447945"
 ---
 # <a name="table-statistics-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Tabell statistik för dedikerad SQL-pool i Azure Synapse Analytics
 
@@ -55,7 +55,7 @@ SET AUTO_CREATE_STATISTICS ON
 
 Dessa uttryck utlöser automatisk skapande av statistik:
 
-- SELECT
+- VÄLJ
 - INFOGA-VÄLJ
 - CTAS
 - UPDATE
@@ -72,7 +72,7 @@ För att undvika mätbar prestanda försämring bör du se till att statistik ha
 > [!NOTE]
 > När du skapar statistik loggas [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) under en annan användar kontext.
 
-När automatisk statistik skapas, kommer de att ha formen: _WA_Sys_ <8 siffer kolumn-ID i hex>_<8 siffror tabell-ID i hex>. Du kan visa statistik som redan har skapats genom att köra [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) -kommandot:
+När automatisk statistik skapas, kommer de att ha formen: _WA_Sys_<8 siffer kolumn-ID i hex>_<8 siffror tabell-ID i hex>. Du kan visa statistik som redan har skapats genom att köra [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) -kommandot:
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -101,7 +101,7 @@ Den här frågan är inte en som kan besvaras av data åldern. Ett uppdaterat st
 
 Det finns ingen dynamisk hanterings vy för att avgöra om data i tabellen har ändrats sedan den senaste tids statistiken uppdaterades.  Följande två frågor kan hjälpa dig att avgöra om din statistik är inaktuell.
 
-**Fråga 1:**  Ta reda på skillnaden mellan antalet rader från statistiken ( **stats_row_count** ) och det faktiska antalet rader ( **actual_row_count** ). 
+**Fråga 1:**  Ta reda på skillnaden mellan antalet rader från statistiken (**stats_row_count**) och det faktiska antalet rader (**actual_row_count**). 
 
 ```sql
 select 
@@ -282,13 +282,13 @@ Använd föregående exempel, men ange fler kolumner för att skapa ett statisti
 > [!NOTE]
 > Histogrammet, som används för att uppskatta antalet rader i frågeresultatet, är bara tillgängligt för den första kolumnen som anges i statistik objekt definitionen.
 
-I det här exemplet är histogrammet i *produkt \_ kategorin*. Statistik över kolumner beräknas för *produkt \_ kategori* och *produkt \_ sub_category* :
+I det här exemplet är histogrammet i *produkt \_ kategorin*. Statistik över kolumner beräknas för *produkt \_ kategori* och *produkt \_ sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Eftersom det finns en korrelation mellan *produkt \_ kategori* och *produkt \_ under \_ kategori* , kan ett statistik objekt med flera kolumner vara användbart om dessa kolumner används samtidigt.
+Eftersom det finns en korrelation mellan *produkt \_ kategori* och *produkt \_ under \_ kategori*, kan ett statistik objekt med flera kolumner vara användbart om dessa kolumner används samtidigt.
 
 ### <a name="create-statistics-on-all-columns-in-a-table"></a>Skapa statistik för alla kolumner i en tabell
 
@@ -312,11 +312,11 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Använd en lagrad procedur för att skapa statistik för alla kolumner i en databas
+### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-sql-pool"></a>Använd en lagrad procedur för att skapa statistik för alla kolumner i en SQL-pool
 
-Den dedikerade SQL-poolen har ingen lagrad system procedur som motsvarar sp_create_stats i SQL Server. Den här lagrade proceduren skapar ett enda kolumn statistik objekt på varje kolumn i databasen som inte redan har statistik.
+Den dedikerade SQL-poolen har ingen lagrad system procedur som motsvarar sp_create_stats i SQL Server. Den här lagrade proceduren skapar ett enda kolumn statistik objekt på varje kolumn i en SQL-pool som inte redan har statistik.
 
-I följande exempel får du hjälp att komma igång med databas designen. Det är kostnads fritt att anpassa den efter dina behov.
+I följande exempel får du hjälp att komma igång med SQL-poolens design. Det är kostnads fritt att anpassa den efter dina behov.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
@@ -476,7 +476,7 @@ Det finns flera systemvyer och funktioner som du kan använda för att hitta inf
 
 Dessa system visningar innehåller information om statistik:
 
-| Katalogvy | Beskrivning |
+| Katalogvy | Description |
 |:--- |:--- |
 | [sys. columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje kolumn. |
 | [sys. Objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje objekt i databasen. |
@@ -490,7 +490,7 @@ Dessa system visningar innehåller information om statistik:
 
 Dessa system funktioner är användbara när du arbetar med statistik:
 
-| System funktion | Beskrivning |
+| System funktion | Description |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |Datum då statistik objekt senast uppdaterades. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |Sammanfattnings nivå och detaljerad information om distributionen av värden som förstås av statistik objekt. |
@@ -539,7 +539,7 @@ AND     st.[user_created] = 1
 
 DBCC SHOW_STATISTICS () visar data som lagras i ett statistik objekt. Dessa data ingår i tre delar:
 
-- Sidhuvud
+- Huvud
 - Densitets vektor
 - Histogram
 

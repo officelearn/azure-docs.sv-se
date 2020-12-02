@@ -1,6 +1,6 @@
 ---
-title: Åtkomst till filer på lagrings plats i SQL-pool utan server (för hands version)
-description: Beskriver frågor om lagrings-filer med hjälp av Server lös SQL-pool (för hands version) i Azure Synapse Analytics.
+title: Komma åt filer på lagrings platsen i SQL-poolen utan Server
+description: Beskriver hur du frågar Storage-filer med Server lös SQL-pool i Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64148cd8fd467be6a5f09ee723e230bdc8181d2d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 82a4ded3a64a8a8bbc62f99a8854eb6d2b5f0d0b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685689"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446585"
 ---
-# <a name="access-external-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Få åtkomst till extern lagring med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
+# <a name="access-external-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Få åtkomst till extern lagring med Server lös SQL-pool i Azure Synapse Analytics
 
 Det här dokumentet beskriver hur kan användare läsa data från filerna som lagras på Azure Storage i SQL-poolen utan server. Användare har följande alternativ för åtkomst till lagring:
 

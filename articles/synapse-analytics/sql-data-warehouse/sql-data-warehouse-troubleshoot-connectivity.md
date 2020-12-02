@@ -1,6 +1,6 @@
 ---
 title: Felsöka anslutning
-description: Felsöka anslutningar i dedikerad SQL-pool.
+description: Felsöka anslutningar i dedikerad SQL-pool (tidigare SQL DW).
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,47 +11,47 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: 82b9f988ef4a7f4a53cd0b451da28642b53bcb65
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ea99c2ce1963ec58649fd4c2fbb4d98768da8c6f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308366"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447949"
 ---
-# <a name="troubleshooting-connectivity-issues-in-dedicated-sql-pool"></a>Felsöka anslutnings problem i dedikerad SQL-pool
+# <a name="troubleshooting-connectivity-issues-in-dedicated-sql-pool-formerly-sql-dw"></a>Felsöka anslutnings problem i dedikerad SQL-pool (tidigare SQL DW)
 
-Den här artikeln innehåller vanliga fel söknings tekniker för att ansluta till din dedikerade SQL-adresspool.
+Den här artikeln innehåller vanliga fel söknings tekniker för att ansluta till din dedikerade SQL-adresspool (tidigare SQL DW).
 
 ## <a name="check-service-availability"></a>Kontrol lera tjänstens tillgänglighet
 
-Kontrol lera om tjänsten är tillgänglig. Gå till den dedikerade SQL-pool som du försöker ansluta i Azure Portal. Klicka på **diagnostisera och lös problem** i den vänstra panelen i innehålls förteckningen.
+Kontrol lera om tjänsten är tillgänglig. I Azure Portal går du till den dedikerade SQL-poolen (tidigare SQL DW) som du försöker ansluta. Klicka på **diagnostisera och lös problem** i den vänstra panelen i innehålls förteckningen.
 
 ![Välj resurs hälsa](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-Status för den dedikerade SQL-poolen visas här. Om tjänsten inte visas som **tillgänglig** kontrollerar du ytterligare steg.
+Status för din dedikerade SQL-pool (tidigare SQL DW) kommer att visas här. Om tjänsten inte visas som **tillgänglig** kontrollerar du ytterligare steg.
 
 ![Tjänsten är tillgänglig](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Om din resurs hälsa visar att din dedikerade instans av SQL-poolen är pausad eller skalning, följer du anvisningarna för att återuppta instansen.
+Om din resurs hälsa visar att din dedikerade SQL-pool (tidigare SQL DW) har pausats eller skalas, följer du anvisningarna för att återuppta instansen.
 
-![Skärm bild som visar en instans av SQL Data Warehouse som är pausad eller skalning.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
+![Skärm bild som visar en instans av en dedikerad SQL-pool som är pausad eller skalning.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
 Mer information om Resource Health hittar du här.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Kontrollera om tjänsten är pausad eller håller på att skalas om
 
-Kontrol lera portalen för att se om din dedikerade instans av SQL-poolen är pausad eller skalning.
+Kontrol lera portalen för att se om din dedikerade SQL-pool (tidigare SQL DW) har pausats eller skalats.
 
 ![Skärm bild som visar hur du kontrollerar om ett informations lager har pausats.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Om du ser att tjänsten har pausats eller skalas kan du kontrol lera att den inte finns under ditt underhålls schema. I portalen för din dedikerade *SQL-pool ser du* det valda underhålls schemat.
+Om du ser att tjänsten har pausats eller skalas kan du kontrol lera att den inte finns under ditt underhålls schema. På portalen för din dedikerade SQL-pool (tidigare SQL DW)- *Översikt* visas schemat för valt underhåll.
 
 ![Översikt över underhålls schema](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Annars kan du kontakta IT-administratören för att kontrol lera att det här underhållet inte är en schemalagd händelse. Följ [dessa steg](pause-and-resume-compute-portal.md)om du vill återuppta den dedikerade SQL-poolen.
+Annars kan du kontakta IT-administratören för att kontrol lera att det här underhållet inte är en schemalagd händelse. Följ [dessa steg](pause-and-resume-compute-portal.md)om du vill återuppta den DEDIKERADe SQL-poolen (tidigare SQL DW)-instansen.
 
 ## <a name="check-your-firewall-settings"></a>Kontrollera brandväggsinställningarna
 
-Den dedikerade databasen för SQL-pooler kommunicerar via port 1433.Om du försöker ansluta inifrån ett företagsnätverk kan det hända att utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kan du inte ansluta till den [logiska servern](../../azure-sql/database/logical-servers.md) om inte din IT-avdelning öppnar port 1433. Ytterligare information om brand Väggs konfigurationer finns [här](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+Den dedikerade SQL-poolen (tidigare SQL DW) kommunicerar via port 1433.Om du försöker ansluta inifrån ett företagsnätverk kan det hända att utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kan du inte ansluta till den [logiska servern](../../azure-sql/database/logical-servers.md) om inte din IT-avdelning öppnar port 1433. Ytterligare information om brand Väggs konfigurationer finns [här](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Kontrollera inställningarna för det virtuella nätverket/tjänstslutpunkten
 
@@ -61,7 +61,7 @@ Om du får fel 40914 och 40615, se [fel beskrivning och lösning här](../../azu
 
 ### <a name="software"></a>Programvara
 
-Kontrol lera att du använder de senaste verktygen för att ansluta till din dedikerade SQL-pool:
+Kontrol lera att du använder de senaste verktygen för att ansluta till din dedikerade SQL-pool (tidigare SQL DW):
 
 - SSMS
 - Azure Data Studio
@@ -106,7 +106,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Tillfälliga anslutningsproblem
 
-Kontrollera om servern är hårt belastad med ett stort antal köade förfrågningar. Du kan behöva skala upp din dedikerade SQL-pool för ytterligare resurser.
+Kontrollera om servern är hårt belastad med ett stort antal köade förfrågningar. Du kan behöva skala upp din dedikerade SQL-pool (tidigare SQL DW) för ytterligare resurser.
 
 ## <a name="common-error-messages"></a>Vanliga felmeddelanden
 

@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: hantera beräkning med Azure Functions'
-description: Använda Azure Functions för att hantera beräkningen av SQL-poolen i Azure Synapse Analytics.
+description: Använda Azure Functions för att hantera beräkningen av din dedikerade SQL-pool (tidigare SQL DW) i Azure Synapse Analytics.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bc615322c11a456699d2364cf44cad40e086e851
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f0731f0deaf46ec419cfe43037804e10f2b73fd4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022487"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448383"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Använda Azure Functions för att hantera beräknings resurser i Azure Synapse Analytics SQL-poolen
+# <a name="use-azure-functions-to-manage-compute-resources-for-your-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Använd Azure Functions för att hantera beräknings resurser för din dedikerade SQL-pool (tidigare SQL DW) i Azure Synapse Analytics
 
-I den här självstudien används Azure Functions för att hantera beräknings resurser för en SQL-pool i Azure Synapse Analytics.
+I den här självstudien används Azure Functions för att hantera beräknings resurser för en dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics.
 
-För att kunna använda Azure Funktionsapp med SQL-poolen måste du skapa ett [tjänst huvud namns konto](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) med deltagar åtkomst under samma prenumeration som SQL-adresspoolen.
+Om du vill använda en Azure-Funktionsapp med en dedikerad SQL-pool (tidigare SQL DW) måste du skapa ett [konto för tjänstens huvud namn](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Tjänstens huvud konto måste ha deltagar åtkomst under samma prenumeration som din dedikerade SQL-pool (tidigare SQL DW)-instans.
 
 ## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Distribuera timer-baserad skalning med en Azure Resource Manager-mall
 
 Om du vill distribuera mallen behöver du följande information:
 
-- Namnet på resurs gruppen som instansen av SQL-poolen finns i
-- Namnet på den server som SQL-instansen finns i
-- Namn på din instans av SQL-pool
+- Namnet på resurs gruppen som din dedikerade SQL-pool (tidigare SQL DW)-instans finns i
+- Namnet på servern som din dedikerade SQL-pool (tidigare SQL DW)-instans finns i
+- Namnet på din dedikerade SQL-pool (tidigare SQL DW)-instans
 - Klient-ID (katalog-ID) för din Azure Active Directory
 - Prenumerations-ID:t
 - Program-ID för tjänstens huvudkonto
@@ -48,13 +48,13 @@ När du har distribuerat mallen bör du hitta tre nya resurser: ett kostnads fri
 
    ![Funktioner som distribueras med mallen](./media/manage-compute-with-azure-functions/five-functions.png)
 
-2. Välj antingen *DWScaleDownTrigger* eller *DWScaleUpTrigger* beroende på om du vill ändra skala upp eller ned tid. Välj integrera i den nedrullningsbara menyn.
+2. Välj antingen *DWScaleDownTrigger* eller *DWScaleUpTrigger* för att skala upp eller ned. Välj integrera i den nedrullningsbara menyn.
 
    ![Välj Integrera för funktionen](./media/manage-compute-with-azure-functions/select-integrate.png)
 
 3. Det aktuella värdet ska antingen vara *%ScaleDownTime%* eller *%ScaleUpTime%*. Dessa värden anger att schemat baseras på värden som definierats i dina [programinställningar](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). För närvarande kan du ignorera det här värdet och ändra schemat till önskad tid baserat på nästa steg.
 
-4. I schema-ytan lägger du till tiden CRON-uttrycket som du vill visa hur ofta du vill att Azure Synapse Analytics ska skalas upp.
+4. I schema-ytan lägger du till CRON-uttrycket som du vill visa hur ofta du vill att Azure Synapse Analytics ska skalas upp.
 
    ![Ändra funktionsschemat](./media/manage-compute-with-azure-functions/change-schedule.png)
 
@@ -70,11 +70,11 @@ När du har distribuerat mallen bör du hitta tre nya resurser: ett kostnads fri
 
 1. Gå till funktionsapptjänsten. Om du har distribuerat mallen med standardvärden ska tjänsten ha namnet *DWOperations*. När funktionsappen är öppen bör du se fem funktioner som har driftsatts inom ramen för din funktionsapptjänst.
 
-2. Välj antingen *DWScaleDownTrigger* eller *DWScaleUpTrigger* beroende på om du vill ändra skala upp eller ned beräkningsvärdet. När du har valt funktionerna ska fönstret innehålla filen *index.js*.
+2. Välj antingen *DWScaleDownTrigger* eller *DWScaleUpTrigger* för att skala upp eller ned Compute-värdet. När du har valt funktionerna ska fönstret innehålla filen *index.js*.
 
    ![Ändra beräkningsnivån för funktionsutlösaren](././media/manage-compute-with-azure-functions/index-js.png)
 
-3. Ändra värdet för *ServiceLevelObjective* till den nivå som du vill använda och klicka på Spara. Det här värdet är den beräknings nivå som data lager instansen skalar till baserat på det schema som definierats i avsnittet integrera.
+3. Ändra värdet för *ServiceLevelObjective* till den nivå som du vill använda och välj Spara. *ServiceLevelObjective* är den beräknings nivå som data lager instansen skalar till baserat på det schema som definierats i avsnittet integrera.
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>Använd funktionerna Pausa eller Återuppta istället för Skala
 
@@ -84,7 +84,7 @@ Standardfunktionerna är för närvarande *DWScaleDownTrigger* och *DWScaleUpTri
 
    ![Funktionsfönstret](./media/manage-compute-with-azure-functions/functions-pane.png)
 
-2. Klicka på skjutreglaget för de utlösare som du vill aktivera.
+2. Välj vid glidningen för de motsvarande utlösare som du vill aktivera.
 
 3. Navigera till fliken *Integrera* för respektive utlösare om du vill ändra schemat.
 
@@ -114,17 +114,17 @@ För närvarande ingår bara två skalningsfunktioner i mallen. Med dessa funkti
 5. Ställ in din åtgärds variabel på önskat beteende enligt följande:
 
    ```JavaScript
-   // Resume the SQL pool instance
+   // Resume the dedicated SQL pool (formerly SQL DW) instance
    var operation = {
        "operationType": "ResumeDw"
    }
 
-   // Pause the SQL pool instance
+   // Pause the dedicated SQL pool (formerly SQL DW) instance
    var operation = {
        "operationType": "PauseDw"
    }
 
-   // Scale the SQL pool instance to DW600c
+   // Scale the dedicated SQL pool (formerly SQL DW)l instance to DW600c
    var operation = {
        "operationType": "ScaleDw",
        "ServiceLevelObjective": "DW600c"
@@ -169,4 +169,4 @@ Skala upp på 8.00 till DW1000c, skala ned en gång till DW600c vid 4pm på vard
 
 Läs mer om [timer-utlösare](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Azure Functions.
 
-Checka in databasen för SQL-poolens [exempel](https://github.com/Microsoft/sql-data-warehouse-samples).
+Se dedikerad SQL-pool (tidigare SQL DW) [exempel lagrings plats](https://github.com/Microsoft/sql-data-warehouse-samples).

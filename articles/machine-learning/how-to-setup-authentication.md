@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 7fa6beacf4456145e312494a72dad321dfef3754
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ca8a36584c09d850ed1daab8cba301b244f76526
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843935"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447015"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurera autentisering för Azure Machine Learning-resurser och -arbetsflöden
 
@@ -67,7 +67,7 @@ Det enklaste sättet att skapa en SP-och bevilja åtkomst till din arbets yta ä
 
     Om CLI kan öppna din standardwebbläsare så sker det och en inloggningssida läses in. Annars måste du öppna en webbläsare och följa anvisningarna på kommando raden. Anvisningarna omfattar att bläddra till [https://aka.ms/devicelogin](https://aka.ms/devicelogin) och ange en auktoriseringskod.
 
-    Om du har flera Azure-prenumerationer kan du använda `az account set -s <subscription name or ID>` kommandot för att ställa in prenumerationen. Mer information finns i [använda flera Azure-prenumerationer](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Om du har flera Azure-prenumerationer kan du använda `az account set -s <subscription name or ID>` kommandot för att ställa in prenumerationen. Mer information finns i [använda flera Azure-prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 
     För andra metoder för autentisering, se [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
 
@@ -184,7 +184,7 @@ De flesta exempel i dokumentationen och exemplen använder interaktiv autentiser
 > interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
 > ```
 
-När du använder Azure CLI `az login` används kommandot för att AUTENTISERA CLI-sessionen. Mer information finns i [Kom igång med Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+När du använder Azure CLI `az login` används kommandot för att AUTENTISERA CLI-sessionen. Mer information finns i [Kom igång med Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 > [!TIP]
 > Om du använder SDK från en miljö där du tidigare har autentiserat interaktivt med Azure CLI, kan du använda- `AzureCliAuthentication` klassen för att autentisera till arbets ytan med autentiseringsuppgifterna som cachelagras av CLI:

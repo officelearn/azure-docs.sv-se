@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 76d8c84fd1dd403c88e8261cf49e3620f3a6ec14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18de1f445990f167041c755aa5e7d909819319b1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903617"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446453"
 ---
 # <a name="azure-stack-edge-pro-power-cord-specifications"></a>Specifikationer för Azure Stack Edge Pro-ström sladd
 
@@ -76,7 +76,7 @@ Du kan använda följande tabell för att hitta rätt stub-specifikationer för 
 |Indien|250|10|IS694 3x 0,75|ÄR 1293|C13|1830|
 |Indonesien|250|10|H05Z1Z1 3x 0,75|CEE 7|C13|1830|
 |Irland|250|5|H05VV – F 3x 0,75|BS 1363/SS145/A|C13|1800|
-|Israel|250|2,5|H05VV – F 3x 1.00|SI 32|C13|2000|
+|Israel|250|2.5|H05VV – F 3x 1.00|SI 32|C13|2000|
 |Italien|250|10|H05VV – F 3x 0,75|CEI 23-50|C13|1800|
 |Jamaica|125|10|SVE 18/3|NEMA 5 – 15P|C13|1830|
 |Japan|125|15|VCTF 3x 2,00|JIS C 8303|C13|2 300|
@@ -158,4 +158,4 @@ Du kan använda följande tabell för att hitta rätt stub-specifikationer för 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Tekniska specifikationer för Azure Stack Edge Pro](data-box-edge-technical-specifications-compliance.md)
+[Tekniska specifikationer för Azure Stack Edge Pro](./azure-stack-edge-technical-specifications-compliance.md)

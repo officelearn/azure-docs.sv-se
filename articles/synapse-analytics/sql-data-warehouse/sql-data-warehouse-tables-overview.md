@@ -10,13 +10,13 @@ ms.subservice: sql-dw
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 3bdf234156c55e3c30df74c672866a118fd2f4f1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: ec62724b7aedbad4111a4882dd89f86d116b2a96
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323493"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448059"
 ---
 # <a name="design-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Design tabeller med dedikerad SQL-pool i Azure Synapse Analytics
 
@@ -47,7 +47,7 @@ Om du vill visa en tabells struktur i en dedikerad SQL-pool kan du använda fakt
 | Informations lagret wideworldimportersdw-tabell  | Tabell typ | Dedikerad SQL-pool |
 |:-----|:-----|:------|:-----|
 | City | Dimension | WWI. DimCity |
-| Beställa | Fakta | WWI. FactOrder |
+| Beställning | Fakta | WWI. FactOrder |
 
 ## <a name="table-persistence"></a>Tabell persistence
 
@@ -111,7 +111,7 @@ Tabell kategorin bestämmer ofta vilka alternativ som ska väljas för att distr
 
 ## <a name="table-partitions"></a>Table-partitioner
 
-En partitionerad tabell lagrar och utför åtgärder på tabell rader enligt data intervall. En tabell kan till exempel partitioneras per dag, månad eller år. Du kan förbättra frågans prestanda via partition Eli minering, vilket begränsar en sökning till data i en partition. Du kan också underhålla data genom att byta partition. Eftersom data i Azure Synapse Analytics redan har distribuerats kan det ta lång tid att köra för många partitioner. Mer information finns i [rikt linjer för partitionering](sql-data-warehouse-tables-partition.md).  När partitionen växlar till diskpartitioner som inte är tomma bör du överväga att använda alternativet TRUNCATE_TARGET i [Alter Table](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) -instruktionen om befintliga data ska trunkeras. Koden nedan växlar i de transformerade dagliga data till SalesFact för att skriva över befintliga data.
+En partitionerad tabell lagrar och utför åtgärder på tabell rader enligt data intervall. En tabell kan till exempel partitioneras per dag, månad eller år. Du kan förbättra frågans prestanda via partition Eli minering, vilket begränsar en sökning till data i en partition. Du kan också underhålla data genom att byta partition. Eftersom data i SQL-poolen redan har distribuerats kan det ta lång tid att köra för många partitioner. Mer information finns i [rikt linjer för partitionering](sql-data-warehouse-tables-partition.md).  När partitionen växlar till diskpartitioner som inte är tomma bör du överväga att använda alternativet TRUNCATE_TARGET i [Alter Table](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) -instruktionen om befintliga data ska trunkeras. Koden nedan växlar i de transformerade dagliga data till SalesFact för att skriva över befintliga data.
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
@@ -144,7 +144,7 @@ PRIMÄR nyckel stöds bara om både icke-KLUSTRad och inte framtvingad används.
 
 Du kan skapa en tabell som en ny tom tabell. Du kan också skapa och fylla i en tabell med resultatet av en SELECT-instruktion. Följande är T-SQL-kommandon för att skapa en tabell.
 
-| T-SQL-uttryck | Beskrivning |
+| T-SQL-uttryck | Description |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Skapar en tom tabell genom att definiera alla tabell kolumner och alternativ. |
 | [SKAPA EXTERN TABELL](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Skapar en extern tabell. Definitionen av tabellen lagras i en dedikerad SQL-pool. Tabell data lagras i Azure Blob Storage eller Azure Data Lake Store. |

@@ -9,20 +9,20 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 088300d4b6f92886310315b67763536e39cbb019
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5109139c7168026c74a475128832fbb0733ce832
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789530"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447119"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure privat länk för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Med privat länk kan du ansluta till olika PaaS-tjänster i Azure via en **privat slut punkt** . En lista över PaaS-tjänster som stöder funktionen för privat länk finns på [dokumentations sidan för privat länk](../../private-link/index.yml) . En privat slut punkt är en privat IP-adress inom ett särskilt [VNet](../../virtual-network/virtual-networks-overview.md) och undernät.
+Med privat länk kan du ansluta till olika PaaS-tjänster i Azure via en **privat slut punkt**. En lista över PaaS-tjänster som stöder funktionen för privat länk finns på [dokumentations sidan för privat länk](../../private-link/index.yml) . En privat slut punkt är en privat IP-adress inom ett särskilt [VNet](../../virtual-network/virtual-networks-overview.md) och undernät.
 
 > [!IMPORTANT]
-> Den här artikeln gäller både Azure SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse). För enkelhetens skull refererar termen "databas" till båda databaserna i Azure SQL Database och Azure Synapse Analytics. På samma sätt refererar alla referenser till "Server" till den [logiska SQL-Server](logical-servers.md) som är värd för Azure SQL Database och Azure Synapse Analytics. Den här artikeln gäller *inte* för **Azure SQL-hanterade instanser** .
+> Den här artikeln gäller för både Azure SQL Database-och Azure Synapse-analys. För enkelhetens skull refererar termen "databas" till båda databaserna i Azure SQL Database och Azure Synapse Analytics. På samma sätt refererar alla referenser till "Server" till den [logiska SQL-Server](logical-servers.md) som är värd för Azure SQL Database och Azure Synapse Analytics. Den här artikeln gäller *inte* för **Azure SQL-hanterade instanser**.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Så här konfigurerar du en privat länk för Azure SQL Database 
 
@@ -149,7 +149,7 @@ Tänk dig ett scenario med en användare som kör SQL Server Management Studio (
 1. Tillåt endast trafik till databasen i SQL Database att använda den virtuella datorns privata IP-adress. Mer information finns i artiklarna om [tjänstens slut punkt](vnet-service-endpoint-rule-overview.md) och [brand Väggs regler för virtuella nätverk](firewall-configure.md).
 1. På den virtuella Azure-datorn begränsar du omfattningen av utgående anslutning genom att använda [nätverks säkerhets grupper (NSG: er)](../../virtual-network/manage-network-security-group.md) och service märken enligt följande
     - Ange en NSG-regel för att tillåta trafik för service tag = SQL. Västra USA – endast tillåta anslutning till SQL Database i västra USA
-    - Ange en NSG-regel (med en **högre prioritet** ) om du vill neka trafik för service tag = SQL-neka anslutningar till SQL Database i alla regioner
+    - Ange en NSG-regel (med en **högre prioritet**) om du vill neka trafik för service tag = SQL-neka anslutningar till SQL Database i alla regioner
 
 I slutet av den här installationen kan den virtuella Azure-datorn bara ansluta till en databas i SQL Database i regionen USA, västra. Anslutningen är dock inte begränsad till en enda databas i SQL Database. Den virtuella datorn kan fortfarande ansluta till en databas i regionen USA, västra, inklusive de databaser som inte ingår i prenumerationen. Vi har minskat omfattningen av data exfiltrering i scenariot ovan till en speciell region, men vi har inte eliminerat det helt.
 

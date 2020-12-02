@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 8ae95518bab5ed9bc100a5902acf1fd1db631dbe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3fb4085ba275bda1fe784f368eb5d92ac0c668f0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91617170"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448517"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>Vad är Azure Stack Edge Pro med GPU?
 
@@ -25,7 +25,7 @@ Azure Stack Edge Pro med GPU är en maskinvaru-som-tjänst-lösning. Microsoft l
 
 Här följer de olika scenarier där Azure Stack Edge Pro kan användas för snabb Machine Learning (ML) inferencing vid kant-och förbearbetning av data innan de skickas till Azure.
 
-- **Härledning med Azure Machine Learning** – med Azure Stack Edge Pro kan du köra ml-modeller för att få snabba resultat som kan åtgärdas innan data skickas till molnet. Den fullständiga data uppsättningen kan alternativt överföras för att fortsätta att träna och förbättra dina ML-modeller. Mer information om hur du använder Azure ML-accelererade maskin varu modeller på den Azure Stack Edge Pro-enheten finns i [Distribuera Azure ml-maskin accelererade modeller på Azure Stack Edge Pro](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Härledning med Azure Machine Learning** – med Azure Stack Edge Pro kan du köra ml-modeller för att få snabba resultat som kan åtgärdas innan data skickas till molnet. Den fullständiga data uppsättningen kan alternativt överföras för att fortsätta att träna och förbättra dina ML-modeller. Mer information om hur du använder Azure ML-accelererade maskin varu modeller på den Azure Stack Edge Pro-enheten finns i [Distribuera Azure ml-maskin accelererade modeller på Azure Stack Edge Pro](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - **Förbearbeta data i data** Transformation innan du skickar dem till Azure via beräknings alternativ som arbets belastningar i behållare och Virtual Machines för att skapa en mer åtgärds bara data uppsättning. Förbearbeta kan användas för att: 
 

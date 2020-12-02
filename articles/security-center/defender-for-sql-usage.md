@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: d37c362da484a2a7e400da8f87dd0a37f0f80d3a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: a80747a88087e1ad3a70f198a260e41a6848e34f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436733"
+ms.locfileid: "96445658"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender för SQL-servrar på datorer 
 
@@ -108,7 +108,7 @@ Du kan visa resultaten för sårbarhets bedömning direkt från Security Center.
     I varje vy sorteras säkerhets kontrollerna efter **allvarlighets grad**. Klicka på en säkerhets kontroll för att visa ett informations fönster med en **Beskrivning**, hur du **åtgärdar** den och annan relaterad information som **påverkan** eller **benchmark**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Azure Defender för SQL-aviseringar
-Aviseringar genereras av ovanliga och potentiellt skadliga försök att komma åt eller utnyttja SQL-datorer. Dessa händelser kan utlösa aviseringar som visas i [avsnittet varningar för SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse) på sidan aviserings referens](alerts-reference.md#alerts-sql-db-and-warehouse).
+Aviseringar genereras av ovanliga och potentiellt skadliga försök att komma åt eller utnyttja SQL-datorer. Dessa händelser kan utlösa aviseringar som visas i [avsnittet varningar för SQL Database och Azure Synapse Analytics på referens sidan för aviseringar](alerts-reference.md#alerts-sql-db-and-warehouse).
 
 ## <a name="explore-and-investigate-security-alerts"></a>Utforska och undersök säkerhets aviseringar
 
@@ -128,7 +128,7 @@ Azure Defender för SQL-aviseringar finns på sidan aviseringar på Security Cen
 
 Information om relaterade material finns i följande artikel:
 
-- [Säkerhets aviseringar för SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
+- [Säkerhets aviseringar för SQL Database och Azure Synapse Analytics](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [Konfigurera e-postavisering för säkerhetsmeddelanden](security-center-provide-security-contact-details.md)
 - [Läs mer om Azure Sentinel](../sentinel/index.yml)
 - [Azure Security Centers data säkerhets paket](../azure-sql/database/azure-defender-for-sql.md)

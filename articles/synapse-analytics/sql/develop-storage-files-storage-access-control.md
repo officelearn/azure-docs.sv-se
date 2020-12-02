@@ -1,6 +1,6 @@
 ---
-title: Kontrol lera åtkomsten till lagrings kontot för SQL-poolen utan server (för hands version)
-description: Beskriver hur Server lös SQL-pool (för hands version) får åtkomst Azure Storage och hur du kan kontrol lera lagrings åtkomst för SQL-poolen utan server i Azure Synapse Analytics.
+title: Kontrol lera åtkomsten till lagrings kontot för SQL-poolen utan Server
+description: Beskriver hur Server lös SQL-poolen får åtkomst till Azure Storage och hur du kan kontrol lera lagrings åtkomst för SQL-poolen utan server i Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 958f371a0018d20331e73d0eabba9354614d121c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 631aaf3c6a99e093f6ed59089f7ce99803f3f054
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315728"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446618"
 ---
-# <a name="control-storage-account-access-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Kontrol lera åtkomsten till lagrings kontot för SQL-poolen utan server (för hands version) i Azure Synapse Analytics
+# <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Kontrol lera åtkomsten till lagrings kontot för SQL-poolen utan server i Azure Synapse Analytics
 
 En server utan SQL-pool läser filer direkt från Azure Storage. Behörigheter för att komma åt filerna i Azure Storage styrs på två nivåer:
 - **Lagrings nivå** – användaren bör ha behörighet att komma åt underliggande lagringsfiler. Lagrings administratören ska tillåta att Azure AD-huvudobjektet läser/skriver filer, eller genererar SAS-nyckel som används för åtkomst till lagring.
@@ -33,7 +33,7 @@ En användare som har loggat in på en server lös SQL-pool måste ha behörighe
 
 ### <a name="user-identity"></a>[Användar identitet](#tab/user-identity)
 
-**Användar identitet** , som även kallas "Azure AD-vidarekoppling", är en typ av auktorisering där identiteten för den Azure AD-användare som har loggat in på en server utan SQL-pool används för att ge åtkomst till data. Innan du får åtkomst till data måste Azure Storages administratören bevilja behörighet till Azure AD-användaren. Som anges i tabellen nedan, stöds den inte för SQL-användargruppen.
+**Användar identitet**, som även kallas "Azure AD-vidarekoppling", är en typ av auktorisering där identiteten för den Azure AD-användare som har loggat in på en server utan SQL-pool används för att ge åtkomst till data. Innan du får åtkomst till data måste Azure Storages administratören bevilja behörighet till Azure AD-användaren. Som anges i tabellen nedan, stöds den inte för SQL-användargruppen.
 
 > [!IMPORTANT]
 > Du måste ha rollen som ägare/deltagare/läsare för Storage BLOB-rollen för att kunna använda din identitet för att komma åt data.
@@ -144,7 +144,7 @@ SQL-användare kan inte använda Azure AD-autentisering för åtkomst till lagri
 
 Följande skript skapar en autentiseringsuppgift på server nivå som kan användas av `OPENROWSET` funktion för att få åtkomst till alla filer i Azure Storage med SAS-token. Skapa den här autentiseringsuppgiften för att aktivera SQL-huvudobjektet som kör `OPENROWSET` funktionen för att läsa filer som skyddas med SAS-nyckel på Azure Storage som matchar URL: en i autentiseringsuppgiften.
 
-Exchange < *mystorageaccountname* > med ditt faktiska lagrings konto namn och < *mystorageaccountcontainername* > med det faktiska behållar namnet:
+Exchange <*mystorageaccountname*> med ditt faktiska lagrings konto namn och <*mystorageaccountcontainername*> med det faktiska behållar namnet:
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]

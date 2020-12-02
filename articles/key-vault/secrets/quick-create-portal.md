@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 212e5fb62043c2ffe2b8876249a6aad1d224411d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3d7e6357fd8f1091509cbf27875c028d3af310cb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685859"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445910"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Snabbstart: Ställ in och hämta en hemlighet från Azure Key Vault med hjälp av Azure-portalen
 
@@ -26,7 +26,7 @@ Mer information om finns i
 - [Översikt över Key Vault](../general/overview.md)
 - [Översikt över hemligheter](about-secrets.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Azure-prenumeration för att få åtkomst till Azure Key Vault. Om du inte redan har en prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -45,13 +45,13 @@ Följ stegen nedan om du vill lägga till en hemlighet i valvet:
 1. Klicka på **Generera/importera**.
 1. Välj följande värden på skärmen **Skapa en hemlighet**:
     - **Uppladdningsalternativ**: Manuell.
-    - **Namn**: Ange ett namn för hemligheten. Det hemliga namnet måste vara unikt inom en Key Vault. Namnet måste vara en 1-127-tecken sträng, med början på en bokstav och endast innehålla 0-9, a-z, A-Z och-. Mer information om namngivning finns i [Key Vault objekt, identifierare och versions hantering](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning)
+    - **Namn**: Ange ett namn för hemligheten. Det hemliga namnet måste vara unikt inom en Key Vault. Namnet måste vara en 1-127-tecken sträng, med början på en bokstav och endast innehålla 0-9, a-z, A-Z och-. Mer information om namngivning finns i [Key Vault objekt, identifierare och versions hantering](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)
     - **Värde**: Ange ett värde för hemligheten. Key Vault API: er accepterar och returnerar hemliga värden som strängar. 
     - Lämna standardvärdena för de andra alternativen. Klicka på **Skapa**.
 
 När du får ett meddelande om att hemligheten har skapats kan du klicka på den i listan. 
 
-Mer information om hemligheter finns i [om Azure Key Vault hemligheter](https://docs.microsoft.com/azure/key-vault/secrets/about-secrets)
+Mer information om hemligheter finns i [om Azure Key Vault hemligheter](./about-secrets.md)
 
 ## <a name="retrieve-a-secret-from-key-vault"></a>Hämta en hemlighet från Key Vault
 
@@ -75,7 +75,7 @@ När du inte behöver resursgruppen längre så tar du bort den. Då tas även n
 3. I rutan **SKRIV RESURSGRUPPSNAMNET:** skriver du namnet på resursgruppen och väljer **Ta bort**.
 
 > [!NOTE]
-> Det är viktigt att Observera att när en hemlighet, nyckel, certifikat eller nyckel valv har tagits bort, fortsätter den att kunna återkrävas under en konfigurerbar period på 7 till 90 Kalender dagar. Om ingen konfiguration anges anges standard återställnings perioden till 90 dagar. Detta ger användare tillräckligt med tid för att uppmärksamma en oavsiktlig hemlig borttagning och svara. Mer information om hur du tar bort och återställer nyckel valv och Key Vault-objekt finns i [Azure Key Vault översikt över mjuk borttagning](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview)
+> Det är viktigt att Observera att när en hemlighet, nyckel, certifikat eller nyckel valv har tagits bort, fortsätter den att kunna återkrävas under en konfigurerbar period på 7 till 90 Kalender dagar. Om ingen konfiguration anges anges standard återställnings perioden till 90 dagar. Detta ger användare tillräckligt med tid för att uppmärksamma en oavsiktlig hemlig borttagning och svara. Mer information om hur du tar bort och återställer nyckel valv och Key Vault-objekt finns i [Azure Key Vault översikt över mjuk borttagning](../general/soft-delete-overview.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

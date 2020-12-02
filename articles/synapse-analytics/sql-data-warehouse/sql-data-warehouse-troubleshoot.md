@@ -1,6 +1,6 @@
 ---
-title: Felsöka dedikerad SQL-pool
-description: Felsöka dedikerad SQL-pool i Azure Synapse Analytics.
+title: Felsöka dedikerad SQL-pool (tidigare SQL DW)
+description: Felsöka dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,34 +11,34 @@ ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: e9811710971b411aaaed64ec0072dcf7b6b116d3
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 6da80ec4c9c3c4e6c95eb1c9001596ffe3dd5711
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630064"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447846"
 ---
-# <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Felsöka Synapse SQL i Azure Synapse Analytics
+# <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Felsöka dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics
 
-Den här artikeln innehåller vanliga fel söknings problem i Synapse SQL.
+Den här artikeln innehåller vanliga fel söknings problem i dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics.
 
 ## <a name="connecting"></a>Ansluta
 
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Inloggningen misslyckades för användaren NT AUTHORITY\ANONYMOUS LOGON. (Microsoft SQL Server, fel: 18456) | Det här felet uppstår när en Azure AD-användare försöker ansluta till huvud databasen, men inte har en användare i Master.  Du kan åtgärda det här problemet genom att antingen ange den dedikerade SQL-pool som du vill ansluta till vid anslutningen eller lägga till användaren i huvud databasen.  Mer information finns i [säkerhets översikts](sql-data-warehouse-overview-manage-security.md) artikeln. |
-| Serverns huvudnamn MyUserName kan inte komma åt huvuddatabasen i den aktuella säkerhetskontexten. Det går inte att öppna användarens standarddatabas. Det gick inte att logga in. Inloggningen misslyckades för användaren MyUserName. (Microsoft SQL Server, fel: 916) | Det här felet uppstår när en Azure AD-användare försöker ansluta till huvud databasen, men inte har en användare i Master.  Du kan åtgärda det här problemet genom att antingen ange den dedikerade SQL-pool som du vill ansluta till vid anslutningen eller lägga till användaren i huvud databasen.  Mer information finns i [säkerhets översikts](sql-data-warehouse-overview-manage-security.md) artikeln. |
+| Inloggningen misslyckades för användaren NT AUTHORITY\ANONYMOUS LOGON. (Microsoft SQL Server, fel: 18456) | Det här felet uppstår när en Azure AD-användare försöker ansluta till huvud databasen, men inte har en användare i Master.  Du kan åtgärda det här problemet genom att antingen ange den dedikerade SQL-pool (tidigare SQL DW) som du vill ansluta till vid anslutningen eller lägga till användaren i huvud databasen.  Mer information finns i [säkerhets översikts](sql-data-warehouse-overview-manage-security.md) artikeln. |
+| Serverns huvudnamn MyUserName kan inte komma åt huvuddatabasen i den aktuella säkerhetskontexten. Det går inte att öppna användarens standarddatabas. Det gick inte att logga in. Inloggningen misslyckades för användaren MyUserName. (Microsoft SQL Server, fel: 916) | Det här felet uppstår när en Azure AD-användare försöker ansluta till huvud databasen, men inte har en användare i Master.  Du kan åtgärda det här problemet genom att antingen ange den dedikerade SQL-pool (tidigare SQL DW) som du vill ansluta till vid anslutningen eller lägga till användaren i huvud databasen.  Mer information finns i [säkerhets översikts](sql-data-warehouse-overview-manage-security.md) artikeln. |
 | CTAIP-fel                                                  | Det här felet kan inträffa när en inloggning har skapats på SQL Database huvud databasen, men inte i den aktuella SQL-databasen.  Om du stöter på det här felet kan du ta en titt på artikeln [säkerhets översikt](sql-data-warehouse-overview-manage-security.md) .  Den här artikeln beskriver hur du skapar en inloggning och användare i huvud databasen och hur du skapar en användare i en SQL-databas. |
-| Blockerad av brandvägg                                          | dedikerade SQL-pooler skyddas av brand väggar för att se till att endast kända IP-adresser har åtkomst till en databas. Brand väggarna är säkra som standard, vilket innebär att du måste uttryckligen aktivera och IP-adresser eller adress intervall innan du kan ansluta.  Konfigurera brand väggen för åtkomst genom att följa stegen i [Konfigurera serverns brand Väggs åtkomst för klientens IP-adress](create-data-warehouse-portal.md) i [etablerings anvisningarna](create-data-warehouse-portal.md). |
-| Det går inte att ansluta med verktyget eller driv rutinen                           | Dedikerad SQL-pool rekommenderar att du använder [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [SSDT för Visual Studio](sql-data-warehouse-install-visual-studio.md)eller [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md) för att fråga dina data. Mer information om driv rutiner och hur du ansluter till Azure Synapse finns i [driv rutiner för Azure Synapse](sql-data-warehouse-connection-strings.md) och [ansluta till Azure Synapse](sql-data-warehouse-connect-overview.md) -artiklar. |
+| Blockerad av brandvägg                                          | Dedikerad SQL-pool (tidigare SQL DW) skyddas av brand väggar så att endast kända IP-adresser har åtkomst till en databas. Brand väggarna är säkra som standard, vilket innebär att du måste uttryckligen aktivera och IP-adresser eller adress intervall innan du kan ansluta.  Konfigurera brand väggen för åtkomst genom att följa stegen i [Konfigurera serverns brand Väggs åtkomst för klientens IP-adress](create-data-warehouse-portal.md) i [etablerings anvisningarna](create-data-warehouse-portal.md). |
+| Det går inte att ansluta med verktyget eller driv rutinen                           | Dedikerad SQL-pool (tidigare SQL DW) rekommenderar att du använder [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [SSDT för Visual Studio](sql-data-warehouse-install-visual-studio.md)eller [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md) för att fråga dina data. Mer information om driv rutiner och hur du ansluter till Azure Synapse finns i [driv rutiner för Azure Synapse](sql-data-warehouse-connection-strings.md) och [ansluta till Azure Synapse](sql-data-warehouse-connect-overview.md) -artiklar. |
 
 ## <a name="tools"></a>Verktyg
 
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Azure AD-användare saknas i Visual Studio Object Explorer           | Detta är ett känt problem.  Som en lösning kan du Visa användare i [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Se [autentisering till Azure Synapse](sql-data-warehouse-authentication.md) för att lära dig mer om hur du använder Azure Active Directory med dedikerad SQL-pool. |
+| Azure AD-användare saknas i Visual Studio Object Explorer           | Detta är ett känt problem.  Som en lösning kan du Visa användare i [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Se [autentisering till Azure Synapse](sql-data-warehouse-authentication.md) för att lära dig mer om hur du använder Azure Active Directory med dedikerad SQL-pool (tidigare SQL DW). |
 | Manuell skript användning med skript guiden eller anslutning via SSMS är långsam, svarar inte eller skapar fel | Se till att användarna har skapats i huvud databasen. I skript alternativ ser du också till att motor versionen är inställd på "Microsoft Azure Synapse Analytics Edition" och att motor typen är "Microsoft Azure SQL Database". |
-| Generera skript Miss lyckas i SSMS                               | Det går inte att skapa ett skript för dedikerad SQL-pool om alternativet "skapa skript för beroende objekt" är inställt på "true". Som en lösning måste användarna manuellt gå till **verktyg-> alternativ->SQL Server Object Explorer-> skapa skript för beroende alternativ och ange värdet FALSKT** |
+| Generera skript Miss lyckas i SSMS                               | Det går inte att skapa ett skript för dedikerad SQL-pool (tidigare SQL DW) om alternativet "skapa skript för beroende objekt" är inställt på "true". Som en lösning måste användarna manuellt gå till **verktyg-> alternativ->SQL Server Object Explorer-> skapa skript för beroende alternativ och ange värdet FALSKT** |
 
 ## <a name="data-ingestion-and-preparation"></a>Förberedelse och inhämtning av data
 
@@ -51,11 +51,11 @@ Den här artikeln innehåller vanliga fel söknings problem i Synapse SQL.
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Felsöka prestanda fel sökning                            | Om du försöker Felsöka en viss fråga börjar du med [att lära dig hur du övervakar dina frågor](sql-data-warehouse-manage-monitor.md#monitor-query-execution). |
-| Problem med TempDB-utrymme | [Övervaka](sql-data-warehouse-manage-monitor.md#monitor-tempdb) användning av tempdb-utrymme.  Vanliga orsaker till att slut på TempDB-utrymme körs är:<br>-Inte tillräckligt med resurser allokeras till den fråga som orsakar att data spiller till TempDB.  Se [hantering av arbets belastning](resource-classes-for-workload-management.md) <br>– Statistik saknas eller är inaktuell och orsakar onödig data förflyttning.  Se [underhålla tabell statistik](sql-data-warehouse-tables-statistics.md) för information om hur du skapar statistik<br>– TempDB-utrymme tilldelas per service nivå.  [Skalning av den dedikerade SQL-poolen](sql-data-warehouse-manage-compute-overview.md#scaling-compute) till en högre DWU-inställning allokerar mer tempdb-utrymme.|
+| Problem med TempDB-utrymme | [Övervaka](sql-data-warehouse-manage-monitor.md#monitor-tempdb) användning av tempdb-utrymme.  Vanliga orsaker till att slut på TempDB-utrymme körs är:<br>-Inte tillräckligt med resurser allokeras till den fråga som orsakar att data spiller till TempDB.  Se [hantering av arbets belastning](resource-classes-for-workload-management.md) <br>– Statistik saknas eller är inaktuell och orsakar onödig data förflyttning.  Se [underhålla tabell statistik](sql-data-warehouse-tables-statistics.md) för information om hur du skapar statistik<br>– TempDB-utrymme tilldelas per service nivå.  [Skalning av din dedikerade SQL-pool (tidigare SQL DW)](sql-data-warehouse-manage-compute-overview.md#scaling-compute) till en högre DWU-inställning allokerar mer tempdb-utrymme.|
 | Dåliga frågor och prestanda är ofta en följd av statistik som saknas | Den vanligaste orsaken till dåliga prestanda är brist på statistik för dina tabeller.  Mer information om hur du skapar statistik och varför de är viktiga för dina prestanda finns i [underhålla tabell statistik](sql-data-warehouse-tables-statistics.md) . |
 | Låg concurrency/frågor i kö                             | Det är viktigt att förstå [arbets belastnings hanteringen](resource-classes-for-workload-management.md) för att förstå hur du balanserar minnesallokering med samtidighet. |
-| Så här implementerar du bästa metoder                              | Den bästa platsen för att lära dig hur du kan förbättra prestandan för frågor i [SQL-pool är dedikerad metod tips för SQL-pool](sql-data-warehouse-best-practices.md) . |
-| Förbättra prestanda med skalning                      | Lösningen för att förbättra prestanda är ibland att helt enkelt lägga till mer beräknings kraft för dina frågor genom [att skala din dedikerade SQL-pool](sql-data-warehouse-manage-compute-overview.md). |
+| Så här implementerar du bästa metoder                              | Den bästa platsen för att lära sig hur du kan förbättra frågornas prestanda är [dedikerad SQL-pool (tidigare SQL DW) metod tips](sql-data-warehouse-best-practices.md) . |
+| Förbättra prestanda med skalning                      | Ibland är lösningen att förbättra prestandan att helt enkelt lägga till mer beräknings kraft för dina frågor genom [att skala din dedikerade SQL-pool (tidigare SQL DW)](sql-data-warehouse-manage-compute-overview.md). |
 | Dåliga frågeresultat på grund av dålig index kvalitet     | Vissa gånger kan frågor sakta ned på grund av [dålig kolumn kvalitet i columnstore-index](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality).  Se den här artikeln för mer information och hur du [bygger om index för att förbättra segment kvaliteten](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality). |
 
 ## <a name="system-management"></a>System hantering

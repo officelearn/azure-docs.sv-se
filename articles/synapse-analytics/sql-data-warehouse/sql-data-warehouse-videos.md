@@ -11,16 +11,16 @@ ms.date: 02/15/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b0b3a924008d4180c045455aecda8ec109845939
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: eaf41e903f1a55dd85c6b6282617564a32087707
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321005"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447815"
 ---
-# <a name="azure-synapse-analytics---dedicated-sql-pool-videos"></a>Azure Synapse Analytics-dedikerade SQL pool-videor
+# <a name="azure-synapse-analytics---dedicated-sql-pool--formerly-sql-dw-videos"></a>Azure Synapse Analytics-dedikerad SQL-pool (tidigare SQL DW-videor)
 
-Se de senaste dedikerade SQL-Poolernas videor och lär dig mer om nya funktioner och förbättringar av prestanda. 
+Titta på den senaste dedikerade SQL-poolen (tidigare SQL DW)-videor för att lära dig mer om nya funktioner och prestanda förbättringar. 
 
 Kom igång genom att välja översikts videon nedan om du vill veta mer om de nya uppdateringarna av en dedikerad SQL-pool. Lär dig också hur moderna informations lager mönster kan användas för att ta itu med verkliga världs scenarier som cyberbrott.
 </br>

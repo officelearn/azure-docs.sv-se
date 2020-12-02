@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: aa85822b433e2d8128df9ae3664411ea3fcddec4
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 66a9c9d605911a9d3b30a55d47e16026e26e502a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012933"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447260"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Skapa en arbets yta för Azure Machine Learning med Azure CLI
 
@@ -32,7 +32,7 @@ I den här artikeln får du lära dig hur du skapar en Azure Machine Learning-ar
 
 ## <a name="limitations"></a>Begränsningar
 
-* När du skapar en ny arbets yta kan du antingen låta arbets ytan skapa de Azure-tjänster som krävs automatiskt eller tillhandahålla befintliga tjänster. När du tillhandahåller befintliga tjänster måste dessa tjänster alla finnas i samma Azure-prenumeration som arbets ytan.
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Ansluta CLI till din Azure-prenumeration
 

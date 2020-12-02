@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27a65d8a499f6eba130dc9537de3cb2b3dc3abe8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61447186"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446772"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Arkitekturval för fjärrövervakning
 
@@ -23,7 +23,7 @@ Azure IoT Remote Monitoring Solution Accelerator är en lösning med öppen käl
 - Enhetshantering
 - Strömbearbetning
 
-Lösningen för fjärrövervakning följer den rekommenderade [Azure IoT-referens arkitekturen](https://aka.ms/iotrefarchitecture).
+Lösningen för fjärrövervakning följer den rekommenderade [Azure IoT-referens arkitekturen](/azure/architecture/reference-architectures/iot).
 
 Den här artikeln beskriver nyckel arkitektur och tekniska val som görs i varje under system för fjärrövervakning. De tekniska alternativen som Microsoft har gjort i fjärr styrnings lösningen är dock inte det enda sättet att implementera en IoT-lösning för fjärrövervakning. Du bör beakta den tekniska implementeringen som en bas linje för att skapa ett lyckat program och du bör ändra den till:
 
@@ -86,4 +86,4 @@ Alternativ till Docker är värd för mikrotjänster i PaaS-tjänster som Azure 
 
 * Distribuera din lösning för fjärr övervakning [här](https://www.azureiotsolutions.com/).
 * Utforska GitHub-kod i [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) och [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/).  
-* Lär dig mer om IoT Reference Architecture [här](https://aka.ms/iotrefarchitecture).
+* Lär dig mer om IoT Reference Architecture [här](/azure/architecture/reference-architectures/iot).

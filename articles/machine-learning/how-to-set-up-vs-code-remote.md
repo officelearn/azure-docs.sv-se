@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 11/16/2020
-ms.openlocfilehash: 2abad31173992a891e908bdbb61c37e905907d69
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 0afbf32f80a3d19f6db457f398a213a634cfa3d4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697586"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447060"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Ansluta till en Azure Machine Learning beräknings instans i Visual Studio Code (för hands version)
 
@@ -41,7 +41,7 @@ Så här ansluter du till en beräknings instans:
 1. När den integrerade Notebook-upplevelsen läses in väljer du **Jupyter-Server**.
 
     > [!div class="mx-imgBorder"]
-    > ![Starta Azure Machine Learning List rutan för Jupyter Notebook Server](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
+    > ![Starta Azure Machine Learning listruta för Jupyter Notebook Server](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
 
     Du kan också använda kommando-paletten:
 
@@ -58,7 +58,7 @@ Så här ansluter du till en beräknings instans:
 > [!IMPORTANT]
 > Du **måste** köra en cell för att kunna upprätta anslutningen.
 
-Nu kan du fortsätta att köra celler i din Jupyter-anteckningsbok.
+Nu kan du fortsätta att köra celler i Jupyter Notebook.
 
 > [!TIP]
 > Du kan också arbeta med python-skriptfiler (. py) som innehåller Jupyter-liknande kod celler. Mer information finns i den [interaktiva dokumentationen för Visual Studio Code python](https://code.visualstudio.com/docs/python/jupyter-support-py).

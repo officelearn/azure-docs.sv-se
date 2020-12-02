@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 5e2bdec8b3c628f1d470acb3e27bb18eabbc71ac
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 563ccdb0633f94acccf3ade9faf1c40c28f108ac
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565546"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462928"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Instrumentpanelen för användning i Commersial Marketplace-analys
 
@@ -21,7 +21,7 @@ Den här artikeln innehåller information om användnings instrument panelen i P
 För att få åtkomst till instrument panelen för användning i Partner Center väljer du **[analysera](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** användning under **kommersiell marknads** plats  >  **Usage**.
 
 >[!NOTE]
-> Detaljerade definitioner av analys terminologi finns i terminologi för [kommersiella Marketplace-analyser och vanliga frågor](./partner-center-portal/faq-terminology.md).
+> Detaljerade definitioner av analys terminologi finns i terminologi för [kommersiella Marketplace-analyser och vanliga frågor](./analytics-faq.md).
 
 ## <a name="usage-dashboard"></a>Instrumentpanelen Användning
 
@@ -171,13 +171,13 @@ Widgeten och export rapporten för VM RAW-användning liknar den normaliserade v
 
 På fliken **avgiftsbelagd användning** visas användnings information för de erbjudande typer där användningen mäts av dimensionen per mätning. Skriv överanvändning av SaaS visas för närvarande. På fliken visas grafiska representationer av överförbruknings trender för SaaS-avläsning av fakturerings användning:
 
-- **Överförbruknings trend per mätnings dimension** : visar den månatliga överförbruknings trenden för den valda mätar dimensionen för ett erbjudande. X-axeln representerar månaden och Y-axeln representerar överförbruknings antalet. Mått enheten för den anpassade mätaren visas också på Y-axeln.
+- **Överförbruknings trend per mätnings dimension**: visar den månatliga överförbruknings trenden för den valda mätar dimensionen för ett erbjudande. X-axeln representerar månaden och Y-axeln representerar överförbruknings antalet. Mått enheten för den anpassade mätaren visas också på Y-axeln.
 
     :::image type="content" source="./media/usage-dashboard/metered-usage.png" alt-text="Visar det normaliserade användnings diagrammet för virtuell dator på instrument panelen för användning.":::
 
-- Överförbruknings **trend per SKU** : representerar trenden för användnings antalet för den valda mätnings dimensionen enligt SKU/abonnemang. De fem främsta planerna med den högsta mängden användning för det valda erbjudandet visas.
+- Överförbruknings **trend per SKU**: representerar trenden för användnings antalet för den valda mätnings dimensionen enligt SKU/abonnemang. De fem främsta planerna med den högsta mängden användning för det valda erbjudandet visas.
 
-- Överförbruknings **trend av kunder** : kund ledaren representerar en staplad lista över kunder med högst användnings timmar och visas på en _ledare_ som rangordnas efter den högsta användningen av den anpassade mätaren. Välj en kund på affärsplanen för att Visa överförbruknings trend för en vald mätnings dimension.
+- Överförbruknings **trend av kunder**: kund ledaren representerar en staplad lista över kunder med högst användnings timmar och visas på en _ledare_ som rangordnas efter den högsta användningen av den anpassade mätaren. Välj en kund på affärsplanen för att Visa överförbruknings trend för en vald mätnings dimension.
 
     :::image type="content" source="./media/usage-dashboard/metered-usage-by-customers.png" alt-text="Visar diagram över mätning av användning per kund på instrument panelen för användning.":::
 
@@ -194,4 +194,4 @@ Om du har flera erbjudanden som använder anpassade mätare, visar rapporten fö
 - För virtuell dator (VM) erbjuder vi användnings-och mätnings mått i [användnings instrument panelen i den kommersiella Marketplace-analysen](usage-dashboard.md).
 - En lista över dina nedladdnings begär Anden under de senaste 30 dagarna finns i [Hämta instrument panel i kommersiell Marketplace-analys](./partner-center-portal/downloads-dashboard.md).
 - Om du vill se en sammanställd vy över kundfeedback för erbjudanden på Azure Marketplace och Microsoft AppSource kan du läsa mer i [klassificering & recensioner Analytics-instrumentpanelen i Partner Center](./partner-center-portal/ratings-reviews.md).
-- Vanliga frågor och svar om affärs platser för marknads platser och en omfattande ord lista med data termer finns i [terminologi för kommersiella Marketplace-analyser och vanliga frågor](./partner-center-portal/faq-terminology.md).
+- Vanliga frågor och svar om affärs platser för marknads platser och en omfattande ord lista med data termer finns i [terminologi för kommersiella Marketplace-analyser och vanliga frågor](./analytics-faq.md).

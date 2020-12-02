@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 7621a19b510d302454465f9fcbacec27a14dddf9
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9855a53ebdf7501907b3e1e63d59823d3a0b0209
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340183"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463122"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link för Azure Cosmos DB: Användningsfall för nära realtidsanalys
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -53,9 +53,9 @@ Baserat på tidigare arkitektur kan du uppnå följande användnings fall med Sy
 
   Synapse-länk för Azure Cosmos DB möjliggör omfattande Business Intelligence (BI)/Reporting-scenarier:
 
-  * Fråga om operativa data från Azure Cosmos DB analys lager med hjälp av inbyggd integrering med Synapse SQL Server-lös och fullständig Expressiveness för T-SQL-språk.
+  * Fråga om operativa data från Azure Cosmos DB analys lager med hjälp av inbyggd integrering med Server lös SQL-pool och fullständig Expressiveness av T-SQL-språk.
 
-  * Modellera och publicera automatiska uppdateringar av BI-instrumentpaneler över Azure Cosmos DB via stöd för SQL Server-Synapse för välkända BI-verktyg. Till exempel Azure Analysis Services, Power BI Premium osv.
+  * Modeller och publicera automatiska uppdateringar av BI-instrumentpaneler över Azure Cosmos DB via stöd för server utan SQL-pool för välkända BI-verktyg. Till exempel Azure Analysis Services, Power BI Premium osv.
 
 Nedan följer några rikt linjer för data integrering för batch & strömma data till Azure Cosmos DB:
 
@@ -143,4 +143,4 @@ Mer information finns i följande dokument:
 
 * [Apache Spark i Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 
-* [Stöd för SQL Server utan körning i Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)
+* [Stöd för SQL-adresspool utan server i Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)

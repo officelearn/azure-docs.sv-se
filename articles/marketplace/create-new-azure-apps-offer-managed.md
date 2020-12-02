@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 85f5beb6188b1f6987934f1c39c579d5a3028a5e
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 61ee0b769664d1f574177e27b5b1fb10e9845035
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579495"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463108"
 ---
 # <a name="configure-a-managed-application-plan"></a>Konfigurera en hanterad program plan
 
@@ -80,7 +80,7 @@ Du kan konfigurera varje plan så att den blir synlig för alla eller bara för 
 
 Under **plan synlighet** gör du något av följande:
 
-- Om du vill göra planen offentlig väljer du knappen **offentlig** alternativ (kallas även för en _alternativ knapp_ ).
+- Om du vill göra planen offentlig väljer du knappen **offentlig** alternativ (kallas även för en _alternativ knapp_).
 - Om du vill göra planen privat väljer du alternativet **privat** alternativ och lägger sedan till Azure-prenumerations-ID: n manuellt eller med en CSV-fil.
 
 > [!NOTE]
@@ -114,7 +114,7 @@ På fliken **teknisk konfiguration** laddar du upp distributions paketet som lå
 
 ### <a name="assign-a-version-number-for-the-package"></a>Tilldela ett versions nummer för paketet
 
-I rutan **version** anger du den aktuella versionen av den tekniska konfigurationen. Öka den här versionen varje gången du publicerar en ändring på den här sidan. Versions numret måste vara i formatet: Integer. Integer. Integer. Ett exempel är `1.0.2`.
+I rutan **version** anger du den aktuella versionen av den tekniska konfigurationen. Öka den här versionen varje gången du publicerar en ändring på den här sidan. Versions numret måste vara i formatet: Integer. Integer. Integer. Exempelvis `1.0.2`.
 
 ### <a name="upload-a-package-file"></a>Ladda upp en paketfil
 
@@ -135,10 +135,10 @@ Markera kryss rutan **Aktivera JIT-åtkomst (aktivera just-in-Time)** om du vill
 
 Välj antingen det **fullständiga** eller **stegvisa** distributions läget.
 
-- I **komplett** läge leder en omdistribution av programmet av kunden till att resurser i den hanterade resurs gruppen tas bort om resurserna inte har definierats i [mainTemplate.jspå](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md).
+- I **komplett** läge leder en omdistribution av programmet av kunden till att resurser i den hanterade resurs gruppen tas bort om resurserna inte har definierats i [mainTemplate.jspå](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template).
 - I **stegvist** läge lämnar en omdistribution av programmet befintliga resurser oförändrade.
 
-Läs mer om distributions lägen i [Azure Resource Manager distributions lägen](/azure/azure-resource-manager/deployment-modes).
+Läs mer om distributions lägen i [Azure Resource Manager distributions lägen](../azure-resource-manager/templates/deployment-modes.md).
 
 ### <a name="provide-a-notification-endpoint-url"></a>Ange en URL för meddelande slut punkten
 
@@ -181,7 +181,7 @@ När du har skapat ett eller flera planer ser du ditt plan namn, plan-ID, plan t
 
 De åtgärder som är tillgängliga i kolumnen **åtgärd** på fliken **plan översikt** varierar beroende på status för din plan och kan innehålla följande:
 
-- Om plan status är **utkast** , kommer länken i kolumnen **åtgärd** att säga **ta bort utkast**.
+- Om plan status är **utkast**, kommer länken i kolumnen **åtgärd** att säga **ta bort utkast**.
 - Om plan status är **Live** kommer länken i kolumnen **åtgärd** att antingen **sluta säljas planen** eller **synkronisera den privata mål gruppen**. Länken **Synkronisera privat publik** kommer bara att publicera ändringar i dina privata mål grupper utan att publicera några andra uppdateringar som du har gjort i erbjudandet.
 - Om du vill skapa ett annat schema för det här erbjudandet väljer du **+ Skapa ny plan** längst upp på fliken **plan översikt** . Upprepa sedan stegen i [så här skapar du planer för ditt erbjudande för Azure-program](create-new-azure-apps-offer-plans.md). Annars, om du är klar med att skapa planer, går du till nästa avsnitt: nästa steg.
 

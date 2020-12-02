@@ -1,6 +1,6 @@
 ---
-title: Metod tips för Synapse SQL-pool i Azure Synapse Analytics (tidigare SQL DW)
-description: Rekommendationer och metod tips för att utveckla lösningar för SQL-pool i Azure Synapse Analytics (tidigare SQL DW).
+title: Metod tips för dedikerad SQL-pool (tidigare SQL DW)
+description: Rekommendationer och metod tips för att utveckla lösningar för dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cf841da85dc929366991d6aed8f3d400ab3b31cc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9802e6553d553aae4f13194dc9951d1a17af6f66
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489650"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462888"
 ---
-# <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Metod tips för Synapse SQL-pool i Azure Synapse Analytics (tidigare SQL DW)
+# <a name="best-practices-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Metod tips för dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics
 
-Den här artikeln är en samling av metod tips som hjälper dig att uppnå optimala prestanda från distributionen av [SQL-poolen](sql-data-warehouse-overview-what-is.md) .  Syftet med den här artikeln är att ge dig grundläggande vägledning och fokusera på viktiga områden i fokus.  
+Den här artikeln är en samling av bästa metoder som hjälper dig att uppnå optimala prestanda från din [dedikerade SQL-pool (tidigare SQL DW)](sql-data-warehouse-overview-what-is.md) -distribution.  Syftet med den här artikeln är att ge dig grundläggande vägledning och fokusera på viktiga områden i fokus.  
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Minska kostnaderna genom att pausa och skala
 
@@ -27,7 +27,7 @@ Läs mer om att minska kostnaderna genom att pausa och skala i [Hantera beräkni
 
 ## <a name="maintain-statistics"></a>Underhålla statistik
 
-SQL-poolen kan konfigureras för att automatiskt identifiera och skapa statistik för kolumner.  De fråge planer som skapats av optimeringen är bara lika lämpliga som tillgängliga statistik.  
+Dedikerad SQL-pool (tidigare SQL DW) kan konfigureras för att automatiskt identifiera och skapa statistik för kolumner.  De fråge planer som skapats av optimeringen är bara lika lämpliga som tillgängliga statistik.  
 
 Vi rekommenderar att du aktiverar AUTO_CREATE_STATISTICS för dina databaser och håller statistiken uppdaterad dagligen eller efter varje belastning för att säkerställa att statistik för kolumner som används i dina frågor alltid är uppdaterade.
 
@@ -40,7 +40,7 @@ Se även [Hantera tabell statistik](sql-data-warehouse-tables-statistics.md), [s
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>Använda DMV:er för att övervaka och optimera frågor
 
-SQL-poolen har flera DMV: er som du kan använda för att övervaka frågekörningen.  Den övervaka din arbets belastning med hjälp av DMV: er-artikel information steg-för-steg-instruktioner om hur du granskar information om en körnings fråga.  
+Dedikerad SQL-pool (tidigare SQL DW) har flera DMV: er som kan användas för att övervaka frågekörningen.  Den [övervaka din arbets belastning med hjälp av DMV: er](sql-data-warehouse-manage-monitor.md) -artikel information steg-för-steg-instruktioner om hur du granskar information om en körnings fråga.  
 
 För att snabbt hitta frågor i dessa DMV:er kan det vara bra att använda alternativet LABEL med dina frågor.
 
@@ -62,7 +62,7 @@ Se även [Infoga](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-a
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>Använda PolyBase för att snabbt läsa in och exportera data
 
-SQL-poolen stöder inläsning och export av data via flera verktyg, inklusive Azure Data Factory, PolyBase och BCP.  För små datamängder där prestanda inte är viktigt räcker alla verktygen för dina behov.  Om du däremot läser in eller exporterar stora mängder data eller om snabba prestanda krävs är PolyBase det bästa valet.  
+Dedikerad SQL-pool (tidigare SQL DW) stöder inläsning och export av data via flera verktyg, inklusive Azure Data Factory, PolyBase och BCP.  För små datamängder där prestanda inte är viktigt räcker alla verktygen för dina behov.  Om du däremot läser in eller exporterar stora mängder data eller om snabba prestanda krävs är PolyBase det bästa valet.  
 
 PolyBase är utformat för att utnyttja systemets distribuerade natur och kommer att läsa in och exportera data storlekarna snabbare än andra verktyg.  PolyBase-inläsningar kan utföras med hjälp av CTAS eller INSERT INTO.   
 
@@ -74,13 +74,13 @@ Azure Data Factory stöder även PolyBase-belastningar och kan uppnå liknande p
 > [!NOTE]
 > För att maximera data flödet när du använder gzip-textfiler kan du dela upp filer i 60 eller fler filer för att maximera din belastnings parallellt.  För snabbare totalt genomflöde bör du överväga att använda samtidig inläsning av data.
 
-Se även [läsa in data](design-elt-data-loading.md), [Guide för att använda PolyBase](guidance-for-loading-data.md), [inläsning av mönster och strategier i SQL-pool](https://blogs.msdn.microsoft.com/sqlcat/20../../), [läsa in data med Azure Data Factory]( ../../data-factory/load-azure-sql-data-warehouse.md), [Flytta data med Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md), [Skapa externt fil format](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)och [Skapa tabell som Select (CTAS)](sql-data-warehouse-develop-ctas.md).
+Se även [läsa in data](design-elt-data-loading.md), [Guide för att använda PolyBase](guidance-for-loading-data.md), [dedikerad SQL-pool, läsa in mönster och strategier](https://blogs.msdn.microsoft.com/sqlcat/20../../), [läsa in data med Azure Data Factory]( ../../data-factory/load-azure-sql-data-warehouse.md), [Flytta data med Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md), [Skapa externt fil format](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)och [Skapa tabell som Select (CTAS)](sql-data-warehouse-develop-ctas.md).
 
 ## <a name="load-then-query-external-tables"></a>Läsa in och sedan fråga externa tabeller
 
 Även om Polybase, även kallat externa tabeller, kan vara det snabbaste sättet att läsa in data, är det inte optimalt för frågor. PolyBase-tabeller stöder för närvarande endast Azure Blob-filer och Azure Data Lake lagring. Dessa filer har inte några beräkningsresurser som backar upp dem.  
 
-Därför kan SQL-poolen inte avlasta detta arbete och måste därför läsa hela filen genom att läsa in den i tempdb för att kunna läsa data.  Om du har flera frågor som ska köras mot dessa data är det därför bättre att läsa in dem en gång och låta frågorna använda den lokala tabellen.
+Därför kan dedikerad SQL-pool inte avlasta detta arbete och måste därför läsa hela filen genom att läsa in den på tempdb för att kunna läsa data.  Om du har flera frågor som ska köras mot dessa data är det därför bättre att läsa in dem en gång och låta frågorna använda den lokala tabellen.
 
 Se även [Guide för att använda PolyBase](guidance-for-loading-data.md).
 
@@ -101,9 +101,9 @@ Se även [tabell översikt](sql-data-warehouse-tables-overview.md), [tabell dist
 
 ## <a name="do-not-over-partition"></a>Överpartitionera inte
 
-När du partitionerar data kan det vara effektivt att underhålla dina data genom att byta partitionering eller optimera genomsökningar med hjälp av partition Eli minering, så att för många partitioner kan sakta ned dina frågor.  Ofta är en partitionerings strategi för hög granularitet som kan fungera bra på SQL Server kanske inte fungerar bra i SQL-poolen.  
+När du partitionerar data kan det vara effektivt att underhålla dina data genom att byta partitionering eller optimera genomsökningar med hjälp av partition Eli minering, så att för många partitioner kan sakta ned dina frågor.  Ofta är en partitionerings strategi för hög granularitet som fungerar bra på SQL Server kanske inte fungerar bra i dedikerad SQL-pool (tidigare SQL DW).  
 
-För många partitioner kan också minska effektiviteten i grupperade columnstore-index om varje partition har färre än 1 miljoner rader.  Tänk på att när du skapar en tabell med 100 partitioner i 60 bakgrunden, så resulterar det i att du skapar en tabell med partitioner. Detta leder faktiskt till 6000-partitioner.  
+För många partitioner kan också minska effektiviteten i grupperade columnstore-index om varje partition har färre än 1 miljoner rader.  Tänk på att när du skapar en tabell med 100 partitioner i bakgrunden, är dedikerad SQL-pool partitioner dina data till 60 databaser, så om du skapar en tabell med partitioner, resulterar detta faktiskt i 6000-partitioner.  
 
 Alla arbetsbelastningar är olika så det bästa rådet är att experimentera med partitioneringen för att se vad som fungerar bäst med din arbetsbelastning.  Överväg att använda lägre granularitet än vad som har fungerat i SQL Server.  Överväg exempelvis att använda veckovisa eller månadsvisa partitioneringar i stället för dagliga.
 
@@ -145,13 +145,13 @@ Se även [temporära tabeller](sql-data-warehouse-tables-temporary.md), [CREATE 
 
 ## <a name="optimize-clustered-columnstore-tables"></a>Optimera grupperade columnstore-tabeller
 
-Grupperade columnstore-index är ett av de mest effektiva sätten att lagra data i SQL-poolen.  Som standard skapas tabeller i SQL-poolen som grupperade ColumnStore-tabeller.  Det är viktigt att segmentkvaliteten är bra för att uppnå bästa prestanda med frågor mot columnstore-tabeller.  
+Grupperade columnstore-index är ett av de mest effektiva sätten att lagra data i en dedikerad SQL-pool.  Som standard skapas tabeller i dedikerad SQL-pool som grupperade ColumnStore-objekt.  Det är viktigt att segmentkvaliteten är bra för att uppnå bästa prestanda med frågor mot columnstore-tabeller.  
 
 När rader skrivs till columnstore-tabeller när minnet är hårt belastat, kan columnstore-segmentens kvalitet påverkas.  Segmentkvaliteten kan mätas utifrån antalet rader i en komprimerad radgrupp.  Se [orsaker till dålig kolumn kvalitet för columnstore](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality) i [tabellen tabell index](sql-data-warehouse-tables-index.md) för stegvisa instruktioner för att identifiera och förbättra segment kvaliteten för grupperade columnstore-tabeller.  
 
 Eftersom ett columnstore-segment av hög kvalitet är viktigt är det en bra idé att använda användar-ID: n som finns i resurs klassen medel eller stor för att läsa in data. Genom att använda lägre [data lager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) kan du tilldela en större resurs klass till din inläsnings användare.
 
-Eftersom columnstore-tabeller vanligt vis inte skickar data till ett komprimerat columnstore-segment förrän det finns fler än 1 000 000 rader per tabell och varje SQL-adresspool är partitionerad i 60-tabeller, som en tumregel, kommer columnstore-tabeller inte att dra nytta av en fråga om tabellen har fler än 60 000 000 rader.  För tabeller med färre än 60 miljoner rader kanske det inte tjänar något till att ha ett columnstore-index.  Men det skadar inte heller.  
+Eftersom det vanligt vis inte går att skicka data till ett komprimerat columnstore-segment i columnstore-tabeller förrän det finns fler än 1 000 000 rader per tabell och varje dedikerad SQL-adresspool partitioneras till 60-tabeller, som en tumregel, kommer columnstore-tabeller inte att dra nytta av en fråga om tabellen har fler än 60 000 000 rader.  För tabeller med färre än 60 miljoner rader kanske det inte tjänar något till att ha ett columnstore-index.  Men det skadar inte heller.  
 
 Om du partitionerar data bör du dessutom tänka på att varje partition måste innehålla 1 miljon rader för att kunna dra nytta av ett grupperat columnstore-index.  Om en tabell har 100 partitioner måste den ha minst 6 000 000 000 rader för att kunna dra nytta av ett lager för grupperade kolumner (60-distributioner *100 partitioner* 1 000 000 rader).  
 
@@ -164,7 +164,7 @@ Se även [Table indexes](sql-data-warehouse-tables-index.md) (Tabellindex), [Col
 
 ## <a name="use-larger-resource-class-to-improve-query-performance"></a>Använda en större resursklass för att förbättra frågeprestanda
 
-SQL-poolen använder resurs grupper som ett sätt att allokera minne till frågor.  Från rutan är alla användare tilldelade till den lilla resurs klassen, vilket ger 100 MB minne per distribution.  Eftersom det alltid är 60 distributioner och varje distribution tilldelas minst 100 MB, är den totala minnesallokeringen i systemet 6 000 MB, eller strax under 6 GB.  
+Dedikerad SQL-pool använder resurs grupper som ett sätt att allokera minne till frågor.  Från rutan är alla användare tilldelade till den lilla resurs klassen, vilket ger 100 MB minne per distribution.  Eftersom det alltid är 60 distributioner och varje distribution tilldelas minst 100 MB, är den totala minnesallokeringen i systemet 6 000 MB, eller strax under 6 GB.  
 
 Vissa frågor, t.ex. stora kopplingar eller inläsningar till grupperade columnstore-tabeller, kan dra nytta av större minnesallokeringar.  Vissa frågor, som rena genomsökningar, ger ingen förmån.  Att använda större resurs klasser minskar dock samtidighet, så du bör ta hänsyn till den här effekten innan du flyttar alla dina användare till en stor resurs klass.
 

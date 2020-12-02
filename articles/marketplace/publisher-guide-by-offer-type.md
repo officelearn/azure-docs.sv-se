@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 10/06/2020
-ms.openlocfilehash: 897f16d84a3e1cf0ca747e90ce621a35ff326b2a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 2191a4df5b319ec16a4a6116aa99cfac50c87d9b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488986"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462915"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Publiceringsguide efter erbjudandetyp
 
@@ -33,7 +33,7 @@ I följande tabell visas de kommersiella Marketplace-erbjudande typerna i Partne
 | [**Azure Application**](plan-azure-application-offer.md) | Det finns två typer av Azure-programplaner: _lösnings mal len_ och _hanterade program_. Båda plan typerna stöder automatisering av distribution och konfiguration av en lösning utöver en enskild virtuell dator (VM). Du kan automatisera processen med att tillhandahålla flera resurser, inklusive virtuella datorer, nätverk och lagrings resurser för att tillhandahålla komplexa lösningar, till exempel IaaS-lösningar. Båda typerna av abonnemang kan använda många olika typer av Azure-resurser, inklusive men inte begränsat till virtuella datorer.<ul><li>**Lösnings mal len** planer är ett av de största sätten att publicera en lösning på den kommersiella marknads platsen. Lösningar för lösnings mal len är inte i ett särskilt lägen i den kommersiella marknads platsen, men de kan användas för att distribuera betalda VM-erbjudanden som debiteras via den kommersiella marknads platsen. Använd lösnings mal len plan typ när kunden ska hantera lösningen och transaktionerna debiteras genom en annan plan.</li><br><li>Med **hanterade program** planer kan du enkelt skapa och leverera fullständigt hanterade, färdiga program för dina kunder. De har samma funktioner som lösnings mal len planer, med några viktiga skillnader:</li><ul><li> Resurserna distribueras till en resurs grupp och hanteras av appens utgivare. Resursgruppen finns i kundens prenumeration, men en identitet i utgivarens klient har åtkomst till resursgruppen.</li><li>Som utgivare kan du ange kostnaden för kontinuerlig support för lösningen och transaktioner som stöds via den kommersiella Marketplace.</li></ul>Använd den hanterade program Plans typen när du eller din kund kräver att lösningen hanteras av en partner eller att du distribuerar en prenumerations-baserad lösning.</ul> |
 | [**Azure-behållare**](marketplace-containers.md) | Använd typen av Azure Container-erbjudande när din lösning är en Docker-behållar avbildning som tillhandahålls som en Kubernetes-baserad Azure Container Service. |
 | [**Virtuell Azure-dator**](marketplace-virtual-machines.md) | Använd den virtuella datorns erbjudande typ när du distribuerar en virtuell installation till prenumerationen som är kopplad till din kund. |
-| [**Konsult tjänst**](consulting-services.md) | Konsult tjänster hjälper till att ansluta kunder till tjänster som stöder och utökar användningen av Azure, Dynamics 365 eller Power Suite-tjänster.|
+| [**Konsult tjänst**](./plan-consulting-service-offer.md) | Konsult tjänster hjälper till att ansluta kunder till tjänster som stöder och utökar användningen av Azure, Dynamics 365 eller Power Suite-tjänster.|
 | [**Dynamics 365**](appsource-offer-publishing-guide.md) | Du kan publicera AppSource-erbjudanden som bygger på eller utökar Dynamics 365 Business Central, Dynamics 365 kund engagemang, Power Apps och finans-och verksamhets appar.|
 | [**IoT Edge modul**](iot-edge-module.md) | Azure IoT Edge moduler är de minsta beräknings enheter som hanteras av IoT Edge, och kan innehålla Microsoft-tjänster (till exempel Azure Stream Analytics), tjänster från tredje part eller din egen lösnings-specifika kod. |
 | [**Hanterad tjänst**](partner-center-portal/create-new-managed-service-offer.md) | Du kan skapa hanterade tjänster och hantera kund delegerade prenumerationer eller resurs grupper via [Azure Lighthouse](../lighthouse/overview.md).|

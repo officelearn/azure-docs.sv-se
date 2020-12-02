@@ -1,6 +1,6 @@
 ---
 title: Optimizing transactions (Optimera transaktioner)
-description: Lär dig hur du optimerar prestandan för transaktions koden i Synapse SQL samtidigt som du minimerar risken för långa återställningar.
+description: Lär dig hur du optimerar prestandan för transaktions koden i en dedikerad SQL-pool och minimerar risken för långa återställningar.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ddb6dbde941d5a2f399aba55eec415c879e74384
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46a165ea7fa21c02e859c16027086695f1f378c3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461213"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462799"
 ---
-# <a name="optimizing-transactions-in-synapse-sql"></a>Optimera transaktioner i Synapse SQL
+# <a name="optimizing-transactions-in-dedicated-sql-pool-in-azure-synapse-analytics"></a>Optimera transaktioner i dedikerad SQL-pool i Azure Synapse Analytics
 
-Lär dig hur du optimerar prestandan för transaktions koden i Synapse SQL samtidigt som du minimerar risken för långa återställningar.
+Lär dig hur du optimerar prestandan för transaktions koden i en dedikerad SQL-pool och minimerar risken för långa återställningar.
 
 ## <a name="transactions-and-logging"></a>Transaktioner och loggning
 
-Transaktioner är en viktig komponent i en Relations databas motor. Transaktioner används vid data ändringar. Dessa transaktioner kan vara explicita eller implicita. Ett enda INSERT-, UPDATE-och DELETE-uttryck är exempel på implicita transaktioner. Explicita transaktioner använder påbörja omstart, genomför omlägg eller Återställ omlastning. Explicita transaktioner används vanligt vis när flera ändrings instruktioner måste vara knutna till varandra i en enda atomisk enhet.
+Transaktioner är en viktig komponent i en relationell SQL-pool. Transaktioner används vid data ändringar. Dessa transaktioner kan vara explicita eller implicita. Ett enda INSERT-, UPDATE-och DELETE-uttryck är exempel på implicita transaktioner. Explicita transaktioner använder påbörja omstart, genomför omlägg eller Återställ omlastning. Explicita transaktioner används vanligt vis när flera ändrings instruktioner måste vara knutna till varandra i en enda atomisk enhet.
 
-Ändringar i databasen spåras med transaktions loggar. Varje distribution har sin egen transaktions logg. Transaktions logg skrivningar är automatiskt. Ingen konfiguration krävs. Men även om den här processen garanterar Skriv åtgärden, introduceras en omkostnader i systemet. Du kan minimera den här effekten genom att skriva en transaktions effektiv kod. Transaktions effektiv kod i stort sett hamnar i två kategorier.
+Ändringar i SQL-poolen spåras med transaktions loggar. Varje distribution har sin egen transaktions logg. Transaktions logg skrivningar är automatiskt. Ingen konfiguration krävs. Men även om den här processen garanterar Skriv åtgärden, introduceras en omkostnader i systemet. Du kan minimera den här effekten genom att skriva en transaktions effektiv kod. Transaktions effektiv kod i stort sett hamnar i två kategorier.
 
 * Använd minimala loggnings konstruktioner när det är möjligt
 * Bearbeta data med hjälp av omfångs batchar för att undvika att transaktioner med lång tid körs
@@ -51,7 +51,7 @@ Följande åtgärder kan vara minimalt loggade:
 * ÄNDRA INDEX ÅTERSKAPA
 * DROP INDEX
 * TRUNCATE TABLE
-* TA BORT TABELL
+* DROP TABLE
 * ÄNDRA PARTITION FÖR TABELL VÄXEL
 
 <!--
@@ -79,7 +79,7 @@ CTAS och infoga... SELECT är både Mass inläsnings åtgärder. Båda påverkas
 Det är värt att notera att alla skrivningar för att uppdatera sekundära eller icke-grupperade index alltid är fullständigt loggade.
 
 > [!IMPORTANT]
-> En Synapse-databas för SQL-pooler har 60 distributioner. Detta förutsätter att alla rader är jämnt distribuerade och landningar i en enda partition, men din batch måste innehålla 6 144 000 rader eller större för att få minimal inloggning vid skrivning till ett grupperat columnstore-index. Om tabellen är partitionerad och de rader som infogas sträcker sig över diskpartitioner, behöver du 6 144 000 rader per partition, förutsatt att du har till och med data distribution. Varje partition i varje distribution måste vara oberoende av gränsen på 102 400 rader för att infogningen ska vara minimalt inloggad i distributionen.
+> En dedikerad SQL-pool har 60-distributioner. Detta förutsätter att alla rader är jämnt distribuerade och landningar i en enda partition, men din batch måste innehålla 6 144 000 rader eller större för att få minimal inloggning vid skrivning till ett grupperat columnstore-index. Om tabellen är partitionerad och de rader som infogas sträcker sig över diskpartitioner, behöver du 6 144 000 rader per partition, förutsatt att du har till och med data distribution. Varje partition i varje distribution måste vara oberoende av gränsen på 102 400 rader för att infogningen ska vara minimalt inloggad i distributionen.
 
 Inläsning av data i en icke-tom tabell med ett grupperat index kan ofta innehålla en blandning av fullständigt loggade och minimalt loggade rader. Ett grupperat index är ett balanserat träd (b-Tree) av sidor. Om sidan som skrivs till redan innehåller rader från en annan transaktion, kommer dessa skrivningar att loggas fullständigt. Men om sidan är tom loggas skrivningen till sidan av minimalt.
 
@@ -178,7 +178,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Att återskapa stora tabeller kan dra nytta av att använda Synapse-funktioner i SQL-pool. Mer information finns i [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md).
+> Att återskapa stora tabeller kan dra nytta av dedikerade funktioner för arbets belastnings hantering i SQL-pooler. Mer information finns i [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md).
 
 ## <a name="optimizing-with-partition-switching"></a>Optimera med partition växling
 
@@ -407,16 +407,16 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>Guide för paus och skalning
 
-Med Synapse SQL kan du [pausa, återuppta och skala](sql-data-warehouse-manage-compute-overview.md) din SQL-pool på begäran. När du pausar eller skalar SQL-poolen är det viktigt att förstå att alla transaktioner i flygningen avslutas omedelbart. orsaka att eventuella öppna transaktioner återställs. Om din arbets belastning har utfärdat en tids krävande och ofullständig data ändring innan paus-eller skalnings åtgärden, måste det här arbetet utföras. Detta kan påverka tiden det tar att pausa eller skala SQL-poolen.
+Med dedikerad SQL-pool kan du [pausa, återuppta och skala](sql-data-warehouse-manage-compute-overview.md) din DEDIKERADe SQL-pool på begäran. När du pausar eller skalar en dedikerad SQL-pool är det viktigt att förstå att alla pågående transaktioner avbryts omedelbart. orsaka att eventuella öppna transaktioner återställs. Om din arbets belastning har utfärdat en tids krävande och ofullständig data ändring innan paus-eller skalnings åtgärden, måste det här arbetet utföras. Detta kan påverka tiden det tar att pausa eller skala din dedikerade SQL-pool.
 
 > [!IMPORTANT]
 > Både `UPDATE` och `DELETE` är fullständigt loggade och därmed kan dessa åtgärder för att ångra/upprepa ta betydligt längre tid än motsvarande minimalt loggade åtgärder.
 
-Det bästa scenariot är att tillåta att ändringar i Flight-transaktioner slutförs innan SQL-poolen pausas eller skalas. Det här scenariot är dock inte alltid praktiskt. Överväg något av följande alternativ för att minska risken för en lång återställning:
+Det bästa scenariot är att låta ändringar i Flight-datatransaktionerna slutföras innan du pausar eller skalar en dedikerad SQL-pool. Det här scenariot är dock inte alltid praktiskt. Överväg något av följande alternativ för att minska risken för en lång återställning:
 
 * Skriv över tids krävande åtgärder med [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * Bryt åtgärden i segment. körs på en delmängd av raderna
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [transaktioner i SYNAPSE SQL](sql-data-warehouse-develop-transactions.md) för att lära dig mer om isolerings nivåer och transaktionella gränser.  En översikt över andra bästa metoder finns i [metod tips för Azure Synapse Analytics](sql-data-warehouse-best-practices.md).
+Mer information om isolerings nivåer och transaktionella gränser finns i [transaktioner i dedikerad SQL-pool](sql-data-warehouse-develop-transactions.md) .  En översikt över andra bästa metoder finns i [metod tips för dedikerad SQL-pool](sql-data-warehouse-best-practices.md).

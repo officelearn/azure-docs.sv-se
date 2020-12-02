@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c0dcaec9c8e9a310af1fd6fc319e0784694610e2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999305"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463085"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Flytta data från Amazon RedShift med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -101,7 +101,7 @@ Du kan också använda **RelationalSource** -typen, som innehåller Amazon Redsh
 
 Kommandot Amazon RedShift [**Unload**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) tar bort resultatet från en fråga till en eller flera filer på Amazon S3. Det här kommandot rekommenderas av Amazon för att kopiera stora data mängder från RedShift.
 
-**Exempel: kopiera data från Amazon RedShift till Azure Synapse Analytics (tidigare SQL Data Warehouse)**
+**Exempel: kopiera data från Amazon RedShift till Azure Synapse Analytics**
 
 Det här exemplet kopierar data från Amazon RedShift till Azure Synapse Analytics. Exemplet använder kommandot RedShift **Unload** , mellanlagrade kopierings data och Microsoft PolyBase.
 
@@ -333,7 +333,7 @@ Följande mappningar används när kopierings aktiviteten konverterar data från
 | INTEGER |Int32 |
 | BIGINT |Int64 |
 | DECIMAL |Decimal |
-| REAL |Enskilt |
+| REAL |Enkel |
 | DUBBEL PRECISION |Double |
 | BOOLESKT |Sträng |
 | CHAR |Sträng |

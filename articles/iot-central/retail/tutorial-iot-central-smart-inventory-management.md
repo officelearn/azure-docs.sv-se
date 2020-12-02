@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 827d571a6545d0aaffb0f96134fcf094eaa5f26b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1b7069cb723bffd758c3603cc957329dd6d2a9b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980614"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463265"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Självstudie: Distribuera och gå igenom en mall för hantering av Smart inventerings program
 
@@ -24,7 +24,7 @@ I den här självstudien får du lära dig att
 * Skapa program för smart inventerings hantering 
 * gå igenom programmet 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Inga särskilda krav krävs för att distribuera den här appen
 * Vi rekommenderar att du har en Azure-prenumeration, men du kan även prova utan den
@@ -35,22 +35,19 @@ Du kan skapa program med följande steg
 
 1. Gå till webbplatsen för Azure IoT Central Application Manager. Välj **Bygg** i det vänstra navigerings fältet och klicka sedan på fliken **detalj handel** .
 
-    > [!div class="mx-imgBorder"]
-    > ![Skärm bild som visar hur du väljer mallen Smart Inventory managementapplication](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png" alt-text="Skärm bild som visar hur du väljer program mal len Smart inventerings hantering":::
 
 2. Välj fliken **butik** och välj **skapa app** under **Smart Inventory Management**
 
 3. **Skapa app** öppnar nytt program formulär och fyller i den begärda informationen som visas nedan.
-   **Program namn**: du kan använda det föreslagna standard namnet eller ange ett eget program namn.
-   **URL**: du kan använda den föreslagna standard-URL: en eller ange en egen, unik minnes adress. Sedan rekommenderas standardinställningen om du redan har en Azure-prenumeration. Du kan börja med en kostnads fri utvärderings prenumerations plan på 7 dagar och välja att konvertera till en standard pris plan när som helst innan det kostnads fria slutet går ut.
-   **Fakturerings information**: katalog, Azure-prenumeration och regions information krävs för att etablera resurserna.
-   **Skapa**: Välj Skapa längst ned på sidan för att distribuera programmet.
+    **Program namn**: du kan använda det föreslagna standard namnet eller ange ett eget program namn.
+    **URL**: du kan använda den föreslagna standard-URL: en eller ange en egen, unik minnes adress. Sedan rekommenderas standardinställningen om du redan har en Azure-prenumeration. Du kan börja med en kostnads fri utvärderings prenumerations plan på 7 dagar och välja att konvertera till en standard pris plan när som helst innan det kostnads fria slutet går ut.
+    **Fakturerings information**: katalog, Azure-prenumeration och regions information krävs för att etablera resurserna.
+    **Skapa**: Välj Skapa längst ned på sidan för att distribuera programmet.
 
-    > [!div class="mx-imgBorder"]
-    > ![Skärm bild som visar hur du skapar en app från managementapplication-mallen för smart inventering](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png" alt-text="Skärm bild som visar hur du skapar en app från program mal len Smart inventerings hantering":::
 
-    > [!div class="mx-imgBorder"]
-    > ![Skärm bild som visar fakturerings alternativen när du skapar programmet](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png" alt-text="Skärm bild som visar fakturerings alternativen när du skapar programmet":::
 
 ## <a name="walk-through-the-application"></a>Gå igenom programmet 
 

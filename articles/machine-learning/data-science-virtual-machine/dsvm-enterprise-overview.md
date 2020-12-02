@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 05/08/2018
-ms.openlocfilehash: 538802cc2129a8e8f379c8b569bd1f8696097dab
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9126dbcfbfe9e3a94514ebf45685bdfc55dd0306
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314187"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463007"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Data Science Virtual Machine-baserad team Analytics och AI-miljö 
 [Data science Virtual Machine](overview.md) (DSVM) innehåller en omfattande miljö på Azure-plattformen, med fördefinierad program vara för artificiell intelligens (AI) och data analys.
@@ -38,11 +38,11 @@ Viktiga Bygg stenar i en Enterprise team Analytics-miljö är:
 Den här serien ger vägledning och pekare för vart och ett av föregående avsnitt. Det beskriver inte alla överväganden och krav för att distribuera Dsvm i stora företags konfigurationer. Här följer några andra Azure-resurser som du kan använda när du implementerar DSVM-instanser i företaget:
 
 * [Nätverkssäkerhet](../../security/fundamentals/network-overview.md)
-* [Övervakning](../../azure-monitor/insights/monitor-vm-azure.md) och [hantering](../../virtual-machines/maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252fwindows%252ftoc.json)
+* [Övervakning](../../azure-monitor/insights/monitor-vm-azure.md) och [hantering](../../virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Loggning och granskning](../../security/fundamentals/log-audit.md)
 * [Azure RBAC (rollbaserad åtkomstkontroll)](../../role-based-access-control/overview.md)
 * [Princip inställning och tillämpning](../../governance/policy/overview.md)
-* [Skadlig kod](../../security/fundamentals/antimalware.md)
+* [Programvara mot skadlig kod](../../security/fundamentals/antimalware.md)
 * [Kryptering](../../virtual-machines/windows/disk-encryption-overview.md)
 * [Identifiering och styrning av data](../../data-catalog/index.yml)
 

@@ -1,30 +1,30 @@
 ---
 title: Använda Group by-alternativ
-description: Tips för att implementera gruppera efter alternativ i Synapse SQL-pool.
+description: Tips för att implementera grup alternativ för dedikerade SQL-pooler i Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 260bd7cc6402a7cb4ed17d004d0f61b7462c51d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: cdac3b1e502a203c272db75eb4345446b0f7c0c8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213456"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462768"
 ---
-# <a name="group-by-options-in-synapse-sql-pool"></a>Gruppera efter alternativ i Synapse SQL-pool
+# <a name="group-by-options-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Gruppera efter alternativ för dedikerade SQL-pooler i Azure Synapse Analytics
 
-I den här artikeln hittar du tips för att implementera grup alternativ i SQL-poolen.
+I den här artikeln hittar du tips för att implementera grupp alternativ i dedikerade SQL-pooler.
 
 ## <a name="what-does-group-by-do"></a>Vad sker gruppera efter?
 
-[Group by](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL-satsen sammanställer data till en sammanfattande uppsättning rader. GROUP BY har vissa alternativ som SQL-poolen inte stöder. De här alternativen innehåller lösningar, som är följande:
+[Group by](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL-satsen sammanställer data till en sammanfattande uppsättning rader. GROUP BY har vissa alternativ som dedikerade SQL-poolen inte stöder. De här alternativen innehåller lösningar, som är följande:
 
 * Gruppera efter med sammanslagning
 * GRUPPERADE UPPSÄTTNINGAR

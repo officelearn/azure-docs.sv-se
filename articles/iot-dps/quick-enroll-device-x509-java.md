@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: fb6f9f598ef68911a9017dde504a032672dc55a3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8591220eb80d9c60ed7873be546007449ab46f89
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966589"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463040"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av Java
 
@@ -22,11 +22,11 @@ ms.locfileid: "94966589"
 
 I den här snabb starten använder du Java för att program mässigt registrera en grupp av X. 509 simulerade enheter till Azure-IoT Hub Device Provisioning Service. Enheter registreras för en etablerings tjänst instans genom att skapa en registrerings grupp eller en enskild registrering. Den här snabb starten visar hur du skapar båda typerna av registreringar med hjälp av Java-tjänst-SDK och ett Java-exempelprogram.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Konfiguration av [IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md)slutförs.
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java se Development Kit 8](https://aka.ms/azure-jdks). I den här snabb starten installeras [Java service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/) nedan. Det fungerar både i Windows och Linux. I den här snabb starten används Windows.
+- [Java se Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support). I den här snabb starten installeras [Java service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/) nedan. Det fungerar både i Windows och Linux. I den här snabb starten används Windows.
 - [Maven 3](https://maven.apache.org/download.cgi).
 - [Git](https://git-scm.com/download/).
 

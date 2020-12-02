@@ -1,5 +1,5 @@
 ---
-title: Synapse SQL-rekommendationer
+title: Azure Advisor rekommendationer för dedikerad SQL-pool
 description: Lär dig mer om Synapse SQL-rekommendationer och hur de genereras
 services: synapse-analytics
 author: kevinvngo
@@ -11,18 +11,18 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e4564005e3b9cc9673cc20596d4114d102174b9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 667629b7f613b11f40528b039c7525339b7a62d0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85482861"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462866"
 ---
-# <a name="synapse-sql-recommendations"></a>Synapse SQL-rekommendationer
+# <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Advisor rekommendationer för dedikerad SQL-pool i Azure Synapse Analytics
 
-I den här artikeln beskrivs de Synapse-SQL-rekommendationer som hanteras via Azure Advisor.  
+Den här artikeln beskriver de dedikerade rekommendationerna för SQL-poolen som finns i Azure Advisor.  
 
-Synapse SQL ger rekommendationer för att säkerställa att arbets belastningen för data lagret är konsekvent optimerad för prestanda. Rekommendationerna är nära integrerade med [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) för att ge dig bästa praxis direkt i [Azure Portal](https://aka.ms/Azureadvisor). Synapse SQL samlar in telemetri-och underlag rekommendationer för din aktiva arbets belastning på en daglig takt. De rekommendations scenarier som stöds beskrivs nedan tillsammans med hur du använder rekommenderade åtgärder.
+Dedikerad SQL-pool ger rekommendationer för att säkerställa att arbets belastningen för data lagret är konsekvent optimerad för prestanda. Rekommendationerna är nära integrerade med [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) för att ge dig bästa praxis direkt i [Azure Portal](https://aka.ms/Azureadvisor). Dedikerad SQL-pool samlar in telemetri-och underlag rekommendationer för din aktiva arbets belastning på en daglig takt. De rekommendations scenarier som stöds beskrivs nedan tillsammans med hur du använder rekommenderade åtgärder.
 
 Du kan [kontrol lera dina rekommendationer](https://aka.ms/Azureadvisor) idag! 
 
@@ -73,4 +73,4 @@ Frågans prestanda kan försämras när det finns hög tempdb-konkurrens.  TempD
 
 ## <a name="data-loading-misconfiguration"></a>Felaktig konfiguration av data inläsning
 
-Du bör alltid läsa in data från ett lagrings konto i samma region som SQL-poolen för att minimera svars tiden. Använd [kopierings instruktionen för data inmatning med högt data flöde](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) och dela upp dina mellanlagrade filer i ditt lagrings konto för att maximera data flödet. Om du inte kan använda KOPIERINGs instruktionen kan du använda SqlBulkCopy-API: et eller BCP med en hög batchstorlek för bättre data flöde. Ytterligare vägledning för data inläsning finns i följande [dokumentation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data). 
+Du bör alltid läsa in data från ett lagrings konto i samma region som din dedikerade SQL-pool för att minimera svars tiden. Använd [kopierings instruktionen för data inmatning med högt data flöde](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) och dela upp dina mellanlagrade filer i ditt lagrings konto för att maximera data flödet. Om du inte kan använda KOPIERINGs instruktionen kan du använda SqlBulkCopy-API: et eller BCP med en hög batchstorlek för bättre data flöde. Ytterligare vägledning för data inläsning finns i följande [dokumentation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data). 

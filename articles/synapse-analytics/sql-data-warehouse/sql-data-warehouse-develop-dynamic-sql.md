@@ -1,30 +1,30 @@
 ---
 title: Använda dynamisk SQL
-description: Tips för utvecklings lösningar med dynamisk SQL i Synapse SQL-pool.
+description: Tips för utvecklings lösningar med dynamisk SQL för dedikerade SQL-pooler i Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: bce79b8e18b3ec6f1fd139af280086281bbdda98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 52bc7bdc63f754d52bf4a69097c1dd309a6dc3ec
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213473"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462786"
 ---
-# <a name="dynamic-sql-in-synapse-sql-pool"></a>Dynamisk SQL i Synapse SQL-pool
+# <a name="dynamic-sql-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Dynamisk SQL för dedikerade SQL-pooler i Azure Synapse Analytics
 
-I den här artikeln finns tips för utvecklings lösningar med dynamisk SQL i SQL-pool.
+I den här artikeln finns tips för utvecklings lösningar som använder dynamiska SQL i dedikerade SQL-pooler.
 
 ## <a name="dynamic-sql-example"></a>Dynamiskt SQL-exempel
 
-När du utvecklar program kod för SQL-pool kan du behöva använda dynamisk SQL för att leverera flexibla, generiska och modulära lösningar. SQL-poolen har inte stöd för BLOB-datatyper för tillfället.
+När du utvecklar program kod för dedikerade SQL-pooler kan du behöva använda dynamisk SQL för att leverera flexibla, generiska och modulära lösningar. Dedikerade SQL-pooler stöder för närvarande inte BLOB-datatyper.
 
 Om du inte stöder BLOB-datatyper kan du begränsa storleken på dina strängar eftersom BLOB-datatyper inkluderar båda typerna varchar (max) och nvarchar (max).
 

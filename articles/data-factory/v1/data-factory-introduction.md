@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 06f308b4e0b2df0487a351ae38f16f3872961cfb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 17765d89cacfb6083df5ac911d2b24d573fba511
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89436264"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463065"
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -35,7 +35,7 @@ Föreställ dig ett spelföretag som vill samla in en stor mängd loggar som pro
 
 När företaget analyserar loggarna måste de använda referensdata, till exempel kundinformation, spelinformation och information från en marknadsföringskampanj som finns i ett lokalt datalager. Därför behöver företaget mata in loggdata från molndatalagret och referensdata från det lokala datalagret. 
 
-Sedan bearbetar företaget dessa data med Hadoop i molnet (Azure HDInsight). De vill publicera resultat data i ett informations lager i molnet, till exempel Azure Synapse Analytics (tidigare SQL Data Warehouse) eller ett lokalt data lager som SQL Server. Företaget vill att arbetsflödet ska köras en gång i veckan. 
+Sedan bearbetar företaget dessa data med Hadoop i molnet (Azure HDInsight). De vill publicera resultat data i ett informations lager i molnet, till exempel Azure Synapse Analytics eller ett lokalt data lager, till exempel SQL Server. Företaget vill att arbetsflödet ska köras en gång i veckan. 
 
 Därför behöver företaget en plattform där de kan skapa ett arbetsflöde som matar in data från både lokala och molnbaserade datalager. Företaget måste också kunna omvandla eller bearbeta data med hjälp av befintliga beräkningstjänster som exempelvis Hadoop och sedan publicera resultaten i ett lokalt eller molnbaserat datalager som kan användas av BI-programmen. 
 
@@ -140,7 +140,7 @@ Du kan använda något av dessa verktyg eller API:er för att skapa datapipeline
 
 Följ de stegvisa anvisningarna i följande självstudier om du vill lära dig hur du skapar datafabriker med datapipeliner:
 
-| Självstudier | Beskrivning |
+| Självstudier | Description |
 | --- | --- |
 | [Flytta data mellan två molndatalager](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Skapa en data fabrik med en pipeline som flyttar data från Blob Storage till SQL Database. |
 | [Omvandla data med Hadoop-kluster](data-factory-build-your-first-pipeline.md) |Skapa din första Azure Data Factory med en datapipeline som bearbetar data genom att köra Hive-skriptet på ett Azure HDInsight-kluster (Hadoop). |

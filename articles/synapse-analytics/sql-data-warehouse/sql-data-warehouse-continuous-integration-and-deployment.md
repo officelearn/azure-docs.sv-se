@@ -1,6 +1,6 @@
 ---
-title: Kontinuerlig integrering och distribution
-description: Databas DevOps-upplevelse i företags klass för data lager hantering med inbyggt stöd för kontinuerlig integrering och distribution med hjälp av Azure-pipelines.
+title: Kontinuerlig integrering och distribution för dedikerad SQL-pool
+description: Databas DevOps-upplevelse i företags klass för dedikerad SQL-pool i Azure Synapse Analytics med inbyggt stöd för kontinuerlig integrering och distribution med hjälp av Azure-pipeliner.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 061be5addd0c236db5d982e6103e3cf455b9c361
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 35f503e7214fa91962c91c35611fc9447302f9fc
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480538"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462816"
 ---
-# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Kontinuerlig integrering och distribution för data lager
+# <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Kontinuerlig integrering och distribution för dedikerad SQL-pool i Azure Synapse Analytics
 
 Den här enkla själv studie kursen beskriver hur du integrerar SQL Server ditt SSDT-databas projekt med Azure DevOps och utnyttjar Azure-pipeliner för att konfigurera kontinuerlig integrering och distribution. Den här självstudien är det andra steget i att skapa en pipeline för kontinuerlig integrering och distribution för data lager.
 
@@ -60,7 +60,7 @@ Nu har du en enkel miljö där all incheckning av huvud grenen för käll kontro
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Utforska [SYNAPSE SQL pool Architecture](massively-parallel-processing-mpp-architecture.md)
-- [Skapa snabbt en SQL-pool](create-data-warehouse-portal.md)
+- Utforska en [dedikerad SQL-pool (tidigare SQL DW)-arkitektur](massively-parallel-processing-mpp-architecture.md)
+- [Skapa en dedikerad SQL-pool snabbt (tidigare SQL DW)](create-data-warehouse-portal.md)
 - [Läsa in exempeldata](load-data-from-azure-blob-storage-using-polybase.md)
 - Utforska [videor](sql-data-warehouse-videos.md)

@@ -3,12 +3,12 @@ title: Azure Event Grid leverans och försök igen
 description: Beskriver hur Azure Event Grid levererar händelser och hur de hanterar meddelanden som inte levererats.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 9a7bde33e322183f86c3c51d30bb004d06fa1406
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 51473cf457a1c713e6694edd23c344be8c4d439e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345361"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463244"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelande leverans och försök igen
 
@@ -57,7 +57,7 @@ Mer information om hur du använder Azure CLI med Event Grid finns i [dirigera l
 
 När EventGrid tar emot ett fel för ett händelse leverans försök, bestämmer EventGrid om det ska försöka igen eller ta bort den eller ta bort händelsen baserat på typen av fel. 
 
-Om felet som returnerades av den prenumererade slut punkten är konfigurations relaterat fel som inte kan åtgärdas med återförsök (till exempel om slut punkten tas bort), EventGrid den antingen att den tar bort obeställbara meddelanden eller släpper händelsen om den inte har kon figurer ATS.
+Om felet som returnerades av den prenumererade slut punkten är konfigurations relaterat fel som inte kan åtgärdas med återförsök (till exempel om slut punkten tas bort), kommer EventGrid antingen att utföra inaktive brevning av händelsen eller släppa händelsen om den inte har kon figurer ATS.
 
 Nedan visas de typer av slut punkter för vilka försök inte sker:
 

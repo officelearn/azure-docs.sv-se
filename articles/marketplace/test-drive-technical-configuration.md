@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: de85e4eb553f623790b472e79f8f97487ba96b48
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 553eba3898a5ea42e5d478603e35e82c68abcab1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95751121"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462895"
 ---
 # <a name="test-drive-technical-configuration"></a>Teknisk konfiguration för provkörning
 
@@ -38,9 +38,9 @@ Microsoft kan ta bort komplexiteten för att konfigurera en testen het genom att
 
 - **Rollnamn** (obligatoriskt) – Ange namnet på den säkerhets roll som du har definierat i din anpassade Dynamics 365-testenhet, som kommer att tilldelas användaren under deras test enhet (till exempel Test-Drive-roll).
 
-Om du behöver hjälp med att konfigurera din Dynamics 365-miljö för Test Drive och bevilja AppSource-behörighet för att etablera och avetablera användare av test enheter i din klient, följer du [dessa anvisningar](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup).
+Om du behöver hjälp med att konfigurera din Dynamics 365-miljö för Test Drive och bevilja AppSource-behörighet för att etablera och avetablera användare av test enheter i din klient, följer du [dessa anvisningar](./test-drive-azure-subscription-setup.md).
 
-Steg för steg-instruktioner om hur du registrerar och konfigurerar den värdbaserade test enheten finns på sidan [detaljerad konfiguration för den värdbaserade test enheten](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config) .
+Steg för steg-instruktioner om hur du registrerar och konfigurerar den värdbaserade test enheten finns på sidan [detaljerad konfiguration för den värdbaserade test enheten](./test-drive-hosted-detailed-config.md) .
 
 ## <a name="logic-app-test-drive"></a>Test enhet för Logic app
 
@@ -95,7 +95,7 @@ Alternativet **test enhets listor** på fliken **testenhet** i Partner Center vi
 
 Om du för närvarande skapar test enheten i Partner Center väljer du **Spara utkast** innan du fortsätter.
 
-Steg för steg-instruktioner om hur du registrerar och konfigurerar den värdbaserade test enheten finns på sidan [detaljerad konfiguration för den värdbaserade test enheten](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config) .
+Steg för steg-instruktioner om hur du registrerar och konfigurerar den värdbaserade test enheten finns på sidan [detaljerad konfiguration för den värdbaserade test enheten](./test-drive-hosted-detailed-config.md) .
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/06/2020
-ms.openlocfilehash: 9e8aecfe8b16d8af755d3f4c3c71b875d4e8ec40
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 88779f67a2fa9b18f0177a1459b32c672343bb57
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95751257"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462948"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Detaljerad konfiguration för värdbaserade test enheter
 
@@ -29,7 +29,7 @@ I den här artikeln beskrivs hur du konfigurerar en värdbaserad test enhet för
 
     - **Typ av test enhet** – Välj **Microsoft värdbaserad (Dynamics 365 för kund engagemang & PowerApps)**. Detta anger att Microsoft ska vara värd för och underhålla den tjänst som utför den användar etablering och avetableringen av test enheten.
 
-5. Bevilja Microsoft AppSource behörighet att etablera och avetablera användare av test enheter i din klient med hjälp av [dessa instruktioner](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup). I det här steget ska du generera **Azure AD App-ID: t** och **Azure AD App nyckel** värden som anges nedan.
+5. Bevilja Microsoft AppSource behörighet att etablera och avetablera användare av test enheter i din klient med hjälp av [dessa instruktioner](./test-drive-azure-subscription-setup.md). I det här steget ska du generera **Azure AD App-ID: t** och **Azure AD App nyckel** värden som anges nedan.
 6. Fyll i fälten på sidan **teknisk konfiguration för test enhet** .
 
     [![Sidan teknisk konfiguration för test enhet.](media/test-drive/technical-config-details.png)](media/test-drive/technical-config-details.png#lightbox)
@@ -81,7 +81,7 @@ I den här artikeln beskrivs hur du konfigurerar en värdbaserad test enhet för
     - **Azure Active Directory klient namn** – namnet på Azure-klienten för din Dynamics 365-instans. Använd formatet `<tenantname>.onmicrosoft.com`. Exempel värde: `testdrive.onmicrosoft.com` .
     - **Azure Active Directory program-ID** – ID: t för den Azure Active Directory (AD) som du skapade i steg 5. Exempel värde: `53852862-a2ae-4e43-9461-faa49650a096` .
     - **Azure Active Directory program klient hemlighet** – hemlighet för Azure AD-appen som skapades i steg 5. Exempel värde: `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=` .
-    - **Juridisk enhet för utvärdering** – ange en juridisk enhet för att tilldela en utvärderings användare. Du kan skapa en ny i [skapa eller ändra en juridisk person](https://technet.microsoft.com/library/hh242184.aspx).
+    - **Juridisk enhet för utvärdering** – ange en juridisk enhet för att tilldela en utvärderings användare. Du kan skapa en ny i [skapa eller ändra en juridisk person](/dynamicsax-2012/appuser-itpro/create-or-modify-a-legal-entity).
     - **Roll namn** – AOT-namn (program objekt träd) för den anpassade Dynamics 365-säkerhetsrollen som du skapade för test enheten. Detta är den roll som ska tilldelas användare under deras test enhet.
 
         :::image type="content" source="./media/test-drive/security-config.png" alt-text="Sidan säkerhets konfiguration.":::

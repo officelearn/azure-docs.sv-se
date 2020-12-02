@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: e8be27eac37a6093cb0518fad9498e50eaafc3b2
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 85ed71708582b783eb5d019cd39f2c429fb8b6c6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95868083"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96477183"
 ---
 | Kategori              | Datalager                                                   | [Kopierings aktivitet](../articles/data-factory/copy-activity-overview.md)  (källa/mottagare) | [Mappa data flöde](../articles/data-factory/concepts-data-flow-overview.md) (källa/mottagare) | [Sökningsaktivitet](../articles/data-factory/control-flow-lookup-activity.md) | [Hämta metadata-aktivitet](../articles/data-factory/control-flow-get-metadata-activity.md) / [Validerings aktivitet](../articles/data-factory/control-flow-validation-activity.md) | [Ta bort aktivitet](../articles/data-factory/delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -27,7 +27,7 @@ ms.locfileid: "95868083"
 | &nbsp;                | [Azure File Storage](../articles/data-factory/connector-azure-file-storage.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) | ✓/✓                                                          | ✓/✓ <br>                                                     | ✓                                                            | ✓                                                            |                                                              |
 | &nbsp;                | [Hanterad Azure SQL-instans](../articles/data-factory/connector-azure-sql-managed-instance.md) | ✓/✓                                          | ✓/✓ <br>            |                                                              | ✓                                                            | ✓                                                            |                                                              |
-| &nbsp;                | [Azure Synapse Analytics (tidigare SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            | ✓                                                            |                                                              |
+| &nbsp;                | [Azure Synapse Analytics](../articles/data-factory/connector-azure-sql-data-warehouse.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            | ✓                                                            |                                                              |
 | &nbsp;                | [Azure-Table Storage](../articles/data-factory/connector-azure-table-storage.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | **Databas**          | [Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [DB2](../articles/data-factory/connector-db2.md)             | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |

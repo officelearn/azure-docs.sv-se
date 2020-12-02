@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: a76df67d1ef9d203d5e5d54cb95bb8fc90f70180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d19310dbd54c8bd5f9854ff86af051b68c5cd378
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980746"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463284"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Självstudie: Distribuera och gå igenom en app-mall för digital distributions Center
 
@@ -24,7 +24,7 @@ I den här självstudien får du lära dig att
 * Skapa ett program för digital distributions Center 
 * Gå igenom programmet 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Inga särskilda krav krävs för att distribuera den här appen
 * Vi rekommenderar att du har en Azure-prenumeration, men du kan även prova utan den
 
@@ -34,8 +34,7 @@ Du kan skapa program med följande steg
 
 1. Gå till webbplatsen för Azure IoT Central Application Manager. Välj **Bygg** i det vänstra navigerings fältet och klicka sedan på fliken **detalj handel** .
 
-    > [!div class="mx-imgBorder"]
-    > ![Skärm bild som visar hur du väljer program mal len Digital distributions Center](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+    :::image type="content" source="media/tutorial-iot-central-ddc/iotc-retail-homepage.png" alt-text="App-mall för digital distributions Center":::
 
 2. Välj fliken **butik** och välj **skapa app** under appen **digital distribution Center**
 
@@ -45,11 +44,9 @@ Du kan skapa program med följande steg
    **Fakturerings information**: katalog, Azure-prenumeration och regions information krävs för att etablera resurserna.
    **Skapa**: Välj Skapa längst ned på sidan för att distribuera programmet.
 
-    > [!div class="mx-imgBorder"]
-    > ![Skärm bild som visar hur du skapar en app från program mal len Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-create.png)
+   :::image type="content" source="media/tutorial-iot-central-ddc/ddc-create.png" alt-text="Skärm bild som visar hur du skapar en app från program mal len Digital distributions Center":::
 
-    > [!div class="mx-imgBorder"]
-    > ![Skärm bild som visar fakturerings alternativen när du skapar programmet](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
+   :::image type="content" source="media/tutorial-iot-central-ddc/ddc-create-billinginfo.png" alt-text="Skärm bild som visar fakturerings alternativen när du skapar programmet":::
 
 ## <a name="walk-through-the-application-dashboard"></a>Gå igenom program instrument panelen 
 

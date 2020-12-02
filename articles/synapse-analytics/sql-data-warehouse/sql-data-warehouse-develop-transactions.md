@@ -1,5 +1,5 @@
 ---
-title: Använda transaktioner i Synapse SQL-pool
+title: Använda transaktioner i Azure Synapse Analytics SQL-poolen
 description: Den här artikeln innehåller tips för att implementera transaktioner och utveckla lösningar i Synapse SQL-poolen.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -9,17 +9,18 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 03/22/2019
 ms.author: xiaoyul
+ms.custom: azure-synapse
 ms.reviewer: igorstan
-ms.openlocfilehash: 40a9e5268b7fccc5c01775c10e55eee47f1aaf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a3c0863bb35f0988d7928bb9a2857f6aceded6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213388"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463203"
 ---
-# <a name="use-transactions-in-synapse-sql-pool"></a>Använda transaktioner i Synapse SQL-pool
+# <a name="use-transactions-in-a-sql-pool-in-azure-synapse"></a>Använda transaktioner i en SQL-pool i Azure Synapse 
 
-Den här artikeln innehåller tips för att implementera transaktioner och utveckla lösningar i SQL-poolen.
+Den här artikeln innehåller tips för att implementera transaktioner och utveckla lösningar i en SQL-pool.
 
 ## <a name="what-to-expect"></a>Vad du kan förvänta dig
 
@@ -27,7 +28,7 @@ Som förväntat stöder SQL-poolen transaktioner som en del av arbets belastning
 
 ## <a name="transaction-isolation-levels"></a>Transaktions isolerings nivåer
 
-SQL-poolen implementerar syror-transaktioner. Isolerings nivån för transaktions stödet är som standard SKRIVSKYDDad.  Du kan ändra den för att läsa en ISOLERAd ÖGONBLICKs bild isolering genom att aktivera READ_COMMITTED_SNAPSHOT databas alternativ för en användar databas när du är ansluten till huvud databasen.  
+SQL-poolen implementerar syror-transaktioner. Isolerings nivån för transaktions stödet är som standard SKRIVSKYDDad.  Du kan ändra den för att läsa en ISOLERAd ÖGONBLICKs bild isolering genom att aktivera READ_COMMITTED_SNAPSHOT databas alternativ för en SQL-pool för användare när du är ansluten till huvud databasen.  
 
 När den är aktive rad körs alla transaktioner i den här databasen under den SKRIVSKYDDade ÖGONBLICKs bild ISOLERINGen och inställningen Läs upp ej ALLOKERAd på sessions nivå kommer inte att ske. Se [Alter Database set Options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för mer information.
 

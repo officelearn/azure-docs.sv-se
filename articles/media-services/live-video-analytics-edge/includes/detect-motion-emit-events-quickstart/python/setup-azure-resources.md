@@ -1,17 +1,17 @@
 ---
-ms.openlocfilehash: 67d90836c382728f989ab2cb4fde4d81bac9eb25
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5fa8377b3cdddb2818c04c5a75e347ff73dc07d8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88691183"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509357"
 ---
 I den här självstudien krävs följande Azure-resurser:
 
 * IoT Hub
 * Lagringskonto
 * Azure Media Services konto
-* Virtuella Linux-datorer i Azure, med [IoT Edge runtime](../../../../../iot-edge/how-to-install-iot-edge-linux.md) installerat
+* Virtuella Linux-datorer i Azure, med [IoT Edge runtime](../../../../../iot-edge/how-to-install-iot-edge.md) installerat
 
 I den här snabb starten rekommenderar vi att du använder [installations skriptet Live Video Analytics-resurser](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) för att distribuera de nödvändiga resurserna i din Azure-prenumeration. Det gör du på följande sätt:
 
@@ -29,10 +29,9 @@ I den här snabb starten rekommenderar vi att du använder [installations skript
     Om skriptet har slutförts bör du se alla nödvändiga resurser i din prenumeration.
 1. När skriptet har körts väljer du klammerparenteserna för att exponera mappstrukturen. Du ser några filer i katalogen *~/clouddrive/lva-Sample* . Intressanthet i den här snabb starten är:
 
-     * ***~/clouddrive/lva-Sample/Edge-Deployment/.env*** – den här filen innehåller egenskaper som Visual Studio Code använder för att distribuera moduler till en Edge-enhet.
-     * ***~/clouddrive/lva-sample/appsetting.jspå*** -Visual Studio Code använder den här filen för att köra exempel koden.
+     * ***~/clouddrive/lva-Sample/Edge-Deployment/.env** _ – den här filen innehåller egenskaper som Visual Studio Code använder för att distribuera moduler till en Edge-enhet.
+     _ ***~/clouddrive/lva-sample/appsetting.jspå*** -Visual Studio Code använder den här filen för att köra exempel koden.
      
     Du behöver dessa filer när du konfigurerar din utvecklings miljö i Visual Studio Code i nästa avsnitt. Du kanske vill kopiera dem till en lokal fil för tillfället.
     
     ![Appinställningar](../../../media/quickstarts/clouddrive.png)
-    

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ac75ab31f8c9cdd9405115db4f5c35d28707e29f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 06d20dd47ceb71b51e226d662892eab06b072685
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950371"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500945"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure: planering och distribution check lista
 
@@ -243,8 +243,8 @@ I den här fasen samlar du in vad du har lärt dig och lärt dig under dina dist
     - Azure Premium Storage används för latens känsliga diskar eller där [service avtalet för en enskild virtuell dator på 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) krävs.
     - Azure-Skrivningsaccelerator distribueras korrekt.
         - Se till att, inom de virtuella datorerna, lagrings utrymmena eller stripe-uppsättningarna har skapats korrekt på diskar som behöver Skrivningsaccelerator.
-        - Kontrol lera [konfigurationen av programvaru-RAID på Linux](../../linux/configure-raid.md).
-        - Kontrol lera [konfigurationen av LVM på virtuella Linux-datorer i Azure](../../linux/configure-lvm.md).
+        - Kontrol lera [konfigurationen av programvaru-RAID på Linux](/previous-versions/azure/virtual-machines/linux/configure-raid).
+        - Kontrol lera [konfigurationen av LVM på virtuella Linux-datorer i Azure](/previous-versions/azure/virtual-machines/linux/configure-lvm).
     - [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/) används exklusivt.
     - De virtuella datorerna distribuerades till rätt tillgänglighets uppsättningar och Tillgänglighetszoner.
     - [Azure-accelererat nätverk](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) är aktiverat på de virtuella datorer som används i SAP-program skiktet och SAP-DBMS-skiktet.

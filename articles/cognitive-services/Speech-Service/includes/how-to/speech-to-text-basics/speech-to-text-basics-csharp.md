@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3ddd7b1139396a5952d1575ea72b00d5dfa14fab
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a45b73084e7eecd27439278bd76613dfa0daf01d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95097956"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509527"
 ---
 En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna igen mänskligt tal (kallas ofta tal till text). I den här snabb starten får du lära dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativt tal-till-text-konvertering.
 
@@ -326,5 +326,5 @@ phraseList.Clear();
 
 Fras listor är bara ett alternativ för att förbättra igenkännings precisionen. Du kan även: 
 
-* [Förbättra noggrannheten med anpassat tal](../../../how-to-custom-speech.md)
+* [Förbättra noggrannheten med anpassat tal](../../../custom-speech-overview.md)
 * [Förbättra noggrannheten med klientmodeller](../../../tutorial-tenant-model.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 8594ce713a8675505e0ee3051018b05992b160a9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a9146099951aba223a7b201c1613e1ec0ba617d4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026083"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509185"
 ---
 **Senaste dokument uppdatering**: 12 November 2019 10:00 PST.
 
@@ -21,7 +21,7 @@ Utlämnande av en [ny klass av processor sårbarheter](https://portal.msrc.micro
 
 Microsoft har distribuerat åtgärder i alla våra moln tjänster. Den infrastruktur som kör Azure och isolerar kund arbets belastningar från varandra är skyddade. Det innebär att en potentiell angripare som använder samma infrastruktur inte kan attackera ditt program med hjälp av dessa sårbarheter.
 
-Azure använder [underhåll av minnes](../articles/virtual-machines/maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#maintenance-that-doesnt-require-a-reboot) bevaran när det är möjligt, för att minimera kund påverkan och eliminera behovet av omstarter. Azure fortsätter att använda dessa metoder när du gör systemomfattande uppdateringar av värden och skyddar våra kunder.
+Azure använder [underhåll av minnes](../articles/virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#maintenance-that-doesnt-require-a-reboot) bevaran när det är möjligt, för att minimera kund påverkan och eliminera behovet av omstarter. Azure fortsätter att använda dessa metoder när du gör systemomfattande uppdateringar av värden och skyddar våra kunder.
 
 Mer information om hur säkerheten integreras i varje aspekt av Azure finns på webbplatsen för [Azure Security Documentation](../articles/security/index.yml) . 
 

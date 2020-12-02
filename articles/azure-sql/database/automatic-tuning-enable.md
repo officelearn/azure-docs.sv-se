@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 12/03/2019
-ms.openlocfilehash: 35fc4b18ee5a98270f715a969354df2be5000150
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35e2a73b0cfae104cee417e7d4a159e7fd169a17
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444087"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500911"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Aktivera automatisk justering i Azure Portal för att övervaka frågor och förbättra arbets Belastningens prestanda
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -73,7 +73,7 @@ Med Azure SQL Database kan du individuellt ange konfigurationen för automatisk 
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Om du vill aktivera automatisk justering på en **enskild databas**navigerar du till databasen i Azure Portal och väljer **Automatisk justering**.
+Om du vill aktivera automatisk justering på en **enskild databas** navigerar du till databasen i Azure Portal och väljer **Automatisk justering**.
 
 Enskilda inställningar för automatisk justering kan konfigureras separat för varje databas. Du kan konfigurera ett enskilt alternativ för automatisk justering manuellt eller ange att ett alternativ ärver inställningarna från servern.
 
@@ -83,7 +83,7 @@ Observera att DROP_INDEX alternativ för tillfället inte är kompatibelt med pr
 
 När du har valt önskad konfiguration klickar du på **Använd**.
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>Rest-API
 
 Om du vill veta mer om hur du använder en REST API för att aktivera automatisk justering i en enskild databas, se [Azure SQL Database automatisk justering uppdatering och hämta HTTP-metoder](/rest/api/sql/databaseautomatictuning).
 

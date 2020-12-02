@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12240dd3c8dca2c686950f420f49411fde5f7f28
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b605c2c9f3c7468d0fe1f2cccd8c3602c556714b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460370"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501081"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network"></a>Hanterad Azure Synapse Analytics-Virtual Network
 
@@ -52,8 +52,6 @@ Om du lämnar kryss rutan avmarkerad kommer din arbets yta inte ha någon Virtua
 
 ![Aktivera hanterad arbets yta Virtual Network](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
->[!NOTE]
->All utgående trafik från den hanterade arbets ytan Virtual Network, förutom via hanterade privata slut punkter, kommer att blockeras i framtiden. Vi rekommenderar att du skapar hanterade privata slut punkter för att ansluta till alla dina Azure-datakällor utanför arbets ytan. 
 
 Du kan kontrol lera om din Azure Synapse-arbetsyta är kopplad till en hanterad arbets yta Virtual Network genom att välja **Översikt** från Azure Portal.
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 44980977f366bc40ceff9c7b5751d5657c79ccc2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 21216625ed99a595b0ceeeea90e0cd00ce447498
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94482649"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509273"
 ---
 En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna igen mänskligt tal (kallas ofta tal till text). I den här snabb starten får du lära dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativt tal-till-text-konvertering.
 
@@ -224,5 +224,5 @@ phrase_list_grammar.clear()
 
 Fras listor är bara ett alternativ för att förbättra igenkännings precisionen. Du kan även: 
 
-* [Förbättra noggrannheten med anpassat tal](../../../how-to-custom-speech.md)
+* [Förbättra noggrannheten med anpassat tal](../../../custom-speech-overview.md)
 * [Förbättra noggrannheten med klientmodeller](../../../tutorial-tenant-model.md)

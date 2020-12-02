@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: 3564bf0db3e85ed1d2d1716fd50e48838a94d40a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4a06d40c3052fef9a484dc98220a0ad7cccd33bb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025698"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509351"
 ---
 En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna igen mänskligt tal (kallas ofta tal till text). I den här snabb starten får du lära dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativt tal-till-text-konvertering.
 
@@ -263,5 +263,5 @@ phraseList.clear();
 
 Fras listor är bara ett alternativ för att förbättra igenkännings precisionen. Du kan även: 
 
-* [Förbättra noggrannheten med anpassat tal](../../../how-to-custom-speech.md)
+* [Förbättra noggrannheten med anpassat tal](../../../custom-speech-overview.md)
 * [Förbättra noggrannheten med klientmodeller](../../../tutorial-tenant-model.md)

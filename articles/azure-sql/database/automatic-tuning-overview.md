@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/30/2020
-ms.openlocfilehash: 180f6e8902dc881c99a74a6491eeb3012bc03d0f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 4204254754307f8310d5ccfda19400de57381075
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675218"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500877"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Automatisk justering i Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -63,13 +63,13 @@ Alternativen för automatisk justering är tillgängliga i Azure SQL Database oc
 
 | Alternativ för automatisk justering | Stöd för enkel databas och poolad databas | Stöd för instans databas |
 | :----------------------------- | ----- | ----- |
-| **Skapa index** – identifierar index som kan förbättra prestandan för din arbets belastning, skapar index och automatiskt verifierar att prestandan för frågor har förbättrats. | Ja | Nej |
-| **Drop index** – identifierar redundanta och duplicerade index dagligen, förutom unika index och index som inte har använts under en längre tid (>90 dagar). Observera att det här alternativet inte är kompatibelt med program som använder partitions växlings-och index tips. Det går inte att släppa oanvända index för Premium-och Affärskritisk tjänst nivåer. | Ja | Nej |
+| **Skapa index** – identifierar index som kan förbättra prestandan för din arbets belastning, skapar index och automatiskt verifierar att prestandan för frågor har förbättrats. | Ja | Inga |
+| **Drop index** – identifierar redundanta och duplicerade index dagligen, förutom unika index och index som inte har använts under en längre tid (>90 dagar). Observera att det här alternativet inte är kompatibelt med program som använder partitions växlings-och index tips. Det går inte att släppa oanvända index för Premium-och Affärskritisk tjänst nivåer. | Ja | Inga |
 | **FRAMTVINGA senaste fungerande plan** (automatisk plan korrigering) – identifierar Azure SQL-frågor med hjälp av en körnings plan som är långsammare än den tidigare fungerande planen, och frågor som använder det senaste fungerande schemat i stället för försämrat-planen. | Ja | Ja |
 
 ### <a name="automatic-tuning-for-sql-database"></a>Automatisk justering för SQL Database
 
-Automatisk justering för Azure SQL Database använder rekommendationerna **skapa index** , **Drop index** och **tvinga senaste schema** rekommendationer för databas rekommendationer för att optimera databasens prestanda. Mer information finns i [rekommendationer för databas rådgivare i Azure Portal](database-advisor-find-recommendations-portal.md), i [PowerShell](/powershell/module/az.sql/get-azsqldatabaserecommendedaction)och i [REST API](/rest/api/sql/serverautomatictuning).
+Automatisk justering för Azure SQL Database använder rekommendationerna **skapa index**, **Drop index** och **tvinga senaste schema** rekommendationer för databas rekommendationer för att optimera databasens prestanda. Mer information finns i [rekommendationer för databas rådgivare i Azure Portal](database-advisor-find-recommendations-portal.md), i [PowerShell](/powershell/module/az.sql/get-azsqldatabaserecommendedaction)och i [REST API](/rest/api/sql/serverautomatictuning).
 
 Du kan antingen manuellt tillämpa justerings rekommendationer med hjälp av Azure Portal eller så kan du låta automatisk justering tillämpa justerings rekommendationer åt dig. Fördelarna med att låta systemet tillämpa justerings rekommendationer för dig är att den automatiskt validerar att det finns en positiv vinst för arbets belastnings prestandan, och om det inte finns någon betydande prestanda förbättring, återställs justerings rekommendationen automatiskt. Observera att om frågor påverkas av justerings rekommendationer som inte körs ofta kan validerings fasen ta upp till 72 timmar efter design.
 
@@ -90,7 +90,7 @@ Information om hur du skapar e-postaviseringar för automatiska justerings rekom
 
 ### <a name="automatic-tuning-for-azure-sql-managed-instance"></a>Automatisk justering för Azure SQL-hanterad instans
 
-Automatisk justering för SQL-hanterad instans stöder endast **tvångs sista fin plan** . Mer information om hur du konfigurerar alternativ för automatisk justering via T-SQL finns i [Automatisk justering inför automatisk plan korrigering](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) och [Automatisk plan korrigering](/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
+Automatisk justering för SQL-hanterad instans stöder endast **tvångs sista fin plan**. Mer information om hur du konfigurerar alternativ för automatisk justering via T-SQL finns i [Automatisk justering inför automatisk plan korrigering](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) och [Automatisk plan korrigering](/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
 
 ## <a name="next-steps"></a>Nästa steg
 

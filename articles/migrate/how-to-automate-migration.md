@@ -6,18 +6,18 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/30/2020
 ms.author: rahugup
-ms.openlocfilehash: e1b34db7f2473e16d3ebde11376652f654f2f778
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 4ef4d3989f063e9d31718bc7143662c4f20cc90b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377963"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500826"
 ---
 # <a name="scale-migration-of-vmware-vms"></a>Skala migrering av virtuella VMware-datorer 
 
-Den här artikeln hjälper dig att förstå hur du använder skript för att migrera ett stort antal virtuella VMware-datorer med hjälp av metoden utan agent. Om du vill skala migreringar använder du [Azure Migrate PowerShell-modul](https://aka.ms/azuremigratepowershellvmware). 
+Den här artikeln hjälper dig att förstå hur du använder skript för att migrera ett stort antal virtuella VMware-datorer med hjälp av metoden utan agent. Om du vill skala migreringar använder du [Azure Migrate PowerShell-modul](./tutorial-migrate-vmware-powershell.md). 
 
-Automation-skripten Azure Migrate VMware-migrering är tillgängliga för hämtning på [Azure PowerShell samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) lagrings platsen på GitHub. Skripten kan användas för att migrera virtuella VMware-datorer till Azure med hjälp av metoden för att migrera utan agent. De Azure Migrate PowerShell-kommandon som används i dessa skript dokumenteras [här](https://aka.ms/azuremigratepowershellvmware).
+Automation-skripten Azure Migrate VMware-migrering är tillgängliga för hämtning på [Azure PowerShell samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) lagrings platsen på GitHub. Skripten kan användas för att migrera virtuella VMware-datorer till Azure med hjälp av metoden för att migrera utan agent. De Azure Migrate PowerShell-kommandon som används i dessa skript dokumenteras [här](./tutorial-migrate-vmware-powershell.md).
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 - Dessa skript stöder migrering av virtuella VMware-datorer med alla diskar. Du kan uppdatera skripten om du vill replikera diskarna som är anslutna till en virtuell VMware-dator selektivt. 
@@ -26,7 +26,7 @@ Automation-skripten Azure Migrate VMware-migrering är tillgängliga för hämtn
 ## <a name="prerequisites"></a>Förutsättningar
 
 - [Slutför identifierings självstudien](tutorial-discover-vmware.md) för att förbereda Azure och VMware för migrering.
-- Vi rekommenderar att du slutför den andra självstudien för att [utvärdera virtuella VMware-datorer](tutorial-assess-vmware.md) innan du migrerar dem till Azure.
+- Vi rekommenderar att du slutför den andra självstudien för att [utvärdera virtuella VMware-datorer](./tutorial-assess-vmware-azure-vm.md) innan du migrerar dem till Azure.
 - Du har Azure PowerShell- `Az` modulen. Om du behöver installera eller uppgradera Azure PowerShell, följ den här [guiden för att installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="install-azure-migrate-powershell-module"></a>Installera Azure Migrate PowerShell-modul
@@ -123,4 +123,4 @@ Använd följande syntax om du vill köra skriptet för att starta replikering f
 ".\AzMigrate_StartReplication.ps1" .\Input.csv 
 ```
 
-Om du vill veta mer om hur du använder Azure PowerShell för att migrera virtuella VMware-datorer med Azure Migrate följer du [självstudierna](https://aka.ms/azuremigratepowershellvmware).
+Om du vill veta mer om hur du använder Azure PowerShell för att migrera virtuella VMware-datorer med Azure Migrate följer du [självstudierna](./tutorial-migrate-vmware-powershell.md).

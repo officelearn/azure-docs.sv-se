@@ -3,12 +3,12 @@ title: Konfigurera beroende analys utan agent i Azure Migrate Server bedömning
 description: Konfigurera en agent lös beroende analys i Azure Migrate Server bedömning.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 8893b0f41bb7a06c02a6c2aa28002980144b582a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 722ad4cc27132815c1416331aaf0691754ccee05
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337701"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500792"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analysera datorberoenden (agentlösa)
 
@@ -31,7 +31,7 @@ I den här artikeln beskrivs hur du konfigurerar en agent lös beroende analys i
 
 - [Granska](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) operativ system som stöds och de behörigheter som krävs.
 - Kontrol lera att du:
-    - Ha ett Azure Migrate-projekt. Om du inte gör det [skapar](how-to-add-tool-first-time.md) du en nu.
+    - Ha ett Azure Migrate-projekt. Om du inte gör det [skapar](./create-manage-projects.md) du en nu.
     - Kontrol lera att du har [lagt](how-to-assess.md) till verktyget Azure Migrate: Server utvärderings verktyg i projektet.
     - Konfigurera en [Azure Migrate-apparat](migrate-appliance.md) för att identifiera lokala datorer. [Konfigurera en installation](how-to-set-up-appliance-vmware.md) för virtuella VMware-datorer. Enheten identifierar lokala datorer och skickar metadata-och prestanda data till Azure Migrate: Server utvärdering.
 - Kontrol lera att VMware-verktygen (senare än 10,2) är installerade på varje virtuell dator som du vill analysera.
@@ -49,7 +49,7 @@ Lägg till användar kontot till enheten.
 1. Öppna appen för hantering av appar. 
 2. Navigera till panelen **Tillhandahåll vCenter-information** .
 3. I **identifiera program och beroenden på virtuella datorer** klickar du på **Lägg till autentiseringsuppgifter**
-3. Välj **operativ system** , ange ett eget namn för kontot och **User name** / **lösen ordet** för användar namn
+3. Välj **operativ system**, ange ett eget namn för kontot och **User name** / **lösen ordet** för användar namn
 6. Klicka på **Spara**.
 7. Klicka på **Spara och starta identifiering**.
 
@@ -110,7 +110,7 @@ Varje rad i den exporterade CSV-filen motsvarar ett beroende som observerats ino
 
 I följande tabell sammanfattas fälten i den exporterade CSV-filen. Observera att fälten Server namn, program och process endast fylls i för servrar som har en agent lös beroende analys aktive rad.
 
-**Fältnamn** | **Detaljer**
+**Fältnamn** | **Information**
 --- | --- 
 Timeslot | Timeslot under vilken beroendet observerades. <br/> Beroende data samlas in över 6 timmars fack för närvarande.
 Käll Server namn | Namnet på käll datorn 

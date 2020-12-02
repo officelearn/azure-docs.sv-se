@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: c4132ca675af136d7fd50b8ddd02277919a5ed28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 534619ace09b4e11934062a591adf8d9ab6f77ad
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361100"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500809"
 ---
 # <a name="create-an-azure-vm-assessment"></a>Skapa en Azure VM-utvärdering
 
@@ -21,7 +21,7 @@ Den här artikeln beskriver hur du skapar en Azure VM-utvärdering för lokala v
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-- Se till att du har [skapat](how-to-add-tool-first-time.md) ett Azure Migrate-projekt.
+- Se till att du har [skapat](./create-manage-projects.md) ett Azure Migrate-projekt.
 - Om du redan har skapat ett projekt kontrollerar du att du har [lagt till](how-to-assess.md) Azure Migrate: Server utvärderings verktyget.
 - Om du vill skapa en utvärdering måste du konfigurera en Azure Migrate-enhet för [VMware](how-to-set-up-appliance-vmware.md) eller [Hyper-V](how-to-set-up-appliance-hyper-v.md). Enheten identifierar lokala datorer och skickar metadata-och prestanda data till Azure Migrate: Server utvärdering. [Läs mer](migrate-appliance.md).
 
@@ -41,11 +41,11 @@ Det finns två typer av storleks kriterier som du kan använda för att skapa en
 Kör en utvärdering på följande sätt:
 
 1. Granska [metodtipsen](best-practices-assessment.md) för att skapa utvärderingar.
-2. Klicka på **utvärdera**i panelen **Azure Migrate: Server bedömning** på fliken **servrar** .
+2. Klicka på **utvärdera** i panelen **Azure Migrate: Server bedömning** på fliken **servrar** .
 
     ![Skärm bild som visar Azure Migrate servrar med utvärdering valt under utvärderings verktyg.](./media/how-to-create-assessment/assess.png)
 
-3. I **utvärdera servrar**väljer du bedömnings typ som "Azure VM", väljer identifierings källa och anger bedömnings namnet.
+3. I **utvärdera servrar** väljer du bedömnings typ som "Azure VM", väljer identifierings källa och anger bedömnings namnet.
 
     ![Grunder i utvärderingar](./media/how-to-create-assessment/assess-servers-azurevm.png)
 
@@ -54,7 +54,7 @@ Kör en utvärdering på följande sätt:
     ![Utvärderingsegenskaper](./media/how-to-create-assessment//view-all.png)
 
 5. Klicka på **Nästa** och **Välj datorer att utvärdera**. I **Välj eller skapa en grupp** väljer du **Skapa ny** och anger ett gruppnamn. En grupp samlar en eller flera virtuella datorer för utvärdering.
-6. I **Lägg till datorer i gruppen**väljer du de virtuella datorer som ska läggas till i gruppen.
+6. I **Lägg till datorer i gruppen** väljer du de virtuella datorer som ska läggas till i gruppen.
 7. Klicka på **Nästa** för att **Granska och skapa utvärdering** och granska utvärderingsinformationen.
 8. Klicka på **Skapa utvärdering** för att skapa gruppen och kör utvärderingen.
 
@@ -75,14 +75,14 @@ En Azure VM-utvärdering beskriver:
 
 ### <a name="view-an-azure-vm-assessment"></a>Visa en utvärdering av Azure VM
 
-1. I **mål**  >   **Server**för migrering klickar du på **utvärderingar** i **Azure Migrate: Server bedömning**.
-2. I **bedömningar**klickar du på en utvärdering för att öppna den.
+1. I **mål**  >   **Server** för migrering klickar du på **utvärderingar** i **Azure Migrate: Server bedömning**.
+2. I **bedömningar** klickar du på en utvärdering för att öppna den.
 
     ![Sammanfattning av utvärdering](./media/how-to-create-assessment/assessment-summary.png)
 
 ### <a name="review-azure-readiness"></a>Granska Azure-beredskap
 
-1. I **Azure-beredskap**kontrollerar du om de virtuella datorerna är klara för migrering till Azure.
+1. I **Azure-beredskap** kontrollerar du om de virtuella datorerna är klara för migrering till Azure.
 2. Granska VM-statusen:
     - **Redo för Azure**: Azure Migrate rekommenderar en VM-storlek och kostnadsuppskattning för virtuella datorer i utvärderingen.
     - **Klar med villkor**: visar problem och Rekommenderad reparation.

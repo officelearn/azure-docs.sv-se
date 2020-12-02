@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: b1ef29eb71ccd945552550f64e5ae95bc85be44d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 79ccf0f8aae7e915601081f875cea294de52d787
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672120"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500860"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Database Advisor prestanda rekommendationer för Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,10 +29,10 @@ Prestanda översikt ger en översikt över databasens prestanda och hjälper dig
 
 ![Prestanda översikt för Azure SQL Database](./media/database-advisor-implement-performance-recommendations/performance-overview-annotated.png)
 
-- Panelen **rekommendationer** ger en analys av justerings rekommendationerna för din databas (de tre främsta rekommendationerna visas om det finns mer). Genom att klicka på den här panelen kan du välja **[alternativ för prestanda rekommendation](database-advisor-find-recommendations-portal.md#viewing-recommendations)** .
+- Panelen **rekommendationer** ger en analys av justerings rekommendationerna för din databas (de tre främsta rekommendationerna visas om det finns mer). Genom att klicka på den här panelen kan du välja **[alternativ för prestanda rekommendation](database-advisor-find-recommendations-portal.md#viewing-recommendations)**.
 - Panelen **Justera aktivitet** innehåller en översikt över pågående och slutförda justerings åtgärder för din databas, vilket ger dig en snabb överblick över historiken för justerings aktivitet. Om du klickar på den här panelen går du till vyn fullständig fin justering för din databas.
 - Panelen **Automatisk justering** visar **[konfigurationen för automatisk justering](automatic-tuning-enable.md)** för din databas (justerings alternativ som tillämpas automatiskt på databasen). Klicka på den här panelen för att öppna dialog rutan automatiserings konfiguration.
-- Panelen **databas frågor** visar en sammanfattning av frågans prestanda för din databas (total DTU-användning och främsta resurs krävande frågor). Genom att klicka på den här panelen går du **[query Performance Insight](query-performance-insight-use.md)** .
+- Panelen **databas frågor** visar en sammanfattning av frågans prestanda för din databas (total DTU-användning och främsta resurs krävande frågor). Genom att klicka på den här panelen går du **[query Performance Insight](query-performance-insight-use.md)**.
 
 ## <a name="performance-recommendation-options"></a>Alternativ för prestanda rekommendation
 
@@ -40,10 +40,10 @@ Tillgängliga alternativ för prestanda rekommendation i Azure SQL Database:
 
 | Prestanda rekommendation | Stöd för enkel databas och poolad databas | Stöd för instans databas |
 | :----------------------------- | ----- | ----- |
-| **Skapa index rekommendationer** – rekommenderar att du skapar index som kan förbättra arbets Belastningens prestanda. | Ja | Nej |
-| **Ta bort index rekommendationer** – rekommenderar borttagning av redundanta och dubbla index dagligen, förutom unika index och index som inte har använts under en längre tid (>90 dagar). Observera att det här alternativet inte är kompatibelt med program som använder partitions växlings-och index tips. Det går inte att släppa oanvända index för Premium-och Affärskritisk tjänst nivåer. | Ja | Nej |
-| **Parameterisera frågor rekommendationer (för hands version)** – rekommenderar tvingande Parameterisering i fall när du har en eller flera frågor som ständigt kompileras om, men som slutar med samma frågans körnings plan. | Ja | Nej |
-| **Åtgärda rekommendationer för schema problem (för hands version)** – rekommendationer för schema korrigering visas när Azure SQL Database visar en avvikelse i antalet SCHEMAbaserade SQL-fel som inträffar i databasen. Microsoft är för närvarande inaktuellt "Fix schema Issue"-rekommendationer. | Ja | Nej |
+| **Skapa index rekommendationer** – rekommenderar att du skapar index som kan förbättra arbets Belastningens prestanda. | Ja | Inga |
+| **Ta bort index rekommendationer** – rekommenderar borttagning av redundanta och dubbla index dagligen, förutom unika index och index som inte har använts under en längre tid (>90 dagar). Observera att det här alternativet inte är kompatibelt med program som använder partitions växlings-och index tips. Det går inte att släppa oanvända index för Premium-och Affärskritisk tjänst nivåer. | Ja | Inga |
+| **Parameterisera frågor rekommendationer (för hands version)** – rekommenderar tvingande Parameterisering i fall när du har en eller flera frågor som ständigt kompileras om, men som slutar med samma frågans körnings plan. | Ja | Inga |
+| **Åtgärda rekommendationer för schema problem (för hands version)** – rekommendationer för schema korrigering visas när Azure SQL Database visar en avvikelse i antalet SCHEMAbaserade SQL-fel som inträffar i databasen. Microsoft är för närvarande inaktuellt "Fix schema Issue"-rekommendationer. | Ja | Inga |
 
 ![Prestanda rekommendationer för Azure SQL Database](./media/database-advisor-implement-performance-recommendations/performance-recommendations-annotated.png)
 
@@ -105,7 +105,7 @@ Rekommendationen "åtgärda schema problem" visas när Azure SQL Database visar 
 
 | SQL-felkod | Meddelande |
 | --- | --- |
-| 201 |Proceduren eller funktionen *förväntar sig parametern* , som inte tillhandahölls. |
+| 201 |Proceduren eller funktionen *förväntar sig parametern*, som inte tillhandahölls. |
 | 207 |Ogiltigt kolumn namn ' * '. |
 | 208 |Ogiltigt objekt namn ' * '. |
 | 213 |Kolumn namnet eller antalet angivna värden stämmer inte överens med tabell definitionen. |

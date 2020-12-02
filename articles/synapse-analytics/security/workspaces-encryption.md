@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: a6ea3925f3b6bc786be6a4855b2f3bfb6b402d70
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d9a9d3c303739e68b5b8ef28053d6cf0b071f955
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455187"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501064"
 ---
 # <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Kryptering för Azure Synapse Analytics-arbetsytor
 
@@ -47,13 +47,13 @@ Data i följande Synapse-komponenter krypteras med den Kundhanterade nyckeln som
 Arbets ytor kan konfigureras för att aktivera Double Encryption med en kundhanterad nyckel när arbets ytan skapas. Välj alternativet "Aktivera Double Encryption med en kundhanterad nyckel" på fliken "säkerhet" när du skapar den nya arbets ytan. Du kan välja att ange en nyckel-ID-URI eller välja från en lista över nyckel valv i **samma region** som arbets ytan. Key Vault måste ha **rensnings skyddet aktiverat**.
 
 > [!IMPORTANT]
-> Konfigurations inställningen för Double Encryption kan för närvarande inte ändras efter att arbets ytan har skapats.
+> Det går inte att ändra konfigurations inställningen för Double Encryption när arbets ytan har skapats.
 
 :::image type="content" source="./media/workspaces-encryption/workspaces-encryption.png" alt-text="Det här diagrammet visar det alternativ som måste väljas för att aktivera en arbets yta för dubbel kryptering med en kundhanterad nyckel.":::
 
 ### <a name="key-access-and-workspace-activation"></a>Åtkomst till nyckel och arbets yta
 
-Azure-Synapse krypterings modell med Kundhanterade nycklar omfattar arbets ytan som har åtkomst till nycklarna i Azure Key Vault för att kryptera och dekryptera efter behov. Nycklarna görs tillgängliga för arbets ytan antingen via en åtkomst princip eller Azure Key Vault RBAC-åtkomst (för[hands version](../../key-vault/general/rbac-guide.md)). När du beviljar behörigheter via en Azure Key Vault åtkomst princip väljer du alternativet "endast program" när du skapar en princip.
+Azure-Synapse krypterings modell med Kundhanterade nycklar omfattar arbets ytan som har åtkomst till nycklarna i Azure Key Vault för att kryptera och dekryptera efter behov. Nycklarna görs tillgängliga för arbets ytan antingen via en åtkomst princip eller Azure Key Vault RBAC-åtkomst (för[hands version](../../key-vault/general/rbac-guide.md)). När du beviljar behörigheter via en Azure Key Vault åtkomst princip väljer du alternativet ["endast program"](../../key-vault/general/secure-your-key-vault.md#key-vault-authentication-options) när du skapar principer (Välj arbets ytans hanterade identitet och Lägg inte till den som ett auktoriserat program).
 
  Arbets ytans hanterade identitet måste beviljas de behörigheter som krävs för nyckel valvet innan arbets ytan kan aktive ras. Med den här stegvisa metoden för aktivering av arbets ytor ser du till att data i arbets ytan krypteras med den Kundhanterade nyckeln. Observera att kryptering kan aktive ras eller inaktive ras för dedikerade SQL-pooler – varje pool är inte aktive rad för kryptering som standard.
 
@@ -76,6 +76,9 @@ När din arbets yta (med dubbel kryptering aktive rad) har skapats, behålls den
 Du kan ändra den Kundhanterade nyckeln som används för att kryptera data från sidan **kryptering** i Azure Portal. Här kan du välja en ny nyckel med en nyckel identifierare eller välja från nyckel valv som du har åtkomst till i samma region som arbets ytan. Om du väljer en nyckel i ett annat nyckel valv än de som tidigare har använts, beviljar du behörigheterna "Get", "wrap" och "unwrap" för arbets ytan för det nya nyckel valvet. Arbets ytan kommer att verifiera åtkomsten till det nya nyckel valvet och alla data i arbets ytan krypteras igen med den nya nyckeln.
 
 :::image type="content" source="./media/workspaces-encryption/workspace-encryption-management.png" alt-text="Det här diagrammet visar sektionen arbets ytans kryptering i Azure Portal.":::
+
+>[!IMPORTANT]
+>När du ändrar krypterings nyckeln för en arbets yta behåller du nyckeln tills du ersätter den i arbets ytan med en ny nyckel. Detta är att tillåta dekryptering av data med den gamla nyckeln innan den krypteras igen med den nya nyckeln.
 
 Azure Key Vaults-principer för automatisk, periodisk rotation av nycklar eller åtgärder på nycklarna kan resultera i att nya nyckel versioner skapas. Du kan välja att kryptera alla data på arbets ytan på nytt med den senaste versionen av den aktiva nyckeln. Att omkryptera, ändra nyckeln i Azure Portal till en tillfällig nyckel och gå tillbaka till den nyckel som du vill använda för kryptering. Om du exempelvis vill uppdatera data kryptering med den senaste versionen av Active Key KEY1, ändrar du den Kundhanterade nyckeln för arbets ytan till temporär nyckel, Key2. Vänta tills krypteringen har slutförts med Key2. Byt sedan tillbaka den Kundhanterade nyckeln för arbets ytan till KEY1-data i arbets ytan igen med den senaste versionen av KEY1.
 

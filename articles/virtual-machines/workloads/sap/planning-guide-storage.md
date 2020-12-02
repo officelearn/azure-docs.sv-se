@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 325e28b9fde349fc4bf01d2b130bee0be0684962
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: 6982b782fdd6b5b269c1562c54be3478c58bbce9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299606"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501005"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Azure Storage-typer för SAP-arbetsbelastning
 Azure har flera olika lagrings typer som skiljer sig mycket i funktioner, data flöde, svars tid och priser. Några av lagrings typerna är inte eller av begränsad användning för SAP-scenarier. Flera typer av Azure-lagring är väl lämpade eller optimerade för vissa SAP-arbetsbelastnings scenarier. I synnerhet för SAP HANA fick vissa Azure Storage-typer certifierade för användning med SAP HANA. I det här dokumentet ska vi gå igenom de olika typerna av lagring och beskriva deras kapacitet och användbarhet med SAP-arbetsbelastningar och SAP-komponenter.
@@ -140,7 +140,7 @@ Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 | --- | --- | --- | 
 | OS-bas-VHD | korrekt | alla system |
 | Datadisk | korrekt | alla system – [särskilt för SAP HANA](../../how-to-enable-write-accelerator.md) |
-| SAP global transport katalog | JA | [Tillåtna](https://launchpad.support.sap.com/#/notes/2015553) |
+| SAP global transport katalog | JA | [Stöds](https://launchpad.support.sap.com/#/notes/2015553) |
 | SAP-sapmnt | korrekt | alla system |
 | Lagring av säkerhets kopior | korrekt | för kortsiktig lagring av säkerhets kopior |
 | Resurser/delad disk | inte tillgänglig | Behöver Azure Premium-filer eller tredje part |
@@ -164,7 +164,7 @@ Azure Premium Storage uppfyller inte SAP HANA KPI: er för lagrings fördröjnin
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Azure burst-funktioner för Premium Storage
-För Azure Premium Storage-diskar som är mindre än eller lika med 512 GiB erbjuds burst-funktionerna. Exakt hur disk-burst fungerar beskrivs i artikeln [disk bursting](../../linux/disk-bursting.md). När du läser artikeln förstår du konceptet med att Periodisera IOPS och data flöde när din I/O-arbetsbelastning är lägre än den nominella IOPS och data flödet för diskarna (mer information om det nominella data flödet finns i [priser för hanterad disk](https://azure.microsoft.com/pricing/details/managed-disks/)). Du kommer att Periodisera delta i IOPS och data flöde mellan den aktuella användningen och de nominella värdena för disken. Burst-överföringarna är begränsade till högst 30 minuter.
+För Azure Premium Storage-diskar som är mindre än eller lika med 512 GiB erbjuds burst-funktionerna. Exakt hur disk-burst fungerar beskrivs i artikeln [disk bursting](../../disk-bursting.md). När du läser artikeln förstår du konceptet med att Periodisera IOPS och data flöde när din I/O-arbetsbelastning är lägre än den nominella IOPS och data flödet för diskarna (mer information om det nominella data flödet finns i [priser för hanterad disk](https://azure.microsoft.com/pricing/details/managed-disks/)). Du kommer att Periodisera delta i IOPS och data flöde mellan den aktuella användningen och de nominella värdena för disken. Burst-överföringarna är begränsade till högst 30 minuter.
 
 De idealiska fall där denna Burst-funktion kan planeras i kommer förmodligen att vara de volymer eller diskar som innehåller datafiler för olika DBMS. I/O-arbetsbelastningen förväntas mot dessa volymer, särskilt med små till mellan intervall system förväntas se ut så här:
 
@@ -198,7 +198,7 @@ Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 | --- | --- | --- | 
 | OS-bas-VHD | fungerar inte | - |
 | Datadisk | korrekt | alla system  |
-| SAP global transport katalog | JA | [Tillåtna](https://launchpad.support.sap.com/#/notes/2015553) |
+| SAP global transport katalog | JA | [Stöds](https://launchpad.support.sap.com/#/notes/2015553) |
 | SAP-sapmnt | korrekt | alla system |
 | Lagring av säkerhets kopior | korrekt | för kortsiktig lagring av säkerhets kopior |
 | Resurser/delad disk | inte tillgänglig | Behöver tredje part |
@@ -376,4 +376,3 @@ Läs artiklarna:
 
 - [Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](./dbms_guide_general.md)
 - [Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA](./hana-vm-operations-storage.md)
- 

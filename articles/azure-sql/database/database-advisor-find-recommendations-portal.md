@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 6ad8f3e146c13e7b88752b8ef6d514346542ce26
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 748ac448ad8bf5c06e5be8b7a4a8b00a9b7af84b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672265"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500894"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och Använd prestanda rekommendationer
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Du kan använda Azure Portal för att hitta prestanda rekommendationer som kan o
 
 ## <a name="viewing-recommendations"></a>Visa rekommendationer
 
-Om du vill visa och tillämpa prestanda rekommendationer behöver du rätt Azure RBAC-behörighet [(rollbaserad åtkomst kontroll)](../../role-based-access-control/overview.md) i Azure. **Reader** Du måste ha behörighet för **SQL DB-deltagare** för att kunna visa rekommendationer och **ägare** , behörigheter för **SQL DB-deltagare** krävs för att utföra åtgärder. Skapa eller släpp index och Avbryt skapandet av index.
+Om du vill visa och tillämpa prestanda rekommendationer behöver du rätt Azure RBAC-behörighet [(rollbaserad åtkomst kontroll)](../../role-based-access-control/overview.md) i Azure. **Reader** Du måste ha behörighet för **SQL DB-deltagare** för att kunna visa rekommendationer och **ägare**, behörigheter för **SQL DB-deltagare** krävs för att utföra åtgärder. Skapa eller släpp index och Avbryt skapandet av index.
 
 Använd följande steg för att hitta prestanda rekommendationer på Azure Portal:
 
@@ -39,7 +39,7 @@ Prestanda rekommendationer visas i tabellen som liknar den som visas på följan
 
 Rekommendationerna sorteras efter deras potentiella påverkan på prestanda i följande kategorier:
 
-| Påverkan | Beskrivning |
+| Påverkan | Description |
 |:--- |:--- |
 | Hög |Rekommendationer för hög påverkan bör ge den mest betydande prestanda påverkan. |
 | Medium |Rekommendationer för medelhög påverkan bör förbättra prestanda, men inte i stor utsträckning. |
@@ -88,7 +88,7 @@ Om du vill kan du lägga tillbaka borttagna objekt till listan **rekommendatione
 
 1. Klicka på **Visa ignorerade** på sidan **rekommendationer** .
 2. Välj ett borttaget objekt i listan om du vill visa information om det.
-3. Du kan också klicka på **Ångra ignorera** för att lägga till indexet i huvud listan över **rekommendationer** .
+3. Du kan också klicka på **Ångra ignorera** för att lägga till indexet i huvud listan över **rekommendationer**.
 
 > [!NOTE]
 > Observera att om SQL Database [Automatisk justering](automatic-tuning-overview.md) är aktive rad och om du har avvisat en rekommendation manuellt från listan, kommer sådan rekommendation aldrig att tillämpas automatiskt. Att ta bort en rekommendation är ett praktiskt sätt för användarna att automatiskt aktivera automatisk justering i fall när det krävs att en speciell rekommendation inte bör tillämpas.
@@ -98,7 +98,7 @@ Om du vill kan du lägga tillbaka borttagna objekt till listan **rekommendatione
 
 Du kan ställa in din databas att implementera rekommendationer automatiskt. När rekommendationerna blir tillgängliga tillämpas de automatiskt. Som med alla rekommendationer som hanteras av tjänsten, om prestanda påverkan är negativ, återställs rekommendationen.
 
-1. På sidan **rekommendationer** klickar du på **Automatisera** :
+1. På sidan **rekommendationer** klickar du på **Automatisera**:
 
    ![Advisor-inställningar](./media/database-advisor-find-recommendations-portal/settings.png)
 2. Välj åtgärder som ska automatiseras:
@@ -112,13 +112,13 @@ När du har valt önskad konfiguration klickar du på Använd.
 
 ### <a name="manually-apply-recommendations-through-t-sql"></a>Tillämpa rekommendationer manuellt via T-SQL
 
-Välj en rekommendation och klicka sedan på **Visa skript** . Kör skriptet mot databasen för att manuellt tillämpa rekommendationen.
+Välj en rekommendation och klicka sedan på **Visa skript**. Kör skriptet mot databasen för att manuellt tillämpa rekommendationen.
 
 *Index som körs manuellt övervakas och verifieras inte för prestanda som påverkas av tjänsten* , så vi rekommenderar att du övervakar dessa index när du har skapat dem för att kontrol lera att de ger prestanda vinster och justerar eller tar bort dem vid behov. Mer information om hur du skapar index finns i [create index (Transact-SQL)](/sql/t-sql/statements/create-index-transact-sql). Dessutom förblir manuellt tillämpade rekommendationer aktiva och visas i listan över rekommendationer för 24-48 timmar. innan systemet återkallar dem automatiskt. Om du vill ta bort en rekommendation tidigare kan du ta bort den manuellt.
 
 ### <a name="canceling-recommendations"></a>Avbryta rekommendationer
 
-Rekommendationer som har statusen **väntar** , **verifiering** eller **lyckad** kan avbrytas. Det går inte att avbryta rekommendationer med statusen **körs** inte.
+Rekommendationer som har statusen **väntar**, **verifiering** eller **lyckad** kan avbrytas. Det går inte att avbryta rekommendationer med statusen **körs** inte.
 
 1. Välj en rekommendation i avsnittet **Justera historik** för att öppna sidan **rekommendationer** .
 2. Klicka på **Avbryt** om du vill avbryta processen med att tillämpa rekommendationen.
@@ -132,7 +132,7 @@ Att tillämpa en rekommendation kanske inte sker omedelbart. Portalen innehålle
 | Väntar |Kommandot Använd rekommendation har mottagits och är schemalagt för körning. |
 | Köra |Rekommendationen har tillämpats. |
 | Verifiera |Rekommendationen har tillämpats och tjänsten mäter fördelarna. |
-| Klart |Rekommendationen har tillämpats och fördelarna har mätts. |
+| Success |Rekommendationen har tillämpats och fördelarna har mätts. |
 | Fel |Ett fel uppstod när rekommendationen skulle tillämpas. Detta kan vara ett tillfälligt problem eller en schema ändring i tabellen och skriptet är inte längre giltigt. |
 | Återställer |Rekommendationen har tillämpats, men har bedömts vara icke-utfört och återställs automatiskt. |
 | Återställts |Rekommendationen har återställts. |

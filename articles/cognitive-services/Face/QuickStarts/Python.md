@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 8a7812bfcbedc8307557b4fb0623cb8a72913419
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 5c58742bd04f21ea501fde95798245c81442e24c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95743046"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501183"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av ansikts-REST API och Python
 
@@ -34,9 +34,9 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Ansikts-API. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
     * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
 
-## <a name="run-the-jupyter-notebook"></a>Kör Jupyter-anteckningsboken
+## <a name="run-the-jupyter-notebook"></a>Kör Jupyter Notebook
 
-Du kan köra den här snabbstarten som en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Kör Binder genom att välja knappen nedan. Följ sedan anvisningarna i anteckningsboken.
+Du kan köra den här snabb starten som en Jupyter Notebook på en [Disbindor](https://mybinder.org). Kör Binder genom att välja knappen nedan. Följ sedan anvisningarna i anteckningsboken.
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=FaceAPI.ipynb)
 

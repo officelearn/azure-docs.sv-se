@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: c88b777e08bc165caefa14fe28d43c498e3fefcd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a016781e5b05c8f43c043bf1f3368a58064e43ad
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790380"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501268"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Query Performance Insight för Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,15 +41,15 @@ För Query Performance Insight krävs att [frågearkivet](/sql/relational-databa
 
 Du behöver följande [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](../../role-based-access-control/overview.md) för att kunna använda Query Performance Insight:
 
-* Behörigheter för **läsare** , **ägare** , **deltagare** , **SQL DB-deltagare** eller **SQL Server deltagare** krävs för att visa de främsta resurs krävande frågorna och diagrammen.
-* Behörigheter för **ägare** , **deltagare** , **SQL DB-deltagare** eller **SQL Server deltagare** krävs för att Visa frågetext.
+* Behörigheter för **läsare**, **ägare**, **deltagare**, **SQL DB-deltagare** eller **SQL Server deltagare** krävs för att visa de främsta resurs krävande frågorna och diagrammen.
+* Behörigheter för **ägare**, **deltagare**, **SQL DB-deltagare** eller **SQL Server deltagare** krävs för att Visa frågetext.
 
 ## <a name="use-query-performance-insight"></a>Använda Query Performance Insight
 
 Query Performance Insight är enkelt att använda:
 
 1. Öppna [Azure Portal](https://portal.azure.com/) och leta upp en databas som du vill undersöka.
-2. Öppna **intelligenta prestanda** Query Performance Insight på menyn på den vänstra sidan  >  **Query Performance Insight** .
+2. Öppna **intelligenta prestanda** Query Performance Insight på menyn på den vänstra sidan  >  **Query Performance Insight**.
   
    ![Query Performance Insight på menyn](./media/query-performance-insight-use/tile.png)
 
@@ -86,8 +86,8 @@ Som standard visar Query Performance Insight de fem främsta processor krävande
    > Om du vill ha en bättre jämförelse (upp till en minut) kan du skapa ett anpassat DTU-användnings diagram:
    >
    > 1. Välj **Azure SQL Database**  >  **övervakning** i Azure Portal.
-   > 2. Välj **Mått** .
-   > 3. Välj **+ Lägg till diagram** .
+   > 2. Välj **Mått**.
+   > 3. Välj **+ Lägg till diagram**.
    > 4. Välj procentuellt DTU i diagrammet.
    > 5. Välj dessutom de **senaste 24 timmarna** på den övre vänstra menyn och ändra den till en minut.
    >
@@ -160,7 +160,7 @@ Tids krävande frågor har störst potential för att låsa resurser längre, bl
 Så här identifierar du tids krävande frågor:
 
 1. Öppna fliken **anpassad** i Query Performance Insight för den valda databasen.
-2. Ändra måtten till **duration** .
+2. Ändra måtten till **duration**.
 3. Välj antal frågor och observations intervallet.
 4. Välj agg regerings funktion:
 
@@ -177,9 +177,9 @@ Så här identifierar du tids krävande frågor:
    >
    > Om du vill förstå databasen DTU-förbrukning med mer information (upp till en minut) kan du överväga att skapa ett anpassat diagram i Azure Portal:
    >
-   > 1. Välj **Azure SQL Database**  >  **övervakning** .
-   > 2. Välj **Mått** .
-   > 3. Välj **+ Lägg till diagram** .
+   > 1. Välj **Azure SQL Database**  >  **övervakning**.
+   > 2. Välj **Mått**.
+   > 3. Välj **+ Lägg till diagram**.
    > 4. Välj procentuellt DTU i diagrammet.
    > 5. Välj dessutom de **senaste 24 timmarna** på den övre vänstra menyn och ändra den till en minut.
    >
@@ -197,7 +197,7 @@ Till exempel har många data drivna webbplatser stor åtkomst till databasen fö
 Så här identifierar du vanliga frågor ("chatty"):
 
 1. Öppna fliken **anpassad** i Query Performance Insight för den valda databasen.
-2. Ändra måtten till **antal körningar** .
+2. Ändra måtten till **antal körningar**.
 3. Välj antal frågor och observations intervallet.
 4. Välj knappen **gå >** för att se den anpassade vyn.
 
@@ -238,14 +238,14 @@ Det andra fallet inträffar när Frågearkivet inte är aktiverat, eller om para
 
 Det finns två typer av bevarande principer:
 
-* **Storlek baserad** : om den här principen är inställd på **Auto** rensas data automatiskt när den maximala storleken uppnås i närheten.
-* **Tidsbaserad** : som standard är den här principen inställt på 30 dagar. Om Query Store tar slut på utrymme, tar den bort information som är äldre än 30 dagar.
+* **Storlek baserad**: om den här principen är inställd på **Auto** rensas data automatiskt när den maximala storleken uppnås i närheten.
+* **Tidsbaserad**: som standard är den här principen inställt på 30 dagar. Om Query Store tar slut på utrymme, tar den bort information som är äldre än 30 dagar.
 
 Du kan ställa in avbildnings principen på:
 
-* **Alla** : Query Store fångar alla frågor.
-* **Auto** : Query Store ignorerar ovanliga frågor och frågor med obetydlig kompilering och körnings tid. Tröskelvärden för antal körningar, kompileringstid och varaktighet för körning fastställs internt. Detta är standard alternativet.
-* **Ingen** : Query Store slutar att samla in nya frågor, men körnings statistik för redan infångade frågor samlas fortfarande in.
+* **Alla**: Query Store fångar alla frågor.
+* **Auto**: Query Store ignorerar ovanliga frågor och frågor med obetydlig kompilering och körnings tid. Tröskelvärden för antal körningar, kompileringstid och varaktighet för körning fastställs internt. Detta är standard alternativet.
+* **Ingen**: Query Store slutar att samla in nya frågor, men körnings statistik för redan infångade frågor samlas fortfarande in.
 
 Vi rekommenderar att du ställer in alla principer för att **automatiskt** och rensa principen till 30 dagar genom att köra följande kommandon från [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) eller Azure Portal. (Ersätt `YourDB` med databasens namn.)
 

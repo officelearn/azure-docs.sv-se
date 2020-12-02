@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 1dcefefe02d91506c494cdf91e75ca951ccf43bb
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 408ba76c44d1161a4b91ccc037721796c7b94661
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365488"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500758"
 ---
 # <a name="azure-boot-diagnostics"></a>Azure Boot-diagnostik
 
@@ -41,10 +41,10 @@ När du skapar en virtuell dator i Azure Portal är standardinställningen att s
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-enable-portal.png" alt-text="Skärm bild som aktiverar hanterad startdiagnostik under skapandet av virtuella datorer.":::
 
 ### <a name="enable-managed-boot-diagnostics-using-cli"></a>Aktivera hanterad startdiagnostik med CLI
-Startdiagnostik med ett hanterat lagrings konto stöds i Azure CLI-2.12.0 och senare. Om du inte anger ett namn eller en URI för ett lagrings konto används ett hanterat konto. Mer information och kod exempel finns i [CLI-dokumentationen för startdiagnostik](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics?view=azure-cli-latest&preserve-view=true).
+Startdiagnostik med ett hanterat lagrings konto stöds i Azure CLI-2.12.0 och senare. Om du inte anger ett namn eller en URI för ett lagrings konto används ett hanterat konto. Mer information och kod exempel finns i [CLI-dokumentationen för startdiagnostik](/cli/azure/vm/boot-diagnostics?preserve-view=true&view=azure-cli-latest).
 
 ### <a name="enable-managed-boot-diagnostics-using-azure-resource-manager-arm-templates"></a>Aktivera hanterad startdiagnostik med Azure Resource Manager ARM-mallar
-Allt efter att API-version 2020-06-01 har stöd för hanterad startdiagnostik. Mer information finns i [instans visning av Boot Diagnostics](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics).
+Allt efter att API-version 2020-06-01 har stöd för hanterad startdiagnostik. Mer information finns i [instans visning av Boot Diagnostics](/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics).
 
 ```ARM Template
             "name": "[parameters('virtualMachineName')]",

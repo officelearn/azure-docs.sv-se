@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 42dfa499e0a44d0b468d3a234e9dc88904c361b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 47d994a572d2fb0a76e1b6a713b61b70cccbd659
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025717"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509221"
 ---
 Här följer användningsbegränsningarna och andra tjänstbegränsningar för Azure Active Directory-tjänsten (Azure AD).
 
@@ -30,4 +30,4 @@ Här följer användningsbegränsningarna och andra tjänstbegränsningar för A
 | Åtkomstpanel |Det finns ingen gräns för antalet program som kan visas i åtkomst panelen per användare oavsett tilldelade licenser.  |
 | Rapporter | Högst 1 000 rader kan visas eller hämtas i rapporter. Eventuella ytterligare data trunkeras. |
 | Administrativa enheter | En Azure AD-resurs kan vara medlem i högst 30 administrativa enheter. |
-| Roller och behörigheter för Azure AD | <ul><li>Högst 30 [Azure AD-anpassade roller](/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context) kan skapas i en Azure AD-organisation.</li><li>Det går inte att lägga till en grupp som [grupp ägare](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context#object-ownership).</li><li>Användarens möjlighet att läsa andra användares klient information kan bara begränsas av växeln Azure AD Organization-wide för att inaktivera alla användare som inte är administratörers åtkomst till all klient information (rekommenderas inte). Mer information finns i [begränsa standard behörigheterna för medlems användare](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context#restrict-member-users-default-permissions).</li><li>Det kan ta upp till 15 minuter eller att logga ut/logga in innan tillägg för administratörs roll medlemskap och återkallning börjar gälla.</li></ul> |
+| Roller och behörigheter för Azure AD | <ul><li>Högst 30 [Azure AD-anpassade roller](/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) kan skapas i en Azure AD-organisation.</li><li>Det går inte att lägga till en grupp som [grupp ägare](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context#object-ownership).</li><li>Användarens möjlighet att läsa andra användares klient information kan bara begränsas av växeln Azure AD Organization-wide för att inaktivera alla användare som inte är administratörers åtkomst till all klient information (rekommenderas inte). Mer information finns i [begränsa standard behörigheterna för medlems användare](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context#restrict-member-users-default-permissions).</li><li>Det kan ta upp till 15 minuter eller att logga ut/logga in innan tillägg för administratörs roll medlemskap och återkallning börjar gälla.</li></ul> |

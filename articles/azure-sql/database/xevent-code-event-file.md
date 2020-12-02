@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 06/06/2020
-ms.openlocfilehash: 9674b7188251312056812ac8e1dcae5885579e2a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d7a57f98551cf91ed87858caba0907471bcf6b12
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791315"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501234"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Mål kod för händelse filen för utökade händelser i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -54,7 +54,7 @@ I det här avsnittet presenteras ett kod exempel med två faser:
 
 - Du måste ha installerat [Azure PowerShell-modulerna](https://go.microsoft.com/?linkid=9811175) .
 
-  - Modulerna innehåller kommandon som- **New-AzStorageAccount** .
+  - Modulerna innehåller kommandon som- **New-AzStorageAccount**.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fas 1: PowerShell-kod för Azure Storage container
 
@@ -62,7 +62,7 @@ Den här PowerShell är fas 1 i kod exemplet med två faser.
 
 Skriptet börjar med kommandon för att rensa efter en eventuell tidigare körning och är rerunnable.
 
-1. Klistra in PowerShell-skriptet i en enkel text redigerare, till exempel Notepad.exe, och Spara skriptet som en fil med fil namns tillägget **. ps1** .
+1. Klistra in PowerShell-skriptet i en enkel text redigerare, till exempel Notepad.exe, och Spara skriptet som en fil med fil namns tillägget **. ps1**.
 2. Starta PowerShell ISE som administratör.
 3. I prompten skriver du<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>och tryck sedan på RETUR.
 4. Öppna din **. ps1** -fil i PowerShell ISE. Kör skriptet.
@@ -258,7 +258,7 @@ PowerShell-skriptet skrev ut några namngivna värden när det avslutades. Du m�
 6. Spara och kör sedan skriptet.
 
 > [!WARNING]
-> SAS-nyckelvärdet som genereras av föregående PowerShell-skript kan börja med en? (frågetecken). När du använder SAS-nyckeln i följande T-SQL-skript måste du *ta bort det inledande "?"* . Annars kan dina insatser blockeras av säkerhet.
+> SAS-nyckelvärdet som genereras av föregående PowerShell-skript kan börja med en? (frågetecken). När du använder SAS-nyckeln i följande T-SQL-skript måste du *ta bort det inledande "?"*. Annars kan dina insatser blockeras av säkerhet.
 
 ### <a name="transact-sql-code"></a>Transact-SQL-kod
 
@@ -449,7 +449,7 @@ ALTER EVENT SESSION ... STATE = START;
 GO
 ```
 
-## <a name="output"></a>Utdata
+## <a name="output"></a>Resultat
 
 När Transact-SQL-skriptet är klart klickar du på en cell under **event_data_XML** kolumn rubriken. Ett **\<event>** element visas som visar en Update-instruktion.
 
@@ -506,9 +506,9 @@ En förklaring av avancerade alternativ för visning av data från utökade hän
 
 Anta att du vill köra föregående Transact-SQL-exempel på Microsoft SQL Server.
 
-- För enkelhetens skull vill du helt ersätta användningen av Azure Storage containern med en enkel fil, till exempel *C:\myeventdata.xel* . Filen skrivs till den lokala hård disken på den dator som är värd för SQL Server.
-- Du behöver inte någon typ av Transact-SQL-uttryck för att **skapa huvud nyckel** och **skapa autentiseringsuppgifter** .
-- I instruktionen **Skapa event-session** , i **dess Add Target** -sats, ersätter du det http-värde som tilldelats **filename =** med en fullständig Sök vägs sträng som *C:\myfile.xel* .
+- För enkelhetens skull vill du helt ersätta användningen av Azure Storage containern med en enkel fil, till exempel *C:\myeventdata.xel*. Filen skrivs till den lokala hård disken på den dator som är värd för SQL Server.
+- Du behöver inte någon typ av Transact-SQL-uttryck för att **skapa huvud nyckel** och **skapa autentiseringsuppgifter**.
+- I instruktionen **Skapa event-session** , i **dess Add Target** -sats, ersätter du det http-värde som tilldelats **filename =** med en fullständig Sök vägs sträng som *C:\myfile.xel*.
   
   - Inget Azure Storage konto behöver tas med.
 

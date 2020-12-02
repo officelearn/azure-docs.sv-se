@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: reference
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 0c89dc28a330e319e18a6289e5f6759c56e46ae8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 139673e46421aa0dc19298697872fbff5fe587af
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791281"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501217"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Utökade händelser i Azure SQL Database 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -73,7 +73,7 @@ Relaterade ämnen innehåller två kod exempel:
 
 Funktionen utökade händelser stöds av flera [katalogvyer](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql). I katalogvyer visas *metadata eller definitioner* för användarsessioner som skapats av användare i den aktuella databasen. Vyer returnerar inte information om instanser av aktiva Event-sessioner.
 
-| Namn på<br/>katalogvy | Beskrivning |
+| Namn på<br/>katalogvy | Description |
 |:--- |:--- |
 | **sys.database_event_session_actions** |Returnerar en rad för varje åtgärd vid varje händelse i en användarsession. |
 | **sys.database_event_session_events** |Returnerar en rad för varje händelse i en användarsession. |
@@ -81,13 +81,13 @@ Funktionen utökade händelser stöds av flera [katalogvyer](/sql/relational-dat
 | **sys.database_event_session_targets** |Returnerar en rad för varje händelse mål för en Event-session. |
 | **sys.database_event_sessions** |Returnerar en rad för varje händelsesessionen i databasen. |
 
-I Microsoft SQL Server har liknande katalogvy-vyer namn som inkluderar *. Server \_* i stället för *. \_ Database* . Namn mönstret liknar **sys.server_event_%** .
+I Microsoft SQL Server har liknande katalogvy-vyer namn som inkluderar *. Server \_* i stället för *. \_ Database*. Namn mönstret liknar **sys.server_event_%**.
 
 ## <a name="new-dynamic-management-views-dmvs"></a>Nya vyer för dynamisk hantering [(DMV: er)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
 Azure SQL Database har [dynamiska Management views (DMV: er)](/sql/relational-databases/system-dynamic-management-views/extended-events-dynamic-management-views) som stöder utökade händelser. DMV: er anger om *aktiva* Event-sessioner.
 
-| Namn på DMV | Beskrivning |
+| Namn på DMV | Description |
 |:--- |:--- |
 | **sys.dm_xe_database_session_event_actions** |Returnerar information om Event session-åtgärder. |
 | **sys.dm_xe_database_session_events** |Returnerar information om sessions händelser. |
@@ -97,7 +97,7 @@ Azure SQL Database har [dynamiska Management views (DMV: er)](/sql/relational-da
 
 I Microsoft SQL Server får liknande katalogfiler namn utan *\_ databas* delen av namnet, t. ex.:
 
-- **sys.dm_xe_sessions** , i stället för namn<br/>**sys.dm_xe_database_sessions** .
+- **sys.dm_xe_sessions**, i stället för namn<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>DMV: er gemensamt för båda
 

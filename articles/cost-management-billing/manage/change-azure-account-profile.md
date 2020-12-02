@@ -32,21 +32,21 @@ Om du vill uppdatera din Azure Active Directory-användarprofilinformation kan e
 ## <a name="update-an-mosp-billing-account-address"></a>Uppdatera en MOSP-faktureringskontoadress
 
 1. Logga in på Azure-portalen med hjälp av e-postadressen, som har kontoadministratörsbehörighet för kontot.
-1. Sök efter **Kostnadshantering + fakturering** .  
+1. Sök efter **Kostnadshantering + fakturering**.  
     ![Skärmbild som visar var du söker i Azure-portalen efter kostnadshantering + fakturering](./media/change-azure-account-profile/search-cmb.png)
 1. Välj **Egenskaper** till vänster.  
     ![Skärmbild som visar egenskaper för MOSP-faktureringskonto](./media/change-azure-account-profile/update-contact-information-select-properties.png)
-1. Välj **Uppdatera faktureringsadressen** för att uppdatera adresserna för såld till och fakturera till. Ange den nya adressen och välj sedan **Spara** .  
+1. Välj **Uppdatera faktureringsadressen** för att uppdatera adresserna för såld till och fakturera till. Ange den nya adressen och välj sedan **Spara**.  
     ![Skärmbild som visar uppdateringsadressen för MOSP-faktureringskontot](./media/change-azure-account-profile/update-contact-information-mosp.png)
 
 ## <a name="update-an-mca-billing-account-sold-to-address"></a>Uppdatera en såld till-adress för ett MCA-faktureringskonto
 
 1. Logga in på Azure-portalen med hjälp av e-postadressen, som har en ägar- eller deltagarroll på faktureringskontot för ett Microsoft-kundavtal.
-1. Sök efter **Kostnadshantering + fakturering** .  
+1. Sök efter **Kostnadshantering + fakturering**.  
     ![Skärmbild som visar var du söker i Azure-portalen](./media/change-azure-account-profile/search-cmb.png)
-1. Välj **Egenskaper** på vänster sida och välj sedan **Uppdatering såld till** .  
+1. Välj **Egenskaper** på vänster sida och välj sedan **Uppdatering såld till**.  
     ![Skärmbild som visar egenskaperna för ett MCA-faktureringskonto där du kan ändra Sålt till-adressen](./media/change-azure-account-profile/update-sold-to-list-properties-mca.png)
-1. Ange den nya adressen och välj **Spara** .  
+1. Ange den nya adressen och välj **Spara**.  
     ![Skärmbild som visar uppdatering av Sålt till-adressen för ett MCA-konto](./media/change-azure-account-profile/update-sold-to-save-mca.png)
 
     > [!IMPORTANT]
@@ -55,14 +55,14 @@ Om du vill uppdatera din Azure Active Directory-användarprofilinformation kan e
 ## <a name="update-an-mca-billing-account-address"></a>Uppdatera en MCA-faktureringskontoadress
 
 1. Logga in på Azure-portalen med hjälp av e-postadressen, som har en ägar- eller deltagarroll på ett faktureringskonto eller en faktureringsprofil för en MCA.
-1. Sök efter **Kostnadshantering + fakturering** .  
+1. Sök efter **Kostnadshantering + fakturering**.  
 1. Välj **Faktureringsprofiler** till vänster.
 1. Välj en faktureringsprofil för att uppdatera faktureringsadressen.  
     ![Skärmbild som visar sidan Faktureringsprofiler, där du väljer en faktureringsprofil](./media/change-azure-account-profile/update-bill-to-list-profiles-mca.png)
 1. Välj **Egenskaper** till vänster.
-1. Välj **Uppdatera adress** .  
+1. Välj **Uppdatera adress**.  
     ![Skärmbild som visar var du uppdaterar adressen](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
-1. Ange den nya adressen och välj sedan **Spara** .  
+1. Ange den nya adressen och välj sedan **Spara**.  
     ![Skärmbild som visar uppdatering av adressen](./media/change-azure-account-profile/update-bill-to-save-mca.png)
 
 ## <a name="service-and-marketing-emails"></a>E-postmeddelanden med information om tjänster och marknadsföring
@@ -95,7 +95,7 @@ Du kan ändra din kontakt-e-postadress med hjälp av någon av följande metoder
 Så här avanmäler du dig för e-postmeddelanden med marknadsföringsinnehåll:
 
 1. Gå till [formuläret för begäran](https://account.microsoft.com/profile/permissions-link-request) för att skicka en begäran med e-postadressen för din profil. Du får en länk via e-post för att uppdatera dina inställningar.
-1. Välj länken för att öppna sidan **Hantera kommunikationsbehörigheter** . På den här sidan visas de typer av marknadsföringskommunikation som har valts för e-postadressen. Avmarkera de avsnitt som du vill avanmäla dig från och välj sedan **Spara** .  
+1. Välj länken för att öppna sidan **Hantera kommunikationsbehörigheter**. På den här sidan visas de typer av marknadsföringskommunikation som har valts för e-postadressen. Avmarkera de avsnitt som du vill avanmäla dig från och välj sedan **Spara**.  
     ![Exempel på sidan för hantering av kommunikationsbehörigheter](./media/change-azure-account-profile/manage-communication-permissions.png)
 
 När du avanmäler dig för marknadsföringskommunikationen får du fortfarande tjänstmeddelanden, baserat på ditt konto.
@@ -117,7 +117,7 @@ Det finns inte stöd för att ändra land eller region för ett befintligt konto
 1. Logga in på Azure-portalen, välj **Prenumeration** i den vänstra rutan och välj sedan den prenumeration som du vill byta namn på.
 1. Välj **Översikt** och välj sedan **Byt namn** i kommandofältet.  
     ![Exempel på namnbyte av Azure-prenumeration](./media/change-azure-account-profile/rename-sub.png)
-1. När du har ändrat namnet väljer du **Spara** .
+1. När du har ändrat namnet väljer du **Spara**.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 

@@ -1,5 +1,5 @@
 ---
-title: Vad är säkerhet på kolumn nivå för Azure-Synapse?
+title: Säkerhet på kolumn nivå för dedikerad SQL-pool
 description: Column-Level säkerhet gör det möjligt för kunder att kontrol lera åtkomsten till databas tabell kolumner baserat på användarens körnings kontext eller grupp medlemskap, förenkla utformningen och kodningen av säkerhet i ditt program och gör att du kan implementera begränsningar för kolumn åtkomst.
 services: synapse-analytics
 author: julieMSFT
@@ -12,19 +12,19 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: f8bb40f9c80a0785c81c7aeacf783553bf73aa90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 817a912dabfc5365eabe8e0dabd7e0b40e40c525
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259891"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462511"
 ---
-# <a name="column-level-security"></a>Säkerhet på kolumn nivå
+# <a name="column-level-security"></a>Säkerhet på kolumnnivå
 
 Column-Level säkerhet gör det möjligt för kunder att kontrol lera åtkomsten till tabell kolumner baserat på användarens körnings kontext eller grupp medlemskap.
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Eftersom den här videon har publicerats [säkerhet på radnivå](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) blev tillgänglig för Azure Synapse.
+Eftersom den här videon har publicerats [säkerhet på radnivå](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) blev tillgänglig för dedikerad SQL-pool i Azure Synapse.
 
 Säkerhet på kolumn nivå fören klar utformningen och kodningen av säkerhet i ditt program, så att du kan begränsa kolumn åtkomsten för att skydda känsliga data. Till exempel ser du till att specifika användare bara har åtkomst till vissa kolumner i en tabell som är relevanta för deras avdelning. Logiken för åtkomst begränsning finns i databas nivån i stället för bort från data i en annan program nivå. Databasen tillämpar åtkomst begränsningar varje gång data åtkomsten görs från vilken nivå som helst. Den här begränsningen gör din säkerhet mer tillförlitlig och robust genom att minska det totala säkerhets systemets Area. Dessutom eliminerar säkerhet på kolumn nivå behovet av att introducera vyer för att filtrera bort kolumner för att få åtkomst begränsningar för användarna.
 
@@ -85,5 +85,5 @@ SELECT * FROM Membership;
 
 Några exempel på hur säkerhet på kolumn nivå används idag:
 
-- Ett finansiellt tjänste företag ger endast konto ansvariga åtkomst till kundens socialförsäkrings nummer (SSN), telefonnummer och annan personligt identifierbar information (PII).
+- Ett finansiellt tjänste företag gör det möjligt för endast konto ansvariga att ha åtkomst till kundens socialförsäkrings nummer (SSN), telefonnummer och annan personlig information.
 - En hälso vårds leverantör tillåter endast att läkare och anställda har till gång till känsliga medicinska poster samtidigt som medlemmarna i fakturerings avdelningen inte kan visa dessa data.

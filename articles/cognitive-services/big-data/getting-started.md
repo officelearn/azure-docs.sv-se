@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 37239f9c7857a8e72bb293cfa3caeb429962a542
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 095f2c3ed17042bb616fb091d1af52a64c913709
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363348"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460497"
 ---
 # <a name="getting-started"></a>Komma igång
 
@@ -37,13 +37,13 @@ Molnbaserad Cognitive Services är intelligenta algoritmer som finns i Azure. De
 
 Om ditt program eller din arbets belastning använder stora data uppsättningar, kräver privat nätverk eller inte kan kontakta molnet kan det vara omöjligt att kommunicera med moln tjänster. I den här situationen har container Cognitive Services följande fördelar:
 
-* **Låg anslutning** : du kan distribuera behållare Cognitive Services i valfri dator miljö, både på molnet och av. Om programmet inte kan kontakta molnet kan du överväga att distribuera container Cognitive Services i ditt program.
+* **Låg anslutning**: du kan distribuera behållare Cognitive Services i valfri dator miljö, både på molnet och av. Om programmet inte kan kontakta molnet kan du överväga att distribuera container Cognitive Services i ditt program.
 
-* **Låg latens** : eftersom behållar tjänster inte kräver kommunikation med tur och retur till/från molnet, returneras svar med mycket lägre fördröjning.
+* **Låg latens**: eftersom behållar tjänster inte kräver kommunikation med tur och retur till/från molnet, returneras svar med mycket lägre fördröjning.
 
-* **Sekretess-och data säkerhet** : du kan distribuera behållar tjänster i privata nätverk så att känsliga data inte lämnar nätverket.
+* **Sekretess-och data säkerhet**: du kan distribuera behållar tjänster i privata nätverk så att känsliga data inte lämnar nätverket.
 
-* **Hög skalbarhet** : behållarens tjänster har inte "hastighets begränsningar" och körs på användar hanterade datorer. Det innebär att du kan skala Cognitive Services utan slut för att hantera stora arbets belastningar.
+* **Hög skalbarhet**: behållarens tjänster har inte "hastighets begränsningar" och körs på användar hanterade datorer. Det innebär att du kan skala Cognitive Services utan slut för att hantera stora arbets belastningar.
 
 Följ [den här guiden](../cognitive-services-container-support.md?tabs=luis) för att skapa en behållar kognitiv tjänst.
 
@@ -65,14 +65,14 @@ Azure Databricks är en Apache Spark-baserad analys plattform med en enkel klick
     * Installera biblioteket på ett kluster  
       <img src="media/install-library.png" alt="Install Library on Cluster" width="50%"/>
 
-### <a name="synapse-analytics-optional"></a>Synapse-analys (valfritt)
+### <a name="azure-synapse-analytics-optional"></a>Azure Synapse Analytics (valfritt)
 
-Du kan också använda Synapse Analytics för att skapa ett Spark-kluster. Azure Synapse Analytics samlar ihop företags data lager hantering och stor data analys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen server utan på begäran eller etablerade resurser i stor skala. Följ dessa steg för att komma igång med Synapse Analytics:
+Du kan också använda Synapse Analytics för att skapa ett Spark-kluster. Azure Synapse Analytics samlar ihop företags data lager hantering och stor data analys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen server utan på begäran eller etablerade resurser i stor skala. Följ dessa steg för att komma igång med Azure Synapse Analytics:
 
 1. [Skapa en Synapse-arbetsyta (för hands version)](../../synapse-analytics/quickstart-create-workspace.md).
 1. [Skapa en ny server lös Apache Spark pool (för hands version) med hjälp av Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 
-I Synapse Analytics installeras Big data för Cognitive Services som standard.
+I Azure Synapse Analytics installeras Big data för Cognitive Services som standard.
 
 ### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 

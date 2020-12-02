@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: 010ca40f4f3aacd6353aecd150e944672cc09066
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a559a51feafa310a4645282dc6368f520fc6b972
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097523"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459613"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimera kostnaden för flera regioner i Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,14 +26,14 @@ I ett system med flera regioner ökar de tillgängliga ru: er för Skriv åtgär
 
 ### <a name="example"></a>Exempel
 
-Se till att du har en behållare i västra USA som kon figurer ATS för skrivningar i en region, som tillhandahålls med data flöde 10 000 RU/s och lagrar 1 TB data den här månaden. Vi antar att du lägger till en region, östra USA, med samma lagring och data flöde och du vill kunna skriva till behållarna i båda regionerna från din app. Den totala månads fakturan (antar 31 dagar) är följande:
+Tänk på att du har en behållare i västra USA som kon figurer ATS för skrivningar i en region, som tillhandahålls med data flödet på 10 000 RU/s, och lagrar 0,5 TB data i månaden. Vi antar att du lägger till en region, östra USA, med samma lagring och data flöde och du vill kunna skriva till behållarna i båda regionerna från din app. Den nya totala månads fakturan (förutsatt att 730 timmar per månad) blir följande:
 
 |**Objekt**|**Användning (månatlig)**|**Hastighet**|**Månatlig kostnad**|
 |----|----|----|----|
-|Data flödes faktura för container i USA, västra (enkla Skriv regioner) |10 000 RU/s * 24 timmar * 31 dagar |$0,008 per 100 RU/s per timme |$584,06 |
-|Data flödes faktura för container i 2 regioner – västra USA & USA, östra (flera Skriv regioner) |2 * 10 000 RU/s * 24 timmar * 31 dagar|$0,016 per 100 RU/s per timme |$2 336,26 |
-|Lagrings faktura för behållare i västra USA |1 TB (eller 1 024 GB) |$0,25/GB |$256 |
-|Lagrings faktura för 2 regioner – västra USA & USA, östra |2 * 1 TB (eller 3 072 GB) |$0,25/GB |$768 |
+|Data flödes faktura för container i USA, västra (enkel skrivnings region) |10 000 RU/s * 730 timmar |$0,008 per 100 RU/s per timme |$584 |
+|Data flödes faktura för container i 2 regioner – västra USA & USA, östra (flera Skriv regioner) |2 * 10 000 RU/s * 730 timmar |$0,016 per 100 RU/s per timme |$2 336 |
+|Lagrings faktura för behållare i västra USA |0,5 TB (eller 512 GB) |$0,25/GB |$128 |
+|Lagrings faktura för container i 2 regioner – västra USA & USA, östra |2 * 0,5 TB (eller 1 024 GB) |$0,25/GB |$256 |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Förbättra data flödes användningen baserat på per region
 

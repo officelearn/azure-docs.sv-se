@@ -1,6 +1,6 @@
 ---
-title: Skapa och Använd vyer i SQL-poolen utan server (för hands version)
-description: I det här avsnittet får du lära dig hur du skapar och använder vyer för att figursätta frågor om server utan SQL-pool (för hands version). Med vyer kan du återanvända dessa frågor. Vyer behövs också om du vill använda verktyg, till exempel Power BI, tillsammans med SQL-poolen utan server.
+title: Skapa och Använd vyer i SQL-poolen utan Server
+description: I det här avsnittet får du lära dig hur du skapar och använder vyer för att packa upp frågor utan server utan SQL-pool. Med vyer kan du återanvända dessa frågor. Vyer behövs också om du vill använda verktyg, till exempel Power BI, tillsammans med SQL-poolen utan server.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 302cf97db7c1d2ba489a84b6be912816d20f6091
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 0948c7c82d7577bae07057bff9d1be4d7e09f978
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685570"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462293"
 ---
-# <a name="create-and-use-views-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Skapa och Använd vyer med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
+# <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Skapa och Använd vyer med Server lös SQL-pool i Azure Synapse Analytics
 
-I det här avsnittet får du lära dig hur du skapar och använder vyer för att figursätta frågor om server utan SQL-pool (för hands version). Med vyer kan du återanvända dessa frågor. Vyer behövs också om du vill använda verktyg, till exempel Power BI, tillsammans med SQL-poolen utan server.
+I det här avsnittet får du lära dig hur du skapar och använder vyer för att packa upp frågor utan server utan SQL-pool. Med vyer kan du återanvända dessa frågor. Vyer behövs också om du vill använda verktyg, till exempel Power BI, tillsammans med SQL-poolen utan server.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ditt första steg är att skapa en databas där vyn kommer att skapas och initiera de objekt som behövs för att autentisera i Azure Storage genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) på den databasen. Alla frågor i den här artikeln utförs i exempel databasen.
 

@@ -1,25 +1,25 @@
 ---
 title: Använda användardefinierade scheman
-description: Tips om hur du använder användardefinierade scheman för T-SQL för att utveckla lösningar i Synapse SQL-poolen.
+description: Tips för att använda användardefinierade T-SQL-scheman för att utveckla lösningar för dedikerade SQL-pooler i Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: fc5e035215e7cabd02861c6ee2498cadd1ef0534
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 3204c77dd076d9aac6eb5a60b489280caefcbf4b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213371"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460454"
 ---
-# <a name="user-defined-schemas-in-synapse-sql-pool"></a>Användardefinierade scheman i Synapse SQL-pool
-Den här artikeln fokuserar på att tillhandahålla flera tips för att använda användardefinierade scheman för T-SQL för att utveckla lösningar i Synapse SQL-poolen.
+# <a name="user-defined-schemas-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Användardefinierade scheman för dedikerade SQL-pooler i Azure Synapse Analytics
+Den här artikeln fokuserar på att tillhandahålla flera tips för att använda användardefinierade scheman för T-SQL för att utveckla lösningar i dedikerad SQL-pool.
 
 ## <a name="schemas-for-application-boundaries"></a>Scheman för program gränser
 
@@ -27,7 +27,7 @@ Traditionella informations lager använder ofta separata databaser för att skap
 
 Till exempel kan ett traditionellt SQL Server informations lager omfatta en mellanlagringsdatabas, en informations lager databas och några data mart-databaser. I den här topologin fungerar varje databas som arbets belastning och säkerhets gränser i arkitekturen.
 
-SQL-poolen kör däremot hela arbets belastningen för data lagret i en databas. Kopplingar mellan databaser är inte tillåtna. SQL-poolen förväntar sig att alla tabeller som används av lagret lagras i en databas.
+En dedikerad SQL-pool kör däremot hela arbets belastningen för data lagret i en databas. Kopplingar mellan databaser är inte tillåtna. Dedikerad SQL-pool förväntar sig att alla tabeller som används av lagret lagras i en databas.
 
 > [!NOTE]
 > SQL-poolen stöder inte kors databas frågor av någon typ. Det innebär att data lager implementeringar som utnyttjar det här mönstret måste ändras.
@@ -37,11 +37,11 @@ SQL-poolen kör däremot hela arbets belastningen för data lagret i en databas.
 ## <a name="recommendations"></a>Rekommendationer
 Här följer rekommendationer för konsolidering av arbets belastningar, säkerhet, domän och funktionella gränser med hjälp av användardefinierade scheman:
 
-- Använd en SQL-adresspool för att köra hela arbets belastningen för data lagret.
-- Konsolidera din befintliga data lager miljö för att använda en SQL-adresspool.
+- Använd en databas i en dedikerad SQL-pool för att köra hela arbets belastningen för data lagret.
+- Konsolidera din befintliga data lager miljö för att använda en dedikerad SQL-adresspool.
 - Använd **användardefinierade scheman** för att tillhandahålla den gräns som tidigare implementerats med hjälp av databaser.
 
-Om användardefinierade scheman inte har använts tidigare har du en ren Skriv platta. Använd det gamla databas namnet som grund för dina användardefinierade scheman i SQL-adresspoolen.
+Om användardefinierade scheman inte har använts tidigare har du en ren Skriv platta. Använd det gamla databas namnet som bas för dina användardefinierade scheman i den dedicerade SQL-adresspoolen.
 
 Om scheman redan har använts har du några alternativ:
 
@@ -50,7 +50,7 @@ Om scheman redan har använts har du några alternativ:
 - Behåll gamla schema namn genom att implementera vyer över tabellen i ett extra schema för att återskapa den gamla schema strukturen.
 
 > [!NOTE]
-> Vid första inspektions alternativ 3 kan det verka som det mest tilltalande alternativet. Devil är dock i detalj. Vyer är skrivskyddade i SQL-poolen. Data-eller tabell ändringar måste utföras mot bas tabellen. Alternativ 3 introducerar också ett lager med vyer i systemet. Du kanske vill ge detta ytterligare en tanke på att du redan använder vyer i arkitekturen.
+> Vid första inspektions alternativ 3 kan det verka som det mest tilltalande alternativet. Devil är dock i detalj. Vyer är skrivskyddade i dedikerad SQL-pool. Data-eller tabell ändringar måste utföras mot bas tabellen. Alternativ 3 introducerar också ett lager med vyer i systemet. Du kanske vill ge detta ytterligare en tanke på att du redan använder vyer i arkitekturen.
 > 
 > 
 

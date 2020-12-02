@@ -1,6 +1,6 @@
 ---
-title: Fråga data lagring med Server lös SQL-pool (för hands version)
-description: Den här artikeln beskriver hur du frågar Azure Storage med hjälp av resursen Server lös SQL-pool (för hands version) i Azure Synapse Analytics.
+title: Fråga data lagring med Server lös SQL-pool
+description: Den här artikeln beskriver hur du frågar Azure Storage med hjälp av den serverbaserade SQL-adresspoolen i Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 81a892b10996686cf58d45867e3d889505b5d3d9
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: 967250cf29d1f0248f296cb545a764bd8e611773
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299589"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462663"
 ---
-# <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Fråga Storage-filer med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
+# <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Fråga Storage-filer med Server lös SQL-pool i Azure Synapse Analytics
 
-Med Server lös SQL-pool (för hands version) kan du fråga efter data i data Lake. Den innehåller en fråge yta för T-SQL-frågor som hanterar halv strukturerade och ostrukturerade data frågor. För frågor stöds följande T-SQL-aspekter:
+Med Server lös SQL-pool kan du fråga efter data i data Lake. Den innehåller en fråge yta för T-SQL-frågor som hanterar halv strukturerade och ostrukturerade data frågor. För frågor stöds följande T-SQL-aspekter:
 
 - Fullständigt [val](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) av yta, inklusive majoriteten av [SQL Functions och operatorer](overview-features.md).
 - Skapa extern tabell som SELECT ([CETAS](develop-tables-cetas.md)) skapar en [extern tabell](develop-tables-external-tables.md) och sedan exporterar parallellt resultatet av en Transact-SQL SELECT-instruktion till Azure Storage.
@@ -222,7 +222,7 @@ Du kan lära dig mer om att fråga olika typer av data med hjälp av exempel fr�
 ### <a name="tools"></a>Verktyg
 
 De verktyg du behöver för att utfärda frågor:
-    - Azure Synapse Studio (för hands version)
+    - Azure Synapse Studio 
     - Azure Data Studio
     - SQL Server Management Studio
 
@@ -248,7 +248,7 @@ Demonstrations data innehåller följande data uppsättningar:
 - Testa Parquet-filer med kapslade kolumner
 - Böcker i JSON-format
 
-| Mappsökväg                                                  | Beskrivning                                                  |
+| Mappsökväg                                                  | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | SKV                                                        | Överordnad mapp för data i CSV-format                         |
 | /csv/population/<br />/csv/population-unix/<br />/csv/population-unix-hdr/<br />/csv/population-unix-hdr-escape<br />/csv/population-unix-hdr-quoted | Mappar med populations data filer i olika CSV-format. |

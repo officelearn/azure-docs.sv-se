@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 158d22ffb3bc5486e0523c07cc2c022c49f2ee9c
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c1dbdc4761c107a8e5028a43ead9710d45526016
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145607"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461182"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Skapa anpassade SDK: er för Azure Digitals dubbla med AutoRest
 
@@ -47,7 +47,7 @@ Följ dessa steg om du vill köra AutoRest mot Azure Digitals Swagger-filen:
 autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-Därför visas en ny mapp med namnet *ADTApi* i din arbets katalog. De genererade SDK-filerna kommer att ha namn området *ADTApi* . Du kommer att fortsätta att använda det namn området genom resten av användnings exemplen i den här artikeln.
+Därför visas en ny mapp med namnet *ADTApi* i din arbets katalog. De genererade SDK-filerna kommer att ha namn området *ADTApi*. Du kommer att fortsätta att använda det namn området genom resten av användnings exemplen i den här artikeln.
 
 AutoRest har stöd för en mängd olika språk kods generatorer.
 
@@ -64,7 +64,7 @@ Gör så här:
 3. I Solution Explorer högerklickar du på *ADTApi* -projektet för den genererade lösningen och väljer *Lägg till > befintligt objekt...*
 4. Hitta mappen där du genererade SDK och välj filerna på rotnivån
 5. Tryck på OK
-6. Lägg till en mapp i projektet (Högerklicka på projektet i Solution Explorer och välj *Lägg till > ny mapp* )
+6. Lägg till en mapp i projektet (Högerklicka på projektet i Solution Explorer och välj *Lägg till > ny mapp*)
 7. Namnge mapparna *modeller*
 8. Högerklicka på mappen *modeller* i lösnings Utforskaren och välj *Lägg till > befintligt objekt...*
 9. Välj filerna i mappen *modeller* i den genererade SDK: n och tryck på OK
@@ -73,7 +73,7 @@ För att utveckla SDK: n måste ditt projekt ha följande referenser:
 * `Microsoft.Rest.ClientRuntime`
 * `Microsoft.Rest.ClientRuntime.Azure`
 
-Om du vill lägga till dessa öppnar du *verktyg > NuGet Package Manager > hantera NuGet-paket för lösningen.* ...
+Om du vill lägga till dessa öppnar du *verktyg > NuGet Package Manager > hantera NuGet-paket för lösningen.*...
 
 1. I panelen kontrollerar du att fliken *Bläddra* är markerad
 2. Sök efter *Microsoft. rest*
@@ -102,7 +102,7 @@ Här är ett kodfragment som försöker lägga till en dubbel och fångar upp ev
 ```csharp
 try
 {
-    await client.DigitalTwins.AddAsync(id, initData);
+    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(id, initData);
     Console.WriteLine($"Created a twin successfully: {id}");
 }
 catch (ErrorResponseException e)

@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: bed43e586beff890f0aa8947140ae7d8e50439f3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 32079d6dc31cf3fcad66976737630472129b4271
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659836"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462423"
 ---
 # <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Konfigurera ett labb för att lära databas hantering för Relations databaser
 
@@ -41,7 +41,7 @@ Använd inställningarna i tabellen nedan när du konfigurerar ett klass rums la
 
 ## <a name="template-machine-configuration"></a>Mall dator konfiguration
 
-Om du vill installera MySQL på Windows Server 2019 kan du följa stegen i [Installera och köra MySQL Community Server på en virtuell dator](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
+Om du vill installera MySQL på Windows Server 2019 kan du följa stegen i [Installera och köra MySQL Community Server på en virtuell dator](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
 
 SQL Server 2019 är förinstallerat i den virtuella dator avbildningen som du valde när du skapade det nya labbet.
 

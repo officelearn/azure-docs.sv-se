@@ -1,6 +1,6 @@
 ---
 title: Modell för delad metadata
-description: Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och tabeller mellan server lös Apache Spark pooler (för hands version), Server lös SQL-pool (för hands version) och dedikerade SQL-pooler.
+description: Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och tabeller mellan server lös Apache Spark pooler, SQL-pool utan server och dedikerade SQL-pooler.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -9,18 +9,16 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64c19f3331be8ffda433207da88ebf22c546ee4e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b10b6f011fa7daee4094f0cc7b819d36127fedcd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324667"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460351"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Delade Azure Synapse Analytics-metadata
 
-Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och tabeller mellan server lös Apache Spark pooler (för hands version) och Server lös SQL-pool (för hands version).
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och tabeller mellan server lös Apache Spark pooler och SQL-pool utan server.
 
 Delningen har stöd för det s.k. moderna informations lager mönstret och ger arbets ytans SQL-motorer åtkomst till databaser och tabeller som skapats med Spark. Det gör det också möjligt för SQL-motorer att skapa egna objekt som inte delas med andra motorer.
 
@@ -46,7 +44,7 @@ Med Spark kan du skapa databaser, externa tabeller, hanterade tabeller och vyer.
 
 ## <a name="security-model-at-a-glance"></a>Säkerhets modell snabbt
 
-Spark-databaser och-tabeller, tillsammans med deras synkroniserade representationer i SQL-motorn, skyddas på den underliggande lagrings nivån. När en fråga skickas från någon av de motorer som den som skickar frågan har rätt att använda, skickas frågans säkerhets objekt till de underliggande filerna. Behörigheter kontrol leras på fil system nivå.
+Spark-databaser och-tabeller, tillsammans med deras synkroniserade representationer i SQL-motorn, skyddas på den underliggande lagrings nivån. När en fråga skickas från någon av de motorer som den som skickar frågan har rätt att använda, skickas frågans säkerhets objekt till de underliggande filerna. Behörigheter kontrolleras på filsystemnivå.
 
 Mer information finns i den [delade Azure Synapse Analytics-databasen](database.md).
 

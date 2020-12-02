@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6cda99bfcb883dd42aa813d6edb922f2701ed1fe
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e48b1357b8576baca0e8defca94f4c5248c6f74e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352209"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461288"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Azures säkerhets bas linje för Azure Data Factory
 
@@ -578,7 +578,7 @@ När privat länk är tillgänglig använder du privata slut punkter för att sk
 
 **Vägledning**: om data lagret för molnet stöder https eller TLS, är alla data överföringar mellan tjänster för data förflyttning i Data Factory och ett moln data lager via säker kanal-https eller TLS. Den TLS-version som används är 1,2.
 
-Alla anslutningar till Azure SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse) kräver kryptering (SSL/TLS) medan data överförs till och från databasen. När du redigerar en pipeline med hjälp av JSON lägger du till egenskapen kryptering och anger den till true i anslutnings strängen. För Azure Storage kan du använda HTTPS i anslutnings strängen.
+Alla anslutningar till Azure SQL Database och Azure Synapse Analytics kräver kryptering (SSL/TLS) medan data överförs till och från databasen. När du redigerar en pipeline med hjälp av JSON lägger du till egenskapen kryptering och anger den till true i anslutnings strängen. För Azure Storage kan du använda HTTPS i anslutnings strängen.
 
 * [Förstå kryptering i överföring i Azure Data Factory](./data-movement-security-considerations.md)
 

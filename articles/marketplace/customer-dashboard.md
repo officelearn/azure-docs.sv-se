@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9821cc8905caa9576662a192fc704c53b35af82d
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 878fa181ff09d547ef6594a238e9c1d883cc89b7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564879"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460491"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Kund instrument panel på kommersiell Marketplace-analys
 
@@ -21,7 +21,7 @@ Den här artikeln innehåller information om instrument panelen för kunder i Pa
 För att komma åt instrument panelen kunder i Partner Center väljer du **[analysera](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** kunder under **kommersiell marknads** plats  >  **Customers**.
 
 >[!NOTE]
-> Detaljerade definitioner av analys terminologi finns i terminologi för [kommersiella Marketplace-analyser och vanliga frågor](./partner-center-portal/faq-terminology.md).
+> Detaljerade definitioner av analys terminologi finns i terminologi för [kommersiella Marketplace-analyser och vanliga frågor](./analytics-faq.md).
 
 ## <a name="customers-dashboard"></a>Instrumentpanelen Kunder
 
@@ -58,7 +58,7 @@ I det här avsnittet hittar du dina kunders tillväxt trender för den valda ber
 
 [![Visar widgeten kunder på sidan kunder.](./media/customer-dashboard/customers-widget.png)](./media/customer-dashboard/customers-widget.png#lightbox)
 
-Det finns tre _kund typer_ : nya, befintliga och uppdelade.
+Det finns tre _kund typer_: nya, befintliga och uppdelade.
 
 - En ny kund har skaffat ett eller flera av dina erbjudanden för första gången inom den valda månaden.
 - En befintlig kund har köpt ett eller flera av dina erbjudanden före den månad som valts.
@@ -180,4 +180,4 @@ Sidan kunders filter tillämpas på sidan kunders sid nivå. Du kan välja flera
 - För virtuell dator (VM) erbjuder vi användnings-och mätnings mått i [användnings instrument panelen i den kommersiella Marketplace-analysen](./usage-dashboard.md).
 - En lista över dina nedladdnings begär Anden under de senaste 30 dagarna finns i [Hämta instrument panel i kommersiell Marketplace-analys](./partner-center-portal/downloads-dashboard.md).
 - Om du vill se en sammanställd vy över kundfeedback för erbjudanden på Azure Marketplace och Microsoft AppSource kan du läsa mer i [klassificering & recensioner Analytics-instrumentpanelen i Partner Center](./partner-center-portal/ratings-reviews.md).
-- Vanliga frågor och svar om affärs platser för marknads platser och en omfattande ord lista med data termer finns i [terminologi för kommersiella Marketplace-analyser och vanliga frågor](./partner-center-portal/faq-terminology.md).
+- Vanliga frågor och svar om affärs platser för marknads platser och en omfattande ord lista med data termer finns i [terminologi för kommersiella Marketplace-analyser och vanliga frågor](./analytics-faq.md).

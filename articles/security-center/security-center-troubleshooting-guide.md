@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 6646b8a563cfe156a23b47011a769c6df015a286
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 64b39dfa581b242fbb490d61b388f2bf260976ef
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340350"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460414"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
 
@@ -29,7 +29,7 @@ Aviserings typer:
 
 * Virtual Machine Behavioral Analysis (VMBA)
 * Nätverksanalys
-* Analys av SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse)
+* Analys av SQL Database och Azure Synapse Analytics
 * Sammanhangsbaserad information
 
 Beroende på aviseringstypen kan kunderna hämta den information som krävs för att undersöka aviseringen med hjälp av följande resurser:
@@ -62,7 +62,7 @@ Om du öppnar tjänst hanterings konsolen (Services. msc) visas även Log Analyt
 
 ![Tjänster](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
-Om du vill se vilken version av agenten du har öppnar du **aktivitets hanteraren**, på fliken **processer** , letar upp **tjänsten Log Analytics agent**och högerklickar på den och klickar på **Egenskaper**. Filversionen visas på fliken **Information** enligt nedan:
+Om du vill se vilken version av agenten du har öppnar du **aktivitets hanteraren**, på fliken **processer** , letar upp **tjänsten Log Analytics agent** och högerklickar på den och klickar på **Egenskaper**. Filversionen visas på fliken **Information** enligt nedan:
 
 ![Fil](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
 
@@ -81,7 +81,7 @@ Det finns två installations scenarier som kan ge olika resultat när du install
 
 **Övervakningstillstånd** definierar anledningen till att Security Center inte kan övervaka virtuella datorer och datorer som initierats för automatisk etablering. I följande tabell visas steg för värden, beskrivningar och lösningar för **övervakningstillstånd**.
 
-| Övervakningstillstånd | Beskrivning | Lösningssteg |
+| Övervakningstillstånd | Description | Lösningssteg |
 |---|---|---|
 | Väntande agentinstallation | Installationen av Log Analytics-agenten körs fortfarande.  Installationen kan ta upp till några timmar. | Vänta tills den automatiska installationen är slutförd. |
 | Energisparläge inaktiverat | Den virtuella datorn har stoppats.  Log Analytics agenten kan bara installeras på en virtuell dator som kör. | Starta om den virtuella datorn. |
@@ -94,7 +94,7 @@ Det finns två installations scenarier som kan ge olika resultat när du install
 | Agenten svarar inte eller saknar ID | Security Center kan inte hämta säkerhetsdata som genomsökts från den virtuella datorn, trots att agenten är installerad. | Agenten rapporterar inga data, inte heller pulsslag. Agenten kan vara skadad eller så är det något som blockerar trafiken. Eller så är agenten rapportering av data men saknar ett Azure-resurs-ID så det är omöjligt att matcha data till den virtuella Azure-datorn. För att felsöka Linux, se [fel söknings guide för Log Analytics agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Om du vill felsöka i Windows läser du [Felsökning av virtuella Windows-datorer](../virtual-machines/extensions/oms-windows.md#troubleshoot-and-support). |
 | Agenten har inte installerats | Datainsamling är inaktiverat. | Aktivera data insamling i säkerhets principen eller installera Log Analytics agenten manuellt. |
 
-## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Felsöka nätverkskrav för övervakningsagenten <a name="mon-network-req"></a>
+## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Felsöka nätverks krav för övervaknings agenten <a name="mon-network-req"></a>
 
 Agenter att ansluta till och registrera med Security Center, måste de ha åtkomst till nätverksresurser, inklusive portnummer och URL: er för domänen.
 
@@ -105,10 +105,10 @@ I följande tabell visas resurser som krävs för kommunikation.
 
 | Agentresurs | Portar | Kringgå HTTPS-kontroll |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | Ja |
-| *.oms.opinsights.azure.com | 443 | Ja |
-| *.blob.core.windows.net | 443 | Ja |
-| *.azure-automation.net | 443 | Ja |
+| *.ods.opinsights.azure.com | 443 | Yes |
+| *.oms.opinsights.azure.com | 443 | Yes |
+| *.blob.core.windows.net | 443 | Yes |
+| *.azure-automation.net | 443 | Yes |
 
 Om du får problem med att komma igång med agenten, kan du hitta mer information i artikeln [Felsökning av problem med att komma igång med Operations Management Suite](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 

@@ -8,12 +8,12 @@ ms.date: 11/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: daae45c9eca45022225ea47aa048815d5eff70c4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 035cf5be4471cad7ac11eb8ce9a8a0ecb13a68da
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964515"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462378"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Felsöka IoT Edge-enheten
 
@@ -81,7 +81,7 @@ Anvisningar om hur du uppdaterar din enhet finns i [uppdatera IoT Edge Security 
 
 ## <a name="verify-the-installation-of-iot-edge-on-your-devices"></a>Verifiera installationen av IoT Edge på dina enheter
 
-Du kan kontrol lera installationen av IoT Edge på dina enheter genom [att övervaka edgeAgent-modulen med dubbla](https://docs.microsoft.com/azure/iot-edge/how-to-monitor-module-twins).
+Du kan kontrol lera installationen av IoT Edge på dina enheter genom [att övervaka edgeAgent-modulen med dubbla](./how-to-monitor-module-twins.md).
 
 För att få den senaste edgeAgent-modulen dubbla, kör du följande kommando från [Azure Cloud Shell](https://shell.azure.com/):
 
@@ -89,7 +89,7 @@ För att få den senaste edgeAgent-modulen dubbla, kör du följande kommando fr
    az iot hub module-twin show --device-id <edge_device_id> --module-id $edgeAgent --hub-name <iot_hub_name>
    ```
 
-Det här kommandot kommer att mata ut alla edgeAgent- [rapporterade egenskaper](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub). Här följer några användbara som övervakar enhetens status:
+Det här kommandot kommer att mata ut alla edgeAgent- [rapporterade egenskaper](./module-edgeagent-edgehub.md). Här följer några användbara som övervakar enhetens status:
 
 * körnings status
 * Start tid för körning

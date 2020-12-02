@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: e491b89ec5e6488228dd8befed669a13842f9d15
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a1159da782a8cb822bf726173ad0d0bcd9da844a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288558"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460899"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Tjänst slut punkter för virtuella nätverk för Azure Key Vault
 
@@ -54,7 +54,7 @@ Mer information finns i [konfigurera Azure Key Vault brand väggar och virtuella
 > Tänk på följande konfigurations begränsningar:
 > * Högst 127 virtuella nätverks regler och 127 IPv4-regler är tillåtna. 
 > * Små adress intervall som använder prefixlängden "/31" eller "/32" stöds inte. Konfigurera i stället dessa intervall med hjälp av enskilda IP-adressintervall.
-> * IP-nätverksadresser tillåts endast för offentliga IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i RFC 1918) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med **10.** , **172.16-31** och **192,168.**.. 
+> * IP-nätverksadresser tillåts endast för offentliga IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i RFC 1918) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med **10.**, **172.16-31** och **192,168.**.. 
 > * Endast IPv4-adresser stöds för tillfället.
 
 ## <a name="trusted-services"></a>Betrodda tjänster
@@ -71,7 +71,7 @@ Här är en lista över betrodda tjänster som har behörighet att komma åt ett
 |Exchange Online & SharePoint Online|Tillåt åtkomst till kund nyckel för Azure Storage tjänst kryptering med [kund nyckel](/microsoft-365/compliance/customer-key-overview).|
 |Azure Information Protection|Tillåt åtkomst till klient nyckeln för [Azure information Protection.](/azure/information-protection/what-is-information-protection)|
 |Azure App Service|[Distribuera Azure Web App-certifikat via Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
-|Azure SQL Database|[Transparent datakryptering med Bring Your Own Key stöd för Azure SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse)](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
+|Azure SQL Database|[Transparent datakryptering med Bring Your Own Key stöd för Azure SQL Database och Azure Synapse Analytics](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Kryptering för lagringstjänst att använda Kundhanterade nycklar i Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).|
 |Azure Data Lake Store|[Kryptering av data i Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) med en kundhanterad nyckel.|
 |Azure Databricks|[Snabb, enkel och gemensam Apache Spark-baserad analys tjänst](/azure/databricks/scenarios/what-is-azure-databricks)|

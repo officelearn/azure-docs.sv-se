@@ -1,7 +1,7 @@
 ---
 title: Nätverks åtkomst kontroller
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Översikt över hur du hanterar och styr nätverks åtkomsten för Azure SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse).
+description: Översikt över hur du hanterar och styr nätverks åtkomsten för Azure SQL Database och Azure Synapse Analytics.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,16 +12,16 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: be327fabdffc0f98dc0449b51e7e4d73651d80d8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 90bc57af3aaf0d11cd354bfe7163014f836a72e8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789496"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460005"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database och Azure Synapse Analytics Network Access Controls
 
-När du skapar en logisk SQL-Server från [Azure Portal](single-database-create-quickstart.md) för Azure SQL Database och Azure Synapse Analytics är resultatet en offentlig slut punkt i formatet *yourservername.Database.Windows.net* .
+När du skapar en logisk SQL-Server från [Azure Portal](single-database-create-quickstart.md) för Azure SQL Database och Azure Synapse Analytics är resultatet en offentlig slut punkt i formatet *yourservername.Database.Windows.net*.
 
 Du kan använda följande kontroller för nätverks åtkomst för att selektivt tillåta åtkomst till en databas via den offentliga slut punkten:
 
@@ -34,7 +34,7 @@ Du kan också tillåta privat åtkomst till databasen från [virtuella nätverk]
 - Privat länk: Använd den här funktionen för att skapa en privat slut punkt för [logisk SQL Server](logical-servers.md) inom ett angivet virtuellt nätverk
 
 > [!IMPORTANT]
-> Den här artikeln gäller *inte* för **SQL-hanterad instans** . Mer information om nätverks konfigurationen finns i [ansluta till Azure SQL-hanterad instans](../managed-instance/connect-application-instance.md) .
+> Den här artikeln gäller *inte* för **SQL-hanterad instans**. Mer information om nätverks konfigurationen finns i [ansluta till Azure SQL-hanterad instans](../managed-instance/connect-application-instance.md) .
 
 Se videon nedan för en övergripande förklaring av dessa åtkomst kontroller och vad de gör:
 
@@ -42,13 +42,13 @@ Se videon nedan för en övergripande förklaring av dessa åtkomst kontroller o
 
 ## <a name="allow-azure-services"></a>Tillåt Azure-tjänster
 
-Som standard när en ny logisk SQL-Server skapas [från Azure Portal](single-database-create-quickstart.md)anges den här inställningen till **av** . Den här inställningen visas när anslutningen tillåts med hjälp av den offentliga tjänst slut punkten.
+Som standard när en ny logisk SQL-Server skapas [från Azure Portal](single-database-create-quickstart.md)anges den här inställningen till **av**. Den här inställningen visas när anslutningen tillåts med hjälp av den offentliga tjänst slut punkten.
 
 Du kan också ändra den här inställningen via brand Väggs fönstret när den logiska SQL-servern har skapats på följande sätt.
   
 ![Skärm bild av hantera Server brand vägg][2]
 
-När den är inställd **på på** , tillåter servern kommunikation från alla resurser inom Azure-gränser, som kan vara en del av din prenumeration.
+När den är inställd **på på**, tillåter servern kommunikation från alla resurser inom Azure-gränser, som kan vara en del av din prenumeration.
 
 I många fall är inställningen **för** att vara mer beviljad än vad kunderna vill ha. Du kanske vill ställa in den här inställningen på **av** och ersätta den med mer restriktiva regler för IP-brandvägg eller brand Väggs regler för virtuella nätverk. 
 
@@ -56,11 +56,11 @@ Detta påverkar dock följande funktioner som körs på virtuella datorer i Azur
 
 ### <a name="import-export-service"></a>Importera export tjänst
 
-Import av export tjänsten fungerar inte när **Tillåt åtkomst till Azure-tjänster** är inställt på **av** . Du kan dock lösa problemet genom att [manuellt köra sqlpackage.exe från en virtuell Azure-dator eller utföra exporten](./database-import-export-azure-services-off.md) direkt i din kod med hjälp av DACFx-API: et.
+Import av export tjänsten fungerar inte när **Tillåt åtkomst till Azure-tjänster** är inställt på **av**. Du kan dock lösa problemet genom att [manuellt köra sqlpackage.exe från en virtuell Azure-dator eller utföra exporten](./database-import-export-azure-services-off.md) direkt i din kod med hjälp av DACFx-API: et.
 
 ### <a name="data-sync"></a>Datasynkronisering
 
-Om du vill använda funktionen för datasynkronisering med **Tillåt åtkomst till Azure-tjänster** som är inställd på **av** , måste du skapa enskilda brand Väggs regel poster för att [lägga till IP-adresser](firewall-create-server-level-portal-quickstart.md) från **SQL-tjänstetaggen** för den region som är värd för **nav** databasen.
+Om du vill använda funktionen för datasynkronisering med **Tillåt åtkomst till Azure-tjänster** som är inställd på **av**, måste du skapa enskilda brand Väggs regel poster för att [lägga till IP-adresser](firewall-create-server-level-portal-quickstart.md) från **SQL-tjänstetaggen** för den region som är värd för **nav** databasen.
 Lägg till dessa brand Väggs regler på server nivå till servrarna som är värdar för både **nav** -och **medlems** databaser (som kan finnas i olika regioner)
 
 Använd följande PowerShell-skript för att skapa IP-adresser som motsvarar SQL-tjänstetaggen för regionen Västra USA
@@ -110,7 +110,7 @@ IP-baserad brand vägg är en funktion i den logiska SQL-servern i Azure som fö
 
 ## <a name="virtual-network-firewall-rules"></a>Brandväggsregler för virtuella nätverk
 
-Förutom IP-regler kan du med hjälp av serverns brand vägg definiera *regler för virtuella nätverk* .  
+Förutom IP-regler kan du med hjälp av serverns brand vägg definiera *regler för virtuella nätverk*.  
 Mer information finns i [tjänst slut punkter för virtuella nätverk och regler för Azure SQL Database](vnet-service-endpoint-rule-overview.md) eller titta på den här videon:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
@@ -121,9 +121,9 @@ Observera följande villkor för Azure-nätverk när du utforskar brand Väggs r
 
 **Virtuellt nätverk:** Du kan ha virtuella nätverk kopplade till din Azure-prenumeration
 
-**Undernät:** Ett virtuellt nätverk innehåller **undernät** . Alla virtuella datorer i Azure (VM) som du har tilldelats till undernät. Ett undernät kan innehålla flera virtuella datorer eller andra Compute-noder. Compute-noder utanför det virtuella nätverket kan inte komma åt ditt virtuella nätverk om du inte konfigurerar din säkerhet att tillåta åtkomst.
+**Undernät:** Ett virtuellt nätverk innehåller **undernät**. Alla virtuella datorer i Azure (VM) som du har tilldelats till undernät. Ett undernät kan innehålla flera virtuella datorer eller andra Compute-noder. Compute-noder utanför det virtuella nätverket kan inte komma åt ditt virtuella nätverk om du inte konfigurerar din säkerhet att tillåta åtkomst.
 
-**Tjänst slut punkt för virtuellt nätverk:** En [tjänst slut punkt för virtuellt nätverk](../../virtual-network/virtual-network-service-endpoints-overview.md) är ett undernät vars egenskaps värden innehåller ett eller flera formella namn för Azure-tjänst typen. I den här artikeln är vi intresserade av typ namnet **Microsoft. SQL** , som refererar till Azure-tjänsten med namnet SQL Database.
+**Tjänst slut punkt för virtuellt nätverk:** En [tjänst slut punkt för virtuellt nätverk](../../virtual-network/virtual-network-service-endpoints-overview.md) är ett undernät vars egenskaps värden innehåller ett eller flera formella namn för Azure-tjänst typen. I den här artikeln är vi intresserade av typ namnet **Microsoft. SQL**, som refererar till Azure-tjänsten med namnet SQL Database.
 
 **Regel för virtuellt nätverk:** En virtuell nätverks regel för servern är ett undernät som listas i åtkomst kontrol listan (ACL) på servern. För att vara med i ACL för databasen i SQL Database måste under nätet innehålla namnet **Microsoft. SQL** -typ. En regel för virtuella nätverk instruerar servern att acceptera kommunikation från varje nod som finns på under nätet.
 
@@ -140,7 +140,7 @@ Regler för virtuella nätverk är enklare att upprätta och hantera åtkomst fr
 
 ## <a name="private-link"></a>Private Link
 
-Med privat länk kan du ansluta till en server via en **privat slut punkt** . En privat slut punkt är en privat IP-adress inom ett särskilt [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md) och undernät.
+Med privat länk kan du ansluta till en server via en **privat slut punkt**. En privat slut punkt är en privat IP-adress inom ett särskilt [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md) och undernät.
 
 ## <a name="next-steps"></a>Nästa steg
 

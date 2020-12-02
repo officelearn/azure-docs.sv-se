@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ec619681f1eebc51da85d31ad15f1db25cfd3cbc
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 570281e31c70b2f5f85a858f9dd424f93ee86029
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917927"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460059"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrera Key Vault med Azure Private Link
 
@@ -53,7 +53,7 @@ När du har konfigurerat grunderna i Key Vault väljer du fliken nätverk och f�
 1. Välj alternativ knappen privat slut punkt på fliken nätverk.
 1. Klicka på knappen + Lägg till för att lägga till en privat slut punkt.
 
-    ![Avbildning](../media/private-link-service-1.png)
+    ![Bild](../media/private-link-service-1.png)
  
 1. I fältet "plats" på bladet skapa privat slut punkt väljer du den region där det virtuella nätverket finns. 
 1. I fältet namn skapar du ett beskrivande namn som gör att du kan identifiera den här privata slut punkten. 
@@ -61,7 +61,7 @@ När du har konfigurerat grunderna i Key Vault väljer du fliken nätverk och f�
 1. Lämna alternativet "integrera med den privata zonens DNS" oförändrat.  
 1. Välj OK.
 
-    ![Avbildning](../media/private-link-service-8.png)
+    ![Bild](../media/private-link-service-8.png)
  
 Nu kommer du att kunna se den konfigurerade privata slut punkten. Nu har du möjlighet att ta bort och redigera den här privata slut punkten. Välj knappen "granska + skapa" och skapa nyckel valvet. Det tar 5-10 minuter för distributionen att slutföras. 
 
@@ -105,7 +105,7 @@ Det finns fyra etablerings tillstånd:
 1. Välj knappen Godkänn.
 1. Om det finns anslutningar för privata slut punkter som du vill avvisa, oavsett om det är en väntande begäran eller en befintlig anslutning, väljer du anslutningen och klickar på knappen "avvisa".
 
-    ![Avbildning](../media/private-link-service-7.png)
+    ![Bild](../media/private-link-service-7.png)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
@@ -226,14 +226,14 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 * Kontrol lera att du har en Privat DNS zon resurs. 
     1. Du måste ha en Privat DNS zon resurs med det exakta namnet: privatelink.vaultcore.azure.net. 
-    2. Information om hur du konfigurerar detta finns i följande länk. [Privat DNS zoner](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
+    2. Information om hur du konfigurerar detta finns i följande länk. [Privat DNS zoner](../../dns/private-dns-privatednszone.md)
     
 * Kontrollera att den privata DNS-zonen inte är länkad till det virtuella nätverket. Detta kan vara ett problem om du fortfarande får den offentliga IP-adressen som returnerades. 
     1. Om DNS för den privata zonen inte är länkat till det virtuella nätverket, returnerar DNS-frågan från det virtuella nätverket den offentliga IP-adressen för nyckel valvet. 
     2. Navigera till resursen Privat DNS zon i Azure Portal och klicka på alternativet virtuella nätverks länkar. 
     4. Det virtuella nätverk som ska utföra anrop till nyckel valvet måste anges. 
     5. Om det inte finns där lägger du till det. 
-    6. Detaljerade anvisningar finns i följande dokument [länk Virtual Network till privat DNS zon](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+    6. Detaljerade anvisningar finns i följande dokument [länk Virtual Network till privat DNS zon](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network)
 
 * Kontrol lera att zonen Privat DNS inte saknar en A-post för nyckel valvet. 
     1. Gå till sidan Privat DNS zon. 

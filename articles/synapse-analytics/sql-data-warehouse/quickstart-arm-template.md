@@ -1,5 +1,5 @@
 ---
-title: Skapa en SQL-pool med hjälp av Azure Resource Manager mall
+title: Skapa en dedikerad SQL-pool (tidigare SQL DW) med hjälp av Azure Resource Manager mall
 description: Lär dig hur du skapar en SQL-pool för Azure Synapse Analytics med hjälp av Azure Resource Manager mall.
 services: azure-resource-manager
 author: julieMSFT
@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 06/09/2020
-ms.openlocfilehash: 29d4e4d696b34aa493714c870ebb466f491c47fe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 70adb7409c44a79345a192df173a1a073cc9b7dd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88641882"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460743"
 ---
-# <a name="quickstart-create-an-azure-synapse-analytics-sql-pool-by-using-an-arm-template"></a>Snabb start: skapa en SQL-pool för Azure Synapse Analytics med en ARM-mall
+# <a name="quickstart-create-an-azure-synapse-analytics-dedicated-sql-pool-formerly-sql-dw-by-using-an-arm-template"></a>Snabb start: skapa en dedikerad SQL-pool för Azure Synapse Analytics (tidigare SQL DW) med en ARM-mall
 
-Med den här Azure Resource Manager mallen (ARM-mallen) skapas en Azure Synapse Analytics SQL-pool med transparent datakryptering aktiverat. Synapse SQL-pool syftar på de företags data lager funktioner som är allmänt tillgängliga i Azure Synapse.
+Med den här Azure Resource Manager mallen (ARM-mallen) skapas en dedikerad SQL-pool (tidigare SQL DW) med transparent datakryptering aktiverat. Dedikerad SQL-pool (tidigare SQL DW) refererar till de företags data lager funktioner som är allmänt tillgängliga i Azure Synapse.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -41,7 +41,7 @@ Mallen definierar en resurs:
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-1. Välj följande bild för att logga in på Azure och öppna mallen. Den här mallen skapar en Synapse SQL-pool.
+1. Välj följande bild för att logga in på Azure och öppna mallen. Den här mallen skapar en dedikerad SQL-pool (tidigare SQL DW).
    
    [![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 
@@ -53,7 +53,7 @@ Mallen definierar en resurs:
    * **SQL Server namn**: acceptera standard namnet eller ange ett namn för SQL Server namnet.
    * **SQL-administratör inloggning**: Ange administratörs användar namnet för SQL Server.
    * **SQL-administratörs lösen ord**: Ange administratörs lösen ordet för SQL Server.
-   * **Data lager namn**: Ange ett namn på en SQL-pool.
+   * **Data lager namn**: Ange ett dedikerat namn på en SQL-pool.
    * **Transparent datakryptering**: Godkänn standardinställningen, aktive rad. 
    * **Service nivå mål**: acceptera standard-DW400c.
    * **Plats**: acceptera standard platsen för resurs gruppen.
@@ -67,7 +67,7 @@ Du kan antingen använda Azure Portal för att kontrol lera de distribuerade res
 # <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli-interactive
-echo "Enter the resource group where your Synapse SQL pool exists:" &&
+echo "Enter the resource group where your dedicated SQL pool (formerly SQL DW) exists:" &&
 read resourcegroupName &&
 az resource list --resource-group $resourcegroupName 
 ```
@@ -75,7 +75,7 @@ az resource list --resource-group $resourcegroupName
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your SQL pool account exists"
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your dedicated SQL pool (formerly SQL DW) account exists"
 (Get-AzResource -ResourceType "Microsoft.Sql/servers/databases" -ResourceGroupName $resourceGroupName).Name
  Write-Host "Press [ENTER] to continue..."
 ```
@@ -107,7 +107,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du en Azure Synapse Analytics SQL-pool med en ARM-mall och validerat distributionen. Om du vill veta mer om Azure Synapse Analytics och Azure Resource Manager kan du fortsätta till artiklarna nedan.
+I den här snabb starten skapade du en dedikerad SQL-pool (tidigare SQL DW) med en ARM-mall och validerade distributionen. Mer information om Azure Synapse Analytics och Azure Resource Manager finns i artiklarna nedan.
 
 - Läs en [Översikt över Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)
 - Läs mer om [Azure Resource Manager](../../azure-resource-manager/management/overview.md)

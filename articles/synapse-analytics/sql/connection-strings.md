@@ -1,6 +1,6 @@
 ---
-title: Anslutnings strängar för Synapse SQL (för hands version)
-description: Anslutnings strängar för Synapse SQL (för hands version)
+title: Anslutnings strängar för Synapse-SQL
+description: Anslutnings strängar för Synapse-SQL
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,16 +10,16 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e34563a312c5a248e97c4aac72d06030a836727b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6859d0582997ee861713090ccb4c22ed58ec4ca7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684854"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462330"
 ---
-# <a name="connection-strings-for-synapse-sql-preview"></a>Anslutnings strängar för Synapse SQL (för hands version)
+# <a name="connection-strings-for-synapse-sql"></a>Anslutnings strängar för Synapse-SQL
 
-Du kan ansluta till Synapse SQL (för hands version) med flera olika program protokoll som, [ADO.net](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [php](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)och [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Nedan visas några exempel på anslutnings strängar för varje protokoll. 
+Du kan ansluta till Synapse SQL med flera olika program protokoll som, [ADO.net](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [php](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)och [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Nedan visas några exempel på anslutnings strängar för varje protokoll. 
 
 Du kan också använda Azure Portal för att bygga anslutnings strängen.  Om du vill bygga anslutnings strängen med hjälp av Azure Portal navigerar du till bladet databas under *Essentials* . Välj *Visa databas anslutnings strängar*.
 

@@ -10,32 +10,32 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 2e76f48466d084d448cceea0490e44041e7d062e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: f61f2932ad9c6342a81ec05df335e9ea4d659fce
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212147"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461987"
 ---
-# <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>Ansluta till Synapse SQL-pool med SQLCMD
+# <a name="connect-to-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Ansluta till SQL-pool i Azure Synapse Analytics med SQLCMD
 
 > [!div class="op_single_selector"]
 >
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
+> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
 Använd kommando rads verktyget [SQLCMD] [SQLCMD] för att ansluta till och fråga en SQL-pool.  
 
 ## <a name="1-connect"></a>1. Anslut
 
-Kom igång med [SQLCMD] [SQLCMD] genom att öppna kommando tolken och ange **SQLCMD** följt av anslutnings STRÄNGEN för SQL-adresspoolen. Anslutningssträngen kräver följande parametrar:
+Kom igång med [SQLCMD] [SQLCMD] genom att öppna kommando tolken och ange **SQLCMD** följt av anslutnings STRÄNGEN för SQL-poolen. Anslutningssträngen kräver följande parametrar:
 
 * **Server (-S):** Server i formatet `<`servernamn`>`. database.windows.net
-* **Databas (-d):** Databasens namn.
+* **Databas (-d):** Namn på SQL-pool.
 * **Aktivera citerade identifierare (-I):** Identifierare med citat tecken måste vara aktiverade för att ansluta till en instans i SQL-poolen.
 
 Om du vill använda SQL Server-autentisering måste du lägga till användarnamn/lösenordsparametrar:

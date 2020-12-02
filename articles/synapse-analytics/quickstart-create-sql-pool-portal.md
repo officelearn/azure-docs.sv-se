@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa en dedikerad SQL-pool (för hands version) med hjälp av Azure Portal'
+title: 'Snabb start: skapa en dedikerad SQL-pool med hjälp av Azure Portal'
 description: Skapa en ny dedikerad SQL-pool med hjälp av Azure Portal genom att följa stegen i den här hand boken.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: b558e34d3f5d224515eee669dfa7b8f2c6bbb3cd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3537b126adf082c8b00a02d999789d8a32b3f51d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541019"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462009"
 ---
-# <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>Snabb start: skapa en dedikerad SQL-pool (för hands version) med hjälp av Azure Portal
+# <a name="quickstart-create-a-dedicated-sql-pool-using-the-azure-portal"></a>Snabb start: skapa en dedikerad SQL-pool med hjälp av Azure Portal
 
 Azure Synapse Analytics erbjuder olika analys verktyg som hjälper dig att mata in, transformera, modellera och analysera dina data. En dedikerad SQL-pool ger T-SQL-baserade beräknings-och lagrings funktioner. När du har skapat en dedikerad SQL-pool på din Synapse-arbetsyta kan data läsas in, modelleras, bearbetas och levereras för snabbare analytiska insikter.
 
@@ -86,7 +86,7 @@ Följ stegen nedan för att ta bort den dedikerade SQL-poolen från arbets ytan.
 Utför följande steg om du vill ta bort den dedikerade SQL-poolen:
 
 1. Gå till bladet SQL-pooler på bladet arbets yta
-1. Välj den dedicerade SQL-pool som ska tas bort (i det här fallet **contosowdw** )
+1. Välj den dedicerade SQL-pool som ska tas bort (i det här fallet **contosowdw**)
 1. Tryck på **ta bort** när du är markerat
 1. Bekräfta borttagningen och tryck på knappen **ta bort** ![ dedikerad SQL-pool – Markera borttagnings bekräftelse.](media/quickstart-create-sql-pool/create-sql-pool-portal-11.png)
 1. När processen har slutförts visas inte längre den dedikerade SQL-poolen i resurserna för arbets ytan.

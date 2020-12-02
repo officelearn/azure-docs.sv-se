@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: a879ac81859c855bb7b7bc2eddb1e3c9b62adb34
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 31298be4d50c7f562e2e2b9adbf889b165b197e5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321411"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461860"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Ta bort ett transparent datakryptering-skydd (TDE) med PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -35,13 +35,13 @@ Tänk på att när TDE-skyddet tas bort i Key Vault, i upp till 10 minuter, komm
 Den här instruktions guiden går över två metoder beroende på önskat resultat efter ett komprometterat incident svar:
 
 - För att göra databaserna i Azure SQL Database/Azure Synapse Analytics **otillgängliga**.
-- För att göra databaserna i Azure SQL Database/Azure Azure Synapse Analytics (tidigare SQL Data Warehouse) **otillgängliga**.
+- För att göra databaserna i Azure SQL Database/Azure Azure Synapse Analytics **otillgängliga**.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha en Azure-prenumeration och vara administratör för den prenumerationen
 - Du måste ha Azure PowerShell installerat och igång.
-- Den här instruktions guiden förutsätter att du redan använder en nyckel från Azure Key Vault som TDE-skydd för en Azure SQL Database eller Azure Synapse (tidigare SQL Data Warehouse). Se [Transparent datakryptering med BYOK support](transparent-data-encryption-byok-overview.md) för mer information.
+- Den här instruktions guiden förutsätter att du redan använder en nyckel från Azure Key Vault som TDE-skydd för en Azure SQL Database eller Azure Synapse. Se [Transparent datakryptering med BYOK support](transparent-data-encryption-byok-overview.md) för mer information.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

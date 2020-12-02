@@ -1,5 +1,5 @@
 ---
-title: Fråga JSON-filer med Server lös SQL-pool (för hands version)
+title: Fråga JSON-filer med Server lös SQL-pool
 description: I det här avsnittet beskrivs hur du läser JSON-filer med Server lös SQL-pool i Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d071bbabf630dd326ae46f4c840f8e60f957f9fe
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 5703e4ac3d4a545041c7d258f0b1f0e7c79a33b5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685638"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462606"
 ---
-# <a name="query-json-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Fråga JSON-filer med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
+# <a name="query-json-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Fråga JSON-filer med Server lös SQL-pool i Azure Synapse Analytics
 
-I den här artikeln får du lära dig hur du skriver en fråga med Server lös SQL-pool (för hands version) i Azure Synapse Analytics. Frågans mål är att läsa JSON-filer med hjälp av [OpenRowSet](develop-openrowset.md). 
+I den här artikeln får du lära dig hur du skriver en fråga med en server lös SQL-pool i Azure Synapse Analytics. Frågans mål är att läsa JSON-filer med hjälp av [OpenRowSet](develop-openrowset.md). 
 - Standard-JSON-filer där flera JSON-dokument lagras som en JSON-matris.
 - Tabbavgränsade JSON-filer, där JSON-dokument skiljs åt med rad matnings tecknen. Vanliga tillägg för dessa typer av filer är `jsonl` , `ldjson` och `ndjson` .
 

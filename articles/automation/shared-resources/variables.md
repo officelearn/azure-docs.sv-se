@@ -3,14 +3,14 @@ title: Hantera variabler i Azure Automation
 description: Den här artikeln beskriver hur du arbetar med variabler i Runbooks och DSC-konfigurationer.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 10/05/2020
+ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4749fcb6698ff1716f2cae257cc0efad458bf9a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5be0d45843eed8c7c0d7d9b6dc4655de01e914c3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766192"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461460"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Hantera variabler i Azure Automation
 
@@ -26,10 +26,10 @@ Automation-variabler är användbara i följande scenarier:
 
 Azure Automation behåller variablerna och gör dem tillgängliga även om en Runbook-eller DSC-konfiguration Miss lyckas. Med det här beteendet kan en Runbook-eller DSC-konfiguration ange ett värde som sedan används av en annan Runbook eller av samma Runbook-eller DSC-konfiguration nästa gången den körs.
 
-Azure Automation lagrar varje krypterad variabel på ett säkert sätt. När du skapar en variabel kan du ange dess kryptering och lagring genom att Azure Automation som en säker till gång. När du har skapat variabeln kan du inte ändra dess krypterings status utan att skapa variabeln på nytt. En Azure Security Center rekommendation är att kryptera alla Azure Automation variabler enligt beskrivningen i [Automation-kontots variabler bör vara krypterade](../../security-center/recommendations-reference.md#recs-computeapp).
+Azure Automation lagrar varje krypterad variabel på ett säkert sätt. När du skapar en variabel kan du ange dess kryptering och lagring genom att Azure Automation som en säker till gång. När du har skapat variabeln kan du inte ändra dess krypterings status utan att skapa variabeln på nytt. Om du har variabler för Automation-konto som lagrar känsliga data som inte redan är krypterade måste du ta bort dem och återskapa dem som krypterade variabler. En Azure Security Center rekommendation är att kryptera alla Azure Automation variabler enligt beskrivningen i [Automation-kontots variabler bör vara krypterade](../../security-center/recommendations-reference.md#recs-computeapp). Om du har okrypterade variabler som du inte vill ska uteslutas från den här säkerhets rekommendationen läser du [undanta en resurs från rekommendationer och säkra Poäng](../../security-center/exempt-resource.md) för att skapa en undantags regel.
 
 >[!NOTE]
->Säkra till gångar i Azure Automation inkluderar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa till gångar krypteras och lagras i Azure Automation att använda en unik nyckel som genereras för varje Automation-konto. Azure Automation lagrar nyckeln i systemhanterade Key Vault. Innan du lagrar en säker till gång läser Automation in nyckeln från Key Vault och använder den för att kryptera till gången. 
+>Säkra till gångar i Azure Automation inkluderar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa till gångar krypteras och lagras i Azure Automation att använda en unik nyckel som genereras för varje Automation-konto. Azure Automation lagrar nyckeln i systemhanterade Key Vault. Innan du lagrar en säker till gång läser Automation in nyckeln från Key Vault och använder den för att kryptera till gången.
 
 ## <a name="variable-types"></a>Variabel typer
 
@@ -65,7 +65,7 @@ Cmdletarna i följande tabell skapar och hanterar Automation-variabler med Power
 
 De interna cmdletarna i följande tabell används för att få åtkomst till variabler i dina runbooks och DSC-konfigurationer. Dessa cmdletar levereras med den globala modulen `Orchestrator.AssetManagement.Cmdlets` . Mer information finns i [interna cmdletar](modules.md#internal-cmdlets).
 
-| Intern cmdlet | Beskrivning |
+| Intern cmdlet | Description |
 |:---|:---|
 |`Get-AutomationVariable`|Hämtar värdet för en befintlig variabel.|
 |`Set-AutomationVariable`|Ställer in värdet för en befintlig variabel.|
@@ -84,7 +84,7 @@ Write-output "The encrypted value of the variable is: $mytestencryptvar"
 
 Funktionerna i följande tabell används för att få åtkomst till variabler i en python 2-Runbook.
 
-|Python 2-funktioner|Beskrivning|
+|Python 2-funktioner|Description|
 |:---|:---|
 |`automationassets.get_automation_variable`|Hämtar värdet för en befintlig variabel. |
 |`automationassets.set_automation_variable`|Ställer in värdet för en befintlig variabel. |
@@ -99,7 +99,7 @@ Funktionerna i följande tabell används för att få åtkomst till variabler i 
 
 ### <a name="create-and-get-a-variable-using-the-azure-portal"></a>Skapa och hämta en variabel med hjälp av Azure Portal
 
-1. Från ditt Automation-konto väljer du **variabler** under **delade resurser**i den vänstra rutan.
+1. Från ditt Automation-konto väljer du **variabler** under **delade resurser** i den vänstra rutan.
 2. På sidan **variabler** väljer du **Lägg till en variabel**.
 3. Slutför alternativen på sidan **ny variabel** och välj sedan **skapa** för att spara den nya variabeln.
 

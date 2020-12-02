@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 255e4085e24ee7520c603f8a00b3e46c23367a77
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e7b7acb7e67d809229825b3d393fe49af12b3642
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000835"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461208"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Delta kopia från en databas med en kontroll tabell
 
@@ -140,7 +140,7 @@ Mallen definierar följande parametrar:
 
     Du kommer att se att endast nya rader har kopierats till målet.
 
-15. Valfritt Om du väljer Azure Synapse Analytics (tidigare SQL DW) som data mål måste du också tillhandahålla en anslutning till Azure Blob Storage för mellanlagring, vilket krävs av Azure Synapse Analytics (tidigare SQL Data Warehouse) PolyBase. Mallen genererar en behållar Sök väg åt dig. När pipelinen har körts kontrollerar du om behållaren har skapats i Blob Storage.
+15. Valfritt Om du väljer Azure Synapse Analytics som data mål måste du också tillhandahålla en anslutning till Azure Blob Storage för mellanlagring, vilket krävs av Azure Synapse Analytics PolyBase. Mallen genererar en behållar Sök väg åt dig. När pipelinen har körts kontrollerar du om behållaren har skapats i Blob Storage.
     
     ![Konfigurera PolyBase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     

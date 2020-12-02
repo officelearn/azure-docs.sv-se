@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fa6e19fd9759d6e489d0945b5521a2e0ae3881e0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001767"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462640"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Kopiera data till eller från Azure Blob Storage med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -31,7 +31,7 @@ ms.locfileid: "96001767"
 Den här artikeln förklarar hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data till och från Azure Blob Storage. Det bygger på artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) , som visar en översikt över data förflyttning med kopierings aktiviteten.
 
 ## <a name="overview"></a>Översikt
-Du kan kopiera data från alla käll data lager som stöds till Azure Blob Storage eller från Azure Blob Storage till alla mottagar data lager som stöds. Följande tabell innehåller en lista över data lager som stöds som källor eller handfat av kopierings aktiviteten. Du kan till exempel flytta data **från** en SQL Server databas eller en databas i Azure SQL Database **till** en Azure Blob-lagring. Du kan också kopiera data **från** Azure Blob Storage **till** Azure Synapse Analytics (tidigare SQL Data Warehouse) eller en Azure Cosmos DB samling.
+Du kan kopiera data från alla käll data lager som stöds till Azure Blob Storage eller från Azure Blob Storage till alla mottagar data lager som stöds. Följande tabell innehåller en lista över data lager som stöds som källor eller handfat av kopierings aktiviteten. Du kan till exempel flytta data **från** en SQL Server databas eller en databas i Azure SQL Database **till** en Azure Blob-lagring. Du kan också kopiera data **från** Azure Blob Storage **till** Azure Synapse Analytics eller en Azure Cosmos DB-samling.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

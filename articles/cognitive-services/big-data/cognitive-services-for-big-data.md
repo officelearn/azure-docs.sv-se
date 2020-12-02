@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: overview
 ms.date: 07/09/2020
 ms.author: marhamil
-ms.openlocfilehash: 1b08925db12edffdaf5c85f1fa6f5934a412d81f
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: aaade03edbbb109656fb7371a063cdc2512c5a20
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363314"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461622"
 ---
 # <a name="azure-cognitive-services-for-big-data"></a>Azure Cognitive Services för Big data
 
@@ -56,7 +56,7 @@ Cognitive Services för Big data kan använda tjänster från valfri region i v�
 |:-----------|:------------------|
 |[Textanalys](../text-analytics/index.yml "Textanalys")| Tjänsten Textanalys tillhandahåller naturlig språk bearbetning över rå text för sentiment analys, extrahering av nyckel fraser och språk identifiering.|
 
-### <a name="search"></a>Sök
+### <a name="search"></a>Search
 
 |Tjänstens namn|Beskrivning av tjänst|
 |:-----------|:------------------|
@@ -84,11 +84,11 @@ Cognitive Services för Big data kräver Apache Spark. Det finns flera Apache Sp
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-[Azure Synapse Analytics](/azure/databricks/data/data-sources/azure/synapse-analytics) (tidigare SQL Data Warehouse) är ett informations lager för företag som använder massiv parallell bearbetning. Med Synapse Analytics kan du snabbt köra komplexa frågor över petabyte data. Azure Synapse Analytics tillhandahåller hanterade Spark-pooler för att köra Spark-jobb med ett intuitivt Jupyter Notebook gränssnitt.
+[Azure Synapse Analytics](/azure/databricks/data/data-sources/azure/synapse-analytics) är ett informations lager för företag som använder massiv parallell bearbetning. Med Synapse Analytics kan du snabbt köra komplexa frågor över petabyte data. Azure Synapse Analytics tillhandahåller hanterade Spark-pooler för att köra Spark-jobb med ett intuitivt Jupyter Notebook gränssnitt.
 
 ### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
-[Azure Kubernetes service (AKS)](../../aks/index.yml) dirigerar Docker-behållare och distribuerade program i massiv skala. AKS är ett hanterat Kubernetes-erbjudande som fören klar användningen av Kubernetes i Azure. Kubernetes kan ge detaljerad kontroll över skalning, svars tid och nätverk för kognitiva tjänster. Vi rekommenderar dock att du använder Azure Databricks eller Synapse Analytics om du inte är bekant med Apache Spark.
+[Azure Kubernetes service (AKS)](../../aks/index.yml) dirigerar Docker-behållare och distribuerade program i massiv skala. AKS är ett hanterat Kubernetes-erbjudande som fören klar användningen av Kubernetes i Azure. Kubernetes kan ge detaljerad kontroll över skalning, svars tid och nätverk för kognitiva tjänster. Vi rekommenderar dock att du använder Azure Databricks eller Azure Synapse Analytics om du inte är bekant med Apache Spark.
 
 ### <a name="data-connectors"></a>Data kopplingar
 

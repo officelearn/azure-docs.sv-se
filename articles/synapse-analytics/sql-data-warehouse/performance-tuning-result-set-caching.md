@@ -1,6 +1,6 @@
 ---
 title: Prestandajustering med cachelagring av resultatuppsättningar
-description: Översikt över cachelagring av resultat uppsättningar för SQL-poolen Synapse i Azure Synapse Analytics
+description: Översikt över cachelagring av resultat uppsättningar för dedikerad SQL-pool i Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 933ec541e358f1839c1b4d24acd19e439ea26375
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2b54277d0306244dc4ab6740fdd30e52668dd63c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541289"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460777"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Prestandajustering med cachelagring av resultatuppsättningar
 
-När cachelagring av resultat uppsättningar är aktiverat cachelagrar Synapse SQL automatiskt frågeresultat i användar databasen för upprepad användning.  Detta gör att efterföljande fråge körningar kan hämta resultat direkt från det sparade cacheminnet så att omberäkning inte behövs.   Cachelagring av resultat uppsättningar förbättrar prestanda för frågor och minskar användningen av beräknings resurser.  Dessutom använder frågor som använder cachelagrade resultat uppsättningar inte några samtidiga platser och räknas därför inte över mot befintliga samtidighets gränser. Användare kan bara komma åt de cachelagrade resultaten om de har samma data åtkomst behörigheter som de användare som skapar de cachelagrade resultaten.  
+När cachelagring av resultat uppsättningar är aktiverat cachelagrar dedikerade SQL-poolen automatiskt frågeresultat i användar databasen för upprepad användning.  Detta gör att efterföljande fråge körningar kan hämta resultat direkt från det sparade cacheminnet så att omberäkning inte behövs.   Cachelagring av resultat uppsättningar förbättrar prestanda för frågor och minskar användningen av beräknings resurser.  Dessutom använder frågor som använder cachelagrade resultat uppsättningar inte några samtidiga platser och räknas därför inte över mot befintliga samtidighets gränser. Användare kan bara komma åt de cachelagrade resultaten om de har samma data åtkomst behörigheter som de användare som skapar de cachelagrade resultaten.  
 
 ## <a name="key-commands"></a>Nyckel kommandon
 
@@ -47,7 +47,7 @@ När cachelagring av resultat uppsättningar har Aktiver ATS för en databas cac
 > - Om data i ORDER BY-kolumnerna inte är unika finns det ingen garanteed rad ordning för rader med samma värden i ORDER BY-kolumnerna, oavsett om cachelagring av resultat uppsättningar är aktiverat eller inaktiverat.
 
 > [!IMPORTANT]
-> Åtgärderna för att skapa en resultat uppsättning cache och hämta data från cachen sker på noden kontroll i en Synapse SQL-instans.
+> Åtgärderna för att skapa en resultat uppsättning cache och hämta data från cachen sker på noden kontroll i en dedikerad instans av en SQL-pool.
 > När cachelagring av resultat uppsättningar är aktiverat kan frågor som returnerar stor resultat uppsättning (till exempel >1 GB) orsaka hög begränsning på noden och sakta ned det övergripande fråge svaret på instansen.  Frågorna används ofta vid data utforskning eller ETL-åtgärder. För att undvika att kontrol lera noden och orsaka prestanda problem bör användarna stänga av resultat uppsättningens cachelagring i databasen innan du kör dessa typer av frågor.  
 
 Kör den här frågan för den tid som krävs för cachelagring av resultat uppsättningar för en fråga:
@@ -85,7 +85,7 @@ WHERE request_id = <'Your_Query_Request_ID'>
 
 Den maximala storleken för cache för resultat uppsättning är 1 TB per databas.  De cachelagrade resultaten blir automatiskt ogiltiga när den underliggande frågans data ändras.  
 
-Cache-avtagningen hanteras av Synapse SQL automatiskt enligt det här schemat:
+Cache-avtagningen hanteras av en dedikerad SQL-pool automatiskt enligt schemat:
 
 - Var 48: e timme om resultat uppsättningen inte har använts eller har ogiltig förklarats.
 - När cachen för resultat uppsättningen närmar sig den maximala storleken.

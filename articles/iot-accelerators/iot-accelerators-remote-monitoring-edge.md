@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: f5ffc7472bb0744d76b5ceaacc95f74af22e762e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e234cc29589e7b104ea7ef54ab7493e27d11cf27
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739812"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460429"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Självstudie: Identifiera avvikelser vid gränsen med acceleratorn för fjärrövervakningslösningen
 
@@ -60,9 +60,9 @@ Det finns två steg för att lägga till en IoT Edge-enhet i acceleratorn för f
 
 ### <a name="add-an-iot-edge-device-to-your-solution"></a>Lägga till en IoT Edge-enhet till din lösning
 
-Om du vill lägga till en IoT Edge-enhet till acceleratorn för fjärrövervakningslösningen navigerar du till sidan **Device Explorer** i webbgränssnittet och klickar på **+ Ny enhet** .
+Om du vill lägga till en IoT Edge-enhet till acceleratorn för fjärrövervakningslösningen navigerar du till sidan **Device Explorer** i webbgränssnittet och klickar på **+ Ny enhet**.
 
-I panelen **Ny enhet** väljer du **IoT Edge-enhet** och anger **oil-pump** som enhetens ID. Du behålla standardvärden för de andra inställningarna. Klicka sedan på **Använd** :
+I panelen **Ny enhet** väljer du **IoT Edge-enhet** och anger **oil-pump** som enhetens ID. Du behålla standardvärden för de andra inställningarna. Klicka sedan på **Använd**:
 
 [![Lägg till IoT Edge enhet](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-expanded.png#lightbox)
 
@@ -74,7 +74,7 @@ När du registrerar en enhet med IoT-hubben i acceleratorn för fjärrövervakni
 
 Om du vill göra det enklare att hantera IoT Edge-enheter i lösningen kan du skapa en enhetsgrupp och lägga till IoT Edge-enheten:
 
-1. Välj enheten **oil-pump** i listan på sidan **Device Explorer** och klicka på **Jobb** .
+1. Välj enheten **oil-pump** i listan på sidan **Device Explorer** och klicka på **Jobb**.
 
 1. Skapa ett jobb för att lägga till taggen **IsEdge** till tjänsten med följande inställningar:
 
@@ -88,11 +88,11 @@ Om du vill göra det enklare att hantera IoT Edge-enheter i lösningen kan du sk
 
     [![Lägg till tagg](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
 
-1. Klicka på **Använd** och sedan på **Stäng** .
+1. Klicka på **Använd** och sedan på **Stäng**.
 
-1. På sidan **Device Explorer** klickar du på **Hantera enhets grupper** .
+1. På sidan **Device Explorer** klickar du på **Hantera enhets grupper**.
 
-1. Klicka på **Skapa ny enhetsgrupp** . Skapa en ny enhetsgrupp med följande inställningar:
+1. Klicka på **Skapa ny enhetsgrupp**. Skapa en ny enhetsgrupp med följande inställningar:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -104,9 +104,9 @@ Om du vill göra det enklare att hantera IoT Edge-enheter i lösningen kan du sk
 
     [![Skapa enhets grupp](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
 
-1. Klicka på **Spara** .
+1. Klicka på **Spara**.
 
-Din IoT Edge-enhet är nu i gruppen **OilPumps** .
+Din IoT Edge-enhet är nu i gruppen **OilPumps**.
 
 ### <a name="install-the-edge-runtime"></a>Installera Edge-körning
 
@@ -154,9 +154,9 @@ Följande steg visar hur du skapar ett manifest för Edge-distribution som inneh
 
 Du definierar Stream Analytics-jobbet i portalen innan du paketerar den som en Edge-modul.
 
-1. I Azure-portalen skapar du ett Azure Storage-konto med standardalternativen i resursgruppen **IoTEdgeDevices** . Anteckna namnet som du har valt.
+1. I Azure-portalen skapar du ett Azure Storage-konto med standardalternativen i resursgruppen **IoTEdgeDevices**. Anteckna namnet som du har valt.
 
-1. I Azure-portalen skapar du ett **Stream Analytics-jobb** i resursgruppen **IoTEdgeDevices** . Använd följande konfigurationsvärden:
+1. I Azure-portalen skapar du ett **Stream Analytics-jobb** i resursgruppen **IoTEdgeDevices**. Använd följande konfigurationsvärden:
 
     | Alternativ | Värde |
     | ------ | ----- |
@@ -167,13 +167,13 @@ Du definierar Stream Analytics-jobbet i portalen innan du paketerar den som en E
     | Värdmiljö | Edge |
     | Strömningsenheter | 1 |
 
-1. Öppna Stream Analytics-jobbet **EdgeDeviceJob** i portalen, klicka på Indata och lägger till **Edge Hub** -strömindata med namnet **telemetry** .
+1. Öppna Stream Analytics-jobbet **EdgeDeviceJob** i portalen, klicka på Indata och lägger till **Edge Hub**-strömindata med namnet **telemetry**.
 
-1. I Stream Analytics-jobbet **EdgeDeviceJob** i portalen klickar du på **Utdata** och lägger till **Edge Hub** -utdata med namnet **output** .
+1. I Stream Analytics-jobbet **EdgeDeviceJob** i portalen klickar du på **Utdata** och lägger till **Edge Hub**-utdata med namnet **output**.
 
-1. I Stream Analytics-jobbet **EdgeDeviceJob** i portalen klickar du på **Utdata** och lägger till ytterligare **Edge Hub** -utdata med namnet **alert** .
+1. I Stream Analytics-jobbet **EdgeDeviceJob** i portalen klickar du på **Utdata** och lägger till ytterligare **Edge Hub**-utdata med namnet **alert**.
 
-1. I **EdgeDeviceJob** Stream Analytics-jobbet i portalen klickar du på **Fråga** och lägger till följande **select** -instruktion:
+1. I **EdgeDeviceJob** Stream Analytics-jobbet i portalen klickar du på **Fråga** och lägger till följande **select**-instruktion:
 
     ```sql
     SELECT  
@@ -189,7 +189,7 @@ Du definierar Stream Analytics-jobbet i portalen innan du paketerar den som en E
     HAVING avg(machine.temperature) > 400
     ```
 
-1. I **EdgeDeviceJob** Stream Analytics-jobbet i portalen klickar du på **Inställningar för lagringskonto** . Lägg till lagringskontot som du lade till i resursgruppen **IoTEdgeDevices** i början av det här avsnittet. Skapa en ny container med namnet **edgeconfig** .
+1. I **EdgeDeviceJob** Stream Analytics-jobbet i portalen klickar du på **Inställningar för lagringskonto**. Lägg till lagringskontot som du lade till i resursgruppen **IoTEdgeDevices** i början av det här avsnittet. Skapa en ny container med namnet **edgeconfig**.
 
 Följande skärmbild visar det sparade Stream Analytics-jobbet:
 
@@ -203,19 +203,19 @@ Därefter skapar du ett IoT Edge-distributionsmanifest som definierar vilka modu
 
 1. Navigera till IoT-hubben för fjärrövervakningslösningen i Azure-portalen. Du kan hitta IoT-hubben i resursgruppen som har samma namn som fjärrövervakningslösningen.
 
-1. I IoT-hubben klickar du på **IoT Edge** i avsnittet **Automatisk enhetshantering** . Klicka på **Lägg till en IoT Edge-distribution** .
+1. I IoT-hubben klickar du på **IoT Edge** i avsnittet **Automatisk enhetshantering**. Klicka på **Lägg till en IoT Edge-distribution**.
 
-1. På sidan **Skapa distribution > Namn och etikett** anger du namnet **oil-pump-device** . Klicka på **Nästa** .
+1. På sidan **Skapa distribution > Namn och etikett** anger du namnet **oil-pump-device**. Klicka på **Nästa**.
 
-1. På sidan **Skapa distribution > Lägg till moduler** klickar du på **+ Lägg till** . Välj **IoT Edge-modul** .
+1. På sidan **Skapa distribution > Lägg till moduler** klickar du på **+ Lägg till**. Välj **IoT Edge-modul**.
 
-1. I panelen **Anpassade IoT Edge-moduler** anger du **temperatureSensor** som namn och **asaedgedockerhubtest/asa-edge-test-module:sensor-ad-linux-amd64** som bild-URI. Klicka på **Spara** .
+1. I panelen **Anpassade IoT Edge-moduler** anger du **temperatureSensor** som namn och **asaedgedockerhubtest/asa-edge-test-module:sensor-ad-linux-amd64** som bild-URI. Klicka på **Spara**.
 
-1. På sidan **Skapa distribution > Lägg till moduler** klickar du på **+ Lägg till** för att lägga till en andra modul. Välj **Azure Stream Analytics-modul** .
+1. På sidan **Skapa distribution > Lägg till moduler** klickar du på **+ Lägg till** för att lägga till en andra modul. Välj **Azure Stream Analytics-modul**.
 
-1. I panelen **Edge-distribution** väljer du din prenumeration och det **EdgeDeviceJob** du skapade i föregående avsnitt. Klicka på **Spara** .
+1. I panelen **Edge-distribution** väljer du din prenumeration och det **EdgeDeviceJob** du skapade i föregående avsnitt. Klicka på **Spara**.
 
-1. På sidan **Skapa distribution > Lägg till moduler** klickar du på **Nästa** .
+1. På sidan **Skapa distribution > Lägg till moduler** klickar du på **Nästa**.
 
 1. På sidan **Skapa distribution > Ange rutter** lägger du till följande kod:
 
@@ -231,19 +231,19 @@ Därefter skapar du ett IoT Edge-distributionsmanifest som definierar vilka modu
 
     Den här koden dirigerar utdata från Stream Analytics-modulen till rätt platser.
 
-    Klicka på **Nästa** .
+    Klicka på **Nästa**.
 
-1. På sidan **Skapa distribution > Ange mått** klickar du på **Nästa** .
+1. På sidan **Skapa distribution > Ange mått** klickar du på **Nästa**.
 
-1. På sidan **Skapa distribution > Målenheter** anger du 10 som prioritet. Klicka på **Nästa** .
+1. På sidan **Skapa distribution > Målenheter** anger du 10 som prioritet. Klicka på **Nästa**.
 
-1. På sidan **Skapa distribution > Granska distributionen** klickar du på **Skicka** :
+1. På sidan **Skapa distribution > Granska distributionen** klickar du på **Skicka**:
 
     [![Granska distribution](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-expanded.png#lightbox)
 
-1. På huvudsidan **IoT Edge** klickar du på **IoT Edge-distributioner** . Du kan se **oil-pump-device** i listan över distributioner.
+1. På huvudsidan **IoT Edge** klickar du på **IoT Edge-distributioner**. Du kan se **oil-pump-device** i listan över distributioner.
 
-1. Klicka på distributionen **oil-pump-device** och klicka sedan på **Ladda ned IoT Edge-manifest** . Spara filen som **oil-pump-device.json** på en lämplig plats på din lokala datorn. Du behöver den här filen i nästa avsnitt i den här självstudien.
+1. Klicka på distributionen **oil-pump-device** och klicka sedan på **Ladda ned IoT Edge-manifest**. Spara filen som **oil-pump-device.json** på en lämplig plats på din lokala datorn. Du behöver den här filen i nästa avsnitt i den här självstudien.
 
 Nu har du skapat ett IoT Edge manifest som du kan importera till den fjärranslutna övervaknings lösningen som ett paket. Vanligtvis skapar en utvecklare IoT Edge-modulerna och manifestfilen.
 
@@ -251,15 +251,15 @@ Nu har du skapat ett IoT Edge manifest som du kan importera till den fjärranslu
 
 I det här avsnittet importerar du Edge-manifestet som ett paket i acceleratorn för fjärrövervakningslösningen.
 
-1. I webbgränssnittet för fjärrövervakning går du till sidan **Paket** och klickar på **+ Nytt paket** :
+1. I webbgränssnittet för fjärrövervakning går du till sidan **Paket** och klickar på **+ Nytt paket**:
 
     [![Nytt paket](./media/iot-accelerators-remote-monitoring-edge/newpackage-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newpackage-expanded.png#lightbox)
 
-1. I panelen **Nytt paket** väljer du **Edge-manifest** som pakettyp, klickar på **Bläddra** för att hitta filen **oil-pump-device.json** på din lokala dator och klicka på **Ladda upp** :
+1. I panelen **Nytt paket** väljer du **Edge-manifest** som pakettyp, klickar på **Bläddra** för att hitta filen **oil-pump-device.json** på din lokala dator och klicka på **Ladda upp**:
 
     [![Ladda upp paket](./media/iot-accelerators-remote-monitoring-edge/uploadpackage-inline.png)](./media/iot-accelerators-remote-monitoring-edge/uploadpackage-expanded.png#lightbox)
 
-    Listan över paket innehåller nu paketet **olje-pump-device.json** .
+    Listan över paket innehåller nu paketet **olje-pump-device.json**.
 
 I nästa avsnitt skapar du en distribution som gäller paketet för din Edge-enhet.
 
@@ -267,7 +267,7 @@ I nästa avsnitt skapar du en distribution som gäller paketet för din Edge-enh
 
 Nu är du redo att distribuera paketet till din enhet.
 
-1. I webbgränssnittet för fjärrövervakning går du till sidan **Distributioner** och klickar på **+ Ny distribution** :
+1. I webbgränssnittet för fjärrövervakning går du till sidan **Distributioner** och klickar på **+ Ny distribution**:
 
     [![Ny distribution](./media/iot-accelerators-remote-monitoring-edge/newdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newdeployment-expanded.png#lightbox)
 
@@ -283,7 +283,7 @@ Nu är du redo att distribuera paketet till din enhet.
 
     [![Skapa distribution](./media/iot-accelerators-remote-monitoring-edge/createdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdeployment-expanded.png#lightbox)
 
-    Klicka på **Godkänn** .
+    Klicka på **Använd**.
 
 Du måste vänta några minuter medan paketet distribueras till din enhet och telemetri börjar flöda från enheten.
 
@@ -301,7 +301,7 @@ På sidan **Distributioner** visas följande mått:
 Du kan visa temperaturtelemetri från oljepumpenheten i webbgränssnittet för fjärrövervakning:
 
 1. Navigera till sidan **Device Explorer** och välj din oljepumpenhet.
-1. I avsnittet **Telemetri** i panelen **Enhetsinformation** i panelen, klickar du på **Temperatur** :
+1. I avsnittet **Telemetri** i panelen **Enhetsinformation** i panelen, klickar du på **Temperatur**:
 
     [![Visa telemetri](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-expanded.png#lightbox)
 
@@ -309,13 +309,13 @@ Du kan se hur temperaturen ökar tills den når ett tröskelvärde. Stream Analy
 
 Om du vill meddela operatörer när tröskelvärdet har uppnåtts kan du skapa en regel i webbgränssnittet för fjärrövervakning:
 
-1. Navigera till sidan **Regler** och klicka på **+ Ny regel** .
+1. Navigera till sidan **Regler** och klicka på **+ Ny regel**.
 1. Skapa en ny regel med följande inställningar:
 
     | Alternativ | Värde |
     | ------ | ----- |
     | Regelnamn | Oljepumptemperatur |
-    | Beskrivning | Oljapumptemperaturen överskred 300 |
+    | Description | Oljapumptemperaturen överskred 300 |
     | Enhetsgrupp | OilPumps |
     | Beräkning | Direkt |
     | Fält | temperatur |
@@ -325,9 +325,9 @@ Om du vill meddela operatörer när tröskelvärdet har uppnåtts kan du skapa e
 
     [![Skapa regel](./media/iot-accelerators-remote-monitoring-edge/newrule-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newrule-expanded.png#lightbox)
 
-    Klicka på **Godkänn** .
+    Klicka på **Använd**.
 
-1. Gå till sidan **Instrumentpanel** . En avisering som visas i panelen **Aviseringar** när temperaturen i enheten **oil-pump** överstiger 300.
+1. Gå till sidan **Instrumentpanel**. En avisering som visas i panelen **Aviseringar** när temperaturen i enheten **oil-pump** överstiger 300.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -336,6 +336,6 @@ I den här självstudiekursen visades hur du lägger till och konfigurerar en Io
 > [!div class="nextstepaction"]
 > [Importera ett IoT Edge-paket till acceleratorn för fjärrövervakningslösningen](iot-accelerators-remote-monitoring-import-edge-package.md)
 
-Mer information om hur du installerar IoT Edge-körningen finns i [Installera Azure IoT Edge-körning på Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md).
+Mer information om hur du installerar IoT Edge-körningen finns i [Installera Azure IoT Edge-körning på Linux (x64)](../iot-edge/how-to-install-iot-edge.md).
 
 Läs mer om Azure Stream Analytics på Edge-enheter i [Distribuera Azure Stream Analytics som en IoT Edge-modul](../iot-edge/tutorial-deploy-stream-analytics.md).

@@ -1,6 +1,6 @@
 ---
-title: Fråga mappar och flera filer med hjälp av SQL-poolen utan server (för hands version)
-description: SQL-poolen utan server (för hands version) stöder läsning av flera filer/mappar med hjälp av jokertecken, som liknar de jokertecken som används i Windows OS.
+title: Fråga mappar och flera filer med en server lös SQL-pool
+description: SQL-poolen utan Server stöder läsning av flera filer/mappar med jokertecken, som liknar de jokertecken som används i Windows OS.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,20 +9,20 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9d15d681a114b0f364e8e33adc786b4d0ba7df0e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 83c4d88e1a87f6b546e26dd55da338a36f16ebe4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684567"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462623"
 ---
 # <a name="query-folders-and-multiple-files"></a>Efterfråga mappar och flera filer  
 
-I den här artikeln får du lära dig hur du skriver en fråga med Server lös SQL-pool (för hands version) i Azure Synapse Analytics.
+I den här artikeln får du lära dig hur du skriver en fråga med en server lös SQL-pool i Azure Synapse Analytics.
 
 SQL-poolen utan Server stöder läsning av flera filer/mappar med jokertecken, som liknar de jokertecken som används i Windows OS. Det finns dock större flexibilitet eftersom flera jokertecken är tillåtna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ditt första steg är att **skapa en databas** där du ska köra frågorna. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 

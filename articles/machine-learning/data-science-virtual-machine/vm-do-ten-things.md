@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 766da55f2589e2a8eb09e0f1b1c9a0a5027c8c3c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1e263886d0cc199bb30fd28877be32209ab32a22
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002773"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462395"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Data vetenskap med en Windows-Data Science Virtual Machine
 
@@ -252,8 +252,8 @@ Data läses som en data ram:
 ![Skärm bild av de första 10 raderna med data](./media/vm-do-ten-things/IPNB_data_readin.png)
 
 
-### <a name="azure-synapse-analytics-formerly-sql-dw-and-databases"></a>Azure Synapse Analytics (tidigare SQL DW) och databaser
-Azure Synapse Analytics (tidigare SQL DW) är ett elastiskt informations lager som en tjänst med en SQL Server upplevelse i företags klass.
+### <a name="azure-synapse-analytics-and-databases"></a>Azure Synapse Analytics och databaser
+Azure Synapse Analytics är ett elastiskt informations lager som en tjänst med en SQL Server upplevelse i företags klass.
 
 Du kan etablera Azure Synapse Analytics genom att följa anvisningarna i [den här artikeln](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). När du har etablerat Azure Synapse Analytics kan du använda [den här genom gången](../team-data-science-process/sqldw-walkthrough.md) för att utföra data uppladdning, utforskning och modellering med hjälp av data i Azure Synapse Analytics.
 

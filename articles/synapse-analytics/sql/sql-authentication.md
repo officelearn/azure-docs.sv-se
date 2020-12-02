@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 460fed7244ba8094da41ae6b5b8161de3d9efe65
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: efa160eb422658aeeb2eea3ad3c1d305b4b9f8be
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317282"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462412"
 ---
 # <a name="sql-authentication"></a>SQL-autentisering
 
@@ -22,14 +22,14 @@ Azure Synapse Analytics har två SQL Forms-faktorer som gör att du kan styra re
 
 Du kan använda två typer av auktorisering för att auktorisera till Synapse SQL:
 
-- Azure Active Directory auktorisering
+- Azure Active Directory-auktorisering
 - SQL-auktorisering
 
 Med Azure Active Directory kan du ha en enda plats för användar hantering. SQL-auktorisering gör att äldre program kan använda Synapse SQL på ett välbekant sätt.
 
 ## <a name="administrative-accounts"></a>Administrativa konton
 
-Det finns två administrativa konton ( **Serveradministratör** och **Active Directory-administratör** ) som fungerar som administratörer. Om du vill identifiera administratörs kontona för din SQL-Server öppnar du Azure Portal och navigerar till fliken Egenskaper i din Synapse SQL.
+Det finns två administrativa konton (**Serveradministratör** och **Active Directory-administratör**) som fungerar som administratörer. Om du vill identifiera administratörs kontona för din SQL-Server öppnar du Azure Portal och navigerar till fliken Egenskaper i din Synapse SQL.
 
 ![SQL-serveradministratörer](./media/sql-authentication/sql-admins.png)
 
@@ -51,7 +51,7 @@ Administratörs kontona för **Server administratören** och **Azure AD** har f�
 - Kan lägga till och ta bort medlemmar `dbmanager` i `loginmanager` rollerna och.
 - Kan visa `sys.sql_logins` system tabellen.
 
-## <a name="serverless-sql-pool-preview"></a>[SQL-pool utan server (för hands version)](#tab/serverless)
+## <a name="serverless-sql-pool"></a>[Serverlös SQL-pool](#tab/serverless)
 
 Om du vill hantera användare som har åtkomst till en server utan SQL-pool kan du använda instruktionerna nedan.
 
@@ -87,7 +87,7 @@ Vid användning av en öppen port i brandväggen på servernivå kan administrat
 
 ### <a name="database-creators"></a>Databasskapare
 
-En av dessa administrativa roller är **DBManager** -rollen. Medlemmar i den här rollen kan skapa nya databaser. För att använda den här rollen skapar du en användare i `master`-databasen och lägger sedan till användaren i **dbmanager** -databasrollen. 
+En av dessa administrativa roller är **DBManager** -rollen. Medlemmar i den här rollen kan skapa nya databaser. För att använda den här rollen skapar du en användare i `master`-databasen och lägger sedan till användaren i **dbmanager**-databasrollen. 
 
 Om du vill skapa en databas måste användaren vara en användare baserad på en SQL Server inloggning i `master` databasen eller innesluten databas användare baserat på en Azure Active Directory användare.
 
@@ -127,7 +127,7 @@ Användaren kan nu ansluta till `master` databasen och kan skapa nya databaser. 
 
 ### <a name="login-managers"></a>Inloggningshanterare
 
-Den andra administrativa rollen är inloggningshanterare-rollen. Medlemmar i den här rollen kan skapa nya inloggningar i huvuddatabasen. Om du vill kan du slutföra samma steg (skapa en inloggning och användare och lägga till en användare i rollen **loginmanager** ) så att en användare kan skapa nya inloggningar i huvuddatabasen. Vanligt vis är inloggningar inte nödvändiga eftersom Microsoft rekommenderar att du använder inneslutna databas användare, som autentiseras på databas nivå i stället för att använda användare baserat på inloggningar. Mer information finns i [Användare av oberoende databas – göra databasen portabel](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Den andra administrativa rollen är inloggningshanterare-rollen. Medlemmar i den här rollen kan skapa nya inloggningar i huvuddatabasen. Om du vill kan du slutföra samma steg (skapa en inloggning och användare och lägga till en användare i rollen **loginmanager**) så att en användare kan skapa nya inloggningar i huvuddatabasen. Vanligt vis är inloggningar inte nödvändiga eftersom Microsoft rekommenderar att du använder inneslutna databas användare, som autentiseras på databas nivå i stället för att använda användare baserat på inloggningar. Mer information finns i [Användare av oberoende databas – göra databasen portabel](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ---
 
@@ -187,7 +187,7 @@ Effektiv åtkomsthantering använder behörigheter tilldelade grupper och roller
 
 - När du använder SQL Server-autentisering kan du skapa inneslutna databasanvändare i databasen. Placera en eller flera användare i en [databasrollen](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) och tilldela sedan [behörigheter](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) till databasrollen.
 
-Databasrollerna kan vara de inbyggda rollerna, som **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** och **db_denydatareader**. **db_owner** används ofta för att endast ge fullständig behörighet till några användare. De andra fasta databasrollerna är användbara för att snabbt få en enkel databas i utveckling, men de rekommenderas inte för de flesta produktionsdatabaserna. 
+Databasrollerna kan vara de inbyggda rollerna, som **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** och **db_denydatareader**. **db_owner** används ofta för att endast ge fullständig behörighet till några användare. De andra fasta databasrollerna är användbara för att snabbt få en enkel databas i utveckling, men de rekommenderas inte för de flesta produktionsdatabaserna. 
 
 Till exempel ger den fasta databasrollen **db_datareader** läsbehörighet till alla tabeller i databasen, vilket vanligtvis är mer än är absolut nödvändigt. 
 

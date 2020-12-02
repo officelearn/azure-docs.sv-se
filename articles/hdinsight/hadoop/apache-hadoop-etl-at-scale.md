@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: bb978f30104b1e38bd8930ccb058c4057d394e51
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d6c3dbc28da7bee0bc24a6dc24608c78e480c20e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899660"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462165"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrahera, transformera och läsa in (ETL) i skala
 
@@ -27,7 +27,7 @@ I följande avsnitt lär du dig var och en av de olika ETL-faserna och deras ass
 
 ## <a name="orchestration"></a>Orkestrering
 
-Dirigering sträcker sig över alla faser i ETL-pipeline. ETL-jobb i HDInsight omfattar ofta flera olika produkter som arbetar tillsammans med varandra. Till exempel:
+Dirigering sträcker sig över alla faser i ETL-pipeline. ETL-jobb i HDInsight omfattar ofta flera olika produkter som arbetar tillsammans med varandra. Exempel:
 
 - Du kan använda Apache Hive för att rensa en del av data och Apache gris för att rensa en annan del.
 - Du kan använda Azure Data Factory för att läsa in data i Azure SQL Database från Azure Data Lake Store.
@@ -86,7 +86,7 @@ För att ladda upp data uppsättningar i intervallet terabyte kan nätverks för
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure Synapse Analytics (tidigare SQL DW) är ett lämpligt alternativ för att lagra för beredda resultat. Du kan använda Azure HDInsight för att utföra dessa tjänster för Azure Synapse Analytics.
+Azure Synapse Analytics är ett lämpligt alternativ för att lagra för beredda resultat. Du kan använda Azure HDInsight för att utföra dessa tjänster för Azure Synapse Analytics.
 
 Azure Synapse Analytics är ett Relations databas lager som är optimerat för analytiska arbets belastningar. Den skalas baserat på partitionerade tabeller. Tabeller kan partitioneras över flera noder. Noderna väljs vid tidpunkten för skapandet. De kan skalas efter faktumet, men det är en aktiv process som kan kräva data förflyttning. Mer information finns i [Hantera beräkning i Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 

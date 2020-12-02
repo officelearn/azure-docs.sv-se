@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: f06777e559187a57bfe0625cde700f30fb636a2b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 495300d677d6d898bfc916e5115b801c815bd587
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974467"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461491"
 ---
 # <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Mata in data i Azure Data Lake Storage Gen2 
 
@@ -72,4 +72,4 @@ I det här steget aktiverar du pipelinen som publicerades i föregående steg ma
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om data integrering för Synapse-analys finns i artikeln mata [in data i en särskild SQL-pool](data-integration-sql-pool.md) .
+Mer information om data integrering för Azure Synapse Analytics finns i artikeln mata [in data i en särskild SQL-pool](data-integration-sql-pool.md) .

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: 803c9a98f0dc10ff8218ac7b7c20dcb117700034
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1217d3af855e96b6d6a0f403c2ff351a6b957d9a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187110"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459661"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Spelbok för att lösa vanliga säkerhets krav med Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Det här dokumentet ger vägledning om hur du löser vanliga säkerhets krav fö
 
 ### <a name="deployment-offers-not-covered-in-this-guide"></a>Distributions erbjudanden som inte beskrivs i den här guiden
 
-- Azure Synapse Analytics (tidigare SQL Data Warehouse)
+- Azure Synapse Analytics
 - Virtuella Azure SQL-datorer (IaaS)
 - SQL Server
 

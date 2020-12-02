@@ -4,15 +4,15 @@ description: 'Självstudie: beskriver hur du använder Azure Event Grid och Even
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e6dfcac17d79edd417af07179224fdf922906c4e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 42a2f7fd557970328f6d88b08e296317cecd8c66
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841384"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462151"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Självstudie: strömma Big data till ett informations lager
-Azure [Event Grid](overview.md) är en intelligent tjänst för händelsedirigering som innebär att du kan agera på aviseringar (händelser) från appar och tjänster. Tjänsten kan till exempel utlösa en Azure-funktion som bearbetar Event Hubs-data som har hämtats till en Azure-blobblagring eller Azure Data Lake Storage och som migrerar datan till andra lagringsplatser. Det här [Event Hubs och event Grid integrations exempel](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) visar hur du använder Event Hubs med event Grid för att sömlöst migrera insamlade Event Hubs data från Blob Storage till en Azure Synapse Analytics (tidigare SQL Data Warehouse).
+Azure [Event Grid](overview.md) är en intelligent tjänst för händelsedirigering som innebär att du kan agera på aviseringar (händelser) från appar och tjänster. Tjänsten kan till exempel utlösa en Azure-funktion som bearbetar Event Hubs-data som har hämtats till en Azure-blobblagring eller Azure Data Lake Storage och som migrerar datan till andra lagringsplatser. Det här [Event Hubs och event Grid integrations exempel](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) visar hur du använder Event Hubs med event Grid för att sömlöst migrera insamlade Event Hubs data från Blob Storage till en Azure Synapse-analys.
 
 ![Programöversikt](media/event-grid-event-hubs-integration/overview.png)
 
@@ -27,8 +27,8 @@ Diagrammet visar arbetsflödet för lösningen som du skapar i självstudien:
 I den här självstudien gör du följande:
 
 > [!div class="checklist"]
-> * Använd en Azure Resource Manager mall för att distribuera infrastrukturen: en Event Hub, ett lagrings konto, en Function-app, en Synapse-analys.
-> * Skapar en tabell i informationslagret.
+> * Använd en Azure Resource Manager mall för att distribuera infrastrukturen: en Event Hub, ett lagrings konto, en Function-app, en dedikerad SQL-pool.
+> * Skapa en tabell i den dedikerade SQL-poolen.
 > * Lägger till kod i funktionsappen.
 > * Prenumererar på händelsen. 
 > * Kör appen som skickar data till händelsehubben.

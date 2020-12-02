@@ -1,18 +1,18 @@
 ---
-title: 'Snabb start: Lägg till frågor och svar i QnA Maker Portal'
-description: Den här snabb starten visar hur du lägger till fråge-och svars par med metadata så att användarna kan hitta rätt svar på sina frågor.
+title: Lägg till frågor och svar i QnA Maker Portal
+description: Den här artikeln visar hur du lägger till fråge-och svars par med metadata så att användarna kan hitta rätt svar på sina frågor.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: e56d718892d9cfdbfda9068ecd68ef31f7f2ea46
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 53c0afa1cdb8c9920875b7ba694339107714bd54
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353078"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462201"
 ---
-# <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Snabb start: Lägg till frågor och svar med QnA Maker Portal
+# <a name="add-questions-and-answer-with-qna-maker-portal"></a>Lägg till frågor och svar med QnA Maker Portal
 
 När en kunskaps bas har skapats kan du lägga till fråge-och svars-par (QnA) med metadata för att filtrera svaret. Frågorna i följande tabell är om begränsningar för Azure-tjänster, men var och en måste göra med en annan Azure Search-tjänst.
 

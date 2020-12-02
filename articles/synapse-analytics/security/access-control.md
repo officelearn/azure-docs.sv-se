@@ -1,6 +1,6 @@
 ---
 title: Hantera åtkomst till arbets ytor, data och pipelines
-description: Lär dig hur du hanterar åtkomst kontroll till arbets ytor, data och pipelines i en Azure Synapse Analytics-arbetsyta (för hands version).
+description: Lär dig hur du hanterar åtkomst kontroll till arbets ytor, data och pipelines i Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5d95ddcc610fb0350f47e0e5b494cbd16b95468c
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: c4304aeadf2950c1a91ee50ba9ecd895b2561b41
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255229"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461358"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Hantera åtkomst till arbets ytor, data och pipelines
 
-Lär dig hur du hanterar åtkomst kontroll till arbets ytor, data och pipelines i en Azure Synapse Analytics-arbetsyta (för hands version).
+Lär dig hur du hanterar åtkomst kontroll till arbets ytor, data och pipelines i Azure Synapse Analytics.
 
 > [!NOTE]
 > För GA är Azure RBAC mer utvecklad genom introduktionen av Synapse Azure-roller
@@ -171,7 +171,7 @@ Följ dessa steg om du vill bevilja åtkomst till en användare till en **enskil
 
 När du har skapat användarna kontrollerar du att du kan fråga lagrings kontot med hjälp av SQL-poolen utan server.
 
-## <a name="access-control-to-workspace-pipeline-runs"></a>Åtkomst kontroll till arbets ytans pipelines körs
+## <a name="access-control-to-workspace-pipeline-runs"></a>Åtkomstkontroll till arbetsytans pipeline-körningar
 
 ### <a name="workspace-managed-identity"></a>Hanterad identitet för arbets yta
 

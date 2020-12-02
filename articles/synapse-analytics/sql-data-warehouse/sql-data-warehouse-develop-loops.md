@@ -1,34 +1,34 @@
 ---
 title: Använda T-SQL-slingor
-description: Tips för utveckling av lösningar med T-SQL-slingor och ersättning av markörer i Synapse SQL-pool.
+description: Tips för utveckling av lösningar med T-SQL-slingor och ersättning av markörer för dedikerade SQL-pooler i Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 25dad01a54b6ffe08656379340f58e0fe70ec666
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 3477b3095414248afa9fbc7417ab707c94f35546
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213422"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462723"
 ---
-# <a name="using-t-sql-loops-in-synapse-sql-pool"></a>Använda T-SQL-slingor i Synapse SQL-pool
+# <a name="using-t-sql-loops-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Använda T-SQL-slingor för dedikerade SQL-pooler i Azure Synapse Analytics
 
-I den här artikeln finns tips för utveckling av SQL-pooler med T-SQL-slingor och ersättning av markörer.
+I den här artikeln finns tips för dedikerad utveckling av SQL-pooler med T-SQL-slingor och ersättning av markörer.
 
 ## <a name="purpose-of-while-loops"></a>Syfte med WHILe-slingor
 
-Synapse SQL-pool stöder [while](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) -loopen för att köra instruktions block upprepade gånger. Den här WHILe-slingan fortsätter så länge som de angivna villkoren är sanna eller tills koden specifikt avslutar loopen med hjälp av nyckelordet BREAK.
+Dedikerade SQL-pooler i Azure Synapse stöder [while](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) -slingan för att köra instruktions block upprepade gånger. Den här WHILe-slingan fortsätter så länge som de angivna villkoren är sanna eller tills koden specifikt avslutar loopen med hjälp av nyckelordet BREAK.
 
 Slingor är användbara för att ersätta markörer som definierats i SQL-kod. Lyckligt vis är nästan alla markörer som skrivs i SQL-kod av den snabba, skrivskyddade sorten. Detta innebär att slingor är ett bra alternativ för att ersätta markörer.
 
-## <a name="replacing-cursors-in-synapse-sql-pool"></a>Ersätta markörer i Synapse SQL-pool
+## <a name="replacing-cursors-in-dedicated-sql-pool"></a>Ersätta markörer i dedikerad SQL-pool
 
 Men innan du simhopp i head borde du först fråga dig själv om följande fråga: "kan den här markören skrivas om för att använda set-based Operations?"
 

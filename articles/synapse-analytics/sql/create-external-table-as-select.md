@@ -1,6 +1,6 @@
 ---
 title: Lagra frågeresultaten från en server lös SQL-pool
-description: I den här artikeln får du lära dig hur du lagrar frågeresultat till lagring med hjälp av SQL-poolen utan server (för hands version).
+description: I den här artikeln får du lära dig hur du lagrar frågeresultat till lagring med hjälp av SQL-poolen utan server.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 50897d81ed5ef2fc33e458bd46d9229f6184fea8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: dd989d5925da864728e944e84962086c0cfb08ea
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322620"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462322"
 ---
-# <a name="store-query-results-to-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Lagra frågeresultat till lagring med hjälp av Server lös SQL-pool (för hands version) i Azure Synapse Analytics
+# <a name="store-query-results-to-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Lagra frågeresultat till lagring med hjälp av Server lös SQL-pool i Azure Synapse Analytics
 
-I den här artikeln får du lära dig hur du lagrar frågeresultat till lagring med hjälp av SQL-poolen utan server (för hands version).
+I den här artikeln får du lära dig hur du lagrar frågeresultat till lagring med hjälp av SQL-poolen utan server.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

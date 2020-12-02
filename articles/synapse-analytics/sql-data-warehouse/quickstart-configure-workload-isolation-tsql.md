@@ -11,14 +11,14 @@ ms.date: 04/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9132c9609961053e7f60344dc387b2a8d01bd6b9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ae21368269a2c098b4e35bf83b8c9fdf2749a297
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85212997"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460550"
 ---
-# <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Snabb start: Konfigurera arbets belastnings isolering med T-SQL
+# <a name="quickstart-configure-workload-isolation-in-a-dedicated-sql-pool-using-t-sql"></a>Snabb start: Konfigurera arbets belastnings isolering i en dedikerad SQL-pool med hjälp av T-SQL
 
 I den här snabb starten skapar du snabbt en arbets belastnings grupp och en klassificerare för att reservera resurser för data inläsning. Arbets belastnings gruppen kommer att allokera 20% av system resurserna till data belastningarna.  Klassificeringen av arbets belastningen tilldelar förfrågningar till arbets belastnings gruppen för data inläsningar.  Med 20% isolering för data inläsningar är de garanterat resurser för att nå service avtal.
 
@@ -29,7 +29,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här snabb starten förutsätter att du redan har en Synapse SQL-instans i Azure Synapse och att du har behörighet att kontrol lera databasen. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
+Den här snabb starten förutsätter att du redan har en Synapse SQL-instans i Azure Synapse och att du har behörighet att kontrol lera databasen. Om du behöver skapa ett använder du [skapa och Anslut – Portal](create-data-warehouse-portal.md) för att skapa en dedikerad SQL-pool med namnet **mySampleDataWarehouse**.
 
 ## <a name="create-login-for-dataloads"></a>Skapa inloggning för DataLoads
 
@@ -103,10 +103,10 @@ DROP USER [ELTLogin]
 ;
 ```
 
-Du debiteras för data lager enheter och data som lagras i ditt informations lager. Dessa beräknings- och lagringsresurser debiteras separat.
+Du debiteras för data lager enheter och data som lagras i din dedikerade SQL-pool. Dessa beräknings- och lagringsresurser debiteras separat.
 
-- Om du vill behålla data i lagrings utrymmet kan du pausa beräkningen när du inte använder SQL-poolen. Genom att pausa beräkning debiteras du bara för data lagring. När du är redo att arbeta med data återupptar du beräkningen.
-- Om du vill undvika framtida avgifter kan du ta bort informationslagret.
+- Om du vill behålla data i lagrings utrymmet kan du pausa beräkningen när du inte använder den dedikerade SQL-poolen. Genom att pausa beräkning debiteras du bara för data lagring. När du är redo att arbeta med data återupptar du beräkningen.
+- Om du vill ta bort framtida avgifter kan du ta bort den dedikerade SQL-poolen.
 
 ## <a name="next-steps"></a>Nästa steg
 

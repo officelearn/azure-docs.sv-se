@@ -1,6 +1,6 @@
 ---
-title: Fråga Parquet-filer med Server lös SQL-pool (för hands version)
-description: I den här artikeln får du lära dig hur du frågar Parquet-filer med hjälp av SQL-poolen utan server (för hands version).
+title: Fråga Parquet-filer med Server lös SQL-pool
+description: I den här artikeln får du lära dig hur du frågar Parquet-filer med en server lös SQL-pool.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 97b34d85e4628c0ef01dd02d3a9be85da7f8291e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 20bfbaeea48711a680877e4d5d8f618e84eb12d7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685621"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462568"
 ---
-# <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Fråga Parquet-filer med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
+# <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Fråga Parquet-filer med Server lös SQL-pool i Azure Synapse Analytics
 
-I den här artikeln får du lära dig hur du skriver en fråga med hjälp av SQL-poolen utan server (för hands version) som läser Parquet-filer.
+I den här artikeln får du lära dig hur du skriver en fråga med en server lös SQL-pool som ska läsa Parquet-filer.
 
 ## <a name="quickstart-example"></a>Exempel på snabb start
 
@@ -38,8 +38,8 @@ from openrowset(
 Se till att du har åtkomst till den här filen. Om filen skyddas med SAS-nyckel eller anpassad Azure-identitet måste du konfigurera [autentiseringsuppgifter på server nivå för SQL-inloggning](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
-> Kontrol lera att du använder en viss UTF-8-databas sortering (till exempel `Latin1_General_100_CI_AS_SC_UTF8` ) eftersom sträng värden i PARQUET-filer är kodade med UTF-8-kodning.
-> Matchnings fel mellan text kodning i PARQUET-filen och sorteringen kan orsaka oväntade konverterings fel.
+> Se till att du använder en databas sortering med UTF-8 (till exempel `Latin1_General_100_CI_AS_SC_UTF8` ) eftersom sträng värden i PARQUET-filer är kodade med UTF-8-kodning.
+> Ett matchnings fel mellan text kodningen i PARQUET-filen och sorteringen kan orsaka oväntade konverterings fel.
 > Du kan enkelt ändra standard sorteringen för den aktuella databasen med hjälp av följande T-SQL-uttryck: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Data källans användning
@@ -81,7 +81,7 @@ from openrowset(
 
 I följande avsnitt kan du se hur du frågar olika typer av PARQUET-filer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ditt första steg är att **skapa en databas** med en data källa som refererar till [NYC gul taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) -lagrings konto. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 

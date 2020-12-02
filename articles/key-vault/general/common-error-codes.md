@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 09/29/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a543f03cb73d9eae8eaa81eeb3a37fd59e4e6a81
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 9ae13b88d767e43c425ceb86d0be455cebc0e6ac
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685808"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462523"
 ---
 # <a name="common-error-codes-for-azure-key-vault"></a>Vanliga felkoder för Azure Key Vault
 
@@ -22,7 +22,7 @@ Fel koderna som anges i följande tabell kan returneras av en åtgärd i Azure K
 
 | Felkod | Användar meddelande |
 |--|--|
-| VaultAlreadyExists |  Ditt försök att skapa ett nytt nyckel valv med det angivna namnet misslyckades eftersom namnet redan används. Om du nyligen har tagit bort ett nyckel valv med det här namnet kan det fortfarande vara i läget Soft Deleted. Du kan kontrol lera om den finns i läget Soft-Deleted [här](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault) |
+| VaultAlreadyExists |  Ditt försök att skapa ett nytt nyckel valv med det angivna namnet misslyckades eftersom namnet redan används. Om du nyligen har tagit bort ett nyckel valv med det här namnet kan det fortfarande vara i läget Soft Deleted. Du kan kontrol lera om den finns i läget Soft-Deleted [här](./key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault) |
 | VaultNameNotValid |  Valv namnet ska vara 24 tecken, alfanumeriskt och börja med ett alfabet |
 | AccessDenied |  Du kanske saknar behörigheter i åtkomst principen för att utföra åtgärden. |
 | ForbiddenByFirewall |  Klient adressen är inte auktoriserad och anroparen är inte en betrodd tjänst. |

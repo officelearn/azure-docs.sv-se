@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 00920f30061832bd1d685f04113a63781df718b4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 12240dd3c8dca2c686950f420f49411fde5f7f28
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313694"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460370"
 ---
-# <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Azure Synapse Analytics-hanterad Virtual Network (för hands version)
+# <a name="azure-synapse-analytics-managed-virtual-network"></a>Hanterad Azure Synapse Analytics-Virtual Network
 
 I den här artikeln förklaras hanterade Virtual Network i Azure Synapse Analytics.
 

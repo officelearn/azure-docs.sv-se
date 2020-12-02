@@ -10,12 +10,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 6df400e7ce4b66a1589a0c44089148b33ab88638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20ee36989acbc36f86478d8205dd61097362eea3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439069"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461532"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Azure PowerShell exempel för Azure Data Factory
 
@@ -23,12 +23,12 @@ ms.locfileid: "89439069"
 
 Följande tabell innehåller länkar till exempel Azure PowerShell skript för Azure Data Factory.
 
-| Skript | Beskrivning  |
+| Skript | Description  |
 |---|---|
 |**Kopiera data**||
 |[Kopiera blobbar från en mapp till en annan mapp i ett Azure-Blob Storage](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här PowerShell-skriptet kopierar blobbar från en mapp i Azure Blob Storage till en annan mapp i samma Blob Storage. |
 |[Kopiera data från SQL Server till Azure Blob Storage](scripts/hybrid-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här PowerShell-skriptet kopierar data från en SQL Server-databas till Azure Blob Storage. |
-|[Mass kopiering](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här exemplet på PowerShell-skriptet kopierar data från flera tabeller i en databas i Azure SQL Database till Azure Synapse Analytics (tidigare SQL Data Warehouse). |
+|[Masskopiering](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här exemplet på PowerShell-skriptet kopierar data från flera tabeller i en databas i Azure SQL Database till Azure Synapse Analytics. |
 |[Stegvis kopia](scripts/incremental-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här exemplet på PowerShell-skriptet läser bara in nya eller uppdaterade poster från ett käll data lager till ett data lager för mottagare efter den första fullständiga kopian av data från källan till mottagaren. |
 |**Omvandla data**||
 |[Transformera data med ett Spark-kluster](scripts/transform-data-spark-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här PowerShell-skriptet transformerar data genom att köra ett program i ett Spark-kluster. |

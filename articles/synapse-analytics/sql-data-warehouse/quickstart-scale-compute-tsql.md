@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skala beräkning i Azure Synapse Analytics-T-SQL'
-description: Skala beräkning i Azure Synapse Analytics med hjälp av T-SQL och SQL Server Management Studio (SSMS). Skala ut beräkning för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna.
+title: 'Snabb start: skala beräkning i dedikerad SQL-pool (tidigare SQL DW)-T-SQL'
+description: Skala beräkning i dedikerad SQL-pool (tidigare SQL DW) med T-SQL och SQL Server Management Studio (SSMS). Skala ut beräkning för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna.
 services: synapse-analytics
 author: Antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d11474a3f3b5d8c314f67260fddbbe0a98fe5196
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 37033e3c5f388d1a55a122899114914e661565f6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91569903"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460223"
 ---
-# <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>Snabb start: skala beräkning i Azure Synapse Analytics med hjälp av T-SQL
+# <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-t-sql"></a>Snabb start: skala beräkning för dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics med hjälp av T-SQL
 
-Skala beräkning i Azure Synapse Analytics (tidigare SQL DW) med T-SQL och SQL Server Management Studio (SSMS). [Skala ut beräkning](sql-data-warehouse-manage-compute-overview.md) för bättre prestanda eller skala upp beräkning för att spara kostnader.
+Skala beräkning i dedikerad SQL-pool (tidigare SQL DW) med T-SQL och SQL Server Management Studio (SSMS). [Skala ut beräkning](sql-data-warehouse-manage-compute-overview.md) för bättre prestanda eller skala upp beräkning för att spara kostnader.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -28,9 +28,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Ladda ned och installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
-## <a name="create-a-data-warehouse"></a>Skapa ett datalager
+## <a name="create-a-dedicated-sql-pool-formerly-sql-dw"></a>Skapa en dedikerad SQL-pool (tidigare SQL DW)
 
-Använd [Snabbstart: Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**. Slutför snabb starten för att se till att du har en brand Väggs regel och kan ansluta till data lagret inifrån SQL Server Management Studio.
+Använd [snabb start: skapa och Anslut – Portal](create-data-warehouse-portal.md) för att skapa en dedikerad SQL-pool (tidigare SQL DW) med namnet **mySampleDataWarehouse**. Slutför snabb starten för att se till att du har en brand Väggs regel och kan ansluta till din dedikerade SQL-pool (tidigare SQL DW) inifrån SQL Server Management Studio.
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ansluta till servern som serveradministratör
 
@@ -58,11 +58,11 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
 
 ## <a name="view-service-objective"></a>Visa tjänstmål
 
-Inställningen för tjänstmål innehåller antalet informationslagerenheter för informationslagret.
+Inställningen tjänst mål innehåller antalet informations lager enheter för den dedikerade SQL-poolen (tidigare SQL DW).
 
-Så här visar du aktuella informationslagerenheter för informationslagret:
+Visa de aktuella data lager enheterna för din dedikerade SQL-pool (tidigare SQL DW):
 
-1. Under anslutningen till **mySampleDataWarehouseservername.Database.Windows.net**expanderar du **system databaser**.
+1. Under anslutningen till **mySampleDataWarehouseservername.Database.Windows.net** expanderar du **system databaser**.
 2. Högerklicka på **huvuddatabas** och välj **Ny fråga**. Ett nytt frågefönster öppnas.
 3. Kör följande fråga för att välja från den dynamiska hanteringsvyn sys.database_service_objectives.
 
@@ -85,7 +85,7 @@ Så här visar du aktuella informationslagerenheter för informationslagret:
 
 ## <a name="scale-compute"></a>Skala beräkning
 
-I Azure Synapse kan du öka eller minska beräknings resurserna genom att justera informations lager enheter. I [Skapa och ansluta – portal](create-data-warehouse-portal.md) skapades **mySampleDataWarehouse** och initierades med 400 DWU. Följande steg justerar DWU för **mySampleDataWarehouse**.
+I dedikerad SQL-pool (tidigare SQL DW) kan du öka eller minska beräknings resurserna genom att justera informations lager enheter. I [Skapa och ansluta – portal](create-data-warehouse-portal.md) skapades **mySampleDataWarehouse** och initierades med 400 DWU. Följande steg justerar DWU för **mySampleDataWarehouse**.
 
 Så här ändrar du informationslagerenheter:
 
@@ -130,13 +130,13 @@ Så här avsöker du serviceobjektets ändringsstatus:
 
     ![Åtgärdsstatus](./media/quickstart-scale-compute-tsql/polling-output.png)
 
-## <a name="check-data-warehouse-state"></a>Kontrollera tillstånd för informationslager
+## <a name="check-dedicated-sql-pool-formerly-sql-dw-state"></a>Kontrol lera dedikerad SQL-pool (tidigare SQL DW)
 
-När ett informationslager har pausats går det inte att ansluta till det med T-SQL. Om du vill se det aktuella tillståndet för informationslagret kan du använda en PowerShell-cmdlet. Ett exempel finns i [kontrol lera data lager tillstånd – PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
+När en dedikerad SQL-pool (tidigare SQL DW) har pausats kan du inte ansluta till den med T-SQL. Om du vill se aktuell status för den dedikerade SQL-poolen (tidigare SQL DW) kan du använda en PowerShell-cmdlet. Ett exempel finns i [kontrol lera dedikerad SQL-pool (tidigare SQL DW) – PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
 
 ## <a name="check-operation-status"></a>Kontrollera åtgärdsstatus
 
-Om du vill returnera information om olika hanterings åtgärder på Azure-Synapse kör du följande fråga på [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) DMV. Den returnerar exempelvis åtgärden och åtgärdens tillstånd, som är IN_PROGRESS eller COMPLETED.
+Om du vill returnera information om olika hanterings åtgärder på den dedikerade SQL-poolen (tidigare SQL DW) kör du följande fråga på [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) DMV. Den returnerar exempelvis åtgärden och åtgärdens tillstånd, som är IN_PROGRESS eller COMPLETED.
 
 ```sql
 SELECT *
@@ -150,7 +150,7 @@ AND
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du lärt dig hur du skalar databearbetningen för informationslagret. Om du vill veta mer om Azure Synapse går du vidare till självstudien för att läsa in data.
+Nu har du lärt dig hur du skalar beräkningen för din dedikerade SQL-pool (tidigare SQL DW). Om du vill veta mer om Azure Synapse Analytics kan du fortsätta till självstudien för att läsa in data.
 
 > [!div class="nextstepaction"]
->[Läs in data i en Azure Synapse-analys](load-data-from-azure-blob-storage-using-polybase.md)
+>[Läs in data i en dedikerad SQL-pool](load-data-from-azure-blob-storage-using-polybase.md)

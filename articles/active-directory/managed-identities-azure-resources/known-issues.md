@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/06/2020
+ms.date: 12/01/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref, devx-track-azurecli
-ms.openlocfilehash: c41ec06b1f985296377d27dcbe72b5f41224809b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d7debce83928e21072c981b007e8048bfc4c594
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835415"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460940"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och svar med hanterade identiteter för Azure-resurser
 
@@ -74,7 +74,7 @@ Säkerhets gränserna för identiteten är den resurs som den är kopplad till. 
 
 Nej. Om du flyttar en prenumeration till en annan katalog måste du återskapa dem manuellt och ge Azure-roll tilldelningar igen.
 - För systemtilldelade hanterade identiteter: inaktivera och återaktivera. 
-- För användare som tilldelats hanterade identiteter: ta bort, återskapa och koppla dem igen till nödvändiga resurser (t. ex. virtuella datorer)
+- För användare som tilldelats hanterade identiteter: ta bort, återskapa och koppla dem igen till nödvändiga resurser (till exempel virtuella datorer)
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Kan jag använda en hanterad identitet för att få åtkomst till en resurs i en annan katalog/klient organisation?
 
@@ -85,6 +85,46 @@ Nej. Hanterade identiteter stöder för närvarande inte scenarier mellan katalo
 - Systemtilldelad hanterad identitet: du behöver Skriv behörighet över resursen. För virtuella datorer behöver du till exempel Microsoft.Compute/virtualMachines/write. Den här åtgärden ingår i de resursbaserade inbyggda rollerna som [virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 - Användardefinierad hanterad identitet: du behöver Skriv behörighet över resursen. För virtuella datorer behöver du till exempel Microsoft.Compute/virtualMachines/write. Förutom roll tilldelningen [hanterad identitets operatör](../../role-based-access-control/built-in-roles.md#managed-identity-operator) över den hanterade identiteten.
 
+### <a name="how-do-i-prevent-the-creation-of-user-assigned-managed-identities"></a>Hur gör jag för att förhindra att användare tilldelade hanterade identiteter skapas?
+
+Du kan hindra användarna från att skapa användarspecifika hanterade identiteter med hjälp av [Azure policy](../../governance/policy/overview.md)
+
+- Navigera till [Azure Portal](https://portal.azure.com) och gå till **princip**.
+- Välj **definitioner**
+- Välj **+ princip definition** och ange nödvändig information.
+- I avsnittet princip regel klistra in
+
+```json
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "field": "type",
+      "equals": "Microsoft.ManagedIdentity/userAssignedIdentities"
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters": {}
+}
+
+```
+
+När du har skapat principen tilldelar du den till den resurs grupp som du vill använda.
+
+- Navigera till resurs grupper.
+- Hitta resurs gruppen som du använder för testning.
+- Välj **principer** på den vänstra menyn.
+- Välj **tilldela princip**
+- I avsnittet **grundläggande** finns:
+    - **Omfång** Resurs gruppen som används för testning
+    - **Princip definition**: den princip som vi skapade tidigare.
+- Lämna standardvärdena för alla andra inställningar och välj **Granska + skapa**
+
+Vid det här skedet Miss lyckas försök att skapa en hanterad identitet som tilldelats av användare i resurs gruppen.
+
+  ![Princip överträdelse](./media/known-issues/policy-violation.png)
 
 ## <a name="known-issues"></a>Kända problem
 
@@ -127,7 +167,7 @@ Hanterade identiteter uppdateras inte när en prenumeration flyttas/överförs t
 Lösning för hanterade identiteter i en prenumeration som har flyttats till en annan katalog:
 
  - För systemtilldelade hanterade identiteter: inaktivera och återaktivera. 
- - För användare som tilldelats hanterade identiteter: ta bort, återskapa och koppla dem igen till nödvändiga resurser (t. ex. virtuella datorer)
+ - För användare som tilldelats hanterade identiteter: ta bort, återskapa och koppla dem igen till nödvändiga resurser (till exempel virtuella datorer)
 
 Mer information finns i [Överföra en Azure-prenumeration till en annan Azure AD-katalog](../../role-based-access-control/transfer-subscription.md).
 

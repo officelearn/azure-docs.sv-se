@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 7aa84336a3d71349c127ad15a90af98ffe2133fe
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 1b17729437b238b98f60e2cd97664fa6aafcccd4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980243"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462454"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Certifiera IoT Plug and Play-enheter
 
@@ -42,9 +42,9 @@ För att uppfylla certifierings kraven måste enheten:
 - Implementera telemetri, egenskaper eller kommandon som följer IoT Plug and Play-konventionen.
 - Beskriv interaktionen mellan enheter med en [DTDL v2](https://aka.ms/dtdl) -modell.
 - Publicera modellen och alla nödvändiga gränssnitt, i [lagrings platsen för den offentliga Azure IoT-modellen](https://devicemodels.azureiotsolutions.com/)
-- Skicka modell-ID under [DPS-registreringen](concepts-developer-guide-device-csharp.md#dps-payload) i nytto lasten för DPS-etablering.
-- Meddela modell-ID: t under [MQTT-anslutningen](concepts-developer-guide-device-csharp.md#model-id-announcement).
-- Alla enhets modeller måste vara kompatibla med [Azure IoT Central](https://aka.ms/pnp-iotc-getstarted).
+- Skicka modell-ID under [DPS-registreringen](./concepts-developer-guide-device.md#dps-payload) i nytto lasten för DPS-etablering.
+- Meddela modell-ID: t under [MQTT-anslutningen](./concepts-developer-guide-device.md#model-id-announcement).
+- Alla enhets modeller måste vara kompatibla med [Azure IoT Central](../iot-central/core/overview-iot-central-developer.md).
 
 > [!NOTE]
 > Azure IoT Central har för närvarande inte fullt stöd för **matrisen** och **geospatiala** data typerna DTDL.

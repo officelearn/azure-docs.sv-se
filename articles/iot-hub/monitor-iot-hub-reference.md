@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 03941c3abe833deb218844cc60e2f04556fccc22
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 609c44991e7deca183321758fabdef80b71210c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078211"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460853"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Övervakning av Azure IoT Hub data-referens
 
@@ -19,13 +19,13 @@ Mer information om hur du samlar in och analyserar övervaknings data för Azure
 
 ## <a name="metrics"></a>Mått
 
-I det här avsnittet visas alla automatiskt insamlade plattforms mått för Azure IoT Hub. Resurs leverantörens namn område för IoT Hub mått är **Microsoft. Devices** och typ namn området är **IoTHubs** .
+I det här avsnittet visas alla automatiskt insamlade plattforms mått för Azure IoT Hub. Resurs leverantörens namn område för IoT Hub mått är **Microsoft. Devices** och typ namn området är **IoTHubs**.
 
 Följande underavsnitt visar måtten för IoT Hub Platform-mått enligt kategorin Allmänt och listar dem efter det visnings namn som de visas i Azure Portal med. Information anges också relevant för de mått som visas i varje underavsnitt.
 
-Du kan också hitta en enskild tabell som visar alla IoT Hub plattforms mått efter Metric-namn under [Microsoft. Devices/IotHubs](/azure/azure-monitor/platform/metrics-supported#microsoftdevicesiothubs) i dokumentationen för Azure Monitor. Tänk på att den här tabellen inte innehåller någon information, t. ex. [agg regeringar som stöds](#supported-aggregations) för vissa mått, som finns i den här artikeln.
+Du kan också hitta en enskild tabell som visar alla IoT Hub plattforms mått efter Metric-namn under [Microsoft. Devices/IotHubs](../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs) i dokumentationen för Azure Monitor. Tänk på att den här tabellen inte innehåller någon information, t. ex. [agg regeringar som stöds](#supported-aggregations) för vissa mått, som finns i den här artikeln.
 
-Mer information om mått som stöds av andra Azure-tjänster finns i [mått som stöds med Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+Mer information om mått som stöds av andra Azure-tjänster finns i [mått som stöds med Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
 **Ämnen i det här avsnittet**
 
@@ -51,13 +51,13 @@ Kolumnen **agg regerings typ** i varje tabell motsvarar den standard agg regerin
 
 För de flesta mått är alla agg regerings typer giltiga. men för Count-mått, de med värdet **Count** för **enhets** kolumnen, är bara vissa agg regeringar giltiga. Antalet mått kan vara en av två typer:
 
-* IoT Hub registrerar **en enda data punkt, i stort** sett en 1--, varje gång den uppmätta åtgärden inträffar. Azure Monitor summerar dessa data punkter över den angivna granularitet. Exempel på **enkla** mått är *telemetri meddelanden som skickas* och *C2D meddelande leveranser har slutförts* . För dessa mått är den enda relevanta agg regerings typen total (sum). På portalen kan du välja lägsta, högsta och medelvärde. dessa värden är dock alltid 1.
+* IoT Hub registrerar **en enda data punkt, i stort** sett en 1--, varje gång den uppmätta åtgärden inträffar. Azure Monitor summerar dessa data punkter över den angivna granularitet. Exempel på **enkla** mått är *telemetri meddelanden som skickas* och *C2D meddelande leveranser har slutförts*. För dessa mått är den enda relevanta agg regerings typen total (sum). På portalen kan du välja lägsta, högsta och medelvärde. dessa värden är dock alltid 1.
 
-* IoT Hub registrerar ett totalt antal när den uppmätta åtgärden inträffar för antal **ögonblicks bilder** . För närvarande finns det tre **ögonblicks bilds** mått som har spridits av IoT Hub: det *totala antalet meddelanden som används* , *Totalt antal enheter (för hands version)* och *anslutna enheter (för hands version)* . Eftersom dessa mått visar en "total"-kvantitet varje gång de genereras, är det ingen mening att summera dem över den angivna granularitet. Azure Monitor begränsar du att välja medel, minimum och maximum för sammansättnings typen för dessa mått.
+* IoT Hub registrerar ett totalt antal när den uppmätta åtgärden inträffar för antal **ögonblicks bilder** . För närvarande finns det tre **ögonblicks bilds** mått som har spridits av IoT Hub: det *totala antalet meddelanden som används*, *Totalt antal enheter (för hands version)* och *anslutna enheter (för hands version)*. Eftersom dessa mått visar en "total"-kvantitet varje gång de genereras, är det ingen mening att summera dem över den angivna granularitet. Azure Monitor begränsar du att välja medel, minimum och maximum för sammansättnings typen för dessa mått.
 
 ### <a name="cloud-to-device-command-metrics"></a>Kommando mått för moln till enhet
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |C2D meddelanden har förfallit (förhands granskning)|C2DMessagesExpired|Antal|Totalt|Antal utgångna meddelanden från moln till enhet|Inget|
 |C2D meddelande leveranser har slutförts|C2D. commands. utgående. Complete. lyckades|Antal|Totalt|Antalet meddelande leveranser från moln till enhet har slutförts av enheten|Inget|
@@ -68,7 +68,7 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 
 ### <a name="cloud-to-device-direct-methods-metrics"></a>Mått för moln till enhetens direkta metoder
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Misslyckade direkta metod anrop|C2D. Methods. Failure|Antal|Totalt|Antalet misslyckade direkta metod anrop.|Inget|
 |Begär ande storlek för direkta metod anrop|C2D. Methods. requestSize|Byte|Genomsnitt|Antalet lyckade direkta metod begär Anden.|Inget|
@@ -79,7 +79,7 @@ För mått med ett **enhets** värde som **endast är total mängd (** sum) agg 
 
 ### <a name="cloud-to-device-twin-operations-metrics"></a>Moln till enhet, dubbla drifts mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Det gick inte att dubbla läsningar från Server delen|C2D. delad.|Antal|Totalt|Antalet dubbla läsningar som initierats av alla misslyckade backend-slutpunkter.|Inget|
 |Misslyckade dubbla uppdateringar från Server delen|C2D. delad. Update. Failure|Antal|Totalt|Antalet dubbla uppdateringar som initierats av alla misslyckade backend-slutpunkter.|Inget|
@@ -92,7 +92,7 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 
 ### <a name="configurations-metrics"></a>Konfigurations mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Konfigurations mått|konfigurationer|Antal|Totalt|Antalet totala CRUD-åtgärder som utförts för enhets konfiguration och IoT Edge distribution på en uppsättning mål enheter. Detta omfattar även antalet åtgärder som ändrar enheten till dubbla eller modulerna på grund av dessa konfigurationer.|Inget|
 
@@ -100,7 +100,7 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 
 ### <a name="daily-quota-metrics"></a>Dagliga kvot mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Total användning av enhets data|deviceDataUsage|Byte|Totalt|Överförda byte till och från alla enheter som är anslutna till IotHub|Inget|
 |Total användning av enhets data (för hands version)|deviceDataUsageV2|Byte|Totalt|Överförda byte till och från alla enheter som är anslutna till IotHub|Inget|
@@ -110,7 +110,7 @@ För det *totala antalet meddelanden som används* stöds endast lägsta, högst
 
 ### <a name="device-metrics"></a>Enhets mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Totalt antal enheter (inaktuella)|enheter. totalDevices|Antal|Totalt|Antal enheter som har registrerats för din IoT-hubb|Inget|
 |Anslutna enheter (inaktuella) |Devices. connectedDevices. allProtocol|Antal|Totalt|Antal enheter som är anslutna till din IoT-hubb|Inget|
@@ -125,7 +125,7 @@ För *Totalt antal enheter (för hands version)* och *anslutna enheter (för han
 
 ### <a name="device-telemetry-metrics"></a>Mått för enhets telemetri
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Antal begränsnings fel|D2C. telemetri. ingress. sendThrottle|Antal|Totalt|Antal begränsnings fel som beror på begränsning av enhetens data flöde|Inget|
 |Skicka försök för telemetri|D2C. telemetri. ingress. allProtocol|Antal|Totalt|Antalet telemetri från enhet till molnet försökte skickas till din IoT-hubb|Inget|
@@ -135,7 +135,7 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 
 ### <a name="device-to-cloud-twin-operations-metrics"></a>Enhet till molnet med dubbla drifts mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Misslyckade dubbla läsningar från enheter|D2C. delad.|Antal|Totalt|Antalet misslyckade, dubbla läsningar som initierats av enheten.|Inget|
 |Misslyckade dubbla uppdateringar från enheter|D2C. delad. Update. Failure|Antal|Totalt|Antalet misslyckade, dubbla uppdateringar som initierats av enheten.|Inget|
@@ -148,16 +148,16 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 
 ### <a name="event-grid-metrics"></a>Event Grid-mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
-|Event Grid leveranser (för hands version)|EventGridDeliveries|Antal|Totalt|Antalet IoT Hub-händelser som publicerats till Event Grid. Använd resultat dimensionen för antalet lyckade och misslyckade förfrågningar. EventType-dimensionen visar händelse typen ( https://aka.ms/ioteventgrid) .|Resultat,<br/>Typ<br>*Mer information finns i [mått dimensioner](#metric-dimensions)* .|
-|Event Grid svars tid (för hands version)|EventGridLatency|Millisekunder|Genomsnitt|Den genomsnittliga svars tiden (millisekunder) från när IoT Hub-händelsen genererades till när händelsen publicerades till Event Grid. Det här talet är ett medelvärde mellan alla händelse typer. Använd EventType-dimensionen för att se svars tiden för en speciell typ av händelse.|Typ<br>*Mer information finns i [mått dimensioner](#metric-dimensions)* .|
+|Event Grid leveranser (för hands version)|EventGridDeliveries|Antal|Totalt|Antalet IoT Hub-händelser som publicerats till Event Grid. Använd resultat dimensionen för antalet lyckade och misslyckade förfrågningar. EventType-dimensionen visar händelse typen ( https://aka.ms/ioteventgrid) .|Resultat,<br/>Typ<br>*Mer information finns i [mått dimensioner](#metric-dimensions)*.|
+|Event Grid svars tid (för hands version)|EventGridLatency|Millisekunder|Genomsnitt|Den genomsnittliga svars tiden (millisekunder) från när IoT Hub-händelsen genererades till när händelsen publicerades till Event Grid. Det här talet är ett medelvärde mellan alla händelse typer. Använd EventType-dimensionen för att se svars tiden för en speciell typ av händelse.|Typ<br>*Mer information finns i [mått dimensioner](#metric-dimensions)*.|
 
 För mått med ett **enhets** **värde antal är** endast total summan (sum) agg regeringen giltig. Lägsta, högsta och genomsnittliga agg regeringar returnerar alltid 1. Mer information finns i [agg regeringar som stöds](#supported-aggregations).
 
 ### <a name="jobs-metrics"></a>Jobb mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Slutförda jobb|jobb. slutfört|Antal|Totalt|Antalet slutförda jobb.|Inget|
 |Misslyckade anrop till List jobb|Jobs. listJobs. Failure|Antal|Totalt|Antalet misslyckade anrop till List jobb.|Inget|
@@ -176,11 +176,11 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 
 ### <a name="routing-metrics"></a>Routnings mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
-| Routnings leverans försök (förhands granskning) |RoutingDeliveries | Antal | Totalt |Detta är mått för routnings leverans. Använd dimensionerna för att identifiera leverans status för en angiven slut punkt eller för en speciell Dirigerings källa.| Resultat,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*Mer information finns i [mått dimensioner](#metric-dimensions)* . |
-| Flödes leverans data storlek i byte (för hands version)|RoutingDataSizeInBytesDelivered| Byte | Totalt |Det totala antalet byte som dirigerats av IoT Hub till den anpassade slut punkten och den inbyggda slut punkten. Använd dimensionerna för att identifiera data storleken dirigerad till en angiven slut punkt eller för en speciell vägkälla.| RoutingSource,<br>EndpointType<br>EndpointName<br>*Mer information finns i [mått dimensioner](#metric-dimensions)* .|
-| Svars tid för routning (för hands version) |RoutingDeliveryLatency| Millisekunder | Genomsnitt |Detta är måttet för leverans fördröjning i routning. Använd dimensionerna för att identifiera svars tiden för en speciell slut punkt eller för en speciell Dirigerings källa.| RoutingSource,<br>EndpointType,<br>EndpointName<br>*Mer information finns i [mått dimensioner](#metric-dimensions)* .|
+| Routnings leverans försök (förhands granskning) |RoutingDeliveries | Antal | Totalt |Detta är mått för routnings leverans. Använd dimensionerna för att identifiera leverans status för en angiven slut punkt eller för en speciell Dirigerings källa.| Resultat,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*Mer information finns i [mått dimensioner](#metric-dimensions)*. |
+| Flödes leverans data storlek i byte (för hands version)|RoutingDataSizeInBytesDelivered| Byte | Totalt |Det totala antalet byte som dirigerats av IoT Hub till den anpassade slut punkten och den inbyggda slut punkten. Använd dimensionerna för att identifiera data storleken dirigerad till en angiven slut punkt eller för en speciell vägkälla.| RoutingSource,<br>EndpointType<br>EndpointName<br>*Mer information finns i [mått dimensioner](#metric-dimensions)*.|
+| Svars tid för routning (för hands version) |RoutingDeliveryLatency| Millisekunder | Genomsnitt |Detta är måttet för leverans fördröjning i routning. Använd dimensionerna för att identifiera svars tiden för en speciell slut punkt eller för en speciell Dirigerings källa.| RoutingSource,<br>EndpointType,<br>EndpointName<br>*Mer information finns i [mått dimensioner](#metric-dimensions)*.|
 |Routning: blobbar levererade till lagring|D2C. endpoints. utgående. Storage. blob|Antal|Totalt|Antal gånger IoT Hub som levererade blobbar till lagrings slut punkter.|Inget|
 |Routning: data som levereras till lagring|D2C. endpoints. utgående. Storage. byte|Byte|Totalt|Mängden data (byte) IoT Hub routning som levereras till lagrings slut punkter.|Inget|
 |Routning: meddelande fördröjning för Event Hub|D2C. endpoints. latens. eventHubs|Millisekunder|Genomsnitt|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelandet intränger i anpassade slut punkter av typen Event Hub. Detta inkluderar inte meddelanden vägar till den inbyggda slut punkten (händelser).|Inget|
@@ -203,7 +203,7 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 
 ### <a name="twin-query-metrics"></a>Dubbla fråge mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Misslyckade dubbla frågor|twinQueries. Failure|Antal|Totalt|Antalet misslyckade dubbla frågor.|Inget|
 |Lyckades dubbla frågor|twinQueries. lyckades|Antal|Totalt|Antalet lyckade dubbla frågor.|Inget|
@@ -215,21 +215,21 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 
 Azure IoT Hub har följande dimensioner kopplade till några av måtten för Routning och händelse rutnät.
 
-|Dimensions namn | Beskrivning|
+|Dimensions namn | Description|
 |---|---|
 ||
 |**EndpointName**| Slut punktens namn.|
-|**EndpointType**|Något av följande: **eventHubs** , **serviceBusQueues** , **cosmosDB** , **serviceBusTopics** . **Builtin** eller **blobStorage** .|
-|**Typ**| En av följande Event Grid händelse typer: **Microsoft. devices. DeviceCreated** . **Microsoft. devices. DeviceDeleted** , **Microsoft. devices. DeviceConnected** , **Microsoft. devices. DeviceDisconnected** eller **Microsoft. devices. DeviceTelemetry** . Mer information finns i [händelse typer](iot-hub-event-grid.md#event-types).|
-|**FailureReasonCategory**| Något av följande: **ogiltigt** , **Borttaget** , **överbliven** eller **Null** .|
-|**Resultat**| Antingen **lyckades** eller **misslyckades** .|
+|**EndpointType**|Något av följande: **eventHubs**, **serviceBusQueues**, **cosmosDB**, **serviceBusTopics**. **Builtin** eller **blobStorage**.|
+|**Typ**| En av följande Event Grid händelse typer: **Microsoft. devices. DeviceCreated**. **Microsoft. devices. DeviceDeleted**, **Microsoft. devices. DeviceConnected**, **Microsoft. devices. DeviceDisconnected** eller **Microsoft. devices. DeviceTelemetry**. Mer information finns i [händelse typer](iot-hub-event-grid.md#event-types).|
+|**FailureReasonCategory**| Något av följande: **ogiltigt**, **Borttaget**, **överbliven** eller **Null**.|
+|**Resultat**| Antingen **lyckades** eller **misslyckades**.|
 |**RoutingSource**| Enhets meddelanden<br>Dubbla ändrings händelser<br>Livs cykel händelser för enhet|
 
-Mer information om mått dimensioner finns i [flerdimensionella mått](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+Mer information om mått dimensioner finns i [flerdimensionella mått](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics).
 
 ## <a name="resource-logs"></a>Resursloggar
 
-I det här avsnittet visas alla kategori typer och scheman för resurs logg som samlats in för Azure IoT Hub. Resurs leverantören och typen för alla IoT Hub loggar är [Microsoft. Devices/IotHubs](/azure/azure-monitor/platform/resource-logs-categories#microsoftdevicesiothubs).
+I det här avsnittet visas alla kategori typer och scheman för resurs logg som samlats in för Azure IoT Hub. Resurs leverantören och typen för alla IoT Hub loggar är [Microsoft. Devices/IotHubs](../azure-monitor/platform/resource-logs-categories.md#microsoftdevicesiothubs).
 
 **Ämnen i det här avsnittet**
 
@@ -384,7 +384,7 @@ Den här kategorin kan inte fånga fel som sker direkt när enheten laddar upp e
 
 ### <a name="routes"></a>Vägar
 
-Kategorin [meddelande cirkulation](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) spårar fel som inträffar under utvärderingen av meddelande vägar och slut punkts hälsa som uppfattas av IoT Hub. Den här kategorin omfattar händelser som:
+Kategorin [meddelande cirkulation](./iot-hub-devguide-messages-d2c.md) spårar fel som inträffar under utvärderingen av meddelande vägar och slut punkts hälsa som uppfattas av IoT Hub. Den här kategorin omfattar händelser som:
 
 * En regel utvärderas till "odefinierad",
 * IoT Hub markerar en slut punkt som död eller
@@ -559,7 +559,7 @@ IoT Hub registrerar loggen när ett meddelande som innehåller giltiga spårning
 
 Här `durationMs` beräknas inte som IoT Hub klockan kanske inte är synkroniserad med enhets klockan och därför kan en varaktighets beräkning vara missvisande. Vi rekommenderar att du skriver logik med hjälp av tidsstämplar i `properties` avsnittet för att samla in toppar i svars tid från enhet till moln.
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | Integer | Storleken på meddelanden från enhet till moln i byte |
 | **deviceId** | Sträng med ASCII 7-bitars alfanumeriska tecken | Enhetens identitet |
@@ -593,7 +593,7 @@ IoT Hub registrerar loggen när ett meddelande som innehåller giltiga spårning
 
 I `properties` avsnittet innehåller den här loggen ytterligare information om meddelande ingångar.
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **isRoutingEnabled** | Sträng | Antingen sant eller falskt anger om meddelanderoutning är aktiverat i IoT Hub |
 | **parentSpanId** | Sträng | Det överordnade meddelandets [span-ID](https://w3c.github.io/trace-context/#parent-id) , som skulle vara D2C meddelande spårning i det här fallet |
@@ -625,7 +625,7 @@ IoT Hub registrerar loggen när [routning](iot-hub-devguide-messages-d2c.md) är
 
 I `properties` avsnittet innehåller den här loggen ytterligare information om meddelande ingångar.
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **endpointName** | Sträng | Namnet på dirigerings slut punkten |
 | **endpointType** | Sträng | Typ av Dirigerings slut punkt |
@@ -689,4 +689,4 @@ En referens för alla Azure Monitor loggar/Log Analytics tabeller finns i [Azure
 ## <a name="see-also"></a>Se även
 
 * Se [övervaka Azure-IoT Hub](monitor-iot-hub.md) för en beskrivning av övervakning av azure-IoT Hub.
-* Mer information om övervakning av Azure-resurser finns i [övervaka Azure-resurser med Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) .
+* Mer information om övervakning av Azure-resurser finns i [övervaka Azure-resurser med Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) .

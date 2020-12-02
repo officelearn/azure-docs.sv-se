@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 3968f19329536169c3fb3eb1fbbaff99e99c293d
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ae8b01522a248b8b1dbdd255a9fcd55f16cf2369
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079667"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461703"
 ---
 # <a name="develop-without-using-an-azure-iot-hub-sdk"></a>Utveckla utan att använda Azure IoT Hub SDK
 
@@ -44,14 +44,14 @@ Innan du börjar utveckla bör du ha en grundlig kunskap om IoT Hub och de funkt
 
 För hjälp med följande protokoll utan Azure IoT SDK:
 
-* Enhets-eller backend-appar på **AMQP**finns i [AMQP-support](iot-hub-amqp-support.md).
+* Enhets-eller backend-appar på **AMQP** finns i [AMQP-support](iot-hub-amqp-support.md).
 
-* Enhets program på **MQTT**finns i [MQTT-support](iot-hub-mqtt-support.md). De flesta av de här avsnitten behandlar användningen av MQTT-protokollet direkt. Den innehåller också information om hur du använder [IoT MQTT-exempel lagrings plats](https://github.com/Azure-Samples/IoTMQTTSample). Den här lagrings platsen innehåller C-exempel som använder Mosquitto-biblioteket för Sol förmörkelse för att skicka meddelanden till IoT Hub.
+* Enhets program på **MQTT** finns i [MQTT-support](iot-hub-mqtt-support.md). De flesta av de här avsnitten behandlar användningen av MQTT-protokollet direkt. Den innehåller också information om hur du använder [IoT MQTT-exempel lagrings plats](https://github.com/Azure-Samples/IoTMQTTSample). Den här lagrings platsen innehåller C-exempel som använder Mosquitto-biblioteket för Sol förmörkelse för att skicka meddelanden till IoT Hub.
 
-* Enhets-eller backend-appar på **https**finns i [Azure IoT Hub REST-API: er](https://docs.microsoft.com/rest/api/iothub/). Tänk på det som beskrivs i [utvecklings krav](#development-prerequisites), att du inte kan använda X. 509-autentisering med certifikat utfärdare (ca) med https.
+* Enhets-eller backend-appar på **https** finns i [Azure IoT Hub REST-API: er](/rest/api/iothub/). Tänk på det som beskrivs i [utvecklings krav](#development-prerequisites), att du inte kan använda X. 509-autentisering med certifikat utfärdare (ca) med https.
 
 För enheter rekommenderar vi starkt att du använder MQTT om enheten stöder det.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [MQTT-support](iot-hub-mqtt-support.md)
+* [MQTT-stöd](iot-hub-mqtt-support.md)

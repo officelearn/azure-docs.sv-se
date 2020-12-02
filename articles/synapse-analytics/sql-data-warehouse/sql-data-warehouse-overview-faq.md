@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse Analytics (tidigare SQL DW) vanliga frågor och svar
-description: Den här artikeln innehåller vanliga frågor och svar om Azure Synapse Analytics (tidigare SQL DW) från kunder och utvecklare.
+title: Dedikerad SQL-pool (tidigare SQL DW) vanliga frågor och svar
+description: Den här artikeln innehåller vanliga frågor och svar om dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics från kunder och utvecklare.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,14 +10,14 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d1e2f82ecd80579d19f3a8793db64f6b8a17a440
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c8f8ae81f6f030245899ec82dbe16b29846dab23
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323600"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460524"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (tidigare SQL DW) vanliga frågor och svar
+# <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-frequently-asked-questions"></a>Dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics, vanliga frågor och svar
 
 ## <a name="general"></a>Allmänt
 
@@ -27,11 +27,11 @@ A. Azure Synapse är en analys tjänst som samlar ihop data lager och stor data 
 
 F. Vad hände med att Azure SQL Data Warehouse?
 
-A. Azure dataSynapses är Azure SQL Data Warehouse Evolved. Vi har tagit samma branschledande informations lager till en helt ny nivå av prestanda och kapacitet. Du kan fortsätta att köra dina befintliga arbets belastningar för data lager i produktion med Azure Synapse. Mer information finns i [Vad är Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Azure dataSynapses är Azure SQL Data Warehouse Evolved. Vi har tagit samma branschledande informations lager till en helt ny nivå av prestanda och kapacitet. Du kan fortsätta att köra dina befintliga arbets belastningar för data lager i produktion med dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse. Mer information finns i [Vad är Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-F. Vad är en dedikerad SQL-pool?
+F. Vad är en dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics?
 
-A. Dedikerad SQL-pool syftar på de företags data lager funktioner som är allmänt tillgängliga med Azure Synapse. Mer information finns i, [Vad är Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Dedikerad SQL-pool (tidigare SQL DW) syftar på de företags data lager funktioner som är allmänt tillgängliga med Azure Synapse. Mer information finns i, [Vad är Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 F. Hur gör jag för att kom igång med Azure Synapse?
 
@@ -49,7 +49,7 @@ F. Kan jag ansluta Power BI?
 
 A. Ja! Även om Power BI stöder direkt frågor med Azure Synapse är det inte avsett för ett stort antal användare eller real tids data. Om du vill optimera Power BI prestanda ytterligare bör du överväga att använda Power BI ovanpå Azure Analysis Services-eller Analysis Service-IaaS.
 
-F. Vad är en dedikerad kapacitets gräns för SQL-pooler?
+F. Vad är en dedikerad SQL-pool (tidigare SQL DW) kapacitets gränser?
 
 A. Se vår aktuella [kapacitets begränsning](sql-data-warehouse-service-capacity-limits.md) .
 
@@ -83,15 +83,15 @@ A. Många funktioner stöds. Funktioner som inte stöds finns i [tabell funktion
 
 ## <a name="tooling-and-administration"></a>Verktyg och administration
 
-F. Stöder dedikerade SQL-pooler REST-API: er?
+F. Har dedikerad SQL-pool (tidigare SQL DW) stöd för REST-API: er?
 
-A. Ja. De flesta REST-funktioner som kan användas med SQL Database är också tillgängliga med dedikerad SQL-pool. Du kan hitta API-information i REST-dokumentationens sidor eller [databaser](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+A. Ja. De flesta REST-funktioner som kan användas med SQL Database är också tillgängliga med dedikerad SQL-pool (tidigare SQL DW). Du kan hitta API-information i REST-dokumentationens sidor eller [databaser](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="loading"></a>Läser in
 
 F. Vilka klient driv rutiner stöder du?
 
-A. Driv rutins stöd för dedikerad SQL-pool finns på sidan [anslutnings strängar](../sql/connection-strings.md)
+A. Driv rutins stöd för dedikerad SQL-pool (tidigare SQL DW) hittar du på sidan [anslutnings strängar](sql-data-warehouse-connection-strings.md)
 
 F: vilka fil format stöds av PolyBase?
 
@@ -107,8 +107,8 @@ A: Nej, PolyBase samverkar bara med lagrings komponenterna.
 
 F: kan jag ansluta till HDI?
 
-A: HDI kan använda antingen ADLS eller WASB som HDFS-skiktet. Om du har antingen ditt HDFS-lager kan du läsa in dessa data i en dedikerad SQL-pool. Du kan dock inte generera mottagnings-beräkning till HDI-instansen.
+A: HDI kan använda antingen ADLS eller WASB som HDFS-skiktet. Om du har antingen ditt HDFS-lager kan du läsa in dessa data i en dedikerad SQL-pool (tidigare SQL DW). Du kan dock inte generera mottagnings-beräkning till HDI-instansen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Synapse som helhet finns på vår [översikts](sql-data-warehouse-overview-faq.md) sida.
+Mer information om dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse finns på vår [översikts](sql-data-warehouse-overview-what-is.md) sida.

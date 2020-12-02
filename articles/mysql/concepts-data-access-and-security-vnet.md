@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 225afcbafeaf7213b4f040a07d709d33e46b44f4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 364d9c20c0bfce1f31103ddf6df0c8d7b228eca2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996295"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461775"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Använda tjänstslutpunkter för virtuellt nätverk och regler för Azure Database for MySQL
 
@@ -53,7 +53,7 @@ En regel för virtuella nätverk instruerar Azure Database for MySQL servern att
 
 De virtuella datorerna i under näten kan inte kommunicera med din Azure Database for MySQL-server förrän du vidtar åtgärder. En åtgärd som upprättar kommunikationen är att skapa en regel för virtuella nätverk. Anledningen till att du väljer regel metoden för VNet kräver en jämförelse-och-kontrast-diskussion som involverar de konkurrerande säkerhets alternativ som erbjuds av brand väggen.
 
-### <a name="a-allow-access-to-azure-services"></a>A. Tillåt åtkomst till Azure-tjänster
+### <a name="a-allow-access-to-azure-services"></a>A. Tillåta åtkomst till Azure-tjänster
 
 Fönstret anslutnings säkerhet har en **på/av-** knapp med etiketten **Tillåt åtkomst till Azure-tjänster**. Inställningen **on** tillåter kommunikation från alla Azure IP-adresser och alla Azure-undernät. Dessa Azure IP-adresser eller undernät kanske inte ägs av dig. Den **här** inställningen är förmodligen mer öppen än du vill att din Azure Database for MySQL-databas ska vara. Funktionen för regel för virtuella nätverk ger en mycket noggrannare detaljerad kontroll.
 
@@ -112,7 +112,7 @@ För Azure Database for MySQL har funktionen regler för virtuellt nätverk föl
 
 - Regler för virtuella nätverk gäller endast för Azure Resource Manager virtuella nätverk; och inte till [klassiska nätverk för distributions modeller][arm-deployment-model-568f] .
 
-- Att aktivera tjänst slut punkter för virtuella nätverk till Azure Database for MySQL med hjälp av service tag-koden för **Microsoft. SQL** aktiverar även slut punkterna för alla Azure Database-tjänster: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse).
+- När du aktiverar tjänst slut punkter för virtuella nätverk för att Azure Database for MySQL med hjälp av service tag gen för **Microsoft. SQL** kan du också aktivera slut punkter för alla Azure Database-tjänster: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database och Azure Synapse Analytics.
 
 - Stöd för VNet-tjänstens slut punkter är bara för Generell användning och minnesoptimerade servrar.
 

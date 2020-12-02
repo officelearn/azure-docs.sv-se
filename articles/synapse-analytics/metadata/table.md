@@ -1,6 +1,6 @@
 ---
 title: Delade metadata-tabeller
-description: Azure Synapse Analytics tillhandahåller en delad metadata modell där du skapar en tabell i en server lös Apache Spark pool kommer att vara tillgänglig från Server lös SQL-pool (för hands version) och dedikerad SQL-pool utan att duplicera data.
+description: Azure Synapse Analytics tillhandahåller en delad metadata modell där du skapar en tabell i en server lös Apache Spark pool kommer att vara tillgänglig från Server lös SQL-pool och dedikerad SQL-pool utan att duplicera data.
 services: sql-data-warehouse
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,18 +10,17 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f269217908bea4b5e8ef3c0004a9cec9d5d682c7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9ee18edd563d94a85dedf48b7a4d6df394c09707
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314540"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461390"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabeller för delade metadata i Azure Synapse Analytics
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och Parquet tabeller mellan Apache Spark pooler (för hands version) och SQL-pool utan server (för hands version).
+Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och Parquet tabeller mellan Apache Spark pooler och SQL-pool utan server.
 
 När en databas har skapats av ett Spark-jobb kan du skapa tabeller i den med Spark som använder Parquet som lagrings format. Tabellerna blir omedelbart tillgängliga för frågor från någon av Azure Synapse-arbetsytans Spark-pooler. De kan också användas från alla Spark-jobb som omfattas av behörigheter.
 
@@ -87,9 +86,9 @@ Spark-tabeller tillhandahåller olika data typer än Synapse SQL-motorer. Följa
 
 Spark-databaser och-tabeller, samt deras synkroniserade representationer i SQL-motorn, kommer att skyddas på den underliggande lagrings nivån. Eftersom de för närvarande inte har behörighet till själva objekten kan objekten visas i Object Explorer.
 
-Det säkerhets objekt som skapar en hanterad tabell anses vara ägare till den tabellen och har alla rättigheter till tabellen och de underliggande mapparna och filerna. Dessutom blir databasens ägare automatiskt ägare till tabellen.
+Det säkerhetsobjekt som skapar en hanterad tabell anses vara ägare av den tabellen och har alla rättigheter till tabellen samt underliggande mappar och filer. Dessutom blir databasens ägare automatiskt medägare till tabellen.
 
-Om du skapar en spark-eller SQL-tabell med autentisering genom strömning, skyddas data endast på mapp-och fil nivå. Om någon frågar den här typen av extern tabell, skickas säkerhets identiteten för frågans sändning till fil systemet, vilket kommer att kontrol lera åtkomst behörigheterna.
+Om du skapar en Spark- eller SQL-tabell med direktautentisering skyddas data endast på mapp- och filnivå. Om någon kör frågor mot den här typen av extern tabell skickas säkerhetsidentiteten för frågeskickaren vidare till filsystemet, som kontrollerar åtkomstbehörigheter.
 
 Mer information om hur du anger behörigheter för mappar och filer finns i [Azure Synapse Analytics Shared Database](database.md).
 

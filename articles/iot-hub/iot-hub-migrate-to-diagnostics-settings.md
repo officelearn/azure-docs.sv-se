@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: eb53e7052db6d4de365864184b9bd2e6585b7e2d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: dfd819d82f5e35183802e33e5d423cad4de36c38
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412130"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461596"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-azure-monitor-resource-logs"></a>Migrera IoT Hub från Operations Monitor till Azure Monitor resurs loggar
 
@@ -49,9 +49,9 @@ Om du vill uppdatera din IoT Hub i Azure Portal ska du först skapa en diagnosti
 
 1. Spara inställningarna genom att klicka på **Spara**.
 
-Nya inställningar börjar gälla om 10 minuter. Därefter visas loggar i det konfigurerade målet. Mer information om hur du konfigurerar diagnostik finns i [samla in och använda loggdata från dina Azure-resurser](/azure/azure-monitor/platform/platform-logs-overview).
+Nya inställningar börjar gälla om 10 minuter. Därefter visas loggar i det konfigurerade målet. Mer information om hur du konfigurerar diagnostik finns i [samla in och använda loggdata från dina Azure-resurser](../azure-monitor/platform/platform-logs-overview.md).
 
-Mer detaljerad information om hur du skapar diagnostikinställningar, inklusive med PowerShell och Azure CLI finns i [diagnostikinställningar](/azure/azure-monitor/platform/diagnostic-settings) i Azure Monitor-dokumentationen.
+Mer detaljerad information om hur du skapar diagnostikinställningar, inklusive med PowerShell och Azure CLI finns i [diagnostikinställningar](../azure-monitor/platform/diagnostic-settings.md) i Azure Monitor-dokumentationen.
 
 ### <a name="turn-off-operations-monitoring"></a>Inaktivera drift övervakning
 

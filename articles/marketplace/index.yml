@@ -10,12 +10,12 @@ metadata:
   author: mingshen-ms
   ms.author: mingshen
   ms.date: 09/02/2020
-  ms.openlocfilehash: ee2bb685ba1313bcb54d8f32c2952a03258829b3
-  ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+  ms.openlocfilehash: b8b7de41dce5c36cb41db247e177fa5084878fb1
+  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 11/11/2020
-  ms.locfileid: "94491553"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96462485"
 landingContent:
 - title: Arbeta i den kommersiella marknadsplatsen
   linkLists:
@@ -60,15 +60,15 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Instrumentpanel för sammanfattningar
-      url: ./partner-center-portal/summary-dashboard.md
+      url: ./summary-dashboard.md
     - text: Instrumentpanelen Marknadsplatsinsikter
-      url: ./partner-center-portal/insights-dashboard.md
+      url: ./insights-dashboard.md
     - text: Instrumentpanelen Användning
-      url: ./partner-center-portal/usage-dashboard.md
+      url: ./usage-dashboard.md
     - text: Instrumentpanelen Kund
-      url: ./partner-center-portal/customer-dashboard.md
+      url: ./customer-dashboard.md
     - text: Orderinstrumentpanel
-      url: ./partner-center-portal/orders-dashboard.md
+      url: ./orders-dashboard.md
     - text: Ladda ned instrumentpanel
       url: ./partner-center-portal/downloads-dashboard.md
     - text: Instrumentpanel för omdömen och recensioner
@@ -82,7 +82,7 @@ landingContent:
     - text: Erbjudanden för virtuella datorer
       url: ./marketplace-virtual-machines.md
     - text: Erbjudanden för Azure-program
-      url: ./partner-center-portal/create-new-azure-apps-offer.md
+      url: ./create-new-azure-apps-offer.md
     - text: Erbjudanden för Dynamics 365 for Customer Engagement & PowerApps
       url: ./partner-center-portal/create-new-customer-engagement-offer.md
     - text: Erbjudanden för Dynamics 365 Business Central

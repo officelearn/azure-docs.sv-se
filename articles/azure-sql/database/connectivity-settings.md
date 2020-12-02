@@ -3,18 +3,18 @@ title: Anslutnings inställningar för Azure SQL Database och Azure Synapse Anal
 description: I den här artikeln förklaras alternativen för Transport Layer Security (TLS) och proxyn jämfört med omdirigerings inställningar för Azure SQL Database och Azure Synapse Analytics.
 services: sql-database
 ms.service: sql-database
-titleSuffix: Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: 9856d71a6398bcea5b979788846afce17e7955f7
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e3422f468d1355245fb31e8f04d5f8625f583c37
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412995"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462183"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Inställningar för Azure SQL-anslutning
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -33,7 +33,7 @@ Anslutnings inställningarna är tillgängliga från skärmen **brand väggar oc
 
 ## <a name="deny-public-network-access"></a>Neka åtkomst till offentligt nätverk
 
-Om **nekad åtkomst till offentligt nätverk** är inställt på **Ja** , tillåts bara anslutningar via privata slut punkter. När den här inställningen är **Nej** (standard) kan kunder ansluta genom att använda antingen offentliga slut punkter (med IP-baserade brand Väggs regler eller med virtuella brand Väggs regler) eller privata slut punkter (med hjälp av Azures privata länk), enligt beskrivningen i [Översikt över nätverks åtkomst](network-access-controls-overview.md).
+Om **nekad åtkomst till offentligt nätverk** är inställt på **Ja**, tillåts bara anslutningar via privata slut punkter. När den här inställningen är **Nej** (standard) kan kunder ansluta genom att använda antingen offentliga slut punkter (med IP-baserade brand Väggs regler eller med virtuella brand Väggs regler) eller privata slut punkter (med hjälp av Azures privata länk), enligt beskrivningen i [Översikt över nätverks åtkomst](network-access-controls-overview.md).
 
  ![Diagram som visar anslutningen när nekat offentligt nätverks åtkomst är inställt på Ja och när neka offentlig nätverks åtkomst har angetts till Nej.][2]
 
@@ -48,7 +48,7 @@ Please set up private endpoints and retry the operation.
 > [!NOTE]
 > Ange **neka offentlig nätverks åtkomst** till **Nej** om du vill definiera brand Väggs regler för virtuella nätverk på en logisk server som redan har kon figurer ATS med privata slut punkter.
 
-Om **nekad åtkomst till offentligt nätverk** är inställt på **Ja** , tillåts bara anslutningar via privata slut punkter. Alla anslutningar via offentliga slut punkter kommer att nekas med ett fel meddelande som liknar:  
+Om **nekad åtkomst till offentligt nätverk** är inställt på **Ja**, tillåts bara anslutningar via privata slut punkter. Alla anslutningar via offentliga slut punkter kommer att nekas med ett fel meddelande som liknar:  
 
 ```output
 Error 47073
@@ -104,12 +104,12 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 Inställningen minimalt [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) ger kunderna möjlighet att välja vilken version av TLS deras SQL-databas använder.
 
-För närvarande har vi stöd för TLS 1,0, 1,1 och 1,2. Att ange en minimal TLS-version garanterar att nyare TLS-versioner stöds. Om du till exempel väljer en TLS-version som är större än 1,1 betyder det att endast anslutningar med TLS 1,1 och 1,2 godkänns, och anslutningar med TLS 1,0 avvisas. När du har testat för att bekräfta att dina program stöder det rekommenderar vi att du ställer in den lägsta TLS-versionen på 1,2. Den här versionen innehåller korrigeringar för sårbarheter i tidigare versioner och är den högsta versionen av TLS som stöds i Azure SQL Database.
+För närvarande finns stöd för TLS 1.0, 1.1 och 1.2. Genom att ange en lägsta TLS-version kan du vara säker på att senare TLS-versioner stöds. Om du till exempel väljer en TLS-version som är högre än 1.1 betyder det att endast anslutningar med TLS 1.1 och 1.2 accepteras, och anslutningar med TLS 1.0 avvisas. När du har testat och bekräftat att dina program stöder den, rekommenderar vi att du väljer 1.2 som den lägsta TLS-versionen. Den här versionen har korrigeringar som åtgärdar sårbarheter i tidigare versioner och är den högsta TLS-versionen som stöds i Azure SQL Database.
 
 > [!IMPORTANT]
 > Standardvärdet för den lägsta TLS-versionen är att tillåta alla versioner. När du har tillämpat en version av TLS går det inte att återgå till standardvärdet.
 
-För kunder med program som förlitar sig på äldre versioner av TLS rekommenderar vi att du ställer in den lägsta TLS-versionen enligt kraven för dina program. För kunder som förlitar sig på program för att ansluta med hjälp av en okrypterad anslutning rekommenderar vi inte att du anger någon minimal TLS-version.
+Kunder med program som förlitar sig på äldre versioner av TLS rekommenderas att ställa in den lägsta TLS-versionen baserat på de aktuella programkraven. Kunder som förlitar sig på program för att ansluta via en okrypterad anslutning avråds från att ställa in en lägsta TLS-version.
 
 Mer information finns i [TLS-överväganden för SQL Database anslutning](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity).
 

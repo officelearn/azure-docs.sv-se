@@ -3,12 +3,12 @@ title: Azure Key Vault som Event Grid källa
 description: Beskriver de egenskaper och schema som anges för Azure Key Vault händelser med Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b3d961228429c1f84e45c1df9147fa1687ab5074
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 605502794f2f3aa4f4edd14b49efda5003b91146
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324084"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460394"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault som Event Grid källa
 
@@ -20,7 +20,7 @@ Den här artikeln innehåller egenskaper och schema för händelser i [Azure Key
 
 Ett Azure Key Vault konto genererar följande händelse typer:
 
-| Fullständigt händelse namn | Visnings namn för händelse | Beskrivning |
+| Fullständigt händelse namn | Visnings namn för händelse | Description |
 | ---------- | ----------- |---|
 | Microsoft. CertificateNewVersionCreated | En ny version av certifikatet har skapats | Utlöses när ett nytt certifikat eller en ny certifikat version skapas. |
 | Microsoft. CertificateNearExpiry | Certifikat snart upphör Ande | Utlöses när den aktuella versionen av certifikatet upphör att gälla. (Händelsen utlöses 30 dagar före förfallo datumet.) |
@@ -64,15 +64,15 @@ I följande exempel visas schema för **Microsoft. nyckel valv. SecretNewVersion
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | ---------- | ----------- |---|
 | id | sträng | ID för objektet som utlöste händelsen |
 | vaultName | sträng | Nyckel valv namnet för objektet som utlöste den här händelsen |
 | objectType | sträng | Typ av objekt som utlöste händelsen |
 | objectName | sträng | Namnet på objektet som utlöste händelsen |
 | version | sträng | Den version av objektet som utlöste händelsen |
-| NBF | nummer | Ej före-datum i sekunder sedan 1970-01-01T00:00:00Z för objektet som utlöste händelsen |
-| exp | nummer | Utgångs datumet i sekunder sedan 1970-01-01T00:00:00Z för objektet som utlöste händelsen |
+| NBF | antal | Ej före-datum i sekunder sedan 1970-01-01T00:00:00Z för objektet som utlöste händelsen |
+| exp | antal | Utgångs datumet i sekunder sedan 1970-01-01T00:00:00Z för objektet som utlöste händelsen |
 
 ## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
 |Rubrik  |Beskrivning  |
@@ -85,5 +85,5 @@ En händelse har följande data på översta nivån:
 
 * En introduktion till Azure Event Grid finns i [Vad är event Grid?](overview.md).
 * Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Event Grid prenumerations schema](subscription-creation-schema.md).
-* Mer information om Key VAult finns i [Vad är Azure Key Vault?](../key-vault/general/overview.md)
+* Mer information om Key Vault finns i [Vad är Azure Key Vault?](../key-vault/general/overview.md)
 

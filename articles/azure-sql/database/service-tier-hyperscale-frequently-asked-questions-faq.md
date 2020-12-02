@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: 400dd66827e82c1ede496526c49977e6f5383487
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4ea1982e7545f4ac39a5ecd15dc9e19a582ae31c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780197"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459641"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Vanliga frågor och svar om Azure SQL Database storskalig
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,12 +45,12 @@ VCore-baserade tjänst nivåer särskiljs baserat på databasens tillgänglighet
 | **Bäst för** |Alla|Erbjuder budget orienterade balanserade beräknings-och lagrings alternativ.|De flesta företags arbets belastningar. Automatisk skalning av lagrings utrymme på upp till 100 TB, fast lodrät och vågrät beräknings skalning, snabb databas återställning.|OLTP-program med hög transaktions frekvens och låg IO-latens. Erbjuder högsta möjliga återhämtning till fel och snabba växlingar med hjälp av flera synkront uppdaterade repliker.|
 |  **Resurstyp** ||SQL Database-/SQL-hanterad instans | Enskild databas | SQL Database-/SQL-hanterad instans |
 | **Beräknings storlek**|SQL Database * | 1 till 80 virtuella kärnor | 1 till 80 virtuella kärnor * | 1 till 80 virtuella kärnor |
-| **Beräknings storlek**|SQL-hanterad instans | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | E.t. | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
+| **Beräknings storlek**|SQL-hanterad instans | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | Ej tillämpligt | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
 | **Lagringstyp** | Alla |Premium-Fjärrlagring (per instans) | Fristående lagring med lokal SSD-cache (per instans) | Super-fast lokal SSD-lagring (per instans) |
 | **Lagrings storlek** | SQL Database *| 5 GB – 4 TB | Upp till 100 TB | 5 GB – 4 TB |
-| **Lagrings storlek** | SQL-hanterad instans  | 32 GB – 8 TB | E.t. | 32 GB – 4 TB |
+| **Lagrings storlek** | SQL-hanterad instans  | 32 GB – 8 TB | Ej tillämpligt | 32 GB – 4 TB |
 | **IOPS** | Enskild databas | 500 IOPS per vCore med 7000 maximal IOPS | Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPS är beroende av arbets belastningen. | 5000 IOPS med 200 000 högsta IOPS|
-| **IOPS** | SQL-hanterad instans | Beror på fil storlek | E.t. | 1375 IOPS/vCore |
+| **IOPS** | SQL-hanterad instans | Beror på fil storlek | Ej tillämpligt | 1375 IOPS/vCore |
 |**Tillgänglighet**|Alla|1 replik, ingen Läs skalning, ingen lokal cache | Flera repliker, upp till 4 Läs skalbarhet, delvis lokal cache | 3 repliker, 1 Läs-och utskalning, zon-redundanta HA, fullständig lokal lagring |
 |**Säkerhetskopior**|Alla|RA-GRS, 7-35 dag kvarhållning (7 dagar som standard)| RA-GRS, 7 dagars kvarhållning, konstant Time-Time-återställning (PITR) | RA-GRS, 7-35 dag kvarhållning (7 dagar som standard) |
 
@@ -118,7 +118,7 @@ Storskaligt stöder alla SQL Server arbets belastningar, men den är främst opt
 
 Om du kör interaktiva analys frågor med SQL Server som ett informations lager är storskaligt ett bra alternativ eftersom du kan vara värd för små och medel stora informations lager (till exempel några TB upp till 100 TB) till en lägre kostnad, och du kan migrera dina SQL Server data lager arbets belastningar till skala med minimala T-SQL-kod ändringar.
 
-Om du kör data analys i stor skala med komplexa frågor och varaktiga inmatnings priser som är högre än 100 MB/s, eller använder Parallel Data Warehouse (PDW), Teradata eller andra data lager för massivt parallell bearbetning (MPP), kan Azure Synapse Analytics (tidigare SQL Data Warehouse) vara det bästa valet.
+Om du kör data analys i stor skala med komplexa frågor och varaktiga inmatnings priser som är högre än 100 MB/s, eller använder Parallel Data Warehouse (PDW), Teradata eller andra data lager för massivt parallell bearbetning (MPP), kan Azure Synapse Analytics vara det bästa valet.
   
 ## <a name="hyperscale-compute-questions"></a>Storskaliga beräknings frågor
 

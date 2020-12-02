@@ -1,6 +1,6 @@
 ---
 title: Score Machine Learning-modeller med PREDICT
-description: Lär dig hur du utvärderar maskin inlärnings modeller med hjälp av funktionen T-SQL PREDICT i Synapse SQL.
+description: Lär dig hur du utvärderar maskin inlärnings modeller med hjälp av funktionen T-SQL PREDICT i dedikerad SQL-pool.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a8caf6cd5072b4c098adff57194784491c92bb0a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7b35997e763434d7ae4d849c33d358d1593d7e33
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325379"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460530"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Score Machine Learning-modeller med PREDICT
 
-Synapse SQL ger dig möjlighet att Poäng modeller för maskin inlärning med det välkända T-SQL-språket. Med T-SQL [predict](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)kan du se till att dina befintliga Machine Learning-modeller tränas med historiska data och att de hamnar inom data lagrets säkra gränser. Funktionen PREDICT tar en [ONNX-modell (Open neurala Network Exchange)](https://onnx.ai/) och data som indata. Den här funktionen eliminerar steget för att flytta värdefull data utanför data lagret för poängsättning. Det syftar till att göra det möjligt för data experter att enkelt distribuera maskin inlärnings modeller med det välkända T-SQL-gränssnittet och samar beta smidigt med data experter som arbetar med rätt ramverk för deras uppgift.
+Dedikerad SQL-pool ger dig möjlighet att Poäng modeller för maskin inlärning med det välkända T-SQL-språket. Med T-SQL [predict](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)kan du se till att dina befintliga Machine Learning-modeller tränas med historiska data och att de hamnar inom data lagrets säkra gränser. Funktionen PREDICT tar en [ONNX-modell (Open neurala Network Exchange)](https://onnx.ai/) och data som indata. Den här funktionen eliminerar steget för att flytta värdefull data utanför data lagret för poängsättning. Det syftar till att göra det möjligt för data experter att enkelt distribuera maskin inlärnings modeller med det välkända T-SQL-gränssnittet och samar beta smidigt med data experter som arbetar med rätt ramverk för deras uppgift.
 
 > [!NOTE]
 > Den här funktionen stöds för närvarande inte i SQL-poolen utan server.
@@ -31,9 +31,9 @@ Funktionen kräver att modellen tränas utanför Synapse-SQL. När du har skapat
 
 ## <a name="training-the-model"></a>Träna modellen
 
-Synapse SQL förväntar sig en förtränad modell. Tänk på följande faktorer när du tränar en maskin inlärnings modell som används för att utföra förutsägelser i Synapse SQL.
+Dedikerad SQL-pool förväntar sig en förtränad modell. Tänk på följande faktorer när du tränar en maskin inlärnings modell som används för att utföra förutsägelser i dedikerad SQL-pool.
 
-- Synapse SQL stöder endast ONNX format-modeller. ONNX är ett modell format med öppen källkod som gör att du kan utbyta modeller mellan olika ramverk för att aktivera samverkan. Du kan konvertera befintliga modeller till ONNX-format med hjälp av ramverk som antingen stöder det internt eller som har konverterings paket tillgängliga. Till exempel [sklearn-Onnx](https://github.com/onnx/sklearn-onnx) -paketet convert scikit – lär dig modeller till Onnx. [ONNX GitHub-lagringsplatsen](https://github.com/onnx/tutorials#converting-to-onnx-format) innehåller en lista över ramverk som stöds och exempel.
+- Dedikerad SQL-pool stöder endast ONNX format modeller. ONNX är ett modell format med öppen källkod som gör att du kan utbyta modeller mellan olika ramverk för att aktivera samverkan. Du kan konvertera befintliga modeller till ONNX-format med hjälp av ramverk som antingen stöder det internt eller som har konverterings paket tillgängliga. Till exempel [sklearn-Onnx](https://github.com/onnx/sklearn-onnx) -paketet convert scikit – lär dig modeller till Onnx. [ONNX GitHub-lagringsplatsen](https://github.com/onnx/tutorials#converting-to-onnx-format) innehåller en lista över ramverk som stöds och exempel.
 
    Om du använder [Automatisk ml](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) -utbildning måste du ange *ENABLE_ONNX_COMPATIBLE_MODELS* parametern till true för att skapa en Onnx format modell. [Automatiserad Machine Learning Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) visar ett exempel på hur du kan använda AutoML för att skapa en Machine Learning-modell med ONNX-format.
 
@@ -47,7 +47,7 @@ Synapse SQL förväntar sig en förtränad modell. Tänk på följande faktorer 
 
 ## <a name="loading-the-model"></a>Läser in modellen
 
-Modellen lagras i en Synapse SQL-tabell som en hexadecimal sträng. Ytterligare kolumner som ID och beskrivning kan läggas till i modell tabellen för att identifiera modellen. Använd varbinary (max) som datatyp för modell kolumnen. Här är ett kod exempel för en tabell som kan användas för att lagra modeller:
+Modellen lagras i en dedikerad SQL-adresspool i användar tabellen som en hexadecimal sträng. Ytterligare kolumner som ID och beskrivning kan läggas till i modell tabellen för att identifiera modellen. Använd varbinary (max) som datatyp för modell kolumnen. Här är ett kod exempel för en tabell som kan användas för att lagra modeller:
 
 ```sql
 -- Sample table schema for storing a model and related data
@@ -66,7 +66,7 @@ GO
 
 ```
 
-När modellen har konverterats till en hexadecimal sträng och den angivna tabell definitionen använder du [kommandot Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) eller PolyBase för att läsa in modellen i Synapse SQL-tabellen. I följande kod exempel används kommandot Copy för att läsa in modellen.
+När modellen har konverterats till en hexadecimal sträng och den angivna tabell definitionen använder du [kommandot Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) eller PolyBase för att läsa in modellen i den DEDIKERADe SQL-adresspoolen. I följande kod exempel används kommandot Copy för att läsa in modellen.
 
 ```sql
 -- Copy command to load hexadecimal string of the model from Azure Data Lake storage location

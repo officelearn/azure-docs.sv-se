@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
-ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 0e807a01f575615967a039d360505a4f090cd1fd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.reviewer: nibruno; jrasnick; azure-synapse
+ms.openlocfilehash: 902f0ac96349cf3e30ec12aeda02130afc2b800c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478328"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460763"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Prestanda justering med materialiserade vyer
 
-Materialiserade vyer i Synapse SQL-poolen ger en låg underhålls metod för komplexa analytiska frågor för att få snabba prestanda utan någon ändring av frågan. Den här artikeln beskriver den allmänna vägledningen om hur du använder materialiserade vyer.
+Materialiserade vyer i Azure Synapse SQL-poolen ger en låg underhålls metod för komplexa analytiska frågor för att få snabba prestanda utan någon ändring i frågan. Den här artikeln beskriver den allmänna vägledningen om hur du använder materialiserade vyer.
 
 ## <a name="materialized-views-vs-standard-views"></a>Materialiserade vyer jämfört med standardvyer
 
-SQL-poolen stöder standard-och materialiserade vyer.  Båda är virtuella tabeller som skapats med SELECT-uttryck och visas för frågor som logiska tabeller.  Vyer kapslar in komplexiteten för vanlig data beräkning och lägger till ett abstraktions lager för beräknings ändringar så att du inte behöver skriva om frågor.  
+SQL-poolen i Azure Synapse stöder standard-och materialiserade vyer.  Båda är virtuella tabeller som skapats med SELECT-uttryck och visas för frågor som logiska tabeller.  Vyer kapslar in komplexiteten för vanlig data beräkning och lägger till ett abstraktions lager för beräknings ändringar så att du inte behöver skriva om frågor.  
 
-En standardvy beräknar data varje gång som vyn används.  Det finns inga data lagrade på disken. Användarna använder vanligt vis standardvyer som ett verktyg som hjälper dig att ordna de logiska objekten och frågorna i en databas.  Om du vill använda en standardvy måste en fråga hänvisa till den.
+En standardvy beräknar data varje gång som vyn används.  Det finns inga data lagrade på disken. Användarna använder vanligt vis standardvyer som ett verktyg som hjälper dig att ordna de logiska objekten och frågorna i en SQL-pool.  Om du vill använda en standardvy måste en fråga hänvisa till den.
 
 En materialiserad vy för beräkning, lager och underhåll av data i SQL-poolen precis som en tabell.  Ingen omberäkning krävs varje gång en materialiserad vy används.  Det är anledningen till att frågor som använder alla eller delmängd av data i materialiserade vyer kan få snabbare prestanda.  Även bättre, frågor kan använda en materialiserad vy utan att hänvisa till den, så du behöver inte ändra program koden.  
 
@@ -37,7 +37,7 @@ De flesta av kraven för en standardvy gäller fortfarande för en materialisera
 |Visa innehåll                    | Genereras varje gång som vyn används.   | Förbehandlade och lagrade i SQL-poolen när du skapar vyn. Uppdateras när data läggs till i de underliggande tabellerna.
 |Datauppdatering                    | Alltid uppdaterad                               | Alltid uppdaterad
 |Hastighet för att hämta visnings data från komplexa frågor     | Långsam                                         | Snabb  
-|Extra lagrings utrymme                   | Nej                                           | Ja
+|Extra lagrings utrymme                   | Inga                                           | Ja
 |Syntax                          | CREATE VIEW                                  | SKAPA MATERIALISERAD VY SOM VÄLJ
 
 ## <a name="benefits-of-using-materialized-views"></a>Fördelar med att använda materialiserade vyer
@@ -79,7 +79,7 @@ Jämfört med andra justerings alternativ som skalning och statistik hantering, 
 
 **Du behöver en annan strategi för data distribution för snabbare frågans prestanda**
 
-Synapse SQL är ett system för distribuerad Query-bearbetning.  Data i en SQL-tabell distribueras över 60-noder med en av tre [distributions strategier](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, Round_Robin eller replikerad).   
+Azure Synapse Analytics är ett system för distribuerad Query-bearbetning.  Data i en SQL-tabell distribueras över 60-noder med en av tre [distributions strategier](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, Round_Robin eller replikerad).   
 
 Data distributionen anges i tabellens skapelse tid och förblir oförändrad tills tabellen släpps. Materialiserad vy är en virtuell tabell på disken som stöder hash-och round_robin data distributioner.  Användare kan välja en data distribution som skiljer sig från bas tabellerna men som är optimal för prestanda för frågor som använder de flesta vyer.  
 
@@ -97,11 +97,11 @@ Utvärdera de här rekommendationerna med dina arbets belastnings behov i åtank
 
 **Var medveten om kompromissen mellan snabbare frågor och kostnaden**
 
-För varje materialiserad vy finns det en kostnad för data lagring och en kostnad för att underhålla vyn.  När data ändras i bas tabeller, ökar storleken på den materialiserade vyn och dess fysiska struktur ändras också.  För att undvika att fråga prestanda försämringen underhålls varje materialiserad vy separat av SQL-adresspoolen.  
+För varje materialiserad vy finns det en kostnad för data lagring och en kostnad för att underhålla vyn.  När data ändras i bas tabeller, ökar storleken på den materialiserade vyn och dess fysiska struktur ändras också.  För att undvika att fråga prestanda försämringen underhålls varje materialiserad vy separat av SQL Analytics-motorn.  
 
 Underhålls arbets belastningen blir högre när antalet materialiserade vyer och bas tabell ändringar ökar.   Användarna bör kontrol lera om kostnaden som uppstår från alla materialiserade vyer kan förskjutas med prestanda ökningen för frågan.  
 
-Du kan köra den här frågan för listan över materialiserad vy i en databas:
+Du kan köra den här frågan för listan över materialiserad vy i en SQL-pool:
 
 ```sql
 SELECT V.name as materialized_view, V.object_id
@@ -141,7 +141,7 @@ GROUP BY A, C
 
 **Inte alla prestanda justeringar kräver ändring av fråga**
 
-SQL-poolens optimering kan automatiskt använda distribuerade materialiserade vyer för att förbättra prestanda för frågor.  Detta stöd används transparent för frågor som inte refererar till vyer och frågor som använder agg regeringar som inte stöds i skapande av materialiserade vyer.  Ingen ändring av fråga krävs. Du kan kontrol lera en frågas uppskattade körnings plan för att bekräfta om en materialiserad vy används.  
+SQL Analytics-optimeringen kan automatiskt använda distribuerade materialiserade vyer för att förbättra prestanda för frågor.  Detta stöd används transparent för frågor som inte refererar till vyer och frågor som använder agg regeringar som inte stöds i skapande av materialiserade vyer.  Ingen ändring av fråga krävs. Du kan kontrol lera en frågas uppskattade körnings plan för att bekräfta om en materialiserad vy används.  
 
 **Övervaka materialiserade vyer**
 
@@ -151,7 +151,7 @@ För att undvika prestanda försämring av frågor, är det en bra idé att kör
 
 **Materialiserad vy och resultat uppsättnings-cachelagring**
 
-Dessa två funktioner introduceras i SQL-poolen runt samma tid för prestanda justering av frågor.  Cachelagring av resultat uppsättningar används för att få hög samtidighet och snabba svar från upprepade frågor mot statiska data.  
+De här två funktionerna introduceras i SQL-analyser runt samma tid för prestanda justering av frågor.  Cachelagring av resultat uppsättningar används för att få hög samtidighet och snabba svar från upprepade frågor mot statiska data.  
 
 För att kunna använda det cachelagrade resultatet måste formen för den begär ande frågan i cachen matcha med den fråga som skapade cacheminnet.  Dessutom måste det cachelagrade resultatet gälla för hela frågan.  
 

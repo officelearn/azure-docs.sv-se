@@ -1,6 +1,6 @@
 ---
 title: 'Snabb start: Konfigurera arbets belastnings isolering – Portal'
-description: Använd Azure Portal för att konfigurera arbets belastnings isolering.
+description: Använd Azure Portal för att konfigurera arbets belastnings isolering för dedikerad SQL-pool.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 30862a0c16995e143df72f2a243419819941f54e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 302249b7d8490e43b841116c52500e686626433d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85213048"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460600"
 ---
-# <a name="quickstart-configure-synapse-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>Snabb start: Konfigurera Synapse för arbets belastnings isolering i SQL-pool med en arbets belastnings grupp i Azure Portal
+# <a name="quickstart-configure-dedicated-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>Snabb start: konfigurera dedikerad arbets belastnings isolering i SQL-pool med en arbets belastnings grupp i Azure Portal
 
 I den här snabb starten konfigurerar du [arbets belastnings isolering](sql-data-warehouse-workload-isolation.md) genom att skapa en arbets belastnings grupp för reservering av resurser.  I den här självstudien skapar vi arbets belastnings gruppen för inläsning av data som anropas `DataLoads` . Arbets belastnings gruppen kommer att reservera 20% av system resurserna.  Med 20% isolering för data inläsningar är de garanterat resurser som gör att de kan trycka på service avtal.  När du har skapat arbets belastnings gruppen [skapar du en klassificering för arbets belastning](quickstart-create-a-workload-classifier-portal.md) för att tilldela frågor till den här arbets belastnings gruppen
 
@@ -28,27 +28,27 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 > [!NOTE]
-> Att skapa en instans av SQL-poolen i Azure Synapse Analytics kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Att skapa en dedikerad instans av SQL-poolen i Azure Synapse Analytics kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här snabb starten förutsätter att du redan har en instans av SQL-poolen i Synapse SQL och att du har behörighet att kontrol lera databasen. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
+Den här snabb starten förutsätter att du redan har en särskild instans av SQL-poolen i Synapse SQL och att du har behörighet att kontrol lera databasen. Om du behöver skapa ett använder du [snabb start: skapa en dedikerad SQL-pool – Portal](../quickstart-create-sql-pool-portal.md) för att skapa ett informations lager med namnet **mySampleDataWarehouse**.
 
 >[!IMPORTANT] 
->SQL-poolen måste vara online för att konfigurera arbets belastnings hantering. 
+>Din dedikerade SQL-pool måste vara online för att konfigurera arbets belastnings hantering. 
 
 ## <a name="configure-workload-isolation"></a>Konfigurera arbets belastnings isolering
-Resurser i SQL-poolen kan isoleras och reserveras för vissa arbets belastningar genom att skapa arbets belastnings grupper.  I dokumentationen för arbets belastnings [isolering](sql-data-warehouse-workload-isolation.md) finns mer information om hur arbets belastnings grupper kan hjälpa dig att hantera arbets belastningen.  Snabb starten [skapa och Anslut – portalen](create-data-warehouse-portal.md) skapade **mySampleDataWarehouse** och initierade den med 400 DWU: er. Följande steg skapar en arbets belastnings grupp i **mySampleDataWarehouse**.
+
+Dedikerade SQL pool-resurser kan isoleras och reserveras för särskilda arbets belastningar genom att skapa arbets belastnings grupper.  I dokumentationen för arbets belastnings [isolering](sql-data-warehouse-workload-isolation.md) finns mer information om hur arbets belastnings grupper kan hjälpa dig att hantera arbets belastningen.  Snabb starten [skapa och Anslut – portalen](create-data-warehouse-portal.md) skapade **mySampleDataWarehouse** och initierade den på DW100c. Följande steg skapar en arbets belastnings grupp i **mySampleDataWarehouse**.
 
 Så här skapar du en arbets belastnings grupp med 20% isolering:
-1.  Klicka på **Azure Synapse Analytics (tidigare SQL DW)** på den vänstra sidan i Azure Portal.
-2.  Välj **mySampleDataWarehouse** på sidan **Azure Synapse Analytics (tidigare SQL DW)** . SQL-poolen öppnas.
-3.  Klicka på **arbets belastnings hantering**.
-4.  Klicka på **ny arbets belastnings grupp**.
-5.  Klicka på **anpassad**.
+1.  Gå till sidan **mySampleDataWarehouse** -dedikerad SQL-pool..
+1.  Välj  **arbets belastnings hantering**.
+1.  Välj **ny arbets belastnings grupp**.
+1.  Välj **anpassad**.
 
     ![Klicka på anpassad](./media/quickstart-configure-workload-isolation-portal/create-wg.png)
 
@@ -56,7 +56,7 @@ Så här skapar du en arbets belastnings grupp med 20% isolering:
 7.  Ange `20` för **min. Resources%**.
 8.  Ange `5` för **min. resurser% per begäran**.
 9.  Ange `100` för **Cap-resurser%**.
-10.   Klicka på **Spara**.
+10. Ange **Spara**.
 
    ![Klicka på Spara](./media/quickstart-configure-workload-isolation-portal/configure-wg.png)
 
@@ -72,7 +72,7 @@ Ta bort `DataLoads` arbets belastnings gruppen som skapats i den här självstud
 3. Klicka på **Ja** när du uppmanas att bekräfta borttagningen av arbets belastnings gruppen.
 4. Klicka på **Spara**.
 
-   ![Klicka på ta bort](./media/quickstart-configure-workload-isolation-portal/delete-wg.png)
+   ![Klicka på Ta bort](./media/quickstart-configure-workload-isolation-portal/delete-wg.png)
 
 
 
@@ -83,17 +83,13 @@ Du debiteras för data lager enheter och data som lagras i ditt informations lag
 
 Rensa resurserna genom att följa dessa steg.
 
-1. Logga in på [Azure Portal](https://portal.azure.com)och välj på informations lagret.
+1. Logga in på [Azure Portal](https://portal.azure.com)och välj din dedikerade SQL-pool.
 
     ![Rensa resurser](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Om du vill pausa beräkningen väljer du knappen **pausa** . När informationslagret har pausats visas knappen **Starta**.  Om du vill återuppta beräkningen väljer du **Start**.
 
 3. Om du vill ta bort data lagret så att du inte debiteras för beräkning eller lagring väljer du **ta bort**.
-
-4. Om du vill ta bort den SQL-Server som du har skapat väljer du **sqlpoolservername.Database.Windows.net** i föregående bild och väljer sedan **ta bort**.  Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
-
-5. Om du vill ta bort resurs gruppen väljer du **myResourceGroup**och väljer sedan **ta bort resurs grupp**.
 
 ## <a name="next-steps"></a>Nästa steg
 

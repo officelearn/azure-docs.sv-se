@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: 4fdbf3bf1d9f740654fa694de03315b876116429
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1e286b2329cb98d580bbf64071ff8767db304a00
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784889"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461881"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Lösa skillnader i Transact-SQL vid migrering till SQL Database
 
@@ -45,7 +45,7 @@ Huvud-DDL-uttrycket (Data Definition Language) är tillgängliga, men vissa DDL-
 Förutom Transact-SQL-uttryck som är relaterade till de funktioner som inte stöds som beskrivs i [Azure SQL Database funktions jämförelse](features-comparison.md)stöds inte följande uttryck och grupper av uttryck. Om din databas som ska migreras använder någon av följande funktioner kan du återställa T-SQL för att eliminera dessa funktioner och uttryck i T-SQL.
 
 - Sortering av systemobjekt
-- Anslutning relaterad: slut punkts instruktioner. SQL Database stöder inte Windows-autentisering, men stöder samma Azure Active Directory autentisering. Vissa typer av autentiseringar kräver den senaste versionen av SSMS. Mer information finns i [ansluta till SQL Database eller Azure Azure Synapse Analytics (tidigare SQL Data Warehouse) med Azure Active Directory autentisering](authentication-aad-overview.md).
+- Anslutning relaterad: slut punkts instruktioner. SQL Database stöder inte Windows-autentisering, men stöder samma Azure Active Directory autentisering. Vissa typer av autentiseringar kräver den senaste versionen av SSMS. Mer information finns i [ansluta till SQL Database eller Azure Azure Synapse Analytics genom att använda Azure Active Directory autentisering](authentication-aad-overview.md).
 - Frågor mellan databaser med tre eller fyra delnamn. (Skrivskyddade frågor över flera databaser stöds med hjälp av [Elastic Database-fråga](elastic-query-overview.md).)
 - Länkning av ägarskap mellan databaser, `TRUSTWORTHY`-inställning
 - `EXECUTE AS LOGIN` Använd EXECUTE AS USER i stället.
@@ -82,7 +82,7 @@ Mer information om Transact-SQL-grammatik, -användning och -exempel finns i [Tr
 
 ### <a name="about-the-applies-to-tags"></a>Om "Gäller för"-taggar
 
-Transact-SQL-referensen innehåller artiklar relaterade till SQL Server versioner 2008 för närvarande. Under artikel rubriken finns ett ikon fält med fyra SQL Server plattformar och som anger tillämplighet. Till exempel introducerades tillgänglighetsgrupper i SQL Server 2012. I artikeln [skapa tillgänglighets grupp](/sql/t-sql/statements/create-availability-group-transact-sql) anges att instruktionen gäller för **SQL Server (från och med 2012)** . Instruktionen gäller inte SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure Azure Synapse Analytics (tidigare SQL Data Warehouse) eller parallell data lager.
+Transact-SQL-referensen innehåller artiklar relaterade till SQL Server versioner 2008 för närvarande. Under artikel rubriken finns ett ikon fält med fyra SQL Server plattformar och som anger tillämplighet. Till exempel introducerades tillgänglighetsgrupper i SQL Server 2012. I artikeln [skapa tillgänglighets grupp](/sql/t-sql/statements/create-availability-group-transact-sql) anges att instruktionen gäller för **SQL Server (från och med 2012)**. Instruktionen gäller inte SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure Azure Synapse Analytics eller Parallel Data Warehouse.
 
 I vissa fall kan en artikels allmänna ämne användas i en produkt, men det finns mindre skillnader mellan produkterna. Skillnaderna anges på mitt punkter i artikeln efter behov. I vissa fall kan en artikels allmänna ämne användas i en produkt, men det finns mindre skillnader mellan produkterna. Skillnaderna anges på mitt punkter i artikeln efter behov. Till exempel är artikeln Skapa utlösare tillgänglig i SQL Database. Men alternativet **alla Server** för utlösare på server nivå anger att utlösare på server nivå inte kan användas i SQL Database. Använd i stället databas nivå utlösare.
 

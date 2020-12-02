@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: c177de3a862370f4d1daa19c6560950b66b18352
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b36bb34f4c9081d807998cb8287797443625a6b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826840"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460295"
 ---
 # <a name="azure-stack-edge-pro-technical-specifications"></a>Tekniska specifikationer för Azure Stack Edge Pro
 
@@ -34,7 +34,7 @@ En fält programmerbar grind mat ris (FPGA) ingår på varje Azure Stack Edge Pr
 
 | Specifikation           | Värde                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Tillgängliga DNN-modeller (djup neurala Network) är desamma som de som [stöds av moln FPGA instanser](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).|
+| FPGA   | Intel Arria 10 <br> Tillgängliga DNN-modeller (djup neurala Network) är desamma som de som [stöds av moln FPGA instanser](../machine-learning/how-to-deploy-fpga-web-service.md#fpga-support-in-azure).|
 
 ## <a name="power-supply-unit-specifications"></a>Specifikationer för strömförsörjnings enhet
 
@@ -43,9 +43,9 @@ Azure Stack Edge Pro-enheten har två 100-240 V-enheter för strömförsörjning
 | Specifikation           | 750 W PSU                  |
 |-------------------------|----------------------------|
 | Maximal uteffekt    | 750 W                     |
-| Frequency               | 50/60 Hz                   |
+| Frekvens               | 50/60 Hz                   |
 | Val av spännings intervall | Automatisk mellan: 100-240 V AC |
-| Hot pluggable           | Ja                        |
+| Hot pluggable           | Yes                        |
 
 ### <a name="azure-stack-edge-pro-power-cord-specifications-by-region"></a>Specifikationer för Azure Stack Edge Pro-ström sladd per region
 
@@ -60,13 +60,13 @@ The following table lists the typical power consumption data (actual values may 
 
 Din Azure Stack Edge Pro-enhet har 6 nätverks gränssnitt, PORT1-PORT6.
 
-| Specifikation           | Beskrivning                 |
+| Specifikation           | Description                 |
 |-------------------------|----------------------------|
 |  Nätverksgränssnitt    | 2 x 1 GbE-gränssnitt – 1 för hantering som inte kan konfigureras av användaren används för installationen. Det andra gränssnittet kan konfigureras av användaren, kan användas för dataöverföring och är DHCP som standard. <br>2 x 25 GbE-gränssnitt – dessa kan även fungera som 10 GbE-gränssnitt. Dessa datagränssnitt kan konfigureras av användaren som DHCP (standard) eller statiska. <br> 2 x 25 GbE-gränssnitt – dessa datagränssnitt kan konfigureras av användaren som DHCP (standard) eller statiska.                  |
 
 De nätverkskort som används är: 
 
-| Specifikation           | Beskrivning                 |
+| Specifikation           | Description                 |
 |-------------------------|----------------------------|
 |Network dotter-kort (rNDC) |QLogic FastLinQ 41264 med dubbel port 25GbE SFP +, dubbel port 1GbE, rNDC|
 |PCI-nätverkskort |QLogic FastLinQ 41262 Zwei ports 25Gbit/s SFP28 adapter|

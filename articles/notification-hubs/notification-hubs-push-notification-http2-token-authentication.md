@@ -16,12 +16,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8258aeef33be9192608f0d4cb29b46f08da64e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f8de6389a04448579672b84e91f0bb4dd0f4ce2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010638"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460473"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Token-baserad (HTTP/2) autentisering för APN
 
@@ -78,7 +78,7 @@ Token-baserade autentiseringsuppgifter består av följande fält:
 
 * **Nyckel-ID**: identifierare för den privata nyckel som genereras i Apple Developer-portalen. till exempel `2USFGKSKLT` .
 * **Team-ID**: kallas även prefix eller app-prefix. Detta är identifieraren för organisationen i Apple Developer-portalen. till exempel `S4V3D7CHJR` .
-* **Paket-ID**: kallas även "app-ID". Detta är paket-ID: t för programmet. till exempel `com.example.myapp` . Observera att du kan använda en nyckel för många appar. Det här värdet mappar till `apns-topic` http-huvudet när ett meddelande skickas, och används för att rikta in sig på det specifika programmet. Observera att du inte kan ange värdet `apns-topic` explicit.
+* **Paket-ID**: kallas även "app-ID". Detta är paket-ID: t för programmet. till exempel `com.example.myapp` . Observera att du bara kan använda en nyckel för en app. Det här värdet mappar till `apns-topic` http-huvudet när ett meddelande skickas, och används för att rikta in sig på det specifika programmet. Du kan inte ange värdet `apns-topic` explicit.
 * **Token**: kallas även för nyckeln Key eller Private. Detta hämtas från. P8-filen som genereras på Apple Developer-portalen. Nyckeln måste ha APN aktiverat (som väljs på Apple Developer-portalen när nyckeln skapas). Värdet måste ha PEM huvud/sidfot från den när du anger det till NH-portalen/API: et.
 * **Slut punkt**: det här är en växling på bladet Notification Hubs Portal och ett sträng fält i API: et. Giltiga värden är `https://api.development.push.apple.com:443/3/device` eller `https://api.sandbox.push.apple.com:443/3/device` . Notification Hubs använder det här värdet för antingen produktions-eller sandbox-miljön för att skicka meddelanden. Detta måste matcha `aps-environment` rättigheten i appen, annars genereras inte APN-enhetens tokens, och de kan inte skickas.
 

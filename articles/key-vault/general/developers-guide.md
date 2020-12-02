@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 596de459b888bb9973aca1c7d72f2f9e24c966eb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6fa9f5d86d3640bf3ae0233e7d6d8a00752f5b6d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013980"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460801"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Utvecklarguide för Azure Key Vault
 
@@ -120,7 +120,7 @@ Följande artiklar och scenarier innehåller en detaljerad vägledning för att 
 - Hur du distribuerar certifikat till virtuella datorer från Key Vault- [Windows](../../virtual-machines/extensions/key-vault-windows.md), [Linux](../../virtual-machines/extensions/key-vault-linux.md) -ett moln program som körs i en virtuell dator på Azure behöver ett certifikat. Hur får du det här certifikatet till den virtuella datorn idag?
 - [Distribuera Azure Web App-certifikat via Key Vault](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault)
 - Tilldela en åtkomst princip ([CLI](assign-access-policy-cli.md)  |  [PowerShell](assign-access-policy-powershell.md)  |  -[Portal](assign-access-policy-portal.md)). 
-- [Använda Key Vault mjuk borttagning med CLI](soft-delete-cli.md) guidar dig genom användningen och livs cykeln för ett nyckel valv och olika Key Vault-objekt med mjuk borttagning aktiverat.
+- [Använda Key Vault mjuk borttagning med CLI](./key-vault-recovery.md) guidar dig genom användningen och livs cykeln för ett nyckel valv och olika Key Vault-objekt med mjuk borttagning aktiverat.
 - [Så här skickar du säkra värden (t. ex. lösen ord) under distributionen](../../azure-resource-manager/templates/key-vault-parameter.md) – när du behöver skicka ett säkert värde (till exempel ett lösen ord) som en parameter under distributionen kan du lagra värdet som en hemlighet i en Azure Key Vault och referera till värdet i andra Resource Manager-mallar.
 
 ## <a name="integrated-with-key-vault"></a>Integrerad med Key Vault

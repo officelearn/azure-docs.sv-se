@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: ff46c5e2d434a75bf71d6216ce81b34de878ba80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7b64ce907cd68d1d6850f90df49b347f3b0270d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419188"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461018"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Klassificering & recensioner Analytics-instrumentpanelen i Partner Center
 
@@ -22,7 +22,7 @@ Den här artikeln innehåller information om instrument panelen för klassificer
 - Granskningar publiceras på fliken recensioner på produkt visnings sidan för erbjudandet i Azure Marketplace eller AppSource. Kunder kan inkludera sitt namn eller publicera anonymt.  
 
 >[!NOTE]
-> Detaljerade definitioner av analys terminologi finns i [vanliga frågor och terminologi för affärs platsers analys](./faq-terminology.md).
+> Detaljerade definitioner av analys terminologi finns i [vanliga frågor och terminologi för affärs platsers analys](../analytics-faq.md).
 
 ## <a name="access-the-dashboard"></a>Åtkomst till instrument panelen
 
@@ -55,9 +55,9 @@ Granskningar visas i kronologisk ordning för när de publicerades. I standardvy
 ## <a name="next-steps"></a>Nästa steg
 
 - En översikt över analys rapporter som är tillgängliga i partner Centers kommersiella marknads platser finns i [analys för den kommersiella Marketplace i Partner Center](./analytics.md).
-- För grafer, trender och värden för sammanställda data som sammanfattar Marketplace-aktivitet för ditt erbjudande, se [översikts instrument panel i](./summary-dashboard.md)marknads plats analys.
-- Information om dina beställningar i ett grafiskt och nedladdnings Bart format finns i [order instrument panel i kommersiell Marketplace-analys](./orders-dashboard.md).
-- För virtuell dator (VM) erbjuder vi användnings-och mätnings mått i [användnings instrument panelen i den kommersiella Marketplace-analysen](./usage-dashboard.md).
-- Detaljerad information om dina kunder, inklusive tillväxt trender, finns [på kund instrument panel i affärs Marketplace-analys](./customer-dashboard.md).
+- För grafer, trender och värden för sammanställda data som sammanfattar Marketplace-aktivitet för ditt erbjudande, se [översikts instrument panel i](../summary-dashboard.md)marknads plats analys.
+- Information om dina beställningar i ett grafiskt och nedladdnings Bart format finns i [order instrument panel i kommersiell Marketplace-analys](../orders-dashboard.md).
+- För virtuell dator (VM) erbjuder vi användnings-och mätnings mått i [användnings instrument panelen i den kommersiella Marketplace-analysen](../usage-dashboard.md).
+- Detaljerad information om dina kunder, inklusive tillväxt trender, finns [på kund instrument panel i affärs Marketplace-analys](../customer-dashboard.md).
 - En lista över dina nedladdnings begär Anden under de senaste 30 dagarna finns i [Hämta instrument panel i kommersiell Marketplace-analys](./downloads-dashboard.md).
-- Vanliga frågor och svar om den kommersiella Marketplace-analysen och en omfattande ord lista med data termer finns i [vanliga frågor och termer för att få en kommersiell Marketplace-analys](./faq-terminology.md).
+- Vanliga frågor och svar om den kommersiella Marketplace-analysen och en omfattande ord lista med data termer finns i [vanliga frågor och termer för att få en kommersiell Marketplace-analys](../analytics-faq.md).

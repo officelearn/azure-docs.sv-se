@@ -1,6 +1,6 @@
 ---
-title: Fråga Parquet kapslade typer med Server lös SQL-pool (för hands version)
-description: I den här artikeln får du lära dig hur du frågar Parquet-kapslade typer med hjälp av SQL-poolen utan server (för hands version).
+title: Fråga Parquet kapslade typer med Server lös SQL-pool
+description: I den här artikeln får du lära dig hur du frågar Parquet-kapslade typer med hjälp av SQL-poolen utan server.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 426c95638422fa4260508aa81bb47a7c9565e6eb
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 91f612ba7f19deb739dbb6004e275ea044a5a3d3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685723"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462556"
 ---
-# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Fråga kapslade typer i Parquet-och JSON-filer med hjälp av Server lös SQL-pool (för hands version) i Azure Synapse Analytics
+# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Fråga kapslade typer i Parquet-och JSON-filer med hjälp av Server lös SQL-pool i Azure Synapse Analytics
 
-I den här artikeln får du lära dig hur du skriver en fråga med hjälp av SQL-poolen utan server (för hands version) i Azure Synapse Analytics. Frågan läser Parquet-kapslade typer.
+I den här artikeln får du lära dig hur du skriver en fråga med hjälp av SQL-poolen utan server i Azure Synapse Analytics. Frågan läser Parquet-kapslade typer.
 Kapslade typer är komplexa strukturer som representerar objekt eller matriser. Kapslade typer kan lagras i: 
 - [Parquet](query-parquet-files.md), där du kan ha flera komplexa kolumner som innehåller matriser och objekt.
 - Hierarkiska [JSON-filer](query-json-files.md)där du kan läsa komplexa JSON-dokument som en enda kolumn.
@@ -47,7 +47,7 @@ FROM
 > [!IMPORTANT]
 > I det här exemplet används en fil från COVID-19 Open Research-datauppsättningen. [Se licensen och data strukturen här](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det första steget är att skapa en databas där data källan kommer att skapas. Sedan initierar du objekten genom att köra ett [installations skript](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) i databasen. Installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i exemplen.
 

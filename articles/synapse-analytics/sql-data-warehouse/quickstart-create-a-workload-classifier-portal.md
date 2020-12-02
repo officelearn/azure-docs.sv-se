@@ -11,14 +11,14 @@ ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 691cdcb525f8e9e3d1fb914372b9f62366f4bfba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4c761404ab5a95bc0189407cc97ce779b66356fe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85213031"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460657"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-workload-classifier-using-the-azure-portal"></a>Snabb start: skapa en Synapse SQL-pool arbets belastnings klassificering med hjälp av Azure Portal
+# <a name="quickstart-create-a-dedicated-sql-pool-workload-classifier-using-the-azure-portal"></a>Snabb start: skapa en dedikerad SQL-pool arbets belastnings klassificering med hjälp av Azure Portal
 
 I den här snabb starten ska du skapa en [klassificering för arbets belastning](sql-data-warehouse-workload-classification.md) för att tilldela frågor till en arbets belastnings grupp.  Klassificeraren tilldelar begär Anden från `ELTLogin` SQL-användaren till `DataLoads` arbets belastnings gruppen.   Följ självstudierna [snabb start: Konfigurera arbets belastnings isolering](quickstart-configure-workload-isolation-portal.md) för att skapa `DataLoads` arbets belastnings gruppen.  Den här självstudien skapar en klassificerare för arbets belastning med alternativet WLM_LABEL som hjälper till att ytterligare klassificera begär Anden.  Klassificeraren tilldelar också `HIGH` [arbets belastnings prioritet](sql-data-warehouse-workload-importance.md) för dessa begär Anden.
 
@@ -28,19 +28,19 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 > [!NOTE]
-> Att skapa en instans av SQL-poolen i Azure Synapse Analytics kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Att skapa en dedikerad instans av SQL-poolen i Azure Synapse Analytics kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här snabb starten förutsätter att du redan har en instans av SQL-poolen i Synapse SQL och att du har behörighet att kontrol lera databasen. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
+Den här snabb starten förutsätter att du redan har en särskild instans av SQL-poolen som du har behörighet att kontrol lera databasen. Om du behöver skapa ett använder du [skapa och Anslut – Portal](create-data-warehouse-portal.md) för att skapa en dedikerad SQL-pool med namnet **mySampleDataWarehouse**.
 <br><br>
 Det finns en arbets belastnings grupp `DataLoads` .  Se självstudierna [snabb start: Konfigurera arbets belastnings isolering](quickstart-configure-workload-isolation-portal.md) för att skapa arbets belastnings gruppen.
 <br><br>
 >[!IMPORTANT] 
->SQL-poolen måste vara online för att konfigurera arbets belastnings hantering. 
+>Din dedikerade SQL-pool måste vara online för att konfigurera arbets belastnings hantering. 
 
 
 ## <a name="create-a-login-for-eltlogin"></a>Skapa en inloggning för ELTLogin
@@ -72,18 +72,17 @@ END
 Klassificeringen gör att du kan dirigera förfrågningar baserat på en uppsättning regler till en arbets belastnings grupp.  I självstudierna [snabb start: Konfigurera arbets belastnings isolering](quickstart-configure-workload-isolation-portal.md) skapade vi `DataLoads` arbets belastnings gruppen.  Nu ska du skapa en klassificering för arbets belastning för att dirigera frågor till `DataLoads` arbets belastnings gruppen.
 
 
-1.  Klicka på **Azure Synapse Analytics (tidigare SQL DW)** på den vänstra sidan i Azure Portal.
-2.  Välj **mySampleDataWarehouse** på sidan **Azure Synapse Analytics (tidigare SQL DW)** . SQL-poolen öppnas.
-3.  Klicka på **arbets belastnings hantering**.
+1.  Gå till sidan **mySampleDataWarehouse** -dedikerad SQL-pool.
+3.  Välj **arbets belastnings hantering**.
 
     ![Klicka på Meny](./media/quickstart-create-a-workload-classifier-portal/menu.png)
 
-4.  Klicka på **inställningar & klassificerare** på höger sida av `DataLoads` arbets belastnings gruppen.
+4.  Välj **inställningar & klassificerare** på höger sida av `DataLoads` arbets belastnings gruppen.
 
     ![Klicka på Skapa](./media/quickstart-create-a-workload-classifier-portal/settings-classifiers.png)
 
-5. Klicka på **klassificerare**.
-6. Klicka på **Lägg till klassificerare**.
+5. Välj  **inte konfigurerad** under kolumnen klassificerare.
+6. Välj **+ Lägg till klassificerare**.
 
     ![Klicka på Lägg till](./media/quickstart-create-a-workload-classifier-portal/add-wc.png)
 
@@ -91,8 +90,8 @@ Klassificeringen gör att du kan dirigera förfrågningar baserat på en uppsät
 8.  Ange `ELTLogin` för **medlem**.
 9.  Välj `High` för **begär ande prioritet**.  *Valfri*, normal prioritet är standard.
 10. Ange `fact_loads` som **etikett**.
-11. Klicka på **Lägg till**.
-12. Klicka på **Spara**.
+11. Välj **Lägg till**.
+12. Välj **Spara**.
 
     ![Klicka på Konfigurera](./media/quickstart-create-a-workload-classifier-portal/config-wc.png)
 
@@ -135,15 +134,13 @@ WHERE [label] = 'fact_loads'
 ORDER BY submit_time DESC
 ```
 
-
-
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Ta bort en `ELTLoginDataLoads` arbets belastnings klassificering som skapats i den här självstudien:
 
 1. Klicka på **en klassificerare** på höger sida av `DataLoads` arbets belastnings gruppen.
 
-    ![Klicka på ta bort](./media/quickstart-create-a-workload-classifier-portal/delete-wc.png)
+    ![Klicka på Ta bort](./media/quickstart-create-a-workload-classifier-portal/delete-wc.png)
 
 2. Klicka på **klassificerare**.
 3. Klicka på **`...`** till höger om `ELTLoginDataLoads` klassificeringen av arbets belastning.
@@ -152,24 +149,20 @@ Ta bort en `ELTLoginDataLoads` arbets belastnings klassificering som skapats i d
 
     ![Klicka på Spara](./media/quickstart-create-a-workload-classifier-portal/delete-save-wc.png)
 
-Du debiteras för data lager enheter och data som lagras i ditt informations lager. Dessa beräknings- och lagringsresurser debiteras separat.
+Du debiteras för data lager enheter och data som lagras i din dedikerade SQL-pool. Dessa beräknings- och lagringsresurser debiteras separat.
 
-- Om du vill behålla data i lagringsutrymmet kan du pausa beräkningarna när du inte använder informationslagret. Genom att pausa beräkning debiteras du bara för data lagring. När du är redo att arbeta med data återupptar du beräkningen.
-- Om du vill undvika framtida avgifter kan du ta bort informationslagret.
+- Om du vill behålla data i lagrings utrymmet kan du pausa beräkningen när du inte använder din dedikerade SQL-pool. Genom att pausa beräkning debiteras du bara för data lagring. När du är redo att arbeta med data återupptar du beräkningen.
+- Om du vill ta bort framtida avgifter kan du ta bort den dedikerade SQL-poolen.
 
 Rensa resurserna genom att följa dessa steg.
 
-1. Logga in på [Azure Portal](https://portal.azure.com)och välj på informations lagret.
+1. Logga in på [Azure Portal](https://portal.azure.com)och välj din dedikerade SQL-pool.
 
     ![Rensa resurser](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Om du vill pausa beräkningen väljer du knappen **pausa** . När informationslagret har pausats visas knappen **Starta**.  Om du vill återuppta beräkningen väljer du **Start**.
+2. Om du vill pausa beräkningen väljer du knappen **pausa** . När den dedikerade SQL-poolen har pausats visas en **Start** -knapp.  Om du vill återuppta beräkningen väljer du **Start**.
 
-3. Om du vill ta bort data lagret så att du inte debiteras för beräkning eller lagring väljer du **ta bort**.
-
-4. Om du vill ta bort den SQL-Server som du har skapat väljer du **sqlpoolservername.Database.Windows.net** i föregående bild och väljer sedan **ta bort**.  Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
-
-5. Om du vill ta bort resurs gruppen väljer du **myResourceGroup**och väljer sedan **ta bort resurs grupp**.
+3. Om du vill ta bort din dedikerade SQL-pool så att du inte debiteras för beräkning eller lagring väljer du **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

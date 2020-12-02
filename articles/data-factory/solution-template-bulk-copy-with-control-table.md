@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: be3b82765f2f5268a75147e8e1ef6de34aeb8ff2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d1ff372009c6158f2148847dd77126bcb4d189f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441076"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461236"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Mass kopiering från en databas med en kontroll tabell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Om du vill kopiera data från ett informations lager i Oracle server, Netezza, Teradata eller SQL Server till Azure Synapse Analytics (tidigare SQL Data Warehouse) måste du läsa in stora mängder data från flera tabeller. Normalt måste data partitioneras i varje tabell så att du kan läsa in rader med flera trådar parallellt från en enda tabell. I den här artikeln beskrivs en mall som du kan använda i dessa scenarier.
+Om du vill kopiera data från ett informations lager i Oracle server, Netezza, Teradata eller SQL Server till Azure Synapse Analytics måste du läsa in stora mängder data från flera tabeller. Normalt måste data partitioneras i varje tabell så att du kan läsa in rader med flera trådar parallellt från en enda tabell. I den här artikeln beskrivs en mall som du kan använda i dessa scenarier.
 
- >! Obs! Om du vill kopiera data från ett litet antal tabeller med relativt små data volymer till Azure Synapse Analytics, är det mer effektivt att använda [Azure Data Factory kopiera data-verktyget](copy-data-tool.md). Mallen som beskrivs i den här artikeln är mer än du behöver för det scenariot.
+ >! Obs! Om du vill kopiera data från ett litet antal tabeller med en relativt liten data volym till Azure Synapse Analytics, är det mer effektivt att använda [Azure Data Factory kopiera data-verktyget](copy-data-tool.md). Mallen som beskrivs i den här artikeln är mer än du behöver för det scenariot.
 
 ## <a name="about-this-solution-template"></a>Om den här lösnings mal len
 
@@ -48,7 +48,7 @@ De sista tre parametrarna, som definierar sökvägen i mål lagret, visas bara o
 
 ## <a name="how-to-use-this-solution-template"></a>Så här använder du den här lösnings mal len
 
-1. Skapa en kontroll tabell i SQL Server eller Azure SQL Database för att lagra käll databasens partition lista för Mass kopiering. I följande exempel finns det fem partitioner i käll databasen. Det finns tre partitioner för *datasource_table*och två för *project_table*. Kolumnen *LastModifytime* används för att partitionera data i tabell *datasource_table* från käll databasen. Frågan som används för att läsa den första partitionen är Select * from datasource_table WHERE LastModifytime >= ' ' 2015-01-01 00:00:00 ' ' och LastModifytime <= ' ' 2015-12-31 23:59:59.999 ' '. Du kan använda en liknande fråga för att läsa data från andra partitioner.
+1. Skapa en kontroll tabell i SQL Server eller Azure SQL Database för att lagra käll databasens partition lista för Mass kopiering. I följande exempel finns det fem partitioner i käll databasen. Det finns tre partitioner för *datasource_table* och två för *project_table*. Kolumnen *LastModifytime* används för att partitionera data i tabell *datasource_table* från käll databasen. Frågan som används för att läsa den första partitionen är Select * from datasource_table WHERE LastModifytime >= ' ' 2015-01-01 00:00:00 ' ' och LastModifytime <= ' ' 2015-12-31 23:59:59.999 ' '. Du kan använda en liknande fråga för att läsa data från andra partitioner.
 
      ```sql
             Create table ControlTableForTemplate
@@ -86,7 +86,7 @@ De sista tre parametrarna, som definierar sökvägen i mål lagret, visas bara o
 
     ![Granska pipelinen](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
 
-7. Välj **Felsök**, ange **parametrarna**och välj sedan **Slutför**.
+7. Välj **Felsök**, ange **parametrarna** och välj sedan **Slutför**.
 
     ![Klicka på * * Felsök * *](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/18/2019
+ms.date: 11/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6a6b39d540427b7c3400fded62431c914db23bb3
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2cff67dde7cfe9e015cd25b26811410ce6e686e9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327329"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462544"
 ---
 # <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Prestandariktlinjer för SQL Server på virtuella Azure-datorer
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,9 +29,9 @@ Den här artikeln innehåller rikt linjer för att optimera SQL Server prestanda
 
 ## <a name="overview"></a>Översikt
 
- När du kör SQL Server på Azure-Virtual Machines rekommenderar vi att du fortsätter att använda samma databas prestanda justerings alternativ som gäller för SQL Server i lokala Server miljöer. Prestanda för en relationsdatabas i ett offentligt moln beror dock på många faktorer, till exempel storleken på en virtuell dator och konfigurationen av datadiskar.
+När du kör SQL Server på Azure-Virtual Machines rekommenderar vi att du fortsätter att använda samma databas prestanda justerings alternativ som gäller för SQL Server i lokala Server miljöer. Prestanda för en relationsdatabas i ett offentligt moln beror dock på många faktorer, till exempel storleken på en virtuell dator och konfigurationen av datadiskar.
 
-[SQL Server avbildningar som tillhandahålls i Azure Portal följer de](sql-vm-create-portal-quickstart.md) allmänna metod tipsen för lagrings konfiguration (mer information om hur lagrings utrymmet konfigureras finns i [lagrings konfiguration för virtuella](storage-configuration.md)datorer i SQL Server). Efter etableringen bör du överväga att använda andra optimeringar som diskuteras i den här artikeln. Basera dina val på arbets belastningen och kontrol lera genom att testa.
+[SQL Server avbildningar som har skapats i Azure Portal följer de](sql-vm-create-portal-quickstart.md) allmänna [metod tipsen](storage-configuration.md)för lagrings konfiguration. Efter etableringen bör du överväga att använda andra optimeringar som diskuteras i den här artikeln. Basera dina val på arbets belastningen och kontrol lera genom att testa.
 
 > [!TIP]
 > Det finns vanligt vis en kompromiss mellan optimering av kostnader och optimering för prestanda. Den här artikeln fokuserar på att få *bästa möjliga* prestanda för SQL Server på Azure Virtual Machines. Om din arbets belastning är mindre krävande kanske du inte behöver varje optimering i listan nedan. Överväg dina prestanda behov, kostnader och arbets belastnings mönster när du utvärderar dessa rekommendationer.
@@ -42,21 +42,165 @@ Följande är en snabb check lista för optimala prestanda för SQL Server på A
 
 | Område | Optimeringar |
 | --- | --- |
-| [VM-storlek](#vm-size-guidance) | -Använd VM-storlekar med 4 eller fler vCPU som [E4S_v3](../../../virtual-machines/ev3-esv3-series.md) eller högre eller [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md) eller högre.<br/><br/> - [ES, EAS, DS och Das-serien](../../../virtual-machines/sizes-general.md) ger optimalt minne till vCPU-förhållandet som krävs för OLTP-arbetsbelastningens prestanda. <br/><br/> - [M-serien](../../../virtual-machines/m-series.md) erbjuder det högsta förhållandet mellan minne och vCPU som krävs för uppdrags kritiska prestanda och är perfekt för arbets belastningar för data lager. <br/><br/> – Samla in mål arbets Belastningens [IOPS](../../../virtual-machines/premium-storage-performance.md#iops), [data flöde](../../../virtual-machines/premium-storage-performance.md#throughput)  och [latens](../../../virtual-machines/premium-storage-performance.md#latency) krav vid hög belastnings tider genom att följa check listan för [program prestanda krav](../../../virtual-machines/premium-storage-performance.md#application-performance-requirements-checklist) och välj sedan den [VM-storlek](../../../virtual-machines/sizes-general.md) som kan skalas till arbets Belastningens prestanda krav.|
-| [Storage](#storage-guidance) | – För detaljerad testning av SQL Server prestanda i Azure Virtual Machines med TPC-E och TPC_C benchmarks, se bloggen [optimera OLTP-prestanda](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794). <br/><br/> – Använd [Premium-SSD](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794) för bästa pris/prestanda-fördelar. Konfigurera [ReadOnly cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) för datafiler och ingen cache för logg filen. <br/><br/> – Använd [Ultra disks](../../../virtual-machines/disks-types.md#ultra-disk) om mindre än 1 MS-lagrings fördröjning krävs av arbets belastningen. Mer information finns i [migrera till Ultra disk](storage-migrate-to-ultradisk.md) . <br/><br/> – Samla in krav på lagrings fördröjning för SQL Server data, logg och tillfälliga DB-filer genom att [övervaka programmet](../../../virtual-machines/premium-storage-performance.md#application-performance-requirements-checklist) innan du väljer disk typen. Om <1ms lagrings fördröjning krävs, använder du Ultra disks, annars använder du Premium SSD. Om låg latens bara krävs för logg filen och inte för datafiler, [etablerar du den Ultra-disken](../../../virtual-machines/disks-enable-ultra-ssd.md) vid nödvändiga IOPS-och data flödes nivåer för logg filen. <br/><br/> -  [Premium-filresurser](failover-cluster-instance-premium-file-share-manually-configure.md) rekommenderas som delad lagring för en SQL Server instans av redundanskluster. Premium-filresurser stöder inte cachelagring, och erbjuder begränsade prestanda jämfört med Premium SSD-diskar. Välj Premium SSD – hanterade diskar över Premium-filresurser för fristående SQL-instanser; men Använd Premium-filresurser för delad lagring av redundanskluster för att förenkla underhåll och flexibel skalbarhet. <br/><br/> – Standard lagring rekommenderas endast för utvecklings-och test syfte eller för säkerhets kopiering av filer och bör inte användas för produktions arbets belastningar. <br/><br/> -Behåll [lagrings kontot](../../../storage/common/storage-account-create.md) och SQL Server VM i samma region.<br/><br/> -Inaktivera Azure [Geo-redundant lagring](../../../storage/common/storage-redundancy.md) (geo-replikering) på lagrings kontot.  |
-| [Diskar](#disks-guidance) | – Använd minst 2 [Premium SSD-diskar](../../../virtual-machines/disks-types.md#premium-ssd) (1 för logg filen och 1 för datafiler). <br/><br/> – För arbets belastningar som kräver <1 MS IO-fördröjning aktiverar du Skriv Accelerator för M-serien och använder Ultra SSD diskar för ES och DS-serien. <br/><br/> -Aktivera [skrivskyddad cachelagring](../../../virtual-machines/premium-storage-performance.md#disk-caching) på diskarna som är värdar för datafilerna.<br/><br/> – Lägg till ytterligare 20% Premium IOPS/data flödes kapacitet än vad arbets belastningen kräver när du [konfigurerar lagring för SQL Server data-, logg-och tempdb-filer](storage-configuration.md) <br/><br/> – Undvik att använda operativ system eller temporära diskar för databas lagring eller loggning.<br/><br/> – Aktivera inte cachelagring på disk (er) som är värd för logg filen.  **Viktigt**: stoppa SQL Server-tjänsten när du ändrar cache-inställningarna för en Azure Virtual Machines-disk.<br/><br/> – Stripa flera Azure-datadiskar för att få större lagrings data flöde.<br/><br/> -Format med dokumenterade fördelnings storlekar. <br/><br/> -Placera TempDB på den lokala SSD- `D:\` enheten för verksamhets kritiska SQL Server arbets belastningar (efter att ha valt rätt storlek på virtuell dator). Om du skapar den virtuella datorn från Azure Portal eller Azures snabb starts mallar och [placerar Temp-databasen på den lokala disken](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583) behöver du inte vidta några ytterligare åtgärder. i alla andra fall följer du stegen i bloggen för  [att använda SSD för att lagra tempdb](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) för att förhindra problem efter omstarter. Om den lokala enhetens kapacitet inte räcker för den tillfälliga databas storleken ska du placera Temp DB i en lagringspool som är [stripad](../../../virtual-machines/premium-storage-performance.md) på Premium SSD-diskar med [skrivskyddad cachelagring](../../../virtual-machines/premium-storage-performance.md#disk-caching). |
-| [I/O](#io-guidance) |-Aktivera komprimering av databas sidan.<br/><br/> -Aktivera omedelbar fil initiering för datafiler.<br/><br/> – Begränsa den ökande storleken på databasen.<br/><br/> -Inaktivera autokrympning av databasen.<br/><br/> – Flytta alla databaser till data diskar, inklusive system databaser.<br/><br/> – Flytta SQL Server fel logg och spåra fil kataloger till data diskar.<br/><br/> – Konfigurera standard platser för säkerhets kopiering och databas fil.<br/><br/> - [Aktivera låsta sidor i minnet](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows?view=sql-server-2017).<br/><br/> -Använd SQL Server prestanda korrigeringar. |
+| [VM-storlek](#vm-size-guidance) | -Använd VM-storlekar med 4 eller fler vCPU som [Standard_M8-4ms](/../../virtual-machines/m-series), [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series)eller [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) eller högre. <br/><br/> -Använd [minnesoptimerade](../../../virtual-machines/sizes-memory.md) storlekar för virtuella datorer för att få bästa möjliga prestanda för SQL Server arbets belastningar. <br/><br/> – [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), [Edsv4](../../../virtual-machines/edv4-edsv4-series.md) -serien, [M-](../../../virtual-machines/m-series.md)och [Mv2-](../../../virtual-machines/mv2-series.md) serien erbjuder optimalt minne-till-vCore-förhållande som krävs för OLTP-arbetsbelastningar. Båda virtuella datorerna i M-serien erbjuder det högsta vCore-förhållandet som krävs för verksamhets kritiska arbets belastningar och är också idealiskt för arbets belastningar för data lager. <br/><br/> – Ett högre vCore-förhållande kan krävas för verksamhets kritiska och informations lager arbets belastningar. <br/><br/> – Utnyttja Azures Marketplace-avbildningar för virtuella datorer som SQL Server inställningar och lagrings alternativ har kon figurer ATS för optimal SQL Server prestanda. <br/><br/> – Samla in mål arbets Belastningens prestanda egenskaper och Använd dem för att fastställa lämplig VM-storlek för ditt företag.|
+| [Storage](#storage-guidance) | – För detaljerad testning av SQL Server prestanda i Azure Virtual Machines med TPC-E och TPC_C benchmarks, se bloggen [optimera OLTP-prestanda](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794). <br/><br/> – Använd [Premium-SSD](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794) för bästa pris/prestanda-fördelar. Konfigurera [skrivskyddad cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) för datafiler och ingen cache för logg filen. <br/><br/> – Använd [Ultra disks](../../../virtual-machines/disks-types.md#ultra-disk) om mindre än 1 MS-svars tids fördröjning krävs av arbets belastningen. Mer information finns i [migrera till Ultra disk](storage-migrate-to-ultradisk.md) . <br/><br/> – Samla in krav på lagrings fördröjning för SQL Server data, logg och tillfälliga DB-filer genom att [övervaka programmet](../../../virtual-machines/premium-storage-performance.md#application-performance-requirements-checklist) innan du väljer disk typen. Om < 1-MS-tidssvars tider krävs, använder du Ultra disks, annars använder du Premium SSD. Om låg latens bara krävs för logg filen och inte för datafiler, [etablerar du den Ultra-disken](../../../virtual-machines/disks-enable-ultra-ssd.md) vid nödvändiga IOPS-och data flödes nivåer för logg filen. <br/><br/>  – Standard lagring rekommenderas endast för utvecklings-och test syfte eller för säkerhets kopiering av filer och bör inte användas för produktions arbets belastningar. <br/><br/> -Behåll [lagrings kontot](../../../storage/common/storage-account-create.md) och SQL Server VM i samma region.<br/><br/> -Inaktivera Azure [Geo-redundant lagring](../../../storage/common/storage-redundancy.md) (geo-replikering) på lagrings kontot.  |
+| [Diskar](#disks-guidance) | – Använd minst 2 [Premium SSD-diskar](../../../virtual-machines/disks-types.md#premium-ssd) (1 för logg filen och 1 för datafiler). <br/><br/> – För arbets belastningar som kräver < 1-MS IO-fördröjning, aktivera Skriv Accelerator för M-serien och Överväg att använda Ultra SSD diskar för ES och DS-serien. <br/><br/> -Aktivera [skrivskyddad cachelagring](../../../virtual-machines/premium-storage-performance.md#disk-caching) på diskarna som är värdar för datafilerna.<br/><br/> – Lägg till ytterligare 20% Premium IOPS/data flödes kapacitet än vad arbets belastningen kräver när du [konfigurerar lagring för SQL Server data-, logg-och tempdb-filer](storage-configuration.md) <br/><br/> – Undvik att använda operativ system eller temporära diskar för databas lagring eller loggning.<br/><br/> – Aktivera inte cachelagring på disk (er) som är värd för logg filen.  **Viktigt**: stoppa SQL Server-tjänsten när du ändrar cache-inställningarna för en Azure Virtual Machines-disk.<br/><br/> – Stripa flera Azure-datadiskar för att få större lagrings data flöde.<br/><br/> -Format med dokumenterade fördelnings storlekar. <br/><br/> -Placera TempDB på den lokala SSD- `D:\` enheten för verksamhets kritiska SQL Server arbets belastningar (efter att ha valt rätt storlek på virtuell dator). Om du skapar den virtuella datorn från Azure Portal eller Azures snabb starts mallar och [placerar Temp-databasen på den lokala disken](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583)behöver du inte vidta några ytterligare åtgärder. i alla andra fall följer du stegen i bloggen för  [att använda SSD för att lagra tempdb](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-TempDB-and-buffer-pool-extensions/) för att förhindra problem efter omstarter. Om den lokala enhetens kapacitet inte räcker för den tillfälliga databas storleken ska du placera Temp DB i en lagringspool som är [stripad](../../../virtual-machines/premium-storage-performance.md) på Premium SSD-diskar med [skrivskyddad cachelagring](../../../virtual-machines/premium-storage-performance.md#disk-caching). |
+| [I/O](#io-guidance) |-Aktivera komprimering av databas sidan.<br/><br/> -Aktivera omedelbar fil initiering för datafiler.<br/><br/> – Begränsa den ökande storleken på databasen.<br/><br/> -Inaktivera autokrympning av databasen.<br/><br/> – Flytta alla databaser till data diskar, inklusive system databaser.<br/><br/> – Flytta SQL Server fel logg och spåra fil kataloger till data diskar.<br/><br/> – Konfigurera standard platser för säkerhets kopiering och databas fil.<br/><br/> - [Aktivera låsta sidor i minnet](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows).<br/><br/> – Utvärdera och tillämpa de [senaste kumulativa uppdateringarna](/sql/database-engine/install-windows/latest-updates-for-microsoft-sql-server) för den installerade versionen av SQL Server. |
 | [Funktions-/regionsspecifika](#feature-specific-guidance) | – Säkerhetskopiera direkt till Azure Blob Storage.<br/><br/>-Använd [säkerhets kopior av fil ögonblicks bilder](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure) för databaser som är större än 12 TB. <br/><br/>-Använd flera tillfälliga DB-filer, 1 fil per kärna, upp till 8 filer.<br/><br/>– Ange max server minne på 90% eller upp till 50 GB kvar för operativ systemet. <br/><br/>-Aktivera mjuk NUMA. |
 
+
+<br/>
 Mer information om *hur* och *varför* du kan göra dessa optimeringar finns i informationen och rikt linjerna i följande avsnitt.
+<br/><br/>
+
+## <a name="getting-started"></a>Komma igång
+
+Om du skapar en ny SQL Server på en virtuell Azure-dator och inte migrerar ett aktuellt käll system, skapar du en ny SQL Server VM utifrån dina leverantörs krav.  Leverantörs kraven för en SQL Server VM är desamma som för det du skulle distribuera lokalt. 
+
+Om du skapar en ny SQL Server VM med ett nytt program som skapats för molnet kan du enkelt ändra din SQL Server VM när dina data-och användnings krav utvecklas.
+Starta utvecklings miljöerna med den lägre nivån D-serien, B-serien eller AV2-serien och utveckla din miljö över tid. 
+
+Det rekommenderade minimivärdet för en produktions-OLTP-miljö är 4 vCore, 32 GB minne och ett förhållandet mellan minne och vCore på 8. För nya miljöer börjar du med 4 vCore-datorer och skalar till 8, 16, 32 virtuella kärnor eller mer när dina data-och beräknings krav har ändrats. För OLTP-genomflöde är målet SQL Server virtuella datorer som har 5000 IOPS för varje vCore. 
+
+Använd SQL Server VM Marketplace-avbildningar med lagrings konfigurationen i portalen. Detta gör det enklare att skapa lagringspooler som krävs för att få den storlek, IOPS och data flöde som krävs för dina arbets belastningar. Det är viktigt att välja SQL Server virtuella datorer som har stöd för Premium Storage och Premium Storage-cachelagring. Mer information finns i avsnittet [lagring](#storage-guidance) . 
+
+SQL Server data lager och verksamhets kritiska miljöer behöver ofta skalas bortom 8-till-vCore-förhållandet. För medel stora miljöer kanske du vill välja ett 16-till-minne-förhållande och ett förhållandet 32 kärnor till minne för större data lager miljöer. 
+
+SQL Server data lager miljöer har ofta nytta av parallell bearbetning av större datorer. Av den anledningen är M-serien och Mv2-serien starka alternativ för större data lager miljöer.
 
 ## <a name="vm-size-guidance"></a>Vägledning för VM-storlek
 
-Börja med att samla in krav på processor, minne och lagring av data flöde för arbets belastningen vid hög belastnings tider. Prestanda räknare för \LogicalDisk\Disk läsningar/s och \LogicalDisk\Disk skrivningar/s kan användas för att samla in Läs-och skriv IOPS-krav och \LogicalDisk\Disk byte/s-räknaren kan användas för att samla in [krav på lagrings data flöde](../../../virtual-machines/premium-storage-performance.md#disk-caching) för data-, logg-och temp DB-filer. Efter att IOPS-och data flödes krav vid hög storlek definierats, erbjuder utvärdera VM-storlekar den kapaciteten. Om din arbets belastning till exempel kräver 20 K Läs IOPS och 10 000 Skriv åtgärder med hög belastning kan du antingen välja E16s_v3 (med upp till 32 kB cache-lagrad och 25600 Uncached IOPS) eller M16_s (med upp till 20 K cachelagrat och 10 000 Uncached IOPS) med 2 P30 diskar. Se till att förstå både genomflödet och IOPS-krav för arbets belastningen eftersom virtuella datorer har olika skalnings gränser för IOPS och data flöde.<br/><br/>[DSv_3](../../../virtual-machines/dv3-dsv3-series.md) och [Es_v3-serien](../../../virtual-machines/ev3-esv3-series.md) finns i maskin vara för generell användning med Intel Haswell-eller Broadwell-processorer. [M-serien](../../../virtual-machines/m-series.md) erbjuder högst antal vCPU och minne för de största SQL Server arbets belastningarna och finns på minnesoptimerade maskin vara med Skylake processor familj. Den här VM-serien har stöd för Premium Storage, vilket rekommenderas för bästa prestanda med Läs-cache på värdnivå. Både Es_v3-och M-serien är också tillgängliga i [begränsade kärn storlekar](../../../virtual-machines/constrained-vcpu.md), vilket sparar pengar för arbets belastningar med lägre prestanda för beräkning och hög lagring. 
+Använd vCPU och minnes konfiguration från käll datorn som en bas linje för att migrera en aktuell lokal SQL Server databas till SQL Server på virtuella Azure-datorer. Ta din kärn licens till Azure för att dra nytta av [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/) och spara på SQL Server licens kostnader.
+
+**Microsoft rekommenderar en minnes-till-vCore-kvot på 8 som utgångs punkt för produktion SQL Server arbets belastningar.** Mindre kvoter är acceptabla för arbets belastningar som inte är produktions belastningar. 
+
+Välj ett [minnesoptimerade](../../../virtual-machines/sizes-memory.md), [generellt](../../../virtual-machines/sizes-general.md), [lagrings optimerat](../../../virtual-machines/sizes-storage.md)eller [begränsat vCore](../../../virtual-machines/constrained-vcpu.md) storlek för virtuell dator som är mest optimal för SQL Server prestanda baserat på din arbets belastning (OLTP eller informations lager). 
+
+### <a name="memory-optimized"></a>Minnesoptimerad
+
+De [minnesoptimerade storlekarna för virtuella](../../../virtual-machines/sizes-memory.md) datorer är ett primärt mål för SQL Server virtuella datorer och det rekommenderade valet av Microsoft. De minnesoptimerade virtuella datorerna ger starkare minnes-till-CPU-förhållande och cache-alternativ mellan medel och stora. 
+
+#### <a name="m-and-mv2-series"></a>M-och Mv2-serien
+
+[M-serien](../../../virtual-machines/m-series.md) erbjuder vCore-räkningar och-minne för några av de största SQL Server arbets belastningarna.  
+
+[Mv2-serien](../../../virtual-machines/mv2-series.md) har högsta antal vCore och minne och rekommenderas för verksamhets kritiska och informations lager arbets belastningar. Mv2-seriens instanser är minnesoptimerade VM-storlekar som ger oöverträffade data prestanda för att stödja stora minnes databaser och arbets belastningar med ett högt förhållande mellan minne och CPU som är perfekt för Relations databas servrar, stora cacheminnen och minnes intern analys.
+
+[Standard_M64ms](../../../virtual-machines/m-series.md) har ett 28-till-vCore-förhållande till exempel.
+
+Några av funktionerna i M-och Mv2-serien är attraktiva för SQL Server prestanda, till exempel [Premium Storage](../../../virtual-machines/premium-storage-performance.md) och [Premium Storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching) support, stöd för [mycket disk](../../../virtual-machines/disks-enable-ultra-ssd.md) och [Skriv acceleration](../../../virtual-machines/how-to-enable-write-accelerator.md).
+
+#### <a name="edsv4-series"></a>Edsv4-serien
+
+[Edsv4-serien](../../../virtual-machines/edv4-edsv4-series.md) är utformad för minnes intensiva program. De här virtuella datorerna har en stor lokal Storage SSD-kapacitet, stark lokal disk-IOPS, upp till 504 GiB RAM-minne och förbättrad beräkning jämfört med de tidigare Ev3/Esv3-storlekarna med Gen2-VM: ar. Det finns ett nästan konsekvent vCore-förhållande på 8 på dessa virtuella datorer, vilket är idealiskt för standard SQL Server arbets belastningar. 
+
+Den här VM-serien är idealisk för minnes intensiva företags program och program som drar nytta av låg latens, lokal lagring med hög hastighet.
+
+De virtuella datorerna i Edsv4-serien har stöd för [Premium Storage](../../../virtual-machines/premium-storage-performance.md)och [Premium Storage-cachelagring](../../../virtual-machines/premium-storage-performance.md#disk-caching).
+
+#### <a name="dsv2-series-11-15"></a>DSv2-serien 11-15
+
+[DSv2-serien 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) har samma minnes-och diskkonfigurationer som tidigare D-serien. Den här serien har ett konsekvent minnes-till-CPU-förhållande på 7 över alla virtuella datorer. 
+
+[DSv2-serien 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) har stöd för [Premium Storage](../../../virtual-machines/premium-storage-performance.md) och [Premium Storage-cachelagring](../../../virtual-machines/premium-storage-performance.md#disk-caching), vilket rekommenderas för optimala prestanda.
+
+### <a name="general-purpose"></a>Generell användning
+
+Storleken på den [virtuella datorn för generell användning](../../../virtual-machines/sizes-general.md) är utformad för att tillhandahålla balanserade vCore-förhållande för mindre ingångs nivå arbets belastningar som utveckling och testning, webb servrar och mindre databas servrar. 
+
+På grund av de mindre förhållandet mellan vCore och de flesta virtuella datorer är det viktigt att noggrant övervaka minnesbaserade prestanda räknare för att säkerställa att SQL Server kan hämta det minne som krävs för buffertens cacheminne. Mer information finns i [bas linje för minnes prestanda](#memory) . 
+
+Eftersom start rekommendationen för produktions arbets belastningar är en minnes-till-vCore-kvot på 8, är den minsta rekommenderade konfigurationen för en allmän virtuell dator som kör SQL Server 4 vCPU och 32 GB minne. 
+
+#### <a name="ddsv4-series"></a>Ddsv4-serien
+
+[Ddsv4-serien](../../../virtual-machines/ddv4-ddsv4-series.md) erbjuder en rättvis kombination av vCPU, minne och temporär disk, men med mindre stöd för minne till vcore. 
+
+De virtuella Ddsv4-datorerna omfattar lägre svars tid och lokal lagring med högre hastighet.
+
+De här datorerna är idealiska för SQL-och app-distributioner sida vid sida som kräver snabb åtkomst till tillfälliga lagrings-och avdelnings Relations databaser. Det finns ett standard förhållandet mellan vCore och 4 för alla virtuella datorer i den här serien. 
+
+Därför rekommenderar vi att du utnyttjar D8ds_v4 som den virtuella start datorn i den här serien, som har 8 virtuella kärnor och 32 GB minne. Den största datorn är D64ds_v4, som har 64 virtuella kärnor och 256 GB minne.
+
+De virtuella datorerna i [Ddsv4-serien](../../../virtual-machines/ddv4-ddsv4-series.md) har stöd för [Premium Storage](../../../virtual-machines/premium-storage-performance.md) och [Premium Storage-cachelagring](../../../virtual-machines/premium-storage-performance.md#disk-caching).
+
+> [!NOTE]
+> [Ddsv4-serien](../../../virtual-machines/ddv4-ddsv4-series.md) har inte vCore-förhållandet 8 som rekommenderas för SQL Server arbets belastningar. Därför bör du överväga att använda dessa virtuella datorer för mindre program-och utvecklings arbets belastningar.
+
+#### <a name="b-series"></a>B-serien
+
+Storleken på virtuella datorer med [Burstable i B-serien](../../../virtual-machines/sizes-b-series-burstable.md) är idealisk för arbets belastningar som inte behöver konsekventa prestanda, till exempel POC-koncept och mycket små program-och utvecklings servrar. 
+
+De flesta storlekar för virtuella datorer med [burst-serien](../../../virtual-machines/sizes-b-series-burstable.md) har ett vCore-förhållande på 4. Det största av de här datorerna är [Standard_B20ms](../../../virtual-machines/sizes-b-series-burstable.md) med 20 virtuella kärnor och 80 GB minne.
+
+Den här serien är unik eftersom apparna har möjlighet att använda **burst** under kontors tid med stöd för stora krediter baserat på dator storlek. 
+
+När krediterna är uttömda återgår den virtuella datorn till bas linjens dator prestanda.
+
+Fördelen med B-serien är de besparingar som du kan uppnå jämfört med andra VM-storlekar i andra serier, särskilt om du behöver processor kraft sparsamt under dagen.
+
+Den här serien stöder [Premium Storage](../../../virtual-machines/premium-storage-performance.md), men stöder **inte** [cachelagring av Premium Storage](../../../virtual-machines/premium-storage-performance.md#disk-caching).
+
+> [!NOTE] 
+> Den [Burstable B-serien](../../../virtual-machines/sizes-b-series-burstable.md) har inte vCore-förhållandet 8 som rekommenderas för SQL Server-arbetsbelastningar. Därför bör du överväga att använda dessa virtuella datorer för mindre program, webb servrar och utvecklings arbets belastningar.
+
+#### <a name="av2-series"></a>Av2-serien
+
+De virtuella datorerna i [AV2-serien](../../../virtual-machines/av2-series.md) är bäst lämpade för arbets belastningar på ingångs nivå som utveckling och testning, webb servrar för låg trafik, små till medel stora app-databaser och proof-of-Concepts.
+
+Endast [Standard_A2m_v2](../../../virtual-machines/av2-series.md) (2 virtuella kärnor och 16GBs minne), [Standard_A4m_v2](../../../virtual-machines/av2-series.md) (4 virtuella kärnor och 32GBs) och [Standard_A8m_v2](../../../virtual-machines/av2-series.md) (8 virtuella kärnor och 64GBs) har ett bra minnes-till-vCore-förhållande på 8 för de tre översta virtuella datorerna. 
+
+De här virtuella datorerna är både lämpliga alternativ för mindre utvecklings-och test SQL Server datorer. 
+
+8-vCore [Standard_A8m_v2](../../../virtual-machines/av2-series.md) kan också vara ett utmärkt alternativ för små program och webb servrar.
+
+> [!NOTE] 
+> AV2-serien har inte stöd för Premium Storage, vilket innebär att det inte rekommenderas för produktion SQL Server arbets belastningar även med de virtuella datorer som har en minnes-till-vCore-kvot på 8.
+
+### <a name="storage-optimized"></a>Lagringsoptimerad
+
+De [optimerade VM-storlekarna för lagring](../../../virtual-machines/sizes-storage.md) är för vissa användnings fall. Dessa virtuella datorer är särskilt utformade med optimerade disk data flöde och IO. Den här serien med virtuella datorer är avsedd för stora data scenarier, data lager hantering och stora transaktions databaser. 
+
+#### <a name="lsv2-series"></a>Lsv2-serien
+
+[Lsv2-serien](../../../virtual-machines/lsv2-series.md) innehåller högt data flöde, låg latens och lokal NVMe-lagring. De virtuella datorerna i Lsv2-serien är optimerade för att använda den lokala disken på noden som är ansluten direkt till den virtuella datorn i stället för att använda varaktiga data diskar 
+
+De här virtuella datorerna är starka alternativ för Big data-, data lager-, rapporterings-och ETL-arbetsbelastningar. Det stora genomflödet och IOPs i den lokala NVMe-lagringen är ett användbart användnings fall för bearbetning av filer som kommer att läsas in i databasen och andra scenarier där källdata kan återskapas från käll systemet eller andra databaser, till exempel Azure Blob Storage eller Azure Data Lake. [Lsv2-serien](../../../virtual-machines/lsv2-series.md) Virtuella datorer kan också överföra disk prestanda i upp till 30 minuter i taget.
+
+De här virtuella datorernas storlek från 8 till 80 vCPU med 8 GiB minne per vCPU och för varje 8-virtuella processorer finns 1,92 TB NVMe SSD. Det innebär att den största virtuella datorn för den här serien, [L80s_v2](../../../virtual-machines/lsv2-series.md), det finns 80 vCPU och 640 BIB minne med 10X 1.92 TB för NVMe-lagring.  Det finns ett konsekvent minnes-till-vCore-förhållande på 8 över alla de virtuella datorerna.
+
+NVMe-lagringen är tillfällig innebär att data går förlorade på diskarna om du startar om den virtuella datorn.
+
+Lsv2-och LS-serien stöder [Premium Storage](../../../virtual-machines/premium-storage-performance.md), men inte Premium Storage-cachelagring. Det finns inte stöd för att skapa en lokal cache för att öka IOPs. 
+
+> [!WARNING]
+> Lagring av dina datafiler på den tillfälliga NVMe-lagringen kan leda till data förlust när den virtuella datorn frigörs. 
+
+### <a name="constrained-vcores"></a>Begränsade virtuella kärnor
+
+Hög prestanda SQL Server arbets belastningar behöver ofta större mängder minne, IO och data flöde utan att det högre antalet vCore. 
+
+De flesta OLTP-arbetsbelastningar är program databaser som styrs av ett stort antal mindre transaktioner. Med OLTP-arbetsbelastningar är det bara en liten mängd data som läses eller ändras, men volymer med transaktioner som används av användar antal är mycket högre. Det är viktigt att SQL Server-minnet är tillgängligt för cachelagring av planer, lagra nyligen använda data för prestanda och se till att fysiska läsningar kan läsas snabbt i minnet. 
+
+Dessa OLTP-miljöer behöver högre mängd minne, snabb lagring och den I/O-bandbredd som krävs för att utföra optimalt. 
+
+För att upprätthålla den här prestanda nivån utan högre SQL Server licensierings kostnader erbjuder Azure VM-storlekar med [begränsade vCPU antal](../../../virtual-machines/constrained-vcpu.md). 
+
+Detta hjälper dig att kontrol lera licensierings kostnaderna genom att minska de tillgängliga virtuella kärnor samtidigt som du behåller samma minne, lagring och I/O-bandbredd för den överordnade virtuella datorn.
+
+Antalet vCPU kan begränsas till en halv fjärdedel av den ursprungliga storleken på den virtuella datorn. Genom att minska virtuella kärnor som är tillgängliga för den virtuella datorn får du högre förhållandet mellan minne och vCore.
+
+Dessa nya VM-storlekar har ett suffix som anger antalet aktiva virtuella processorer som gör det lättare att identifiera dem. 
+
+Till exempel kräver [M64-32ms](../../../virtual-machines/constrained-vcpu.md) endast licensiering 32 SQL Server virtuella kärnor med minne, IO och data flöde för [M64ms](../../../virtual-machines/m-series.md) och [M64-16Ms](../../../virtual-machines/constrained-vcpu.md) kräver endast licensiering 16 virtuella kärnor.  Även om [M64-16ms](../../../virtual-machines/constrained-vcpu.md) har ett kvartal av SQL Server licens kostnaden för M64ms, kommer beräknings kostnaden för den virtuella datorn att vara densamma.
+
+> [!NOTE] 
+> - Medel stora till stora data lager arbets belastningar kan fortfarande dra nytta av [begränsade virtuella vCore-datorer](../../../virtual-machines/constrained-vcpu.md), men arbets belastningar för data lager kännetecknas ofta av färre användare och processer som kan hantera större data mängder med hjälp av fråge planer som körs parallellt. 
+> - Beräknings kostnaden, som omfattar operativ Systems licensiering, är densamma som den överordnade virtuella datorn. 
 
 ## <a name="storage-guidance"></a>Minnesriktlinjer
 
-För detaljerad testning av SQL Server prestanda i Azure Virtual Machines med TPC-E och TPC_C benchmarks, se bloggen [optimera OLTP-prestanda](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794). 
+För detaljerad testning av SQL Server prestanda på Azure Virtual Machines med TPC-E och TPC-C-benchmarks, se bloggen [optimera OLTP-prestanda](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794). 
 
 Azure Blob-cache med Premium-SSD rekommenderas för alla produktions arbets belastningar. 
 
@@ -85,7 +229,7 @@ Standard principen för cachelagring på operativ system disken är **läsa/skri
 
 Den tillfälliga lagrings enheten, märkt som **D** -enheten, är inte beständig i Azure Blob Storage. Lagra inte dina användar databas filer eller loggfiler för användar transaktioner på enheten **D**:.
 
-Placera TempDB på den lokala SSD- `D:\` enheten för verksamhets kritiska SQL Server arbets belastningar (efter att ha valt rätt storlek på virtuell dator). Om du skapar den virtuella datorn från Azure Portal eller Azures snabb starts mallar och [placerar Temp-databasen på den lokala disken](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583)behöver du inte vidta några ytterligare åtgärder. i alla andra fall följer du stegen i bloggen för  [att använda SSD för att lagra tempdb](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) för att förhindra problem efter omstarter. Om den lokala enhetens kapacitet inte räcker för den tillfälliga databas storleken ska du placera Temp DB i en lagringspool som är [stripad](../../../virtual-machines/premium-storage-performance.md) på Premium SSD-diskar med [skrivskyddad cachelagring](../../../virtual-machines/premium-storage-performance.md#disk-caching).
+Placera TempDB på den lokala SSD- `D:\` enheten för verksamhets kritiska SQL Server arbets belastningar (efter att ha valt rätt storlek på virtuell dator). Om du skapar den virtuella datorn från Azure Portal eller Azures snabb starts mallar och [placerar Temp-databasen på den lokala disken](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583)behöver du inte vidta några ytterligare åtgärder. i alla andra fall följer du stegen i bloggen för  [att använda SSD för att lagra tempdb](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-TempDB-and-buffer-pool-extensions/) för att förhindra problem efter omstarter. Om den lokala enhetens kapacitet inte räcker för den tillfälliga databas storleken ska du placera Temp DB i en lagringspool som är [stripad](../../../virtual-machines/premium-storage-performance.md) på Premium SSD-diskar med [skrivskyddad cachelagring](../../../virtual-machines/premium-storage-performance.md#disk-caching).
 
 För virtuella datorer som stöder Premium-SSD kan du också lagra TempDB på en disk som har stöd för Premium-SSD med Read caching Enabled.
 
@@ -142,7 +286,7 @@ För virtuella datorer som stöder Premium-SSD kan du också lagra TempDB på en
      > [!WARNING]
      > Stoppa SQL Server-tjänsten när du ändrar cache-inställningen för Azure Virtual Machines disks för att undvika risken för att databasen skadas.
 
-* **Storlek på NTFS-allokeringsenhet**: när du formaterar data disken rekommenderar vi att du använder en storlek på 64 KB-allokeringsenhet för data-och loggfiler samt tempdb. Om TempDB placeras på den temporära disken (D:\ enhet) den prestanda som uppnås genom att använda den här enheten drar av behovet av en storlek på en 64-allokeringsenhet. 
+* **Storlek på NTFS-allokeringsenhet**: när du formaterar data disken rekommenderar vi att du använder en storlek på 64 KB-allokeringsenhet för data-och loggfiler samt tempdb. Om TempDB placeras på den temporära disken (D:\ enhet) den prestanda som uppnås genom att använda den här enheten kräver en storlek på 64 KB-allokeringsenhet. 
 
 * **Metod tips för disk hantering**: när du tar bort en data disk eller ändrar dess cachestorlek stoppar du SQL Server tjänsten under ändringen. När cacheinställningar ändras på OS-disken stoppar Azure den virtuella datorn, ändrar cacheplatsen och startar om den virtuella datorn. När cache-inställningarna för en datadisk ändras, stoppas inte den virtuella datorn, men datadisken kopplas bort från den virtuella datorn under ändringen och sedan återkopplas.
 
@@ -210,10 +354,61 @@ Tecken på överbelastade system kan inkludera, men är inte begränsade till, a
 
 
 
+## <a name="collect-performance-baseline"></a>Samla in prestanda bas linje
+
+Om du vill ha en mer metod kan du samla in prestanda räknare med PerfMon/LogMan och Capture SQL Server vänta statistik för att bättre förstå allmänna belastningar och potentiella Flask halsar i käll miljön. 
+
+Börja med att samla in processor, minne, [IOPS](../../../virtual-machines/premium-storage-performance.md#iops), [data flöde](../../../virtual-machines/premium-storage-performance.md#throughput)och [svars tid](../../../virtual-machines/premium-storage-performance.md#latency) för käll arbets belastningen vid hög belastnings tider enligt [Check listan för program prestanda](../../../virtual-machines/premium-storage-performance.md#application-performance-requirements-checklist). 
+
+Samla in data under perioder med hög belastning, till exempel arbets belastningar under din normala arbets dag, men även andra hög belastnings processer, till exempel arbets belastningen på arbets dagen och eventuella ETL-arbetsbelastningar. Överväg att skala upp dina resurser för atypically stora arbets belastningar, t. ex. slut på kvartals bearbetning, och skala sedan klart när arbets belastningen har slutförts. 
+
+Använd prestanda analysen för att välja den [VM-storlek](../../../virtual-machines/sizes-memory.md) som kan skalas till arbets Belastningens prestanda krav.
+
+
+### <a name="iops-and-throughput"></a>IOPS och data flöde
+
+SQL Server prestanda beror kraftigt på i/O-undersystemet. Om din databas inte passar in i fysiskt minne, SQL Server ständigt databas sidor in och ut ur bufferten. Datafilerna för SQL Server bör behandlas på olika sätt. Åtkomst till loggfiler är sekventiella, förutom när en transaktion måste återställas där datafiler, inklusive TempDB, är slumpmässigt använda. Om du har ett långsamt I/O-undersystem kan användarna uppleva prestanda problem som långsamma svars tider och uppgifter som inte slutförs på grund av timeout. 
+
+Virtuella Azure Marketplace-datorer har loggfiler på en fysisk disk som är separat från datafilerna som standard. Antalet TempDB-datafiler och storlek uppfyller bästa praxis och är riktade till den tillfälliga D:/ enhet.. 
+
+Följande PerfMon-räknare kan hjälpa dig att verifiera det IO-flöde som krävs av din SQL Server: 
+* **\LogicalDisk\Disk läsningar/s** (Läs-och skriv-IOPS)
+* **\LogicalDisk\Disk skrivningar/SEK** (Läs-och skriv-IOPS) 
+* **\LogicalDisk\Disk byte/s** (data flödes krav för data-, logg-och tempdb-filer)
+
+Använd IOPS-och data flödes krav på högsta nivå för att utvärdera VM-storlekar som matchar kapaciteten från dina mått. 
+
+Om din arbets belastning kräver 20 K Läs IOPS och 10K Skriv-IOPS, kan du antingen välja E16s_v3 (med upp till 32 kB cache-lagrad och 25600 Uncached IOPS) eller M16_s (med upp till 20 K cachelagrat och 10 000 Uncached IOPS) med 2 P30 diskar stripas med hjälp av lagrings utrymmen. 
+
+Se till att förstå både genomflödet och IOPS-krav för arbets belastningen eftersom de virtuella datorerna har olika skalnings gränser för IOPS och data flöde.
+
+### <a name="memory"></a>Minne
+
+Spåra både det externa minnet som används av operativ systemet och det minne som används internt av SQL Server. Att identifiera trycket för en komponent bidrar till att öka storleken på virtuella datorer och identifiera möjligheter för justering. 
+
+Följande PerfMon-räknare kan hjälpa dig att validera minnes hälsan för en SQL Server virtuell dator: 
+* [\Memory\Available MB](/azure/monitoring/infrastructure-health/vmhealth-windows/winserver-memory-availmbytes)
+* [\SQLServer: minne Manager\Target server minne (KB)](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
+* [\SQLServer: minne Manager\Total server minne (KB)](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
+* [\SQLServer: buffer Manager\Lazy skrivningar/s](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
+* [\SQLServer: buffer bufferthanteraren Life förväntad](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
+
+### <a name="compute--processing"></a>Beräkning/bearbetning
+
+Compute i Azure hanteras annorlunda än lokalt. Lokala servrar är byggda för de senaste flera åren utan en uppgradering på grund av hanterings kostnader och kostnader för att förvärva ny maskin vara. Virtualiseringen minskar vissa av dessa problem, men programmen är optimerade för att dra största möjliga nytta av den underliggande maskin varan, vilket innebär att en betydande förändring av resursanvändningen kräver en ombalansering av hela den fysiska miljön. 
+
+Detta är inte en utmaning i Azure där en ny virtuell dator på en annan maskin varu serie, och även i en annan region, är lätt att uppnå. 
+
+I Azure vill du dra nytta av så mycket av de virtuella dator resurserna som möjligt, och därför bör virtuella Azure-datorer konfigureras för att hålla den genomsnittliga CPU: n så hög som möjligt utan att arbets belastningen påverkas. 
+
+Följande PerfMon-räknare kan hjälpa till att verifiera beräknings hälsan för en SQL Server virtuell dator:
+* **\Processor information (_Total) \% processor tid**
+* **\Process (Sqlservr) \% processor tid**
+
+> [!NOTE] 
+> Vi rekommenderar att du strävar efter att använda 80% av din beräkning, med toppar över 90% men inte till 100% under en varaktig tids period. För det grundläggande vill du bara tillhandahålla den beräkning som krävs för programmet och sedan planera för att skala upp eller ned efter behov. 
 
 ## <a name="next-steps"></a>Nästa steg
-
-Mer information om lagring och prestanda finns i [rikt linjer för lagrings konfiguration för SQL Server på Azure Virtual Machines](/archive/blogs/sqlserverstorageengine/storage-configuration-guidelines-for-sql-server-on-azure-vm)
 
 Rekommenderade säkerhets metoder finns i [säkerhets överväganden för SQL Server på Azure Virtual Machines](security-considerations-best-practices.md).
 

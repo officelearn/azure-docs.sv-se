@@ -1,5 +1,5 @@
 ---
-title: Data Discovery & Classification
+title: Dataidentifiering och klassificering
 description: Data identifiering & klassificering för Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics
 services: sql-database
 ms.service: sql-db-mi
@@ -11,19 +11,19 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 09/21/2020
+ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: ab974b0f68e831e672329f8af5ae1cb6a5fdbd4c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c3f1209c2c903399617bd60258cc152a6ce90b80
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672077"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462078"
 ---
-# <a name="data-discovery--classification"></a>Data Discovery & Classification
+# <a name="data-discovery--classification"></a>Dataidentifiering och klassificering
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Data identifierings & klassificeringen är inbyggd i Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics. Den innehåller avancerade funktioner för att upptäcka, klassificera, märka och rapportera känsliga data i dina databaser.
+Data identifierings & klassificeringen är inbyggd i Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics. Den här funktionen ger avancerade funktioner för identifiering, klassificering, märkning och rapportering av känsliga data i databasen.
 
 Dina mest känsliga data kan omfatta affärs-, finans-, sjukvårds-eller personlig information. Identifiering och klassificering av dessa data kan spela en pivot-roll i din organisations informations skydds metod. Tjänsten kan fungera som infrastruktur inom följande områden:
 
@@ -55,8 +55,8 @@ I det här avsnittet beskrivs stegen för:
 
 Klassificeringen innehåller två attribut för metadata:
 
-- **Etiketter** : huvudattributen för klassificering som används för att definiera känslighets nivån för de data som lagras i kolumnen.  
-- **Informations typer** : attribut som ger detaljerad information om den typ av data som lagras i kolumnen.
+- **Etiketter**: huvudattributen för klassificering som används för att definiera känslighets nivån för de data som lagras i kolumnen.  
+- **Informations typer**: attribut som ger detaljerad information om den typ av data som lagras i kolumnen.
 
 ### <a name="define-and-customize-your-classification-taxonomy"></a>Definiera och anpassa din klassificerings-taxonomi
 
@@ -77,7 +77,9 @@ När du har definierat principen för hela organisationen kan du fortsätta att 
 
 1. Gå till [Azure-portalen](https://portal.azure.com).
 
-1. Gå till **data identifiering & klassificering** under säkerhets rubriken i Azure SQL Databases fönstret. På fliken Översikt finns en sammanfattning av databasens aktuella klassificerings tillstånd. Sammanfattningen innehåller en detaljerad lista över alla klassificerade kolumner, som du även kan filtrera så att endast vissa schema delar, informations typer och etiketter visas. Om du inte har klassificerat några kolumner än går [du vidare till steg 4](#step-4).
+1. Gå till **data identifiering & klassificering** under **säkerhets** rubriken i Azure SQL Databases fönstret. På fliken Översikt finns en sammanfattning av databasens aktuella klassificerings tillstånd. Sammanfattningen innehåller en detaljerad lista över alla klassificerade kolumner, som du även kan filtrera så att endast vissa schema delar, informations typer och etiketter visas. Om du inte har klassificerat några kolumner än går [du vidare till steg 4](#step-4).
+
+    ![Översikt](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
 
 1. Om du vill ladda ned en rapport i Excel-format väljer du **Exportera** i den övre menyn i fönstret.
 
@@ -93,6 +95,8 @@ När du har definierat principen för hela organisationen kan du fortsätta att 
 
    - Välj **acceptera markerade rekommendationer** för att tillämpa de valda rekommendationerna.
 
+   ![Rekommendationer för klassificering](./media/data-discovery-and-classification-overview/recommendation.png)
+
 1. Du kan också klassificera kolumner manuellt, som ett alternativ eller förutom den rekommendationbaserade klassificeringen:
 
    1. Välj **Lägg till klassificering** i den översta menyn i fönstret.
@@ -101,7 +105,10 @@ När du har definierat principen för hela organisationen kan du fortsätta att 
 
    1. Välj **Lägg till klassificering** längst ned i kontext fönstret.
 
-1. Om du vill slutföra klassificeringen och etiketten (tag) i databas kolumnerna med de nya klassificerings-metadata väljer du **Spara** i den övre menyn i fönstret.
+   ![Lägg till klassificering manuellt](./media/data-discovery-and-classification-overview/manually-add-classification.png)
+
+
+1. Om du vill slutföra klassificeringen och etiketten (tag) i databas kolumnerna med de nya klassificerings-metadata väljer du **Spara** på **klassificerings** sidan.
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Granska åtkomst till känsliga data
 

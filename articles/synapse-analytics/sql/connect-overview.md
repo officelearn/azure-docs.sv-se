@@ -10,17 +10,17 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0897ca35dd5ae1b7209a36aee4bd5335d4ea4d25
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 2ff2d9708642c347a829de290d45849d8629807f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681541"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462360"
 ---
 # <a name="connect-to-synapse-sql"></a>Anslut till Synapse SQL
 Anslut till SQL-funktionen Synapse i Azure Synapse Analytics.
 
-## <a name="supported-tools-for-serverless-sql-pool-preview"></a>Verktyg som stöds för Server lös SQL-pool (för hands version)
+## <a name="supported-tools-for-serverless-sql-pool"></a>Verktyg som stöds för Server lös SQL-pool
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) stöds fullt ut från version 1.18.0. SSMS stöds delvis från och med version 18,5. du kan bara använda den för att ansluta och fråga.
 
@@ -46,7 +46,7 @@ För att hitta det fullständigt kvalificerade servernamnet:
 
 ![Fullständigt servernamn](./media/connect-overview/server-connect-example.png)
 
-## <a name="serverless-sql-pool"></a>**serverlös SQL-pool**
+## <a name="serverless-sql-pool"></a>**SQL-pool utan Server**
 
 ![Fullständigt Server namn utan server utan SQL-pool](./media/connect-overview/server-connect-example-sqlod.png)
 

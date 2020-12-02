@@ -1,6 +1,6 @@
 ---
-title: Fråga CSV-filer med Server lös SQL-pool (för hands version)
-description: I den här artikeln får du lära dig att fråga enkla CSV-filer med olika fil format med hjälp av SQL-poolen utan server (för hands version).
+title: Fråga CSV-filer med Server lös SQL-pool
+description: I den här artikeln får du lära dig att fråga enkla CSV-filer med olika fil format med hjälp av SQL-poolen utan server.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9faff6589466c7cbe78a11c283139acb72bce4bb
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f2f0cdf307e91fb40c55d4a98139bad1a5eca886
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685655"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462599"
 ---
 # <a name="query-csv-files"></a>Köra frågor mot CSV-filer
 
-I den här artikeln får du lära dig hur du frågar en enkel CSV-fil med en server lös SQL-pool (för hands version) i Azure Synapse Analytics. CSV-filer kan ha olika format: 
+I den här artikeln får du lära dig hur du frågar en enkel CSV-fil med en server lös SQL-pool i Azure Synapse Analytics. CSV-filer kan ha olika format: 
 
 - Med och utan en rubrik rad
 - Kommatecken och Tabbavgränsade värden
@@ -47,8 +47,8 @@ from openrowset(
 Alternativet `firstrow` används för att hoppa över den första raden i CSV-filen som representerar rubriken i det här fallet. Se till att du har åtkomst till den här filen. Om filen skyddas med SAS-nyckel eller anpassad identitet måste du konfigurera [autentiseringsuppgifter på server nivå för SQL-inloggning](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
-> Om CSV-filen innehåller UTF-8-tecken, se till att du använder viss UTF-8-databas sortering (till exempel `Latin1_General_100_CI_AS_SC_UTF8` ).
-> Matchnings fel mellan text kodning i filen och sorteringen kan orsaka oväntade konverterings fel.
+> Om CSV-filen innehåller UTF-8-tecken, se till att du använder en databas sortering med UTF-8 (till exempel `Latin1_General_100_CI_AS_SC_UTF8` ).
+> Ett matchnings fel mellan text kodning i filen och sorteringen kan orsaka oväntade konverterings fel.
 > Du kan enkelt ändra standard sorteringen för den aktuella databasen med hjälp av följande T-SQL-uttryck: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Data källans användning
@@ -104,7 +104,7 @@ Siffrorna efter en datatyp i `WITH` satsen representerar kolumn index i CSV-file
 
 I följande avsnitt kan du se hur du frågar olika typer av CSV-filer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ditt första steg är att **skapa en databas** där tabellerna ska skapas. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 

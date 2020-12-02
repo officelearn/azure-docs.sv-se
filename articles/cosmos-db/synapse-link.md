@@ -5,20 +5,20 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 11/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 1e78a7ff806cbd6a7f30c68786e62f8508c850ac
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d083bc0b7726a284dcfd03e49d47c2a342db023c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340693"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461805"
 ---
-# <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Vad är Azure Synapse-länk för Azure Cosmos DB (för hands version)?
+# <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>Vad är Azure Synapse Link för Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 > [!IMPORTANT]
-> Azure Synapse-länken för Azure Cosmos DB är för närvarande en för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Mer information finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
+> Stöd för Synapse-server utan SQL-pool för Azure Synapse-länken för Azure Cosmos DB är för närvarande en för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Mer information finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
 Azure Synapse-länken för Azure Cosmos DB är en molnbaserad hybrid transaktions-och analys bearbetnings funktion (HTAP) som gör att du kan köra nära real tids analys över drifts data i Azure Cosmos DB. Azure Synapse-länken skapar en tätt sömlös integrering mellan Azure Cosmos DB och Azure Synapse Analytics.
 
@@ -36,7 +36,7 @@ Jämfört med traditionella ETL-baserade lösningar erbjuder Azure Synapse-länk
 
 ### <a name="reduced-complexity-with-no-etl-jobs-to-manage"></a>Minskad komplexitet utan ETL-jobb att hantera
 
-Med Azure Synapse-länken kan du direkt komma åt Azure Cosmos DB analys lager med hjälp av Azure Synapse Analytics utan komplex data förflyttning. Alla uppdateringar som görs i användnings data visas i analys lagret i nära real tid utan ETL eller ändra feed-jobb. Du kan köra storskalig analys mot analys lager från Synapse Analytics utan ytterligare datatransformering.
+Med Azure Synapse-länken kan du direkt komma åt Azure Cosmos DB analys lager med hjälp av Azure Synapse Analytics utan komplex data förflyttning. Alla uppdateringar som görs i användnings data visas i analys lagret i nära real tid utan ETL eller ändra feed-jobb. Du kan köra storskalig analys mot analys lager från Azure Synapse Analytics utan ytterligare datatransformering.
 
 ### <a name="near-real-time-insights-into-your-operational-data"></a>Insikter i nära real tid i dina användnings data
 
@@ -75,13 +75,13 @@ Om du har ett globalt distribuerat Azure Cosmos DB konto kommer det att vara til
 
 ### <a name="integration-with-azure-synapse-analytics"></a><a id="synapse-link-integration"></a>Integrering med Azure Synapse Analytics
 
-Med Synapse-länken kan du nu ansluta direkt till dina Azure Cosmos DB behållare från Azure Synapse Analytics och komma åt analys lagret utan separata anslutningar. Azure Synapse Analytics stöder för närvarande Synapse-länk med [Synapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) och [Synapse SQL Server utan SQL Server](../synapse-analytics/sql/on-demand-workspace-overview.md).
+Med Synapse-länken kan du nu ansluta direkt till dina Azure Cosmos DB behållare från Azure Synapse Analytics och komma åt analys lagret utan separata anslutningar. Azure Synapse Analytics stöder för närvarande Synapse-länk med [Synapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) och [Server lös SQL-pool](../synapse-analytics/sql/on-demand-workspace-overview.md).
 
 Du kan fråga data från Azure Cosmos DB analys lager samtidigt, med interop över olika analys tider som stöds av Azure Synapse Analytics. Inga ytterligare data omvandlingar krävs för att analysera användnings data. Du kan fråga och analysera analys data med hjälp av:
 
 * Synapse Apache Spark med fullständigt stöd för Scala, python, SparkSQL och C#. Synapse Spark är central för data teknik och data vetenskaps scenarier
 
-* SQL Server utan språk i T-SQL och stöd för välbekanta BI-verktyg (till exempel Power BI Premium osv.)
+* SQL-pool utan server med T-SQL-språk och stöd för välbekanta BI-verktyg (till exempel Power BI Premium osv.)
 
 > [!NOTE]
 > Från Azure Synapse Analytics kan du komma åt både analys-och transaktions lager i din Azure Cosmos DB-behållare. Men om du vill köra storskalig analys eller skanningar på dina användnings data rekommenderar vi att du använder analytisk lagring för att undvika prestanda påverkan på transaktions arbets belastningar.
@@ -133,7 +133,7 @@ I fakturerings modellen för Azure Synapse-länken ingår kostnader som uppstår
 
 Mer information finns i följande dokument:
 
-* [Översikt över Azure Cosmos DB analys lager](analytical-store-introduction.md)
+* [Översikt över Azure Cosmos DB-analysarkiv](analytical-store-introduction.md)
 
 * [Kom igång med Azure Synapse Link för Azure Cosmos DB](configure-synapse-link.md)
  

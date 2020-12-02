@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: f9dc11bd046bdc3a8913b4b05f1b68b84c9736c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c20508d27d03c00a6842979731fb905bbaa9def
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438474"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461246"
 ---
 # <a name="transformation-with-azure-databricks"></a>Transformering med Azure Databricks
 
@@ -28,7 +28,7 @@ I den här självstudien skapar du en pipeline från slut punkt till slut punkt 
 
 - **Kopiera data** duplicerar käll data uppsättningen till Sink-lagringen, som monteras som DBFS i den Azure Databricks Notebook. På så sätt kan data uppsättningen förbrukas direkt av Spark.
 
-- **Notebook** utlöser den Databricks Notebook som transformerar data uppsättningen. Den lägger också till data uppsättningen i en bearbetad mapp eller Azure Azure Synapse Analytics (tidigare SQL Data Warehouse).
+- **Notebook** utlöser den Databricks Notebook som transformerar data uppsättningen. Den lägger också till data uppsättningen i en bearbetad mapp eller Azure Azure Synapse Analytics.
 
 För enkelhetens skull skapar mallen i den här självstudien inte en schemalagd utlösare. Du kan lägga till en om det behövs.
 
@@ -56,29 +56,29 @@ Så här importerar du en **Transformations** -anteckningsbok till din Databrick
 
    I den importerade antecknings boken går du till **kommando 5** , som du ser i följande kodfragment.
 
-   - Ersätt `<storage name>` och `<access key>` med din egen lagrings anslutnings information.
+   - Ersätt `<storage name>` och `<access key>` med din egen lagrings anslutnings information.
    - Använd lagrings kontot med `sinkdata` behållaren.
 
     ```python
-    # Supply storageName and accessKey values  
-    storageName = "<storage name>"  
-    accessKey = "<access key>"  
+    # Supply storageName and accessKey values  
+    storageName = "<storage name>"  
+    accessKey = "<access key>"  
 
-    try:  
-      dbutils.fs.mount(  
-        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
-        mount_point = "/mnt/Data Factorydata",  
-        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
+    try:  
+      dbutils.fs.mount(  
+        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
+        mount_point = "/mnt/Data Factorydata",  
+        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
 
-    except Exception as e:  
-      # The error message has a long stack track. This code tries to print just the relevant line indicating what failed.
+    except Exception as e:  
+      # The error message has a long stack track. This code tries to print just the relevant line indicating what failed.
 
-    import re
-    result = re.findall(r"\^\s\*Caused by:\s*\S+:\s\*(.*)\$", e.message, flags=re.MULTILINE)
-    if result:
-      print result[-1] \# Print only the relevant error message
-    else:  
-      print e \# Otherwise print the whole stack trace.  
+    import re
+    result = re.findall(r"\^\s\*Caused by:\s*\S+:\s\*(.*)\$", e.message, flags=re.MULTILINE)
+    if result:
+      print result[-1] \# Print only the relevant error message
+    else:  
+      print e \# Otherwise print the whole stack trace.  
     ```
 
 1. Generera en **Databricks** -åtkomsttoken för Data Factory att få åtkomst till Databricks.
@@ -126,23 +126,23 @@ Så här importerar du en **Transformations** -anteckningsbok till din Databrick
 
 I den nya pipelinen konfigureras de flesta inställningar automatiskt med standardvärdena. Granska konfigurationerna för din pipeline och gör nödvändiga ändringar.
 
-1. I **tillgänglighets flaggan**för **validerings** aktivitet kontrollerar du att käll **data** uppsättning svärdet är inställt på det `SourceAvailabilityDataset` som du skapade tidigare.
+1. I **tillgänglighets flaggan** för **validerings** aktivitet kontrollerar du att käll **data** uppsättning svärdet är inställt på det `SourceAvailabilityDataset` som du skapade tidigare.
 
    ![Käll data uppsättnings värde](media/solution-template-Databricks-notebook/validation-settings.png)
 
-1. I **Kopiera data** aktivitet **filen till BLOB**kontrollerar du flikarna **källa** och **mottagare** . Ändra inställningarna vid behov.
+1. I **Kopiera data** aktivitet **filen till BLOB** kontrollerar du flikarna **källa** och **mottagare** . Ändra inställningarna vid behov.
 
    - Fliken Källa för **källa** ![](media/solution-template-Databricks-notebook/copy-source-settings.png)
 
    - **Fliken mottagare på fliken mottagare** ![](media/solution-template-Databricks-notebook/copy-sink-settings.png)
 
-1. I **transformeringen**för **antecknings boks** aktivitet granskar och uppdaterar du Sök vägarna och inställningarna efter behov.
+1. I **transformeringen** för **antecknings boks** aktivitet granskar och uppdaterar du Sök vägarna och inställningarna efter behov.
 
    **Databricks länkade tjänst** bör fyllas i med värdet från ett föregående steg, som det visas: ![ fyllt i värdet för den länkade tjänsten Databricks](media/solution-template-Databricks-notebook/notebook-activity.png)
 
    Så här kontrollerar du inställningarna för **bärbara datorer** :
   
-    1. Välj fliken **Inställningar** . För **Notebook-sökväg**kontrollerar du att standard Sök vägen är korrekt. Du kan behöva bläddra och välja rätt sökväg för antecknings boken.
+    1. Välj fliken **Inställningar** . För **Notebook-sökväg** kontrollerar du att standard Sök vägen är korrekt. Du kan behöva bläddra och välja rätt sökväg för antecknings boken.
 
        ![Notebook-sökväg](media/solution-template-Databricks-notebook/notebook-settings.png)
 

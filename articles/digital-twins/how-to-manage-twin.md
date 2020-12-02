@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9e00e0e5a34eecd6974e8919ce0d0e16f48757f3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ba444a497fa4fccab6b8dec1fadb3383420e4d49
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540977"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452974"
 ---
 # <a name="manage-digital-twins"></a>Hantera digitala tvillingar
 
@@ -99,7 +99,7 @@ Du kan komma åt information om alla digitala dubbla genom att anropa- `GetDigit
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
-Det här anropet returnerar dubbla data som en starkt skriven objekt typ, t `BasicDigitalTwin` . ex.. Här är ett exempel på hur du kan använda den för att Visa dubbel information:
+Det här anropet returnerar dubbla data som en starkt skriven objekt typ, t `BasicDigitalTwin` . ex.. `BasicDigitalTwin` är en hjälp klass för serialisering som ingår i SDK, vilket returnerar de dubbla metadata och egenskaperna i förparsat formulär. Här är ett exempel på hur du kan använda den för att Visa dubbel information:
 
 ```csharp
 Response<BasicDigitalTwin> twin = client.GetDigitalTwin("myRoomId");
@@ -117,7 +117,7 @@ Endast egenskaper som har angetts minst en gång returneras när du hämtar en d
 
 Om du vill hämta flera multiplar med ett enda API-anrop, se fråge-API-exemplen i [*How-to: fråga det dubbla diagrammet*](how-to-query-graph.md).
 
-Tänk på följande modell (skrivet i [Digitals definitions språk (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) som definierar en *måne* :
+Tänk på följande modell (skrivet i [Digitals definitions språk (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) som definierar en *måne*:
 
 ```json
 {
@@ -140,7 +140,7 @@ Tänk på följande modell (skrivet i [Digitals definitions språk (DTDL)](https
     ]
 }
 ```
-Resultatet av att ringa `object result = await client.GetDigitalTwinAsync("my-moon");` på en *måne* -typ kan se ut så här:
+Resultatet av att ringa `object result = await client.GetDigitalTwinAsync("my-moon");` på en *måne*-typ kan se ut så här:
 
 ```json
 {
@@ -176,21 +176,7 @@ De definierade egenskaperna för den digitala kanten returneras som toppnivå eg
     - Synkroniseringsstatus för varje skrivbar egenskap. Detta är mest användbart för enheter, där det är möjligt att tjänsten och enheten har avvikande status (till exempel när en enhet är offline). Den här egenskapen gäller för närvarande endast för fysiska enheter som är anslutna till IoT Hub. Med data i avsnittet metadata är det möjligt att förstå fullständig status för en egenskap samt de senast ändrade tidsstämplar. Mer information om synkroniseringsstatus finns i [den här IoT Hub själv studie kursen](../iot-hub/tutorial-device-twins.md) om synkronisering av enhets status.
     - Tjänstspecifika metadata, t. ex. från IoT Hub eller Azure digitala dubbla. 
 
-Du kan parsa den returnerade JSON-filen för den dubbla med ett JSON-tolknings bibliotek som du väljer, till exempel `System.Text.Json` .
-
-Du kan också använda den serialiserande hjälp klassen `BasicDigitalTwin` som ingår i SDK: n, vilket returnerar de dubbla metadata och egenskaperna i förparsat formulär. Här är ett exempel:
-
-```csharp
-Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_Id);
-Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.Contents.Keys)
-{
-    if (twin.Contents.TryGetValue(prop, out object value))
-        Console.WriteLine($"Property '{prop}': {value}");
-}
-```
-
-Du kan läsa mer om serialiserings hjälp klasser i [*How-to: använda Azure Digitals dubbla API: er och SDK: er*](how-to-use-apis-sdks.md).
+Du kan läsa mer om serialiserings hjälp klasser som `BasicDigitalTwin` i [*How-to: använda Azure Digitals dubbla API: er och SDK: er*](how-to-use-apis-sdks.md).
 
 ## <a name="view-all-digital-twins"></a>Visa alla digitala dubbla
 

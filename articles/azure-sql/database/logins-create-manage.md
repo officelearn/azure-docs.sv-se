@@ -13,19 +13,19 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 940ea0ac471604b22c64dc008eebd8b580121cf7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d03bce1566d4f56a576c980723571f587296236f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782747"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452424"
 ---
-# <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Auktorisera databas åtkomst till SQL Database, SQL-hanterad instans och Azure Synapse Analytics
+# <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Auktorisera databasåtkomst till SQL Database, SQL Managed Instance och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 I den här artikeln får du lära dig om:
 
-- Alternativ för att konfigurera Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics (tidigare SQL Data Warehouse) för att göra det möjligt för användare att utföra administrativa uppgifter och komma åt data som lagras i dessa databaser.
+- Alternativ för att konfigurera Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics så att användarna kan utföra administrativa uppgifter och komma åt data som lagras i dessa databaser.
 - Åtkomst-och behörighets konfigurationen efter att du har skapat en ny server.
 - Hur du lägger till inloggningar och användar konton i huvud databasen och användar kontona och sedan tilldelar de här kontona administratörs behörighet.
 - Hur du lägger till användar konton i användar databaser, antingen kopplade till inloggningar eller som inneslutna användar konton.
@@ -46,7 +46,7 @@ När en användare försöker ansluta till en databas, anger de ett användar ko
 
   Med den här autentiseringsmetoden skickar användaren ett användar konto namn och begär att tjänsten använder den autentiseringsinformation som lagrats i Azure Active Directory (Azure AD).
 
-**Inloggningar och användare** : ett användar konto i en databas kan associeras med en inloggning som lagras i huvud databasen eller som kan vara ett användar namn som lagras i en enskild databas.
+**Inloggningar och användare**: ett användar konto i en databas kan associeras med en inloggning som lagras i huvud databasen eller som kan vara ett användar namn som lagras i en enskild databas.
 
 - En **inloggning** är ett enskilt konto i huvud databasen, till vilket ett användar konto i en eller flera databaser kan länkas. Med en inloggning lagras autentiseringsuppgifterna för användarkontot med inloggningen.
 - Ett **användar konto** är ett enskilt konto i en databas som kan vara, men som inte behöver vara länkat till en inloggning. Med ett användarkonto som inte är länkat till en inloggning lagras autentiseringsinformation med användarkontot.
@@ -55,7 +55,7 @@ När en användare försöker ansluta till en databas, anger de ett användar ko
 
 ## <a name="existing-logins-and-user-accounts-after-creating-a-new-database"></a>Befintliga inloggningar och användar konton när du har skapat en ny databas
 
-När du först distribuerar Azure SQL anger du en Administratörs inloggning och ett kopplat lösen ord för inloggningen. Det här administratörs kontot kallas **Server administratör** . Följande konfiguration av inloggningar och användare i huvud databasen och användar databaser sker under distributionen:
+När du först distribuerar Azure SQL anger du en Administratörs inloggning och ett kopplat lösen ord för inloggningen. Det här administratörs kontot kallas **Server administratör**. Följande konfiguration av inloggningar och användare i huvud databasen och användar databaser sker under distributionen:
 
 - En SQL-inloggning med administratörs behörighet skapas med det inloggnings namn som du har angett. En [inloggning](/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) är ett enskilt användar konto för inloggning till SQL Database, SQL-hanterad instans och Azure-Synapse.
 - Den här inloggningen beviljas fullständig administratörs behörighet för alla databaser som en [huvud server nivå](/sql/relational-databases/security/authentication-access/principals-database-engine). Inloggningen har alla tillgängliga behörigheter och kan inte begränsas. I en SQL-hanterad instans läggs den här inloggningen till i den [fasta Server rollen sysadmin](/sql/relational-databases/security/authentication-access/server-level-roles) (den här rollen finns inte i Azure SQL Database).
@@ -68,7 +68,7 @@ Om du vill identifiera administratörs konton för en databas öppnar du Azure P
 ![Skärm bild som markerar meny alternativet egenskaper.](./media/logins-create-manage/sql-admins2.png)
 
 > [!IMPORTANT]
-> Inloggnings namnet för administratören kan inte ändras efter att det har skapats. Om du vill återställa lösen ordet för Server administratören går du till [Azure Portal](https://portal.azure.com), klickar på **SQL-servrar** , väljer servern i listan och klickar sedan på **Återställ lösen ord** . Om du vill återställa lösen ordet för SQL-hanterad instans går du till Azure Portal, klickar på instansen och sedan på **Återställ lösen ord** . Du kan också använda PowerShell eller Azure CLI.
+> Inloggnings namnet för administratören kan inte ändras efter att det har skapats. Om du vill återställa lösen ordet för Server administratören går du till [Azure Portal](https://portal.azure.com), klickar på **SQL-servrar**, väljer servern i listan och klickar sedan på **Återställ lösen ord**. Om du vill återställa lösen ordet för SQL-hanterad instans går du till Azure Portal, klickar på instansen och sedan på **Återställ lösen ord**. Du kan också använda PowerShell eller Azure CLI.
 
 ## <a name="create-additional-logins-and-users-having-administrative-permissions"></a>Skapa ytterligare inloggningar och användare med administratörs behörighet
 
@@ -137,7 +137,7 @@ När du har skapat ett användar konto i en databas, antingen baserat på en inl
 
 - **Fasta databas roller**
 
-  Lägg till användar kontot till en [fast databas roll](/sql/relational-databases/security/authentication-access/database-level-roles). Det finns 9 fasta databas roller, var och en med en definierad uppsättning behörigheter. De vanligaste fasta databas rollerna är: **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** och **db_denydatareader** . **db_owner** används ofta för att endast ge fullständig behörighet till några användare. De andra fasta databasrollerna är användbara för att snabbt få en enkel databas i utveckling, men de rekommenderas inte för de flesta produktionsdatabaserna. **Db_datareader** den fasta databas rollen ger till exempel Läs behörighet till alla tabeller i databasen, vilket är mer än vad som är absolut nödvändigt.
+  Lägg till användar kontot till en [fast databas roll](/sql/relational-databases/security/authentication-access/database-level-roles). Det finns 9 fasta databas roller, var och en med en definierad uppsättning behörigheter. De vanligaste fasta databas rollerna är: **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** och **db_denydatareader**. **db_owner** används ofta för att endast ge fullständig behörighet till några användare. De andra fasta databasrollerna är användbara för att snabbt få en enkel databas i utveckling, men de rekommenderas inte för de flesta produktionsdatabaserna. **Db_datareader** den fasta databas rollen ger till exempel Läs behörighet till alla tabeller i databasen, vilket är mer än vad som är absolut nödvändigt.
 
   - Så här lägger du till en användare till en fast databas roll:
 

@@ -1,6 +1,6 @@
 ---
-title: Resurser för att utveckla en dedikerad SQL-pool i Azure Synapse Analytics
-description: Utvecklings begrepp, design beslut, rekommendationer och kodnings tekniker för en dedikerad SQL-pool i Azure Synapse Analytics.
+title: Resurser för att utveckla en dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics
+description: Utvecklings begrepp, design beslut, rekommendationer och kodnings metoder för en dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,22 +10,22 @@ ms.subservice: sql-dw
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f158655cd7aeba647480325966c7f0cfcf65b13c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6b34c70b453c26fe27a51e1aa802564864640cb9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322135"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453681"
 ---
-# <a name="design-decisions-and-coding-techniques-for-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Utforma beslut och kod metoder för en dedikerad SQL-pool i Azure Synapse Analytics 
+# <a name="design-decisions-and-coding-techniques-for-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Utforma beslut och kod metoder för en dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics 
 
- I den här artikeln hittar du ytterligare resurser som hjälper dig att få bättre förståelse för viktiga design beslut, rekommendationer och kodnings metoder för en särskild SQL-pool i Azure Synapse.
+ I den här artikeln hittar du ytterligare resurser som hjälper dig att få bättre förståelse för viktiga design beslut, rekommendationer och kodnings metoder för en dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse.
 
 ## <a name="key-design-decisions"></a>Viktiga design beslut
 
-Följande artiklar fokuserar på begrepp och design beslut för att utveckla ett distribuerat informations lager med hjälp av funktionen för dedikerad SQL-pool i Azure Synapse:
+Följande artiklar fokuserar på begrepp och design beslut för att utveckla ett distribuerat informations lager med hjälp av den dedikerade SQL-poolen (tidigare SQL DW) i Azure Synapse:
 
-* [anslutning](../sql/connect-overview.md)
+* [anslutning](sql-data-warehouse-connect-overview.md)
 * [samtidighet](resource-classes-for-workload-management.md)
 * [transaktioner](sql-data-warehouse-develop-transactions.md)
 * [användardefinierade scheman](sql-data-warehouse-develop-user-defined-schemas.md)
@@ -37,7 +37,7 @@ Följande artiklar fokuserar på begrepp och design beslut för att utveckla ett
 
 ## <a name="development-recommendations-and-coding-techniques"></a>Utvecklings rekommendationer och kodnings metoder
 
-Följande artiklar har särskilda kodnings tekniker, tips och rekommendationer för att utveckla en dedikerad SQL-pool:
+Följande artiklar har särskilda kodnings tekniker, tips och rekommendationer för att utveckla en dedikerad SQL-pool (tidigare SQL DW):
 
 * [lagrade procedurer](sql-data-warehouse-develop-stored-procedures.md)
 * [Etiketter](sql-data-warehouse-develop-label.md)

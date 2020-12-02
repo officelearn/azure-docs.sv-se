@@ -1,6 +1,6 @@
 ---
-title: Skydda en databas
-description: Tips för att skydda en dedikerad SQL-pool och utveckla lösningar i Azure Synapse Analytics.
+title: Skydda en dedikerad SQL-pool (tidigare SQL DW)
+description: Tips för att skydda en dedikerad SQL-pool (tidigare SQL DW) och utveckla lösningar i Azure Synapse Analytics.
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -11,14 +11,14 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: f6c1370cab573926183a937b8e749ef490c19334
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ce09488e2323aada5f99494ef3920681b685ec0b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317697"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453656"
 ---
-# <a name="secure-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Skydda en dedikerad SQL-pool i Azure Synapse Analytics
+# <a name="secure-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Skydda en dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics
 
 > [!div class="op_single_selector"]
 >
@@ -27,7 +27,7 @@ ms.locfileid: "93317697"
 > * [Kryptering (portal)](sql-data-warehouse-encryption-tde.md)
 > * [Kryptering (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
-I den här artikeln får du stegvisa anvisningar om hur du skyddar din dedikerade SQL-pool. I synnerhet hjälper den här artikeln dig att komma igång med resurser för att begränsa åtkomst, skydda data och övervaka aktiviteter med hjälp av dedikerad SQL-pool.
+Den här artikeln beskriver grunderna i hur du skyddar din dedikerade SQL-pool (tidigare SQL DW). I synnerhet hjälper den här artikeln dig att komma igång med resurser för att begränsa åtkomst, skydda data och övervaka aktiviteter med dedikerad SQL-pool (tidigare SQL DW).
 
 ## <a name="connection-security"></a>Anslutningssäkerhet
 
@@ -35,15 +35,15 @@ Anslutningssäkerhet avser hur du begränsar och säkrar anslutningar till datab
 
 Brand Väggs regler används av både den [logiska SQL-servern](../../azure-sql/database/logical-servers.md) och dess databaser för att avvisa anslutnings försök från IP-adresser som inte har godkänts explicit. Om du vill tillåta anslutningar från ditt program eller klient datorns offentliga IP-adress måste du först skapa en brand Väggs regel på server nivå med hjälp av Azure Portal, REST API eller PowerShell.
 
-Som bästa praxis bör du begränsa de IP-adressintervall som tillåts via brand väggen på server nivå så mycket som möjligt.  För att få åtkomst till din dedikerade SQL-pool från den lokala datorn kontrollerar du att brand väggen på nätverket och den lokala datorn tillåter utgående kommunikation på TCP-port 1433.  
+Som bästa praxis bör du begränsa de IP-adressintervall som tillåts via brand väggen på server nivå så mycket som möjligt.  För att få åtkomst till din dedikerade SQL-pool (tidigare SQL DW) från den lokala datorn kontrollerar du att brand väggen på nätverket och den lokala datorn tillåter utgående kommunikation på TCP-port 1433.  
 
-Azure Synapse Analytics använder IP-brandvägg på server nivå. Den har inte stöd för IP-brandväggs regler på databas nivå. Mer information finns i se [Azure SQL Database brand Väggs regler](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Dedikerad SQL-pool (tidigare SQL DW) använder IP-brandvägg på server nivå. Den har inte stöd för IP-brandväggs regler på databas nivå. Mer information finns i se [Azure SQL Database brand Väggs regler](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
-Anslutningar till din dedikerade SQL-pool krypteras som standard.  Ändring av anslutnings inställningar för att inaktivera kryptering ignoreras.
+Anslutningar till din dedikerade SQL-pool (tidigare SQL DW) är krypterade som standard.  Ändring av anslutnings inställningar för att inaktivera kryptering ignoreras.
 
 ## <a name="authentication"></a>Autentisering
 
-Autentisering refererar till hur du styrkt din identitet vid anslutning till databasen. Dedikerad SQL-pool stöder för närvarande SQL Server autentisering med ett användar namn och lösen ord och med Azure Active Directory.
+Autentisering refererar till hur du styrkt din identitet vid anslutning till databasen. Dedikerad SQL-pool (tidigare SQL DW) stöder för närvarande SQL Server autentisering med ett användar namn och lösen ord och med Azure Active Directory.
 
 När du skapade servern för din databas angav du en "Server administratör"-inloggning med ett användar namn och lösen ord. Med dessa autentiseringsuppgifter kan du autentisera till valfri databas på servern som databasens ägare, eller "dbo" genom SQL Server autentisering.
 
@@ -57,7 +57,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Anslut sedan till din **dedikerade SQL-adresspool** med din server Administratörs inloggning och skapa en databas användare baserat på Server inloggningen som du skapade.
+Anslut sedan till din **dedikerade SQL-pool (tidigare SQL DW)** med din server Administratörs inloggning och skapa en databas användare baserat på Server inloggningen som du skapade.
 
 ```sql
 -- Connect to the database and create a database user
@@ -96,7 +96,7 @@ Hantering av databaser och servrar från Azure Portal eller med hjälp av Azure 
 
 ## <a name="encryption"></a>Kryptering
 
-Transparent datakryptering (TDE) skyddar mot hot mot skadlig aktivitet genom att kryptera och dekryptera data i vila. När du krypterar din databas krypteras tillhör ande säkerhets kopior och transaktionsloggfiler utan att det krävs några ändringar i dina program. Transparent datakryptering (TDE) krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel kallad databaskrypteringsnyckeln.
+Transparent datakryptering (TDE) skyddar mot hot mot skadlig aktivitet genom att kryptera och dekryptera data i vila. När du krypterar din databas krypteras tillhör ande säkerhets kopior och transaktionsloggfiler utan att det krävs några ändringar i dina program. TDE krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel kallad databaskrypteringsnyckeln.
 
 I SQL Database skyddas databas krypterings nyckeln av ett inbyggt Server certifikat. Det inbyggda Server certifikatet är unikt för varje server. Microsoft roterar dessa certifikat automatiskt minst var 90: e dag. Den krypteringsalgoritm som används är AES-256. En allmän beskrivning av TDE finns [Transparent datakryptering](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
@@ -104,4 +104,4 @@ Du kan kryptera databasen med hjälp av [Azure Portal](sql-data-warehouse-encryp
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information och exempel på hur du ansluter till ditt lager med olika protokoll finns i [Anslut till dedikerad SQL-pool](../sql/connect-overview.md).
+Mer information och exempel på hur du ansluter till ditt lager med olika protokoll finns i [Anslut till dedikerad SQL-pool (tidigare SQL DW)](sql-data-warehouse-connect-overview.md).

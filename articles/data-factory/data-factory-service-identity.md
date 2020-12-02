@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 117b0db4f04c3fd631f6692d288945019507f5c6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 819f84eeb7540050fb001111690fb6d2ba484b2a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632812"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452305"
 ---
 # <a name="managed-identity-for-data-factory"></a>Hanterad identitet för Data Factory
 
@@ -32,7 +32,7 @@ När du skapar en data fabrik kan du skapa en hanterad identitet tillsammans med
 Hanterad identitet för Data Factory fördelar följande funktioner:
 
 - [Lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md), i vilket fall Data Factory-hanterad identitet används för Azure Key Vault autentisering.
-- Anslutningar inklusive [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md)och [Azure Synapse Analytics (tidigare SQL Data Warehouse)](connector-azure-sql-data-warehouse.md).
+- Anslutningar inklusive [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md)och [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md).
 - [Webb aktivitet](control-flow-web-activity.md).
 
 ## <a name="generate-managed-identity"></a>Generera hanterad identitet
@@ -79,7 +79,7 @@ Anropa nedanstående API med avsnittet "Identity" i begär ande texten:
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
-**Brödtext i begäran** : Lägg till "identitet": {"typ": "SystemAssigned"}.
+**Brödtext i begäran**: Lägg till "identitet": {"typ": "SystemAssigned"}.
 
 ```json
 {
@@ -92,7 +92,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-**Svar** : hanterad identitet skapas automatiskt och avsnittet "Identity" fylls i.
+**Svar**: hanterad identitet skapas automatiskt och avsnittet "Identity" fylls i.
 
 ```json
 {
@@ -117,7 +117,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 
 ### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Skapa hanterad identitet med hjälp av en Azure Resource Manager mall
 
-**Mall** : Lägg till "identitet": {"typ": "SystemAssigned"}.
+**Mall**: Lägg till "identitet": {"typ": "SystemAssigned"}.
 
 ```json
 {
@@ -201,7 +201,7 @@ Anropa nedanstående API i begäran:
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
 ```
 
-**Svar** : du får svar som visas i exemplet nedan. Avsnittet "identitet" fylls i på motsvarande sätt.
+**Svar**: du får svar som visas i exemplet nedan. Avsnittet "identitet" fylls i på motsvarande sätt.
 
 ```json
 {

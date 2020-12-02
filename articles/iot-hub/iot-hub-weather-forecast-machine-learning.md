@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: c53f78702aeb5404bd353274ddb29b9356229fae
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ab9e122ba0b2b50203a2d66ae14f03f3b6300f96
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145773"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452345"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Väder prognoser med sensor data från din IoT Hub i Azure Machine Learning Studio (klassisk)
 
@@ -46,7 +46,7 @@ Du får lära dig hur du använder Azure Machine Learning Studio (klassisk) för
   - En Azure IoT-hubb under din prenumeration.
   - Ett klient program som skickar meddelanden till Azure IoT Hub.
 - Ett [Azure Machine Learning Studio (klassiskt)](https://studio.azureml.net/) konto.
-- Ett [Azure Storage konto](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts)är ett **Allmänt-Purpose v2-** konto, men alla Azure Storage-konton som stöder Azure Blob Storage fungerar också.
+- Ett [Azure Storage konto](../storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-storage-accounts)är ett **Allmänt-Purpose v2-** konto, men alla Azure Storage-konton som stöder Azure Blob Storage fungerar också.
 
 > [!Note]
 > Den här artikeln använder Azure Stream Analytics och flera andra betalda tjänster. Extra kostnader uppkommer i Azure Stream Analytics när data måste överföras i Azure-regioner. Av den anledningen är det bra att se till att din resurs grupp, IoT Hub och Azure Storage-konto – samt den Machine Learning Studio (klassiska) arbets ytan och Azure Stream Analytics jobb läggs till senare i den här självstudien – alla finns i samma Azure-region. Du kan kontrol lera regional support för Azure Machine Learning Studio (klassisk) och andra Azure-tjänster på [sidan för Azure produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
@@ -106,7 +106,7 @@ I det här avsnittet verifierar du modellen, konfigurerar en förutsägbar webb 
 
    ![Kör experimentet för att verifiera stegen](media/iot-hub-weather-forecast-machine-learning/run-experiment.png)
 
-1. Välj **Konfigurera**den  >  **förutsägbara webb tjänsten**för webb tjänsten. Det förutsägande experiment diagrammet öppnas.
+1. Välj **Konfigurera** den  >  **förutsägbara webb tjänsten** för webb tjänsten. Det förutsägande experiment diagrammet öppnas.
 
    ![Distribuera väder förutsägelse modellen i Azure Machine Learning Studio (klassisk)](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
 
@@ -154,7 +154,7 @@ I det här avsnittet verifierar du modellen, konfigurerar en förutsägbar webb 
 
 1. Öppna Stream Analyticss jobbet.
 1. Välj **Indata** under **Jobbtopologi**.
-1. I rutan **indata** väljer du **Lägg till Stream-indata**och väljer sedan **IoT Hub** i list rutan. I fönstret **nytt indata** väljer du **Välj IoT Hub från dina prenumerationer** och anger följande information:
+1. I rutan **indata** väljer du **Lägg till Stream-indata** och väljer sedan **IoT Hub** i list rutan. I fönstret **nytt indata** väljer du **Välj IoT Hub från dina prenumerationer** och anger följande information:
 
    **Indataområde**: det unika aliaset för indatamängden.
 
@@ -175,7 +175,7 @@ I det här avsnittet verifierar du modellen, konfigurerar en förutsägbar webb 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Lägga till utdata till Stream Analytics-jobbet
 
 1. Välj **Utdata** under **Jobbtopologi**.
-1. I fönstret **utdata** väljer du **Lägg till**och väljer sedan **Blob Storage/data Lake Storage** i list rutan. I fönstret **nytt utdata** väljer du alternativet för att **välja lagring från dina prenumerationer** och anger följande information:
+1. I fönstret **utdata** väljer du **Lägg till** och väljer sedan **Blob Storage/data Lake Storage** i list rutan. I fönstret **nytt utdata** väljer du alternativet för att **välja lagring från dina prenumerationer** och anger följande information:
 
    **Utdataalias**: Utdatas unika alias.
 
@@ -193,8 +193,8 @@ I det här avsnittet verifierar du modellen, konfigurerar en förutsägbar webb 
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Lägg till en funktion i Stream Analytics jobbet för att anropa den distribuerade webb tjänsten
 
-1. Under **jobb sto pol Ogin**väljer du **Functions**.
-1. I rutan **funktioner** väljer du **Lägg till**och väljer sedan **Azure ml Studio** i list rutan. (Se till att du väljer **azure ml Studio**, inte **Azure ml-tjänsten**.) I fönstret **ny funktion** väljer du **ange inställningar för Azure Machine Learning funktion manuellt** och anger följande information:
+1. Under **jobb sto pol Ogin** väljer du **Functions**.
+1. I rutan **funktioner** väljer du **Lägg till** och väljer sedan **Azure ml Studio** i list rutan. (Se till att du väljer **azure ml Studio**, inte **Azure ml-tjänsten**.) I fönstret **ny funktion** väljer du **ange inställningar för Azure Machine Learning funktion manuellt** och anger följande information:
 
    **Funktions Ali Aset**: ange `machinelearning` .
 
@@ -215,7 +215,7 @@ I det här avsnittet verifierar du modellen, konfigurerar en förutsägbar webb 
    WITH machinelearning AS (
       SELECT EventEnqueuedUtcTime, temperature, humidity, machinelearning(temperature, humidity) as result from [YourInputAlias]
    )
-   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[scored probabilities] AS FLOAT ) AS 'probabalities of rain'
+   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[scored probabilities] AS FLOAT ) AS 'probabalities of rain'
    Into [YourOutputAlias]
    From machinelearning
    ```
@@ -227,7 +227,7 @@ I det här avsnittet verifierar du modellen, konfigurerar en förutsägbar webb 
 1. Välj **Spara fråga**.
 
 > [!Note]
-> Om du väljer **test fråga**visas följande meddelande: fråga testning med Machine Learning funktioner stöds inte. Ändra frågan och försök igen. Du kan ignorera detta meddelande på ett säkert sätt och välja **OK** för att stänga meddelande rutan. Se till att spara frågan innan du fortsätter till nästa avsnitt.
+> Om du väljer **test fråga** visas följande meddelande: fråga testning med Machine Learning funktioner stöds inte. Ändra frågan och försök igen. Du kan ignorera detta meddelande på ett säkert sätt och välja **OK** för att stänga meddelande rutan. Se till att spara frågan innan du fortsätter till nästa avsnitt.
 
 ### <a name="run-the-stream-analytics-job"></a>Köra Stream Analytics-jobbet
 

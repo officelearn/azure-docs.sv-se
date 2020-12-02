@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 742c69709eee19a37abdb3e5330cd7fb8ce315b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65584b2a6a3bdfbb863c26dac688b20279c4b54d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89436399"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452293"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Lägg till fel tolerans i kopierings aktiviteten genom att hoppa över inkompatibla rader
 
@@ -48,7 +48,7 @@ Kopierings aktiviteten stöder tre scenarier för att identifiera, hoppa över o
     Exempel: kopiera data från en SQL-Server till en SQL-databas. En primär nyckel definieras i Sink-SQL-databasen, men ingen sådan primär nyckel definieras i SQL Server-källan. Det går inte att kopiera de duplicerade raderna som finns i källan till mottagaren. Kopierings aktiviteten kopierar bara den första raden i data källan till mottagaren. Efterföljande käll rader som innehåller värdet för duplicerad primär nyckel identifieras som inkompatibla och hoppas över.
 
 >[!NOTE]
->Den här funktionen gäller inte när kopierings aktiviteten har kon figurer ATS för att anropa extern data inläsnings mekanism [, inklusive Azure Synapse Analytics (tidigare SQL Data Warehouse) PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) eller [Amazon RedShift-inläsning](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). För att läsa in data i Azure Synapse Analytics med PolyBase använder du polybases inbyggda fel tolerans stöd genom att ange "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" i kopierings aktiviteten.
+>Den här funktionen gäller inte när kopierings aktiviteten har kon figurer ATS för att anropa extern data inläsnings mekanism, inklusive [Azure Synapse Analytics PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) eller [Amazon RedShift-inläsning](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). För att läsa in data i Azure Synapse Analytics med PolyBase använder du polybases inbyggda fel tolerans stöd genom att ange "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" i kopierings aktiviteten.
 
 ## <a name="configuration"></a>Konfiguration
 I följande exempel visas en JSON-definition som hoppar över inkompatibla rader i kopierings aktiviteten:
@@ -69,12 +69,12 @@ I följande exempel visas en JSON-definition som hoppar över inkompatibla rader
 }
 ```
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| **enableSkipIncompatibleRow** | Aktivera hoppa över inkompatibla rader under kopian eller inte. | Sant<br/>False (standard) | Inga |
-| **redirectIncompatibleRowSettings** | En grupp egenskaper som kan anges när du vill logga de inkompatibla raderna. | &nbsp; | Inga |
-| **linkedServiceName** | Den länkade tjänsten med Azure Storage för att lagra loggen som innehåller de överhoppade raderna. | Namnet på en länkad [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) -eller [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) -tjänst som refererar till den lagrings instans som du vill använda för att lagra logg filen. | Inga |
-| **sökväg** | Sökvägen till logg filen som innehåller de överhoppade raderna. | Ange den Blob Storage-sökväg som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Inga |
+| **enableSkipIncompatibleRow** | Aktivera hoppa över inkompatibla rader under kopian eller inte. | Sant<br/>False (standard) | No |
+| **redirectIncompatibleRowSettings** | En grupp egenskaper som kan anges när du vill logga de inkompatibla raderna. | &nbsp; | No |
+| **linkedServiceName** | Den länkade tjänsten med Azure Storage för att lagra loggen som innehåller de överhoppade raderna. | Namnet på en länkad [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) -eller [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) -tjänst som refererar till den lagrings instans som du vill använda för att lagra logg filen. | No |
+| **sökväg** | Sökvägen till logg filen som innehåller de överhoppade raderna. | Ange den Blob Storage-sökväg som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | No |
 
 ## <a name="monitoring"></a>Övervakning
 När körningen av kopierings aktiviteten är klar kan du se antalet rader som hoppats över i avsnittet övervakning:

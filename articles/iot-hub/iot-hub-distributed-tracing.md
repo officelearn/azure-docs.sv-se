@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: efc4d07e9e3a64a36f2ecf3fa0000379bef380f9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f8d37cf8f23de1d0535c7a9ff4a95ac217eddf74
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538586"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452387"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Spåra Azure IoT-meddelanden från enhet till moln med distribuerad spårning (för hands version)
 
@@ -55,17 +55,17 @@ I det här avsnittet konfigurerar du en IoT Hub att logga distribuerade tracing-
 
 1. Navigera till din IoT Hub i [Azure Portal](https://portal.azure.com/).
 
-1. Rulla ned till avsnittet **övervakning** i den vänstra rutan för din IoT-hubb och klicka på **diagnostikinställningar** .
+1. Rulla ned till avsnittet **övervakning** i den vänstra rutan för din IoT-hubb och klicka på **diagnostikinställningar**.
 
-1. Klicka på **Lägg till diagnostisk inställning** .
+1. Klicka på **Lägg till diagnostisk inställning**.
 
-1. I fältet **namn** anger du ett namn för en ny diagnostisk inställning. Till exempel **DistributedTracingSettings** .
+1. I fältet **namn** anger du ett namn för en ny diagnostisk inställning. Till exempel **DistributedTracingSettings**.
 
 1. Välj ett eller flera av följande alternativ som avgör var loggningen ska skickas:
 
-    - **Arkivera till ett lagrings konto** : Konfigurera ett lagrings konto som innehåller loggnings informationen.
-    - **Strömma till en Event Hub** : Konfigurera en händelsehubben som innehåller loggnings informationen.
-    - **Skicka till Log Analytics** : Konfigurera en Log Analytics-arbetsyta som innehåller loggnings informationen.
+    - **Arkivera till ett lagrings konto**: Konfigurera ett lagrings konto som innehåller loggnings informationen.
+    - **Strömma till en Event Hub**: Konfigurera en händelsehubben som innehåller loggnings informationen.
+    - **Skicka till Log Analytics**: Konfigurera en Log Analytics-arbetsyta som innehåller loggnings informationen.
 
 1. I avsnittet **logg** väljer du de åtgärder som du vill ha loggnings information för.
 
@@ -183,7 +183,7 @@ Dessa anvisningar är till för att bygga exemplet på Windows. Andra miljöer f
 
 Det är **inte enkelt** att förhandsgranska Distributed tracing-funktionen utan att använda C SDK. Därför rekommenderas inte den här metoden.
 
-Först måste du implementera alla primitiva IoT Hub-protokoll i dina meddelanden genom att följa utvecklings guiden [skapa och läsa IoT Hub meddelanden](iot-hub-devguide-messages-construct.md). Redigera sedan protokoll egenskaperna i MQTT/AMQP-meddelanden som ska läggas till `tracestate` som **system egenskap** . Mer specifikt:
+Först måste du implementera alla primitiva IoT Hub-protokoll i dina meddelanden genom att följa utvecklings guiden [skapa och läsa IoT Hub meddelanden](iot-hub-devguide-messages-construct.md). Redigera sedan protokoll egenskaperna i MQTT/AMQP-meddelanden som ska läggas till `tracestate` som **system egenskap**. Mer specifikt:
 
 * För MQTT lägger du till i `%24.tracestate=timestamp%3d1539243209` meddelande ämnet, där `1539243209` ska ersättas med skapande tiden för meddelandet i formatet för Unix-tidsstämpel. Som exempel kan du se implementeringen [i C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
 * För AMQP lägger du till `key("tracestate")` och `value("timestamp=1539243209")` som meddelande anteckning. En referens implementering finns [här](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
@@ -196,19 +196,19 @@ Om du vill ändra procent andelen meddelanden som ska spåras från molnet måst
 
 ### <a name="update-using-the-portal"></a>Uppdatera med portalen
 
-1. Navigera till din IoT Hub i [Azure Portal](https://portal.azure.com/)och klicka sedan på **IoT-enheter** .
+1. Navigera till din IoT Hub i [Azure Portal](https://portal.azure.com/)och klicka sedan på **IoT-enheter**.
 
 1. Klicka på din enhet.
 
-1. Leta efter **Aktivera distribuerad spårning (för hands version)** och välj sedan **Aktivera** .
+1. Leta efter **Aktivera distribuerad spårning (för hands version)** och välj sedan **Aktivera**.
 
     ![Aktivera distribuerad spårning i Azure Portal](./media/iot-hub-distributed-tracing/azure-portal.png)
 
 1. Välj en **samplings frekvens** mellan 0% och 100%.
 
-1. Klicka på **Spara** .
+1. Klicka på **Spara**.
 
-1. Vänta några sekunder och klicka på **Uppdatera** , sedan visas en ikon för synkronisering med en bock om enheten har godkänts av enheten.
+1. Vänta några sekunder och klicka på **Uppdatera**, sedan visas en ikon för synkronisering med en bock om enheten har godkänts av enheten.
 
 1. Gå tillbaka till konsol fönstret för appen telemetri-meddelande. Meddelanden som skickas med `tracestate` i program egenskaperna visas.
 
@@ -222,7 +222,7 @@ Om du vill ändra procent andelen meddelanden som ska spåras från molnet måst
 
 1. Öppna VS Code och [konfigurera IoT Hub anslutnings sträng](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites).
 
-1. Expandera enheten och Sök efter **Distributed tracing-inställning (för hands version)** . Under det klickar du på **Uppdatera Distributed tracing Setting (för hands version)** av undernoden.
+1. Expandera enheten och Sök efter **Distributed tracing-inställning (för hands version)**. Under det klickar du på **Uppdatera Distributed tracing Setting (för hands version)** av undernoden.
 
     ![Aktivera distribuerad spårning i Azure IoT Hub-tillägget](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
@@ -295,7 +295,7 @@ Den här bilden nedan visar distribuerad spårning i app-kartor med tre Dirigeri
 
 ### <a name="context"></a>Kontext
 
-Många IoT-lösningar, inklusive vår egen [referens arkitektur](https://aka.ms/iotrefarchitecture) (endast engelska), följer i allmänhet en variant av [mikrotjänstens arkitektur](/azure/architecture/microservices/). När en IoT-lösning växer mer komplex får du ett dussin tals eller fler mikrotjänster. Dessa mikrotjänster kanske inte kommer från Azure. Att ta reda på var IoT-meddelanden släpps eller saktas ned kan bli utmanande. Du har till exempel en IoT-lösning som använder 5 olika Azure-tjänster och 1500 aktiva enheter. Varje enhet skickar 10 enhet-till-moln-meddelanden per sekund (totalt 15 000 meddelanden per sekund), men du märker att din webbapp bara ser 10 000 meddelanden/sekund. Var är problemet? Hur hittar du orsaken?
+Många IoT-lösningar, inklusive vår egen [referens arkitektur](/azure/architecture/reference-architectures/iot) (endast engelska), följer i allmänhet en variant av [mikrotjänstens arkitektur](/azure/architecture/microservices/). När en IoT-lösning växer mer komplex får du ett dussin tals eller fler mikrotjänster. Dessa mikrotjänster kanske inte kommer från Azure. Att ta reda på var IoT-meddelanden släpps eller saktas ned kan bli utmanande. Du har till exempel en IoT-lösning som använder 5 olika Azure-tjänster och 1500 aktiva enheter. Varje enhet skickar 10 enhet-till-moln-meddelanden per sekund (totalt 15 000 meddelanden per sekund), men du märker att din webbapp bara ser 10 000 meddelanden/sekund. Var är problemet? Hur hittar du orsaken?
 
 ### <a name="distributed-tracing-pattern-in-microservice-architecture"></a>Distribuerat spårnings mönster i arkitektur för mikrotjänster
 

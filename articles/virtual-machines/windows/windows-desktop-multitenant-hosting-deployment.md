@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: ceb8b8b31963317ccbbd1aee9f1b2606afc5a5db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5631cbdd0b1eae343899be2147720d980e605dbb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010257"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452721"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Så här distribuerar du Windows 10 på Azure med värd rättigheter för flera innehavare 
 För kunder med Windows 10 Enterprise E3/E5 per användare eller Windows anslutning för virtuella skriv bord per användare (användar prenumerations licenser eller användar prenumerations licenser), kan du använda värd rättigheterna för flera innehavare för Windows 10 för att ta med Windows 10-licenser till molnet och köra Windows 10 Virtual Machines på Azure utan att betala för en annan licens. Mer information finns i [värd för flera innehavare för Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -32,6 +32,15 @@ För PowerShell-, CLI-och Azure Resource Manager mall-distributioner kan Windows
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
+
+## <a name="qualify-for-multi-tenant-hosting-rights"></a>Kvalificera för värd rättigheter för flera innehavare 
+För att kunna kvalificera värd rättigheter för flera innehavare och för att köra Windows 10-avbildningar på Azure-användare måste ha någon av följande prenumerationer: 
+
+-   Microsoft 365 E3/E5/F3/a3/A5
+-   Windows 10 Enterprise E3/E5 
+-   Windows 10-utbildning a3/A5
+-   Windows-VDA E3/E5
+
 
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Laddar upp Windows 10-VHD till Azure
 Observera att om du överför en generaliserad Windows 10-hårddisk har Windows 10 inte inbyggt administratörs konto aktiverat som standard. Om du vill aktivera det inbyggda administratörs kontot inkluderar du följande kommando som en del av det anpassade skript tillägget.

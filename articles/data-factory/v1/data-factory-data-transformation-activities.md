@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 91755dd1b5eea9f72978e09a605fc47d41ff3dee
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dfe8863f38da0aeb701b063f051a199e27745eeb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371723"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453358"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Transformera data i Azure Data Factory version 1
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Med tiden måste förutsägande modeller i de Studio (klassiska) bedömnings exp
 Se [använda Azure Machine Learning Studio (klassiska) aktiviteter](data-factory-azure-ml-batch-execution-activity.md) för information om de här Studio-aktiviteterna (klassiska). 
 
 ## <a name="stored-procedure-activity"></a>Lagrad procedur aktivitet
-Du kan använda aktiviteten SQL Server lagrad procedur i en Data Factory pipeline för att anropa en lagrad procedur i något av följande data lager: Azure SQL Database, Azure Synapse Analytics (tidigare SQL Data Warehouse), SQL Server databas i ditt företag eller en virtuell Azure-dator. Mer information finns i artikeln om [lagrade procedur aktiviteter](data-factory-stored-proc-activity.md) .  
+Du kan använda aktiviteten SQL Server lagrad procedur i en Data Factory pipeline för att anropa en lagrad procedur i något av följande data lager: Azure SQL Database, Azure Synapse Analytics, SQL Server databas i ditt företag eller en virtuell Azure-dator. Mer information finns i artikeln om [lagrade procedur aktiviteter](data-factory-stored-proc-activity.md) .  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL-aktivitet
 Data Lake Analytics U-SQL-aktivitet kör ett U-SQL-skript i ett Azure Data Lake Analytics-kluster. Mer information finns i artikeln [data analys U-SQL-aktivitet](data-factory-usql-activity.md) . 
@@ -79,7 +79,7 @@ Du kan skapa en anpassad aktivitet som kör R-skript i ditt HDInsight-kluster me
 Du skapar en länkad tjänst för beräknings miljön och använder sedan den länkade tjänsten när du definierar en Transformations aktivitet. Det finns två typer av beräknings miljöer som stöds av Data Factory. 
 
 1. **På begäran**: i det här fallet hanteras dator miljön fullständigt av Data Factory. Den skapas automatiskt av Data Factory tjänsten innan ett jobb skickas för att bearbeta data och tas bort när jobbet har slutförts. Du kan konfigurera och kontrol lera detaljerade inställningar för beräknings miljön på begäran för jobb körning, kluster hantering och start åtgärder. 
-2. **Ta**med dig: i det här fallet kan du registrera din egen dator miljö (till exempel HDInsight-kluster) som en länkad tjänst i Data Factory. Dator miljön hanteras av dig och den Data Factory tjänsten använder den för att köra aktiviteterna. 
+2. **Ta** med dig: i det här fallet kan du registrera din egen dator miljö (till exempel HDInsight-kluster) som en länkad tjänst i Data Factory. Dator miljön hanteras av dig och den Data Factory tjänsten använder den för att köra aktiviteterna. 
 
 Se artikeln om att beräkna [länkade tjänster](data-factory-compute-linked-services.md) för att lära dig mer om beräknings tjänster som stöds av Data Factory. 
 

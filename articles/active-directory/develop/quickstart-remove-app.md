@@ -1,37 +1,37 @@
 ---
-title: 'Snabb start: ta bort en registrerad app från Microsoft Identity Platform | Azure'
+title: 'Gör så här: ta bort en registrerad app från Microsoft Identity Platform | Azure'
 titleSuffix: Microsoft identity platform
-description: I den här snabb starten får du lära dig hur du tar bort ett program som är registrerat hos Microsoft Identity Platform.
+description: I den här instruktionen får du lära dig hur du tar bort ett program som är registrerat hos Microsoft Identity Platform.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: how-to
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: aa0662ae0b1caa63938f5e07aea10b9af60661d3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.reviewer: marsma, aragra, lenalepa, sureshja
+ms.openlocfilehash: edfed8ca361d456e622096e23079d5887f96ab30
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173268"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452994"
 ---
-# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Snabb start: ta bort ett program som är registrerat med Microsoft Identity Platform
+# <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Ta bort ett program som är registrerat med Microsoft Identity Platform
 
 Företagsutvecklare och SaaS-leverantörer (Software as a Service) som har registrerat program med Microsoft Identity Platform kan behöva ta bort en programregistrering.
 
-I den här snabbstarten lär du dig att:
+I följande avsnitt får du lära dig att:
 
 * Ta bort ett program som skapats av dig eller din organisation
 * Ta bort ett program som skapats av en annan organisation
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Slut för ande av [snabb start: registrera ett program med Microsoft Identity Platform](quickstart-register-app.md)
+* Ett [program som är registrerat i din Azure AD-klient](quickstart-register-app.md)
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Ta bort ett program som skapats av dig eller din organisation
 
@@ -53,7 +53,4 @@ För att kunna ta bort åtkomsten för ett program till din katalog (efter att m
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om program-och tjänst huvud objekt i Microsoft Identity Platform:
-
-> [!div class="nextstepaction"]
-> [Objekt för program och tjänstens huvudnamn i Azure Active Directory](app-objects-and-service-principals.md)
+Läs mer om [program-och tjänst huvud objekt](app-objects-and-service-principals.md) i Microsoft Identity Platform.

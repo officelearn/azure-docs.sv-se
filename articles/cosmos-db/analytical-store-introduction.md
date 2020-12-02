@@ -1,24 +1,21 @@
 ---
-title: Vad är Azure Cosmos DB Analytical Store (för hands version)?
+title: Vad är Azure Cosmos DB-analysarkiv?
 description: Lär dig mer om Azure Cosmos DB transaktionell (rad-och kolumnbaserade) och analys (kolumnbaserade). Fördelar med analytisk lagring, prestanda påverkan för storskaliga arbets belastningar och automatisk synkronisering av data från transaktions lagring till analytisk lagring
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 9cde9586d453632ceaa61de7c095a5f95d1ea2e4
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 5dc233348188791404f826870b235d2bdfa4c202
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337414"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452846"
 ---
-# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Vad är Azure Cosmos DB Analytical Store (för hands version)?
+# <a name="what-is-azure-cosmos-db-analytical-store"></a>Vad är Azure Cosmos DB Analytical Store?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
-
-> [!IMPORTANT]
-> Azure Cosmos DB Analytical Store är för närvarande en för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Mer information finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
 Azure Cosmos DB Analytical Store är ett fullständigt isolerat kolumn lager för att möjliggöra storskalig analys av drift data i din Azure Cosmos DB, utan att påverka dina transaktions arbets belastningar. 
 
@@ -36,7 +33,7 @@ ETL-pipelinen blir också komplexa vid hantering av uppdateringar av användning
 
 Azure Cosmos DB Analytical Store tar itu med de komplexitets-och latens utmaningar som inträffar med de traditionella ETL-pipelinen. Azure Cosmos DB Analytical Store kan automatiskt synkronisera dina drift data till ett separat kolumn lager. Formatet för kolumn lagring är lämpligt för storskaliga analys frågor som ska utföras på ett optimerat sätt, vilket leder till att förbättra svars tiderna för sådana frågor.
 
-Med Azure Synapse-länken kan du nu skapa inga ETL HTAP-lösningar genom att länka direkt till Azure Cosmos DB analys lager från Synapse Analytics. Med den kan du köra storskalig storskalig analys i real tid på dina användnings data.
+Med Azure Synapse-länken kan du nu skapa inga ETL HTAP-lösningar genom att länka direkt till Azure Cosmos DB analys lager från Azure Synapse Analytics. Med den kan du köra storskalig storskalig analys i real tid på dina användnings data.
 
 ## <a name="features-of-analytical-store"></a>Funktioner i analys lager 
 
@@ -181,10 +178,10 @@ Autentisering med analys lagret är detsamma som transaktions arkivet för en sp
 
 Analys lagret är optimerat för att ge skalbarhet, elastiskhet och prestanda för analytiska arbets belastningar utan något beroende på beräknings körnings tiden. Lagrings tekniken är själv hanterad för att optimera dina analys arbets belastningar utan manuella åtgärder.
 
-Genom att frikoppla det analytiska lagrings systemet från analys beräknings systemet, kan data i Azure Cosmos DB analys lager frågas samtidigt från olika analys körningar som stöds av Azure Synapse Analytics. Från och med idag stöder Synapse Analytics Apache Spark och SQL Server utan Azure Cosmos DB analys lager.
+Genom att frikoppla det analytiska lagrings systemet från analys beräknings systemet, kan data i Azure Cosmos DB analys lager frågas samtidigt från olika analys körningar som stöds av Azure Synapse Analytics. Från och med idag stöder Azure Synapse Analytics Apache Spark och Server lös SQL-poolen med Azure Cosmos DB analys lager.
 
 > [!NOTE]
-> Du kan bara läsa från analys lager med kör tid för Synapse analys. Du kan skriva tillbaka data till transaktions arkivet som ett betjänande lager.
+> Du kan bara läsa från analys lager med Azure Synapse Analytics-körnings tid. Du kan skriva tillbaka data till transaktions arkivet som ett betjänande lager.
 
 ## <a name="pricing"></a><a id="analytical-store-pricing"></a> Priset
 
@@ -194,10 +191,7 @@ Analytiskt lager följer en förbruknings pris modell där du debiteras för:
 
 * Analytiska Skriv åtgärder: den fullständigt hanterade synkroniseringen av drift data uppdateringar till analys lagret från transaktions arkivet (automatisk synkronisering)
 
-* Analytiska Läs åtgärder: Läs åtgärder som utförts mot analys lagret från Synapse Analytics Spark och SQL Server-körnings tider.
-
-> [!NOTE]
-> Azure Cosmos DB Analytical Store är för närvarande tillgängligt i en offentlig för hands version utan kostnad.
+* Analytiska Läs åtgärder: Läs åtgärder som utförts mot analys lagret från Azure Synapse Analytics Spark-pool och körnings tider för SQL-poolen utan server.
 
 Priset för analytiskt lager skiljer sig från pris modellen för transaktions lager. Det finns inget koncept för etablerade ru: er i analys lagret. Se [Azure Cosmos DB prissättnings sida](https://azure.microsoft.com/pricing/details/cosmos-db/)för fullständig information om pris modellen för analys lagring.
 

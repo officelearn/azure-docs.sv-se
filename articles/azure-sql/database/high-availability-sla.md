@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 10/28/2020
-ms.openlocfilehash: 6b6ae2ffca420dc126d56c0f1cfed9188dec0e47
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e5e58f8592fcf8627870c3a574335bbe34394064
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185614"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452454"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Hög tillgänglighet för Azure SQL Database-och SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -112,7 +112,7 @@ Mer information om hög tillgänglighet i hög tillgänglighet finns i [databas 
 
 ## <a name="accelerated-database-recovery-adr"></a>Accelererad databas återställning (ADR)
 
-[Accelererad databas återställning (ADR)](../accelerated-database-recovery.md) är en ny databas motor funktion som avsevärt förbättrar databasens tillgänglighet, särskilt i närvaro av tids krävande transaktioner. ADR är för närvarande tillgänglig för Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics (tidigare SQL Data Warehouse).
+[Accelererad databas återställning (ADR)](../accelerated-database-recovery.md) är en ny databas motor funktion som avsevärt förbättrar databasens tillgänglighet, särskilt i närvaro av tids krävande transaktioner. ADR är för närvarande tillgängligt för Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics.
 
 ## <a name="testing-application-fault-resiliency"></a>Testa program Fels återhämtning
 

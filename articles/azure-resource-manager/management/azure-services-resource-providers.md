@@ -2,19 +2,21 @@
 title: Resurs leverantörer efter Azure-tjänster
 description: Visar en lista över alla resurs leverantörs namn områden för Azure Resource Manager och Azure-tjänsten för namn området visas.
 ms.topic: conceptual
-ms.date: 11/30/2020
-ms.openlocfilehash: fffac8fef8742cf1f151de06ba6b528035a6668d
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 12/01/2020
+ms.openlocfilehash: faea6badc24d0152e94fc507cafdb15932d1ea3e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436835"
+ms.locfileid: "96452626"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resursleverantörer för Azure-tjänster
 
 Den här artikeln visar hur namn områden för resurs leverantörer mappas till Azure-tjänster.
 
 ## <a name="match-resource-provider-to-service"></a>Matcha Resource Provider till tjänst
+
+De resurs leverantörer som är markerade med **-registrerade** registreras som standard för din prenumeration. Mer information finns i [registrering](#registration).
 
 | Namn område för resurs leverantör | Azure-tjänst |
 | --------------------------- | ------------- |

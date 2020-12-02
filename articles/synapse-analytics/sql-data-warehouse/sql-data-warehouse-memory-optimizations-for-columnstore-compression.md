@@ -1,6 +1,6 @@
 ---
-title: Förbättra prestanda för columnstore-index
-description: Minska minnes kraven eller öka det tillgängliga minnet för att maximera antalet rader i varje radgrupps.
+title: Förbättra columnstore-indexets prestanda för dedikerad SQL-pool
+description: Minska minnes kraven eller öka det tillgängliga minnet för att maximera antalet rader i varje radgrupps i en dedikerad SQL-pool.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 5308599f43788b35dbe278ddbbea2253c2f94cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6984ad41c07f7790a746dbd197c18dce2aa83e2f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797776"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453717"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximera radgrupps-kvalitet för columnstore
+# <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>Maximera radgrupps-kvalitet för columnstore-index i dedikerad SQL-pool 
 
 Radgrupps-kvaliteten bestäms av antalet rader i en radgrupps. Att öka det tillgängliga minnet kan maximera antalet rader ett columnstore-index komprimeras till varje radgrupps.  Använd dessa metoder för att förbättra komprimerings hastigheten och fråga om prestanda för columnstore-index.
 
@@ -99,7 +99,7 @@ Det maximala minne som krävs för att komprimera en radgrupps är ungefär
 
 Långa strängar komprimeras med en komprimerings metod som är utformad för komprimering av text. Den här komprimerings metoden använder en *ord lista* för att lagra text mönster. Den maximala storleken för en ord lista är 16 MB. Det finns bara en ord lista för varje lång sträng kolumn i radgrupps.
 
-En djupgående Beskrivning av kraven för columnstore-minnet finns i skalning för video- [SYNAPSE SQL-pool: konfiguration och vägledning](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+En djupgående Beskrivning av kraven för columnstore-minnet finns i skalning för videon [dedikerad SQL-pool: konfiguration och vägledning](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Sätt att minska minnes kraven
 
@@ -122,7 +122,7 @@ Ytterligare minnes krav för sträng komprimering:
 
 ### <a name="avoid-over-partitioning"></a>Undvik överpartitionering
 
-Columnstore-index skapar en eller flera högkvalitativa per partition. För SQL-poolen i Azure Synapse Analytics ökar antalet partitioner snabbt eftersom data distribueras och varje distribution är partitionerad.
+Columnstore-index skapar en eller flera högkvalitativa per partition. För dedikerad SQL-pool i Azure Synapse Analytics ökar antalet partitioner snabbt eftersom data distribueras och varje distribution är partitionerad.
 
 Om tabellen har för många partitioner kanske det inte finns tillräckligt med rader för att fylla i högkvalitativa. Bristen på rader skapar inte minnes belastning under komprimeringen. Men det leder till högkvalitativa som inte uppnår prestanda för bästa columnstore-fråga.
 
@@ -165,4 +165,4 @@ Om du vill öka minnes tilldelningen för en inläsnings fråga kan du antingen 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du kan förbättra prestanda för SQL-poolen finns i [Översikt över prestanda](cheat-sheet.md).
+Mer information om hur du kan förbättra prestandan för dedikerad SQL-pool finns i [Översikt över prestanda](cheat-sheet.md).

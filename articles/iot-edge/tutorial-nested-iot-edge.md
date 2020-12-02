@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: cd0fd7ac004d07b71a69a3e59c9cfd4727d98eb6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 28b34ecaf51406b35c67d3838714691390f5adf7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184679"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453062"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Självstudie: skapa en hierarki med IoT Edge enheter (förhands granskning)
 
@@ -27,7 +27,7 @@ Du kan strukturera en hierarki med enheter så att endast det översta lagret ha
 
 Målet med den här självstudien är att skapa en hierarki med IoT Edge enheter som simulerar en produktions miljö. I slutet kommer du att distribuera den [simulerade temperatur sensor modulen](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.simulated-temperature-sensor) till en enhet med lägre lager utan Internet åtkomst genom att hämta behållar avbildningar via hierarkin.
 
-För att uppnå det här målet vägleder dig genom den här självstudien genom att skapa en hierarki med IoT Edge enheter, distribuera IoT Edge runtime-behållare till dina enheter och konfigurera enheterna lokalt. I de här självstudierna får du lära dig att
+För att uppnå det här målet vägleder dig genom den här självstudien genom att skapa en hierarki med IoT Edge enheter, distribuera IoT Edge runtime-behållare till dina enheter och konfigurera enheterna lokalt. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -50,10 +50,10 @@ I den här självstudien används en hierarki med två enheter för enkelhetens 
 Om du vill skapa en hierarki med IoT Edge enheter behöver du:
 
 * En dator (Windows eller Linux) med Internet anslutning.
-* Två Linux-enheter kan konfigureras som IoT Edge enheter. Om du inte har tillgängliga enheter kan du använda [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/).
-* Ett Azure-konto med en giltig prenumeration. Om du inte har en [Azure-prenumeration](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* Två Linux-enheter kan konfigureras som IoT Edge enheter. Om du inte har tillgängliga enheter kan du använda [Azure Virtual Machines](../virtual-machines/linux/index.yml).
+* Ett Azure-konto med en giltig prenumeration. Om du inte har en [Azure-prenumeration](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * En kostnads fri eller standard nivå [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) i Azure.
-* Azure CLI v 2.3.1 med Azure IoT-tillägget v 0.10.6 eller senare installerat. I den här självstudien används [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Om du inte känner till Azure Cloud Shell kan du [titta på en snabb start för mer information](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#use-azure-cloud-shell).
+* Azure CLI v 2.3.1 med Azure IoT-tillägget v 0.10.6 eller senare installerat. I den här självstudien används [Azure Cloud Shell](../cloud-shell/overview.md). Om du inte känner till Azure Cloud Shell kan du [titta på en snabb start för mer information](./quickstart-linux.md#use-azure-cloud-shell).
 
 Du kan också testa det här scenariot genom att följa exemplet med skript [Azure IoT Edge för industriella IoT-exempel](https://aka.ms/iotedge-nested-sample), som distribuerar virtuella Azure-datorer som förkonfigurerade enheter för att simulera en fabriks miljö.
 
@@ -311,7 +311,7 @@ I [Azure Portal](https://ms.portal.azure.com/):
 
 1. Lägg till följande miljövariabler i din Edge Hub-modul:
 
-    | Namn | Värde |
+    | Name | Värde |
     | - | - |
     | `experimentalFeatures__enabled` | `true` |
     | `experimentalFeatures__nestedEdgeEnabled` | `true` |
@@ -324,7 +324,7 @@ I [Azure Portal](https://ms.portal.azure.com/):
 
 1. Under fliken miljövariabler anger du följande Miljövariabelns namn-värde-par:
 
-    | Namn | Värde |
+    | Name | Värde |
     | - | - |
     | `REGISTRY_PROXY_REMOTEURL` | `https://mcr.microsoft.com` |
 
@@ -482,7 +482,7 @@ I [Azure Portal](https://ms.portal.azure.com/):
 
 1. Lägg till följande miljövariabler i din Edge Hub-modul:
 
-    | Namn | Värde |
+    | Name | Värde |
     | - | - |
     | `experimentalFeatures__enabled` | `true` |
     | `experimentalFeatures__nestedEdgeEnabled` | `true` |

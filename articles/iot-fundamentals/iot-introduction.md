@@ -10,12 +10,12 @@ ms.author: dobett
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6ecc79eb52acbe393ac2777a0ec388e538a7f8fd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d2afd88500801f1e2b1e4da5a1e267bddfa69fc7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978908"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453028"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Vad är Azure Sakernas Internet (IoT)?
 
@@ -23,7 +23,7 @@ Azure Sakernas Internet (IoT) är en samling Microsoft-hanterade molntjänster s
 
 ## <a name="iot-devices"></a>IoT-enheter
 
-En IoT-enhet består vanligt vis av en kretskort med exponerade sensorer som använder WiFi för att ansluta till Internet. Till exempel:
+En IoT-enhet består vanligt vis av en kretskort med exponerade sensorer som använder WiFi för att ansluta till Internet. Exempel:
 
 * En tryck sensor på en fjärran sluten olje pump.
 * Temperatur-och fuktighets sensorer i en luft Konditionerings enhet.
@@ -74,7 +74,7 @@ I en lösning för fjärrövervakning för en olje pump Station, använder till 
 
 I verkliga exempel på hur organisationer använder Azure IoT, se tekniska fallstudier från [Microsoft för IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
 
-En detaljerad beskrivning av IoT-arkitekturen finns i [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (Referensarkitektur för Microsoft Azure IoT).
+En detaljerad beskrivning av IoT-arkitekturen finns i [Microsoft Azure IoT Reference Architecture](/azure/architecture/reference-architectures/iot) (Referensarkitektur för Microsoft Azure IoT).
 
 ## <a name="next-steps"></a>Nästa steg
 

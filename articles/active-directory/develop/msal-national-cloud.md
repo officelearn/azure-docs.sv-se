@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
-ms.reviewer: nacanuma
+ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 566c429fc70ae3f0fc18f024b745d8142535932c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2f631ad650b20110084ff902043447f26c2d4ab3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348415"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453595"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Använda MSAL i en nationell moln miljö
 
@@ -150,9 +150,9 @@ Så här aktiverar du din MSAL python-app för suveräna moln:
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- För att anropa Microsoft Graph krävs en viss URL för diagrammets slut punkt som är beroende av vilket moln du använder. Information om hur du hittar Microsoft Graph slut punkter för alla nationella moln finns i [Microsoft Graph-och diagram Explorers tjänst rot slut punkter](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Anrop av Microsoft Graph-API: t kräver en slut punkts-URL som är unik för det moln du använder. Information om hur du hittar Microsoft Graph slut punkter för alla nationella moln finns i [Microsoft Graph-och diagram Explorers tjänst rot slut punkter](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-    Här är ett exempel på en diagram slut punkt med omfattningen:
+    Här är ett exempel på en Microsoft Graph slut punkt med omfattningen:
 
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
@@ -173,7 +173,7 @@ Här är en exempel utfärdare:
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- För att anropa Microsoft Graph krävs en viss URL för diagrammets slut punkt som är beroende av vilket moln du använder. Information om hur du hittar Microsoft Graph slut punkter för alla nationella moln finns i [Microsoft Graph-och diagram Explorers tjänst rot slut punkter](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Anrop av Microsoft Graph-API: t kräver en slut punkts-URL som är unik för det moln du använder. Information om hur du hittar Microsoft Graph slut punkter för alla nationella moln finns i [Microsoft Graph-och diagram Explorers tjänst rot slut punkter](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 Här är ett exempel på en diagram slut punkt med omfattningen:
 
@@ -222,9 +222,10 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om:
+Se [nationella Cloud Authentication-slutpunkter](authentication-national-cloud.md) för en lista över Azure Portal-URL: er och token-slutpunkter för varje moln.
 
-- [Autentisering i nationella moln](authentication-national-cloud.md)
+National Cloud-dokumentation:
+
 - [Azure Government](../../azure-government/index.yml)
 - [Azure Kina 21Vianet](/azure/china/)
 - [Azure Tyskland](../../germany/index.yml)

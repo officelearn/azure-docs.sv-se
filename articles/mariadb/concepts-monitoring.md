@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
-ms.openlocfilehash: 5790094571563d3ca8576480a6296a73756fb6a6
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7420a7c6355fbcd70ce57fbb36ab29d1241df31f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540424"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453329"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Övervakning i Azure Database for MariaDB
 Genom att övervaka data om dina servrar kan du felsöka och optimera för din arbets belastning. Azure Database for MariaDB tillhandahåller olika mått som ger inblick i serverns beteende.
@@ -25,7 +25,7 @@ Steg för steg-anvisningar finns i [så här konfigurerar du aviseringar](howto-
 ### <a name="list-of-metrics"></a>Lista över mått
 De här måtten är tillgängliga för Azure Database for MariaDB:
 
-|Mått|Mått visnings namn|Enhet|Beskrivning|
+|Mått|Mått visnings namn|Enhet|Description|
 |---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Procent andelen CPU som används.|
 |memory_percent|Minnes procent|Procent|Procent andelen minne som används.|
@@ -67,7 +67,6 @@ Lär dig mer om hur du konfigurerar aviseringar i dokumentet om [planerade under
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om hur du får åtkomst till och exporterar mått med hjälp av Azure Portal, REST API eller CLI finns i [Översikt över Azure Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Mer information om hur du får åtkomst till och exporterar mått med hjälp av Azure Portal, REST API eller CLI finns i [Översikt över Azure Metrics](../azure-monitor/platform/data-platform.md).
 - Se [hur du ställer in aviseringar](howto-alert-metric.md) för vägledning om hur du skapar en avisering på ett mått.
 - Läs mer om [planerade underhålls aviseringar](./concepts-planned-maintenance-notification.md) i Azure Database for MariaDB.
-

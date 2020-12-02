@@ -1,6 +1,6 @@
 ---
 title: Sorterings typer för informations lager
-description: Sorterings typer som stöds för dedikerad SQL-pool i Azure Synapse Analytics.
+description: Sorterings typer som stöds för dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics.
 services: synapse-analytics
 author: antvgski
 manager: igorstan
@@ -11,16 +11,16 @@ ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8d76d70c4c84f1d63d4643e1fba3f66d3541beff
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 39b89f8d303c10eead63839420141a74d3d3c74c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305255"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452765"
 ---
-# <a name="database-collation-support-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Stöd för databas sortering för dedikerad SQL-pool i Azure Synapse Analytics 
+# <a name="database-collation-support-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Stöd för databas sortering för dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics 
 
-Du kan ändra standard databas sorteringen från Azure Portal när du skapar en ny dedikerad SQL-adresspool. Den här funktionen gör det ännu enklare att skapa en ny databas med en av de 3800 databas sorteringar som stöds.
+Du kan ändra standard databas sorteringen från Azure Portal när du skapar en ny dedikerad SQL-pool (tidigare SQL DW). Den här funktionen gör det ännu enklare att skapa en ny databas med en av de 3800 databas sorteringar som stöds.
 
 Sorteringarna anger språk, tecken tabell, sorterings ordning och tecken känslighets regler för teckenbaserade data typer. När du har valt alla kolumner och uttryck som kräver sorterings information ärver du den valda sorteringen från databas inställningen. Standard arvet kan åsidosättas genom att uttryckligen ange en annan sortering för en tecken-baserad datatyp.
 

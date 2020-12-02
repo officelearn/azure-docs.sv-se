@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: feabfe505601276269c2774e3b39dd5cbaa32087
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fb3c7dd7b3d7e8e42e230eedcd0d1b43af104327
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022929"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452535"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Skydda en länkad tjänst med privata länkar
 
@@ -69,7 +69,7 @@ Nu har du upprättat en säker och privat anslutning mellan Synapse och den län
 ## <a name="next-steps"></a>Nästa steg
 
 
-För att utveckla ytterligare förståelse för hanterad privat slut punkt i Synapse Analytics, se [hanterade privata slut punkter](../security/synapse-workspace-managed-private-endpoints.md).
+För att utveckla ytterligare förståelse för hanterad privat slut punkt i Azure Synapse Analytics, se [hanterade privata slut punkter](../security/synapse-workspace-managed-private-endpoints.md).
 
 
-Mer information om data integrering för Synapse-analys finns i mata in [data i en data Lake](data-integration-data-lake.md) artikel.
+Mer information om data integrering för Azure Synapse Analytics finns i mata in [data i en data Lake](data-integration-data-lake.md) artikel.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 8d8da39f038f465030a2dced092ab1b008e30e5e
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 3aa236570e518b142adb8382387a8cdea4fc08a0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511515"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453280"
 ---
 # <a name="iot-plug-and-play-device-developer-guide"></a>IoT Plug and Play Device Developer Guide
 
@@ -67,8 +67,8 @@ När din enhet eller modul har implementerats kan du använda [Azure IoT Explore
 Nu när du har lärt dig om IoT Plug and Play enhets utveckling kan du lägga till några ytterligare resurser:
 
 - [Digitalt flätat definitions språk (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
-- [C (enhets-SDK)](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
-- [IoT-REST API](https://docs.microsoft.com/rest/api/iothub/device)
+- [C (enhets-SDK)](/azure/iot-hub/iot-c-sdk-ref/)
+- [IoT-REST API](/rest/api/iothub/device)
 - [Modell komponenter](concepts-components.md)
 - [Installera och Använd DTDL redigerings verktyg](howto-use-dtdl-authoring-tools.md)
 - [IoT Plug and Play service Developer Guide](concepts-developer-guide-service.md)

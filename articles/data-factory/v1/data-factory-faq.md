@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: de4661bcfd7106d515480e39dc4660f44f469a3d
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 81c1b84bff04e62f2dabeb3880f4103112139ee0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631707"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453560"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Vanliga frågor och svar om Azure Data Factory
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "92631707"
 
 ## <a name="general-questions"></a>Allmänna frågor
 ### <a name="what-is-azure-data-factory"></a>Vad är Azure Data Factory?
-Data Factory är en molnbaserad data integrerings tjänst som **automatiserar flytt och transformering av data** . Precis som en fabrik som kör utrustning för att ta råmaterial och omvandla dem till färdiga varor, Data Factory dirigerar befintliga tjänster som samlar in rå data och omvandlar dem till information som är klar att använda.
+Data Factory är en molnbaserad data integrerings tjänst som **automatiserar flytt och transformering av data**. Precis som en fabrik som kör utrustning för att ta råmaterial och omvandla dem till färdiga varor, Data Factory dirigerar befintliga tjänster som samlar in rå data och omvandlar dem till information som är klar att använda.
 
 Med Data Factory kan du skapa data drivna arbets flöden för att flytta data mellan både lokala och molnbaserade data lager samt bearbeta/transformera data med hjälp av beräknings tjänster som Azure HDInsight och Azure Data Lake Analytics. När du har skapat en pipeline som utför den åtgärd som du behöver kan du schemalägga den så att den körs regelbundet (varje timme, varje dag, varje vecka osv.).   
 
@@ -41,7 +41,7 @@ Se pris information för [Data Factory][adf-pricing-details] för Azure Data Fac
 * En själv studie kurs om hur du **omvandlar data** med HDInsight Hive-aktivitet. Se [bearbeta data genom att köra Hive-skript på Hadoop-kluster](data-factory-build-your-first-pipeline.md)
 
 ### <a name="what-is-the-data-factorys-region-availability"></a>Vad är Data Factory regions tillgänglighet?
-Data Factory finns i **västra USA** och **Nord Europa** . De beräknings-och lagrings tjänster som används av data fabriker kan finnas i andra regioner. Se [regioner som stöds](data-factory-introduction.md#supported-regions).
+Data Factory finns i **västra USA** och **Nord Europa**. De beräknings-och lagrings tjänster som används av data fabriker kan finnas i andra regioner. Se [regioner som stöds](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>Vilka är gränserna för antalet data fabriker/pipelines/Activities/data uppsättningar?
 Se avsnittet **Azure Data Factory gränser** i artikeln om [begränsningar, kvoter och begränsningar för Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) .
@@ -72,7 +72,7 @@ Följande tabell innehåller en lista över beräknings miljöer som stöds av D
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning Studio (klassisk)](data-factory-compute-linked-services.md#azure-machine-learning-studio-classic-linked-service) |[Studio (klassiska) aktiviteter: batch-körning och uppdaterings resurs](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure Synapse Analytics (tidigare SQL Data Warehouse)](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service) [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Lagrad procedur](data-factory-stored-proc-activity.md) |
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure Synapse Analytics](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Lagrad procedur](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Hur jämför Azure Data Factory med SQL Server Integration Services (SSIS)? 
 Se [Azure Data Factory vs. SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) -presentationen från någon av våra MVP: er (Most Valuable profession ALS): Reza rad. Några av de senaste ändringarna i Data Factory kanske inte visas i bild däcket. Vi lägger kontinuerligt till fler funktioner till Azure Data Factory. Vi lägger kontinuerligt till fler funktioner till Azure Data Factory. Vi kommer att införliva dessa uppdateringar i jämförelsen av data integrerings tekniker från Microsoft senare i år.   
@@ -141,7 +141,7 @@ I exemplet ovan representerar otherLinkedServiceName1 och otherLinkedServiceName
 ### <a name="why-are-my-input-slices-not-in-ready-state"></a>Varför är mina indataportar inte i klart läge?
 Ett vanligt fel är att inte ställa in **extern** egenskap på **True** för indata-datauppsättningen när indata är externa i data fabriken (som inte produceras av data fabriken).
 
-I följande exempel behöver du bara ange **external** till true för **DataSet1** .  
+I följande exempel behöver du bara ange **external** till true för **DataSet1**.  
 
 **DataFactory1** Pipeline 1: DataSet1-> Activity1-> DataSet2-> Activity2-> dataset3 pipeline 2: dataset3-> Activity3-> dataset4
 

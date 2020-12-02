@@ -1,6 +1,6 @@
 ---
-title: Importera och exportera data mellan server lös Apache Spark pooler (för hands version) och SQL-pooler
-description: Den här artikeln innehåller information om hur du använder det anpassade anslutnings programmet för att flytta data mellan dedikerade SQL-pooler och Server lös Apache Spark pooler (för hands version).
+title: Importera och exportera data mellan server lös Apache Spark pooler och SQL-pooler
+description: Den här artikeln innehåller information om hur du använder det anpassade anslutnings programmet för att flytta data mellan dedikerade SQL-pooler och Server lös Apache Spark pooler.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: ee82fbaa9687e064747908600c7e5c9017f8f1a9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 178fc12fe8e8e20af8deb40c62990c279af4ab64
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323898"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452832"
 ---
 # <a name="introduction"></a>Introduktion
 
-Azure-Synapse Apache Spark till Synapse SQL Connector är utformad för att effektivt överföra data mellan server lös Apache Spark pooler (för hands version) och SQL-pooler i Azure Synapse. Azure Synapse-Apache Spark till Synapse SQL Connector fungerar bara på dedikerade SQL-pooler, den fungerar inte med SQL-poolen utan server.
+Azure Synapse-Apache Spark till Synapse SQL Connector är utformad för att effektivt överföra data mellan server lös Apache Spark pooler och SQL-pooler i Azure Synapse. Azure Synapse-Apache Spark till Synapse SQL Connector fungerar bara på dedikerade SQL-pooler, den fungerar inte med SQL-poolen utan server.
 
 ## <a name="design"></a>Design
 

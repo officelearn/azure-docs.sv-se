@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 5124e7084a8e878e54e594424ec0926410f002ca
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: eb290b8c154c40388bfb3e7f9cbac7b645aa9609
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682493"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452684"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Felsöka virtuell dator certifiering
 
@@ -474,7 +474,7 @@ Om alla avbildningar som tas från Azure Marketplace ska återanvändas måste d
 
 * För **Windows** generaliserar du Windows-avbildningar med hjälp av `sysreptool` .
 
-  Mer information om `sysreptool` verktyget finns i [Översikt över system förberedelse (Sysprep)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+  Mer information om `sysreptool` verktyget finns i [Översikt över system förberedelse (Sysprep)](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 ## <a name="datadisk-errors"></a>DataDisk-fel
 

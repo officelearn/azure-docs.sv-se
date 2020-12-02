@@ -1,14 +1,14 @@
 ---
 title: Översikt över den anslutna datorns Windows-agent
 description: Den här artikeln innehåller en detaljerad översikt över Azure Arc-aktiverade Server Agent som har stöd för övervakning av virtuella datorer i hybrid miljöer.
-ms.date: 09/30/2020
+ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8a66f99f535013b8aac52fdee43b91a8c734b10a
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 1bc9546e6db35153424ba670f8157adb86d19b71
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577591"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452960"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Översikt över Azure Arc-aktiverade Server Agent
 
@@ -31,7 +31,7 @@ Azure Connected Machine agent-paketet innehåller flera logiska komponenter, som
     * Gäst tilldelning lagras lokalt i 14 dagar. Om den anslutna dator agenten återansluter till tjänsten inom 14-dagars perioden tillämpas princip tilldelningarna igen.
     * Tilldelningar tas bort efter 14 dagar och omtilldelas inte till datorn efter 14-dagars perioden.
 
-* Tilläggs agenten hanterar VM-tillägg, inklusive installation, avinstallation och uppgradering. Tillägg laddas ned från Azure och kopieras till `%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads` mappen i Windows och för Linux till `/opt/GC_Ext/downloads` . I Windows installeras tillägget på följande sökväg `%SystemDrive%\Packages\Plugins\<extension>` och i Linux installeras tillägget på `/var/lib/waagent/<extension>` .
+* Tilläggs agenten hanterar VM-tillägg, inklusive installation, avinstallation och uppgradering. Tillägg laddas ned från Azure och kopieras till `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` mappen i Windows och för Linux till `/opt/GC_Ext/downloads` . I Windows installeras tillägget på följande sökväg `%SystemDrive%\Packages\Plugins\<extension>` och i Linux installeras tillägget på `/var/lib/waagent/<extension>` .
 
 ## <a name="download-agents"></a>Ladda ned agenter
 
@@ -90,7 +90,7 @@ Service märken:
 
 Er
 
-| Agentresurs | Beskrivning |
+| Agentresurs | Description |
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
@@ -100,7 +100,7 @@ Er
 
 För hands versioner (version 0,11 och lägre) kräver också åtkomst till följande URL: er:
 
-| Agentresurs | Beskrivning |
+| Agentresurs | Description |
 |---------|---------|
 |`agentserviceapi.azure-automation.net`|Gästkonfiguration|
 |`*-agentservice-prod-1.azure-automation.net`|Gästkonfiguration|
@@ -164,46 +164,46 @@ När du har installerat den anslutna dator agenten för Windows tillämpas följ
 
 * Följande installationsfiler skapas under installationen.
 
-    |Mapp |Beskrivning |
+    |Mapp |Description |
     |-------|------------|
     |%ProgramFiles%\AzureConnectedMachineAgent |Standard installations Sök väg som innehåller agentens stödfiler.|
     |%ProgramData%\AzureConnectedMachineAgent |Innehåller konfigurationsfilerna för agenten.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Innehåller de hämtade token.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Innehåller agent konfigurations filen `agentconfig.json` som registrerar registrerings informationen med tjänsten.|
-    |%SystemDrive%\Program Files\ArcConnectedMachineAgent\ExtensionService\GC | Installations Sök väg som innehåller gäst konfigurations agentens filer. |
+    |%ProgramFiles%\ArcConnectedMachineAgent\ExtensionService\GC | Installations Sök väg som innehåller gäst konfigurations agentens filer. |
     |%ProgramData%\GuestConfig |Innehåller principer (tillämpade) från Azure.|
-    |%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads | Tillägg laddas ned från Azure och kopieras här.|
+    |%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads | Tillägg laddas ned från Azure och kopieras här.|
 
 * Följande Windows-tjänster skapas på mål datorn under installationen av agenten.
 
-    |Tjänstnamn |Visningsnamn |Processnamn |Beskrivning |
+    |Tjänstnamn |Visningsnamn |Processnamn |Description |
     |-------------|-------------|-------------|------------|
     |himds |Azure Hybrid-Instance Metadata Service |himds.exe |Den här tjänsten implementerar IMDS (Azure instance metadata service) för att hantera anslutningen till Azure och den anslutna datorns Azure-identitet.|
     |DscService |Gäst konfigurations tjänst |dsc_service.exe |Kodbasen för önskad tillstånds konfiguration (DSC v2) som används i Azure för att implementera In-Guest principen.|
 
 * Följande miljövariabler skapas under Agent installationen.
 
-    |Namn |Standardvärde |Beskrivning |
+    |Name |Standardvärde |Beskrivning |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
 
 * Det finns flera loggfiler tillgängliga för fel sökning. De beskrivs i följande tabell.
 
-    |Loggas |Beskrivning |
+    |Logga |Description |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Innehåller information om agenternas (HIMDS) tjänst och interaktion med Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Innehåller utdata från azcmagent-verktygets kommandon när argumentet verbose (-v) används.|
     |%ProgramData%\GuestConfig\ gc_agent_logs \ gc_agent. log |Registrerar information om DSC-tjänstens aktivitet,<br> särskilt anslutningen mellan HIMDS-tjänsten och Azure Policy.|
     |% Program data% \GuestConfig\gc_agent_logs\gc_agent_telemetry.txt |Registrerar Detaljer om telemetri för DSC-tjänster och utförlig loggning.|
-    |%SystemDrive%\ProgramData\GuestConfig\ ext_mgr_logs|Registrerar information om tilläggs Agent komponenten.|
-    |%SystemDrive%\ProgramData\GuestConfig\ extension_logs\<Extension>|Registrerar information från det installerade tillägget.|
+    |%ProgramData%\GuestConfig\ ext_mgr_logs|Registrerar information om tilläggs Agent komponenten.|
+    |%ProgramData%\GuestConfig\ extension_logs\<Extension>|Registrerar information från det installerade tillägget.|
 
 * Den lokala säkerhets gruppen **hybrid agent tilläggs program** skapas.
 
 * Följande artefakter tas inte bort under avinstallationen av agenten.
 
-    * *%ProgramData%\AzureConnectedMachineAgent\Log
+    * %ProgramData%\AzureConnectedMachineAgent\Log
     * %ProgramData%\AzureConnectedMachineAgent och under kataloger
     * %ProgramData%\GuestConfig
 
@@ -215,7 +215,7 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
 
 * Följande installationsfiler skapas under installationen.
 
-    |Mapp |Beskrivning |
+    |Mapp |Description |
     |-------|------------|
     |/var/opt/azcmagent/ |Standard installations Sök väg som innehåller agentens stödfiler.|
     |/opt/azcmagent/ |
@@ -227,14 +227,14 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
 
 * Följande daemonar skapas på mål datorn under installationen av agenten.
 
-    |Tjänstnamn |Visningsnamn |Processnamn |Beskrivning |
+    |Tjänstnamn |Visningsnamn |Processnamn |Description |
     |-------------|-------------|-------------|------------|
     |himdsd. service |Azure Hybrid-Instance Metadata Service |/opt/azcmagent/bin/himds |Den här tjänsten implementerar IMDS (Azure instance metadata service) för att hantera anslutningen till Azure och den anslutna datorns Azure-identitet.|
     |dscd. service |Gäst konfigurations tjänst |/opt/DSC/dsc_linux_service |Det här är den Desired State Configuration (DSC v2) kodbasen som används i Azure för att implementera In-Guest principen.|
 
 * Det finns flera loggfiler tillgängliga för fel sökning. De beskrivs i följande tabell.
 
-    |Loggas |Beskrivning |
+    |Logga |Description |
     |----|------------|
     |/var/opt/azcmagent/log/himds.log |Innehåller information om agenternas (HIMDS) tjänst och interaktion med Azure.|
     |/var/opt/azcmagent/log/azcmagent.log |Innehåller utdata från azcmagent-verktygets kommandon när argumentet verbose (-v) används.|
@@ -245,7 +245,7 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
 
 * Följande miljövariabler skapas under Agent installationen. Dessa variabler anges i `/lib/systemd/system.conf.d/azcmagent.conf` .
 
-    |Namn |Standardvärde |Beskrivning |
+    |Name |Standardvärde |Beskrivning |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||

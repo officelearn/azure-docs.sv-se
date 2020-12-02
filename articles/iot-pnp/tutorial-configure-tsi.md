@@ -7,16 +7,16 @@ ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ca2319a78fb4c0c720a21e97944d5b75ada9d008
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ad5c6f205fc832eb125e52b4135990fc58742e62
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015032"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453236"
 ---
 # <a name="preview-tutorial-create-and-connect-to-time-series-insights-gen2-to-store-visualize-and-analyze-iot-plug-and-play-device-telemetry"></a>För hands versions Självstudier: skapa och Anslut till Time Series Insights Gen2 för att lagra, visualisera och analysera IoT Plug and Play Device-telemetri
 
-I den här självstudien får du lära dig hur du skapar och konfigurerar en [Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/overview-what-is-tsi) -miljö (TSD) så att den integreras med din IoT plug and Play-lösning. Använd TSD för att samla in, bearbeta, lagra, fråga och visualisera Time Series-data på Sakernas Internet (IoT).
+I den här självstudien får du lära dig hur du skapar och konfigurerar en [Azure Time Series Insights Gen2](../time-series-insights/overview-what-is-tsi.md) -miljö (TSD) så att den integreras med din IoT plug and Play-lösning. Använd TSD för att samla in, bearbeta, lagra, fråga och visualisera Time Series-data på Sakernas Internet (IoT).
 
 Först etablerar du en TSD-miljö och ansluter din IoT Hub som en händelse källa för strömmande data. Sedan arbetar du med synkronisering av modeller för att redigera din [tids serie modell](../time-series-insights/concepts-model-overview.md) baserat på [DTDL-exempelfilerna (Digital based Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl) som du använde för temperatur styrenheten och termostat enheter.
 
@@ -39,7 +39,7 @@ Du kan undvika kravet på att installera Azure CLI lokalt genom att använda Azu
 
 ## <a name="prepare-your-event-source"></a>Förbered din händelse källa
 
-IoT-hubben som du skapade tidigare är din TSD-Miljös [händelse källa](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingestion-event-sources).
+IoT-hubben som du skapade tidigare är din TSD-Miljös [händelse källa](../time-series-insights/concepts-streaming-ingestion-event-sources.md).
 
 > [!IMPORTANT]
 > Inaktivera alla befintliga IoT Hub vägar. Det finns ett känt problem när du använder en IoT-hubb som en händelse källa för TSD med konfigurerad [routning](../iot-hub/iot-hub-devguide-messages-d2c.md#routing-endpoints) . Inaktivera tillfälligt alla Dirigerings slut punkter och när IoT-hubben är ansluten till TSD kan du återaktivera dem.
@@ -67,7 +67,7 @@ I det här avsnittet beskrivs hur du etablerar din Azure Time Series Insights Ge
 
 Följande kommando:
 
-* Skapar ett Azure Storage-konto för din miljös [kall butik](https://docs.microsoft.com/azure/time-series-insights/concepts-storage#cold-store), utformad för långsiktig kvarhållning och analys över historiska data.
+* Skapar ett Azure Storage-konto för din miljös [kall butik](../time-series-insights/concepts-storage.md#cold-store), utformad för långsiktig kvarhållning och analys över historiska data.
   * Ersätt `mytsicoldstore` med ett unikt namn för ditt kalla lagrings konto.
 * Skapar en Azure Time Series Insights Gen2-miljö, inklusive varm lagring med en kvarhållningsperiod på sju dagar och kall lagring för oändlig kvarhållning.
   * Ersätt `my-tsi-env` med ett unikt namn för din TSD-miljö.

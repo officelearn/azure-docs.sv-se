@@ -1,26 +1,26 @@
 ---
-title: Läs in Contosos detalj handels data till Synapse SQL
-description: Använd PolyBase-och T-SQL-kommandon för att läsa in två tabeller från Contosos detalj handels data till Synapse SQL.
+title: Läs in Contosos detalj handels data till dedikerade SQL-pooler
+description: Använd PolyBase-och T-SQL-kommandon för att läsa in två tabeller från Contosos detalj handels data till dedikerade SQL-pooler.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/17/2018
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 904ce55f376e42156b014056b1226512b2784742
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbe61444404b16a09a1e0d2bdead72ac53a60744
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461705"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452884"
 ---
-# <a name="load-contoso-retail-data-to-synapse-sql"></a>Läs in Contosos detalj handels data till Synapse SQL 
+# <a name="load-contoso-retail-data-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Läs in Contosos detalj handels data i dedikerade SQL-pooler i Azure Synapse Analytics
 
-I den här självstudien får du lära dig att använda PolyBase-och T-SQL-kommandon för att läsa in två tabeller från Contosos detalj handels data till Synapse SQL.
+I den här självstudien lär du dig att använda PolyBase-och T-SQL-kommandon för att läsa in två tabeller från Contosos detalj handels data till dedikerade SQL-pooler.
 
 I den här självstudien kommer du att:
 
@@ -30,11 +30,11 @@ I den här självstudien kommer du att:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-För att kunna köra den här självstudien behöver du ett Azure-konto som redan har en Synapse SQL. Om du inte har ett data lager som har skapats, se [skapa ett informations lager och ange brand Väggs regel på server nivå](create-data-warehouse-portal.md).
+För att kunna köra den här självstudien behöver du ett Azure-konto som redan har en särskild SQL-pool. Om du inte har ett data lager som har skapats, se [skapa ett informations lager och ange brand Väggs regel på server nivå](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Konfigurera data källan
 
-PolyBase använder externa T-SQL-objekt för att definiera platsen och attributen för externa data. De externa objekt definitionerna lagras i Synapse SQL. Data lagras externt.
+PolyBase använder externa T-SQL-objekt för att definiera platsen och attributen för externa data. De externa objekt definitionerna lagras i dedikerade SQL-pooler. Data lagras externt.
 
 ## <a name="create-a-credential"></a>Skapa en autentiseringsuppgift
 
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Optimera columnstore-komprimering
 
-Som standard lagrar Synapse SQL tabellen som ett grupperat columnstore-index. När en belastning är klar kanske vissa av data raderna inte komprimeras till columnstore.  Det kan bero på olika orsaker. Mer information finns i [Hantera columnstore-index](sql-data-warehouse-tables-index.md).
+Som standard lagrar dedikerade SQL-pooler tabellen som ett grupperat columnstore-index. När en belastning är klar kanske vissa av data raderna inte komprimeras till columnstore.  Det kan bero på olika orsaker. Mer information finns i [Hantera columnstore-index](sql-data-warehouse-tables-index.md).
 
 Om du vill optimera prestanda och columnstore-komprimering efter en belastning måste du återskapa tabellen för att tvinga columnstore-indexet att komprimera alla rader.
 

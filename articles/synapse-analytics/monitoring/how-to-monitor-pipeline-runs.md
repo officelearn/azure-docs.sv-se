@@ -6,19 +6,19 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 10/27/2020
+ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 61d860def7209908e65e9456a4bcde87eed522fc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dbd890117c78274392d5745e0563332371b404c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746381"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452573"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Använd Synapse Studio för att övervaka körnings pipelinen för arbets ytan
 
-Med Azure Synapse Analytics kan du skapa komplexa pipelines som kan automatisera och integrera data flytt, data omvandling och beräknings aktiviteter i din lösning. Du kan skapa och övervaka dessa pipelines med Synapse Studio (för hands version).
+Med Azure Synapse Analytics kan du skapa komplexa pipelines som kan automatisera och integrera data flytt, data omvandling och beräknings aktiviteter i din lösning. Du kan skapa och övervaka dessa pipelines med Synapse Studio.
 
 Den här artikeln förklarar hur du övervakar dina pipeline-körningar, vilket gör att du kan hålla koll på den senaste statusen, problemen och förloppet för dina pipeliner.
 
@@ -41,8 +41,6 @@ Välj **pipeline-körningar** om du vill visa listan över pipeliner som körs.
 Du kan filtrera listan över pipelines som körs till de som du är intresse rad av. Med filtren längst upp på skärmen kan du ange ett fält som du vill filtrera.
 
 Du kan till exempel filtrera vyn om du bara vill se pipelinen för pipelinen med namnet "helgdag":
-
-![Knappen Filtrera](./media/common/filter-button.png)
 
 ![Exempel filter](./media/how-to-monitor-pipeline-runs/filter-example.png)
 

@@ -1,6 +1,6 @@
 ---
-title: 'Övervaka arbets belastningen i SQL-poolen med DMV: er'
-description: 'Lär dig hur du övervakar arbets belastningen i Azure Synapse Analytics SQL-poolen och kör frågor med hjälp av DMV: er.'
+title: 'Övervaka din dedikerade arbets belastning i SQL-poolen med DMV: er'
+description: 'Lär dig hur du övervakar arbets belastningen för en dedikerad SQL-pool i Azure Synapse Analytics och kör frågor med hjälp av DMV: er.'
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: 70ce0d6aada2b03646500720b0eba980a1f2d8f8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 1992c3d525fc1f5a098e1969887a752233d47990
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515737"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453802"
 ---
-# <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Övervaka arbets belastningen för Azure Synapse Analytics SQL-poolen med DMV: er
+# <a name="monitor-your-azure-synapse-analytics-dedicated-sql-pool-workload-using-dmvs"></a>Övervaka arbets belastningen för Azure Synapse Analytics-dedikerad SQL-pool med DMV: er
 
 Den här artikeln beskriver hur du använder DMV: er (Dynamic Management views) för att övervaka din arbets belastning, inklusive att undersöka frågekörningen i SQL-poolen.
 

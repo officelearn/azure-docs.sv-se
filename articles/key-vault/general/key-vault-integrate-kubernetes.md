@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: b7d587f2be5141f7de82e9294b1fdb9fba4a6a41
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: c628ba780ae64fceb32322fdb2004d69e2ebf24b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488651"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452744"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Självstudie: Konfigurera och kör Azure Key Vault-providern för hemligheter Store CSI-drivrutinen på Kubernetes
 
@@ -81,7 +81,7 @@ Slutför avsnitten "skapa en resurs grupp," skapa AKS-kluster "och" Anslut till 
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. Använd följande kommando för att visa metadata för det AKS-kluster som du har skapat. Kopiera **principalId** , **clientId** , **subscriptionId** och **nodeResourceGroup** för senare användning. Om fråga-klustret inte skapades med hanterade identiteter aktiverade, kommer **principalId** och **clientId** att vara null. 
+1. Använd följande kommando för att visa metadata för det AKS-kluster som du har skapat. Kopiera **principalId**, **clientId**, **subscriptionId** och **nodeResourceGroup** för senare användning. Om fråga-klustret inte skapades med hanterade identiteter aktiverade, kommer **principalId** och **clientId** att vara null. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
@@ -121,21 +121,21 @@ Om du vill skapa ett eget nyckel valv och ange dina hemligheter följer du anvis
 
 Fyll i de saknade parametrarna i filen sample SecretProviderClass YAML. Följande parametrar måste anges:
 
-* **userAssignedIdentityID** : # [required] om du använder ett huvud namn för tjänsten använder du klient-ID för att ange vilken användardefinierad hanterad identitet som ska användas. Om du använder en användardefinierad identitet som den virtuella datorns hanterade identitet anger du identitetens klient-ID. Om värdet är tomt används den systemtilldelade identiteten för den virtuella datorn 
-* **keyvaultName** : namnet på ditt nyckel valv
-* **objekt** : behållaren för allt hemligt innehåll som du vill montera
-    * **objectName** : namnet på det hemliga innehållet
-    * **objectType** : objekt typ (hemlighet, nyckel, certifikat)
-* **resourceGroup** : namnet på resurs gruppen # [krävs för version < 0.0.4] resurs gruppen för nyckel valvet
-* **subscriptionId** : PRENUMERATIONS-ID för nyckel valvet # [krävs för version < 0.0.4] PRENUMERATIONS-ID för nyckel valvet
-* **tenantID** : klient-ID eller katalog-ID för nyckel valvet
+* **userAssignedIdentityID**: # [required] om du använder ett huvud namn för tjänsten använder du klient-ID för att ange vilken användardefinierad hanterad identitet som ska användas. Om du använder en användardefinierad identitet som den virtuella datorns hanterade identitet anger du identitetens klient-ID. Om värdet är tomt används den systemtilldelade identiteten för den virtuella datorn 
+* **keyvaultName**: namnet på ditt nyckel valv
+* **objekt**: behållaren för allt hemligt innehåll som du vill montera
+    * **objectName**: namnet på det hemliga innehållet
+    * **objectType**: objekt typ (hemlighet, nyckel, certifikat)
+* **resourceGroup**: namnet på resurs gruppen # [krävs för version < 0.0.4] resurs gruppen för nyckel valvet
+* **subscriptionId**: PRENUMERATIONS-ID för nyckel valvet # [krävs för version < 0.0.4] PRENUMERATIONS-ID för nyckel valvet
+* **tenantID**: klient-ID eller katalog-ID för nyckel valvet
 
 Dokumentation av alla obligatoriska fält finns här: [länk](https://github.com/Azure/secrets-store-csi-driver-provider-azure#create-a-new-azure-key-vault-resource-or-use-an-existing-one)
 
 Den uppdaterade mallen visas i följande kod. Ladda ned den som en YAML-fil och fyll i de obligatoriska fälten. I det här exemplet är nyckel valvet **contosoKeyVault5**. Det har två hemligheter, **secret1** och **secret2**.
 
 > [!NOTE] 
-> Om du använder hanterade identiteter ställer du in värdet **usePodIdentity** som *Sant* och anger **userAssignedIdentityID** -värdet som ett par citat tecken ( **""** ). 
+> Om du använder hanterade identiteter ställer du in värdet **usePodIdentity** som *Sant* och anger **userAssignedIdentityID** -värdet som ett par citat tecken (**""**). 
 
 ```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
@@ -362,4 +362,4 @@ Kontrol lera att innehållet i hemligheten visas.
 
 Information om hur du kontrollerar att nyckel valvet kan återskapas finns i:
 > [!div class="nextstepaction"]
-> [Aktivera mjuk borttagning](./soft-delete-cli.md)
+> [Aktivera mjuk borttagning](./key-vault-recovery.md)

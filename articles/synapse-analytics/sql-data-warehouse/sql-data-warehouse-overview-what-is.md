@@ -1,6 +1,6 @@
 ---
-title: Vad är Azure Synapse Analytics (tidigare SQL DW)?
-description: Azure Synapse Analytics (tidigare SQL DW) är en obegränsad analys tjänst som sammanför företags data lager hantering och stor data analys.
+title: Vad är en dedikerad SQL-pool (tidigare SQL DW)?
+description: Dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics är företags data lager funktionen i Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,37 +10,30 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 8840791c7b18d1efa499c2826a6eaf041a6da787
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2f9ab6dacde0259905368d8a0cb788dde77bbfb2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317487"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453610"
 ---
-# <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Vad är Azure Synapse Analytics (tidigare SQL DW)?
+# <a name="what-is-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Vad är en dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics?
+
+Azure Synapse Analytics är en analystjänst som sammanför informationslager i företagsklass och stordataanalys. Dedikerad SQL-pool (tidigare SQL DW) syftar på de företags data lager funktioner som är tillgängliga i Azure Synapse Analytics.
+
+
+
+![Dedikerad SQL-pool (tidigare SQL DW) i förhållande till Azure-Synapse](./media/sql-data-warehouse-overview-what-is/dedicated-sql-pool.png)
+
+
+
+Dedikerad SQL-pool (tidigare SQL DW) representerar en samling analys resurser som tillhandahålls när du använder Synapse SQL. Storleken på en dedikerad SQL-pool (tidigare SQL DW) bestäms av data lager enheter (DWU).
+
+När din dedikerade SQL-pool har skapats kan du importera stora data med enkla [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL-frågor och sedan använda kraften i den distribuerade Frågeredigeraren för att köra analys med höga prestanda. När du integrerar och analyserar data blir dedikerad SQL-pool (tidigare SQL DW) den enda versionen av sanningen som ditt företag kan räkna med för snabbare och mer robusta insikter.
 
 > [!NOTE]
->Utforska [dokumentationen för Azure Synapse (arbets ytans för hands version)](../overview-what-is.md).
->
-
-Azure Synapse är en analys tjänst som samlar ihop företags data lager hantering och stor data analys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala. Azure Synapse sammanför de två världarna med en enhetlig upplevelse för att mata in, förbereda, hantera och hämta data för omedelbara BI- och maskininlärningsbehov.
-
-Azure-Synapse har fyra komponenter:
-
-- Synapse SQL: fullständig T-SQL-baserad analys – allmänt tillgänglig
-  - Dedikerad SQL-pool (betala per DWU etablerad)
-  - SQL-pool utan server (betala per TB bearbetad) (för hands version)
-- Spark: djupt integrerad Apache Spark (förhands granskning)
-- Synapse-pipeline: hybrid data integrering (för hands version)
-- Studio: enhetlig användar upplevelse. (förhandsversion)
-
-## <a name="dedicated-sql-pool-in-azure-synapse"></a>Dedikerad SQL-pool i Azure Synapse
-
-Dedikerad SQL-pool syftar på de företags data lager funktioner som är allmänt tillgängliga i Azure Synapse.
-
-Dedikerad SQL-pool representerar en samling analys resurser som tillhandahålls när du använder Synapse SQL. Storleken på en dedikerad SQL-pool bestäms av data lager enheter (DWU).
-
-Importera Big data med enkla [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL-frågor och Använd sedan kraften i den distribuerade Frågeredigeraren för att köra analys med höga prestanda. När du integrerar och analyserar data, blir Synapse SQL den enda versionen av sanningen som ditt företag kan räkna på för snabbare och mer robusta insikter. 
+>Utforska [Azure Synapse Analytics-dokumentationen](../overview-what-is.md).
+> 
 
 ## <a name="key-component-of-a-big-data-solution"></a>Viktig komponent i en stor data lösning
 
@@ -48,9 +41,9 @@ Data lager är en viktig del av en molnbaserad stor data lösning från slut pun
 
 ![Lösning för informationslager](./media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png)
 
-I en lösning för molndata matas data in i stordatalager från olika källor. När data lagras i ett stordatalager förbereder och tränar Hadoop, Spark och maskininlärningsalgoritmer dessa data. När data är klara för komplex analys använder dedicerad SQL-pool PolyBase för att fråga stora data lager. PolyBase använder vanliga T-SQL-frågor för att hämta data till dedikerade tabeller i SQL-pooler.
+I en lösning för molndata matas data in i stordatalager från olika källor. När data lagras i ett stordatalager förbereder och tränar Hadoop, Spark och maskininlärningsalgoritmer dessa data. När data är klara för komplex analys använder dedicerad SQL-pool PolyBase för att fråga stora data lager. PolyBase använder vanliga T-SQL-frågor för att hämta data till dedikerade SQL-pooler (tidigare SQL DW)-tabeller.
 
-Dedikerad SQL-pool lagrar data i Relations tabeller med kolumn lagring. Det här formatet minskar kostnaderna för datalagring avsevärt och förbättrar frågeprestanda. När data lagras kan du köra analyser på massiv skala. Jämfört med traditionella databassystem slutförs analysfrågor på några sekunder i stället för flera minuter, eller på några timmar i stället för flera dagar.
+Dedikerad SQL-pool (tidigare SQL DW) lagrar data i Relations tabeller med kolumn lagring. Det här formatet minskar kostnaderna för datalagring avsevärt och förbättrar frågeprestanda. När data lagras kan du köra analyser på massiv skala. Jämfört med traditionella databassystem slutförs analysfrågor på några sekunder i stället för flera minuter, eller på några timmar i stället för flera dagar.
 
 Analysresultaten kan skickas till globala rapporteringsdatabaser eller program. Företagsanalytiker får sedan den information de behöver för att kunna fatta välgrundade affärsbeslut.
 

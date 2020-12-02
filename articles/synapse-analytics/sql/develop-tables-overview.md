@@ -10,44 +10,44 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1c12727e08c6ec9075aa6c1e256279ab7596417b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 33eb5977ecb373a0dba87c26cacea247f541be8f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324527"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452726"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Design tabeller med Synapse SQL i Azure Synapse Analytics
 
-Det här dokumentet innehåller viktiga begrepp för att utforma tabeller med dedikerad SQL-pool och Server lös SQL-pool (för hands version).  
+Det här dokumentet innehåller viktiga begrepp för att utforma tabeller med dedikerad SQL-pool och Server lös SQL-pool.  
 
-[SQL-poolen utan server (för hands version)](on-demand-workspace-overview.md) är en fråga till tjänsten över data i data Lake. Den har inte lokal lagring för data inmatning. [Dedikerad SQL-pool](best-practices-sql-pool.md) representerar en samling analys resurser som tillhandahålls när du använder Synapse SQL. Storleken på en dedikerad SQL-pool bestäms av data lager enheter (DWU).
+[SQL-poolen utan server](on-demand-workspace-overview.md) är en fråga till tjänsten över data i data Lake. Den har inte lokal lagring för data inmatning. [Dedikerad SQL-pool](best-practices-sql-pool.md) representerar en samling analys resurser som tillhandahålls när du använder Synapse SQL. Storleken på en dedikerad SQL-pool bestäms av data lager enheter (DWU).
 
 I följande tabell visas de avsnitt som är relevanta för dedikerad SQL-pool jämfört med en server lös SQL-pool:
 
-| Avsnitt                                                        | dedikerad SQL-pool | SQL-pool utan Server |
+| Avsnitt                                                        | dedikerad SQL-pool | serverlös SQL-pool |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
-| [Bestäm tabell kategori](#determine-table-category)        | Ja                | Nej                      |
+| [Bestäm tabell kategori](#determine-table-category)        | Ja                | Inga                      |
 | [Schema namn](#schema-names)                                | Ja                | Ja                     |
-| [Tabell namn](#table-names)                                  | Ja                | Nej                      |
-| [Tabell persistence](#table-persistence)                      | Ja                | Nej                      |
-| [Vanlig tabell](#regular-table)                              | Ja                | Nej                      |
+| [Tabell namn](#table-names)                                  | Ja                | Inga                      |
+| [Tabell persistence](#table-persistence)                      | Ja                | Inga                      |
+| [Vanlig tabell](#regular-table)                              | Ja                | Inga                      |
 | [Temporär tabell](#temporary-table)                          | Ja                | Ja                     |
 | [Extern tabell](#external-table)                            | Ja                | Ja                     |
 | [Datatyper](#data-types)                                    | Ja                | Ja                     |
-| [Distribuerade tabeller](#distributed-tables)                    | Ja                | Nej                      |
-| [Hash-distribuerade tabeller](#hash-distributed-tables)          | Ja                | Nej                      |
-| [Replikerade tabeller](#replicated-tables)                      | Ja                | Nej                      |
-| [Round-Robin-tabeller](#round-robin-tables)                    | Ja                | Nej                      |
-| [Vanliga distributions metoder för tabeller](#common-distribution-methods-for-tables) | Ja                | Nej                      |
+| [Distribuerade tabeller](#distributed-tables)                    | Ja                | Inga                      |
+| [Hash-distribuerade tabeller](#hash-distributed-tables)          | Ja                | Inga                      |
+| [Replikerade tabeller](#replicated-tables)                      | Ja                | Inga                      |
+| [Round-Robin-tabeller](#round-robin-tables)                    | Ja                | Inga                      |
+| [Vanliga distributions metoder för tabeller](#common-distribution-methods-for-tables) | Ja                | Inga                      |
 | [Partitioner](#partitions)                                    | Ja                | Ja                     |
-| [Columnstore-index](#columnstore-indexes)                  | Ja                | Nej                      |
+| [Columnstore-index](#columnstore-indexes)                  | Ja                | Inga                      |
 | [Statistik](#statistics)                                    | Ja                | Ja                     |
-| [Primär nyckel och unik nyckel](#primary-key-and-unique-key)    | Ja                | Nej                      |
-| [Kommandon för att skapa tabeller](#commands-for-creating-tables) | Ja                | Nej                      |
-| [Justera källdata med data lagret](#align-source-data-with-the-data-warehouse) | Ja                | Nej                      |
-| [Tabell funktioner som inte stöds](#unsupported-table-features)    | Ja                | Nej                      |
-| [Tabell storleks frågor](#table-size-queries)                    | Ja                | Nej                      |
+| [Primär nyckel och unik nyckel](#primary-key-and-unique-key)    | Ja                | Inga                      |
+| [Kommandon för att skapa tabeller](#commands-for-creating-tables) | Ja                | Inga                      |
+| [Justera källdata med data lagret](#align-source-data-with-the-data-warehouse) | Ja                | Inga                      |
+| [Tabell funktioner som inte stöds](#unsupported-table-features)    | Ja                | Inga                      |
+| [Tabell storleks frågor](#table-size-queries)                    | Ja                | Inga                      |
 
 ## <a name="determine-table-category"></a>Bestäm tabell kategori
 
@@ -76,7 +76,7 @@ Om du vill visa en tabells struktur i en dedikerad SQL-pool kan du använda fakt
 | Informations lagret wideworldimportersdw-tabell  | Tabell typ | dedikerad SQL-pool |
 |:-----|:-----|:------|:-----|
 | City | Dimension | WWI. DimCity |
-| Beställa | Fakta | WWI. FactOrder |
+| Beställning | Fakta | WWI. FactOrder |
 
 ## <a name="table-persistence"></a>Tabell persistence
 
@@ -206,7 +206,7 @@ För dedikerad SQL-pool stöds endast primär nyckel när icke-KLUSTRad och inte
 
 För dedikerad SQL-pool kan du skapa en tabell som en ny tom tabell. Du kan också skapa och fylla i en tabell med resultatet av en SELECT-instruktion. Följande är T-SQL-kommandon för att skapa en tabell.
 
-| T-SQL-uttryck | Beskrivning |
+| T-SQL-uttryck | Description |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Skapar en tom tabell genom att definiera alla tabell kolumner och alternativ. |
 | [SKAPA EXTERN TABELL](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Skapar en extern tabell. Definitionen av tabellen lagras i en dedikerad SQL-pool. Tabell data lagras i Azure Blob Storage eller Azure Data Lake Storage. |

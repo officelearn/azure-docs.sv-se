@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: c7a2373f0cf7005e465c2d3bd42817b3394a84de
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 27b0485fdd7b3c352a85fe7eb39fba33c53bf727
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510288"
+ms.locfileid: "96519220"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Azure HDInsight-accelererade skrivningar för Apache HBase
 
@@ -36,7 +36,7 @@ Funktionen accelererade skrivningar löser problemet med högre Skriv-fördröjn
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Så här aktiverar du påskyndade skrivningar för HBase i HDInsight
 
-Om du vill skapa ett nytt HBase-kluster med funktionen för accelererade skrivningar följer du stegen i [Konfigurera kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) tills du når **steg 3, lagring**. Under **Inställningar för metaarkiv** markerar du kryss rutan bredvid **Aktivera HBase-accelererade skrivningar**. Fortsätt sedan med de återstående stegen för att skapa kluster.
+Om du vill skapa ett nytt HBase-kluster med funktionen för accelererade skrivningar följer du stegen i [Konfigurera kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). På fliken **grundläggande** inställningar väljer du kluster typ som HBase, anger en komponent version och klickar sedan på kryss rutan bredvid **Aktivera HBase-accelererade skrivningar**. Fortsätt sedan med de återstående stegen för att skapa kluster.
 
 ![Aktivera alternativ för påskyndad skrivning för HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-create-hbase-wals.png)
 

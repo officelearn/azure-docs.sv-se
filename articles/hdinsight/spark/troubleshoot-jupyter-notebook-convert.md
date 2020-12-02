@@ -1,5 +1,5 @@
 ---
-title: Det går inte att skapa Jupyter Notebook i Azure HDInsight
+title: Det gick inte att skapa Jupyter Notebook i Azure HDInsight
 description: Lär dig mer om fel söknings stegen och möjliga lösningar för problem när du interagerar med Azure HDInsight-kluster.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,20 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
-ms.openlocfilehash: 50a77e240315796d0d4c98fc8fba8edfc9cd2b7d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 41eefd18419969c6e8c54ba68ce6c0d1eeb7832b
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545539"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519203"
 ---
-# <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Det går inte att skapa Jupyter Notebook i Azure HDInsight
+# <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Det gick inte att skapa Jupyter Notebook i Azure HDInsight
 
 Den här artikeln beskriver fel söknings steg och möjliga lösningar för problem med att interagera med Azure HDInsight-kluster.
 
 ## <a name="issue"></a>Problem
 
-När du startar en Jupyter Notebook visas ett fel meddelande som innehåller:
+När du startar en Jupyter Notebook får du ett fel meddelande som innehåller:
 
 ```error
 Cannot convert notebook to v5 because that version doesn't exist
@@ -50,7 +50,7 @@ En versions konflikt.
     version_info = (4, 0, 3)
     ```
 
-    Spara ändringarna genom att ange **CTRL + X** , **Y** , **RETUR** .
+    Spara ändringarna genom att ange **CTRL + X**, **Y**, **RETUR**.
 
 1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net/#/main/services/JUPYTER` , där `CLUSTERNAME` är namnet på klustret.
 

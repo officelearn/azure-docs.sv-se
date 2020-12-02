@@ -1,187 +1,288 @@
 ---
-title: Skydda din Synapse-arbetsyta
-description: I den här artikeln får du lära dig hur du använder roller och åtkomst kontroll för att styra aktiviteter och åtkomst till data i Synapse-arbetsytan.
+title: Så här konfigurerar du åtkomst kontroll för din Synapse-arbetsyta
+description: Den här artikeln lär dig hur du styr åtkomsten till en Synapse-arbetsyta med hjälp av Azure-roller, Synapse-roller, SQL-behörigheter och git-behörigheter.
 services: synapse-analytics
-author: matt1883
+author: billgib
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
-ms.date: 04/15/2020
-ms.author: mahi
+ms.date: 12/03/2020
+ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 25e191af919c5880045a6c4c7c79b675cf02520e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7243d24204c8e15ae4246718cafb24d31f804d02
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458712"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519186"
 ---
-# <a name="secure-your-synapse-workspace"></a>Skydda din Synapse-arbetsyta 
+# <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Så här konfigurerar du åtkomst kontroll för din Synapse-arbetsyta 
 
-I den här artikeln får du lära dig hur du använder roller och åtkomst kontroll för att styra aktiviteter och åtkomst till data. Genom att följa dessa anvisningar är åtkomst kontroll i Azure Synapse Analytics förenklad. Du behöver bara lägga till och ta bort användare till en av tre säkerhets grupper.
+Den här artikeln lär dig hur du styr åtkomsten till en Synapse-arbetsyta med hjälp av Azure-roller, Synapse-roller, SQL-behörigheter och git-behörigheter.   
 
-## <a name="overview"></a>Översikt
+I den här guiden skapar du en arbets yta och konfigurerar ett grundläggande åtkomst kontroll system som passar för många Synapse-projekt.  Den beskriver sedan mer avancerade alternativ för detaljerad kontroll om du behöver den.  
+
+Synapse åtkomst kontroll kan förenklas med hjälp av säkerhets grupper som är justerade med rollerna och personer i din organisation.  Du behöver bara lägga till och ta bort användare från säkerhets grupper för att hantera åtkomst.
+
+Innan du börjar den här genom gången kan du läsa [översikten över Synapse Access Control](./synapse-workspace-access-control-overview.md) för att bekanta dig med mekanismerna för åtkomst kontroll som används av Synapse.   
+
+## <a name="access-control-mechanisms"></a>Funktioner för åtkomst kontroll
+
+> [!NOTE]
+> Den metod som tas i den här guiden är att skapa flera säkerhets grupper och sedan tilldela roller till dessa grupper. När grupperna har kon figurer ATS behöver du bara hantera medlemskap i säkerhets grupperna för att kontrol lera åtkomsten till arbets ytan.
 
 För att skydda en Synapse-arbetsyta följer du ett mönster för att konfigurera följande objekt:
 
-- Azure-roller (t. ex. inbyggda som ägare, deltagare osv.)
-- Synapse-roller – dessa roller är unika för Synapse och baseras inte på Azure-roller. Det finns tre av följande roller:
-  - Administratör för Synapse-arbetsyta
-  - Synapse SQL-administratör
-  - Apache Spark för Azure Synapse Analytics-administratör
-- Åtkomst kontroll för data i Azure Data Lake Storage gen 2 (ADLSGEN2).
-- Åtkomst kontroll för Synapse SQL-och Spark-databaser
-
+- **Säkerhets grupper** för att gruppera användare med liknande åtkomst krav.
+- **Azure-roller**, för att styra vem som kan skapa och hantera SQL-pooler, Apache Spark pooler och integrerings körningar och åtkomst ADLS Gen2 lagring.
+- **Synapse-roller**, för att styra åtkomsten till publicerade kod artefakter, användning av Apache Spark beräknings resurser och integrerings körningar 
+- **SQL-behörigheter** för att kontrol lera åtkomsten till administrativa och data planet till SQL-pooler. 
+- **Git-behörigheter**, för att styra vem som kan komma åt kod artefakter i käll kontroll om du konfigurerar git-stöd för arbets ytan 
+ 
 ## <a name="steps-to-secure-a-synapse-workspace"></a>Steg för att skydda en Synapse-arbetsyta
 
-I det här dokumentet används standard namn för att förenkla anvisningarna. Ersätt dem med valfritt namn.
+I det här dokumentet används standard namn för att förenkla anvisningarna. Ersätt dem med namn som du väljer själv.
 
-|Inställning | Exempelvärde | Description |
+|Inställning | Standard namn | Beskrivning |
 | :------ | :-------------- | :---------- |
-| **Synapse-arbetsyta** | WS1 |  Namnet som Synapse-arbetsytan kommer att ha. |
-| **ADLSGEN2-konto** | STG1 | ADLS-kontot som ska användas med din arbets yta. |
-| **Container** | CNT1 | Den behållare i STG1 som arbets ytan ska använda som standard. |
-| **Active Directory-klient** | contoso | Active Directory-klientens namn.|
+| **Synapse-arbetsyta** | `workspace1` |  Namnet som Synapse-arbetsytan kommer att ha. |
+| **ADLSGEN2-konto** | `storage1` | ADLS-kontot som ska användas med din arbets yta. |
+| **Container** | `container1` | Den behållare i STG1 som arbets ytan ska använda som standard. |
+| **Active Directory-klient** | `contoso` | Active Directory-klientens namn.|
 ||||
 
 ## <a name="step-1-set-up-security-groups"></a>STEG 1: Konfigurera säkerhets grupper
 
-Skapa och fyll i tre säkerhets grupper för din arbets yta:
+>[!Note] 
+>Under förhands granskningen rekommenderades att skapa säkerhets grupper som har mappats till Synapse **SYNAPSE SQL-administratör** och **Synapse Apache Spark administratörs** roller.  Vi rekommenderar att du använder dessa nya funktioner för att kontrol lera åtkomsten till din arbets yta med introduktionen av nya, mer detaljerade Synapse RBAC-roller och-omfång.  De här nya rollerna och omfattningarna ger större flexibilitet i konfigurationen och känner av att utvecklarna ofta använder en blandning av SQL och spark i att skapa analys program och kan behöva beviljas åtkomst till vissa resurser i arbets ytan. [Läs mer](./synapse-workspace-synapse-rbac.md).
 
-- **WS1 \_ WSAdmins** – för användare som behöver fullständig kontroll över arbets ytan
-- **WS1 \_ SparkAdmins** – för de användare som behöver fullständig kontroll över Spark-aspekterna på arbets ytan
-- **WS1 \_ SQLAdmins** – för användare som behöver fullständig kontroll över arbets ytans SQL-aspekter
+Skapa följande säkerhets grupper för din arbets yta:
 
-## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>STEG 2: Förbered ditt Data Lake Storage Gen2-konto
+- **`workspace1_SynapseAdministrators`**, för användare som behöver fullständig kontroll över arbets ytan.  Lägg till dig själv i den här säkerhets gruppen, minst från början.
+- **`workspace1_SynapseContributors`**, för utvecklare som behöver utveckla, felsöka och publicera kod till tjänsten.   
+- **`workspace1_SynapseComputeOperators`**, för användare som behöver hantera och övervaka Apache Spark pooler och integrerings körningar.
+- **`workspace1_SynapseCredentialUsers`**, för användare som behöver felsöka och köra Orchestration-pipeliner med hjälp av autentiseringsuppgifterna för arbets ytans MSI (hanterad tjänst identitet) och Avbryt pipeliner körs.   
 
-Identifiera den här informationen om din lagring:
+Du tilldelar Synapse roller till dessa grupper i området för arbets ytan inom kort.  
 
-- ADLSGEN2-kontot som ska användas för din arbets yta. Det här dokumentet anropar det STG1.  STG1 anses vara "primär" lagrings konto för din arbets yta.
-- Behållaren i WS1 som din Synapse-arbetsyta ska använda som standard. Det här dokumentet anropar det CNT1.  Den här behållaren används för:
+Skapa även den här säkerhets gruppen: 
+- **`workspace1_SQLAdministrators`**, grupp för användare som behöver Active Directory administratörs behörighet inom SQL-pooler på arbets ytan. 
+
+`workspace1_SynapseSQLAdministrators`Gruppen kommer att användas när du konfigurerar SQL-behörigheter i SQL-pooler när du skapar dem. 
+
+För en grundläggande installation är dessa fem grupper tillräckliga. Senare kan du lägga till säkerhets grupper för att hantera användare som behöver mer specialiserad åtkomst eller ge användare endast åtkomst till specifika resurser.
+
+> [!NOTE]
+>- Lär dig hur du skapar en säkerhets grupp i [den här artikeln](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+>- Lär dig hur du lägger till en säkerhets grupp från en annan säkerhets grupp i [den här artikeln](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal).
+
+>[!Tip]
+>Enskilda Synapse-användare kan använda Azure Active Directory i Azure Portal för att se deras grupp medlemskap för att avgöra vilka roller de har beviljats.
+
+## <a name="step-2-prepare-your-adls-gen2-storage-account"></a>STEG 2: Förbered ditt ADLS Gen2 lagrings konto
+
+En Synapse-arbetsyta använder en standard lagrings behållare för:
   - Lagra säkerhetskopieringsfilerna för Spark-tabeller
   - Körnings loggar för Spark-jobb
 
-- Tilldela säkerhets grupperna följande roller på CNT1 med hjälp av Azure Portal
+Identifiera följande information om din lagring:
 
-  - Tilldela **WS1 \_ WSAdmins** till rollen **Storage BLOB data Contributor**
-  - Tilldela **WS1 \_ SparkAdmins** till rollen **Storage BLOB data Contributor**
-  - Tilldela **WS1 \_ SQLAdmins** till rollen **Storage BLOB data Contributor**
+- Det ADLS Gen2 konto som ska användas för din arbets yta. Det här dokumentet anropar det `storage1` . `storage1` anses "primär" lagrings konto för din arbets yta.
+- Den behållare i `workspace1` Synapse-arbetsytan som används som standard. Det här dokumentet anropar det `container1` . 
+
+- Med hjälp av Azure Portal tilldelar du följande Azure-roller `container1` till säkerhets grupperna 
+
+  - Tilldela rollen **Storage BLOB data Contributor** till `workspace1_SynapseAdmins` 
+  - Tilldela rollen **Storage BLOB data Contributor** till `workspace1_SynapseContributors`
+  - Tilldela rollen **Storage BLOB data Contributor** för att `workspace1_SynapseComputeOperators` **<< verifiera**  
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>STEG 3: skapa och konfigurera din Synapse-arbetsyta
 
- I Azure Portal skapar du en arbets yta för Synapse:
+I Azure Portal skapar du en arbets yta för Synapse:
 
 - Välj din prenumeration
-- Välj resurs grupp – du måste ha åtkomst till en resurs grupp som du har tilldelats **ägar** rollen för.
-- Namnge arbets ytans WS1
-- Välj STG1 för lagrings kontot –. Välj CNT1 för den behållare som används som "filesystem".
+- Välj eller skapa en resurs grupp som du har rollen Azure- **ägare** för.
+- Namnge arbets ytan `workspace1`
+- Välj `storage1` för lagrings kontot
+- Välj `container1` för den behållare som används som "filesystem".
 - Öppna WS1 i Synapse Studio
-- Välj **Hantera**  >  **Access Control** tilldela säkerhets grupperna till följande Synapse-roller.
-  - Tilldela **WS1- \_ WSAdmins** till Synapse arbets ytans administratörer
-  - Tilldela **WS1 \_ SparkAdmins** till Synapse Spark-administratörer
-  - Tilldela **WS1- \_ SQLAdmins** till Synapse SQL-administratörer
+- Navigera till **Hantera**  >  **Access Control** och tilldela följande Synapse-roller på *arbets ytans omfång* till säkerhets grupperna.
+  - Tilldela rollen **Synapse administratör** till `workspace1_SynapseAdministrators` 
+  - Tilldela rollen **Synapse Contributor** till `workspace1_SynapseContributors` 
+  - Tilldela rollen **SYNAPSE SQL Compute-operatör** till `workspace1_SynapseComputeOperators`
 
-## <a name="step-4-configure-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>STEG 4: Konfigurera Data Lake Storage Gen2 som ska användas av Synapse-arbetsytan
+## <a name="step-4-grant-the-workspace-msi-access-to-the-default-storage-container"></a>STEG 4: bevilja MSI-åtkomst till arbets ytan till standard lagrings behållaren
 
-Synapse-arbetsytan behöver åtkomst till STG1 och CNT1 så att den kan köra pipeliner och utföra system uppgifter.
-
-- Öppna Azure-portalen
-- Hitta STG1
-- Navigera till CNT1
-- Se till att MSI (Hanterad tjänstidentitet) för WS1 har tilldelats rollen **Storage BLOB data Contributor** på CNT1
-  - Om du inte ser den tilldelade tilldelar du den.
-  - MSI har samma namn som arbets ytan. I det här fallet är det &quot; WS1 &quot; .
-
-## <a name="step-5-configure-admin-access-for-synapse-sql"></a>STEG 5: Konfigurera administratörs åtkomst för Synapse SQL
+Om du vill köra pipeliner och utföra system uppgifter kräver Synapse att MSI-filen för arbets ytans hanterade tjänst identitet måste ha åtkomst till `container1` i standard ADLS Gen2s kontot.
 
 - Öppna Azure-portalen
-- Navigera till WS1
+- Leta upp lagrings kontot, `storage1` och sedan `container1`
+- Använd **Access Control (IAM)**, kontrol lera att rollen **Storage BLOB data Contributor** är kopplad till arbets ytans MSI
+  - Tilldela den om den inte är tilldelad.
+  - MSI har samma namn som arbets ytan. I den här artikeln skulle det vara `workspace1` .
+
+## <a name="step-5-grant-the-synapse-administrators-the-azure-contributor-role-on-the-workspace"></a>STEG 5: bevilja Synapse-administratörer rollen Azure Contributor på arbets ytan 
+
+För att kunna skapa SQL-pooler, Apache Spark pooler och integrerings körningar, måste användarna ha minst Azure Contributor-åtkomst på arbets ytan. Deltagar rollen tillåter också att dessa användare hanterar resurserna, inklusive pausa och skala.
+
+- Öppna Azure-portalen
+- Leta upp arbets ytan, `workspace1`
+- Tilldela **Azure Contributor** -rollen `workspace1` till `workspace1_SynapseAdministrators` . 
+
+## <a name="step-6-assign-sql-active-directory-admin-role"></a>STEG 6: tilldela administratörs rollen för SQL Active Directory
+
+Arbets stationens skapare konfigureras automatiskt som Active Directory administratör för arbets ytan.  Endast en enskild användare eller grupp kan tilldelas den här rollen. I det här steget tilldelar du Active Directory-administratören på arbets ytan till `workspace1_SynapseSQLAdministrators` säkerhets gruppen.  Om du tilldelar den här rollen får du den här gruppen privilegierad administratör åtkomst till alla SQL-pooler.   
+
+- Öppna Azure-portalen
+- Navigera till `workspace1`
 - Under **Inställningar** väljer du **SQL Active Directory admin**
-- Välj **Ange administratör** och välj WS1 \_ SQLAdmins
+- Välj **Ange administratör** och välj **`workspace1_SynapseSQLAdministrators`**
 
-## <a name="step-6-maintain-access-control"></a>STEG 6: Behåll åtkomst kontroll
+>[!Note]
+>Det här är valfritt.  Du kan välja att bevilja gruppen SQL-administratörer en mindre privilegie rad roll. Om du vill tilldela `db_owner` eller andra SQL-roller måste du köra skript på varje SQL-databas. 
 
-Konfigurationen är färdig.
+## <a name="step-7-grant-access-to-sql-pools"></a>STEG 7: bevilja åtkomst till SQL-pooler
 
-Nu kan du lägga till och ta bort användare i de tre säkerhets grupperna för att hantera åtkomst för användare.
+Som standard tilldelas alla användare som tilldelats rollen Synapse administratör också SQL `db_owner` -rollen på SQL-poolen utan server, inbyggd.
 
-Även om du kan tilldela användare till Synapse-roller manuellt, konfigureras det inte på ett konsekvent sätt. Lägg i stället till eller ta bort användare till säkerhets grupperna.
+Åtkomst till SQL-pooler för andra användare och för arbets ytans MSI kontrol leras med hjälp av SQL-behörigheter.  För att tilldela SQL-behörigheter krävs att SQL-skript körs på varje SQL-pool när den har skapats.  Det finns tre fall där du måste köra skripten:
+1. Ge andra användare åtkomst till den serverbaserade SQL-poolen, inbyggd
+2. Bevilja användare åtkomst till dedikerade pooler
+3. Beviljar MSI-åtkomst till en SQL-pool för arbets ytan för att aktivera pipelines som kräver att SQL-adresspoolen har åtkomst.
 
-## <a name="step-7-verify-access-for-users-in-the-roles"></a>STEG 7: kontrol lera åtkomsten för användare i rollerna
+Exempel på SQL-skript finns nedan.
 
-Användare i varje roll behöver utföra följande steg:
+Om du vill bevilja åtkomst till en dedikerad SQL-pool kan skripten köras av arbets ytans skapare eller någon annan medlem i `workspace1_SynapseSQL Administrators` gruppen.  
 
-| Antal | Steg | Arbetsytesadministratörer | Spark-administratörer | SQL-administratörer |
-| --- | --- | --- | --- | --- |
-| 1 | Ladda upp en Parquet-fil till CNT1 | JA | JA | JA |
-| 2 | Läs filen Parquet med Server lös SQL-pool | JA | NO | JA |
-| 3 | Skapa en server lös Apache Spark-pool | JA [1] | JA [1] | NO  |
-| 4 | Läser filen Parquet med en bärbar dator | JA | JA | NO |
-| 5 | Skapa en pipeline från antecknings boken och Utlös pipelinen för att köras nu | JA | NO | NO |
-| 6 | Skapa en dedikerad SQL-pool och kör ett SQL-skript, till exempel &quot; Select 1&quot; | JA [1] | NO | JA [1] |
+För att bevilja åtkomst till den serverbaserade SQL-poolen, "inbyggd", kan skripten dessutom köras av valfri medlem i  `workspace1_SynapseAdministrators` gruppen. 
+
+> [!TIP]
+> Stegen nedan måste köras för **varje** SQL-pool för att ge användarna åtkomst till alla SQL-databaser, förutom i avsnittet [arbets ytan-begränsad behörighet](#workspace-scoped-permission) där du kan tilldela användare en sysadmin-roll.
+
+### <a name="step-71-serverless-sql-pools"></a>STEG 7,1: SQL-pooler utan Server
+
+I det här avsnittet hittar du exempel på hur du ger en användare behörighet till en viss databas eller fullständiga Server behörigheter.
 
 > [!NOTE]
-> [1] om du vill skapa SQL-eller Spark-pooler måste användaren ha minst deltagar rollen i Synapse-arbetsytan.
->
- 
->[!TIP]
-> - Vissa steg kan inte avsiktligt tillåtas beroende på rollen.
-> - Tänk på att vissa uppgifter kan Miss lyckas om inte säkerheten har kon figurer ATS fullständigt. Dessa uppgifter anges i tabellen.
+> I skript exemplen ersätter du *alias* med alias för den användare eller grupp som beviljas åtkomst och *domän* med den företags domän som du använder.
 
-## <a name="step-8-network-security"></a>STEG 8: nätverks säkerhet
+#### <a name="pool-scoped-permission"></a>Pool-begränsad behörighet
 
-Konfigurera arbets ytans brand vägg, virtuellt nätverk och [privat länk](../../azure-sql/database/private-endpoint-overview.md).
+Följ stegen i det här exemplet om du vill bevilja åtkomst till en användare till en **enskild** server utan server SQL-pool:
 
-## <a name="step-9-completion"></a>STEG 9: Slutför
+1. Skapa inloggning
+
+    ```sql
+    use master
+    go
+    CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
+    go
+    ```
+
+2. Skapa användare
+
+    ```sql
+    use yourdb -- Use your DB name
+    go
+    CREATE USER alias FROM LOGIN [alias@domain.com];
+    ```
+
+3. Lägg till användare till medlemmar i den angivna rollen
+
+    ```sql
+    use yourdb -- Use your DB name
+    go
+    alter role db_owner Add member alias -- Type USER name from step 2
+    ```
+
+#### <a name="workspace-scoped-permission"></a>Arbets yta-begränsad behörighet
+
+Om du vill ge fullständig åtkomst till **alla** SQL-pooler utan server på arbets ytan använder du skriptet i det här exemplet:
+
+```sql
+CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
+ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+```
+
+### <a name="step-72-dedicated-sql-pools"></a>STEG 7,2: dedikerade SQL-pooler
+
+Om du vill bevilja åtkomst till en **enda** dedikerad SQL-pool följer du de här stegen i Synapse SQL Script Editor:
+
+1. Skapa användaren i databasen genom att köra följande kommando på mål databasen som väljs med hjälp av list rutan *Anslut till* :
+
+    ```sql
+    --Create user in SQL DB
+    CREATE USER [<alias@domain.com>] FROM EXTERNAL PROVIDER;
+    ```
+
+2. Ge användaren en roll för att få åtkomst till databasen:
+
+    ```sql
+    --Create user in SQL DB
+    EXEC sp_addrolemember 'db_owner', '<alias@domain.com>';
+    ```
+
+> [!IMPORTANT]
+> *db_datareader* och *db_datawriter* kan arbeta med Läs-/Skriv behörighet om du inte vill tilldela *db_owner* behörighet.
+> För att en spark-användare ska kunna läsa och skriva direkt från Spark till eller från en SQL-pool krävs *db_owner* behörighet.
+
+När du har skapat användarna kontrollerar du att SQL-poolen utan server kan fråga lagrings kontot.
+
+### <a name="step-73-sl-access-control-for-workspace-pipeline-runs"></a>STEG 7,3: SL-åtkomstkontroll för arbets ytans pipelines körs
+
+### <a name="workspace-managed-identity"></a>Hanterad identitet för arbets yta
+
+> [!IMPORTANT]
+> Om du vill köra pipeliner som innehåller data uppsättningar eller aktiviteter som refererar till en SQL-pool måste arbets ytans identitet beviljas åtkomst till SQL-poolen.
+
+Kör följande kommandon på varje SQL-pool för att tillåta att den arbetsytans hanterade identiteten kör pipeliner på SQL-poolens databas:
+
+```sql
+--Create user in DB
+CREATE USER [<workspacename>] FROM EXTERNAL PROVIDER;
+
+--Granting permission to the identity
+GRANT CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
+```
+
+Du kan ta bort den här behörigheten genom att köra följande skript i samma SQL-pool:
+
+```sql
+--Revoking permission to the identity
+REVOKE CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
+
+--Deleting the user in the DB
+DROP USER [<workspacename>];
+```
+
+## <a name="step-8-add-users-to-security-groups"></a>STEG 8: lägga till användare i säkerhets grupper
+
+Den inledande konfigurationen för ditt åtkomst kontroll system har slutförts.
+
+Om du vill hantera åtkomst kan du lägga till och ta bort användare i de säkerhets grupper som du har konfigurerat.  Även om du kan tilldela användare till Synapse-roller manuellt, så konfigurerar den inte sina behörigheter konsekvent. Lägg i stället till eller ta bort användare till säkerhets grupperna.
+
+## <a name="step-9-network-security"></a>STEG 9: nätverks säkerhet
+
+Som ett sista steg för att skydda arbets ytan bör du skydda nätverks åtkomsten med:
+- [Arbets ytans brand vägg](./synapse-workspace-ip-firewall.md)
+- [Hanterat virtuellt nätverk](./synapse-workspace-managed-vnet.md) 
+- [Privata slut punkter](./synapse-workspace-managed-private-endpoints.md)
+- [Private Link](../../azure-sql/database/private-endpoint-overview.md)
+
+## <a name="step-10-completion"></a>STEG 10: Slutför Ande
 
 Din arbets yta är nu helt konfigurerad och säker.
 
-## <a name="how-roles-interact-with-synapse-studio"></a>Hur roller interagerar med Synapse Studio
+## <a name="supporting-more-advanced-scenarios"></a>Stöd för mer avancerade scenarier
 
-Synapse Studio fungerar olika beroende på användar roller. Vissa objekt kan vara dolda eller inaktiverade om en användare inte har tilldelats roller som ger lämplig åtkomst. I följande tabell sammanfattas effekterna på Synapse Studio.
+Den här guiden fokuserar på att konfigurera ett grundläggande åtkomst kontroll system. Du har stöd för mer avancerade scenarier genom att skapa ytterligare säkerhets grupper och tilldela dessa grupper mer detaljerade roller i mer exakta områden. Överväg följande fall:
 
-| Uppgift | Arbets ytans administratörer | Spark-administratörer | SQL-administratörer |
-| --- | --- | --- | --- |
-| Öppna Synapse Studio | JA | JA | JA |
-| Visa Home Hub | JA | JA | JA |
-| Visa data hubb | JA | JA | JA |
-| Data Hub/se länkade ADLS Gen2 konton och behållare | JA [1] | JA [1] | JA [1] |
-| Data Hub/se databaser | JA | JA | JA |
-| Data Hub/se objekt i databaser | JA | JA | JA |
-| Data Hub/Access-data i Synapse SQL-databaser | JA   | NO   | JA   |
-| Data Hub/Access-data i databaser med SQL-pooler utan Server | JA [2]  | NO  | JA [2]  |
-| Data Hub/Access-data i Spark-databaser | JA [2] | JA [2] | JA [2] |
-| Använd utveckla hubben | JA | JA | JA |
-| Utveckla hubb/Author SQL-skript | JA | NO | JA |
-| Utveckla jobb definitioner för hubb/Author Spark | JA | JA | NO |
-| Utveckla hubbar/författar antecknings böcker | JA | JA | NO |
-| Utveckla hubb/författar data flöden | JA | NO | NO |
-| Använda Orchestration-hubben | JA | JA | JA |
-| Dirigera hubb/Använd pipeliner | JA | NO | NO |
-| Använd hantera hubb | JA | JA | JA |
-| Hantera hubb/Synapse SQL | JA | NO | JA |
-| Hantera hubb/Spark-pooler | JA | JA | NO |
-| Hantera hubb/utlösare | JA | NO | NO |
-| Hantera hubb/länkade tjänster | JA | JA | JA |
-| Hantera hubb/Access Control (tilldela användare till Synapse-arbetsytans roller) | JA | NO | NO |
-| Hantera nav/integrerings körningar | JA | JA | JA |
-| Använd Monitor Hub | JA | JA | JA |
-| Övervaka hubb/dirigering/pipeline-körningar  | JA | NO | NO |
-| Övervaka hubb/dirigering/Utlös ande körningar  | JA | NO | NO |
-| Övervaka hubb/Orchestration/integrerings körningar  | JA | JA | JA |
-| Övervaka nav/aktiviteter/Spark-program | JA | JA | NO  |
-| Övervaka hubb/aktiviteter/SQL-begäranden | JA | NO | JA |
-| Övervaka hubb/aktiviteter/Spark-pooler | JA | JA | NO  |
-| Övervaka hubb/utlösare | JA | NO | NO |
-| Hantera hubb/länkade tjänster | JA | JA | JA |
-| Hantera hubb/Access Control (tilldela användare till Synapse-arbetsytans roller) | JA | NO | NO |
-| Hantera nav/integrerings körningar | JA | JA | JA |
+**Aktivera git-stöd** för arbets ytan för mer avancerade utvecklings scenarier, inklusive CI/CD.  I git-läge avgör git-behörighet om en användare kan genomföra ändringar i sin arbets gren.  Publicering till tjänsten äger rum endast från samarbets grenen.  Överväg att skapa en säkerhets grupp för utvecklare som behöver utveckla och felsöka uppdateringar i en arbets gren, men behöver inte publicera ändringar i Live-tjänsten.
 
+**Begränsa åtkomst till utvecklare** till vissa resurser.  Skapa ytterligare detaljerade säkerhets grupper för utvecklare som bara behöver åtkomst till vissa resurser.  Tilldela dessa grupper lämpliga Synapse-roller som är begränsade till vissa spark-pooler, integrations körningar eller autentiseringsuppgifter.
 
-> [!NOTE]
-> [1] åtkomst till data i behållare beror på åtkomst kontrollen i ADLS Gen2. </br>
-> [2] SQL-OD-tabeller och Spark-tabeller lagrar sina data i ADLS Gen2 och åtkomst kräver rätt behörighet för ADLS Gen2.
+**Begränsa operatörer från åtkomst till kod artefakter**.  Skapa säkerhets grupper för operatörer som behöver övervaka drift status för Synapse-beräknings resurser och Visa loggar, men som inte behöver åtkomst till kod eller för att publicera uppdateringar till tjänsten. Tilldela de här grupperna beräknings operator rollen begränsad till vissa spark-pooler och integrerings körningar.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-Skapa en [Synapse-arbetsyta](../quickstart-create-workspace.md)
+Lär dig [hur du hanterar SYNAPSE RBAC-roll tilldelningar](./how-to-manage-synapse-rbac-role-assignments.md) skapa en [Synapse-arbetsyta](../quickstart-create-workspace.md)

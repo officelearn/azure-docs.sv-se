@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: negoe
-ms.reviewer: negoe,celested
+ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: d27498748f03fb101d165351ec80c77d57f78f1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da1ea6462d22242d23629bcec192d7760314dfed
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88141507"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444803"
 ---
 # <a name="national-clouds"></a>Nationella moln
 
@@ -60,8 +60,8 @@ I följande tabell visas de grundläggande URL: erna för de Azure AD-slutpunkte
 
 Du kan skapa förfrågningar till Azure AD-auktorisering eller token-slutpunkter med hjälp av lämplig region-/regionsspecifika bas-URL. Till exempel för Azure Germany:
 
-  - Vanlig slut punkt för auktorisering är `https://login.microsoftonline.de/common/oauth2/v2.0/authorize` .
-  - Vanlig slut punkt för token är `https://login.microsoftonline.de/common/oauth2/v2.0/token` .
+- Vanlig slut punkt för auktorisering är `https://login.microsoftonline.de/common/oauth2/v2.0/authorize` .
+- Vanlig slut punkt för token är `https://login.microsoftonline.de/common/oauth2/v2.0/token` .
 
 För program med en enda klient ersätter du "common" i föregående URL: er med ditt klient-ID eller namn. Ett exempel är `https://login.microsoftonline.de/contoso.com`.
 
@@ -76,9 +76,10 @@ Om du vill lära dig hur du skapar ett program med hjälp av Microsoft Identity 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om:
+Lär dig hur du använder [Microsoft Authentication Library (MSAL) i en nationell moln miljö](msal-national-cloud.md).
+
+National Cloud-dokumentation:
 
 - [Azure Government](../../azure-government/index.yml)
 - [Azure Kina 21Vianet](/azure/china/)
 - [Azure Tyskland](../../germany/index.yml)
-- [Grundläggande Azure AD-autentisering](./authentication-vs-authorization.md)

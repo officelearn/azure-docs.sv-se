@@ -3,16 +3,16 @@ title: Exempel på klass typer på Azure Lab Services | Microsoft Docs
 description: Tillhandahåller vissa typer av klasser som du kan använda för att ställa in labb med Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1c2caac35125c3f69c2257750bac417971af5dbd
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 7ebc89c040be732c230f0c3f54f68fb91466eb68
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490992"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436410"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Översikt över klass typer – Azure Lab Services
 
-Med Azure Lab Services kan du snabbt konfigurera klass rums labb miljöer i molnet. Artiklar i det här avsnittet ger vägledning om hur du ställer in flera olika typer av klass rums labb med Azure Lab Services.
+Med Azure Lab Services kan du snabbt konfigurera klass rums labb miljöer i molnet. Artiklar i det här avsnittet innehåller information om hur du konfigurerar flera typer av labb med Azure Lab Services.
 
 ## <a name="big-data-analytics"></a>Stordataanalyser
 Du kan ställa in ett GPU-labb för att lära en stor data analys klass. Med den här typen av klass kan studenter lära sig att hantera stora mängder data och använda algoritmer för maskin-och statistiska inlärning för att härleda data insikter. Ett viktigt mål för studenter är att lära sig att använda verktyg för data analys som Apache Hadoop programmets program varu paket med öppen källkod som innehåller verktyg för att lagra, hantera och bearbeta Big data. 

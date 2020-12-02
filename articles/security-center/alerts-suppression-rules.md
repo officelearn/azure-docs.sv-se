@@ -1,6 +1,6 @@
 ---
 title: Använd undervisnings regler för varningar för att förhindra falska positiva identifieringar eller andra oönskade säkerhets varningar i Azure Security Center.
-description: Den här artikeln förklarar hur du använder Azure Security Centers undertrycks regler för att dölja oönskade Azure Defender-aviseringar
+description: Den här artikeln förklarar hur du använder Azure Security Centers undertrycks regler för att dölja oönskade säkerhets varningar
 author: memildin
 manager: rkarlin
 services: security-center
@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: b954d6ed29074aa9261611f0d1bb79b5917d03f2
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 4f5049d1589b741e60db69c782107cab1f047b77
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372667"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436801"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Ignorera aviseringar från Azure Defender
 
@@ -60,7 +60,7 @@ Så här skapar du en regel direkt i Azure Portal:
 
 1. Gå till sidan för säkerhetsvarningar i Security Center:
 
-    - Leta upp den avisering som du inte vill se längre och gå till menyn med tre punkter (...) för aviseringen och välj **skapa undertrycks regel** :
+    - Leta upp den avisering som du inte vill se längre och gå till menyn med tre punkter (...) för aviseringen och välj **skapa undertrycks regel**:
 
         [![* * Skapa undertrycks regel * * alternativ](media/alerts-suppression-rules/auto-dismiss-future-option.png)](media/alerts-suppression-rules/auto-dismiss-future-option.png#lightbox)
 
@@ -129,7 +129,7 @@ Relevanta HTTP-metoder för undertrycks regler i REST API är:
 
 - **Lägg** till: om du vill skapa eller uppdatera en undertrycks regel i en angiven prenumeration.
 
-- **Hämta** :
+- **Hämta**:
 
     - För att visa en lista med alla regler som kon figurer ATS för en angiven prenumeration. Den här metoden returnerar en matris med tillämpliga regler.
 
@@ -137,7 +137,7 @@ Relevanta HTTP-metoder för undertrycks regler i REST API är:
 
     - För att simulera effekten av en undertrycks regel fortfarande i Design fasen. Det här anropet identifierar vilken av dina befintliga aviseringar som skulle ha stängts om regeln hade varit aktiv.
 
-- **Ta bort** : tar bort en befintlig regel (men ändrar inte statusen för aviseringar som redan har avslagits av den).
+- **Ta bort**: tar bort en befintlig regel (men ändrar inte statusen för aviseringar som redan har avslagits av den).
 
 Fullständig information och användnings exempel finns i [API-dokumentationen](/rest/api/securitycenter/). 
 

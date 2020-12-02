@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 955e77bc947baed889de24ce34e7acec737164f6
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: f13dfa4221f8f09c24cce3a451f3180d15ee3b99
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097311"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435765"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Gör så här: planera din hybrid Azure Active Directory delta-implementering
 
@@ -30,7 +30,7 @@ När du börjar använda dina enheter med Azure Active Directory maximerar du an
 
 Om du har en lokal Active Directory (AD)-miljö och vill ansluta till dina AD-domänanslutna datorer till Azure AD kan du göra detta genom att göra en hybrid Azure AD-anslutning. Den här artikeln innehåller relaterade steg för att implementera en hybrid Azure AD-anslutning i din miljö. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du är bekant med [introduktionen till enhets identitets hantering i Azure Active Directory](./overview.md).
 
@@ -63,7 +63,7 @@ För enheter som kör operativ systemet Windows-skrivbordet visas den version so
 
 ### <a name="windows-down-level-devices"></a>Windows-enheter på nivån
 
-- Windows 8.1
+- Windows 8,1
 - Support för Windows 7 upphörde 14 januari 2020. Mer information finns i [Support för Windows 7 har avslut ATS](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
 - Windows Server 2012 R2
 - Windows Server 2012
@@ -105,6 +105,8 @@ Om dina Windows 10-domänanslutna enheter är [registrerade i Azure AD](overview
 - Hybrid Azure AD-anslutning stöds för FIPS-kompatibla TPM 2,0 och stöds inte för TPM 1,2. Om dina enheter har FIPS-kompatibel TPM 1,2 måste du inaktivera dem innan du fortsätter med hybrid Azure AD-anslutning. Microsoft tillhandahåller inga verktyg för att inaktivera FIPS-läge för TPM eftersom det är beroende av TPM-tillverkaren. Kontakta maskin varans OEM om du vill ha hjälp. 
 
 - Från och med Windows 10 1903-versionen används inte TPM 1,2 med hybrid Azure AD-anslutning och enheter med de här TPM: erna anses som om de inte har någon TPM.
+
+- UPN-ändringar stöds bara vid start av Windows 10 2004 Update. För enheter före uppdatering av Windows 10 2004 skulle användare ha SSO-och villkorliga åtkomst problem på sina enheter. För att lösa det här problemet måste du koppla från enheten från Azure AD (kör "dsregcmd/Leave" med utökade privilegier) och återansluta (sker automatiskt). Användare som loggar in med Windows Hello för företag möter dock inte det här problemet.
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Granska kontrollerad validering av hybrid Azure AD-anslutning
 
@@ -162,12 +164,12 @@ Ibland kan dina lokala AD-användares UPN skilja sig från dina Azure AD-UPN. I 
 
 Tabellen nedan innehåller information om stöd för dessa lokala AD-UPN i Windows 10 hybrid Azure AD Join
 
-| Typ av lokalt AD-UPN | Domäntyp | Windows 10-version | Beskrivning |
+| Typ av lokalt AD-UPN | Domäntyp | Windows 10-version | Description |
 | ----- | ----- | ----- | ----- |
 | Dirigera | Federerade | Från 1703-version | Allmänt tillgänglig |
 | Ej dirigerbart | Federerade | Från 1803-version | Allmänt tillgänglig |
-| Dirigera | Hanterade | Från 1803-version | Azure AD-SSPR på Windows-låsskärm som är allmänt tillgängligt stöds inte |
-| Ej dirigerbart | Hanterade | Stöds inte | |
+| Dirigera | Hanterad | Från 1803-version | Azure AD-SSPR på Windows-låsskärm som är allmänt tillgängligt stöds inte |
+| Ej dirigerbart | Hanterad | Stöds inte | |
 
 ## <a name="next-steps"></a>Nästa steg
 

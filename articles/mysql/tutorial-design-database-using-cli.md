@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 06d8b7cdd6edb6ae3dad27a8a5f50443e3fc8969
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8546ba5c80a4c8909876ff755bc094f1aec96482
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533624"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437090"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Självstudie: Utforma Azure Database for MySQL med Azure CLI
 
@@ -28,15 +28,11 @@ Azure Database for MySQL är en relationsdatabastjänst i Microsoft-molnet som �
 > * Uppdatera data
 > * Återställa data
 
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Du kan använda Azure Cloud Shell i webbläsaren eller [Installera Azure CLI]( /cli/azure/install-azure-cli) på din dator för att köra kod blocken i den här självstudien.
-
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
-
-Om du väljer att installera och använda Azure CLI lokalt, kräver den här artikeln att du kör Azure CLI version 2,0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
+- Den här artikeln kräver version 2,0 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 Om du har flera prenumerationer väljer du en lämplig prenumerationen där resursen ligger eller faktureras. Välj en specifik prenumerations-ID under ditt konto med hjälp av kommandot [az account set](/cli/azure/account#az-account-set).
 ```azurecli-interactive

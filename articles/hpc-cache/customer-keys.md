@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 8bce19e384e600e95b8306dcbba38652b4432bc9
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 90af33a01450002c7d36a4ab4cf4a3da647068c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340537"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444575"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Använd kund hanterade krypterings nycklar för Azure HPC cache
 
@@ -20,7 +20,7 @@ Du kan använda Azure Key Vault för att kontrol lera ägarskapet för de nyckla
 > [!NOTE]
 > Alla data som lagras i Azure, inklusive på cache-diskarna, krypteras i vila med hjälp av Microsoft-hanterade nycklar som standard. Du behöver bara följa stegen i den här artikeln om du vill hantera nycklarna som används för att kryptera dina data.
 
-Azure HPC cache skyddas också av [värd kryptering för virtuella datorer](../virtual-machines/linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) på de hanterade diskar som innehåller cachelagrade data, även om du lägger till en kund nyckel för cache-diskarna. Genom att lägga till en kundhanterad nyckel för Double Encryption får du en extra säkerhets nivå för kunder med höga säkerhets krav. Mer information finns [i kryptering på Server sidan av Azure disk Storage](../virtual-machines/linux/disk-encryption.md) .
+Azure HPC cache skyddas också av [värd kryptering för virtuella datorer](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) på de hanterade diskar som innehåller cachelagrade data, även om du lägger till en kund nyckel för cache-diskarna. Genom att lägga till en kundhanterad nyckel för Double Encryption får du en extra säkerhets nivå för kunder med höga säkerhets krav. Mer information finns [i kryptering på Server sidan av Azure disk Storage](../virtual-machines/disk-encryption.md) .
 
 Den här funktionen är endast tillgänglig i några av de Azure-regioner där Azure HPC cache är tillgängligt. Se [region tillgänglighets](hpc-cache-overview.md#region-availability) listan för mer information.
 
@@ -144,7 +144,7 @@ När du har valt de nya krypterings nyckel värden klickar du på **Välj**. En 
 De här artiklarna förklarar mer om hur du använder Azure Key Vault och Kundhanterade nycklar för att kryptera data i Azure:
 
 * [Översikt över Azure Storage-kryptering](../storage/common/storage-service-encryption.md)
-* [Disk kryptering med Kundhanterade nycklar](../virtual-machines/linux/disk-encryption.md#customer-managed-keys) – dokumentation för att använda Azure Key Vault med hanterade diskar, vilket är ett liknande scenario för Azure HPC-cache
+* [Disk kryptering med Kundhanterade nycklar](../virtual-machines/disk-encryption.md#customer-managed-keys) – dokumentation för att använda Azure Key Vault med hanterade diskar, vilket är ett liknande scenario för Azure HPC-cache
 
 ## <a name="next-steps"></a>Nästa steg
 

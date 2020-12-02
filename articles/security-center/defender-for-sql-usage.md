@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 236a604c2c1cecfb18a2d82c3796a88cc4341a34
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: d37c362da484a2a7e400da8f87dd0a37f0f80d3a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636392"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436733"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender för SQL-servrar på datorer 
 
@@ -33,7 +33,7 @@ Du ser aviseringar när det finns misstänkta databas aktiviteter, potentiella s
 |Versions tillstånd:|Förhandsgranskning<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Priset|**Azure Defender för SQL-servrar på datorer** faktureras enligt [pris sidan](security-center-pricing.md)|
 |Skyddade SQL-versioner:|Azure SQL Server (alla versioner som omfattas av Microsofts support)|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Nej](./media/icons/no-icon.png) Kina gov, andra gov|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 ## <a name="set-up-azure-defender-for-sql-servers-on-machines"></a>Konfigurera Azure Defender för SQL-servrar på datorer
@@ -105,14 +105,14 @@ Du kan visa resultaten för sårbarhets bedömning direkt från Security Center.
 
     * En översikt över sårbarheter grupperade efter en speciell SQL-databas får du genom att välja databasens intresse.
 
-    I varje vy sorteras säkerhets kontrollerna efter **allvarlighets grad**. Klicka på en säkerhets kontroll för att visa ett informations fönster med en **Beskrivning** , hur du **åtgärdar** den och annan relaterad information som **påverkan** eller **benchmark**.
+    I varje vy sorteras säkerhets kontrollerna efter **allvarlighets grad**. Klicka på en säkerhets kontroll för att visa ett informations fönster med en **Beskrivning**, hur du **åtgärdar** den och annan relaterad information som **påverkan** eller **benchmark**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Azure Defender för SQL-aviseringar
 Aviseringar genereras av ovanliga och potentiellt skadliga försök att komma åt eller utnyttja SQL-datorer. Dessa händelser kan utlösa aviseringar som visas i [avsnittet varningar för SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse) på sidan aviserings referens](alerts-reference.md#alerts-sql-db-and-warehouse).
 
 ## <a name="explore-and-investigate-security-alerts"></a>Utforska och undersök säkerhets aviseringar
 
-Azure Defender-aviseringar är tillgängliga i Security Center sidan aviseringar, på resursens säkerhets flik, på [Azure Defender-instrumentpanelen](azure-defender-dashboard.md)eller via den direkta länken i e-postaviseringarna.
+Azure Defender för SQL-aviseringar finns på sidan aviseringar på Security Center, på fliken säkerhet i [Azure Defender-instrumentpanelen](azure-defender-dashboard.md)eller via den direkta länken i e-postaviseringarna.
 
 1. Om du vill visa aviseringar väljer du **säkerhets aviseringar** på Security Center menyn och väljer en avisering.
 

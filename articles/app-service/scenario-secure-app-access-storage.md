@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: c596b0d218c0b935fa1f3e971067160e52d87af1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: azureday1
+ms.openlocfilehash: 72b1d4fe864c23c0ac065e47d96ab0c78866defa
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183132"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435849"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>Självstudie: åtkomst Azure Storage från en webbapp
 
@@ -27,7 +28,7 @@ Du vill lägga till åtkomst till Azure-dataplanen (Azure Storage, Azure SQL Dat
 
 Med en hanterad identitet från Azure Active Directory (Azure AD) kan App Service komma åt resurser via rollbaserad åtkomst kontroll (RBAC), utan att kräva autentiseringsuppgifter för appen. När du har tilldelat en hanterad identitet till din webbapp tar Azure hand om skapandet och distributionen av ett certifikat. Människor behöver inte oroa sig för att hantera hemligheter eller autentiseringsuppgifter för appen.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -77,7 +78,7 @@ Följ dessa steg om du vill skapa ett allmänt-syfte v2-lagrings konto i Azure P
 
 1. Lämna dessa fält med respektive standardvärde:
 
-    |Field|Värde|
+    |Fält|Värde|
     |--|--|
     |Distributionsmodell|Resource Manager|
     |Prestanda|Standard|
@@ -210,6 +211,8 @@ az role assignment create --assignee $spID --role 'Storage Blob Data Contributor
 ## <a name="access-blob-storage-net"></a>Åtkomst Blob Storage (.NET)
 
 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) -klassen används för att hämta en token-autentiseringsuppgifter för din kod för att godkänna begär anden till Azure Storage. Skapa en instans av klassen [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) , som använder den hanterade identiteten för att hämta tokens och bifoga dem till tjänst klienten. I följande kod exempel hämtas autentiseringsuppgifter för autentiserad token och används för att skapa ett tjänst klient objekt, som laddar upp en ny blob.
+
+Om du vill se den här koden som en del av ett exempel program, se [exemplet på GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/1-WebApp-storage-managed-identity).
 
 ### <a name="install-client-library-packages"></a>Installera klient biblioteks paket
 

@@ -7,42 +7,44 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 2a21d7a06e8a92022b620704d1fb51a303da3ae0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dd29b18dda46a00966a0e5adea7e06be8f43ad35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185988"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444954"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Fråga efter data i Azure Monitor med Azure Datautforskaren (förhands granskning)
-Med Azure Datautforskaren proxy-klustret kan du utföra kors produkt frågor mellan Azure Datautforskaren, Log Analytics arbets ytor och klassiska Application Insights program i Azure Monitor. Du kan mappa Log Analytics arbets ytor i Azure Monitor eller klassiska Application Insights appar som proxy-kluster. Du kan sedan fråga proxy-klustret med hjälp av Azure Datautforskaren-verktyg och se det i en kors kluster fråga. Artikeln visar hur du ansluter till ett proxy-kluster, lägger till ett proxy-kluster i Azure Datautforskaren Web UI och kör frågor mot dina Log Analytics-arbetsytor eller klassiska Application Insights-appar från Azure Datautforskaren.
 
-Följande diagram visar Azure Datautforskaren proxy-flödet:
+Azure Datautforskaren stöder kors tjänst frågor mellan Azure Datautforskaren, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview)och [Log Analytics (La)](/azure/azure-monitor/platform/data-platform-logs). Du kan sedan fråga din Log Analytics/Application Insights-arbetsyta med Azure Datautforskaren-verktyg och se den i en kors tjänst fråga. Artikeln visar hur du skapar en kors tjänst fråga och hur du lägger till arbets ytan Log Analytics/Application Insights till Azure Datautforskaren Web UI.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-monitor-proxy-flow.png" alt-text="Proxy-flöde för Azure Data Explorer.":::
-
+Azure Datautforskaren Cross service-frågor Flow: :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="Azure Data Explorer-proxyläge.":::
 
 > [!NOTE]
-> Azure Datautforskaren proxy finns i en offentlig för hands version. [Anslut till proxyn](#connect-to-the-proxy) för att aktivera proxy-funktionen för dina kluster. 
+> * Möjligheten att fråga Azure Monitor data från Azure Datautforskaren, antingen direkt från Azure Datautforskaren klient verktyg eller indirekt genom att köra en fråga på ett Azure Datautforskaren-kluster, är i förhands gransknings läge.
+>* Kontakta vår [fråga om kors tjänster](mailto:adxproxy@microsoft.com) med eventuella frågor.
 
-## <a name="connect-to-the-proxy"></a>Anslut till proxyn
-Om du vill ansluta din Log Analytics arbets yta eller klassisk Application Insights-App öppnar du[Azure datautforskaren-WEBBgränssnittet](https://dataexplorer.azure.com/clusters). Verifiera att ditt Azure Datautforskaren interna kluster (till exempel *Hjälp* kluster) visas på den vänstra menyn innan du ansluter till Log Analytics eller Application Insights klustret.
+## <a name="add-a-log-analyticsapplication-insights-workspace-to-azure-data-explorer-client-tools"></a>Lägga till en arbets yta Log Analytics/Application Insights till Azure Datautforskaren-klient verktyg
+
+1. Verifiera att ditt Azure Datautforskaren interna kluster (till exempel *Hjälp* kluster) visas på den vänstra menyn innan du ansluter till Log Analytics eller Application Insights klustret.
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Azure Datautforskaren internt kluster.":::
 
-Klicka på **Lägg till kluster** och Lägg sedan till URL: en för Log Analytics eller Application Insights klustret i något av följande format. 
-    
-* För Log Analytics: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
-* För Application Insights: `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
+ I Azure Datautforskaren UI ( https://dataexplorer.azure.com/clusters) väljer du **Lägg till kluster**.
 
-Klicka på **Lägg till** för att ansluta.
+2. I fönstret **Lägg till kluster** lägger du till URL: en för La-eller AI-klustret.
+
+    * För LA: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
+    * För AI: `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
+
+    * Välj **Lägg till**.
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Lägg till kluster.":::
  
-> [!NOTE]
-> Om du lägger till en anslutning till fler än ett proxy-kluster måste du ange ett annat namn. Annars har de samma namn i det vänstra fönstret.
+>[!NOTE]
+>Om du lägger till en anslutning till fler än en Log Analytics/Application Insights-arbetsyta ska du ange ett annat namn. Annars har de samma namn i det vänstra fönstret.
 
-När anslutningen har upprättats visas Log Analytics eller Application Insights klustret i det vänstra fönstret med ditt interna Azure Datautforskaren-kluster. 
+ När anslutningen har upprättats visas din Log Analytics eller Application Insights arbets yta i det vänstra fönstret med ditt interna Azure Datautforskaren-kluster.
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Log Analytics och Azure Datautforskaren-kluster.":::
  
@@ -51,30 +53,30 @@ När anslutningen har upprättats visas Log Analytics eller Application Insights
 
 ## <a name="create-queries-using-azure-monitor-data"></a>Skapa frågor med hjälp av Azure Monitor data
 
-Du kan köra frågorna med hjälp av klient verktyg som har stöd för Kusto-frågor, till exempel: Kusto Explorer, Azure Datautforskaren Web UI, Jupyter Kqlmagic, Flow, PowerQuery, PowerShell, Jarvis, lins och REST API.
+Du kan köra frågorna med hjälp av klient verktyg som har stöd för Kusto-frågor, till exempel: Kusto Explorer, Azure Datautforskaren Web UI, Jupyter Kqlmagic, Flow, PowerQuery, PowerShell, lins, REST API.
 
 > [!NOTE]
-> Azure Datautforskaren proxy-funktionen används endast för data hämtning. Mer information finns i [funktions stöd](#function-supportability).
+> Fråge funktionen för kors tjänster används endast för data hämtning. Mer information finns i [funktions stöd](#function-supportability).
 
 > [!TIP]
-> * Databas namnet måste ha samma namn som den angivna resursen i proxy-klustret. Namnen är skiftlägeskänsliga.
+> * Databas namnet måste ha samma namn som den resurs som anges i kors tjänst frågan. Namnen är skiftlägeskänsliga.
 > * I kors kluster frågor kontrollerar du att namngivningen av Application Insights appar och Log Analytics arbets ytor är korrekt.
->     * Om namnen innehåller specialtecken ersätts de av URL-kodningen i namnet på proxyservern. 
->     * Om namnen innehåller tecken som inte uppfyller [KQL-ID: n](/azure/data-explorer/kusto/query/schema-entities/entity-names), ersätts de av bindestrecks **-** tecknet.
+> * Om namnen innehåller specialtecken ersätts de av URL-kodning i kors tjänst frågan.
+> * Om namnen innehåller tecken som inte uppfyller [KQL-ID: n](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names), ersätts de av bindestrecks **-** tecknet.
 
-### <a name="direct-query-from-your-log-analytics-or-application-insights-proxy-cluster"></a>Direkt fråga från Log Analytics eller Application Insights proxy-kluster
+### <a name="direct-query-on-your-log-analytics-or-application-insights-workspaces-from-azure-data-explorer-client-tools"></a>Direkt fråga på din Log Analytics eller Application Insights arbets ytor från Azure Datautforskaren-klient verktyg
 
-Kör frågor på Log Analytics eller Application Insights klustret. Kontrol lera att klustret är markerat i det vänstra fönstret. 
+Kör frågor på din Log Analytics eller Application Insights arbets ytor. Kontrol lera att din arbets yta är markerad i det vänstra fönstret.
  
 ```kusto
-Perf | take 10 // Demonstrate query through the proxy on the Log Analaytics workspace
+Perf | take 10 // Demonstrate cross service query on the Log Analytics workspace
 ```
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="Fråga Log Analytics-arbetsyta.":::
 
-### <a name="cross-query-of-your-log-analytics-or-application-insights-proxy-cluster-and-the-azure-data-explorer-native-cluster"></a>Kors fråga för ditt Log Analytics-eller Application Insights-proxy-kluster och Azure Datautforskaren internt kluster
+### <a name="cross-query-of-your-log-analytics-or-application-insights-and-the-azure-data-explorer-native-cluster"></a>Kors fråga för din Log Analytics eller Application Insights och Azure Datautforskaren inbyggda kluster
 
-När du kör kors kluster frågor från proxyservern kontrollerar du att ditt Azure Datautforskaren inbyggda kluster är markerat i den vänstra rutan. Följande exempel visar hur du kombinerar Azure Datautforskaren Cluster-tabeller med operatorn [union](/azure/data-explorer/kusto/query/unionoperator) med en Log Analytics-arbetsyta.
+När du kör frågor för kors kluster tjänst kontrollerar du att ditt Azure Datautforskaren inbyggda kluster är markerat i den vänstra rutan. Följande exempel visar hur du kombinerar Azure Datautforskaren Cluster-tabeller [med hjälp av union](/azure/data-explorer/kusto/query/unionoperator) med Log Analytics-arbetsytan.
 
 ```kusto
 union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>').Perf
@@ -85,38 +87,38 @@ union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscript
 let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
 union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
-Genom att använda [ `join` operatorn](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor)i stället för union kan du behöva en [ledtråd](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor#join-hints) för att köra den på ett internt Azure datautforskaren-kluster (och inte på proxyn). 
+
+:::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-cross-query-proxy.png" alt-text="Kors tjänst fråga från Azure-Datautforskaren.":::
+
+Om du använder [ `join` operatorn](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator)i stället för union kan [`hint`](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator#join-hints) du behöva köra den på ett internt Azure datautforskaren-kluster.
 
 ### <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>Koppla data från ett Azure Datautforskaren-kluster i en klient organisation med en Azure Monitor-resurs i en annan
 
-Frågor över flera klienter stöds inte av Azure Datautforskaren proxy. Du är inloggad på en enda klient för att köra frågan som sträcker sig över båda resurserna.
+Frågor över flera klienter mellan-tjänsterna stöds inte. Du är inloggad på en enda klient för att köra frågan som sträcker sig över båda resurserna.
 
 Om Azure Datautforskaren-resursen finns i klient organisationen "A" och Log Analytics arbets ytan är i klient organisationen "B" använder du någon av följande två metoder:
 
-- Med Azure Datautforskaren kan du lägga till roller för huvud konton i olika klienter. Lägg till ditt användar-ID i klienten ' B ' som en behörig användare i Azure Datautforskaren-klustret. Verifiera att egenskapen *[' TrustedExternalTenant '](/powershell/module/az.kusto/update-azkustocluster)* i Azure datautforskaren-klustret innehåller klienten ' B '. Kör kors frågan fullständigt i klient organisationen ' B '.
+1. Med Azure Datautforskaren kan du lägga till roller för huvud konton i olika klienter. Lägg till ditt användar-ID i klienten ' B ' som en behörig användare i Azure Datautforskaren-klustret. Verifiera att egenskapen *[' TrustedExternalTenant '](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* i Azure datautforskaren-klustret innehåller klienten ' B '. Kör kors frågan fullständigt i klient organisationen ' B '.
 
-- Använd [Lighthouse](../../lighthouse/index.yml) för att projicera Azure Monitor resursen i klient organisationen "A".
-
+2. Använd [Lighthouse](https://docs.microsoft.com/azure/lighthouse/) för att projicera Azure Monitor resursen i klient organisationen "A".
 ### <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Ansluta till Azure Datautforskaren-kluster från olika klienter
 
 Kusto Explorer loggar automatiskt in till den klient som användar kontot ursprungligen tillhör. För att få åtkomst till resurser i andra klienter med samma användar konto måste det `tenantId` uttryckligen anges i anslutnings strängen: `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=` **TenantId**
 
 ## <a name="function-supportability"></a>Funktions stöd
 
-Azure Datautforskaren proxy-klustret stöder funktioner för både Log Analytics och Application Insights. Den här funktionen gör det möjligt för kors kluster frågor att referera till en Azure Monitor tabell funktion direkt.
-
-Följande kommandon stöds av proxyn:
+Azure Datautforskaren Cross service-frågor stöder funktioner för både Application Insights och Log Analytics.
+Den här funktionen gör det möjligt för kors kluster frågor att referera till en Azure Monitor tabell funktion direkt.
+Följande kommandon stöds med kors tjänst frågan:
 
 * `.show functions`
 * `.show function {FunctionName}`
 * `.show database {DatabaseName} schema as json`
 
-Följande bild visar ett exempel på att fråga en tabell funktion från Azure Datautforskaren Web UI. Om du vill använda funktionen kör du namnet i frågefönstret.
+Följande bild visar ett exempel på att fråga en tabell funktion från Azure Datautforskaren Web UI.
+Om du vill använda funktionen kör du namnet i frågefönstret.
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="Fråga en tabell funktion från Azure Datautforskaren Web UI.":::
- 
-> [!NOTE]
-> Azure Monitor stöder endast tabell funktioner, som inte stöder parametrar.
 
 ## <a name="additional-syntax-examples"></a>Exempel på ytterligare syntax
 
@@ -132,4 +134,4 @@ Följande syntax är tillgängliga när du anropar Log Analytics-eller Applicati
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [data strukturen för Log Analytics arbets ytor och Application Insights](data-platform-logs.md).
-- Lär dig att [skriva frågor i Azure datautforskaren](/azure/data-explorer/write-queries).
+- Lär dig att [skriva frågor i Azure datautforskaren](https://docs.microsoft.com/azure/data-explorer/write-queries).

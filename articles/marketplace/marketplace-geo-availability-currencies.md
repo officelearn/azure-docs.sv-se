@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: c277525927f7f74f281220bf5e593e98509d8237
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 40bae584e673e8885416bd1ae08dd808071034e7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126693"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436138"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Geografisk tillgänglighet och valuta support för kommersiella marknads platser
 
@@ -50,7 +50,7 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Kanada                              | CA        | CAD          |
 | Caymanöarna                      | KY        | USD          |
 | Chile                               | CL        | USD          |
-| Porslin\**                            | CN        | Saknas          |
+| Porslin\**                            | CN        | Ej tillämpligt          |
 | Colombia                            | CO        | USD          |
 | Costa Rica                          | CR        | USD          |
 | Côte d'Ivoire                       | CI        | USD          |
@@ -108,7 +108,7 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Mongoliet                            | MN        | USD          |
 | Montenegro                          | ME        | USD          |
 | Marocko                             | MA        | USD          |
-| Namibia                             | Ej tillämpligt        | USD          |
+| Namibia                             | NA        | USD          |
 | Nepal                               | NP        | USD          |
 | Nederländerna                         | NL        | EUR          |
 | Nya Zeeland                         | NZ        | NZD          |
@@ -194,7 +194,7 @@ Enskilda priser (som, beroende på hur de har ställts in, kan ha påverkats av 
 
 Mer information om hur du anger priser för vissa erbjudande typer finns i följande artiklar:
 
-- [Skapa ett erbjudande för Azure-program](partner-center-portal/create-new-azure-apps-offer.md)
+- [Skapa ett erbjudande för Azure-program](create-new-azure-apps-offer.md)
 - [Skapa ett erbjudande för Azure Container](partner-center-portal/create-azure-container-offer.md)
 - [Skapa ett erbjudande för virtuella datorer i Azure](azure-vm-create.md)
 - [Skapa ett konsulttjänsterbjudande](partner-center-portal/create-consulting-service-offer.md)

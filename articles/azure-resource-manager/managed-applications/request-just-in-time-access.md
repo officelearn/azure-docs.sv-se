@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: evanhi
-ms.openlocfilehash: 5e1a929924e2c291e0044da99f3ae5d7d1c3b894
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f839eb04e0c036b5059e35fac16d9c702646cbd7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371581"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435696"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Aktivera och begär just-in-Time-åtkomst för Azure Managed Applications
 
@@ -72,7 +72,7 @@ När du skapar erbjudandet i Partner Center, se till att aktivera JIT-åtkomst.
 
 1. Logga in på den kommersiella Marketplace-portalen i [partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
-1. Om du vill ha hjälp med att skapa ett nytt hanterat program följer du stegen i [skapa ett erbjudande för Azure-program](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
+1. Om du vill ha hjälp med att skapa ett nytt hanterat program följer du stegen i [skapa ett erbjudande för Azure-program](../../marketplace/create-new-azure-apps-offer.md).
 
 1. På sidan **teknisk konfiguration** markerar du kryss rutan **Aktivera just-in-Time (JIT)-åtkomst** .
 
@@ -88,7 +88,7 @@ Skicka en begäran om JIT-åtkomst:
 
 1. Välj **JIT-åtkomst** för det hanterade programmet som du behöver åtkomst till.
 
-1. Välj **berättigade roller**och välj **Aktivera** i kolumnen åtgärd för den roll som du vill använda.
+1. Välj **berättigade roller** och välj **Aktivera** i kolumnen åtgärd för den roll som du vill använda.
 
    ![Aktivera åtkomstbegäran](./media/request-just-in-time-access/send-request.png)
 

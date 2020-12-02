@@ -1,24 +1,27 @@
 ---
 title: Power BI och Server lös SQL-pool för att analysera Azure Cosmos DB data med Synapse-länk
-description: Lär dig hur du skapar en Synapse SQL Server-databas och vyer över Synapse-länken för Azure Cosmos DB, frågar Azure Cosmos DB containers och sedan skapar en modell med Power BI över dessa vyer.
+description: Lär dig hur du skapar en server lös SQL-adresspool och vyer över Synapse-länken för Azure Cosmos DB, frågar Azure Cosmos DB-behållare och sedan skapar en modell med Power BI över dessa vyer.
 author: ArnoMicrosoft
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: 55a73ada39f4f48aeb22c5482bd85d1092d54c35
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 959070ca431c3397779a2a22c16f03b3adebbb35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342257"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444510"
 ---
-# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Använd Power BI-och Server lös Synapse SQL-pool för att analysera Azure Cosmos DB data med Synapse-länk (för hands version) 
+# <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Använd Power BI och Server lös Synapse SQL-pool (för hands version) för att analysera Azure Cosmos DB data med Synapse-länk 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 I den här artikeln får du lära dig hur du skapar en server lös SQL-pool-databas och vyer över Synapse-länken för Azure Cosmos DB. Du kommer att fråga Azure Cosmos DB behållare och sedan bygga en modell med Power BI över dessa vyer för att återspegla den frågan.
 
 I det här scenariot ska du använda dummy-data om produkt försäljning i en partner butik. Du analyserar intäkterna per butik baserat på närhet till stora hushåll och effekten av annonsering under en viss vecka. I den här artikeln skapar du två vyer med namnet **RetailSales** och **StoreDemographics** och en fråga mellan dem. Du kan hämta exempel produkt data från den här [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) -lagrings platsen.
+
+> [!IMPORTANT]
+> Stöd för Synapse-server utan SQL-pool för Azure Synapse-länken för Azure Cosmos DB är för närvarande en för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Mer information finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -55,7 +58,7 @@ Create database RetailCosmosDB
 
 Skapa sedan flera vyer över olika Synapse-länkade Azure Cosmos-behållare. Med vyer kan du använda T-SQL för att ansluta till och fråga Azure Cosmos DB data som sitter i olika behållare.  Se till att välja **RetailCosmosDB** -databasen när du skapar vyerna.
 
-Följande skript visar hur du skapar vyer för varje behållare. För enkelhetens skull ska vi använda funktionen för [automatiskt schema härledning](analytical-store-introduction.md#analytical-schema) i SYNAPSE för SQL Server-Synapse för:
+Följande skript visar hur du skapar vyer för varje behållare. För enkelhetens skull ska vi använda funktionen för [automatiskt schema härledning](analytical-store-introduction.md#analytical-schema) för Server lös SQL-pool över Synapse-aktiverade behållare:
 
 
 ### <a name="retailsales-view"></a>RetailSales vy:
@@ -118,7 +121,7 @@ Välj **körning** som ger följande tabell resultat:
 
 1. Välj önskad autentiseringsmetod, till exempel Azure AD.
 
-1. Välj **RetailCosmosDB** -databasen och vyn **RetailSales** , **StoreDemographics** .
+1. Välj **RetailCosmosDB** -databasen och vyn **RetailSales**, **StoreDemographics** .
 
 1. Välj **load** för att läsa in de två vyerna i Direct-frågeläge.
 

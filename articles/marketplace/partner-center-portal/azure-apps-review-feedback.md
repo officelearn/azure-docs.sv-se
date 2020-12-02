@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 351a9742e9d839a8e217fdea35cad922acc3339f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ede4e5dd781851c781407a8acea640e3e501f259
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095680"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436393"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Hantera gransknings feedback för Azure-programerbjudanden
 
@@ -39,7 +39,7 @@ Använd följande procedur för att granska problem som dokumenteras i pull-beg�
     [![Start sida för pull-begäran](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Klicka på bilden för att expandera.*
 
-1. Valfritt På höger sida av fönstret, i avsnittet **principer** , väljer du ärende meddelandet (i det här exemplet: **princip valideringen misslyckades** ) för att undersöka lågnivå information om problemet, inklusive de associerade loggfilerna. Fel visas vanligt vis längst ned i loggfilerna.
+1. Valfritt På höger sida av fönstret, i avsnittet **principer**, väljer du ärende meddelandet (i det här exemplet: **princip valideringen misslyckades**) för att undersöka lågnivå information om problemet, inklusive de associerade loggfilerna. Fel visas vanligt vis längst ned i loggfilerna.
 
 1. På menyn på vänster sida av start sidan väljer du **filer** för att visa de filer som utgör de tekniska till gångarna för det här erbjudandet. Microsoft-granskarna bör ha lagt till kommentarer som beskriver de identifierade kritiska problemen. I följande exempel har två problem identifierats.
 
@@ -57,4 +57,4 @@ Använd följande procedur för att granska problem som dokumenteras i pull-beg�
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har korrigerat de kritiska problem som dokumenterats i gransknings PR (s), måste du [Publicera om erbjudandet för Azure-appen](./create-new-azure-apps-offer.md#publish).
+När du har korrigerat de kritiska problem som dokumenterats i gransknings PR (s), måste du [Publicera om erbjudandet för Azure-appen](../create-new-azure-apps-offer.md).

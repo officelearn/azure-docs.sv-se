@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07d2e9fa98c24695a119c651539d4003ecd8524a
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: ac87e8394eaa609f7c57eaf9d83fe11a2bdb04f6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242100"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435832"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Data kryptering för Azure Database for MySQL med hjälp av Azure CLI
 
@@ -46,11 +46,22 @@ Lär dig hur du använder Azure CLI för att konfigurera och hantera data krypte
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
+  * Kvarhållning dagar har angetts till 90 dagar
+  ```azurecli-interactive
+    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
+    ```
 
 * Nyckeln måste ha följande attribut för att användas som en kundhanterad nyckel:
   * Inget förfallo datum
   * Inte inaktiverat
-  * Utföra **Get** -, **wrap** -och **unwrap** -åtgärder
+  * Utföra **Get**-, **wrap**-och **unwrap** -åtgärder
+  * recoverylevel-attributet har angetts till **rekonstruerbart**.
+
+Du kan kontrol lera attributen ovan i nyckeln med hjälp av följande kommando:
+
+```azurecli-interactive
+az keyvault key show --vault-name <key_vault_name> -n <key_name>
+```
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Ange rätt behörigheter för viktiga åtgärder
 
@@ -68,7 +79,7 @@ Lär dig hur du använder Azure CLI för att konfigurera och hantera data krypte
    az mysql server update --name  <server name>  -g <resource_group> --assign-identity
    ```
 
-2. Ange **nyckel behörighet** ( **Hämta** , flytta, **packa** upp) för **huvud kontot** , vilket är namnet på **MySQL-servern**.
+2. Ange **nyckel behörighet** (**Hämta**, flytta, **packa** upp) för **huvud kontot**, vilket är namnet på **MySQL-servern**.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

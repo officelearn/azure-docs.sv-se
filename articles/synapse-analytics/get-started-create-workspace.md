@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/21/2020
-ms.openlocfilehash: 42b586062378c59b66ca945880bf723418264071
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 949992418cb19c5c69ed8da92e9c2f0fc5f2f791
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95241938"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445420"
 ---
 # <a name="creating-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
@@ -28,7 +28,7 @@ För att slutföra den här själv studie kursen måste du ha åtkomst till en r
 ## <a name="create-a-synapse-workspace-in-the-azure-portal"></a>Skapa en Synapse-arbetsyta i Azure Portal
 
 1. Öppna [Azure Portal](https://portal.azure.com)och högst upp i Sök efter **Synapse**.
-1. I Sök resultaten under **tjänster** väljer du **Azure Synapse Analytics (för hands versioner av arbets ytor)**.
+1. I Sök resultaten under **tjänster** väljer du **Azure Synapse Analytics**.
 1. Välj **Lägg till** för att skapa en arbets yta.
 1. I **grunderna** anger du önskad **prenumeration**, **resurs grupp**, **region** och väljer sedan ett namn på arbets ytan. I den här självstudien använder vi min **arbets yta**.
 1. Gå till **välj Data Lake Storage gen 2**. 
@@ -36,6 +36,10 @@ För att slutföra den här själv studie kursen måste du ha åtkomst till en r
 1. Klicka på **fil system** och ge den namnet **användare**. Då skapas en behållare med namnet **användare**
 1. Arbets ytan kommer att använda det här lagrings kontot som det primära lagrings kontot för Spark-tabeller och Spark-programloggarna.
 1. Välj **Granska + skapa** > **Skapa**. Din arbets yta är klar på några minuter.
+
+> [!NOTE]
+> Om du vill aktivera arbets ytans funktioner från en befintlig dedikerad SQL-pool (tidigare SQL DW) läser du så [här aktiverar du en arbets yta för din dedikerade SQL-pool (tidigare SQL DW)](./sql-data-warehouse/workspace-connected-create.md).
+
 
 ## <a name="open-synapse-studio"></a>Öppna Synapse Studio
 
@@ -53,6 +57,9 @@ När din Azure Synapse-arbetsyta har skapats kan du öppna Synapse Studio på tv
 1. Välj **Granska + skapa** > **Skapa**. Din dedikerade SQL-pool är klar om några minuter. Din dedikerade SQL-pool är kopplad till en dedikerad SQL-adresspool som också kallas **SQLPOOL1**.
 
 En dedikerad SQL-pool förbrukar fakturerbara resurser så länge den är aktiv. Du kan pausa poolen senare för att minska kostnaderna.
+
+> [!NOTE] 
+> När du skapar en ny dedikerad SQL-pool (tidigare SQL DW) på din arbets yta öppnas sidan dedikerad etablering av SQL-pool. Etableringen sker på den logiska SQL-servern.
 
 ## <a name="create-a-serverless-apache-spark-pool"></a>Skapa en server lös Apache Spark-pool
 

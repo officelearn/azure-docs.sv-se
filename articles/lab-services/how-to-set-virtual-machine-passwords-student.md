@@ -1,16 +1,16 @@
 ---
 title: Återställa lösen ord för virtuella klass rums labb i Azure Lab Services | Microsoft Docs
-description: Lär dig hur du återställer lösen ord för virtuella datorer i klass rums labb Azure Lab Services.
+description: Lär dig hur du återställer lösen ord för virtuella datorer (VM) i labb med Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d63d14da8859c12fa797a04fa9a3c3230219adab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b0b13862ca4620da15606138c0a80adeac8056a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445346"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436818"
 ---
-# <a name="set-or-reset-password-for-virtual-machines-in-classroom-labs-students"></a>Ange eller Återställ lösen ord för virtuella datorer i klass rum labb (studenter)
+# <a name="set-or-reset-password-for-virtual-machines-in-labs-students"></a>Ange eller Återställ lösen ord för virtuella datorer i labb (studenter)
 Den här artikeln visar hur studenter kan ange/återställa lösen ord för sina virtuella datorer. 
 
 ## <a name="enable-resetting-of-passwords"></a>Aktivera återställning av lösen ord

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 7669b49735843bf941c52aee5cc3b71d1644c01a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b381f2f1871ea7e26950d5b02d5906a50c6129d3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635821"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445005"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhets överväganden för data förflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -51,8 +51,8 @@ Om du är intresse rad av Azure-kompatibilitet och hur Azure skyddar sin egen in
 
 I den här artikeln granskar vi säkerhets aspekter i följande två scenarier för data förflyttning: 
 
-- **Moln scenario** : i det här scenariot är både din källa och ditt mål offentligt tillgängliga via Internet. Dessa omfattar hanterade moln lagrings tjänster som Azure Storage, Azure Synapse Analytics (tidigare SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS-tjänster, till exempel Salesforce och webb protokoll som FTP och OData. Hitta en fullständig lista över data källor som stöds i  [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
-- **Hybrid scenario** : i det här scenariot finns antingen din källa eller ditt mål bakom en brand vägg eller i ett lokalt företags nätverk. Eller så är data lagret i ett privat nätverk eller virtuellt nätverk (oftast källan) och är inte offentligt tillgänglig. Databas servrar som är värdar för virtuella datorer omfattas också av det här scenariot.
+- **Moln scenario**: i det här scenariot är både din källa och ditt mål offentligt tillgängliga via Internet. Dessa omfattar hanterade moln lagrings tjänster som Azure Storage, Azure Synapse Analytics, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS-tjänster som Salesforce och webb protokoll som FTP och OData. Hitta en fullständig lista över data källor som stöds i  [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+- **Hybrid scenario**: i det här scenariot finns antingen din källa eller ditt mål bakom en brand vägg eller i ett lokalt företags nätverk. Eller så är data lagret i ett privat nätverk eller virtuellt nätverk (oftast källan) och är inte offentligt tillgänglig. Databas servrar som är värdar för virtuella datorer omfattas också av det här scenariot.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -60,8 +60,8 @@ I den här artikeln granskar vi säkerhets aspekter i följande två scenarier f
 
 ### <a name="securing-data-store-credentials"></a>Skydda autentiseringsuppgifter för data lager
 
-- **Lagra krypterade autentiseringsuppgifter i en Azure Data Factory hanterad butik** . Data Factory skyddar dina data lagrings uppgifter genom att kryptera dem med certifikat som hanteras av Microsoft. Dessa certifikat roteras varannan år (vilket omfattar certifikat förnyelse och migrering av autentiseringsuppgifter). Mer information om Azure Storage säkerhet finns i [Azure Storage säkerhets översikt](../storage/blobs/security-recommendations.md).
-- **Lagra autentiseringsuppgifter i Azure Key Vault** . Du kan också lagra data lagrets autentiseringsuppgifter i [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory hämtar autentiseringsuppgifterna under körningen av en aktivitet. Mer information finns i [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md).
+- **Lagra krypterade autentiseringsuppgifter i en Azure Data Factory hanterad butik**. Data Factory skyddar dina data lagrings uppgifter genom att kryptera dem med certifikat som hanteras av Microsoft. Dessa certifikat roteras varannan år (vilket omfattar certifikat förnyelse och migrering av autentiseringsuppgifter). Mer information om Azure Storage säkerhet finns i [Azure Storage säkerhets översikt](../storage/blobs/security-recommendations.md).
+- **Lagra autentiseringsuppgifter i Azure Key Vault**. Du kan också lagra data lagrets autentiseringsuppgifter i [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory hämtar autentiseringsuppgifterna under körningen av en aktivitet. Mer information finns i [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md).
 
 ### <a name="data-encryption-in-transit"></a>Data kryptering under överföring
 Om moln data lagringen stöder HTTPS eller TLS, är alla data överföringar mellan tjänster för data förflyttning i Data Factory och ett moln data lager via säker kanal HTTPS eller TLS.
@@ -111,11 +111,11 @@ Kommando kanalen tillåter kommunikation mellan data flyttnings tjänster i Data
 ### <a name="on-premises-data-store-credentials"></a>Autentiseringsuppgifter för lokal data lager
 Autentiseringsuppgifterna kan lagras i data fabriken eller [refereras till av Data Factory](store-credentials-in-key-vault.md) under körningen från Azure Key Vault. Om du lagrar autentiseringsuppgifter i Data Factory, lagras det alltid krypterat i integration runtime med egen värd. 
  
-- **Lagra autentiseringsuppgifter lokalt** . Om du direkt använder cmdleten **set-AzDataFactoryV2LinkedService** med anslutnings strängarna och AUTENTISERINGSUPPGIFTERNA i JSON, krypteras den länkade tjänsten och lagras på integration runtime med egen värd.  I det här fallet överförs autentiseringsuppgifterna via Azure backend-tjänsten, som är mycket säkert, till den egen värdbaserade integrations datorn där den slutligen krypteras och lagras. Den egna värdbaserade integrerings körningen använder Windows [DPAPI](/previous-versions/ms995355(v=msdn.10)) för att kryptera känsliga data och autentiseringsinformation.
+- **Lagra autentiseringsuppgifter lokalt**. Om du direkt använder cmdleten **set-AzDataFactoryV2LinkedService** med anslutnings strängarna och AUTENTISERINGSUPPGIFTERNA i JSON, krypteras den länkade tjänsten och lagras på integration runtime med egen värd.  I det här fallet överförs autentiseringsuppgifterna via Azure backend-tjänsten, som är mycket säkert, till den egen värdbaserade integrations datorn där den slutligen krypteras och lagras. Den egna värdbaserade integrerings körningen använder Windows [DPAPI](/previous-versions/ms995355(v=msdn.10)) för att kryptera känsliga data och autentiseringsinformation.
 
-- **Lagra autentiseringsuppgifter i Azure Key Vault** . Du kan också lagra data lagrets autentiseringsuppgifter i [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory hämtar autentiseringsuppgifterna under körningen av en aktivitet. Mer information finns i [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md).
+- **Lagra autentiseringsuppgifter i Azure Key Vault**. Du kan också lagra data lagrets autentiseringsuppgifter i [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory hämtar autentiseringsuppgifterna under körningen av en aktivitet. Mer information finns i [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md).
 
-- **Lagra autentiseringsuppgifter lokalt utan att flöda autentiseringsuppgifterna via Azure-backend till integration runtime med egen värd** . Om du vill kryptera och lagra autentiseringsuppgifter lokalt på integration runtime med egen värd utan att behöva flöda autentiseringsuppgifterna via Data Factory-Server delen följer du stegen i [kryptera autentiseringsuppgifter för lokala data lager i Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Alla anslutningar har stöd för det här alternativet. Den egna värdbaserade integrerings körningen använder Windows [DPAPI](/previous-versions/ms995355(v=msdn.10)) för att kryptera känsliga data och autentiseringsinformation. 
+- **Lagra autentiseringsuppgifter lokalt utan att flöda autentiseringsuppgifterna via Azure-backend till integration runtime med egen värd**. Om du vill kryptera och lagra autentiseringsuppgifter lokalt på integration runtime med egen värd utan att behöva flöda autentiseringsuppgifterna via Data Factory-Server delen följer du stegen i [kryptera autentiseringsuppgifter för lokala data lager i Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Alla anslutningar har stöd för det här alternativet. Den egna värdbaserade integrerings körningen använder Windows [DPAPI](/previous-versions/ms995355(v=msdn.10)) för att kryptera känsliga data och autentiseringsinformation. 
 
    Använd cmdleten **New-AzDataFactoryV2LinkedServiceEncryptedCredential** för att kryptera länkade tjänst referenser och känslig information i den länkade tjänsten. Du kan sedan använda den JSON som returnerades (med **EncryptedCredential** -elementet i anslutnings strängen) för att skapa en länkad tjänst genom att använda cmdleten **set-AzDataFactoryV2LinkedService** .  
 
@@ -139,9 +139,9 @@ I följande tabell sammanfattas konfigurations rekommendationerna för nätverk 
 
 | Källa      | Mål                              | Konfiguration av nätverk                    | Installation av Integration Runtime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Lokal | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | IPSec VPN (punkt-till-plats eller plats-till-plats) | Integration runtime med egen värd bör installeras på en virtuell Azure-dator i det virtuella nätverket.  |
-| Lokal | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | ExpressRoute (privat peering)           | Integration runtime med egen värd bör installeras på en virtuell Azure-dator i det virtuella nätverket.  |
-| Lokal | Azure-baserade tjänster som har en offentlig slut punkt | ExpressRoute (Microsoft-peering)            | Integration runtime med egen värd kan installeras lokalt eller på en virtuell Azure-dator. |
+| Lokalt | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | IPSec VPN (punkt-till-plats eller plats-till-plats) | Integration runtime med egen värd bör installeras på en virtuell Azure-dator i det virtuella nätverket.  |
+| Lokalt | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | ExpressRoute (privat peering)           | Integration runtime med egen värd bör installeras på en virtuell Azure-dator i det virtuella nätverket.  |
+| Lokalt | Azure-baserade tjänster som har en offentlig slut punkt | ExpressRoute (Microsoft-peering)            | Integration runtime med egen värd kan installeras lokalt eller på en virtuell Azure-dator. |
 
 I följande avbildningar visas användningen av integration runtime med egen värd för att flytta data mellan en lokal databas och Azure-tjänster med hjälp av ExpressRoute och IPSec VPN (med Azure Virtual Network):
 
@@ -173,7 +173,7 @@ Följande tabell innehåller utgående port-och domän krav för företags brand
 
 Följande tabell innehåller krav på inkommande portar för Windows-brand väggen:
 
-| Ingående portar | Beskrivning                              |
+| Ingående portar | Description                              |
 | ------------- | ---------------------------------------- |
 | 8060 (TCP)    | Krävs av PowerShell-krypterings-cmdleten enligt beskrivningen i [kryptera autentiseringsuppgifter för lokala data lager i Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md)och av Credential Manager-programmet för att på ett säkert sätt ange autentiseringsuppgifter för lokala data lager på integration runtime med egen värd. |
 

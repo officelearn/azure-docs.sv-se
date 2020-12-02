@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 23cf8a79c4978ccb3a65ad968b2ed5a01bb3d0ec
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 554b3ad1dbe1e736300387aefde195b9054ab326
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242338"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437107"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Azure Database for MySQL data kryptering med en kundhanterad nyckel
 
@@ -36,9 +36,9 @@ Data kryptering med Kundhanterade nycklar för Azure Database for MySQL ger föl
 
 ## <a name="terminology-and-description"></a>Terminologi och beskrivning
 
-**Data krypterings nyckel (DEK)** : en symmetrisk AES256-nyckel som används för att kryptera en partition eller data block. Kryptering av varje data block med en annan nyckel gör det svårare att analysera krypteringen. Åtkomst till DEKs krävs av resurs leverantören eller program instansen som krypterar och dekrypterar ett särskilt block. När du ersätter en DEK med en ny nyckel måste endast data i det associerade blocket krypteras igen med den nya nyckeln.
+**Data krypterings nyckel (DEK)**: en symmetrisk AES256-nyckel som används för att kryptera en partition eller data block. Kryptering av varje data block med en annan nyckel gör det svårare att analysera krypteringen. Åtkomst till DEKs krävs av resurs leverantören eller program instansen som krypterar och dekrypterar ett särskilt block. När du ersätter en DEK med en ny nyckel måste endast data i det associerade blocket krypteras igen med den nya nyckeln.
 
-**Nyckel krypterings nyckel (KEK)** : en krypterings nyckel som används för att kryptera DEKs. En KEK som aldrig lämnar Key Vault gör att DEKs själva krypteras och kontrol leras. Entiteten som har åtkomst till KEK kan skilja sig från den entitet som kräver DEK. Eftersom KEK krävs för att dekryptera DEKs är KEK en enda punkt med vilken DEKs kan tas bort effektivt genom borttagning av KEK.
+**Nyckel krypterings nyckel (KEK)**: en krypterings nyckel som används för att kryptera DEKs. En KEK som aldrig lämnar Key Vault gör att DEKs själva krypteras och kontrol leras. Entiteten som har åtkomst till KEK kan skilja sig från den entitet som kräver DEK. Eftersom KEK krävs för att dekryptera DEKs är KEK en enda punkt med vilken DEKs kan tas bort effektivt genom borttagning av KEK.
 
 DEKs, som krypteras med KeyExchange, lagras separat. Endast en entitet med åtkomst till KEK kan dekryptera dessa DEKs. Mer information finns i [säkerhet i kryptering i vila](../security/fundamentals/encryption-atrest.md).
 
@@ -48,9 +48,9 @@ DEKs, som krypteras med KeyExchange, lagras separat. Endast en entitet med åtko
 
 För att en MySQL-server ska kunna använda Kundhanterade nycklar som lagras i Key Vault för kryptering av DEK ger en Key Vault administratör följande åtkomst behörighet till servern:
 
-* **Hämta** : för att hämta den offentliga delen och egenskaperna i nyckel valvet.
-* **wrapKey** : för att kunna kryptera Dek. Den krypterade DEK lagras i Azure Database for MySQL.
-* **unwrapKey** : för att kunna dekryptera Dek. Azure Database for MySQL behöver det dekrypterade DEK för att kryptera/dekryptera data
+* **Hämta**: för att hämta den offentliga delen och egenskaperna i nyckel valvet.
+* **wrapKey**: för att kunna kryptera Dek. Den krypterade DEK lagras i Azure Database for MySQL.
+* **unwrapKey**: för att kunna dekryptera Dek. Azure Database for MySQL behöver det dekrypterade DEK för att kryptera/dekryptera data
 
 Nyckel valvs administratören kan också [Aktivera loggning av Key Vault gransknings händelser](../azure-monitor/insights/key-vault-insights-overview.md), så att de kan granskas senare.
 
@@ -61,14 +61,17 @@ När servern har kon figurer ATS för att använda den Kundhanterade nyckeln som
 Följande är krav för att konfigurera Key Vault:
 
 * Key Vault och Azure Database for MySQL måste tillhöra samma Azure Active Directory-klient (Azure AD). Key Vault mellan klienter och Server interaktioner stöds inte. Om du flyttar Key Vault resursen måste du konfigurera om data krypteringen.
-* Aktivera funktionen för mjuk borttagning i nyckel valvet för att skydda mot data förlust om en oavsiktlig nyckel (eller Key Vault) tas bort. Mjuka, borttagna resurser behålls i 90 dagar, om inte användaren återställer eller tar bort dem under tiden. Åtgärder för att återställa och rensa har sina egna behörigheter som är kopplade till en Key Vault åtkomst princip. Funktionen mjuk borttagning är inaktive rad som standard, men du kan aktivera den via PowerShell eller Azure CLI (Observera att du inte kan aktivera den via Azure Portal).
+* Aktivera [mjuk borttagning] ((.. /Key-Vault/General/Soft-Delete-overview.MD) i nyckel valvet med kvarhållningsperioden inställt på **90 dagar** för att skydda mot data förlust om en oavsiktlig nyckel (eller Key Vault) tas bort. Mjuka, borttagna resurser bevaras i 90 dagar som standard, om inte kvarhållningsperioden uttryckligen anges till <= 90 dagar. Åtgärder för att återställa och rensa har sina egna behörigheter som är kopplade till en Key Vault åtkomst princip. Funktionen mjuk borttagning är inaktive rad som standard, men du kan aktivera den via PowerShell eller Azure CLI (Observera att du inte kan aktivera den via Azure Portal).
+* Aktivera funktionen för att [ta bort skydd](../key-vault/general/soft-delete-overview.md#purge-protection) i nyckel valvet med kvarhållningsperioden inställt på **90 dagar**. Rensnings skydd kan bara aktive ras när mjuk borttagning har Aktiver ATS. Den kan aktive ras via Azure CLI eller PowerShell. När rensnings skyddet är på kan inte ett valv eller ett objekt i det borttagna läget rensas förrän kvarhållningsperioden har passerat. Borttagnings bara valv och objekt kan fortfarande återställas, vilket säkerställer att bevarande principen kommer att följas. 
 * Bevilja Azure Database for MySQL åtkomst till nyckel valvet med behörigheterna get, wrapKey och unwrapKey med hjälp av dess unika hanterade identitet. I Azure Portal skapas den unika tjänst identiteten automatiskt när data kryptering är aktiverat på MySQL. Se [Konfigurera data kryptering för MySQL](howto-data-encryption-portal.md) för detaljerade, stegvisa anvisningar när du använder Azure Portal.
 
 Följande är krav för att konfigurera den Kundhanterade nyckeln:
 
 * Den Kundhanterade nyckeln som ska användas för att kryptera DEK kan bara vara asymmetrisk, RSA 2048.
-* Aktiverings datumet (om det är inställt) måste vara datum och tid tidigare. Utgångs datumet (om det är inställt) måste vara ett framtida datum och en framtida tidpunkt.
+* Aktiverings datumet (om det är inställt) måste vara datum och tid tidigare. Förfallo datumet har inte angetts.
 * Nyckeln måste vara i *aktiverat* läge.
+* Nyckeln måste ha [mjuk borttagning](../key-vault/general/soft-delete-overview.md) med kvarhållningsperioden inställt på **90 dagar**.
+* [Rensnings skyddet](../key-vault/general/soft-delete-overview.md#purge-protection)måste vara aktiverat för Kay.
 * Om du [importerar en befintlig nyckel](/rest/api/keyvault/ImportKey/ImportKey) till nyckel valvet ska du se till att tillhandahålla den i de fil format som stöds ( `.pfx` , `.byok` , `.backup` ).
 
 ## <a name="recommendations"></a>Rekommendationer
@@ -142,4 +145,4 @@ För Azure Database for MySQL har stödet för att kryptera data i vila med hjä
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [konfigurerar data kryptering med en kundhanterad nyckel för Azure Database för MySQL med hjälp av Azure Portal](howto-data-encryption-portal.md).
+Lär dig hur du konfigurerar data kryptering med en kundhanterad nyckel för Azure Database för MySQL med hjälp av [Azure Portal](howto-data-encryption-portal.md) och [Azure CLI](howto-data-encryption-cli.md).

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 38133a63d65e45a4d1c83e9752dcaa01a86da33e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e0736e58983d4c28b8f2f4a20241cd36ac84fdfa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782900"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445387"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Vad är en logisk SQL-Server i Azure SQL Database-och Azure-Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,7 +26,7 @@ I Azure SQL Database och Azure Synapse Analytics är en server en logisk konstru
 
 Den här servern är distinkt från en SQL Server-instans som du kanske känner till i den lokala världen. Mer specifikt finns det inga garantier avseende platsen för databaserna eller informations lager databasen i relation till den server som hanterar dem. Dessutom exponerar varken Azure SQL Database eller Azure-Synapse någon åtkomst eller funktioner på instans nivå. Instans databaser i en hanterad instans är däremot alla fysiskt samplacerade – på samma sätt som du är van vid att SQL Server i en lokal eller virtuell dators värld.
 
-När du skapar en-server anger du ett inloggnings konto och lösen ord för servern som har administrativ behörighet till huvud databasen på den servern och alla databaser som skapats på den servern. Det här initiala kontot är ett SQL-inloggningsnamn. Azure SQL Database-och Synapse Analytics stöder SQL-autentisering och Azure Active Directory autentisering för autentisering. Information om inloggningar och autentisering finns [i hantera databaser och inloggningar i Azure SQL Database](logins-create-manage.md). Windows-autentisering stöds inte.
+När du skapar en-server anger du ett inloggnings konto och lösen ord för servern som har administrativ behörighet till huvud databasen på den servern och alla databaser som skapats på den servern. Det här initiala kontot är ett SQL-inloggningsnamn. Azure SQL Database och Azure Synapse Analytics stöder SQL-autentisering och Azure Active Directory autentisering för autentisering. Information om inloggningar och autentisering finns [i hantera databaser och inloggningar i Azure SQL Database](logins-create-manage.md). Windows-autentisering stöds inte.
 
 En server i SQL Database och Azure-Synapse:
 

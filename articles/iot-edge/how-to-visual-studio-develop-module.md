@@ -8,12 +8,12 @@ ms.author: kgremban
 ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 1883ffdff20bbbef8efec1440854f01a21a281dc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2ae6d46198d979f91de5bf31d389f75961b4ab88
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994527"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437175"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Använd Visual Studio 2019 för att utveckla och felsöka moduler för Azure IoT Edge
 
@@ -32,7 +32,7 @@ Den här artikeln visar hur du använder Azure IoT Edge verktyg för Visual Stud
 
 Den här artikeln förutsätter att du använder en dator eller en virtuell dator som kör Windows som utvecklings dator. På Windows-datorer kan du utveckla antingen Windows-eller Linux-moduler. Om du vill utveckla Windows-moduler använder du en Windows-dator som kör version 1809/build 17763 eller senare. Om du vill utveckla Linux-moduler använder du en Windows-dator som uppfyller [kraven för Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
-Eftersom den här artikeln använder Visual Studio 2019 som huvud utvecklings verktyg, installerar du Visual Studio. Se till att du inkluderar **Azure-utveckling** och **Skriv bords utveckling med C++** -arbetsbelastningar i Visual Studio 2019-installationen. Du kan [ändra Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019) för att lägga till de nödvändiga arbets belastningarna.
+Eftersom den här artikeln använder Visual Studio 2019 som huvud utvecklings verktyg, installerar du Visual Studio. Se till att du inkluderar **Azure-utveckling** och **Skriv bords utveckling med C++** -arbetsbelastningar i Visual Studio 2019-installationen. Du kan [ändra Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019&preserve-view=true) för att lägga till de nödvändiga arbets belastningarna.
 
 När Visual Studio 2019 är klar behöver du även följande verktyg och komponenter:
 

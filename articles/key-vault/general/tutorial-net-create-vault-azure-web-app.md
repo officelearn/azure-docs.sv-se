@@ -10,20 +10,20 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: f0121a264c3fcf4cba1de72a1b9b81c1af66e82a
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 278c842d6e6f73bff5468f601eea77f8b140a07c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96297108"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444438"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Självstudie: Använd en hanterad identitet för att ansluta Key Vault till en Azure-webbapp i .NET
 
-[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) är ett sätt att lagra autentiseringsuppgifter och andra hemligheter med ökad säkerhet. Men din kod måste autentiseras för att Key Vault ska kunna hämta dem. [Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md) hjälper till att lösa det här problemet genom att ge Azure-tjänster en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva Visa autentiseringsuppgifter i din kod.
+[Azure Key Vault](./overview.md) är ett sätt att lagra autentiseringsuppgifter och andra hemligheter med ökad säkerhet. Men din kod måste autentiseras för att Key Vault ska kunna hämta dem. [Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md) hjälper till att lösa det här problemet genom att ge Azure-tjänster en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva Visa autentiseringsuppgifter i din kod.
 
 I den här självstudien använder du en hanterad identitet för att autentisera en Azure-webbapp med ett Azure Key Vault. Du använder [klient biblioteket för Azure Key Vault version 4 för .net](/dotnet/api/overview/azure/key-vault) och [Azure CLI](/cli/azure/get-started-with-azure-cli). Samma grundläggande principer gäller när du använder det utvecklings språk du väljer, Azure PowerShell och/eller Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -31,8 +31,8 @@ För att slutföra den här snabbstarten behöver du:
 * [.Net Core 3,1 SDK (eller senare)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 * En [git](https://www.git-scm.com/downloads) -installation.
 * [Azure CLI](/cli/azure/install-azure-cli) eller [Azure PowerShell](/powershell/azure/).
-* [Azure Key Vault.](https://docs.microsoft.com/azure/key-vault/general/overview) Du kan skapa ett nyckel valv med hjälp av [Azure Portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md)eller [Azure PowerShell](quick-create-powershell.md).
-* En Key Vault [hemlighet](https://docs.microsoft.com/azure/key-vault/secrets/about-secrets). Du kan skapa en hemlighet med hjälp av [Azure Portal](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal), [POWERSHELL](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-powershell)eller [Azure CLI](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-cli).
+* [Azure Key Vault.](./overview.md) Du kan skapa ett nyckel valv med hjälp av [Azure Portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md)eller [Azure PowerShell](quick-create-powershell.md).
+* En Key Vault [hemlighet](../secrets/about-secrets.md). Du kan skapa en hemlighet med hjälp av [Azure Portal](../secrets/quick-create-portal.md), [POWERSHELL](../secrets/quick-create-powershell.md)eller [Azure CLI](../secrets/quick-create-cli.md).
 
 ## <a name="create-a-net-core-app"></a>Skapa en .NET Core-app
 I det här steget ska du konfigurera det lokala .NET Core-projektet.
@@ -62,7 +62,7 @@ Du ser då meddelandet ”Hello World!” meddelande från den exempel app som v
 
 ## <a name="deploy-the-app-to-azure"></a>distribuera appen till Azure
 
-I det här steget ska du distribuera ditt .NET Core-program till Azure App Service med hjälp av lokal git. Mer information om hur du skapar och distribuerar program finns i [skapa ett ASP.net Core-webbprogram i Azure](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore).
+I det här steget ska du distribuera ditt .NET Core-program till Azure App Service med hjälp av lokal git. Mer information om hur du skapar och distribuerar program finns i [skapa ett ASP.net Core-webbprogram i Azure](../../app-service/quickstart-dotnetcore.md).
 
 ### <a name="configure-the-local-git-deployment"></a>Konfigurera lokal Git-distribution
 
@@ -99,7 +99,7 @@ az group create --name "myResourceGroup" -l "EastUS"
 
 ### <a name="create-an-app-service-plan"></a>Skapa en App Service-plan
 
-Skapa en [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) med hjälp av kommandot Azure CLI [AZ AppService plan Create](/cli/azure/appservice/plan) . I följande exempel skapas ett App Service plan med namnet `myAppServicePlan` på `FREE` pris nivån:
+Skapa en [App Service plan](../../app-service/overview-hosting-plans.md) med hjälp av kommandot Azure CLI [AZ AppService plan Create](/cli/azure/appservice/plan) . I följande exempel skapas ett App Service plan med namnet `myAppServicePlan` på `FREE` pris nivån:
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
@@ -125,7 +125,7 @@ När App Service plan skapas visar Azure CLI information som liknar vad du ser h
 } 
 </pre>
 
-Mer information finns i [Hanera en App Service-plan i Azure](https://docs.microsoft.com/azure/app-service/app-service-plan-manage).
+Mer information finns i [Hanera en App Service-plan i Azure](../../app-service/app-service-plan-manage.md).
 
 ### <a name="create-a-web-app"></a>Skapa en webbapp
 
@@ -249,7 +249,7 @@ Om du vill ge ditt webb program behörighet att utföra **Get** -och **list** -�
 az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
 ```
 
-Du kan också tilldela åtkomst principer med hjälp av [Azure Portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal) eller [PowerShell](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-powershell).
+Du kan också tilldela åtkomst principer med hjälp av [Azure Portal](./assign-access-policy-portal.md) eller [PowerShell](./assign-access-policy-powershell.md).
 
 ### <a name="modify-the-app-to-access-your-key-vault"></a>Ändra appen för åtkomst till ditt nyckel valv
 
@@ -274,7 +274,7 @@ using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
 ```
 
-Lägg till följande rader före `app.UseEndpoints` anropet och uppdatera URI: n för att avspegla `vaultUri` ditt nyckel valv. I den här koden används  [DefaultAzureCredential ()](/dotnet/api/azure.identity.defaultazurecredential) för att autentisera till Key Vault, som använder en token från hanterad identitet för att autentisera. Mer information om att autentisera till Key Vault finns i [Developer ' s guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code). Koden använder också exponentiell backoff för återförsök om Key Vault begränsas. Mer information om Key Vault transaktions gränser finns i avsnittet [Azure Key Vault begränsnings vägledning](https://docs.microsoft.com/azure/key-vault/general/overview-throttling).
+Lägg till följande rader före `app.UseEndpoints` anropet och uppdatera URI: n för att avspegla `vaultUri` ditt nyckel valv. I den här koden används  [DefaultAzureCredential ()](/dotnet/api/azure.identity.defaultazurecredential) för att autentisera till Key Vault, som använder en token från hanterad identitet för att autentisera. Mer information om att autentisera till Key Vault finns i [Developer ' s guide](./developers-guide.md#authenticate-to-key-vault-in-code). Koden använder också exponentiell backoff för återförsök om Key Vault begränsas. Mer information om Key Vault transaktions gränser finns i avsnittet [Azure Key Vault begränsnings vägledning](./overview-throttling.md).
 
 ```csharp
 SecretClientOptions options = new SecretClientOptions()
@@ -322,10 +322,8 @@ Där innan du såg "Hello World!" bör du nu se värdet för din hemlighet som v
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Använda Azure Key Vault med program som distribueras till en virtuell dator i .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
+- [Använda Azure Key Vault med program som distribueras till en virtuell dator i .NET](./tutorial-net-virtual-machine.md)
 - Lär dig mer om [hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md)
 - Läs mer om [hanterade identiteter för App Service](../../app-service/overview-managed-identity.md?tabs=dotnet)
-- Visa [Guide för utvecklare](https://docs.microsoft.com/azure/key-vault/general/developers-guide)
-- [Säker åtkomst till ett nyckel valv](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault)
-
-
+- Visa [Guide för utvecklare](./developers-guide.md)
+- [Säker åtkomst till ett nyckel valv](./secure-your-key-vault.md)

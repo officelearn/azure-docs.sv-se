@@ -2,13 +2,13 @@
 title: Resurs leverantörer efter Azure-tjänster
 description: Visar en lista över alla resurs leverantörs namn områden för Azure Resource Manager och Azure-tjänsten för namn området visas.
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 7c8e535978bff38146caee1a3b5177d5befaa6a1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 11/30/2020
+ms.openlocfilehash: fffac8fef8742cf1f151de06ba6b528035a6668d
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185869"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436835"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resursleverantörer för Azure-tjänster
 
@@ -20,7 +20,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | --------------------------- | ------------- |
 | Microsoft. AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
 | Microsoft. addons | grundläggande |
-| Microsoft. ADHybridHealthService<sup>1</sup> | [Azure Active Directory](../../active-directory/index.yml) |
+| Microsoft. ADHybridHealthService- [registrerad](#registration) | [Azure Active Directory](../../active-directory/index.yml) |
 | Microsoft. Advisor | [Azure Advisor](../../advisor/index.yml) |
 | Microsoft. AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. AnalysisServices | [Azure Analysis Services](../../analysis-services/index.yml) |
@@ -28,7 +28,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. AppConfiguration | [Azure App Configuration](../../azure-app-configuration/index.yml) |
 | Microsoft. AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft. attestering | Tjänsten Azure attestering |
-| Microsoft. Authorization<sup>1</sup> | [Azure Resource Manager](../index.yml) |
+| Microsoft. Authorization- [registrerad](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft. Automation | [Automation](../../automation/index.yml) |
 | Microsoft. AutonomousSystems | [Autonoma system](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft. AVS | [Azure VMware Solution](../../azure-vmware/index.yml) |
@@ -37,7 +37,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. AzureStack | grundläggande |
 | Microsoft. AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
-| Microsoft. fakturering<sup>1</sup> | [Kostnadshantering och fakturering](/azure/billing/) |
+| Microsoft. fakturering- [registrerad](#registration) | [Kostnadshantering och fakturering](/azure/billing/) |
 | Microsoft. Bingkartssökning | [Bing-kartor](/BingMaps/#pivot=main&panel=BingMapsAPI) |
 | Microsoft. blockchain | [Azure Blockchain Service](../../blockchain/workbench/index.yml) |
 | Microsoft. BlockchainTokens | [Azure Blockchain-token](https://azure.microsoft.com/services/blockchain-tokens/) |
@@ -52,15 +52,15 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. ClassicInfrastructureMigrate | Klassisk migrering av distributions modell |
 | Microsoft. ClassicNetwork | Klassiskt virtuellt nätverk för distributions modell |
 | Microsoft. ClassicStorage | Klassisk distributions modell lagring |
-| Microsoft. ClassicSubscription<sup>1</sup> | Klassisk distributionsmodell |
+| Microsoft. ClassicSubscription- [registrerad](#registration) | Klassisk distributionsmodell |
 | Microsoft. CognitiveServices | [Cognitive Services](../../cognitive-services/index.yml) |
-| Microsoft. Commerce<sup>1</sup> | grundläggande |
+| Microsoft. Commerce – [registrerad](#registration) | grundläggande |
 | Microsoft.Compute | [Virtual Machines](../../virtual-machines/index.yml)<br />[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) |
-| Microsoft. förbrukning<sup>1</sup> | [Cost Management](/azure/cost-management/) |
+| Microsoft. förbrukning- [registrerad](#registration) | [Cost Management](/azure/cost-management/) |
 | Microsoft. ContainerInstance | [Container Instances](../../container-instances/index.yml) |
 | Microsoft. ContainerRegistry | [Container Registry](../../container-registry/index.yml) |
 | Microsoft. container service | [Azure Kubernetes Service (AKS)](../../aks/index.yml) |
-| Microsoft. CostManagement<sup>1</sup> | [Cost Management](/azure/cost-management/) |
+| Microsoft. CostManagement- [registrerad](#registration) | [Cost Management](/azure/cost-management/) |
 | Microsoft. CostManagementExports | [Cost Management](/azure/cost-management/) |
 | Microsoft. CustomerLockbox | [Customer Lockbox för Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft. CustomProviders | [Anpassade providrar för Azure](../custom-providers/overview.md) |
@@ -90,7 +90,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. EnterpriseKnowledgeGraph | Företags kunskaps diagram |
 | Microsoft. EventGrid | [Event Grid](../../event-grid/index.yml) |
 | Microsoft. EventHub | [Event Hubs](../../event-hubs/index.yml) |
-| Microsoft. features<sup>1</sup> | [Azure Resource Manager](../index.yml) |
+| Microsoft. features- [registrerade](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft. GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
 | Microsoft. HanaOnAzure | [SAP HANA på stora Azure-instanser](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft. HardwareSecurityModules | [Azure Dedicated HSM](../../dedicated-hsm/index.yml) |
@@ -120,7 +120,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. Maps | [Azure Maps](../../azure-maps/index.yml) |
 | Microsoft. Marketplace | grundläggande |
 | Microsoft. MarketplaceApps | grundläggande |
-| Microsoft. MarketplaceOrdering<sup>1</sup> | grundläggande |
+| Microsoft. MarketplaceOrdering- [registrerad](#registration) | grundläggande |
 | Microsoft. Media | [Media Services](../../media-services/index.yml) |
 | Microsoft. Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft. Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
@@ -135,7 +135,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. peering | [Azure Peering Service](../../peering-service/index.yml) |
 | Microsoft. PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft. Portal<sup>1</sup> | [Azure-portalen](../../azure-portal/index.yml) |
+| Microsoft. Portal – [registrerad](#registration) | [Azure-portalen](../../azure-portal/index.yml) |
 | Microsoft. PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft. PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft. PowerPlatform | [Power Platform](/power-platform/) |
@@ -144,15 +144,15 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
 | Microsoft. RedHatOpenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
 | Microsoft. Relay | [Azure Relay](../../azure-relay/relay-what-is-it.md) |
-| Microsoft. ResourceGraph<sup>1</sup> | [Azure Resource Graph](../../governance/resource-graph/index.yml) |
+| Microsoft. ResourceGraph- [registrerad](#registration) | [Azure Resource Graph](../../governance/resource-graph/index.yml) |
 | Microsoft. ResourceHealth | [Azure Service Health](../../service-health/index.yml) |
-| Microsoft. Resources<sup>1</sup> | [Azure Resource Manager](../index.yml) |
+| Microsoft. Resources- [registrerade](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft. SaaS | grundläggande |
 | Microsoft. Scheduler | [Scheduler](../../scheduler/index.yml) |
 | Microsoft. search | [Azure Cognitive Search](../../search/index.yml) |
 | Microsoft. Security | [Security Center](../../security-center/index.yml) |
 | Microsoft. SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
-| Microsoft. SerialConsole<sup>1</sup> | [Azures serie konsol för Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
+| Microsoft. SerialConsole- [registrerad](#registration) | [Azures serie konsol för Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft. ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft. ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |
@@ -168,7 +168,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. StorSimple | [StorSimple](../../storsimple/index.yml) |
 | Microsoft. StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft. Subscription | grundläggande |
-| Microsoft. support<sup>1</sup> | grundläggande |
+| Microsoft. support – [registrerad](#registration) | grundläggande |
 | Microsoft. Synapse | [Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft. TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft. token | Token |
@@ -181,9 +181,14 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. WindowsDefenderATP | [Microsoft Defender Advanced Threat Protection](../../security-center/security-center-wdatp.md) |
 | Microsoft. WindowsESU | Utökade säkerhets uppdateringar |
 | Microsoft. WindowsIoT | [Windows 10 IoT Core Services](/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
-| Microsoft. WorkloadMonitor<sup>1</sup> | [Azure Monitor](../../azure-monitor/index.yml) |
+| Microsoft. WorkloadMonitor | [Azure Monitor](../../azure-monitor/index.yml) |
 
-<sup>1</sup> registrerad som standard
+## <a name="registration"></a>Registrering
+
+De resurs leverantörer som är markerade med **-registrerade** registreras som standard för din prenumeration. Om du vill använda andra resurs leverantörer måste du [registrera dem](resource-providers-and-types.md). Många resurs leverantörer registreras dock åt dig när du vidtar vissa åtgärder. Om du till exempel skapar en resurs via portalen registrerar portalen automatiskt alla oregistrerade resurs leverantörer som behövs. När du distribuerar resurser via en [Azure Resource Manager mall](../templates/overview.md)registreras även eventuella obligatoriska resurs leverantörer.
+
+> [!IMPORTANT]
+> Registrera bara en resurs leverantör när du är redo att använda den. Med registrerings steget kan du behålla de lägsta privilegierna i din prenumeration. En obehörig användare kan inte använda resurs leverantörer som inte är registrerade.
 
 ## <a name="next-steps"></a>Nästa steg
 

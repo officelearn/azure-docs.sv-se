@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1866f3360b90a96b5e3f215eb7669a1451262bd8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b9b842b94d66cf91ad836b8ae61df1b3d3f34293
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046017"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435951"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge enheter (klassisk redigerare)
 
@@ -32,15 +32,15 @@ I den här artikeln får du lära dig hur du använder de inbyggda [Azure IoT Ed
 
 Om inget annat anges utforskar procedurerna i den här artikeln inte alla funktioner som är tillgängliga via aktivitets parametrar. Mer information finns i följande:
 
-* [Uppgifts version](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-versions)
+* [Uppgifts version](/azure/devops/pipelines/process/tasks?tabs=classic#task-versions)
 * **Avancerat** – om tillämpligt, anger du moduler som du inte vill ska skapas.
-* [Kontroll alternativ](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-control-options)
-* [Miljövariabler](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#environment-variables)
-* [Variabler för utdata](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#use-output-variables-from-tasks)
+* [Kontroll alternativ](/azure/devops/pipelines/process/tasks?tabs=classic#task-control-options)
+* [Miljövariabler](/azure/devops/pipelines/process/variables?tabs=classic#environment-variables)
+* [Variabler för utdata](/azure/devops/pipelines/process/variables?tabs=classic#use-output-variables-from-tasks)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure databaser-lagringsplats. Om du inte har någon kan du [skapa en ny git-lagrings platsen i projektet](/azure/devops/repos/git/create-new-repo?tabs=new-nav&view=vsts). I den här artikeln har vi skapat ett lagrings lager med namnet **IoTEdgeRepo**.
+* En Azure databaser-lagringsplats. Om du inte har någon kan du [skapa en ny git-lagrings platsen i projektet](/azure/devops/repos/git/create-new-repo). I den här artikeln har vi skapat ett lagrings lager med namnet **IoTEdgeRepo**.
 * En IoT Edge lösning har allokerats och skickas till din lagrings plats. Om du vill skapa en ny exempel lösning för att testa den här artikeln följer du stegen i [utveckla och felsöka moduler i Visual Studio Code](how-to-vs-code-develop-module.md) eller [utveckla och felsöka C#-moduler i Visual Studio](./how-to-visual-studio-develop-module.md). I den här artikeln har vi skapat en lösning i vårt lagrings lager som kallas **IoTEdgeSolution**, som har koden för en modul med namnet **filtermodule**.
 
    Allt du behöver i den här artikeln är mappen Solution som skapats av IoT Edge mallar i antingen Visual Studio Code eller Visual Studio. Du behöver inte bygga, skicka, distribuera eller Felsöka den här koden innan du fortsätter. Du konfigurerar dessa processer i Azure-pipeliner.
@@ -84,7 +84,7 @@ I det här avsnittet skapar du en ny versions pipeline. Du konfigurerar pipeline
 
    * Om du vill bygga dina moduler i plattform amd64 för Linux-behållare väljer du **Ubuntu-16,04**
 
-   * Om du vill skapa moduler i plattforms-amd64 för Windows 1809-behållare måste du konfigurera en lokal [agent i Windows](/azure/devops/pipelines/agents/v2-windows?view=vsts).
+   * Om du vill skapa moduler i plattforms-amd64 för Windows 1809-behållare måste du konfigurera en lokal [agent i Windows](/azure/devops/pipelines/agents/v2-windows).
 
    * Om du vill skapa moduler i plattforms-arm32v7 eller arm64 för Linux-behållare måste du konfigurera en lokal [agent på Linux](https://devblogs.microsoft.com/iotdev/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent).
 
@@ -122,7 +122,7 @@ I det här avsnittet skapar du en ny versions pipeline. Du konfigurerar pipeline
     | Åtgärd | Välj **push module-avbildningar**. |
     | Behållarens register typ | Använd standard typen: `Azure Container Registry` . |
     | Azure-prenumeration | Välj din prenumeration. |
-    | Azure Container Registry | Välj den typ av behållar register som du använder för att lagra dina modulblad. Formuläret ändras beroende på vilken register typ du väljer. Om du väljer **Azure Container Registry**använder du List rutan för att välja Azure-prenumerationen och namnet på behållar registret. Om du väljer **allmän container Registry**väljer du **ny** för att skapa en anslutning till en register tjänst. |
+    | Azure Container Registry | Välj den typ av behållar register som du använder för att lagra dina modulblad. Formuläret ändras beroende på vilken register typ du väljer. Om du väljer **Azure Container Registry** använder du List rutan för att välja Azure-prenumerationen och namnet på behållar registret. Om du väljer **allmän container Registry** väljer du **ny** för att skapa en anslutning till en register tjänst. |
     | .template.jspå fil | Välj ellipsen (**...**) och navigera till **deployment.template.jspå** filen i lagrings platsen som innehåller din IoT Edge-lösning. |
     | Standard plattform | Välj lämpligt operativ system för dina moduler baserat på din riktade IoT Edge-enhet. |
     | Lägg till autentiseringsuppgifter för registret i distributions manifestet | Ange True för att lägga till registrets autentiseringsuppgifter för att överföra Docker-avbildningar till distributions manifestet. |
@@ -136,14 +136,14 @@ I det här avsnittet skapar du en ny versions pipeline. Du konfigurerar pipeline
     | Visningsnamn | Använd standard namnet eller anpassa |
     | Källmapp | Mappen med de filer som ska kopieras. |
     | Innehåll | Lägg till två rader: `deployment.template.json` och `**/module.json` . Dessa två filer fungerar som indata för att generera distributions manifestet för IoT Edge. |
-    | Målmapp | Ange variabeln `$(Build.ArtifactStagingDirectory)` . Se [build-variabler](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) för att lära dig mer om beskrivningen. |
+    | Målmapp | Ange variabeln `$(Build.ArtifactStagingDirectory)` . Se [build-variabler](/azure/devops/pipelines/build/variables#build-variables) för att lära dig mer om beskrivningen. |
 
 10. Välj aktiviteten **publicera Bygg artefakter** för att redigera den. Tillhandahåll katalog Sök vägen för artefakt mellanlagring till aktiviteten så att sökvägen kan publiceras i en versions pipeline.
 
     | Parameter | Beskrivning |
     | --- | --- |
     | Visningsnamn | Använd standard namnet eller anpassa. |
-    | Sökväg för att publicera | Ange variabeln `$(Build.ArtifactStagingDirectory)` . Mer information finns i [bygga variabler](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) . |
+    | Sökväg för att publicera | Ange variabeln `$(Build.ArtifactStagingDirectory)` . Mer information finns i [bygga variabler](/azure/devops/pipelines/build/variables#build-variables) . |
     | Artefaktnamn | Använd standard namnet: **Drop** |
     | Plats för artefakt publicering | Använd standard platsen: **Azure-pipeline** |
 

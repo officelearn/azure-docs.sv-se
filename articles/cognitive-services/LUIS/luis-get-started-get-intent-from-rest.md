@@ -1,22 +1,22 @@
 ---
-title: 'Snabb start: skapa avsikt med REST-API: er – LUIS'
-description: I den här REST API snabb starten använder du en tillgänglig offentlig LUIS-app för att fastställa en användares avsikt från konversations text.
+title: Så här får du en avsikt att använda REST API
+description: I den här artikeln använder du en tillgänglig offentlig LUIS-app för att fastställa en användares avsikt från konversations text.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 05/18/2020
+ms.topic: conceptual
+ms.date: 11/30/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: d03ebc1ec5730f1905ce1ee5b9c484312f5aeee1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b49d90ffe2a262895727fdd4ef5f8a7950104102
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316357"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437022"
 ---
-# <a name="quickstart-get-intent-with-rest-apis"></a>Snabb start: skapa avsikt med REST API: er
+# <a name="how-to-get-an-intent-using-the-rest-apis"></a>Så här hämtar du en avsikt med REST-API: er
 
-I den här snabb starten ska du använda en LUIS-app för att fastställa en användares avsikt från konversations text. Skicka användarens avsikt som text till pizza-appens HTTP förutsägelse-slutpunkt. Vid slut punkten tillämpar LUIS pizza-appens modell för att analysera den naturliga språk texten, vilket avgör övergripande avsikt och extrahering av data som är relevanta för appens ämnes domän.
+I den här artikeln ska du använda en LUIS-app för att fastställa en användares avsikt från en konversations text. Skicka användarens avsikt som text till pizza-appens HTTP förutsägelse-slutpunkt. Vid slut punkten tillämpar LUIS pizza-appens modell för att analysera den naturliga språk texten, vilket avgör övergripande avsikt och extrahering av data som är relevanta för appens ämnes domän.
 
 I den här artikeln behöver du ett kostnadsfritt [LUIS](https://www.luis.ai)-konto.
 

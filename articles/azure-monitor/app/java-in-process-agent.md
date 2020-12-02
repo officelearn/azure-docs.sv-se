@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Övervakning av program prestanda för Java-program som körs i vilken miljö som helst utan kod ändring. Distribuerad spårning och program karta.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 36e2b419da2bccdf2f5f13227457172cf644994c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7046e4a1aeeda5e537208c79858c95c79e188348
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351545"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437209"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java-kodad program övervakning Azure Monitor Application Insights
 
@@ -127,104 +127,124 @@ Se [konfigurations alternativ](./java-standalone-config.md) för fullständig in
 * Micrometer (inklusive egenskaper för vårens start motstånd)
 * JMX mått
 
-## <a name="sending-custom-telemetry-from-your-application"></a>Skicka anpassad telemetri från ditt program
+## <a name="send-custom-telemetry-from-your-application"></a>Skicka anpassad telemetri från ditt program
 
 Vårt mål i 3.0 + är att du ska kunna skicka din anpassade telemetri med standard-API: er.
 
-Vi stöder micrometer, opentelemetri-API och populära loggnings ramverk. Application Insights Java 3,0 fångar automatiskt in telemetri och korrelerar det tillsammans med all automatisk insamlad telemetri.
+Vi stöder micrometer, populära loggnings ramverk och Application Insights Java 2. x SDK hittills.
+Application Insights Java 3,0 samlar automatiskt in telemetri som skickas via dessa API: er och korrelerar dem med automatiskt insamlad telemetri.
 
 ### <a name="supported-custom-telemetry"></a>Anpassad telemetri stöds
 
-Tabellen nedan representerar anpassade typer av anpassade telemetri som stöds för närvarande och som du kan använda för att komplettera Java 3,0-agenten. För att sammanfatta kan anpassade mått hanteras via micrometer, anpassade undantag och spårningar kan aktive ras via loggnings ramverk och alla typer av anpassad telemetri stöds via [Application Insights Java 2. x SDK](#sending-custom-telemetry-using-application-insights-java-sdk-2x). 
+Tabellen nedan representerar anpassade typer av anpassade telemetri som stöds för närvarande och som du kan använda för att komplettera Java 3,0-agenten. För att sammanfatta kan anpassade mått hanteras via micrometer, anpassade undantag och spårningar kan aktive ras via loggnings ramverk och alla typer av anpassad telemetri stöds via [Application Insights Java 2. x SDK](#send-custom-telemetry-using-application-insights-java-2x-sdk).
 
 |                     | Micrometer | Log4j, logback, JUL | 2. x SDK |
 |---------------------|------------|---------------------|---------|
-| **Anpassade händelser**   |            |                     |  Ja    |
+| **Anpassade händelser**   |            |                     |  Yes    |
 | **Anpassade mått**  |  Ja       |                     |  Ja    |
-| **Beroenden**    |            |                     |  Ja    |
+| **Beroenden**    |            |                     |  Yes    |
 | **Undantag**      |            |  Ja                |  Ja    |
-| **Sid visningar**      |            |                     |  Ja    |
-| **Begäranden**        |            |                     |  Ja    |
+| **Sid visningar**      |            |                     |  Yes    |
+| **Begäranden**        |            |                     |  Yes    |
 | **Spårningar**          |            |  Ja                |  Ja    |
 
 Vi planerar inte att lansera en SDK med Application Insights 3,0 för tillfället.
 
-Application Insights Java 3,0 lyssnar redan efter telemetri som skickas till Application Insights Java SDK 2. x. Den här funktionen är en viktig del av uppgraderings artikeln för befintliga 2. x-användare och det fyller en viktig lucka i vårt stöd för anpassad telemetri tills API: t opentelemetri är GA.
+Application Insights Java 3,0 lyssnar redan efter telemetri som skickas till Application Insights Java 2. x SDK. Den här funktionen är en viktig del av uppgraderings artikeln för befintliga 2. x-användare och det fyller en viktig lucka i vårt stöd för anpassad telemetri tills API: t opentelemetri är GA.
 
-## <a name="sending-custom-telemetry-using-application-insights-java-sdk-2x"></a>Skicka anpassad telemetri med Application Insights Java SDK 2. x
+### <a name="send-custom-metrics-using-micrometer"></a>Skicka anpassade mått med micrometer
+
+Lägg till micrometer i ditt program:
+
+```xml
+<dependency>
+  <groupId>io.micrometer</groupId>
+  <artifactId>micrometer-core</artifactId>
+  <version>1.6.1</version>
+</dependency>
+```
+
+Använd den globala micrometer- [registret](https://micrometer.io/docs/concepts#_global_registry) för att skapa en mätare:
+
+```java
+static final Counter counter = Metrics.counter("test_counter");
+```
+
+och använder den för att registrera mått:
+
+```java
+counter.increment();
+```
+
+### <a name="send-custom-traces-and-exceptions-using-your-favorite-logging-framework"></a>Skicka anpassade spår och undantag med ditt favorit loggnings ramverk
+
+Log4j, logback och Java. util. logging är automatiskt instrumenterade och loggning som utförs via dessa loggnings ramverk samlas automatiskt in som spårning och undantags telemetri.
+
+Som standard samlas loggning endast in när loggningen utförs på informations nivån eller över.
+Se [konfigurations alternativen](./java-standalone-config.md#auto-collected-logging) för hur du ändrar den här nivån.
+
+Om du vill koppla anpassade dimensioner till dina loggar kan du använda [log4j 1 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [log4j 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html)eller [logback MDC](http://logback.qos.ch/manual/mdc.html), och Application Insights Java 3,0 samlar automatiskt in dessa MDC egenskaper som anpassade dimensioner för telemetri och undantag.
+
+### <a name="send-custom-telemetry-using-application-insights-java-2x-sdk"></a>Skicka anpassad telemetri med Application Insights Java 2. x SDK
 
 Lägg till `applicationinsights-core-2.6.0.jar` i ditt program (alla 2. x-versioner stöds av Application Insights Java 3,0, men det är värt att använda det senaste om du har ett val):
 
 ```xml
-  <dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>applicationinsights-core</artifactId>
-    <version>2.6.0</version>
-  </dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-core</artifactId>
+  <version>2.6.0</version>
+</dependency>
 ```
 
 Skapa en TelemetryClient:
 
   ```java
-private static final TelemetryClient telemetryClient = new TelemetryClient();
+static final TelemetryClient telemetryClient = new TelemetryClient();
 ```
 
-och använder det för att skicka anpassad telemetri.
+och använder den för att skicka anpassad telemetri:
 
-### <a name="events"></a>Händelser
+##### <a name="events"></a>Händelser
 
-  ```java
+```java
 telemetryClient.trackEvent("WinGame");
 ```
-### <a name="metrics"></a>Mått
 
-Du kan skicka mått för telemetri via [micrometer](https://micrometer.io):
+##### <a name="metrics"></a>Mått
 
 ```java
-  Counter counter = Metrics.counter("test_counter");
-  counter.increment();
+telemetryClient.trackMetric("queueLength", 42.0);
 ```
 
-Du kan också använda Application Insights Java SDK 2. x:
+##### <a name="dependencies"></a>Beroenden
 
 ```java
-  telemetryClient.trackMetric("queueLength", 42.0);
+boolean success = false;
+long startTime = System.currentTimeMillis();
+try {
+    success = dependency.call();
+} finally {
+    long endTime = System.currentTimeMillis();
+    RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
+    telemetry.setTimestamp(new Date(startTime));
+    telemetry.setDuration(new Duration(endTime - startTime));
+    telemetryClient.trackDependency(telemetry);
+}
 ```
 
-### <a name="dependencies"></a>Beroenden
+##### <a name="logs"></a>Loggar
 
 ```java
-  boolean success = false;
-  long startTime = System.currentTimeMillis();
-  try {
-      success = dependency.call();
-  } finally {
-      long endTime = System.currentTimeMillis();
-      RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
-      telemetry.setTimestamp(new Date(startTime));
-      telemetry.setDuration(new Duration(endTime - startTime));
-      telemetryClient.trackDependency(telemetry);
-  }
+telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
 ```
 
-### <a name="logs"></a>Loggar
-Du kan skicka anpassad log-telemetri via ditt favorit loggnings ramverk.
-
-Du kan också använda Application Insights Java SDK 2. x:
+##### <a name="exceptions"></a>Undantag
 
 ```java
-  telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
-```
-
-### <a name="exceptions"></a>Undantag
-Du kan skicka anpassade undantags telemetri via ditt favorit loggnings ramverk.
-
-Du kan också använda Application Insights Java SDK 2. x:
-
-```java
-  try {
-      ...
-  } catch (Exception e) {
-      telemetryClient.trackException(e);
-  }
+try {
+    ...
+} catch (Exception e) {
+    telemetryClient.trackException(e);
+}
 ```

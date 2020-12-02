@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4d2300e36bd06313cf889f40f37d672d66534db6
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3279150d0cb7b287f0a78581094a51356033596c
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538401"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435747"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Snabb start: skapa en Azure Database for MariaDB-server med hjälp av Azure CLI
 
@@ -21,9 +21,9 @@ Du kan använda Azure CLI för att skapa och hantera Azure-resurser från komman
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du installerar och använder CLI lokalt måste du för den här snabbstarten köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+- Den här artikeln kräver version 2,0 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 Om du har flera prenumerationer väljer du den prenumeration som innehåller den resurs eller prenumeration där du debiteras. För att välja ett specifikt prenumerations-ID i ditt konto använder du kommandot [az account set](/cli/azure/account#az-account-set):
 
@@ -45,18 +45,18 @@ az group create --name myresourcegroup --location westus
 
 Skapa en Azure Database for MariaDB-server med hjälp av kommandot [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create). En server kan hantera flera databaser. Normalt används en separat databas för varje projekt eller för varje användare.
 
-Inställningen | Exempelvärde | Beskrivning
+Inställning | Exempelvärde | Description
 ---|---|---
 name | **mydemoserver** | Ange ett unikt namn för din Azure Database for MariaDB-server. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
 resource-group | **myresourcegroup** | Ange namnet på Azure-resursgruppen.
 sku-name | **GP_Gen5_2** | Namnet på SKU:n. Efter *pris nivån* för konventions \_ *beräknings generation* \_ *virtuella kärnor* i korthet. Mer information om parametern **sku-name** finns i avsnittet efter den här tabellen.
 backup-retention | **7** | Hur länge en säkerhetskopia ska behållas. Enheten är dagar. Intervall: 7 till 35. 
-geo-redundant-backup | **Inaktiverad** | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern. Tillåtna värden: **aktiverade** , **inaktiverade**.
+geo-redundant-backup | **Inaktiverad** | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern. Tillåtna värden: **aktiverade**, **inaktiverade**.
 location | **westus** | Azure-platsen för servern.
-ssl-enforcement | **Aktiverad** | Huruvida SSL ska aktiveras för den här servern. Tillåtna värden: **aktiverade** , **inaktiverade**.
+ssl-enforcement | **Aktiverad** | Huruvida SSL ska aktiveras för den här servern. Tillåtna värden: **aktiverade**, **inaktiverade**.
 storage-size | **51200** | Serverns lagringskapacitet (enheten är megabyte). Giltiga lagringsstorlekar är 5 120 MB (minst) med ökningar i steg om 1 024 MB. Mer information om storleksgränser för lagring finns i [Prisnivåer](./concepts-pricing-tiers.md). 
 version | **10,2** | MariaDB-huvudmotorversionen.
-admin-user | **myadmin** | Användarnamnet för administratörsinloggningen. Parametern **admin-user** får inte bvara **azure_superuser** , **admin** , **administrator** , **root** , **guest** eller **public**.
+admin-user | **myadmin** | Användarnamnet för administratörsinloggningen. Parametern **admin-user** får inte bvara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.
 admin-password | *ditt lösen ord* | Lösenordet för administratörsanvändaren. Lösenordet måste innehålla mellan 8 och 128 tecken. Det måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror och icke-alfanumeriska tecken.
 
 Parametervärdet för sku-namn följer namngivningskonventionen {prisnivå}\_{compute-generering}\_{vCores} som i exemplen nedan:
@@ -206,7 +206,7 @@ Så här ansluter du till servern med hjälp av mysql-kommandoradsverktyget:
 
 1. Öppna MySQL Workbench på klientdatorn. Om det inte redan är installerat [laddar du ned](https://dev.mysql.com/downloads/workbench/) och installerar programmet.
 
-2. I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar** :
+2. I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar**:
 
    ![Skapa en ny anslutning](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
 

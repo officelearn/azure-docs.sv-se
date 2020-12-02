@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: e29aeb7570ad6daba9d6fc652291471fa246bf0a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: b75964f8cfc41efc35858284dbffded3aa406eb6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674629"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436070"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API: er för avläsning av Marketplace
 
@@ -20,7 +20,7 @@ De avgiftsbelagda API: erna för fakturering ska användas när en utgivare skap
 
 Mer information om hur du skapar anpassade mätnings dimensioner för SaaS finns i [SaaS-mätare fakturering](saas-metered-billing.md).
 
-Mer information om hur du skapar anpassade mätnings dimensioner för ett Azure Application erbjudande med en hanterad app-plan finns i [avsnittet teknisk konfiguration i skapa ett nytt erbjudande för Azure Apps](create-new-azure-apps-offer.md#technical-configuration).
+Mer information om hur du skapar anpassade mätnings dimensioner för ett Azure Application erbjudande med en hanterad app-plan finns i [Konfigurera installations information för Azure-programerbjudande](../create-new-azure-apps-offer.md#configure-your-azure-application-offer-setup-details).
 
 ## <a name="enforcing-tls-12-note"></a>Framtvingar TLS 1,2-anteckning
 
@@ -34,7 +34,7 @@ Det går bara att generera en användnings händelse för varje timme i en kalen
 
 Det går bara att generera en användnings händelse för varje timme i en kalender dag per resurs. Om fler än en enhet används i en timme ackumulerar du alla enheter som förbrukas i timmen och genererar dem sedan i en enda händelse. Användnings händelser kan bara genereras under de senaste 24 timmarna. Om du genererar en användnings händelse när som helst mellan 8:00 och 8:59:59 (och godkänns) och skickar ytterligare en händelse för samma dag mellan 8:00 och 8:59:59, avvisas den som en dubblett.
 
-**Publicera** : `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**Publicera**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 

@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 3728fdd07172f2402ddb1dc7434ddb1993b984b1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e9e630f4199e0bfb67509f008f403c0a7a490887
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999883"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436699"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Marknads plats partner och kund användnings behörighet
 
@@ -32,7 +32,7 @@ Kund användnings behörighet stöder tre distributions alternativ:
 >
 >- Kund användnings behörighet är för nya distributioner och stöder inte taggning av befintliga resurser som redan har distribuerats.
 >
->- Kund användnings behörighet krävs för [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) erbjudanden som publicerats på Azure Marketplace.
+>- Kund användnings behörighet krävs för [Azure Application](./create-new-azure-apps-offer.md) erbjudanden som publicerats på Azure Marketplace.
 >
 >- Alla Azure-tjänster är inte kompatibla med kund användnings behörighet. Azure Kubernetes Services (AKS) och VM Scale Sets har kända problem idag som orsakar rapportering av användning.
 
@@ -64,7 +64,7 @@ GUID: er måste vara registrerade i Partner Center för att möjliggöra kund an
 När du har lagt till ett GUID i mallen eller i användar agenten och registrerat GUID i Partner Center, spåras framtida distributioner.
 
 > [!NOTE]
-> Om du publicerar ditt [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) erbjudande till Azure Marketplace via partner Center registreras alla nya GUID som används i mallen automatiskt i din partner Center profil när mallen laddas upp.  
+> Om du publicerar ditt [Azure Application](./create-new-azure-apps-offer.md) erbjudande till Azure Marketplace via partner Center registreras alla nya GUID som används i mallen automatiskt i din partner Center profil när mallen laddas upp.  
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard).
 
@@ -90,7 +90,7 @@ Många partner lösningar distribueras med hjälp av Azure Resource Manager mall
 > [!NOTE]
 > Mer information om hur du skapar och publicerar Solution-mallar finns i
 > * [Skapa och distribuera din första Resource Manager-mall](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
->* [Azure Application erbjudande](./partner-center-portal/create-new-azure-apps-offer.md).
+>* [Azure Application erbjudande](./create-new-azure-apps-offer.md).
 >* Video: [skapa Solution-mallar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
@@ -287,7 +287,7 @@ Visa steg-för-steg-instruktioner med skärm dum par med [tekniska försäljning
 
 Du kommer att kontaktas av en teknisk konsult från Microsoft-partner för att skapa ett samtal för att tillgodose dina behov.
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Vad är fördelen med att lägga till GUID i mallen?**
 

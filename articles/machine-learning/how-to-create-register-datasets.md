@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: f82c3b894a54dc08b0f6dd73108d6f4b2c17f8d6
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: e8388832985ca3b27baea008ff1a9bdd5df06964
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359841"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445111"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Skapa Azure Machine Learning-datamängder
 
@@ -124,7 +124,7 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 Om du vill återanvända och dela data uppsättningar mellan experiment i arbets ytan [registrerar du din data uppsättning](#register-datasets). 
 
 > [!TIP] 
-> Ladda upp filer från en lokal katalog och skapa en FileDataset i en enda metod med den offentliga förhands gransknings metoden [upload_directory ()](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py#methods). Den här metoden är en [experimentell](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) förhands gransknings funktion och kan ändras när som helst. 
+> Ladda upp filer från en lokal katalog och skapa en FileDataset i en enda metod med den offentliga förhands gransknings metoden [upload_directory ()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?preserve-view=true&view=azure-ml-py#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-). Den här metoden är en [experimentell](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) förhands gransknings funktion och kan ändras när som helst. 
 > 
 >  Med den här metoden överförs data till det underliggande lagrings utrymmet, och därför debiteras lagrings kostnaderna. 
 ### <a name="create-a-tabulardataset"></a>Skapa en TabularDataset
@@ -208,7 +208,7 @@ dataset = Dataset.Tabular.from_delimited_files(path = [(datastore, ('data/prepar
 ```
 
 > [!TIP]
-> Skapa och registrera en TabularDataset från en i Memory Spark-eller Pandas-dataframe med en enda metod med offentliga för hands metoder [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#methods) och [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#methods) . Dessa register metoder är [experimentella](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) för hands versions funktioner och kan ändras när som helst. 
+> Skapa och registrera en TabularDataset från en i Memory Spark-eller Pandas-dataframe med en enda metod med offentliga för hands metoder [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#methods) och [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#methods) . Dessa register metoder är [experimentella](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) för hands versions funktioner och kan ändras när som helst. 
 > 
 >  Dessa metoder laddar upp data till din underliggande lagring och resulterar i en lagrings kostnad. 
 

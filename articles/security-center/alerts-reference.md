@@ -1,5 +1,5 @@
 ---
-title: Referens tabell för alla Azure Defender-varningar i Azure Security Center
+title: Referens tabell för alla säkerhets aviseringar i Azure Security Center
 description: Den här artikeln innehåller en lista över säkerhets aviseringar som visas i Azure Security Center Azure Defender-instrumentpanelen.
 services: security-center
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6d001e638b00cace1dd81d9631f498a911ca19a4
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: c5ee275fb92ff2c3787bef7868665c19fea2109c
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96014609"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436784"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Säkerhetsaviseringar – en referensguide
 
-Den här artikeln innehåller en lista över säkerhets aviseringar som du kan få från Azure Defender. De aviseringar som visas i din miljö beror på vilka resurser och tjänster du skyddar, samt den anpassade konfigurationen.
+Den här artikeln innehåller en lista över säkerhets aviseringar som du kan få från Azure Security Center och eventuella Azure Defender-planer som du har aktiverat. De aviseringar som visas i din miljö beror på vilka resurser och tjänster du skyddar, samt den anpassade konfigurationen.
 
 Information om hur du svarar på dessa aviseringar finns [i hantera och svara på säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
 

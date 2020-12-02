@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 2ea9fdcb11bd88755c0972fa166d1d94068ce60e
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 64fa6c72e3bc37276dd108e3981bbefb5a2021a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638826"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444527"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Vanliga frågor och svar om data insamling, agenter och arbets ytor
 
@@ -86,12 +86,12 @@ Platsen för standard arbets ytan beror på din Azure-region:
 - För virtuella datorer i Australien är arbets ytan Australien
 
 
-## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Vilka data samlas in av Log Analytics agenten?
+## <a name="what-security-events-are-collected-by-the-log-analytics-agent"></a>Vilka säkerhets händelser samlas in av Log Analytics agenten?
 
-En fullständig lista över de program och tjänster som övervakas av agenten finns i [vad övervakas av Azure Monitor?](../azure-monitor/monitor-reference.md#azure-services).
+En fullständig lista över de säkerhets händelser som samlas in av agenten finns i [vilka händelse typer som lagras för inställningarna "common" och "minimal" säkerhets händelser?](security-center-enable-data-collection.md#what-event-types-are-stored-for-common-and-minimal).
 
 > [!IMPORTANT]
-> Observera att för vissa tjänster, t. ex. Azure-brandvägg, om du har aktiverat loggning och valt en chatt-resurs som ska loggas (till exempel genom att ange loggen som *utförlig* ) kan du se betydande påverkan på din Log Analytics lagrings plats behov. 
+> Observera att för vissa tjänster, t. ex. Azure-brandvägg, om du har aktiverat loggning och valt en chatt-resurs som ska loggas (till exempel genom att ange loggen som *utförlig*) kan du se betydande påverkan på din Log Analytics lagrings plats behov. 
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Kan jag ta bort standard arbets ytor som skapats av Security Center?
@@ -250,7 +250,7 @@ Om du har aktiverat den, men nu vill inaktivera den:
 
 ## <a name="how-do-i-enable-data-collection"></a>Hur gör jag för att aktivera data insamling?
 
-Du kan aktivera data insamling för din Azure-prenumeration i säkerhets principen. För att aktivera data insamling. [Logga](https://portal.azure.com)in på Azure Portal, Välj **bläddra** , Välj **Security Center** och välj **säkerhets princip**. Välj den prenumeration som du vill aktivera automatisk etablering för. När du väljer en prenumerations **säkerhets princip öppnas data insamling** . Under **Automatisk etablering** väljer du **på**.
+Du kan aktivera data insamling för din Azure-prenumeration i säkerhets principen. För att aktivera data insamling. [Logga](https://portal.azure.com)in på Azure Portal, Välj **bläddra**, Välj **Security Center** och välj **säkerhets princip**. Välj den prenumeration som du vill aktivera automatisk etablering för. När du väljer en prenumerations **säkerhets princip öppnas data insamling** . Under **Automatisk etablering** väljer du **på**.
 
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>Vad händer när data insamlingen är aktive rad?

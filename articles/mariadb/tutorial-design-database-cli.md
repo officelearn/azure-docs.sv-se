@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1fbc68570fb59be14947755a241ab9b005841e99
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8f6f8d5a2cc9dc17d08486125fc2e44307c1be46
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542515"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436665"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Självstudie: Utforma en Azure Database for MariaDB med Azure CLI
 
@@ -30,11 +30,9 @@ Azure Database for MariaDB är en relationsdatabastjänst i Microsoft-molnet som
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-Du kan använda Azure Cloud Shell i webbläsaren eller [Installera Azure CLI]( /cli/azure/install-azure-cli) på din dator för att köra kod blocken i den här självstudien.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
-
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
+- Den här artikeln kräver version 2,0 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad. 
 
 Om du har flera prenumerationer väljer du en lämplig prenumerationen där resursen ligger eller faktureras. Välj en specifik prenumerations-ID under ditt konto med hjälp av kommandot [az account set](/cli/azure/account#az-account-set).
 ```azurecli-interactive
@@ -70,7 +68,7 @@ Se dokumentationen om [prisnivåer](./concepts-pricing-tiers.md) för mer inform
 
 
 ## <a name="configure-firewall-rule"></a>Konfigurera brandväggsregeln
-Skapa en brandväggsregel på Azure Database for MariaDB-servernivå med kommandot `az mariadb server firewall-rule create`. En brandväggsregel på servernivå gör att externa program, som **mysql** -kommandoradsverktyget eller MySQL Workbench, kan ansluta till servern via Azure MariaDB-tjänstens brandvägg.
+Skapa en brandväggsregel på Azure Database for MariaDB-servernivå med kommandot `az mariadb server firewall-rule create`. En brandväggsregel på servernivå gör att externa program, som **mysql**-kommandoradsverktyget eller MySQL Workbench, kan ansluta till servern via Azure MariaDB-tjänstens brandvägg.
 
 I följande exempel skapas en brandväggsregel som kallas `AllowMyIP` som tillåter anslutningar från den specifika IP-adressen 192.168.0.1. Ersätt en IP-adress eller omfång av IP-adresser som motsvarar platsen som du kommer att ansluta från.
 

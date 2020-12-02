@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: 02fd0a4c7d931f439ab85af8d90de323105e21f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c45445415f3eaa7cb0f9069dd5f64b57c19e5836
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096707"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437158"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrera hundratals terabyte data till Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -29,11 +29,11 @@ Azure Cosmos DB migrations strategier skiljer sig för närvarande baserat på A
 
 De befintliga verktygen för att migrera data till Azure Cosmos DB har vissa begränsningar som är särskilt synliga vid stora skalor:
 
- * **Funktioner för begränsad skalning** : för att kunna migrera terabyte data till Azure Cosmos DB så snabbt som möjligt och för att effektivt förbruka hela det etablerade data flödet bör migrerings klienterna ha möjlighet att skala ut på obestämd tid.  
+ * **Funktioner för begränsad skalning**: för att kunna migrera terabyte data till Azure Cosmos DB så snabbt som möjligt och för att effektivt förbruka hela det etablerade data flödet bör migrerings klienterna ha möjlighet att skala ut på obestämd tid.  
 
-* **Brist på förlopps spårning och kontroll pekare** : det är viktigt att spåra migreringens förlopp och kontrol lera att de har en kontroll som pekar samtidigt som du migrerar stora data mängder. Annars stoppas migreringen av ett fel som inträffar under migreringen och du måste starta processen från grunden. Det skulle inte vara produktivt att starta om hela migreringsprocessen när 99% av den redan har slutförts.  
+* **Brist på förlopps spårning och kontroll pekare**: det är viktigt att spåra migreringens förlopp och kontrol lera att de har en kontroll som pekar samtidigt som du migrerar stora data mängder. Annars stoppas migreringen av ett fel som inträffar under migreringen och du måste starta processen från grunden. Det skulle inte vara produktivt att starta om hela migreringsprocessen när 99% av den redan har slutförts.  
 
-* **Avsaknad av kön för obeställbara meddelanden** : i stora data mängder kan det finnas problem med delar av data källan. Dessutom kan det finnas tillfälliga problem med klienten eller nätverket. Något av dessa fall bör inte medföra att hela migreringen fungerar. Även om de flesta Migreringsverktyg har robusta återförsöks funktioner som skyddar mot tillfälliga problem, är det inte alltid tillräckligt. Om till exempel mindre än 0,01% av käll data dokumenten är större än 2 MB, kommer det att göra att dokumentet skrivs för att Miss Miss Azure Cosmos DB. Vi rekommenderar att du använder Migreringsverktyget för att spara dessa "misslyckade" dokument i en annan kö för obeställbara meddelanden, som kan bearbetas efter migreringen. 
+* **Avsaknad av kön för obeställbara meddelanden**: i stora data mängder kan det finnas problem med delar av data källan. Dessutom kan det finnas tillfälliga problem med klienten eller nätverket. Något av dessa fall bör inte medföra att hela migreringen fungerar. Även om de flesta Migreringsverktyg har robusta återförsöks funktioner som skyddar mot tillfälliga problem, är det inte alltid tillräckligt. Om till exempel mindre än 0,01% av käll data dokumenten är större än 2 MB, kommer det att göra att dokumentet skrivs för att Miss Miss Azure Cosmos DB. Vi rekommenderar att du använder Migreringsverktyget för att spara dessa "misslyckade" dokument i en annan kö för obeställbara meddelanden, som kan bearbetas efter migreringen. 
 
 Många av de här begränsningarna är fasta för verktyg som Azure Data Factory, Azure Data Migration Services. 
 
@@ -142,12 +142,6 @@ När förutsättningarna har slutförts kan du migrera data med följande steg:
 6. Vissa av dessa fel kan bero på felaktiga dokument i källdata. Dessa bör identifieras och åtgärdas. Sedan bör du köra import-steget på de partitioner som misslyckades för att mata in dem igen. 
 
 När migreringen är klar kan du kontrol lera att antalet dokument i Azure Cosmos DB är samma som antalet dokument i käll databasen. I det här exemplet har den totala storleken i Azure Cosmos DB varit i 65 terabyte. Efter migreringen kan indexering aktive ras selektivt och ru: er kan sänkas till den nivå som krävs för arbets Belastningens åtgärder.
-
-## <a name="contact-the-azure-cosmos-db-team"></a>Kontakta Azure Cosmos DB-teamet
-Även om du kan följa den här guiden för att migrera stora data mängder till Azure Cosmos DB för storskaliga migreringar, rekommenderar vi att du når Azure Cosmos DB produkt teamet för att verifiera data modellen och en allmän arkitektur granskning. Efter din data uppsättning och arbets belastning kan produkt teamet även föreslå andra prestanda-och kostnads optimeringar som kan vara tillgängliga för dig. Om du vill kontakta Azure Cosmos DB-teamet för att få hjälp med storskaliga migreringar kan du öppna ett support ärende under "allmän råd givande" problem typ och "stora (TB +) migreringar" problem under typ (se nedan).
-
-:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Installation av Migreringsverktyg":::
-
 
 ## <a name="next-steps"></a>Nästa steg
 

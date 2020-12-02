@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 002c718466b9e13d2f92fbea6dd055eb13d4d3a7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 41d98750f3c869eff5abf7482a9bb04435407318
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789122"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436767"
 ---
 # <a name="introduction-to-azure-defender"></a>Introduktion till Azure Defender
 
@@ -20,7 +20,7 @@ Azure Security Centers funktioner beskriver de två breda pelare för moln säke
 
 - **Cloud Security position Management (CSPM)** – Security Center är tillgängligt **utan kostnad** för alla Azure-användare. Den kostnads fria upplevelsen omfattar CSPM-funktioner som säker poäng, identifiering av felkonfigurationer av säkerhet i dina Azure-datorer, till gångs inventering med mera. Använd dessa CSPM-funktioner för att förstärka ditt hybrid moln position och spåra kompatibiliteten med de inbyggda principerna.
 
-- **Cloud Worker Protection (CWP)** – Security Center s integrerade Cloud Worker Protection Platform (CWPP), **Azure Defender** , ger avancerad, intelligent, skydd av dina Azure-och hybrid resurser och arbets belastningar. Genom att aktivera Azure Defender får du en rad ytterligare säkerhetsfunktioner enligt beskrivningen på den här sidan. Förutom de inbyggda principerna kan du lägga till anpassade principer och initiativ när du har aktiverat någon Azure Defender-plan. Du kan lägga till reglerande standarder – till exempel NIST och Azure CIS – samt Azures säkerhets riktmärke för en riktigt anpassad vy över din efterlevnad.
+- **Cloud Worker Protection (CWP)** – Security Center s integrerade Cloud Worker Protection Platform (CWPP), **Azure Defender**, ger avancerad, intelligent, skydd av dina Azure-och hybrid resurser och arbets belastningar. Genom att aktivera Azure Defender får du en rad ytterligare säkerhetsfunktioner enligt beskrivningen på den här sidan. Förutom de inbyggda principerna kan du lägga till anpassade principer och initiativ när du har aktiverat någon Azure Defender-plan. Du kan lägga till reglerande standarder – till exempel NIST och Azure CIS – samt Azures säkerhets riktmärke för en riktigt anpassad vy över din efterlevnad.
 
 Azure Defender-instrumentpanelen i Security Center ger insyn och kontroll över CWP-funktionerna i din miljö:
 
@@ -61,7 +61,7 @@ Om du vill utöka skyddet till virtuella datorer och SQL-databaser som finns i a
 
 
 
-## <a name="azure-defender-alerts"></a>Azure Defender-aviseringar 
+## <a name="security-alerts"></a>Säkerhetsaviseringar 
 
 När Azure Defender identifierar ett hot i alla områden i miljön genererar den en avisering. De här aviseringarna beskriver information om de resurser som påverkas, föreslagna åtgärds steg och i vissa fall ett alternativ för att utlösa en logisk app som svar.
 

@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: bdd6dbf790bcf2ec97be33504e51ca3db2eb3ef7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: azureday1
+ms.openlocfilehash: facc6a4ab8344f9f72fc7abc27433c18ab435504
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182996"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436546"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>Självstudie: åtkomst Microsoft Graph från en säker app som appen
 
@@ -25,7 +26,7 @@ Lär dig hur du kommer åt Microsoft Graph från en webbapp som körs på Azure 
 
 Du vill anropa Microsoft Graph för webb programmet. Ett säkert sätt att ge din webbapp åtkomst till data är att använda en [systemtilldelad hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md). En hanterad identitet från Azure Active Directory ger App Service åtkomst till resurser via RBAC (rollbaserad åtkomst kontroll), utan att kräva autentiseringsuppgifter för appen. När du har tilldelat en hanterad identitet till din webbapp tar Azure hand om skapandet och distributionen av ett certifikat. Du behöver inte bekymra dig om att hantera autentiseringsuppgifter för hemligheter eller appar.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -120,6 +121,8 @@ I **Översikt** väljer du **behörigheter** och du ser de tillagda behörighete
 ## <a name="call-microsoft-graph-net"></a>Anrops Microsoft Graph (.NET)
 
 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) -klassen används för att hämta en token-autentiseringsuppgifter för din kod för att godkänna begär anden till Microsoft Graph. Skapa en instans av klassen [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) , som använder den hanterade identiteten för att hämta tokens och bifoga dem till tjänst klienten. I följande kod exempel hämtas autentiseringsuppgifter för autentiserad token och används för att skapa ett tjänst klient objekt, som hämtar användarna i gruppen.
+
+Om du vill se den här koden som en del av ett exempel program, se [exemplet på GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
 
 ### <a name="install-the-microsoftgraph-client-library-package"></a>Installera klient biblioteks paketet Microsoft. Graph
 

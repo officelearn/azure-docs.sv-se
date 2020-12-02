@@ -6,14 +6,16 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 2a9a8f3fe7422468ff2c8886dff7415322cf70f0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f7d69c4e112ded678c70a516202492d37ee8f60a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676873"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436869"
 ---
-# <a name="how-to-manually-fix-servicenow-sync-problems"></a>Åtgärda ServiceNow-synkroniseringsproblem manuellt
+# <a name="troubleshooting-problems-in-itsm-connector"></a>Felsöka problem i ITSM-anslutningsprogram
+
+## <a name="how-to-manually-fix-servicenow-sync-problems"></a>Åtgärda ServiceNow-synkroniseringsproblem manuellt
 
 Azure Monitor kan ansluta till ITSM-leverantörer (IT Service Management) från tredje part. ServiceNow är en av dessa leverantörer.
 
@@ -50,6 +52,6 @@ Använd följande synkroniseringsprocess för att återaktivera anslutningen och
 
 f.    Granska meddelandena för att se om processen slutfördes utan framgång 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Läs mer om [IT-tjänstens hanterings anslutningar](itsmc-connections.md)

@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 78600b7b57a7c30fc609434a700f13fa21e079ce
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 35bb17a5cdfcc6aff4a513a594a08283ab1f1305
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019267"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437039"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ansluta en underordnad enhet till en Azure IoT Edge-gateway
 
@@ -100,7 +100,7 @@ Du bör se ett meddelande som säger "uppdaterar certifikat i/etc/ssl/certs... 1
 
 Följande steg är ett exempel på hur du installerar ett CA-certifikat på en Windows-värd. I det här exemplet förutsätter vi att du använder certifikatet **Azure-IoT-test-Only. root. ca. cert. pem** från de nödvändiga artiklarna och att du har kopierat certifikatet till en plats på den underordnade enheten.
 
-Du kan installera certifikat med hjälp av PowerShell: s [import-Certificate](/powershell/module/pkiclient/import-certificate?view=win10-ps) som administratör:
+Du kan installera certifikat med hjälp av PowerShell: s [import-Certificate](/powershell/module/pkiclient/import-certificate) som administratör:
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root

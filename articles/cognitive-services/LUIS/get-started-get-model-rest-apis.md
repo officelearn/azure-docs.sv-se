@@ -1,25 +1,25 @@
 ---
-title: 'Snabb start: ändra modell med REST API: er – LUIS'
+title: Ändra LUIS-modellen med hjälp av REST API
 titleSuffix: Azure Cognitive Services
-description: I den här REST API snabb starten lägger du till exempel yttranden för att ändra en modell och träna appen.
+description: I den här artikeln lägger du till exempel yttranden för att ändra en modell och träna appen.
 services: cognitive-services
 manager: nitinme
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 06/03/2020
+ms.topic: conceptual
+ms.date: 11/30/2020
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 84b3b592f46124dcd5b4e59775361c243dc67754
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7346037ad804da4f68a2bc6512494c461d7fc5bd
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91534683"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436189"
 ---
-# <a name="quickstart-change-model-with-rest-apis"></a>Snabb start: ändra modell med REST API: er
+# <a name="how-to-change-the-luis-model-with-rest-apis"></a>Ändra LUIS-modellen med REST API: er
 
-I den här snabb starten ska du lägga till exempel yttranden i en pizza-app och träna appen. Exempelyttranden är konversationstext från användare som mappas till en avsikt. Genom att tillhandahålla exempelyttranden för avsikter lär du LUIS vilka typer av text från användare som tillhör vilken avsikt.
+I den här artikeln ska du lägga till exempel yttranden i en pizza-app och träna appen. Exempelyttranden är konversationstext från användare som mappas till en avsikt. Genom att tillhandahålla exempelyttranden för avsikter lär du LUIS vilka typer av text från användare som tillhör vilken avsikt.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# and REST](./includes/get-started-get-model-rest-csharp.md)]

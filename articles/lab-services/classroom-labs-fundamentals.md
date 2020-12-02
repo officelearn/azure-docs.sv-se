@@ -5,12 +5,12 @@ author: emaher
 ms.topic: overview
 ms.date: 09/16/2020
 ms.author: enewman
-ms.openlocfilehash: ac390fb6624ffc762f77b676c778165e7382f73f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 71d59e8bcf7b4078255d6b119e9d62f366e46033
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334046"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437328"
 ---
 # <a name="architecture-fundamentals-in-azure-lab-services"></a>Grundläggande arkitektur i Azure Lab Services
 
@@ -20,7 +20,7 @@ Azure Lab Services tillhandahåller ett par områden som gör att du kan använd
 
 Nedan visas den grundläggande arkitekturen i ett klass rums labb.  Labb kontot finns i din prenumeration. De virtuella student datorerna, tillsammans med de resurser som krävs för att stödja de virtuella datorerna, finns i en prenumeration som ägs av Lab-tjänsterna. Nu ska vi prata om vad som finns i labb tjänstens prenumerationer i detalj.
 
-![Klass rums labb Basic-arkitektur](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
+![grundläggande arkitektur för labb](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
 
 ## <a name="hosted-resources"></a>Värdbaserade resurser
 

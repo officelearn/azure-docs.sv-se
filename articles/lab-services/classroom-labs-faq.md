@@ -1,17 +1,17 @@
 ---
-title: Klass rum labb i Azure Lab Services – vanliga frågor och svar | Microsoft Docs
-description: Den här artikeln innehåller svar på vanliga frågor och svar om klass rums labb i Azure Lab Services.
+title: Labb i Azure Lab Services – vanliga frågor och svar | Microsoft Docs
+description: Den här artikeln innehåller svar på vanliga frågor och svar om labb i Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ca35d70bc1106e46df4e3c68889b03679fd54b86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 757af8f30e9a71a3889d9f625c87a002af2e1302
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85443306"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437192"
 ---
-# <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Klass rums labb i Azure Lab Services – vanliga frågor och svar
-Få svar på några av de vanligaste frågorna om klass rums labb i Azure Lab Services. 
+# <a name="labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Labb i Azure Lab Services – vanliga frågor och svar
+Få svar på några av de vanligaste frågorna om labb i Azure Lab Services. 
 
 ## <a name="quotas"></a>Kvoter
 
@@ -29,13 +29,14 @@ Nej. Inte alla virtuella datorer. Endast de virtuella datorer som är tilldelade
 ## <a name="lab-accounts"></a>Labbuppgiftskonton
 
 ### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>Varför kan jag inte skapa ett labb på grund av att adress intervallet inte är tillgängligt? 
-Klass rums labb kan skapa virtuella labb datorer i ett IP-adressintervall som du anger när du skapar ditt labb konto i Azure Portal. När ett adress intervall anges, är varje labb som skapas efter att det har tilldelats 512 IP-adresser för virtuella labb datorer. Adress intervallet för labb kontot måste vara tillräckligt stort för att rymma alla labb som du planerar att skapa under labb kontot. 
+
+Labb kan skapa virtuella labb datorer i ett IP-adressintervall som du anger när du skapar ditt labb konto i Azure Portal. När ett adress intervall anges, är varje labb som skapas efter att det har tilldelats 512 IP-adresser för virtuella labb datorer. Adress intervallet för labb kontot måste vara tillräckligt stort för att rymma alla labb som du planerar att skapa under labb kontot. 
 
 Om du till exempel har ett block på/19-10.0.0.0/19 får detta adress intervall 8192 IP-adresser och 16 labb (8 192/512 = 16 labb). I det här fallet går det inte att skapa labbet vid skapande av 17 Lab.
 
 ### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Vilka port intervall ska jag öppna i min organisations brand Väggs inställning för att ansluta till virtuella labb datorer via RDP/SSH?
 
-Portarna är: 49152 – 65535. Klass rummets labb är placerade bakom en belastningsutjämnare. Varje labb har en enda offentlig IP-adress och varje virtuell dator i labbet har en unik port. 
+Portarna är: 49152 – 65535. Labben ligger bakom en belastningsutjämnare. Varje labb har en enda offentlig IP-adress och varje virtuell dator i labbet har en unik port. 
 
 Du kan också se den privata IP-adressen för varje virtuell dator på fliken **virtuell dator pool** på Start sidan för labbet i Azure Portal. Om du återpublicerar ett labb kommer den offentliga IP-adressen för labbet inte att ändras, men den privata IP-adressen och port numret för varje virtuell dator i labbet kan ändras. Du kan läsa mer i artikeln: [brand Väggs inställningar för Azure Lab Services](how-to-configure-firewall-settings.md).
 

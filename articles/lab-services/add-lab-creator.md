@@ -3,15 +3,15 @@ title: Lägg till en användare som en labb skapare i Azure Lab Services
 description: Den här artikeln visar hur du lägger till en användare i labb skaparen-rollen för ett labb konto i Azure Lab Services. Labb skapare kan skapa labb i det här labb kontot.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5fdeb33dab60a2fb9f1680295c355e2c7c0e775a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6c89483744f943926f126701d28988358627a27
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399490"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435968"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Lägga till labb skapare i ett labb konto i Azure Lab Services
-Den här artikeln visar hur du lägger till användare som labbs kapare i ett labb konto i Azure Lab Services. Dessa används sedan för att skapa klass rum labb i labb kontot. 
+Den här artikeln visar hur du lägger till användare som labbs kapare i ett labb konto i Azure Lab Services. Dessa används sedan för att skapa labb i labb kontot. 
 
 ## <a name="add-microsoft-user-account-to-lab-creator-role"></a>Lägg till Microsoft-användarkonto till labb skapare rollen
 Om du vill konfigurera ett klassrumslabb i ett labbkonto måste användaren vara medlem i rollen **Lab Creator** i labbkontot. Det konto som du använde för att skapa labbkontot läggs automatiskt till i den här rollen. Om du planerar att använda samma användarkonto för att skapa ett klassrumslabb kan du hoppa över det här steget. Om du vill använda ett annat konto för att skapa ett klassrumslabb gör du följande: 
@@ -66,4 +66,4 @@ Se följande artiklar:
 - [Skapa och hantera labb som labbägare](how-to-manage-classroom-labs.md)
 - [Konfigurera och publicera mallar som labbägare](how-to-create-manage-template.md)
 - [Konfigurera och kontroller användning av ett labb som labbägare](how-to-configure-student-usage.md)
-- [Som labb användare, åtkomst till klass rum labb](how-to-use-classroom-lab.md)
+- [Som labb användare, åtkomst labb](how-to-use-classroom-lab.md)

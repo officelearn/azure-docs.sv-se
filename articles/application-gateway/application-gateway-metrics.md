@@ -2,17 +2,17 @@
 title: Azure Monitor mått för Application Gateway
 description: Lär dig hur du använder mått för att övervaka prestanda för Application Gateway
 services: application-gateway
-author: abshamsft
+author: surajmb
 ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
-ms.author: absha
-ms.openlocfilehash: c072e7c1339a2217a3c167be3237029bd71429c2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.author: surmb
+ms.openlocfilehash: be629d9f8441ad40fe15f005f4aeb0ec5565a7ec
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397747"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437073"
 ---
 # <a name="metrics-for-application-gateway"></a>Mått för Application Gateway
 
@@ -40,7 +40,7 @@ Application Gateway innehåller flera inbyggda tids mått för begäran och svar
 
   Tidsintervall mellan början av att upprätta en anslutning till backend-servern och ta emot den första byten i svars huvudet. 
 
-  Detta uppskattar summan av *Server dels anslutnings tiden* , tid det tar för en begäran att komma åt Server delen från Application Gateway, tid det tar för backend-program att svara (den tid det tog att generera innehåll, potentiellt hämtning av databas frågor) och den tid det tar för den första byten av svaret att uppnå Application Gateway från Server delen.
+  Detta uppskattar summan av *Server dels anslutnings tiden*, tid det tar för en begäran att komma åt Server delen från Application Gateway, tid det tar för backend-program att svara (den tid det tog att generera innehåll, potentiellt hämtning av databas frågor) och den tid det tar för den första byten av svaret att uppnå Application Gateway från Server delen.
 
 - **Svars tid för senaste byte för Server delen**
 
@@ -52,7 +52,7 @@ Application Gateway innehåller flera inbyggda tids mått för begäran och svar
 
   Genomsnittlig tid det tar för en begäran att tas emot, bearbetas och dess svar skickas. 
 
-  Detta är intervallet från den tidpunkt då Application Gateway tar emot den första byten i HTTP-begäran till den tidpunkt då den senaste svars byte har skickats till klienten. Detta inkluderar bearbetnings tiden som det tar Application Gateway, *Server delens svars tid för senaste byte* , tid det tar för Application Gateway att skicka alla svar och den aktuella *klienten*.
+  Detta är intervallet från den tidpunkt då Application Gateway tar emot den första byten i HTTP-begäran till den tidpunkt då den senaste svars byte har skickats till klienten. Detta inkluderar bearbetnings tiden som det tar Application Gateway, *Server delens svars tid för senaste byte*, tid det tar för Application Gateway att skicka alla svar och den aktuella *klienten*.
 
 - **Klient-/klient**
 
@@ -62,7 +62,7 @@ Application Gateway innehåller flera inbyggda tids mått för begäran och svar
 
 Dessa mått kan användas för att avgöra om den observerade minskningen beror på klient nätverket, Application Gateway prestanda, backend-nätverket och Server dels serverns TCP-stack-mättnad, prestanda för backend-program eller stor fil storlek.
 
-Om det till exempel finns en topp i den *första byte tiden för svars tid* , men tiden för *anslutnings tiden för Server delen* är stabil, kan det härledas att programgatewayen till Server dels svars tiden och den tid det tar att upprätta anslutningen är stabil och insamling orsakas av en ökning av svars tiden för backend-programmet. Å andra sidan, om inökningen i *svars tiden för första byte-bytet* är kopplad till en motsvarande insamling i *Server dels anslutnings tiden* , kan det härledas att antingen nätverket mellan Application Gateway-och backend-servern eller Server dels serverns TCP-stack har mätt. 
+Om det till exempel finns en topp i den *första byte tiden för svars tid* , men tiden för *anslutnings tiden för Server delen* är stabil, kan det härledas att programgatewayen till Server dels svars tiden och den tid det tar att upprätta anslutningen är stabil och insamling orsakas av en ökning av svars tiden för backend-programmet. Å andra sidan, om inökningen i *svars tiden för första byte-bytet* är kopplad till en motsvarande insamling i *Server dels anslutnings tiden*, kan det härledas att antingen nätverket mellan Application Gateway-och backend-servern eller Server dels serverns TCP-stack har mätt. 
 
 Om du märker att det finns en topp i *svars tiden för sista byte i Server delen* , men *svars tiden för första byte-databytet* är stabil, kan det härledas att insamling är på grund av en större fil som begärs.
 
@@ -162,7 +162,7 @@ För Application Gateway är följande mått tillgängliga:
 
 - **Misslyckade förfrågningar**
 
-  Antal begär Anden som Application Gateway har hanterat med 5xx Server-felkoder. Detta inkluderar de 5xx-koder som genereras från Application Gateway samt de 5xx-koder som genereras från Server delen. Antalet begär Anden kan filtreras ytterligare för att visa antal per/specifika Server dels pool – http-inställnings kombination.
+  Antal begär Anden som misslyckades på grund av anslutnings problem. Det här antalet inkluderar begär Anden som har misslyckats på grund av att HTTP-inställningen "begär timeout" överskrids och begär Anden som misslyckats på grund av anslutnings problem mellan Application Gateway och Server del. Det här antalet inkluderar inte fel på grund av att det inte finns någon felfri Server. 4xx-och 5XX-svar från Server delen betraktas också inte som en del av det här måttet.
 
 - **Svars status**
 
@@ -214,7 +214,7 @@ Följande exempel visar hur du skapar en varnings regel som skickar ett e-postme
 
 2. På sidan **Lägg till regel** fyller du i avsnitten namn, villkor och meddelande och väljer **OK**.
 
-   * I **villkors** väljaren väljer du något av de fyra värdena: **större än** , **större än eller lika med** , **mindre än** eller **mindre än eller lika** med.
+   * I **villkors** väljaren väljer du något av de fyra värdena: **större än**, **större än eller lika med**, **mindre än** eller **mindre än eller lika** med.
 
    * I **period** väljaren väljer du en period på fem minuter till sex timmar.
 

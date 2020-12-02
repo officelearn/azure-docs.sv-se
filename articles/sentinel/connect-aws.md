@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: e80f7d26fb7ab598651d08b4c1b6478b2ae75e3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7405824d2477d2d39c45a56ae545e58a090c321
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563066"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436614"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Ansluta Azure Sentinel till AWS CloudTrail
 
@@ -80,11 +80,11 @@ Du måste ha Skriv behörighet på Azure Sentinel-arbetsytan.
 
 1. Om du vill använda det relevanta schemat i Log Analytics för AWS-händelser söker du efter **AWSCloudTrail**.
 
-
+    > [!IMPORTANT]
+    > Från och med den 1 december 2020 har fältet **AwsRequestId** ersatts av fältet **AwsRequestId_** (Observera det tillagda understrecket). Data i det gamla **AwsRequestId** -fältet kommer att behållas genom slutet av kundens angivna data lagrings period.
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter AWS-CloudTrail till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
 - [Använd arbets böcker](tutorial-monitor-your-data.md) för att övervaka dina data.
-

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rajap
 ms.author: rajap
 ms.date: 12/11/2019
-ms.openlocfilehash: 6fd42e7661e04b6eab35e3b076e9c8c2fb55a363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 379047532542fdb45a4378687a4c6b99f6cdcd77
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86122021"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444421"
 ---
 # <a name="access-analytic-reports-for-the-commercial-marketplace-in-partner-center"></a>Få åtkomst till analys rapporter för den kommersiella marknads platsen i Partner Center
 
@@ -23,14 +23,14 @@ Lär dig hur du får åtkomst till analys rapporter i Microsoft Partner Center f
 Om du vill komma åt Partner Center Analytics-verktyg öppnar du **[analys](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** instrument panelen under kommersiell marknads plats.
 
 >[!NOTE]
-> Detaljerade definitioner av analys terminologi finns i [vanliga frågor och terminologi för affärs platsers analys](./faq-terminology.md).
+> Detaljerade definitioner av analys terminologi finns i [vanliga frågor och terminologi för affärs platsers analys](../analytics-faq.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För grafer, trender och värden för sammanställda data som sammanfattar Marketplace-aktivitet för ditt erbjudande, se [översikts instrument panel i](./summary-dashboard.md)marknads plats analys.
-- Information om dina beställningar i ett grafiskt och nedladdnings Bart format finns i [order instrument panel i kommersiell Marketplace-analys](./orders-dashboard.md).
-- För virtuell dator (VM) erbjuder vi användnings-och mätnings mått i [användnings instrument panelen i den kommersiella Marketplace-analysen](./usage-dashboard.md).
-- Detaljerad information om dina kunder, inklusive tillväxt trender, finns [på kund instrument panel i affärs Marketplace-analys](./customer-dashboard.md).
+- För grafer, trender och värden för sammanställda data som sammanfattar Marketplace-aktivitet för ditt erbjudande, se [översikts instrument panel i](../summary-dashboard.md)marknads plats analys.
+- Information om dina beställningar i ett grafiskt och nedladdnings Bart format finns i [order instrument panel i kommersiell Marketplace-analys](../orders-dashboard.md).
+- För virtuell dator (VM) erbjuder vi användnings-och mätnings mått i [användnings instrument panelen i den kommersiella Marketplace-analysen](../usage-dashboard.md).
+- Detaljerad information om dina kunder, inklusive tillväxt trender, finns [på kund instrument panel i affärs Marketplace-analys](../customer-dashboard.md).
 - En lista över dina nedladdnings begär Anden under de senaste 30 dagarna finns i [Hämta instrument panel i kommersiell Marketplace-analys](./downloads-dashboard.md).
 - Om du vill se en sammanställd vy över kundfeedback för erbjudanden på Azure Marketplace och AppSource, se [klassificering och granskning på instrument panelen i kommersiell Marketplace-analys](./ratings-reviews.md).
-- Vanliga frågor och svar om den kommersiella Marketplace-analysen och en omfattande ord lista med data termer finns i [vanliga frågor och termer för att få en kommersiell Marketplace-analys](./faq-terminology.md).
+- Vanliga frågor och svar om den kommersiella Marketplace-analysen och en omfattande ord lista med data termer finns i [vanliga frågor och termer för att få en kommersiell Marketplace-analys](../analytics-faq.md).

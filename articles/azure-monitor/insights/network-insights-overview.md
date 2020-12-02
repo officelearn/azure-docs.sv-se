@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 2f262b328efcc341c93f1e5c31cab8cbd3ecbf6b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5a2238f5c1561abb1e11d69aa6d0bfe761097c64
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184645"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437311"
 ---
 # <a name="azure-monitor-for-networks"></a>Azure Monitor för nätverk
 Azure Monitor för nätverk ger en omfattande vy över [hälsa](../../service-health/resource-health-checks-resource-types.md) och [mått](../platform/metrics-supported.md) för alla distribuerade nätverks resurser, utan att kräva någon konfiguration. Den ger även till gång till funktioner för nätverks övervakning, t. ex. [anslutnings övervakaren](../../network-watcher/connection-monitor-preview.md), [flödes loggning för nätverks säkerhets grupper (nsg: er)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)och [trafikanalys](../../network-watcher/traffic-analytics.md). Och innehåller [andra funktioner för nätverksdiagnostik.](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics)
@@ -26,7 +26,7 @@ Azure Monitor för nätverk är strukturerad kring dessa viktiga komponenter i �
 
 **Översikts** sidan för Azure Monitor för nätverk ger ett enkelt sätt att visualisera inventeringen av dina nätverks resurser, tillsammans med resurs hälsa och aviseringar. Den är uppdelad i fyra viktiga funktions områden: sökning och filtrering, resurs hälsa och mått, aviseringar och beroende vy.
 
-[ ![ Skärm bild som visar översikts sidan](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png)#lightbox)
+[![Skärmbild som visar sidan Översikt](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png#lightbox)
 
 ### <a name="search-and-filtering"></a>Sökning och filtrering
 Du kan anpassa vyn resurs hälsa och aviseringar med hjälp av filter som **prenumeration**, **resurs grupp** och **typ**.
@@ -71,7 +71,7 @@ Med olika filter kan du skala ned till en angiven sökväg och tillstånd. Välj
 
 Välj **Visa detaljerade mått** för att öppna en förkonfigurerad arbets bok som tillhandahåller detaljerade mått för programgatewayen, alla resurser för Server dels poolen och klient-IP-adresser. 
 
-## <a name="connectivity"></a><a name="connectivity"></a>Anslutningar
+## <a name="connectivity"></a><a name="connectivity"></a>Anslutning
 
 Fliken **anslutning** är ett enkelt sätt att visualisera alla tester som kon figurer ATS via [anslutnings övervakaren](../../network-watcher/connection-monitor-overview.md) och anslutnings övervakaren (klassisk) för den valda uppsättningen prenumerationer.
 

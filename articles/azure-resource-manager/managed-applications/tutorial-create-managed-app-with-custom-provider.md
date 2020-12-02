@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f327749d1bdfb8cf2cba00cf4c5f68b4b2b77999
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 50a65583c41dd94b174a33432afcf42b31e67df0
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379561"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437056"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Självstudie: skapa ett hanterat program med anpassade åtgärder och resurser
 
@@ -41,7 +41,7 @@ För att slutföra den här självstudien måste du känna till följande:
 
 I den här självstudien skapar du ett hanterat program och dess hanterade resurs grupp kommer att innehålla anpassad Provider-instans, lagrings konto och funktion. Azure-funktionen som används i det här exemplet implementerar ett API som hanterar anpassade Provider-åtgärder för åtgärder och resurser. Azure Storage kontot används som grundläggande lagring för dina anpassade Provider-resurser.
 
-Definitionen av användar gränssnittet för att skapa en hanterad program instans innehåller `funcname` och `storagename` inmatade element. Lagrings kontots namn och funktions namn måste vara globalt unikt. Som standard kommer filerna att distribueras från [exempel funktions paketet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), men du kan ändra det genom att lägga till ett inmatat element för en paket länk i *createUiDefinition.jspå* :
+Definitionen av användar gränssnittet för att skapa en hanterad program instans innehåller `funcname` och `storagename` inmatade element. Lagrings kontots namn och funktions namn måste vara globalt unikt. Som standard kommer filerna att distribueras från [exempel funktions paketet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), men du kan ändra det genom att lägga till ett inmatat element för en paket länk i *createUiDefinition.jspå*:
 
 ```json
 {
@@ -74,7 +74,7 @@ Definitionen av användar gränssnittet för att skapa en hanterad program insta
 }
 ```
 
-och utdata i *createUiDefinition.jspå* :
+och utdata i *createUiDefinition.jspå*:
 
 ```json
   "funcname": "[steps('applicationSettings').funcname]",
@@ -254,8 +254,8 @@ az managedapp definition create \
 
 3. Ange värden för att skapa en tjänst katalog definition:
 
-    * Ange ett unikt **namn** för tjänst katalog definitionen, **visnings namn** och *Beskrivning* (valfritt).
-    * Välj den **prenumeration** , **resurs grupp** och **plats** där program definitionen ska skapas. Du kan använda samma resurs grupp som används för zip-paket eller skapa en ny resurs grupp.
+    * Ange ett unikt **namn** för tjänst katalog definitionen, **visnings namn** och *Beskrivning*(valfritt).
+    * Välj den **prenumeration**, **resurs grupp** och **plats** där program definitionen ska skapas. Du kan använda samma resurs grupp som används för zip-paket eller skapa en ny resurs grupp.
     * För en **paket fil-URI** anger du sökvägen till zip-filen som du skapade i föregående steg.
 
     ![Ange värden](./media/tutorial-create-managed-app-with-custom-provider/add-service-catalog-managed-application.png)
@@ -314,7 +314,7 @@ az managedapp create \
 
 4. Ange värden för att skapa en hanterad program instans från tjänst katalog definitionen:
 
-    * Välj den **prenumeration** , **resurs grupp** och **plats** där program instansen ska skapas.
+    * Välj den **prenumeration**, **resurs grupp** och **plats** där program instansen ska skapas.
     * Ange ett unikt namn på Azure-Function och Azure Storage konto namn.
 
     ![Programinställningar](./media/tutorial-create-managed-app-with-custom-provider/application-settings.png)
@@ -353,6 +353,6 @@ Om du har frågor om Azure Managed Applications, kan du försöka med att fråga
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du publicerar ditt hanterade program till Azure Marketplace finns i [Azure-hanterade program på Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
+Information om hur du publicerar ditt hanterade program till Azure Marketplace finns i [Azure-hanterade program på Marketplace](../../marketplace/create-new-azure-apps-offer.md).
 
 Läs mer om [Azure-anpassade leverantörer](../custom-providers/overview.md).

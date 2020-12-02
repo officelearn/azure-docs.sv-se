@@ -6,18 +6,18 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a8d6481bdf3476f8f91c437138f4b6f1ebd1f1de
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 4114dd712028895da03835a2730ebd7a6ab971a4
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058207"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436886"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Självstudie: använda en Web App-robot som är aktive rad med Language Understanding i C #
 
-Använd C# för att bygga en chatt-robot integrerad med språk förståelse (LUIS). Roboten är byggd med Azure [Web App bot-](https://docs.microsoft.com/azure/bot-service/) resursen och [bot Framework version](https://github.com/Microsoft/botbuilder-dotnet) v4.
+Använd C# för att bygga en chatt-robot integrerad med språk förståelse (LUIS). Roboten är byggd med Azure [Web App bot-](/azure/bot-service/) resursen och [bot Framework version](https://github.com/Microsoft/botbuilder-dotnet) v4.
 
-**I de här självstudierna får du lära dig att**
+**I den här guiden får du lära dig att:**
 
 > [!div class="checklist"]
 > * Skapa en webbappsrobot. Den här processen skapar en ny LUIS-app.
@@ -49,10 +49,10 @@ Använd C# för att bygga en chatt-robot integrerad med språk förståelse (LUI
     |Robotmall|Bot Framework-inställningar – se nästa tabell|
     |LUIS-appens plats|Måste vara samma som LUIS-resursregionen|`westus`|
     |App Service-plan/plats|Ändra inte från angivet standardvärde.|
-    |Application Insights|Ändra inte från angivet standardvärde.|
-    |Microsoft app-ID och lösen ord|Ändra inte från angivet standardvärde.|
+    |Application Insights|Ändra inte från det angivna standardvärdet.|
+    |Microsoft app-ID och lösen ord|Ändra inte från det angivna standardvärdet.|
 
-1. I **robot-mallen**väljer du följande och väljer sedan knappen **Välj** under följande inställningar:
+1. I **robot-mallen** väljer du följande och väljer sedan knappen **Välj** under följande inställningar:
 
     |Inställning|Syfte|Urval|
     |--|--|--|
@@ -336,4 +336,4 @@ Starta bot i Visual Studio 2019. Ett webbläsarfönster öppnas med webbappsrobo
 Se fler [exempel](https://github.com/microsoft/botframework-solutions) med konversationsrobotar.
 
 > [!div class="nextstepaction"]
-> [Bygg en Language Understanding-app med en anpassad ämnes domän](luis-quickstart-intents-only.md)
+> [Bygg en Language Understanding-app med en anpassad ämnes domän](./tutorial-intents-only.md)

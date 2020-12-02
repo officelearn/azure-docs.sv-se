@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: d75d73fcd64917257b850861142e7f4a67da834c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cbff2358dcf8685298e31f18c430c35ec7de4948
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972330"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437345"
 ---
 # <a name="use-azure-image-builder-for-linux-vms-allowing-access-to-an-existing-azure-vnet"></a>Använd Azure Image Builder för virtuella Linux-datorer som ger åtkomst till ett befintligt Azure VNET
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du kan använda Azure Image Builder för att skapa e
 > Azure Image Builder är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="register-the-features"></a>Registrera funktionerna
 
@@ -75,7 +75,7 @@ Skapa resursgruppen.
 az group create -n $imageResourceGroup -l $location
 ```
 
-## <a name="configure-networking"></a>Konfigurera nätverk
+## <a name="configure-networking"></a>Konfigurera nätverksfunktioner
 
 Om du inte har en befintlig VNET\Subnet\NSG kan du använda följande skript för att skapa ett.
 

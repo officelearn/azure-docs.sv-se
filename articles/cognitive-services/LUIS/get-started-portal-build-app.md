@@ -4,34 +4,34 @@ description: I den här snabb starten skapar du grundläggande delar av en app, 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/19/2020
-ms.openlocfilehash: 74866c65111fae9e6fb3b79d9b59819b14b03c16
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/30/2020
+ms.openlocfilehash: a5443dce9fc8bc028232f66f45b537a46858f35a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131487"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436682"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Snabb start: skapa en ny app i LUIS-portalen
 
-I den här snabb starten skapar du en ny app i LUIS-portalen. Börja med att skapa grundläggande delar av en app, **avsikter** och **entiteter** . Testa sedan appen genom att tillhandahålla ett exempel på användarens uttryck i den interaktiva test panelen för att få den förväntade avsikten.
+I den här snabb starten skapar du en ny app i LUIS-portalen. Börja med att skapa grundläggande delar av en app, **avsikter** och **entiteter**. Testa sedan appen genom att tillhandahålla ett exempel på användarens uttryck i den interaktiva test panelen för att få den förväntade avsikten.
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## <a name="create-an-app"></a>Skapa en app
 
-Om du vill skapa ett program klickar du på  **+ ny app** . 
+Om du vill skapa ett program väljer du **+ ny app**. 
 
 I fönstret som visas anger du följande information:
 
-|Namn  |Beskrivning  |
+|Name  |Beskrivning  |
 |---------|---------|
-|Namn     | Ett namn för din app. Till exempel "Start automatisering". Krävs.        |
+|Name     | Ett namn för din app. Till exempel "Start automatisering". Krävs.        |
 |Kultur     | Det språk som din app förstår och pratar med. Krävs.   |
-|Beskrivning | En beskrivning av din app. Valfritt.
+|Description | En beskrivning av din app. Valfritt.
 |Förutsägelse resurs | Den förutsägelse resurs som tar emot frågor. Valfritt. |
 
-Välj **Done** (Klar).
+Välj **Klar**.
 
 >[!NOTE]
 >Kulturen kan inte ändras när appen har skapats.
@@ -53,17 +53,17 @@ Appens två olika _avsikter_ anpassas till följande syften:
 
 Utför följande steg för att skapa avsikter:
 
-1. När appen har skapats kontrollerar du att du är på sidan **syften** i avsnittet **build** . Välj **Skapa** .
+1. När appen har skapats kontrollerar du att du är på sidan **syften** i avsnittet **build** . Välj **Skapa**.
 
    [![Skärm bild som visar hur du väljer Skapa för att skapa ny avsikt](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
-1. Ange namnet på avsikten `FindForm` och välj sedan **färdig** .
+1. Ange namnet på avsikten `FindForm` och välj sedan **färdig**.
 
 ## <a name="add-an-example-utterance"></a>Lägg till ett exempel uttryck
 
 Du lägger till exempel yttranden när du har skapat avsikter. Exempel på yttranden är text som en användare anger i en chat-robot eller något annat klient program. De mappar avsikten med användarens text till ett LUISt syfte. I det här exempel programmets `FindForm` syfte innehåller exempel yttranden formulär numret. Klient programmet behöver formulär numret för att uppfylla användarens begäran, så det är viktigt att inkludera det i uttryck.
 
-På sidan **avsikter** för `FindForm` lägger du till följande exempel yttranden under **exempel uttryck** , 
+På sidan **avsikter** för `FindForm` lägger du till följande exempel yttranden under **exempel uttryck**, 
 
 |#|Exempel på yttranden|
 |--|--|
@@ -102,7 +102,7 @@ Om du vill returnera formulär numret i svars förutsägelsens svar måste formu
 
 1. Ange namnet `FormNumber` och välj typ av **regex** -enhet.
 
-1. Ange det reguljära uttrycket `hrf-[0-9]{6}` i fältet **regex** . Den här posten matchar litteral tecken, `hrf-` och tillåter exakt sex siffror och väljer sedan **skapa** .
+1. Ange det reguljära uttrycket `hrf-[0-9]{6}` i fältet **regex** . Den här posten matchar litteral tecken, `hrf-` och tillåter exakt sex siffror och väljer sedan **skapa**.
 
     > [!div class="mx-imgBorder"]
     > ![Skärm bild av entiteten för att skapa reguljära uttryck](./media/get-started-portal-build-app/create-regular-expression-entity.png)

@@ -1,18 +1,18 @@
 ---
 title: CI/CD-pipeline med Azure DevOps starter – Azure IoT Edge | Microsoft Docs
 description: Med Azure DevOps Starter är det enkelt att komma igång med Azure. Det hjälper dig att starta en Azure IoT Edge app som du väljer i några enkla steg.
-author: shizn
+author: kgremban
 ms.author: kgremban
 ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d57c1828b9456851d37a65b88eb5f8ea860a80fe
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 97dc0fe5a3720a41dd63583c222762d832d636ea
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045864"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437005"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Skapa en CI/CD-pipeline för IoT Edge med Azure DevOps starter
 
@@ -26,13 +26,13 @@ DevOps starter skapar en CI/CD-pipeline i Azure DevOps. Du kan skapa en ny Azure
 
 1. Logga in på [Microsoft Azure-portalen](https://portal.azure.com).
 
-1. Välj **skapa en resurs**i den vänstra rutan och Sök sedan efter **DevOps starter**.  
+1. Välj **skapa en resurs** i den vänstra rutan och Sök sedan efter **DevOps starter**.  
 
 1. Välj **Skapa**.
 
 ## <a name="create-a-new-application-pipeline"></a>Skapa en ny program pipeline
 
-1. Azure IoT Edge modul (er) kan skrivas i [C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [python](tutorial-python-module.md), [C](tutorial-c-module.md) och [Java](tutorial-java-module.md). Välj önskat språk för att starta ett nytt program: **.net**, **Node.js**, **python**, **C**eller **Java**. Fortsätt genom att välja **Nästa**.
+1. Azure IoT Edge modul (er) kan skrivas i [C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [python](tutorial-python-module.md), [C](tutorial-c-module.md) och [Java](tutorial-java-module.md). Välj önskat språk för att starta ett nytt program: **.net**, **Node.js**, **python**, **C** eller **Java**. Fortsätt genom att välja **Nästa**.
 
    ![Välj språk för att skapa ett nytt program](./media/how-to-devops-starter/select-language.png)
 
@@ -74,14 +74,14 @@ DevOps starter skapade en git-lagringsplats för ditt projekt i Azure databaser.
 
    ![Visa lagrings plats som skapats i Azure databaser](./media/how-to-devops-starter/view-repositories.png)
 
-> [!NOTE]
-> Följande steg vägleder dig genom att använda webbläsaren för att göra kod ändringar. Om du vill klona lagrings platsen lokalt väljer du **klona** i det övre högra hörnet i fönstret. Använd den tillhandahållna URL: en för att klona git-lagringsplatsen i Visual Studio Code eller det föredragna utvecklingsverktyg.
+   > [!NOTE]
+   > Följande steg vägleder dig genom att använda webbläsaren för att göra kod ändringar. Om du vill klona lagrings platsen lokalt väljer du **klona** i det övre högra hörnet i fönstret. Använd den tillhandahållna URL: en för att klona git-lagringsplatsen i Visual Studio Code eller det föredragna utvecklingsverktyg.
 
 2. Databasen innehåller redan kod för en modul med namnet **FilterModule** baserat på det programspråk som du valde i skapande processen. Öppna filen **modules/FilterModule/module.jsi** filen.
 
    ![Öppna module.jspå filen i Azure databaser](./media/how-to-devops-starter/open-module-json.png)
 
-3. Observera att den här filen använder [Azure DevOps build-variabler](/azure/devops/pipelines/build/variables?view=vsts#build-variables) i **versions** parametern. Den här konfigurationen säkerställer att en ny version av modulen skapas varje gång en ny version körs.
+3. Observera att den här filen använder [Azure DevOps build-variabler](/azure/devops/pipelines/build/variables#build-variables) i **versions** parametern. Den här konfigurationen säkerställer att en ny version av modulen skapas varje gång en ny version körs.
 
 ## <a name="examine-the-cicd-pipeline"></a>Granska CI/CD-pipelinen
 
@@ -101,7 +101,7 @@ I föregående avsnitt konfigurerade Azure DevOps starter automatiskt en fullst�
 
    ![Redigera pipeline-information](./media/how-to-devops-starter/edit-build-pipeline.png)
 
-5. Välj **spara & kö**och välj sedan **Spara**. Det är valfritt att kommentera.
+5. Välj **spara & kö** och välj sedan **Spara**. Det är valfritt att kommentera.
 
 6. Välj **utlösare** från menyn Bygg pipeline. DevOps starter skapade automatiskt en CI-utlösare och varje incheckning till databasen startar en ny version.  Du kan välja att inkludera eller exkludera grenar från CI-processen.
 
@@ -109,7 +109,7 @@ I föregående avsnitt konfigurerade Azure DevOps starter automatiskt en fullst�
 
 8. Välj **Historik**. Historik panelen innehåller en gransknings historik för de senaste ändringarna i versionen. Azure Pipelines spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
 
-9. När du är klar med att utforska build-pipeline navigerar du till motsvarande versions pipeline. Välj **versioner** under **pipelines**och välj sedan **Redigera** för att visa information om pipelinen.
+9. När du är klar med att utforska build-pipeline navigerar du till motsvarande versions pipeline. Välj **versioner** under **pipelines** och välj sedan **Redigera** för att visa information om pipelinen.
 
     ![Visa versions pipeline](media/how-to-devops-starter/release-pipeline.png)
 

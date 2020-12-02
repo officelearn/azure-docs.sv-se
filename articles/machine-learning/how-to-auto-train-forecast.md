@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 0bbb18a82de508f79cd2fd5dde58c1cf33520950
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 57b54fbe20df4eb74ee17c7b5ac83d773114463b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887407"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437379"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 
@@ -128,7 +128,7 @@ Automatisk maskin inlärning försöker automatiskt med olika modeller och algor
 >[!Tip]
 > Traditionella Regressions modeller testas också som en del av rekommendations systemet för att förutse experiment. Se [tabellen modell som stöds](how-to-configure-auto-train.md#supported-models) för den fullständiga listan över modeller. 
 
-Modeller| Beskrivning | Fördelar
+Modeller| Description | Fördelar
 ----|----|---
 Prophet (för hands version)|Prophet fungerar bäst med tids serier som har starka säsongs effekter och flera säsonger av historiska data. Om du vill utnyttja den här modellen installerar du den lokalt med `pip install fbprophet` . | Korrekt & snabb, robust för att kunna avvika, saknade data och dramatiska ändringar i din tids serie.
 Auto-ARIMA (för hands version)|Autoregressiva Integrated glidande medelvärde (ARIMA) fungerar bäst när data är Station ära. Det innebär att dess statistiska egenskaper, t. ex. medelvärdet och var Ian sen är konstant över hela uppsättningen. Om du till exempel vänder en mynt är sannolikheten för att du får 50%, oavsett om du vänder idag, imorgon eller nästa år.| Perfekt för univariate-serien, eftersom de tidigare värdena används för att förutsäga framtida värden.
@@ -146,6 +146,7 @@ I följande tabell sammanfattas dessa ytterligare parametrar. I [ForecastingPara
 |`forecast_horizon`|Definierar hur många perioder som vidarebefordrar dig till prognos. Horisonten är i enheter av tids serie frekvensen. Enheter baseras på tidsintervallet för dina utbildnings data, till exempel varje månad, varje vecka att prognosen ska förutsäga.|✓|
 |`enable_dnn`|[Aktivera Prognosticering av hyperoptimerade]().||
 |`time_series_id_column_names`|Kolumn namn som används för att unikt identifiera tids serier i data som har flera rader med samma tidsstämpel. Om Time Series-identifierare inte har definierats antas data uppsättningen vara en tids serie. Mer information om engångs-serien finns i [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
+|`freq`| Frekvensen för Time Series-datauppsättningen. Den här parametern representerar den period med vilken händelser förväntas inträffa, till exempel varje dag, varje vecka, varje år osv. Frekvensen måste vara ett [Pandas offset-alias](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects).||
 |`target_lags`|Antal rader att ange för fördröjning av målvärdena baserat på data frekvensen. Fördröjningen visas som en lista eller ett enda heltal. Fördröjning ska användas när relationen mellan oberoende variabler och beroende variabel inte matchar eller korrelerar som standard. ||
 |`feature_lags`| Funktionerna i fördröjningen väljs automatiskt av automatisk ML när `target_lags` har angetts och `feature_lags` är inställt på `auto` . Att aktivera funktionen lags kan hjälpa till att förbättra noggrannheten. Funktionen lags är inaktive rad som standard. ||
 |`target_rolling_window_size`|*n* historiska perioder som ska användas för att generera prognostiserade värden <= storlek för tränings uppsättning. Om det utelämnas är *n* den fullständiga inlärnings uppsättningens storlek. Ange den här parametern när du bara vill ta hänsyn till en viss mängd historik när du tränar modellen. Lär dig mer om [agg regerings fönster för mål](#target-rolling-window-aggregation).||
@@ -297,7 +298,7 @@ from azureml.automl.core.forecasting_parameters import ForecastingParameters
 forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                             forecast_horizon=50,
                                             short_series_handling_config='auto',
-                                            freq = 50
+                                            freq = '7',
                                             target_lags='auto')
 ```
 I följande tabell sammanfattas de tillgängliga inställningarna för `short_series_handling_config` .

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d7ff32b33a8eab5c6729d84d38fec2e5b2c87449
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d43b70c8f958ad37b6ac2d0ee043d5f07d11da9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777215"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444596"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro"></a>Använd Azure Portal för att hantera resurser på Azure Stack Edge Pro
 
@@ -47,14 +47,14 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
     
     Resursnamn får bara innehålla siffror, gemener och bindestreck. Resursnamnet måste vara mellan 3 och 63 tecken långt och börja med en bokstav eller en siffra. Varje bindestreck måste föregås och följas av ett tecken som inte är ett bindestreck.
 
-3. Välj en **typ** för resursen. Typen kan vara **SMB** eller **NFS**, där SMB är standardvärdet. SMB är standard för Windows-klienter och NFS används för Linux-klienter. Beroende på om du väljer SMB- eller NFS-resurser visas alternativen lite olika.
+3. Välj en **typ** för resursen. Typen kan vara **SMB** eller **NFS**, med SMB som standard. SMB är standard för Windows-klienter och NFS används för Linux-klienter. Beroende på om du väljer SMB- eller NFS-resurser visas alternativen lite olika.
 
 4. Ange ett **Lagringskonto** där resursen ska placeras. En container skapas på lagringskontot med resursnamnet om containern inte redan finns. Om containern redan finns används den befintliga containern.
 
-5. I list rutan väljer du **lagrings tjänsten** från Block Blob, Page BLOB eller Files. Vilken typ av tjänst som väljs beror på vilket format du vill använda för data som lagras i Azure. I den här instansen vill vi till exempel att data ska finnas som block-blobbar i Azure, och därför väljer vi **Block-Blob**. Om du väljer **Page BLOB**måste du se till att dina data är 512 byte justerade. Använd **Page BLOB** för virtuella hård diskar eller VHDX som alltid är 512 byte-justerade.
+5. I list rutan väljer du **lagrings tjänsten** från Block Blob, Page BLOB eller Files. Vilken typ av tjänst som väljs beror på vilket format du vill använda för data som lagras i Azure. I den här instansen vill vi till exempel att data ska finnas som block-blobbar i Azure, och därför väljer vi **Block-Blob**. Om du väljer **Page BLOB** måste du se till att dina data är 512 byte justerade. Använd **Page BLOB** för virtuella hård diskar eller VHDX som alltid är 512 byte-justerade.
 
    > [!IMPORTANT]
-   > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge Pro-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge Pro-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 6. Det här steget beror på om du skapar en SMB- eller en NFS-resurs.
    - **Om du skapar en SMB-resurs** – I fältet för **lokal användare med fullständig behörighet** väljer du mellan **Skapa ny** eller **Använd befintlig**. Om du skapar en ny lokal användare anger du **användarnamn**, **lösenord** och sedan bekräfta lösenord. Detta tilldelar behörigheter till den lokala användaren. När du har tilldelat behörigheterna här kan du sedan använda Utforskaren till att ändra dessa behörigheter.
@@ -68,7 +68,7 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 
 7. Använd den lokala monterings punkten för att enkelt få åtkomst till resurserna från Edge Compute-moduler. Välj **Använd resurs med Edge Compute** så att resursen monteras automatiskt när den har skapats. När det här alternativet är markerat kan Edge-modulen också använda beräkningen med den lokala monterings punkten.
 
-8. Klicka på **Skapa** för att skapa resursen. Du får ett meddelande om att resursen skapas. När resursen har skapats med de angivna inställningarna uppdateras bladet **Resurser** med den nya resursen.
+8. Klicka på **skapa** för att skapa resursen. Du får ett meddelande om att resursen skapas. När resursen har skapats med de angivna inställningarna **uppdateras delnings bladet** så att det återspeglar den nya resursen.
 
 ## <a name="add-a-local-share"></a>Lägg till en lokal resurs
 
@@ -80,7 +80,7 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
     
     Resursnamn får bara innehålla siffror, gemener och bindestreck. Resursnamnet måste vara mellan 3 och 63 tecken långt och börja med en bokstav eller en siffra. Varje bindestreck måste föregås och följas av ett tecken som inte är ett bindestreck.
 
-3. Välj en **typ** för resursen. Typen kan vara **SMB** eller **NFS**, där SMB är standardvärdet. SMB är standard för Windows-klienter och NFS används för Linux-klienter. Beroende på om du väljer SMB- eller NFS-resurser visas alternativen lite olika.
+3. Välj en **typ** för resursen. Typen kan vara **SMB** eller **NFS**, med SMB som standard. SMB är standard för Windows-klienter och NFS används för Linux-klienter. Beroende på om du väljer SMB- eller NFS-resurser visas alternativen lite olika.
 
 4. Använd den lokala monterings punkten för att enkelt få åtkomst till resurserna från Edge Compute-moduler. Välj **Använd resurs med Edge Compute** så att Edge-modulen kan använda beräkningen med den lokala monterings punkten.
 
@@ -92,7 +92,7 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 
    ![Skapa lokal resurs](media/azure-stack-edge-manage-shares/add-local-share-2.png)
 
-    Du ser ett meddelande om att delningen håller på att skapas. När resursen har skapats med de angivna inställningarna uppdateras bladet **Resurser** med den nya resursen.
+    Du ser ett meddelande om att delningen håller på att skapas. När resursen har skapats med de angivna inställningarna **uppdateras delnings bladet** så att det återspeglar den nya resursen.
 
    ![Visa blad för uppdaterings resurser](media/azure-stack-edge-manage-shares/add-local-share-3.png)
     
@@ -112,7 +112,7 @@ Om du har skapat en resurs innan du konfigurerade Compute på din Azure Stack Ed
 
    ![Välj montera](media/azure-stack-edge-manage-shares/select-mount.png)
 
-3. Välj **Ja**när du uppmanas att bekräfta. Detta kommer att montera resursen.
+3. Välj **Ja** när du uppmanas att bekräfta. Detta kommer att montera resursen.
 
    ![Bekräfta montering](media/azure-stack-edge-manage-shares/confirm-mount.png)
 
@@ -136,11 +136,11 @@ Utför följande steg i Azure Portal för att demontera en resurs.
 
    ![Välj demontera](media/azure-stack-edge-manage-shares/select-unmount.png)
 
-3. Välj **Ja**när du uppmanas att bekräfta. Detta kommer att demontera resursen.
+3. Välj **Ja** när du uppmanas att bekräfta. Detta kommer att demontera resursen.
 
    ![Bekräfta demontering](media/azure-stack-edge-manage-shares/confirm-unmount.png)
 
-4. När resursen har demonterats går du till listan över resurser. Nu visas resurs status som **inaktive rad**i **beräknings** kolumnen.
+4. När resursen har demonterats går du till listan över resurser. Nu visas resurs status som **inaktive rad** i **beräknings** kolumnen.
 
    ![Dela demontera](media/azure-stack-edge-manage-shares/share-unmounted.png)
 

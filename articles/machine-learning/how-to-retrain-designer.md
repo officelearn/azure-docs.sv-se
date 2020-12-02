@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d8ef4d9f768d6fdcf976c9317d1abec3d4533824
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d754674fe3aa65fa9fd8540b05083979ce96aff8
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554809"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437124"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer"></a>Träna modeller med Azure Machine Learning designer
 
@@ -47,7 +47,11 @@ Pipelinen som används i den här artikeln är en ändrad version av ett exempel
 
 ## <a name="create-a-pipeline-parameter"></a>Skapa en pipeline-parameter
 
-Skapa pipeline-parametrar för att dynamiskt ange variabler vid körning. I det här exemplet ändrar du övnings data Sök vägen från ett fast värde till en parameter, så att du kan träna modellen på olika data.
+Pipeline-parametrar används för att bygga mångsidiga pipelines som kan skickas igen senare med varierande parameter värden. Några vanliga scenarier är uppdatering av data uppsättningar eller vissa Hyper-parametrar för omskolning. Skapa pipeline-parametrar för att dynamiskt ange variabler vid körning. 
+
+Pipeline-parametrar kan läggas till i data käll-eller modulens parametrar i en pipeline. När pipelinen skickas in kan värdena för dessa parametrar anges.
+
+I det här exemplet ändrar du övnings data Sök vägen från ett fast värde till en parameter, så att du kan träna modellen på olika data. Du kan också lägga till andra parametrar som pipeline-parametrar enligt ditt användnings fall.
 
 1. Välj modulen **Importera data** .
 
@@ -60,31 +64,22 @@ Skapa pipeline-parametrar för att dynamiskt ange variabler vid körning. I det 
 
 1. Mouseover fältet **sökväg** och välj ellipserna ovanför **Sök vägs** fältet som visas.
 
-    ![Skärm bild som visar hur du skapar en pipeline-parameter](media/how-to-retrain-designer/add-pipeline-parameter.png)
-
 1. Välj **Lägg till i pipeline-parameter**.
 
 1. Ange ett parameter namn och ett standardvärde.
 
-   > [!NOTE]
-   > Du kan granska och redigera dina pipeline-parametrar genom att välja kugg hjuls ikonen **Inställningar** bredvid rubriken för ditt pipeline-utkast. 
+   ![Skärm bild som visar hur du skapar en pipeline-parameter](media/how-to-retrain-designer/add-pipeline-parameter.png)
 
 1. Välj **Spara**.
 
+   > [!NOTE]
+   > Du kan också koppla från en modul-parameter från pipeline-parametern i informations fönstret modul, på samma sätt som du lägger till pipeline-parametrar.
+   >
+   > Du kan granska och redigera dina pipeline-parametrar genom att välja kugg hjuls ikonen **Inställningar** bredvid rubriken för ditt pipeline-utkast. 
+   >    - När du har frånkopplat kan du ta bort pipeline-parametern i fönstret **inställningarna** .
+   >    - Du kan också lägga till en pipeline-parameter i fönstret **Inställningar** och sedan använda den på en viss modul-parameter.
+
 1. Skicka pipeline-körningen.
-
-## <a name="find-a-trained-model"></a>Hitta en utbildad modell
-
-Designern sparar alla pipeline-utdata, inklusive utbildade modeller, till standard lagrings platsen. Du kan också komma åt utbildade modeller direkt i designern:
-
-1. Vänta tills pipelinen har slutförts.
-1. Välj **träningsmodellmodulen**.
-1. I informations fönstret för moduler till höger om arbets ytan väljer du **utdata + loggar**.
-1. Du kan hitta din modell i **andra utdata** tillsammans med kör loggar.
-1. Du kan också välja ikonen **Visa utdata** . Härifrån kan du följa anvisningarna i dialog rutan för att navigera direkt till ditt data lager. 
-
-> [!div class="mx-imgBorder"]
-> ![Skärm bild som visar hur du laddar ned den tränade modellen](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>Publicera en utbildnings pipeline
 

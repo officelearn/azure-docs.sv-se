@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: d59e37cdcb6f530b08e980cf75d8834aed332252
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a16dbeedc2362f4a263d59a673dbb4358f7ba034
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315096"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436495"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Självstudie: Konfigurera och Använd mått och loggar med en IoT-hubb
 
@@ -42,9 +42,9 @@ I den här självstudien utför du följande åtgärder:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-* Du behöver .NET Core SDK 2,1 eller mer på din utvecklings dator. Du kan ladda ned .NET Core-SDK:n för flera plattformar från [.NET](https://www.microsoft.com/net/download/all).
+- Du behöver .NET Core SDK 2,1 eller mer på din utvecklings dator. Du kan ladda ned .NET Core-SDK:n för flera plattformar från [.NET](https://www.microsoft.com/net/download/all).
 
   Du kan kontrollera den aktuella versionen av C# på utvecklingsdatorn med följande kommando:
 
@@ -52,11 +52,11 @@ I den här självstudien utför du följande åtgärder:
   dotnet --version
   ```
 
-* Ett e-postkonto som kan ta emot e-post.
+- Ett e-postkonto som kan ta emot e-post.
 
-* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här självstudien använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+- Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här självstudien använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="set-up-resources"></a>Konfigurera resurser
 
@@ -170,7 +170,7 @@ Nu ska vi använda Metrics Explorer för att skapa ett diagram som visar mått s
 
 1. I den vänstra rutan i IoT Hub väljer du **mått** i avsnittet **övervakning** .
 
-1. Längst upp på skärmen väljer du de **senaste 24 timmarna (automatiskt)**. I list rutan som visas väljer du **senaste 4 timmar** för **tidsintervall** , ställer in **tids kornig het** på **1 minut** och väljer **lokalt** för **Visa tid som**. Välj **Använd** för att spara inställningarna. Inställningen bör nu säga **lokal tid: senaste 4 timmarna (1 minut)**.
+1. Längst upp på skärmen väljer du de **senaste 24 timmarna (automatiskt)**. I list rutan som visas väljer du **senaste 4 timmar** för **tidsintervall**, ställer in **tids kornig het** på **1 minut** och väljer **lokalt** för **Visa tid som**. Välj **Använd** för att spara inställningarna. Inställningen bör nu säga **lokal tid: senaste 4 timmarna (1 minut)**.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-select-time-range.png" alt-text="Skärmbild som visar tidsinställningar för mått.":::
 
@@ -225,17 +225,17 @@ Så här ställer du in mått aviseringar:
 
     1. I fönstret **Konfigurera signal logik** anger eller bekräftar du följande fält under **aviserings logiken** (du kan ignorera diagrammet):
 
-       **Tröskelvärde** :  *statisk*.
+       **Tröskelvärde**:  *statisk*.
 
-       **Operator** : *större än*.
+       **Operator**: *större än*.
 
-       **Sammansättnings typ** : *totalt*.
+       **Sammansättnings typ**: *totalt*.
 
-       **Tröskelvärde** : 1000.
+       **Tröskelvärde**: 1000.
 
-       **Agg regerings kornig het (period)** : *5 minuter*.
+       **Agg regerings kornig het (period)**: *5 minuter*.
 
-       **Utvärderings frekvens** : *var 1 minut*
+       **Utvärderings frekvens**: *var 1 minut*
 
         :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-set-conditions.png" alt-text="Skärm bild som visar inställningar för aviserings villkor.":::
 
@@ -285,17 +285,17 @@ Så här ställer du in mått aviseringar:
 
     * I fönstret **Konfigurera signal logik** anger eller bekräftar du följande fält (du kan ignorera diagrammet):
 
-       **Tröskelvärde** :  *statisk*.
+       **Tröskelvärde**:  *statisk*.
 
-       **Operator** : *större än*.
+       **Operator**: *större än*.
 
-       **Sammansättnings typ** : *maximum*.
+       **Sammansättnings typ**: *maximum*.
 
-       **Tröskelvärde** : 4000.
+       **Tröskelvärde**: 4000.
 
-       **Agg regerings kornig het (period)** : *1 minut*.
+       **Agg regerings kornig het (period)**: *1 minut*.
 
-       **Utvärderings frekvens** : *var 1 minut*
+       **Utvärderings frekvens**: *var 1 minut*
 
        De här inställningarna ställer in signalen för att utlösa när antalet meddelanden når 4000. Måttet utvärderas varje minut.
 

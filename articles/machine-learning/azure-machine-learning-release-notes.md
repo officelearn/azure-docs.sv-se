@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 53a30f92adaf25d87897e98834cda2d5f92b874c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 03825e0f091df01b98355dd6789eb5c9cb2897b0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012279"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444533"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
@@ -43,7 +43,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
     + Förbättrad dokumentation för `OutputDatasetConfig.register_on_complete` att inkludera beteendet vad som händer när namnet redan finns.
     + Om du anger indata-och utdatafiler som är möjliga att krocka med vanliga miljövariabler kommer nu att resultera i en varning
     + Omtillämpnings `grant_workspace_access` parameter vid registrering av data lager. Ställ in den på `True` för att komma åt data bakom det virtuella nätverket från Machine Learning Studio.
-      [Läs mer](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+      [Läs mer](./how-to-enable-studio-virtual-network.md)
     + Det länkade tjänst-API: t är raffinerat. I stället för att tillhandahålla resurs-ID har vi tre separata parametrar sub_id, rg och namn som definieras i konfigurationen.
     + För att göra det möjligt för kunder att själv lösa problem med token som är skadade kan du aktivera synkronisering av tidstoken för synkronisering till en offentlig metod.
     + Den här ändringen gör att en tom sträng kan användas som ett värde för en script_param
@@ -109,8 +109,8 @@ Läs mer om [etiketter för bild instans segment](how-to-label-images.md).
 
 ### <a name="azure-machine-learning-studio-notebooks-experience-october-update"></a>Azure Machine Learning Studio Notebooks Experience (oktober-uppdatering)
 + **Nya funktioner**
-  + [Fullständigt stöd för virtuella nätverk](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
-  + [Fokus läge](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
+  + [Fullständigt stöd för virtuella nätverk](./how-to-enable-studio-virtual-network.md)
+  + [Fokus läge](./how-to-run-jupyter-notebooks.md#focus-mode)
   + Spara antecknings böcker CTRL-S
   + Rad nummer
 

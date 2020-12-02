@@ -6,14 +6,14 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 936e98b3efa27f2d0a85c373ccae0ab223f4fd95
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7d50185169b22a136ce81bd3aebae235cf49498b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340914"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436631"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Säker åtkomst till data i Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -169,7 +169,7 @@ Entiteten kan nu läsa Azure Cosmos DB-resurser.
 
 ## <a name="delete-or-export-user-data"></a>Ta bort eller exportera användar data
 
-Med Azure Cosmos DB kan du söka efter, välja, ändra och ta bort personliga data som finns i databasen eller samlingarna. Azure Cosmos DB innehåller API: er för att hitta och ta bort personliga data men det är ditt ansvar att använda API: erna och definiera den logik som krävs för att radera personliga data. Varje API för flera modeller (SQL, MongoDB, Gremlin, Cassandra, Table) innehåller olika språk-SDK: er som innehåller metoder för att söka efter och ta bort personliga data. Du kan också aktivera funktionen [Time to Live (TTL)](time-to-live.md) för att ta bort data automatiskt efter en angiven period, utan att detta medför ytterligare kostnader.
+Som databas tjänst kan du med Azure Cosmos DB söka efter, välja, ändra och ta bort data som finns i din databas eller behållare. Det är dock ditt ansvar att använda de tillhandahållna API: erna och definiera logik som krävs för att hitta och radera eventuella personliga data om det behövs. Varje API för flera modeller (SQL, MongoDB, Gremlin, Cassandra, Table) innehåller olika språk-SDK: er som innehåller metoder för att söka efter och ta bort data baserat på anpassade predikat. Du kan också aktivera funktionen [Time to Live (TTL)](time-to-live.md) för att ta bort data automatiskt efter en angiven period, utan att detta medför ytterligare kostnader.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

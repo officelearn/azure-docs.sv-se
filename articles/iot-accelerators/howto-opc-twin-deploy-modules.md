@@ -9,12 +9,12 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 075f6f83e5af43cde3886f637a8ee326309e4218
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1c12b1c7fd393227cb22d011f8b88f914cfded59
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015051"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445497"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuera OPC, sammanflätade moduler och beroenden från grunden
 
@@ -117,7 +117,7 @@ Det enklaste sättet att distribuera modulerna till en Azure IoT Edge gateway-en
 
 1. Distribuera OPC dubbla [beroenden](howto-opc-twin-deploy-dependencies.md) och hämta den resulterande `.env` filen. Observera den distribuerade `hub name` `PCS_IOTHUBREACT_HUB_NAME` variabeln i den resulterande `.env` filen.
 
-2. Registrera och starta en [Linux](../iot-edge/how-to-install-iot-edge-linux.md) -eller [Windows](../iot-edge/how-to-install-iot-edge-windows.md) IoT Edge-gateway och anteckna dess `device id` .
+2. Registrera och starta en [Linux](../iot-edge/how-to-install-iot-edge.md) -eller [Windows](../iot-edge/how-to-install-iot-edge.md) IoT Edge-gateway och anteckna dess `device id` .
 
 ### <a name="deploy-to-an-edge-device"></a>Distribuera till en Edge-enhet
 

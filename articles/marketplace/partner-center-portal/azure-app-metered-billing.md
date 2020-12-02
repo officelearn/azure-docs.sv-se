@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: b82478338603750a76718da956d74e23d242692e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d015cec30e516541b50c2acfac38fad898965e1b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896542"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436359"
 ---
 # <a name="managed-application-metered-billing"></a>Förvaltad fakturering för program 
 
@@ -22,7 +22,7 @@ Med Marketplace-mätnings tjänsten kan du skapa hanterade program planer för A
 
 För att en hanterad program plan ska kunna använda avgiftsbelagd fakturering måste den:
 
-* Uppfyller alla krav på erbjudandet som beskrivs i [skapa ett erbjudande för Azure-program](create-new-azure-apps-offer.md).
+* Uppfyller alla krav på erbjudandet som beskrivs i [skapa ett erbjudande för Azure-program](../create-new-azure-apps-offer.md).
 * Konfigurera **priser** för att debitera kunder per månad för din tjänst. Priset kan vara noll om du inte vill debitera en fast avgift och i stället förlita dig på avläsnings fakturering.
 * Ange **fakturerings dimensioner** för de mätnings händelser som kunden betalar för ovanpå den fasta taxan.
 * Integrera med [API: erna för Marketplace för avläsning](./marketplace-metering-service-apis.md) av program vara för att informera Microsoft om fakturerbara händelser.
@@ -56,18 +56,18 @@ En Azure-kund som prenumererar på äkthets tjänsten kan analysera och generera
 
 Fakturerings dimensioner används för att kommunicera med kunden om hur de kommer att faktureras för användning av program varan.  Dessa dimensioner används också för att kommunicera användnings händelser till Microsoft. De definieras enligt följande:
 
-* **Dimensions-ID** : den oåterkalleliga identifierare som refereras vid sändning av användnings händelser.
-* **Dimensions namn** : det visnings namn som är associerat med dimensionen, till exempel "textmeddelanden har skickats".
-* Mått **enhet** : en beskrivning av fakturerings enheten, till exempel "per textmeddelande" eller "per 100-e-post".
-* **Pris per enhet** : priset för en dimensions enhet.
-* **Inkluderad kvantitet för månatlig period** : den mängd dimension som ingår per månad för kunder som betalar den återkommande månads avgiften måste vara ett heltal.
+* **Dimensions-ID**: den oåterkalleliga identifierare som refereras vid sändning av användnings händelser.
+* **Dimensions namn**: det visnings namn som är associerat med dimensionen, till exempel "textmeddelanden har skickats".
+* Mått **enhet**: en beskrivning av fakturerings enheten, till exempel "per textmeddelande" eller "per 100-e-post".
+* **Pris per enhet**: priset för en dimensions enhet.
+* **Inkluderad kvantitet för månatlig period**: den mängd dimension som ingår per månad för kunder som betalar den återkommande månads avgiften måste vara ett heltal.
 
 Fakturerings dimensioner delas i alla planer för ett erbjudande. Vissa attribut gäller för dimensionen i alla planer, och andra attribut är plan-/regionsspecifika.
 
 Attributen, som definierar själva dimensionen, delas i alla planer för ett erbjudande. Innan du publicerar erbjudandet påverkar en ändring av dessa attribut från kontexten för varje plan dimensions definitionen för alla planer. När du har publicerat erbjudandet kan dessa attribut inte längre redige ras. Attributen är:
 
 * Identifierare
-* Namn
+* Name
 * Måttenhet
 
 De andra attributen för en dimension är speciella för varje plan och kan ha olika värden för att planera.  Innan du publicerar planen kan du redigera dessa värden och endast den här planen kommer att påverkas. När du publicerar planen går dessa attribut inte längre att redige ras. Attributen är:
@@ -79,7 +79,7 @@ De andra attributen för en dimension är speciella för varje plan och kan ha o
 Dimensioner har också två särskilda begrepp, "aktiverade" och "oändliga":
 
 * **Aktiverat** anger att den här planen ingår i den här dimensionen.  Du kanske vill lämna det här alternativet omarkerat om du skapar en ny plan som inte skickar användnings händelser baserat på den här dimensionen. Dessutom visas nya dimensioner som lagts till efter att en plan först publicerats som "inte aktive rad" i den redan publicerade planen.  En inaktive rad dimension visas inte i några listor med dimensioner för en plan som visas av kunderna.
-* **Oändligt** , representerat av oändlighets symbolen "∞", anger att den här planen ingår i den här dimensionen, utan mätning av användning mot den här dimensionen. Om du vill ange för dina kunder att de funktioner som representeras av den här dimensionen ingår i planen, men utan någon begränsad användning.  En dimension med oändlig användning visas i listor över dimensioner för en plan som visas av kunderna.  Den här planen debiteras aldrig för en avgift.
+* **Oändligt**, representerat av oändlighets symbolen "∞", anger att den här planen ingår i den här dimensionen, utan mätning av användning mot den här dimensionen. Om du vill ange för dina kunder att de funktioner som representeras av den här dimensionen ingår i planen, men utan någon begränsad användning.  En dimension med oändlig användning visas i listor över dimensioner för en plan som visas av kunderna.  Den här planen debiteras aldrig för en avgift.
 
 >[!Note] 
 >Följande scenarier stöds uttryckligen:  <br> – Du kan lägga till en ny dimension till en ny plan.  Den nya dimensionen kommer inte att aktive ras för redan publicerade planer. <br> – Du kan publicera en plan med en fast månads avgift och utan några dimensioner och sedan lägga till en ny plan och konfigurera en ny dimension för den planen. Den nya dimensionen kommer inte att aktive ras för redan publicerade planer.
@@ -93,7 +93,7 @@ En dimension som används med Marketplace-avläsning är en förståelse för hu
 När ett erbjudande publiceras med en dimension kan informationen om erbjudande nivå för den dimensionen inte längre ändras:
 
 * Identifierare
-* Namn
+* Name
 * Måttenhet
 
 När en plan har publicerats kan informationen på Plans nivå inte längre ändras:

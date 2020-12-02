@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 647256949d1f8f13439a0a5db87f3b02d697d32b
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 20d38e5caee67ca8bb13877d3162401fa245dc2d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95318141"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444783"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Aktivera Azure Monitor for VMs gäst hälsa (för hands version)
 Azure Monitor for VMs gäst hälsa kan du se hälso tillståndet för en virtuell dator så som den definieras av en uppsättning prestanda mätningar som samplas med jämna mellanrum. I den här artikeln beskrivs hur du aktiverar den här funktionen i din prenumeration och hur du aktiverar gäst övervakning för varje virtuell dator.
@@ -87,7 +87,7 @@ Det krävs tre steg för att aktivera virtuella datorer med hjälp av Azure Reso
 > [!NOTE]
 > Om du aktiverar en virtuell dator med hjälp av Azure Portal skapas den data insamlings regel som beskrivs här. I så fall behöver du inte utföra det här steget.
 
-Konfiguration av övervakare i Azure Monitor for VMs gäst hälsa lagras i [data insamlings regler (DCR)](../platform/data-collection-rule-overview.md). Installera den data insamlings regel som definierats i Resource Manager-mallen nedan om du vill aktivera alla Övervakare för de virtuella datorerna med gäst hälso tillägget. Varje virtuell dator med gäst hälso tillägget behöver en Association med den här regeln.
+Konfiguration av övervakare i Azure Monitor for VMs gäst hälsa lagras i [data insamlings regler (DCR)](../platform/data-collection-rule-overview.md). Varje virtuell dator med gäst hälso tillägget behöver en Association med den här regeln.
 
 > [!NOTE]
 > Du kan skapa ytterligare data insamlings regler för att ändra standard konfigurationen för övervakare enligt beskrivningen i [Konfigurera övervakning i Azure Monitor for VMS gäst hälsa (för hands version)](vminsights-health-configure.md).
@@ -115,7 +115,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
 
 ---
 
-
+Den data insamlings regel som definierats i Resource Manager-mallen nedan aktiverar alla Övervakare för de virtuella datorerna med gäst hälso tillägget. Det måste innehålla data källor för varje prestanda räknare som används av övervakarna.
 
 ```json
 {
@@ -138,7 +138,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
     "dataCollectionRuleLocation": {
       "type": "string",
       "metadata": {
-        "description": "The location code in which the data colleciton rule should be deployed. Examples: eastus, westeurope, etc"
+        "description": "The location code in which the data collection rule should be deployed. Examples: eastus, westeurope, etc"
       }
     }
   },
@@ -151,6 +151,19 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
       "properties": {
         "description": "Data collection rule for VM Insights health.",
         "dataSources": {
+          "performanceCounters": [
+              {
+                  "name": "VMHealthPerfCounters",
+                  "streams": [ "Microsoft-Perf" ],
+                  "scheduledTransferPeriod": "PT1M",
+                  "samplingFrequencyInSeconds": 60,
+                  "counterSpecifiers": [
+                      "\\LogicalDisk(*)\\% Free Space",
+                      "\\Memory\\Available Bytes",
+                      "\\Processor(_Total)\\% Processor Time"
+                  ]
+              }
+          ],
           "extensions": [
             {
               "name": "Microsoft-VMInsights-Health",
@@ -170,7 +183,11 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
                     }
                   }
                 ]
-              }
+              },
+              "inputDataSources": [
+                  "VMHealthPerfCounters"
+              ]
+
             }
           ]
         },
@@ -181,7 +198,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
               "name": "Microsoft-HealthStateChange-Dest"
             }
           ]
-        },
+        },                  
         "dataFlows": [
           {
             "streams": [
@@ -205,7 +222,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "healthDataCollectionRuleResourceId": {
+      "destinationWorkspaceResourceId": {
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
       },
       "dataCollectionRuleLocation": {
@@ -217,7 +234,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
 
 
 
-## <a name="install-guest-health-extension-and-associate-with-data-collection-rule"></a>Installera gäst hälso tillägg och associera med data insamlings regel
+### <a name="install-guest-health-extension-and-associate-with-data-collection-rule"></a>Installera gäst hälso tillägg och associera med data insamlings regel
 Använd följande Resource Manager-mall för att aktivera en virtuell dator för gäst hälsa. Detta installerar gäst hälso tillägget och skapar associationen med data insamlings regeln. Du kan distribuera den här mallen med valfri [distributions metod för Resource Manager-mallar](../../azure-resource-manager/templates/deploy-powershell.md).
 
 
@@ -370,9 +387,6 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
       },
       "healthDataCollectionRuleResourceId": {
         "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionRules/Microsoft-VMInsights-Health"
-      },
-      "healthExtensionVersion": {
-        "value": "private-preview"
       }
   }
 }

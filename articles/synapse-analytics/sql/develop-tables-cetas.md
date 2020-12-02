@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: df0198ba77e1661bb18aa72285e100ca070966a8
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 8ffb3a0948267ea40a5d0511de63a80ad23584d1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331744"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454669"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS med Synapse SQL
 
-Du kan använda skapa extern tabell som SELECT (CETAS) i en dedikerad SQL-pool eller Server lös SQL-pool (för hands version) för att utföra följande uppgifter:  
+Du kan använda skapa extern tabell som SELECT (CETAS) i en dedikerad SQL-pool eller Server lös SQL-pool för att utföra följande uppgifter:  
 
 - Skapa en extern tabell
 - Exportera, parallellt, resultatet av ett Transact-SQL SELECT-uttryck för att:

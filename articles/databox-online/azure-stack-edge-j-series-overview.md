@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 11ed87f8cf5aabb86f709d938acc4c31b737ca91
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d95c4bb0345051cc79dadca5fa7cc11932a9512a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318608"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454037"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>Vad är Azure Stack Edge Pro R?
 
@@ -45,7 +45,7 @@ Azure Stack Edge Pro R har följande funktioner:
 
 Här följer de olika scenarier där Azure Stack Edge Pro R kan användas för snabb Machine Learning (ML) inferencing vid kant-och förbehandling av data innan de skickas till Azure.
 
-- **Härledning med Azure Machine Learning** – med Azure Stack Edge Pro R kan du köra ml-modeller för att få snabba resultat som kan åtgärdas innan data skickas till molnet. Den fullständiga data uppsättningen kan alternativt överföras för att fortsätta att träna och förbättra dina ML-modeller. Mer information om hur du använder Azure ML-accelererade maskin varu modeller på den Azure Stack Edge Pro R-enheten finns i [Distribuera Azure ml-maskin accelererade modeller på Azure Stack Edge Pro r](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Härledning med Azure Machine Learning** – med Azure Stack Edge Pro R kan du köra ml-modeller för att få snabba resultat som kan åtgärdas innan data skickas till molnet. Den fullständiga data uppsättningen kan alternativt överföras för att fortsätta att träna och förbättra dina ML-modeller. Mer information om hur du använder Azure ML-accelererade maskin varu modeller på den Azure Stack Edge Pro R-enheten finns i [Distribuera Azure ml-maskin accelererade modeller på Azure Stack Edge Pro r](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - **Förbearbeta data** för datatransformering innan du skickar dem till Azure för att skapa en mer åtgärds bara data uppsättning. Förbearbeta kan användas för att:
 
@@ -83,4 +83,3 @@ Azure Stack Edge Pro R fysisk enhet, Azure-resurs och mål lagrings konto som du
 
 - Granska [system kraven för Azure Stack Edge Pro R](azure-stack-edge-gpu-system-requirements.md).
 <!--- Understand the [Azure Stack Edge Pro R limits](azure-stack-edge-limits.md).-->
-

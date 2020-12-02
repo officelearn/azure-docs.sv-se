@@ -9,16 +9,16 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 2597aa1f0589fea75af0a3ac41244e3718d5eb3e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a5d84b936679cdd5ebd5bec4938d6db7fcb641e7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307967"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455510"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Snabb start: skapa en ny Azure Machine Learning länkad tjänst i Synapse
 
-I den här snabb starten ska du länka en Synapse Analytics-arbetsyta till en Azure Machine Learning-arbetsyta. Genom att länka dessa arbets ytor kan du utnyttja Azure Machine Learning från olika upplevelser i Synapse.
+I den här snabb starten ska du länka en Azure Synapse Analytics-arbetsyta till en Azure Machine Learning-arbetsyta. Genom att länka dessa arbets ytor kan du utnyttja Azure Machine Learning från olika upplevelser i Synapse.
 
 Genom att länka till en Azure Machine Learning arbets yta kan du till exempel använda dessa upplevelser:
 
@@ -80,4 +80,4 @@ I det här steget skapas ett nytt huvud namn för tjänsten. Om du vill använda
 ## <a name="next-steps"></a>Nästa steg
 
 - [Självstudie: bedömnings guide för Machine Learning-modell – dedikerad SQL-pool](tutorial-sql-pool-model-scoring-wizard.md)
-- [Machine Learning funktioner i Azure Synapse Analytics (för hands versioner av arbets ytor)](what-is-machine-learning.md)
+- [Machine Learning funktioner i Azure Synapse Analytics](what-is-machine-learning.md)

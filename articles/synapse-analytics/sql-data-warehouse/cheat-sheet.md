@@ -1,6 +1,6 @@
 ---
-title: Lathund-blad för Azure Synapse Analytics (tidigare SQL DW)
-description: Hitta länkar och bästa metoder för att snabbt bygga upp dina Azure Synapse Analytics-lösningar (tidigare SQL DW).
+title: Lathund-blad för dedikerad SQL-pool (tidigare SQL DW)
+description: Hitta länkar och bästa metoder för att snabbt bygga din dedikerade SQL-pool (tidigare SQL DW) i Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,18 +10,18 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 648f06ef1af5d6dce9fa3583c6358d3bd173f209
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a236cf99d3131e83619cfab06e8ec028938a87ba
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319669"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454619"
 ---
-# <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Lathund-blad för Azure Synapse Analytics (tidigare SQL DW)
+# <a name="cheat-sheet-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytic"></a>Lathund-blad för dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse-analys
 
-Det här lathund-bladet innehåller användbara tips och bästa metoder för att skapa lösningar för Azure Synapse.
+Det här lathund-bladet innehåller användbara tips och bästa metoder för att skapa dedikerade SQL-pooler (tidigare SQL DW).
 
-Följande bild visar hur du skapar ett informationslager:
+Följande bild visar processen för att utforma ett informations lager med dedikerad SQL-pool (tidigare SQL DW):
 
 ![Skiss](./media/cheat-sheet/picture-flow.png)
 
@@ -121,13 +121,13 @@ Resurs grupper används som ett sätt att allokera minne till frågor. Om du beh
 
 Om du märker att frågor tar för lång tid kan du kontrollera att dina användare inte körs i stora resursklasser. Stora resursklasser förbrukar många samtidighetsfack. De kan orsaka att andra frågor placeras i kö.
 
-Med hjälp av Gen2 i [SQL-poolen](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)får varje resurs klass 2,5 gånger mer minne än gen1.
+Slutligen, genom att använda Gen2 av [dedikerad SQL-pool (tidigare SQL DW)](sql-data-warehouse-overview-what-is.md)får varje resurs klass 2,5 gånger mer minne än gen1.
 
 Lär dig mer om hur du arbetar med [resursklasser och samtidighet](resource-classes-for-workload-management.md).
 
 ## <a name="lower-your-cost"></a>Sänk kostnaderna
 
-En viktig funktion i Azure Synapse är möjligheten att [hantera beräknings resurser](sql-data-warehouse-manage-compute-overview.md). Du kan pausa SQL-poolen när du inte använder den, vilket stoppar faktureringen av beräknings resurser. Du kan skala resurser för att uppfylla dina prestandakrav. Om du vill pausa använder du [Azure-portalen](pause-and-resume-compute-portal.md) eller [PowerShell](pause-and-resume-compute-powershell.md). Om du vill skala använder du [Azure-portalen](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) eller en [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+En viktig funktion i Azure Synapse är möjligheten att [hantera beräknings resurser](sql-data-warehouse-manage-compute-overview.md). Du kan pausa din dedikerade SQL-pool (tidigare SQL DW) när du inte använder den, vilket stoppar faktureringen av beräknings resurser. Du kan skala resurser för att uppfylla dina prestandakrav. Om du vill pausa använder du [Azure-portalen](pause-and-resume-compute-portal.md) eller [PowerShell](pause-and-resume-compute-powershell.md). Använd [Azure Portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md)eller en [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute)för att skala.
 
 Autoskala nu för den tid du önskar med Azure Functions:
 
@@ -137,8 +137,8 @@ Autoskala nu för den tid du önskar med Azure Functions:
 
 Vi rekommenderar att du överväger SQL Database och Azure Analysis Services i en nav-och-eker-arkitektur. Den här lösningen kan isolera arbetsbelastningen mellan olika grupper av användare när du även använder avancerade funktioner från SQL Database och Azure Analysis Services. Det här är också ett sätt att tillhandahålla obegränsad samtidighet till dina användare.
 
-Lär dig mer om [typiska arkitekturer som utnyttjar Azure-Synapse](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Lär dig mer om [typiska arkitekturer som utnyttjar dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
 
-Distribuera i ett Klicka på dina ekrar i SQL-databaser från SQL-poolen:
+Distribuera i ett genom att klicka på dina ekrar i SQL-databaser från dedikerad SQL-pool (tidigare SQL DW):
 
 [![Bild som visar en knapp med etiketten "distribuera till Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json)

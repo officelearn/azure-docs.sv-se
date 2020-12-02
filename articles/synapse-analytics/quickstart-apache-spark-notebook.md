@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.openlocfilehash: b20f2ce88695cb68de496d126c5e3cd52f9eb6c8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 38b0f23a44a16125726e7810b2045d244a2e6b06
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316144"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454655"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Snabb start: skapa en server lös Apache Spark pool i Azure Synapse Analytics med hjälp av webb verktyg
 
-I den här snabb starten får du lära dig hur du skapar en server lös Apache Spark pool (för hands version) i Azure Synapse med hjälp av webb verktyg. Du lär dig sedan att ansluta till Apache Spark-poolen och köra Spark SQL-frågor mot filer och tabeller. Apache Spark möjliggör snabb data-analys och kluster-computing med minnesintern bearbetning. Information om spark i Azure Synapse finns i [Översikt: Apache Spark på Azure Synapse](./spark/apache-spark-overview.md).
+I den här snabb starten får du lära dig hur du skapar en server lös Apache Spark pool i Azure Synapse med hjälp av webb verktyg. Du lär dig sedan att ansluta till Apache Spark-poolen och köra Spark SQL-frågor mot filer och tabeller. Apache Spark möjliggör snabb data-analys och kluster-computing med minnesintern bearbetning. Information om spark i Azure Synapse finns i [Översikt: Apache Spark på Azure Synapse](./spark/apache-spark-overview.md).
 
 > [!IMPORTANT]
 > Faktureringen för Spark-instanser beräknas per minut, oavsett om du använder dem eller inte. Se till att stänga av Spark-instansen när du är färdig med den, eller ange en kort tids gräns. Mer information finns i avsnittet **Rensa resurser** i den här artikeln.
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto inn
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 

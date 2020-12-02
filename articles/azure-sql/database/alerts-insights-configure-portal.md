@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 64bef8a1cd4353ed9602c36cf728a0d727458251
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 512f6044e46fba49ea1c63a89d11135751e7ce43
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675132"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455978"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Skapa aviseringar för Azure SQL Database och Azure Synapse Analytics med hjälp av Azure Portal
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "92675132"
 
 ## <a name="overview"></a>Översikt
 
-Den här artikeln visar hur du konfigurerar aviseringar för databaser i Azure SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse) med hjälp av Azure Portal. Aviseringar kan skicka ett e-postmeddelande till dig eller anropa en webbhook när något mått (till exempel databas storlek eller CPU-användning) når tröskelvärdet.
+Den här artikeln visar hur du konfigurerar aviseringar för databaser i Azure SQL Database och Azure Synapse Analytics med hjälp av Azure Portal. Aviseringar kan skicka ett e-postmeddelande till dig eller anropa en webbhook när något mått (till exempel databas storlek eller CPU-användning) når tröskelvärdet.
 
 > [!NOTE]
 > Instruktioner för Azure SQL-hanterade instanser finns i [skapa aviseringar för Azure SQL-hanterad instans](../managed-instance/alerts-create.md).
@@ -57,13 +57,13 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av
 3. Klicka på knappen **ny varnings regel** för att öppna sidan **Skapa regel** .
   ![Skapa regel](./media/alerts-insights-configure-portal/create-rule.png)
 
-4. I avsnittet **villkor** klickar du på **Lägg till** .
+4. I avsnittet **villkor** klickar du på **Lägg till**.
   ![Definiera villkor](./media/alerts-insights-configure-portal/create-rule.png)
 5. På sidan **Konfigurera signal logik** väljer du en signal.
   ![Välj signal](./media/alerts-insights-configure-portal/select-signal.png)
-6. När du har valt en signal, till exempel **processor procent** , visas sidan **Konfigurera signal logik** .
+6. När du har valt en signal, till exempel **processor procent**, visas sidan **Konfigurera signal logik** .
   ![Konfigurera signallogiken](./media/alerts-insights-configure-portal/configure-signal-logic.png)
-7. På den här sidan konfigurerar du den tröskel typ, operatör, sammansättnings typ, tröskel värde, sammansättnings precision och utvärderings frekvens. Klicka sedan på **färdig** .
+7. På den här sidan konfigurerar du den tröskel typ, operatör, sammansättnings typ, tröskel värde, sammansättnings precision och utvärderings frekvens. Klicka sedan på **färdig**.
 8. I **Skapa regel** väljer du en befintlig **Åtgärds grupp** eller skapar en ny grupp. Med en åtgärds grupp kan du definiera vilken åtgärd som ska vidtas när ett varnings tillstånd inträffar.
   ![Definiera åtgärds grupp](./media/alerts-insights-configure-portal/action-group.png)
 

@@ -6,17 +6,17 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 10/16/2020
+ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 72fe7965f3e2b7ce0cdd53e4ec6e122e5bcbc6ee
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c1545efc43d034dba5b8ffe8d19b9bbee95dff68
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746294"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455476"
 ---
-# <a name="use-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>Använd Synapse Studio (för hands version) för att övervaka dina Apache Spark-program
+# <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Använd Synapse Studio för att övervaka dina Apache Spark-program
 
 Med Azure Synapse Analytics kan du använda Spark för att köra antecknings böcker, jobb och andra typer av program på dina Spark-pooler på din arbets yta.
 
@@ -41,8 +41,6 @@ Välj **Apache Spark program** om du vill visa en lista över Apache Spark progr
 Du kan filtrera listan över Apache Spark program till dem som du är intresse rad av. Med filtren längst upp på skärmen kan du ange ett fält som du vill filtrera.
 
 Du kan till exempel filtrera vyn om du bara vill se de Apache Spark program som innehåller namnet "Sales":
-
-![Knappen Filtrera](./media/common/filter-button.png)
 
 ![Exempel filter](./media/how-to-monitor-spark-applications/filter-example.png)
 

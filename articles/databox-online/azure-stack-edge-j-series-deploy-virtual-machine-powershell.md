@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: aa492acdedc2d131d28c894031de2181e87a2f3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed6b77f77c9df0bb69edeb7451022605f1633aa3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890699"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454320"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Distribuera virtuella datorer på Azure Stack Edge Pro GPU-enhet via Azure PowerShell
 
@@ -103,7 +103,7 @@ Den här prenumerationen kommer att användas för att distribuera de virtuella 
     
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). En resurs grupp är en logisk behållare där Azure-resurser, till exempel lagrings konto, disk, hanterad disk, distribueras och hanteras.
+Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup). En resurs grupp är en logisk behållare där Azure-resurser, till exempel lagrings konto, disk, hanterad disk, distribueras och hanteras.
 
 > [!IMPORTANT]
 > Alla resurser skapas på samma plats som enheten och platsen är inställd på **DBELocal**.
@@ -187,7 +187,7 @@ Du har redan lagt till BLOB-URI: n i hosts-filen för den klient som du använde
 
 ## <a name="install-certificates"></a>Installera certifikat
 
-Om du använder *https*måste du installera lämpliga certifikat på enheten. I det här fallet installerar du Blob-slutpunktens certifikat. Mer information finns i så här skapar du och laddar upp certifikat i [Hantera certifikat](azure-stack-edge-j-series-manage-certificates.md).
+Om du använder *https* måste du installera lämpliga certifikat på enheten. I det här fallet installerar du Blob-slutpunktens certifikat. Mer information finns i så här skapar du och laddar upp certifikat i [Hantera certifikat](azure-stack-edge-j-series-manage-certificates.md).
 
 ## <a name="upload-a-vhd"></a>Ladda upp en virtuell hårddisk
 
@@ -227,7 +227,7 @@ $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –S
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
 ```
 
-Ett exempel på utdata visas nedan. Mer information om den här cmdleten finns på [New-AzureRmDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0).
+Ett exempel på utdata visas nedan. Mer information om den här cmdleten finns på [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0).
 
 ```powershell
 Tags               :
@@ -267,7 +267,7 @@ Set-AzureRmImageOsDisk -Image $imageConfig -OsType 'Linux' -OsState 'Generalized
 New-AzureRmImage -Image $imageConfig -ImageName <Image name>  -ResourceGroupName <Resource group name>
 ```
 
-Ett exempel på utdata visas nedan. Mer information om den här cmdleten finns på [New-AzureRmImage](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0).
+Ett exempel på utdata visas nedan. Mer information om den här cmdleten finns på [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0).
 
 ```powershell
 New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig191113014333  -ResourceGroupName rg191113014333
@@ -463,7 +463,7 @@ Kör följande cmdlet för att aktivera en virtuell dator som körs på enheten:
 `Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>`
 
 
-Mer information om den här cmdleten finns på [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0).
+Mer information om den här cmdleten finns på [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0).
 
 ### <a name="suspend-or-shut-down-the-vm"></a>Pausa eller stänga av den virtuella datorn
 
@@ -475,7 +475,7 @@ Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
 
 
-Mer information om den här cmdleten finns i [cmdleten Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0).
+Mer information om den här cmdleten finns i [cmdleten Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0).
 
 ### <a name="add-a-data-disk"></a>Lägg till en datadisk
 
@@ -495,7 +495,7 @@ Kör följande cmdlet för att ta bort en virtuell dator från enheten:
 Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 ```
 
-Mer information om den här cmdleten finns i [cmdleten Remove-AzureRmVm](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0).
+Mer information om den här cmdleten finns i [cmdleten Remove-AzureRmVm](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0).
 
 
 ## <a name="supported-vm-sizes"></a>VM-storlekar som stöds
@@ -553,7 +553,7 @@ Konfigurera en global variabel som matchar Blob Storage REST API-versionen på k
 
 ### <a name="on-windows-client"></a>På Windows-klient 
 
-`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
+`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
 
 ### <a name="on-linux-client"></a>På Linux-klient
 
@@ -567,4 +567,4 @@ Utför följande steg för att kontrol lera om miljövariabeln för AzCopy har s
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Azure Resource Manager-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager-cmdletar](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)

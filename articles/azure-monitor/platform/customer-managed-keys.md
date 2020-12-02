@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: c2a9dbb5fa821d408835cd1bcbf3e6afdade36e1
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 17648b9bc973285764bb0bd6242506122a043780
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317494"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454264"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Kundhanterad nyckel i Azure Monitor 
 
@@ -656,6 +656,12 @@ Läs mer om [Customer lockbox för Microsoft Azure](../../security/fundamentals/
 
 - Arbets ytans länk till klustret Miss fungerar om den är länkad till ett annat kluster.
 
+- Den säkra databasen är inte tillgänglig i Kina. 
+
+- [Double Encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) konfigureras automatiskt för kluster som skapats från oktober 2020 i regioner som stöds. Du kan kontrol lera om klustret har kon figurer ATS för Double Encryption med en GET-begäran på klustret och att `"isDoubleEncryptionEnabled"` det är `true` för kluster med dubbel kryptering aktiverat. 
+  - Om du skapar ett kluster och får ett fel meddelande om att <region namn> inte stöder Double Encryption för kluster. "kan du fortfarande skapa klustret utan Double Encryption. Lägg till `"properties": {"isDoubleEncryptionEnabled": false}` egenskap i rest Request-texten.
+  - Inställningen Double Encryption kan inte ändras efter att klustret har skapats.
+
 ## <a name="troubleshooting"></a>Felsökning
 
 - Beteende med Key Vault tillgänglighet
@@ -682,10 +688,6 @@ Läs mer om [Customer lockbox för Microsoft Azure](../../security/fundamentals/
 - Vissa åtgärder är långa och kan ta en stund att slutföra – dessa är kluster skapa, kluster nyckel uppdatering och kluster borttagning. Du kan kontrol lera åtgärds statusen på två sätt:
   1. När du använder REST kopierar du Azure-AsyncOperation URL-värdet från svaret och följer [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
   2. Skicka GET-begäran till kluster eller arbets yta och observera svaret. Till exempel kan inte en länkad arbets yta ha *clusterResourceId* under *funktioner*.
-
-- [Double Encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) konfigureras automatiskt för kluster som skapats från oktober 2020 i regioner som stöds. Du kan kontrol lera om klustret har kon figurer ATS för Double Encryption med en GET-begäran på klustret och att `"isDoubleEncryptionEnabled"` det är `true` för kluster med dubbel kryptering aktiverat. 
-  - Om du skapar ett kluster och får ett fel meddelande om att <region namn> inte stöder Double Encryption för kluster. "kan du fortfarande skapa klustret utan Double Encryption. Lägg till `"properties": {"isDoubleEncryptionEnabled": false}` i innehållet i rest-begäran.
-  - Inställningen Double Encryption kan inte ändras efter att klustret har skapats.
 
 - Felmeddelanden
   

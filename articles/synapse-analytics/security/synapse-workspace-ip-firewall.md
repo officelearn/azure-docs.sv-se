@@ -8,22 +8,22 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 00b4f38f4a2a44b88718224db2b2442033816f83
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3cbd9fd697bbae8779f5b2b9fa4ab817efce30ac
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313889"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454629"
 ---
-# <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Regler för IP-brandvägg för Azure Synapse Analytics (för hands version)
+# <a name="azure-synapse-analytics-ip-firewall-rules"></a>IP-brandväggs regler för Azure Synapse Analytics
 
 I den här artikeln förklaras IP-brandväggens regler och du får lära dig hur du konfigurerar dem i Azure Synapse Analytics.
 
 ## <a name="ip-firewall-rules"></a>Regler för IP-brandvägg
 
-Regler för IP-brandvägg ger eller nekar åtkomst till din Synapse-arbetsyta baserat på den ursprungliga IP-adressen för varje begäran. Du kan konfigurera IP-brandväggens regler för din arbets yta. Regler för IP-brandvägg som kon figurer ATS på arbets ytans nivå gäller för alla offentliga slut punkter för arbets ytan (dedikerade SQL-pooler, SQL-pool utan server och utveckling).
+IP-brandväggsregler beviljar eller nekar åtkomst till din Synapse-arbetsyta baserat på den ursprungliga IP-adressen för varje förfrågan. Du kan konfigurera IP-brandväggsregler för din arbetsyta. Regler för IP-brandvägg som kon figurer ATS på arbets ytans nivå gäller för alla offentliga slut punkter för arbets ytan (dedikerade SQL-pooler, SQL-pool utan server och utveckling).
 
-## <a name="create-and-manage-ip-firewall-rules"></a>Skapa och hantera IP-brandväggens regler
+## <a name="create-and-manage-ip-firewall-rules"></a>Skapa och hantera IP-brandväggsregler
 
 Det finns två sätt att lägga till IP-brandväggens regler i en Synapse-arbetsyta. Om du vill lägga till en IP-brandvägg till din arbets yta väljer du **säkerhet + nätverk** och markerar **Tillåt anslutningar från alla IP-adresser** när arbets ytan skapas.
 

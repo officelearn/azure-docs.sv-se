@@ -7,18 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 3df7d3d01dcd5e5b097eba53ef0dae29e86fd0a5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cddc7f4f453f22b0cb36b1d3a1e9c2fba2dcabaf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973265"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455095"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Skapa en virtuell Windows-dator från en specialiserad disk med PowerShell
 
 Skapa en ny virtuell dator genom att koppla en specialiserad hanterad disk som operativ system disk. En specialiserad disk är en kopia av en virtuell hård disk (VHD) från en befintlig virtuell dator som innehåller användar konton, program och andra tillstånds data från den ursprungliga virtuella datorn. 
-
-När du använder en specialiserad virtuell hård disk för att skapa en ny virtuell dator behåller den nya virtuella datorn dator namnet för den ursprungliga virtuella datorn. Annan datorspecifik information behålls även och i vissa fall kan denna Duplicerad information orsaka problem. När du kopierar en virtuell dator bör du vara medveten om vilken typ av datorspecifik information som dina program förlitar sig på.
 
 I det syftet har du flera alternativ:
 * [Använd en befintlig hanterad disk](#option-1-use-an-existing-disk). Det här alternativet är användbart om du har en virtuell dator som inte fungerar som den ska. Du kan ta bort den virtuella datorn och sedan återanvända den hanterade disken för att skapa en ny virtuell dator. 
@@ -28,6 +26,11 @@ I det syftet har du flera alternativ:
 Du kan också använda Azure Portal för att [skapa en ny virtuell dator från en specialiserad virtuell hård disk](create-vm-specialized-portal.md).
 
 Den här artikeln visar hur du använder hanterade diskar. Om du har en äldre distribution som kräver att ett lagrings konto används, se [skapa en virtuell dator från en specialiserad virtuell hård disk i ett lagrings konto](/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized).
+
+> [!IMPORTANT]
+> 
+> När du använder en specialiserad disk för att skapa en ny virtuell dator behåller den nya virtuella datorn dator namnet för den ursprungliga virtuella datorn. Annan datorspecifik information (t. ex. CMID) hålls även och, i vissa fall kan denna Duplicerad information orsaka problem. När du kopierar en virtuell dator bör du vara medveten om vilken typ av datorspecifik information som dina program förlitar sig på.  
+> Använd därför inte en specialiserad disk om du vill skapa flera virtuella datorer. I stället [skapar du en avbildning](capture-image-resource.md) och [använder avbildningen för att skapa flera virtuella datorer](create-vm-generalized-managed.md)i stället för större distributioner.
 
 Vi rekommenderar att du begränsar antalet samtidiga distributioner till 20 virtuella datorer från en enda virtuell hård disk eller en ögonblicks bild. 
 
@@ -159,7 +162,7 @@ Skapa det [virtuella nätverket](../../virtual-network/virtual-networks-overview
        -AddressPrefix 10.0.0.0/24
     ```
     
-2. Skapa det virtuella nätverket. I det här exemplet anges det virtuella nätverks namnet till *myVnetName*, platsen för *västra USA*och adressprefixet för det virtuella nätverket till *10.0.0.0/16*. 
+2. Skapa det virtuella nätverket. I det här exemplet anges det virtuella nätverks namnet till *myVnetName*, platsen för *västra USA* och adressprefixet för det virtuella nätverket till *10.0.0.0/16*. 
    
     ```powershell
     $vnetName = "myVnetName"
@@ -261,7 +264,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Verifiera att den virtuella datorn har skapats
-Du bör se den nyligen skapade virtuella datorn antingen i [Azure Portal](https://portal.azure.com) under **Bläddra**i  >  **virtuella datorer**eller med hjälp av följande PowerShell-kommandon.
+Du bör se den nyligen skapade virtuella datorn antingen i [Azure Portal](https://portal.azure.com) under **Bläddra** i  >  **virtuella datorer** eller med hjälp av följande PowerShell-kommandon.
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup

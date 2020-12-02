@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 5a541dce94cc25958e3c3a6a058e015c8c5e3db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31677482660a48e2bb4c71b81b04681eba725fcd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283256"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455133"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Skapa en virtuell dator från en virtuell hård disk med hjälp av Azure Portal
 
@@ -26,7 +26,10 @@ Det finns flera sätt att skapa en virtuell dator (VM) i Azure:
  
 - Du kan skapa en virtuell Azure-dator från en lokal virtuell hård disk genom att ladda upp den lokala virtuella hård disken och koppla den till en ny virtuell dator. Du kan använda PowerShell eller något annat verktyg för att ladda upp den virtuella hård disken till ett lagrings konto och sedan skapa en hanterad disk från den virtuella hård disken. Mer information finns i [Ladda upp en specialiserad virtuell hård disk](create-vm-specialized.md#option-2-upload-a-specialized-vhd). 
 
-Använd inte en specialiserad disk om du vill skapa flera virtuella datorer. I stället [skapar du en avbildning](capture-image-resource.md) och [använder avbildningen för att skapa flera virtuella datorer](create-vm-generalized-managed.md)i stället för större distributioner.
+> [!IMPORTANT]
+> 
+> När du använder en specialiserad disk för att skapa en ny virtuell dator behåller den nya virtuella datorn dator namnet för den ursprungliga virtuella datorn. Annan datorspecifik information (t. ex. CMID) hålls även och, i vissa fall kan denna Duplicerad information orsaka problem. När du kopierar en virtuell dator bör du vara medveten om vilken typ av datorspecifik information som dina program förlitar sig på.  
+> Använd därför inte en specialiserad disk om du vill skapa flera virtuella datorer. I stället [skapar du en avbildning](capture-image-resource.md) och [använder avbildningen för att skapa flera virtuella datorer](create-vm-generalized-managed.md)i stället för större distributioner.
 
 Vi rekommenderar att du begränsar antalet samtidiga distributioner till 20 virtuella datorer från en enda ögonblicks bild eller virtuell hård disk. 
 
@@ -34,20 +37,20 @@ Vi rekommenderar att du begränsar antalet samtidiga distributioner till 20 virt
 
 Skapa en ögonblicks bild och skapa sedan en disk från ögonblicks bilden. Med den här strategin kan du behålla den ursprungliga virtuella hård disken som reserv:
 
-1. Välj **alla tjänster**på den vänstra menyn i [Azure Portal](https://portal.azure.com).
+1. Välj **alla tjänster** på den vänstra menyn i [Azure Portal](https://portal.azure.com).
 2. I sökrutan **alla tjänster** anger du **diskar** och väljer sedan **diskar** för att visa listan över tillgängliga diskar.
 3. Välj den disk som du vill använda. Disk **sidan för** disken visas.
 4. I menyn högst upp väljer du **skapa ögonblicks bild**. 
 5. Ange ett **namn** för ögonblicks bilden.
 6. Välj en **resurs grupp** för ögonblicks bilden. Du kan antingen använda en befintlig resurs grupp eller skapa en ny.
-7. För **Kontotyp**väljer du antingen **standard lagring (HDD)** eller **Premium (SSD)** -lagring.
+7. För **Kontotyp** väljer du antingen **standard lagring (HDD)** eller **Premium (SSD)** -lagring.
 8. När du är klar väljer du **skapa** för att skapa ögonblicks bilden.
 9. När ögonblicks bilden har skapats väljer du **skapa en resurs** på den vänstra menyn.
 10. I rutan Sök anger du **hanterad disk** och väljer sedan **Managed disks** i listan.
 11. På sidan **Managed disks** väljer du **skapa**.
 12. Ange ett **namn** för disken.
 13. Välj en **resurs grupp** för disken. Du kan antingen använda en befintlig resurs grupp eller skapa en ny. Det här valet används också som resurs grupp där du skapar den virtuella datorn från disken.
-14. För **Kontotyp**väljer du antingen **standard lagring (HDD)** eller **Premium (SSD)** -lagring.
+14. För **Kontotyp** väljer du antingen **standard lagring (HDD)** eller **Premium (SSD)** -lagring.
 15. Kontrol lera att **Snapshot** är markerat i **Källtyp**.
 16. I list rutan **käll ögonblicks bild** väljer du den ögonblicks bild som du vill använda.
 17. Gör eventuella justeringar vid behov och välj sedan **skapa** för att skapa disken.
@@ -56,13 +59,13 @@ Skapa en ögonblicks bild och skapa sedan en disk från ögonblicks bilden. Med 
 
 När du har den virtuella hård disk som du vill använda kan du skapa den virtuella datorn i portalen:
 
-1. Välj **alla tjänster**på den vänstra menyn i [Azure Portal](https://portal.azure.com).
+1. Välj **alla tjänster** på den vänstra menyn i [Azure Portal](https://portal.azure.com).
 2. I sökrutan **alla tjänster** anger du **diskar** och väljer sedan **diskar** för att visa listan över tillgängliga diskar.
 3. Välj den disk som du vill använda. **Disk** sidan för disken öppnas.
 4. På sidan **Översikt** kontrollerar du att **disk tillstånd** visas som **frånkopplat**. Om den inte är det kan du behöva koppla bort disken från den virtuella datorn eller ta bort den virtuella datorn för att frigöra disken.
 4. På menyn längst upp på sidan väljer du **Skapa virtuell dator**.
 5. På sidan **grundläggande** för den nya virtuella datorn anger du ett **namn på den virtuella datorn** och väljer antingen en befintlig **resurs grupp** eller skapar en ny.
-6. I **storlek**väljer du **ändra storlek** för att komma åt sidan **storlek** .
+6. I **storlek** väljer du **ändra storlek** för att komma åt sidan **storlek** .
 7. Välj en virtuell dator storleks rad och välj sedan **Välj**.
 8. På sidan **nätverk** kan du antingen låta portalen skapa alla nya resurser eller så kan du välja ett befintligt **virtuellt nätverk** och en **nätverks säkerhets grupp**. Portalen skapar alltid ett nytt nätverks gränssnitt och en offentlig IP-adress för den nya virtuella datorn. 
 9. Gör ändringar i övervaknings alternativen på sidan **hantering** .

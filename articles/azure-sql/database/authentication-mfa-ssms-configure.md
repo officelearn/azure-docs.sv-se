@@ -12,20 +12,20 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 094e40fe55e1ba51b0539d740ecb449a8327d6a6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4f90299daed46d06dad9ab37103e3b8f53763ed4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841248"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454378"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Konfigurera Multi-Factor Authentication för SQL Server Management Studio och Azure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Den här artikeln visar hur du använder Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA) med SQL Server Management Studio (SSMS). Azure AD MFA kan användas när du ansluter SSMS eller SqlPackage.exe till [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) och [azure Synapse Analytics (tidigare SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). En översikt över Multi-Factor Authentication finns i [Universal Authentication with SQL Database, SQL-hanterad instans och Azure Synapse (SSMS-stöd för MFA)](../database/authentication-mfa-ssms-overview.md).
+Den här artikeln visar hur du använder Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA) med SQL Server Management Studio (SSMS). Azure AD MFA kan användas när du ansluter SSMS eller SqlPackage.exe till [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) och [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). En översikt över Multi-Factor Authentication finns i [Universal Authentication with SQL Database, SQL-hanterad instans och Azure Synapse (SSMS-stöd för MFA)](../database/authentication-mfa-ssms-overview.md).
 
 > [!IMPORTANT]
-> Databaser i Azure SQL Database, Azure SQL-hanterad instans och Azure-Synapse (tidigare SQL Data Warehouse) kallas kollektivt i resten av den här artikeln som databaser, och servern refererar till den [Server](logical-servers.md) som är värd för databaser för Azure SQL Database och Azure Synapse.
+> Databaser i Azure SQL Database, Azure SQL-hanterad instans och Azure-Synapse kallas kollektivt i resten av den här artikeln som databaser, och servern refererar till den [Server](logical-servers.md) som är värd för databaser för Azure SQL Database och Azure Synapse.
 
 ## <a name="configuration-steps"></a>Konfigurationssteg
 

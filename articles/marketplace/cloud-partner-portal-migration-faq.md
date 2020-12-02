@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: f0546a76974e429b625ba03fdf4598da7d32c990
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 8346edd0f6016f1751a392213e5d6321f875baf2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433367"
+ms.locfileid: "96455660"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Vanliga frågor om över gång från Cloud Partner Portal till Partner Center
 
@@ -85,8 +85,8 @@ För de erbjudande typer som stöds i Partner Center har alla erbjudanden flytta
 | Dynamics 365 for Operations | Yes | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa en Dynamics 365 för drift erbjudande](partner-center-portal/create-new-operations-offer.md). |
 | Power BI-app | Yes | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa en Power BI-app för AppSource](partner-center-portal/create-power-bi-app-offer.md). |
 | IoT Edge modul | Yes | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa, konfigurera och publicera ett IoT Edge modul-erbjudande på Azure Marketplace](partner-center-portal/azure-iot-edge-module-creation.md). |
-| Container | Yes | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett erbjudande för Azure Container](partner-center-portal/create-azure-container-offer.md). |
-| Konsulttjänst | Yes | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett konsult tjänst erbjudande](partner-center-portal/create-consulting-service-offer.md). |
+| Container | Yes | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett erbjudande för Azure Container](./create-azure-container-offer.md). |
+| Konsulttjänst | Yes | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett konsult tjänst erbjudande](./create-consulting-service-offer.md). |
 | Hanterad tjänst | Yes | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett hanterat tjänst erbjudande](partner-center-portal/create-new-managed-service-offer.md). |
 | Hanterad tjänst för Dynamics NAV | No | Microsoft har utvecklats för att hantera Dynamics NAV Managed Service till [Dynamics 365 Business Central](/dynamics365/business-central/), så vi debiteras de Live-erbjudanden som hanteras av Dynamics NAV Managed Service från AppSource. Dessa erbjudanden kan inte längre identifieras av kunder och har inte flyttats till Partner Center. Om du vill göra dina erbjudanden tillgängliga i AppSource kan du anpassa dem till Dynamics 365 Business Central-erbjudanden och skicka dem till [partner Center](https://partner.microsoft.com/). Läs mer i [skapa ett Dynamics 365 Business Central-erbjudande](partner-center-portal/create-new-business-central-offer.md). |
 | Cortana Intelligence | No | Microsoft har utvecklats produktens väg karta för Cortana Intelligence, så vi har tagit bort Cortana Intelligence Live-erbjudanden från AppSource. Dessa erbjudanden kan inte längre identifieras av kunder och har inte flyttats till Partner Center. Om du vill göra dina erbjudanden tillgängliga på den kommersiella Marketplace kan du anpassa dina erbjudanden till SaaS (Software as a Service) och skicka dem i [partner Center](https://partner.microsoft.com/). Läs mer i [Check lista för att skapa SaaS i Partner Center](./plan-saas-offer.md). |

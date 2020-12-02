@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: ce3903bad4f7e4675406956ddedbc9011a6d2be8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: f4803cc9871b71e65e4d94ed37d3f9771be1cae0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522268"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454954"
 ---
 # <a name="what-is-azure-private-link"></a>Vad är Azure Privat Link? 
 Med Azures privata länk kan du få åtkomst till Azure PaaS-tjänster (till exempel Azure Storage och SQL Database) och Azure-värdbaserade/partner tjänster som ägs av en [privat slut punkt](private-endpoint-overview.md) i det virtuella nätverket.
@@ -47,7 +47,7 @@ Azure Private-länken ger följande fördelar:
 | Azure Queue Storage       |  Alla offentliga regioner<br/> Alla myndighets regioner       |  Stöds på konto typ Generell användning v2 | Allmän tillgänglighet (GA) <br/> [Lär dig hur du skapar en privat slut punkt för Queue Storage.](tutorial-private-endpoint-storage-portal.md) |
 | Azure Table Storage       |  Alla offentliga regioner<br/> Alla myndighets regioner       |  Stöds på konto typ Generell användning v2 | Allmän tillgänglighet (GA) <br/> [Lär dig hur du skapar en privat slut punkt för Table Storage.](tutorial-private-endpoint-storage-portal.md)  |
 |  Azure SQL Database         | Alla offentliga regioner <br/> Alla myndighets regioner<br/>Alla regioner i Kina      |  Stöd för [anslutnings princip](../azure-sql/database/connectivity-architecture.md#connection-policy) för proxy | Allmän tillgänglighet (GA) <br/> [Lär dig hur du skapar en privat slut punkt för Azure SQL](create-private-endpoint-portal.md)      |
-|Azure Synapse Analytics (tidigare SQL Data Warehouse)| Alla offentliga regioner <br/> Alla myndighets regioner |  Stöd för [anslutnings princip](../azure-sql/database/connectivity-architecture.md#connection-policy) för proxy |Allmän tillgänglighet (GA) <br/> [Lär dig hur du skapar en privat slut punkt för Azure Synapse Analytics.](../azure-sql/database/private-endpoint-overview.md)|
+|Azure Synapse Analytics| Alla offentliga regioner <br/> Alla myndighets regioner |  Stöd för [anslutnings princip](../azure-sql/database/connectivity-architecture.md#connection-policy) för proxy |Allmän tillgänglighet (GA) <br/> [Lär dig hur du skapar en privat slut punkt för Azure Synapse Analytics.](../azure-sql/database/private-endpoint-overview.md)|
 |Azure Cosmos DB|  Alla offentliga regioner<br/> Alla myndighets regioner</br> Alla regioner i Kina | |Allmän tillgänglighet (GA) <br/> [Lär dig hur du skapar en privat slut punkt för Cosmos DB.](./tutorial-private-endpoint-cosmosdb-portal.md)|
 |  Azure Database for PostgreSQL-enskild server         | Alla offentliga regioner <br/> Alla myndighets regioner<br/>Alla regioner i Kina     | Stöds för Generell användning och minnesoptimerade pris nivåer | Allmän tillgänglighet (GA) <br/> [Lär dig hur du skapar en privat slut punkt för Azure Database for PostgreSQL.](../postgresql/concepts-data-access-and-security-private-link.md)      |
 |  Azure Database for MySQL         | Alla offentliga regioner<br/> Alla myndighets regioner<br/>Alla regioner i Kina      |  | Allmän tillgänglighet (GA) <br/> [Lär dig hur du skapar en privat slut punkt för Azure Database for MySQL.](../mysql/concepts-data-access-security-private-link.md)     |

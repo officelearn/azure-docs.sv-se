@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 4bae9e28a22a99d092db2bf887f0cd790e04c52a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 23ec79b7e3989c9749edf98d930ad8305324c9da
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318575"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454009"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>Vad är Azure Stack Edge Mini R?
 
@@ -45,7 +45,7 @@ Azure Stack Edge Mini R har följande funktioner:
 
 Här följer de olika scenarier där Azure Stack Edge Mini R kan användas för snabb Machine Learning (ML) inferencing vid kant-och förbearbetning av data innan de skickas till Azure.
 
-- **Härledning med Azure Machine Learning** – med Azure Stack Edge Mini R kan du köra ml-modeller för att få snabba resultat som kan åtgärdas innan data skickas till molnet. Den fullständiga data uppsättningen kan alternativt överföras för att fortsätta att träna och förbättra dina ML-modeller. Mer information om hur du använder Azure ML-accelererade maskin varu modeller på Azure Stack Edge Mini R-enheten finns i [Distribuera Azure ml-maskinvarustödd modeller på Azure Stack Edge mini r](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Härledning med Azure Machine Learning** – med Azure Stack Edge Mini R kan du köra ml-modeller för att få snabba resultat som kan åtgärdas innan data skickas till molnet. Den fullständiga data uppsättningen kan alternativt överföras för att fortsätta att träna och förbättra dina ML-modeller. Mer information om hur du använder Azure ML-accelererade maskin varu modeller på Azure Stack Edge Mini R-enheten finns i [Distribuera Azure ml-maskinvarustödd modeller på Azure Stack Edge mini r](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - **Förbearbeta data** för att transformera data via beräknings alternativ som behållare eller virtuella datorer innan du skickar dem till Azure för att skapa en mer åtgärds bara data uppsättning. Förbearbeta kan användas för att:
 
@@ -83,5 +83,3 @@ Azure Stack Edge Mini R fysisk enhet, Azure-resurs och mål lagrings konto som d
 ## <a name="next-steps"></a>Nästa steg
 
 - Granska [kraven för Azure Stack Edge Mini R-systemet](azure-stack-edge-gpu-system-requirements.md).
-
-

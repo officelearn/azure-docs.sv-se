@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 87f27f316914f3efce5a750f50471c65dceca84e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9863ed24da9e427f885a4794bda7e103b0c1cc8e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127849"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455459"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>Partner Center-överförings-API till att publicera Azure-appar i Partner Center
 
@@ -43,7 +43,7 @@ Om du vill använda API: et för Microsoft Store sändning måste du associera e
 1. [Koppla din organisations Partner Center-konto till din organisations Azure AD-katalog](/windows/uwp/publish/associate-azure-ad-with-partner-center)i Partner Center.
 1. Gå sedan till sidan **användare** i avsnittet **konto inställningar** i Partner Center och [Lägg till Azure AD-programmet](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) som representerar den app eller tjänst som du kommer att använda för att få åtkomst till bidrag för ditt partner Center-konto. Se till att tilldela det här programmet rollen **chef** . Om programmet inte finns än i Azure AD-katalogen kan du [skapa ett nytt Azure AD-program i Partner Center](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
 1. Gå tillbaka till sidan **användare** , klicka på namnet på ditt Azure AD-program för att gå till program inställningarna och kopiera klient **-ID: t** och **klient-ID** -värdena.
-1. Klicka på **Lägg till ny nyckel** . På följande skärm kopierar du värdet för **nyckel** . Du kommer inte att kunna komma åt den här informationen igen när du lämnar den här sidan. Mer information finns i [Hantera nycklar för ett Azure AD-program](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
+1. Klicka på **Lägg till ny nyckel**. På följande skärm kopierar du värdet för **nyckel** . Du kommer inte att kunna komma åt den här informationen igen när du lämnar den här sidan. Mer information finns i [Hantera nycklar för ett Azure AD-program](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
 
 ### <a name="step-2-obtain-an-azure-ad-access-token"></a>Steg 2: skaffa en Azure AD-åtkomsttoken
 
@@ -73,5 +73,5 @@ https://apidocs.microsoft.com/services/partneringestion/
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig att skapa en [teknisk till gång för Azure VM](create-azure-container-technical-assets.md)
-* Lär dig hur du skapar ett [erbjudande för Azure Container](create-azure-container-offer.md)
+* Lär dig att skapa en [teknisk till gång för Azure VM](../create-azure-container-technical-assets.md)
+* Lär dig hur du skapar ett [erbjudande för Azure Container](../create-azure-container-offer.md)

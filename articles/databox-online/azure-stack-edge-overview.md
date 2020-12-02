@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: 7030030699668b3d316743955dabfb2cc175f6e1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 51469c23574f55c102f0c6fb98e5aa5178b59a4a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90893873"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455748"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-fpga"></a>Vad är Azure Stack Edge Pro med FPGA?
 
@@ -27,7 +27,7 @@ Azure Stack Edge Pro med FPGA är en maskinvaru-som-tjänst-lösning. Microsoft 
 
 Här följer de olika scenarier där Azure Stack Edge Pro kan användas för snabb Machine Learning (ML) inferencing vid kant-och förbearbetning av data innan de skickas till Azure.
 
-- **Härledning med Azure Machine Learning** – med Azure Stack Edge Pro kan du köra ml-modeller för att få snabba resultat som kan åtgärdas innan data skickas till molnet. Den fullständiga data uppsättningen kan alternativt överföras för att fortsätta att träna och förbättra dina ML-modeller. Mer information om hur du använder Azure ML-accelererade maskin varu modeller på den Azure Stack Edge Pro-enheten finns i [Distribuera Azure ml-maskin accelererade modeller på Azure Stack Edge Pro](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Härledning med Azure Machine Learning** – med Azure Stack Edge Pro kan du köra ml-modeller för att få snabba resultat som kan åtgärdas innan data skickas till molnet. Den fullständiga data uppsättningen kan alternativt överföras för att fortsätta att träna och förbättra dina ML-modeller. Mer information om hur du använder Azure ML-accelererade maskin varu modeller på den Azure Stack Edge Pro-enheten finns i [Distribuera Azure ml-maskin accelererade modeller på Azure Stack Edge Pro](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - **Förbearbeta data** för datatransformering innan du skickar dem till Azure för att skapa en mer åtgärds bara data uppsättning. Förbearbeta kan användas för att: 
 
@@ -78,7 +78,7 @@ Azure Stack Edge Pro-lösningen består av Azure Stack Edge-resurs, Azure Stack 
 
 Azure Stack fysisk enhet i Edge Pro, Azure-resursen och mål lagrings kontot som du överför data till, behöver inte allt vara i samma region.
 
-- **Resurs tillgänglighet** – en lista över alla regioner där Azure Stack Edge-resursen är tillgänglig finns i Azure- [produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Azure Stack Edge Pro kan också distribueras i Azure Government molnet. Mer information finns i [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Resurs tillgänglighet** – en lista över alla regioner där Azure Stack Edge-resursen är tillgänglig finns i Azure- [produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Azure Stack Edge Pro kan också distribueras i Azure Government molnet. Mer information finns i [Vad är Azure Government?](../azure-government/documentation-government-welcome.md).
     
 - **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner. De regioner där lagrings konton lagrar Azure Stack Edge Pro-data bör ligga nära den plats där enheten befinner sig för optimala prestanda. Ett lagringskonto som är långt från enheten leder till långa svarstider och långsammare prestanda.
 

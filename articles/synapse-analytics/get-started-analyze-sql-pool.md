@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: ae7b15bf2e2efd72184110a105f68815516569ab
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9014469ca063ca52be0965ecbd4e8b21709d10a0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843918"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455164"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analysera data med dedikerade SQL-pooler
 
-Azure Synapse Analytics ger dig möjlighet att analysera data med en särskild SQL-pool. I den här självstudien använder du NYC taxi-data för att utforska en förväntad SQL-Pools funktioner.
+Azure Synapse Analytics ger dig möjlighet att analysera data med en särskild SQL-pool. I den här självstudien använder du NYC taxi-data för att utforska en dedikerad SQL-Pools funktioner.
 
 ## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>Läs in NYC taxi-data till SQLPOOL1
 
@@ -94,8 +94,9 @@ Azure Synapse Analytics ger dig möjlighet att analysera data med en särskild S
 
     Den här frågan visar hur det totala antalet rese avstånd och det genomsnittliga rese avståndet avser antalet passagerare.
 1. I resultat fönstret för SQL-skript ändrar du **vyn** till **diagram** för att visa en visualisering av resultaten som ett linje diagram.
-
-
+    
+    > [!NOTE]
+    > En fast arbets yta som är aktive rad SQL-pool (tidigare SQL DW) kan identifieras via verktygs tipset i data hubben.
 
 ## <a name="next-steps"></a>Nästa steg
 

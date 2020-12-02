@@ -11,16 +11,17 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 70e423cdd8a5c4e4903a9c111b19a91b29fd7e56
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1376dcb76c22bcd70937f533d337ee9679e9dc59
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458412"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455855"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Självstudie: Azure Active Directory integrering med LoginRadius
 
 I den här självstudien får du lära dig hur du integrerar LoginRadius med Azure Active Directory (Azure AD).
+
 Genom att integrera LoginRadius med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till LoginRadius.
@@ -28,6 +29,7 @@ Genom att integrera LoginRadius med Azure AD får du följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -35,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 Om du vill konfigurera Azure AD-integrering med LoginRadius behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
-* LoginRadius-aktiverad prenumeration med enkel inloggning
+* En aktive rad LoginRadius-prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -47,21 +49,21 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 Om du vill konfigurera integreringen av LoginRadius i Azure AD måste du lägga till LoginRadius från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till LoginRadius från galleriet:**
+**Så här lägger du till LoginRadius från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
+1. Välj ikonen **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+2. Gå till **företags program** och välj alternativet **alla program** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** :
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök skriver du **LoginRadius**, väljer **LoginRadius** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
+4. Skriv **LoginRadius** i sökrutan, Välj **LoginRadius** i resultat panelen och välj sedan knappen **Lägg till** för att lägga till programmet.
 
     ![LoginRadius i resultat listan](common/search-new-app.png)
 
@@ -85,50 +87,92 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen
 
 Utför följande steg för att konfigurera enkel inloggning med LoginRadius i Azure AD:
 
-1. Välj **enkel inloggning**på sidan **LoginRadius** Application Integration i [Azure Portal](https://portal.azure.com/).
+1. Välj **enkel inloggning** på sidan **LoginRadius** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
+2. I fönstret **Välj en enkel inloggnings metod** väljer du **SAML/WS-utfodras** läge för att aktivera enkel inloggning.
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+3. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du **Redigera** -ikonen för att öppna fönstret **grundläggande SAML-konfiguration** .
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+4. I avsnittet **grundläggande SAML-konfiguration** :
 
-    ![Information om enkel inloggning för LoginRadius-domän och URL: er](common/sp-identifier.png)
+   ![Information om enkel inloggning för LoginRadius-domän och URL: er](common/sp-identifier.png)
 
-    a. I rutan **Inloggnings-URL** anger du en URL: `https://secure.loginradius.com/login`
+   1. I text rutan **inloggnings-URL** anger du URL: en `https://secure.loginradius.com/login`
 
-    b. I text rutan **identifierare (enhets-ID)** anger du en URL: `https://LoginRadius.hub.loginradius.com/`
+   1. I text rutan **identifierare (enhets-ID)** anger du URL: en `https://lr.hub.loginradius.com/`
 
-    > [!NOTE]
-    > Öppna sidan med inloggnings-URL. Klicka på fliken **enkel inloggning** och ange plugin- **namnet** som ges av [LoginRadius support-teamet](mailto:support@loginradius.com) och klicka sedan på **Logga** in och du kommer att omdirigeras till Azure AD-sidan för inloggning.
+   1. I text rutan **svars-URL (intyg om mottagar tjänst)** anger du LoginRadius ACS-URL: en `https://lr.hub.loginradius.com/saml/serviceprovider/AdfsACS.aspx` 
 
-5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+5. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **Ladda ned** för att ladda ned **XML-metadata för federationsmetadata** från de angivna alternativen enligt ditt krav och sparar det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 6. I avsnittet **Konfigurera LoginRadius** kopierar du lämpliga URL: er enligt ditt krav.
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+   ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggnings-URL
+   - Inloggnings-URL
 
-    b. Azure AD-identifierare
+   - Azure AD-identifierare
 
-    c. Utloggnings-URL
+   - Utloggnings-URL
 
-### <a name="configure-loginradius-single-sign-on"></a>Konfigurera LoginRadius Single Sign-On
+## <a name="configure-loginradius-single-sign-on"></a>Konfigurera LoginRadius Single Sign-On
 
-Om du vill konfigurera enkel inloggning på **LoginRadius** sida måste du skicka den hämtade **metadata-XML** och lämpliga kopierade url: er från Azure Portal till [support teamet för LoginRadius](mailto:support@loginradius.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i administrations konsolen för LoginRadius.
+
+1. Logga in på ditt LoginRadius- [Administratörs konsol](https://adminconsole.loginradius.com/login) konto.
+
+2. Gå till **Team Management** -avsnittet i [LoginRadius-administratörskonsolen](https://secure.loginradius.com/account/team).
+
+3. Välj fliken **enkel inloggning** och välj sedan **Azure AD**:
+
+   ![Skärm bild som visar menyn för enkel inloggning i LoginRadius Team Management-konsolen](./media/loginradius-tutorial/azure-ad.png)
+4. På installations sidan för Azure AD utför du följande steg:
+
+   ![Skärm bild som visar Azure Active Directory konfiguration i LoginRadius Team Management-konsolen](./media/loginradius-tutorial/single-sign-on.png)
+
+    1. I **ID-providerns plats** anger du inloggnings slut punkten, som du får från ditt Azure AD-konto.
+
+    1. I **ID-providerns utloggnings-URL** anger du slut punkten för utloggning, som du får från ditt Azure AD-konto.
+ 
+    1. I **ID-providerns certifikat** anger du det Azure AD-certifikat som du får från ditt Azure AD-konto. Ange certifikatets värde med sidhuvud och sidfot. Exempel: `-----BEGIN CERTIFICATE-----<certifciate value>-----END CERTIFICATE-----`
+
+    1. I certifikat nyckel för **Service Provider** och **Server Provider** anger du ditt certifikat och nyckel. 
+
+       Du kan skapa ett självsignerat certifikat genom att köra följande kommandon på kommando raden (Linux/Mac):
+
+       - Kommando för att hämta certifikat nyckeln för SP: `openssl genrsa -out lr.hub.loginradius.com.key 2048`
+
+       - Kommando för att hämta certifikatet för SP: `openssl req -new -x509 -key lr.hub.loginradius.com.key -out lr.hub.loginradius.com.cert -days 3650 -subj /CN=lr.hub.loginradius.com`
+     
+       > [!NOTE]
+       > Se till att ange certifikat-och certifikat nyckel värden med sidhuvud och sidfot:
+       > - Exempel format för certifikat värde: `-----BEGIN CERTIFICATE-----<certifciate value>-----END CERTIFICATE-----`
+       > - Exempel format för certifikat nyckel värde: `-----BEGIN RSA PRIVATE KEY-----<certifciate key value>-----END RSA PRIVATE KEY-----`
+
+5. I avsnittet **data mappning** väljer du fälten (SP Fields) och anger motsvarande Azure AD-fält (IDP-fält).
+
+    Nedan visas några fält namn för Azure AD.
+
+    | Fält    | Profil nyckel                                                          |
+    | --------- | -------------------------------------------------------------------- |
+    | E-post     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
+    | FirstName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`    |
+    | LastName  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`      |
+
+    > [!NOTE]
+    > Mappning av **e-** postfält krävs. Fält mappningarna **FirstName** och **LastName** är valfria.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+Syftet med det här avsnittet är att skapa en test användare som kallas Britta Simon i Azure Portal.
 
 1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
@@ -138,23 +182,23 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Knappen Ny användare](common/new-user.png)
 
-3. Genomför följande steg i Användaregenskaper.
+3. I **användar** egenskaper utför du följande steg.
 
-    ![Dialogrutan Användare](common/user-properties.png)
+   ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I fältet **Namn** anger du **BrittaSimon**.
+   1. I fältet **namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension` . Till exempel BrittaSimon@contoso.com
+   1. I fältet **användar namn** anger du `brittasimon@yourcompanydomain.extension` . Exempelvis BrittaSimon@contoso.com.
 
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
 
-    d. Klicka på **Skapa**.
+   1. Välj **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till LoginRadius.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **LoginRadius**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program** och väljer sedan **LoginRadius**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -166,25 +210,35 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+4. Välj knappen **Lägg till användare** och välj sedan **användare och grupper** i fönstret **Lägg till tilldelning** .
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+5. I fönstret **användare och grupper** väljer du **Britta Simon** i listan **användare** och väljer sedan knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-intyget väljer du lämplig roll för användaren i listan i fönstret **Välj roll** . Välj sedan knappen **Välj** längst ned på skärmen.
 
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+7. I fönstret **Lägg till tilldelning** väljer du knappen **tilldela** .
 
 ### <a name="create-loginradius-test-user"></a>Skapa LoginRadius test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i LoginRadius. Arbeta med [LoginRadius support team](mailto:support@loginradius.com) för att lägga till användare i LoginRadius-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+1. Logga in på ditt LoginRadius- [Administratörs konsol](https://adminconsole.loginradius.com/login) konto.
+
+2. Gå till Team Management-avsnittet i LoginRadius-administratörskonsolen.
+
+   ![Skärm bild som visar LoginRadius-administratörskonsolen](./media/loginradius-tutorial/team-management.png)
+3. Välj **Lägg till grupp medlem** på sido menyn för att öppna formuläret. 
+
+4. I formuläret **Lägg till grupp medlem** skapar du en användare med namnet Britta Simon på din LoginRadius-webbplats genom att ange användarens information och tilldela de behörigheter som du vill att användaren ska ha. Om du vill veta mer om behörigheterna baserat på roller, se avsnittet [roll åtkomst behörigheter](https://www.loginradius.com/docs/api/v2/admin-console/team-management/manage-team-members#roleaccesspermissions0) i dokumentet LoginRadius [Hantera grupp medlemmar](https://www.loginradius.com/docs/api/v2/admin-console/team-management/manage-team-members#roleaccesspermissions0) . Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen LoginRadius på åtkomst panelen, bör du loggas in automatiskt på den LoginRadius som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
+1. I en webbläsare går du till https://accounts.loginradius.com/auth.aspx och väljer **mata in enkel inloggning**.
+2. Ange namnet på LoginRadius-appen och välj sedan **Logga in**.
+3. Det ska öppna ett popup-fönster som ber dig att logga in på ditt Azure AD-konto.
+4. Efter autentiseringen stängs ditt popup-fönster och du kommer att loggas in i LoginRadius-administratörskonsolen.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

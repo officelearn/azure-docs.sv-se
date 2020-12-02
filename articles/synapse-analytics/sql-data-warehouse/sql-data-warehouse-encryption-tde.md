@@ -1,6 +1,6 @@
 ---
-title: Transparent datakryptering (portal)
-description: Transparent datakryptering (TDE) i Azure Synapse Analytics
+title: Transparent datakryptering (portal) för dedikerad SQL-pool (tidigare SQL DW)
+description: Transparent datakryptering (TDE) för dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/30/2019
 ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b530b3a049f41a54ab98cc7d1454018cfc990f75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45c7b53d3bbe0c57e96fc5435650c4e86b0cb032
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86495677"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455265"
 ---
-# <a name="get-started-with-transparent-data-encryption-tde-in-azure-synapse-analytics"></a>Kom igång med transparent datakryptering (TDE) i Azure Synapse Analytics
+# <a name="get-started-with-transparent-data-encryption-tde-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Kom igång med transparent datakryptering (TDE) för dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics
 
 > [!div class="op_single_selector"]
 >

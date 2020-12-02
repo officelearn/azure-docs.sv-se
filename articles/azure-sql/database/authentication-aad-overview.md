@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory-autentisering
-description: Lär dig mer om hur du använder Azure Active Directory för autentisering med Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics
+description: Lär dig mer om hur du använder Azure Active Directory för autentisering med Azure SQL Database, Azure SQL-hanterad instans och Synapse SQL i Azure Synapse Analytics
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
@@ -11,18 +11,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: a57de3d6beda5336f480f20137a9ccaa014b012d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a636c0e2a41b636f30ada14d4f16a022f2890b71
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675096"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454302"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Använd Azure Active Directory autentisering
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Azure Active Directory (Azure AD)-autentisering är en mekanism för att ansluta till [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md)och [azure Synapse Analytics (tidigare SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure AD.
+Azure Active Directory (Azure AD)-autentisering är en mekanism för att ansluta till [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md)och [Synapse SQL i Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure AD.
 
 > [!NOTE]
 > Den här artikeln gäller för Azure SQL Database, SQL-hanterad instans och Azure Synapse Analytics.
@@ -61,7 +61,7 @@ Konfigurations stegen innehåller följande procedurer för att konfigurera och 
 6. Anslut till databasen med hjälp av Azure AD-identiteter.
 
 > [!NOTE]
-> Information om hur du skapar och fyller i Azure AD och sedan konfigurerar Azure AD med Azure SQL Database, SQL-hanterad instans och Azure-Synapse finns i [Konfigurera Azure AD med Azure SQL Database](authentication-aad-configure.md).
+> Information om hur du skapar och fyller i Azure AD och sedan konfigurerar Azure AD med Azure SQL Database, SQL-hanterad instans och Synapse SQL i Azure Synapse Analytics finns i [Konfigurera Azure AD med Azure SQL Database](authentication-aad-configure.md).
 
 ## <a name="trust-architecture"></a>Förtroende arkitektur
 
@@ -153,7 +153,7 @@ Följande autentiseringsmetoder stöds för Azure AD server-Huvudkonton (inloggn
   - Genom att lägga till Azure AD server-huvudobjekt (inloggningar) för SQL-hanterad instans kan du skapa flera Azure AD server-huvudobjekt (inloggningar) som kan läggas till i `sysadmin` rollen.
 - Endast en Azure AD-administratör för-servern kan ansluta till servern eller den hanterade instansen från ett Azure Active Directory konto. Active Directory-administratören kan konfigurera efterföljande Azure AD Database-användare.
 - Vi rekommenderar att du ställer in tids gränsen för anslutningen på 30 sekunder.
-- SQL Server 2016 Management Studio och SQL Server Data Tools för Visual Studio 2015 (version 14.0.60311.1 april 2016 eller senare) stöder Azure Active Directory autentisering. (Azure AD-autentisering stöds av **.NET Framework Data Provider för SQLServer** ; minst version .NET Framework 4,6). Därför kan de senaste versionerna av dessa verktyg och data skikts program (DAC och BACPAC) använda Azure AD-autentisering.
+- SQL Server 2016 Management Studio och SQL Server Data Tools för Visual Studio 2015 (version 14.0.60311.1 april 2016 eller senare) stöder Azure Active Directory autentisering. (Azure AD-autentisering stöds av **.NET Framework Data Provider för SQLServer**; minst version .NET Framework 4,6). Därför kan de senaste versionerna av dessa verktyg och data skikts program (DAC och BACPAC) använda Azure AD-autentisering.
 - Från och med version 15.0.1, [SQLCMD-verktyget](/sql/tools/sqlcmd-utility) och BCP- [verktyget](/sql/tools/bcp-utility) stöds Active Directory interaktiv autentisering med Multi-Factor Authentication.
 - SQL Server Data Tools för Visual Studio 2015 kräver minst april 2016-versionen av data verktyg (version 14.0.60311.1). Azure AD-användare visas för närvarande inte i SSDT Object Explorer. Som en lösning kan du Visa användare i [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql).
 - [Microsoft JDBC-drivrutin 6,0 för SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) stöder Azure AD-autentisering. Se även [Ange anslutnings egenskaper](/sql/connect/jdbc/setting-the-connection-properties).

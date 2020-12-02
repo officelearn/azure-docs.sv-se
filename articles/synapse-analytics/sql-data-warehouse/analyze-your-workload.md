@@ -1,6 +1,6 @@
 ---
-title: Analysera din arbetsbelastning
-description: Tekniker för att analysera frågan prioriteras för din arbets belastning i Azure Synapse Analytics.
+title: Analysera din arbets belastning för dedikerad SQL-pool
+description: Tekniker för att analysera frågans prioritering för dedikerad SQL-pool i Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,24 +11,24 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c547263be8c61d75491d1517b58c03b6365ef929
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14c3ad30bac7cec4c11822d825323bb9db2ba440
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85208407"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454532"
 ---
-# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analysera din arbets belastning i Azure Synapse Analytics
+# <a name="analyze-your-workload-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Analysera din arbets belastning för dedikerad SQL-pool i Azure Synapse Analytics
 
-Tekniker för att analysera din Synapse SQL-arbetsbelastning i Azure Synapse Analytics. 
+Tekniker för att analysera din dedikerade arbets belastning i SQL-poolen i Azure Synapse Analytics. 
 
 ## <a name="resource-classes"></a>Resursklasser
 
-Synapse SQL tillhandahåller resurs klasser för att tilldela system resurser till frågor.  Mer information om resurs klasser finns i [resurs klasser & hantering av arbets belastning](resource-classes-for-workload-management.md).  Frågor väntar om resurs klassen som tilldelas till en fråga behöver fler resurser än vad som för närvarande är tillgängligt.
+Dedikerad SQL-pool tillhandahåller resurs klasser för att tilldela system resurser till frågor.  Mer information om resurs klasser finns i [resurs klasser & hantering av arbets belastning](resource-classes-for-workload-management.md).  Frågor väntar om resurs klassen som tilldelas till en fråga behöver fler resurser än vad som för närvarande är tillgängligt.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Avkänning av köade frågor och andra DMV: er
 
-Du kan använda `sys.dm_pdw_exec_requests` DMV för att identifiera frågor som väntar i en concurrency-kö. Frågor som väntar på en concurrency-kortplats har statusen **inaktive**rad.
+Du kan använda `sys.dm_pdw_exec_requests` DMV för att identifiera frågor som väntar i en concurrency-kö. Frågor som väntar på en concurrency-kortplats har statusen **inaktive** rad.
 
 ```sql
 SELECT  r.[request_id]                           AS Request_ID
@@ -63,7 +63,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-Synapse SQL har följande vänte typer:
+Dedikerad SQL-pool har följande vänte typer:
 
 * **LocalQueriesConcurrencyResourceType**: frågor som ligger utanför samtidighets fack ramverket. DMV-frågor och system funktioner som `SELECT @@VERSION` är exempel på lokala frågor.
 * **UserConcurrencyResourceType**: frågor som är i ramverket för samtidighets fack. Frågor mot slut användar tabeller representerar exempel som använder den här resurs typen.
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du hanterar databas användare och säkerhet finns i [skydda en databas i SYNAPSE SQL](sql-data-warehouse-overview-manage-security.md). Mer information om hur större resurs klasser kan förbättra grupperade columnstore-index finns i [Återskapa index för att förbättra segment kvaliteten](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Mer information om hur du hanterar databas användare och säkerhet finns i [skydda en dedikerad SQL-pool (tidigare SQL DW)](sql-data-warehouse-overview-manage-security.md). Mer information om hur större resurs klasser kan förbättra grupperade columnstore-index finns i [Återskapa index för att förbättra segment kvaliteten](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

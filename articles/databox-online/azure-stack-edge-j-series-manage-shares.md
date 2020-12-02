@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 8fbf765168fd848a2ae349badf4017289b5a4380
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 413a93a145ae063a3aab4066ed62365e154d744a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952275"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454108"
 ---
 # <a name="use-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Använd Azure Portal för att hantera resurser på din Azure Stack Edge Pro
 
@@ -45,7 +45,7 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 
 4. Ange ett **Lagringskonto** där resursen ska placeras. En container skapas på lagringskontot med resursnamnet om containern inte redan finns. Om containern redan finns används den befintliga containern.
 
-5. I list rutan väljer du **lagrings tjänsten** från Block Blob, Page BLOB eller Files. Vilken typ av tjänst som väljs beror på vilket format du vill använda för data som lagras i Azure. I den här instansen vill vi till exempel att data ska finnas som block-blobbar i Azure, och därför väljer vi **Block-Blob**. Om du väljer **Page BLOB**måste du se till att dina data är 512 byte justerade. Använd **Page BLOB** för virtuella hård diskar eller VHDX som alltid är 512 byte-justerade.
+5. I list rutan väljer du **lagrings tjänsten** från Block Blob, Page BLOB eller Files. Vilken typ av tjänst som väljs beror på vilket format du vill använda för data som lagras i Azure. I den här instansen vill vi till exempel att data ska finnas som block-blobbar i Azure, och därför väljer vi **Block-Blob**. Om du väljer **Page BLOB** måste du se till att dina data är 512 byte justerade. Använd **Page BLOB** för virtuella hård diskar eller VHDX som alltid är 512 byte-justerade.
 
 6. Det här steget beror på om du skapar en SMB- eller en NFS-resurs.
     - **Om du skapar en SMB-resurs** – I fältet för **lokal användare med fullständig behörighet** väljer du mellan **Skapa ny** eller **Använd befintlig**. Om du skapar en ny lokal användare anger du **användarnamn**, **lösenord** och sedan bekräfta lösenord. Detta tilldelar behörigheter till den lokala användaren. När du har tilldelat behörigheterna här kan du sedan använda Utforskaren till att ändra dessa behörigheter.
@@ -74,7 +74,7 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 3. Välj en **typ** för resursen. Typen kan vara **SMB** eller **NFS**, med SMB som standard. SMB är standard för Windows-klienter och NFS används för Linux-klienter. Beroende på om du väljer SMB- eller NFS-resurser visas alternativen lite olika.
 
    > [!IMPORTANT]
-   > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge Pro-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge Pro-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 4. Använd den lokala monterings punkten för att enkelt få åtkomst till resurserna från Edge Compute-moduler. Välj **Använd resurs med Edge Compute** så att Edge-modulen kan använda beräkningen med den lokala monterings punkten.
 
@@ -107,7 +107,7 @@ Om du har skapat en resurs innan du konfigurerade Compute på din Azure Stack Ed
 
     ![Välj montera](media/azure-stack-edge-j-series-manage-shares/mount-share-2.png)
 
-3. Välj **Ja**när du uppmanas att bekräfta. Detta kommer att montera resursen.
+3. Välj **Ja** när du uppmanas att bekräfta. Detta kommer att montera resursen.
 
     ![Bekräfta montering](media/azure-stack-edge-j-series-manage-shares/mount-share-3.png)
 
@@ -131,11 +131,11 @@ Utför följande steg i Azure Portal för att demontera en resurs.
 
     ![Välj demontera](media/azure-stack-edge-j-series-manage-shares/unmount-share-2.png)
 
-3. Välj **Ja**när du uppmanas att bekräfta. Detta kommer att demontera resursen.
+3. Välj **Ja** när du uppmanas att bekräfta. Detta kommer att demontera resursen.
 
     ![Bekräfta demontering](media/azure-stack-edge-j-series-manage-shares/unmount-share-3.png)
 
-4. När resursen har demonterats går du till listan över resurser. Nu visas resurs status som **inaktive rad**i **beräknings** kolumnen.
+4. När resursen har demonterats går du till listan över resurser. Nu visas resurs status som **inaktive rad** i **beräknings** kolumnen.
 
     ![Dela demontera](media/azure-stack-edge-j-series-manage-shares/unmount-share-4.png)
 

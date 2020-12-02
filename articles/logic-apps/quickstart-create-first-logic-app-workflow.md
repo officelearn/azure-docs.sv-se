@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 7433c51b45b0d8459ad1959b29f61660537b8851
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 9d402599c4d6732ce92b8c64af6f660bcedbc4ba
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337465"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455056"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>Snabb start: skapa din första Logic Apps arbets flöde – Azure Portal
 
@@ -112,7 +112,7 @@ Din Logi Kap par är nu Live, men det gör inte något annat än att kontrol ler
 
 ## <a name="add-the-send-email-action"></a>Lägg till åtgärden "skicka e-post"
 
-När du har [lagt till en utlösare för din Logic app](#add-rss-trigger)måste du lägga till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) för att fastställa svaret när din Logic App kontrollerar RSS-flödet och ett nytt objekt visas. Du kan också skapa Logi Kap par med mycket mer komplexa åtgärder, till exempel i självstudien för att [bearbeta e-postmeddelanden med Logic Apps, Azure Functions och Azure Storage](/azure/logic-apps/tutorial-process-email-attachments-workflow).
+När du har [lagt till en utlösare för din Logic app](#add-rss-trigger)måste du lägga till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) för att fastställa svaret när din Logic App kontrollerar RSS-flödet och ett nytt objekt visas. Du kan också skapa Logi Kap par med mycket mer komplexa åtgärder, till exempel i självstudien för att [bearbeta e-postmeddelanden med Logic Apps, Azure Functions och Azure Storage](./tutorial-process-email-attachments-workflow.md).
 
 > [!NOTE]
 > I det här exemplet används Office 365 Outlook som e-posttjänst. Om du använder en annan e-posttjänst som stöds i din Logic app kan användar gränssnittet se annorlunda ut. De grundläggande begreppen för att ansluta till en annan e-posttjänst är dock desamma.
@@ -154,7 +154,7 @@ När du har [lagt till en utlösare för din Logic app](#add-rss-trigger)måste 
 
       ![Skärm bild av Logic Apps designer som visar åtgärden "Skicka ett e-postmeddelande" och markören i egenskaps rutan "ämne".](./media/quickstart-create-first-logic-app-workflow/send-email-subject.png)
 
-   1. I listan **Lägg till dynamiskt innehåll** väljer du **feed-rubrik** , som är utdata från utlösaren, **när ett feed-objekt publiceras**. E-postaviseringen använder dessa utdata för att hämta rubriken för RSS-objektet.
+   1. I listan **Lägg till dynamiskt innehåll** väljer du **feed-rubrik**, som är utdata från utlösaren, **när ett feed-objekt publiceras**. E-postaviseringen använder dessa utdata för att hämta rubriken för RSS-objektet.
 
       ![Skärm bild av Logic Apps designer, som visar åtgärden "Skicka ett e-postmeddelande" och markören i egenskaps rutan "ämne" med en öppen dynamisk innehålls lista och valt utdata, "feed-rubrik".](./media/quickstart-create-first-logic-app-workflow/send-email-subject-dynamic-content.png)
 
@@ -167,7 +167,7 @@ När du har [lagt till en utlösare för din Logic app](#add-rss-trigger)måste 
 
       ![Skärm bild av Logic Apps designer, som visar åtgärden "Skicka ett e-postmeddelande" och ett exempel på e-post som omfattas av egenskapen "feed title".](./media/quickstart-create-first-logic-app-workflow/send-email-feed-title.png)
 
-      Om en "för varje"-slinga visas i designern väljer du en token för en matris. till exempel **Kategorier-objekt-** token. För sådana typer av token lägger designern automatiskt till den här loopen omkring åtgärden som refererar till token. På så sätt kan din logikappsåtgärd utföra samma åtgärd på varje element i matrisen. Om du vill ta bort loopen väljer du **ellipserna** ( **...** ) på loopens namn list och väljer sedan **ta bort**.
+      Om en "för varje"-slinga visas i designern väljer du en token för en matris. till exempel **Kategorier-objekt-** token. För sådana typer av token lägger designern automatiskt till den här loopen omkring åtgärden som refererar till token. På så sätt kan din logikappsåtgärd utföra samma åtgärd på varje element i matrisen. Om du vill ta bort loopen väljer du **ellipserna** (**...**) på loopens namn list och väljer sedan **ta bort**.
 
    1. I rutan **brödtext** anger du innehåll för e-postmeddelandets brödtext. I det här exemplet innehåller innehållet tre egenskaper med beskrivande text för var `Title:` och en:, egenskapen **feed title** `Date published:` , den **feed som publicerats för** egenskapen och `Link:` den **primära feed-länkens** egenskap. Tryck på Skift + Enter för att lägga till tomma rader i en redigeringsruta.
 

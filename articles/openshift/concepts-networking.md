@@ -5,29 +5,25 @@ author: sakthi-vetrivel
 ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
-ms.date: 06/22/2020
-ms.openlocfilehash: 3417b59d0be9e285f8793ef598abb7f98bda7549
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 11/23/2020
+ms.openlocfilehash: 2d9169e836b5819756e716c64ed9d41094f08c5e
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95527997"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512379"
 ---
-# <a name="networking-in-azure-red-hat-on-openshift-4"></a>Nätverk i Azure Red Hat på OpenShift 4
+# <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>Nätverks koncept för Azure Red Hat OpenShift (ARO)
 
-Den här guiden omfattar en översikt över nätverk i Azure Red Hat på OpenShift 4-kluster, tillsammans med ett diagram och en lista över viktiga slut punkter.
-
-Mer information om kärn skiftets nätverks koncept finns i avsnittet om [nätverks dokumentation för Azure Red Hat OpenShift 4](https://docs.openshift.com/aro/4/networking/understanding-networking.html).
-
-## <a name="networking-concepts-in-azure-red-hat-openshift"></a>Nätverks koncept i Azure Red Hat OpenShift
+Den här guiden omfattar en översikt över nätverk i Azure Red Hat OpenShift på OpenShift 4-kluster, tillsammans med ett diagram och en lista över viktiga slut punkter. Mer information om kärn skiftets nätverks koncept finns i avsnittet om [nätverks dokumentation för Azure Red Hat OpenShift 4](https://docs.openshift.com/aro/4/networking/understanding-networking.html).
 
 ![Nätverks diagram för Azure Red Hat OpenShift 4](./media/concepts-networking/aro4-networking-diagram.png)
 
-När du distribuerar Azure Red Hat på OpenShift 4, finns hela klustret i ett virtuellt nätverk. I det här virtuella nätverket, noderna huvudnoder och arbetare varje Live i sitt eget undernät. Varje undernät använder en offentlig och en intern belastningsutjämnare.
+När du distribuerar Azure Red Hat på OpenShift 4, finns hela klustret i ett virtuellt nätverk. I det här virtuella nätverket, noderna huvudnoder och arbetare varje Live i sitt eget undernät. Varje undernät använder en intern belastningsutjämnare och en offentlig belastningsutjämnare.
 
-## <a name="explanation-of-endpoints"></a>Förklaring av slut punkter
+## <a name="networking-components"></a>Nätverkskomponenter
 
-I följande lista beskrivs viktiga slut punkter i ett kluster med OpenShift i Azure Red Hat.
+I följande lista beskrivs viktiga nätverks komponenter i ett kluster med OpenShift i Azure Red Hat.
 
 * **aro-pls**
     * Det här är en Azure Private-slutpunkt som används av Microsoft och Red Hat Sites Tillförlitlighets tekniker för att hantera klustret.
@@ -38,50 +34,42 @@ I följande lista beskrivs viktiga slut punkter i ett kluster med OpenShift i Az
 * **Aro – internt**
     * Den här slut punkten balanserar intern tjänst trafik. Arbetsnoderna i den här belastningsutjämnaren finns i backend-poolen.
     * Den här belastningsutjämnaren skapas inte som standard. Den här belastningsutjämnaren skapas när du skapar en tjänst av typen LoadBalancer med rätt anteckningar. Till exempel: service.beta.kubernetes.io/azure-load-balancer-internal: "true".
-* **Nätverks principer (ingress)**
-    * Stöds som en del av OpenShift-SDN
-    * Som standard aktive ras tvång av kunder
-    * V1 NetworkPolicy-kompatibla, men "utgångs-och IPBlock" stöds inte än
-    * **aro**
-    * Den här slut punkten balanserar trafiken till API-servern. Huvudnoderna finns i backend-poolen för den här belastningsutjämnaren.
-  * **Aro – internt – lb**
+* **Aro – internt – lb**
     * Den här slut punkten används för all offentlig trafik. När du skapar och program och en väg, är detta sökvägen för ingångs trafik.
     * Denna belastningsutjämnare omfattar även utgående Internet anslutning från alla Pod som körs i arbetsnoderna genom Azure Load Balancer utgående regler.
-        * För närvarande går det inte att konfigurera regler för utgående trafik. De tilldelar 1 024 TCP-portar till varje nod.
+        * För tillfället utgående regler kan inte konfigureras. De tilldelar 1 024 TCP-portar till varje nod.
         * DisableOutboundSnat har inte kon figurer ATS i LB-reglerna, så poddar kan få som utgående IP-adress för alla offentliga IP-adresser i den här ALB.
         * Som en följd av de två föregående punkterna är det enda sättet att lägga till tillfälliga SNAT-portar genom att lägga till offentliga LoadBalancer-typ tjänster i ARO.
-* **Nätverks principer (utgående)**
-    * Utgående principer stöds med funktionen utgående brand vägg i OpenShift.
-    * Endast ett per namnrymd/projekt.
-    * Utgående principer stöds inte i namn området "default".
-    * Utgående princip regler utvärderas i ordning (först till sista).
-    * **Aro-utgående – pip**
-        * Den här slut punkten fungerar som en offentlig IP-adress (PIP) för arbetsnoderna.
-        * Den här slut punkten gör det möjligt för tjänster att lägga till en speciell IP-adress från ett kluster med OpenShift i Azure i en lista med tillåtna.
-* **Aro-Node-NSG**
-    * När du exponerar en tjänst skapar API: t en regel i den här nätverks säkerhets gruppen så trafikflödet passerar och når noderna.
+* **Aro-utgående – pip**
+    * Den här slut punkten fungerar som en offentlig IP-adress (PIP) för arbetsnoderna.
+    * Den här slut punkten gör det möjligt för tjänster att lägga till en speciell IP-adress från ett kluster med OpenShift i Azure i en lista med tillåtna.
+* **Aro – NSG**
+    * När du exponerar en tjänst skapar API: t en regel i den här nätverks säkerhets gruppen så trafikflödet passerar och når kontroll planet och noderna.
     * Som standard tillåter den här nätverks säkerhets gruppen all utgående trafik. För närvarande kan utgående trafik bara begränsas till Azure Red Hat OpenShift-kontroll planet.
 * **Aro-controlplane-NSG**
-    * Den här slut punkten tillåter endast trafik att gå in via port 6443 för huvudnoderna.
+  * Den här slut punkten tillåter endast trafik att gå in via port 6443 för huvudnoderna.
 * **Azure Container Registry**
-    * Detta är ett behållar register som tillhandahålls och används av Microsoft internt.
+    * Detta är ett behållar register som tillhandahålls och används av Microsoft internt. Det här registret är skrivskyddat och är inte avsett att användas av Azure Red Hat OpenShift-användare.
         * Det här registret tillhandahåller värd plattforms avbildningar och kluster komponenter. Till exempel övervakning eller loggning av behållare.
-        * Inte avsedd att användas av Azure Red Hat OpenShift-kunder.  
-        * Skrivskyddad.
         * Anslutningar till det här registret sker över tjänstens slut punkt (intern anslutning mellan Azure-tjänster).
         * Detta interna register är inte tillgängligt utanför klustret som standard.
 * **Private Link**
-    * Tillåter nätverks anslutning från hanterings planet till ett kluster för kluster hantering.
-    * Microsoft och Red Hat Sites Tillförlitlighets tekniker som hjälper dig att hantera klustret.
+    * Tillåter nätverks anslutning från hanterings planet till ett kluster för Microsoft och Red Hat Sites Tillförlitlighets tekniker som hjälper dig att hantera klustret.
+
+## <a name="networking-policies"></a>Nätverks principer
+
+* **Ingress**: nätverks principen för ingångs nätverk stöds som en del av [OpenShift-SDN](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/about-openshift-sdn.html). Den här nätverks principen är aktive rad som standard och tvång utförs av användare. När den inkommande nätverks principen är v1 NetworkPolicy-kompatibel, stöds inte de utgående och IPBlock typerna.
+
+* **Utgående**: de utgående nätverks principerna stöds med hjälp av funktionen [utgående brand vägg](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/configuring-egress-firewall.html) i OpenShift. Det finns bara en utgående princip per namnrymd/projekt. Utgående principer stöds inte i namn området "default" och utvärderas i ordning (först till sista).
 
 ## <a name="networking-basics-in-openshift"></a>Grundläggande nätverk i OpenShift
 
-OpenShift Software Defined Networking (SDN) används för att konfigurera ett överlägg nätverk med öppen vSwitch (OVS), en OpenFlow-implementering baserad på CNI-specifikationen (container Network Interface). SDN har stöd för olika plugin-program och nätverks principer är plugin-programmet som används i Azure Red Hat på OpenShift 4. All nätverkskommunikation hanteras av SDN, så inga extra vägar behövs i dina virtuella nätverk för att uppnå Pod för Pod kommunikation.
+OpenShift Software Defined Networking [(SDN)](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/about-openshift-sdn.html) används för att konfigurera ett överlägg nätverk med öppen VSwitch [(OVS)](https://www.openvswitch.org/), en OpenFlow-implementering baserad på cni-specifikationen (container Network Interface). SDN har stöd för olika plugin--nätverks principer är plugin-programmet som används i Azure Red Hat på OpenShift 4. All nätverkskommunikation hanteras av SDN, så inga extra vägar behövs i dina virtuella nätverk för att uppnå Pod för Pod kommunikation.
 
-## <a name="azure-red-hat-openshift-networking-specifics"></a>Azure Red Hat OpenShift-nätverks information
+## <a name="networking--for-azure-red-hat-openshift"></a>Nätverk för Azure Red Hat OpenShift
 
-Följande funktioner är speciella för Azure Red Hat OpenShift:
-* Det finns stöd för att ta med ditt eget virtuella nätverk.
+Följande nätverksfunktioner är bara för Azure Red Hat OpenShift:
+* Användare kan skapa sitt ARO-kluster i ett befintligt virtuellt nätverk eller skapa ett virtuellt nätverk när de skapar sina ARO-kluster.
 * Pod-och service Network-CIDRs kan konfigureras.
 * Noder och hanterare finns i olika undernät.
 * Noder och huvud undernät för virtuella nätverk ska vara minst/27.
@@ -92,7 +80,7 @@ Följande funktioner är speciella för Azure Red Hat OpenShift:
 
 ## <a name="network-settings"></a>Nätverksinställningar
 
-Följande nätverks inställningar är tillgängliga i Azure Red Hat OpenShift 4:
+Följande nätverks inställningar är tillgängliga för Azure Red Hat OpenShift 4-kluster:
 
 * **API-synlighet** – Ange API-synlighet när du kör [kommandot AZ Aro Create](tutorial-create-cluster.md#create-the-cluster).
     * "Offentlig" – API-servern kan nås av externa nätverk.
@@ -102,14 +90,25 @@ Följande nätverks inställningar är tillgängliga i Azure Red Hat OpenShift 4
     * "Privata" vägar kommer att användas som standard till intern belastningsutjämnare (detta kan ändras).
 
 ## <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
-Nätverks säkerhets grupper skapas i nodens resurs grupp, vilket är låst. Nätverks säkerhets grupperna tilldelas direkt till under näten, inte på nodens nätverkskort. Nätverks säkerhets grupperna är oföränderliga, vilket innebär att du inte har behörighet att ändra dem. 
+Nätverks säkerhets grupper skapas i nodens resurs grupp, som är låst för användare. Nätverks säkerhets grupperna tilldelas direkt till under näten, inte på nodens nätverkskort. Nätverks säkerhets grupperna är oföränderliga och användarna har inte behörighet att ändra dem.
 
-Men med en offentligt synlig API-Server kan du inte skapa nätverks säkerhets grupper och tilldela dem till nätverkskorten.
+Med en offentligt synlig API-Server kan du inte skapa nätverks säkerhets grupper och tilldela dem till nätverkskorten.
 
 ## <a name="domain-forwarding"></a>Domän vidarebefordring
-Azure Red Hat OpenShift använder CoreDNS. Domän vidarebefordran kan konfigureras (mer information finns i dokumentationen om hur du [använder DNS-vidarebefordran](https://docs.openshift.com/aro/4/networking/dns-operator.html#nw-dns-forward_dns-operator) ).
+Azure Red Hat OpenShift använder CoreDNS. Domän vidarebefordran kan konfigureras. Du kan inte ta med din egen DNS till dina virtuella nätverk. Mer information finns i dokumentationen om hur du [använder DNS-vidarebefordring](https://docs.openshift.com/aro/4/networking/dns-operator.html#nw-dns-forward_dns-operator).
 
-För närvarande kan du inte ta med din egen DNS till dina virtuella nätverk.
+## <a name="whats-new-in-openshift-45"></a>Vad är nytt i OpenShift 4,5
 
+Med stöd för OpenShift 4,5 introducerade Azure Red Hat OpenShift några viktiga förändringar i arkitekturen. Dessa ändringar gäller endast för nyligen skapade kluster som kör OpenShift 4,5. Befintliga kluster som har uppgraderats till OpenShift 4,5 kommer inte att ha någon nätverks arkitektur ändrad av uppgraderings processen. Användarna måste återskapa sina kluster för att kunna använda den nya arkitekturen.
 
+![Nätverks diagram för Azure Red Hat OpenShift 4,5](./media/concepts-networking/aro-4-5-networking-diagram.png)
+
+Som du ser i diagrammet ovan visas några ändringar:
+* Tidigare använde ARO två offentliga belastningsutjämnare: en för API-servern och en för arbets nodens resurspool. Med den här arkitektur uppdateringen har det sammanställts under en enda LoadBalancer. 
+* För att minska komplexiteten har dedikerade IP-adressresurser tagits bort.
+* ARO-kontroll planet delar nu samma nätverks säkerhets grupp som ARO Worker-noderna.
+
+Mer information om OpenShift 4,5 finns i viktig information om [OpenShift 4,5](https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html).
+
+## <a name="next-steps"></a>Nästa steg
 Mer information om utgående trafik och vilka Azure Red Hat OpenShift som har stöd för utgående finns i dokumentationen om [support policys](support-policies-v4.md) .

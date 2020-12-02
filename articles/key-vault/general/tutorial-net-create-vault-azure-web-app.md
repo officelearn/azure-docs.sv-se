@@ -10,20 +10,20 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 278c842d6e6f73bff5468f601eea77f8b140a07c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 473ed1f14d77470e31c2f14665a12542a70a2a98
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444438"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512306"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Självstudie: Använd en hanterad identitet för att ansluta Key Vault till en Azure-webbapp i .NET
 
 [Azure Key Vault](./overview.md) är ett sätt att lagra autentiseringsuppgifter och andra hemligheter med ökad säkerhet. Men din kod måste autentiseras för att Key Vault ska kunna hämta dem. [Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md) hjälper till att lösa det här problemet genom att ge Azure-tjänster en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva Visa autentiseringsuppgifter i din kod.
 
-I den här självstudien använder du en hanterad identitet för att autentisera en Azure-webbapp med ett Azure Key Vault. Du använder [klient biblioteket för Azure Key Vault version 4 för .net](/dotnet/api/overview/azure/key-vault) och [Azure CLI](/cli/azure/get-started-with-azure-cli). Samma grundläggande principer gäller när du använder det utvecklings språk du väljer, Azure PowerShell och/eller Azure Portal.
+I den här självstudien använder du en hanterad identitet för att autentisera en Azure-webbapp med ett Azure Key Vault. Du använder det [Azure Key Vault hemliga klient biblioteket för .net](/dotnet/api/overview/azure/key-vault) och [Azure CLI](/cli/azure/get-started-with-azure-cli). Samma grundläggande principer gäller när du använder det utvecklings språk du väljer, Azure PowerShell och/eller Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -253,9 +253,11 @@ Du kan också tilldela åtkomst principer med hjälp av [Azure Portal](./assign-
 
 ### <a name="modify-the-app-to-access-your-key-vault"></a>Ändra appen för åtkomst till ditt nyckel valv
 
+I den här självstudien använder du [Azure Key Vault hemliga klient biblioteket](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.secrets-readme) i demonstrations syfte. Du kan också använda [Azure Key Vault klient bibliotek för certifikat](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.certificates-readme)eller [Azure Key Vault nyckel klient bibliotek](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.keys-readme).
+
 #### <a name="install-the-packages"></a>Installera paketen
 
-I terminalfönstret installerar du Azure Key Vault klient biblioteket för .NET-paket:
+I terminalfönstret installerar du Azure Key Vault hemliga klient biblioteket för .NET-och Azure Identity-klientens biblioteks paket:
 
 ```console
 dotnet add package Azure.Identity
@@ -318,12 +320,11 @@ git push azure master
 http://<your-webapp-name>.azurewebsites.net
 ```
 
-Där innan du såg "Hello World!" bör du nu se värdet för din hemlighet som visas: "lyckades!"
+Där innan du såg "Hello World!" bör du nu se värdet för din hemlighet som visas.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Använda Azure Key Vault med program som distribueras till en virtuell dator i .NET](./tutorial-net-virtual-machine.md)
 - Lär dig mer om [hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md)
-- Läs mer om [hanterade identiteter för App Service](../../app-service/overview-managed-identity.md?tabs=dotnet)
 - Visa [Guide för utvecklare](./developers-guide.md)
 - [Säker åtkomst till ett nyckel valv](./secure-your-key-vault.md)

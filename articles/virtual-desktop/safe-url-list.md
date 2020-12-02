@@ -1,21 +1,21 @@
 ---
-title: 'Lista över säkra URL: er för Windows Virtual Desktop – Azure'
-description: 'En lista med URL: er som du bör avblockera för att se till att distributionen av Windows virtuella datorer fungerar som avsett.'
+title: URL-lista som krävs för Windows Virtual Desktop – Azure
+description: 'En lista med URL: er som du måste avblockera för att säkerställa att distributionen av Windows virtuella datorer fungerar som avsett.'
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 12/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3d19a60fd6a22eb9245722c6ff69d3b39c05d29e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 6b3fdc18a04dadf4bf1cf380c7bb51d21f826633
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023181"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512349"
 ---
-# <a name="safe-url-list"></a>Lista över säkra webbadresser
+# <a name="required-url-list"></a>Obligatorisk URL-lista
 
-Du måste avblockera vissa URL: er så att distributionen av Windows virtuella datorer fungerar som den ska. I den här artikeln visas dessa URL: er så att du vet vilka som är säkra.
+För att kunna distribuera och använda det virtuella Windows-skrivbordet måste du avblockera vissa URL: er så att dina virtuella datorer (VM) kan komma åt dem när som helst. Den här artikeln innehåller de URL: er som krävs för att avblockera.
 
 ## <a name="virtual-machines"></a>Virtuella datorer
 
@@ -33,8 +33,8 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 |kms.core.windows.net|1688|Windows-aktivering|Internet|
 |mrsglobalsteus2prod.blob.core.windows.net|443|Uppdateringar av agent-och SXS-stack|AzureCloud|
 |wvdportalstorageblob.blob.core.windows.net|443|Azure Portal support|AzureCloud|
-| 169.254.169.254 | 80 | [Azure instance metadata service-slutpunkt](../virtual-machines/windows/instance-metadata-service.md) | E.t. |
-| 168.63.129.16 | 80 | [Hälso övervakning av sessions värd](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | E.t. |
+| 169.254.169.254 | 80 | [Azure instance metadata service-slutpunkt](../virtual-machines/windows/instance-metadata-service.md) | Saknas |
+| 168.63.129.16 | 80 | [Hälso övervakning av sessions värd](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | Saknas |
 
 >[!IMPORTANT]
 >Windows Virtual Desktop stöder nu FQDN-taggen. Mer information finns i [använda Azure Firewall för att skydda fönster distributioner av virtuella skriv bord](../firewall/protect-windows-virtual-desktop.md).
@@ -53,10 +53,10 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 |*. servicebus.usgovcloudapi.net|443|Agent trafik|AzureCloud|
 |* xt.table.core.usgovcloudapi.net|443|Agent trafik|AzureCloud|
 |Kms.core.usgovcloudapi.net|1688|Windows-aktivering|Internet|
-|mrsglobalstugviffx.core.usgovcloudapi.net|443|Uppdateringar av agent-och SXS-stack|AzureCloud|
+|mrsglobalstugviffx.blob.core.usgovcloudapi.net|443|Uppdateringar av agent-och SXS-stack|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Azure Portal support|AzureCloud|
-| 169.254.169.254 | 80 | [Azure instance metadata service-slutpunkt](../virtual-machines/windows/instance-metadata-service.md) | E.t. |
-| 168.63.129.16 | 80 | [Hälso övervakning av sessions värd](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | E.t. |
+| 169.254.169.254 | 80 | [Azure instance metadata service-slutpunkt](../virtual-machines/windows/instance-metadata-service.md) | Saknas |
+| 168.63.129.16 | 80 | [Hälso övervakning av sessions värd](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | Saknas |
 
 I följande tabell visas valfria URL: er som dina virtuella Azure-datorer kan ha åtkomst till:
 
@@ -68,10 +68,14 @@ I följande tabell visas valfria URL: er som dina virtuella Azure-datorer kan ha
 |*. prod.do.dsp.mp.microsoft.com|443|Windows Update|Inget|
 |login.windows.net|443|Logga in på Microsoft Online Services, Microsoft 365|login.microsoftonline.us|
 |*. sfx.ms|443|Uppdateringar för OneDrive-klientprogramvara|oneclient.sfx.ms|
-|*. digicert.com|443|Återkallnings kontroll av certifikat|Inget|
+|*. digicert.com|443|Kontroll av certifikatåterkallelse|Inget|
+|*. azure-dns.com|443|Azure DNS lösning|Inget|
+|*. azure-dns.net|443|Azure DNS lösning|Inget|
 
 >[!NOTE]
 >Det finns för närvarande ingen lista över IP-adressintervall som kan avblockeras för att tillåta nätverks trafik i det virtuella Windows-skrivbordet. Vi har bara stöd för att avblockera vissa URL: er just nu.
+>
+>Om du använder en nästa generations brand vägg (NGFW) måste du använda en dynamisk lista som är särskilt gjord för Azure IP-adresser för att se till att du kan ansluta.
 >
 >En lista över säkra Office-relaterade URL: er, inklusive nödvändiga Azure Active Directory-relaterade URL: er, finns i [Office 365-URL: er och IP-adressintervall](/office365/enterprise/urls-and-ip-address-ranges).
 >

@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: a68501bd1189993b4dd0c2acdecaa7434fa51dcc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d2446e866c0e12d50a0759373682f4f62bc4bba0
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488042"
+ms.locfileid: "96512230"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor loggar dedicerade kluster
 
-Azure Monitor loggar dedikerade kluster är ett distributions alternativ som gör att du kan Azure Monitor logga kunder på en avancerad funktion. Kunder med dedikerade kluster kan välja vilka arbets ytor som ska finnas i dessa kluster.
+Azure Monitor loggar dedikerade kluster är ett distributions alternativ som gör det möjligt att använda avancerade funktioner för Azure Monitor loggar kunder. Kunder med dedikerade kluster kan välja vilka arbets ytor som ska finnas i dessa kluster.
 
 De funktioner som kräver dedikerade kluster är:
 
@@ -52,7 +52,7 @@ Det finns två fakturerings lägen för användning i ett kluster. Dessa kan ang
 
 2. **Arbets ytor**: kostnaderna för kapacitets reservationen för klustret anges i proportion till arbets ytorna i klustret (efter redovisningen av tilldelningar per nod från [Azure Security Center](../../security-center/index.yml) för varje arbets yta.)
 
-Observera att om din arbets yta använder pris nivån bakåtkompatibelt per nod, kommer den att faktureras baserat på data som matas in mot klustrets kapacitets reservation och inte längre per nod. Data tilldelningar per nod från Azure Security Center fortsätter att gälla.
+Om din arbets yta använder pris nivån bakåtkompatibelt per nod, kommer den att faktureras baserat på data som matas in mot klustrets kapacitets reservation och inte längre per nod. Data tilldelningar per nod från Azure Security Center fortsätter att gälla.
 
 Mer information debiteras för Log Analytics dedikerade kluster finns [här]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
 

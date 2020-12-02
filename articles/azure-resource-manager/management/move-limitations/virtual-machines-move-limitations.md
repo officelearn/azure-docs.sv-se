@@ -2,13 +2,13 @@
 title: Flytta virtuella Azure-datorer till en ny prenumeration eller resurs grupp
 description: Använd Azure Resource Manager för att flytta virtuella datorer till en ny resurs grupp eller prenumeration.
 ms.topic: conceptual
-ms.date: 11/25/2020
-ms.openlocfilehash: ace1fb6bf3944df539ec8f7301357e67d2b315a9
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 12/01/2020
+ms.openlocfilehash: b1032b5a632bcac82cb9ae1f1b3df7b49f5463f5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184084"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456315"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Flytta vägledning för virtuella datorer
 
@@ -20,6 +20,7 @@ Följande scenarier stöds inte än:
 
 * Virtual Machine Scale Sets med standard-SKU Load Balancer eller offentlig IP-adress för standard-SKU: n kan inte flyttas.
 * Det går inte att flytta virtuella datorer i ett befintligt virtuellt nätverk till en ny prenumeration när du inte flyttar alla resurser i det virtuella nätverket.
+* Virtuella datorer som skapats från Marketplace-resurser med anslutna planer kan inte flyttas mellan prenumerationer. En möjlig lösning finns i [virtuella datorer med Marketplace-planer](#virtual-machines-with-marketplace-plans).
 * Det går inte att flytta virtuella datorer med låg prioritet och den virtuella datorns skalnings uppsättningar med låg prioritet flyttas över resurs grupper eller prenumerationer.
 * Det går inte att flytta virtuella datorer i en tillgänglighets uppsättning individuellt.
 

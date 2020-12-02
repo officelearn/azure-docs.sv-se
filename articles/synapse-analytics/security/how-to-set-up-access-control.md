@@ -1,5 +1,5 @@
 ---
-title: Skydda din Synapse-arbetsyta (för hands version)
+title: Skydda din Synapse-arbetsyta
 description: I den här artikeln får du lära dig hur du använder roller och åtkomst kontroll för att styra aktiviteter och åtkomst till data i Synapse-arbetsytan.
 services: synapse-analytics
 author: matt1883
@@ -9,20 +9,20 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 79a4db1f7d4be88260ea41ce1090007bc66cc7c8
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 25e191af919c5880045a6c4c7c79b675cf02520e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556037"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458712"
 ---
-# <a name="secure-your-synapse-workspace-preview"></a>Skydda din Synapse-arbetsyta (för hands version) 
+# <a name="secure-your-synapse-workspace"></a>Skydda din Synapse-arbetsyta 
 
 I den här artikeln får du lära dig hur du använder roller och åtkomst kontroll för att styra aktiviteter och åtkomst till data. Genom att följa dessa anvisningar är åtkomst kontroll i Azure Synapse Analytics förenklad. Du behöver bara lägga till och ta bort användare till en av tre säkerhets grupper.
 
 ## <a name="overview"></a>Översikt
 
-För att skydda en Synapse-arbetsyta (för hands version) följer du ett mönster för att konfigurera följande objekt:
+För att skydda en Synapse-arbetsyta följer du ett mönster för att konfigurera följande objekt:
 
 - Azure-roller (t. ex. inbyggda som ägare, deltagare osv.)
 - Synapse-roller – dessa roller är unika för Synapse och baseras inte på Azure-roller. Det finns tre av följande roller:
@@ -36,7 +36,7 @@ För att skydda en Synapse-arbetsyta (för hands version) följer du ett mönste
 
 I det här dokumentet används standard namn för att förenkla anvisningarna. Ersätt dem med valfritt namn.
 
-|Inställning | Exempelvärde | Beskrivning |
+|Inställning | Exempelvärde | Description |
 | :------ | :-------------- | :---------- |
 | **Synapse-arbetsyta** | WS1 |  Namnet som Synapse-arbetsytan kommer att ha. |
 | **ADLSGEN2-konto** | STG1 | ADLS-kontot som ska användas med din arbets yta. |
@@ -111,7 +111,7 @@ Nu kan du lägga till och ta bort användare i de tre säkerhets grupperna för 
 
 Användare i varje roll behöver utföra följande steg:
 
-| Tal | Steg | Arbetsytesadministratörer | Spark-administratörer | SQL-administratörer |
+| Antal | Steg | Arbetsytesadministratörer | Spark-administratörer | SQL-administratörer |
 | --- | --- | --- | --- | --- |
 | 1 | Ladda upp en Parquet-fil till CNT1 | JA | JA | JA |
 | 2 | Läs filen Parquet med Server lös SQL-pool | JA | NO | JA |

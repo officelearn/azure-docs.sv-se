@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Stream Analytics
-description: Tips om hur du använder Azure Stream Analytics med ditt informations lager i Azure Synapse för att utveckla real tids lösningar.
+title: Använda Azure Stream Analytics i dedikerad SQL-pool
+description: Tips för att använda Azure Stream Analytics med dedikerad SQL-pool i Azure Synapse för utveckling av real tids lösningar.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 9/25/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 3ead3393218255808eb67983251fcf9f2561c82c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8fbe546beb1004214e544f8eb160884c0f64ef9e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020188"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458230"
 ---
-# <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Använda Azure Stream Analytics med Azure Synapse Analytics
+# <a name="use-azure-stream-analytics-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Använda Azure Stream Analytics med dedikerad SQL-pool i Azure Synapse Analytics
 
 Azure Stream Analytics är en helt hanterad tjänst som tillhandahåller låg latens, skalbar komplex händelse behandling med hög tillgänglighet för strömning av data i molnet. Du kan lära dig grunderna genom [att läsa introduktion till Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Du kan sedan lära dig hur du skapar en lösning från slut punkt till slut punkt med Stream Analytics genom att följa själv studie kursen [komma igång med Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
-I den här artikeln får du lära dig hur du använder informations lagret som en utgående mottagare för data inmatning med hög data flöde med Azure Stream Analytics-jobb.
+I den här artikeln får du lära dig hur du använder din dedikerade SQL-pool som utgående mottagare för data inmatning med hög data flöde med Azure Stream Analytics-jobb.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -32,9 +32,9 @@ I den här artikeln får du lära dig hur du använder informations lagret som e
     2. Konfigurera och starta Event Generator-programmet
     3. Etablera ett Stream Analytics jobb
     4. Ange inmatade jobb och fråga
-* Synapse dedikerad SQL-pool för ditt informations lager – om du vill skapa ett nytt data lager följer du stegen i [snabb starten för att skapa ett nytt informations lager](create-data-warehouse-portal.md).
+* Dedikerad SQL-pool – om du vill skapa en ny dedikerad SQL-pool följer du stegen i [snabb start: skapa en dedikerad SQL-pool](../quickstart-create-sql-pool-portal.md).
 
-## <a name="specify-streaming-output-to-point-to-your-data-warehouse"></a>Ange strömmande utdata så att de pekar på ditt informations lager
+## <a name="specify-streaming-output-to-point-to-your-dedicated-sql-pool"></a>Ange strömmande utdata så att de pekar på din dedikerade SQL-pool
 
 ### <a name="step-1"></a>Steg 1
 
@@ -52,8 +52,8 @@ Ange följande värden:
 
 * *Alias för utdata*: Ange ett eget namn för jobbets utdata.
 * *Prenumeration*:
-  * Om informations lagret finns i samma prenumeration som Stream Analytics jobbet klickar du på ***Välj Azure Synapse Analytics från dina prenumerationer** _.
-  _ Om ditt informations lager finns i en annan prenumeration klickar du på Ange inställningar för Azure Synapse Analytics manuellt.
+  * Om din dedikerade SQL-pool är i samma prenumeration som Stream Analytics jobb klickar du på ***Välj Azure Synapse Analytics från dina prenumerationer** _.
+  _ Om din dedikerade SQL-pool finns i en annan prenumeration klickar du på Ange inställningar för Azure Synapse Analytics manuellt.
 * *Databas*: Välj mål databas i list rutan.
 * *Användar namn*: Ange användar namnet för ett konto som har Skriv behörighet för databasen.
 * *Lösen ord*: Ange lösen ordet för det angivna användar kontot.
@@ -64,7 +64,7 @@ Ange följande värden:
 
 ### <a name="step-4"></a>Steg 4
 
-Innan du kan köra ett test måste du skapa tabellen i ditt informations lager.  Kör följande skript för att skapa tabell med SQL Server Management Studio (SSMS) eller ditt val av frågeinställningar.
+Innan du kan köra ett test måste du skapa tabellen i din dedikerade SQL-pool.  Kör följande skript för att skapa tabell med SQL Server Management Studio (SSMS) eller ditt val av frågeinställningar.
 
 ```sql
 CREATE TABLE SensorLog
@@ -123,4 +123,4 @@ Klicka på knappen _ *_Start_** i fönstret Starta jobb.
 ## <a name="next-steps"></a>Nästa steg
 
 En översikt över integrering finns i [integrera andra tjänster](sql-data-warehouse-overview-integrate.md).
-Mer utvecklings tips finns i [design beslut och kod metoder för informations lager](sql-data-warehouse-overview-develop.md).
+Mer utvecklings tips finns i [design beslut och kodnings tekniker för dedikerad SQL-pool](sql-data-warehouse-overview-develop.md).

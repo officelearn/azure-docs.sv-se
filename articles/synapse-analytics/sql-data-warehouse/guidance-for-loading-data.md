@@ -1,30 +1,30 @@
 ---
-title: Metod tips för data inläsning för Synapse SQL-pool
-description: Rekommendationer och prestanda optimeringar för att läsa in data med Synapse SQL-pool.
+title: Metod tips för inläsning av data för dedikerade SQL-pooler
+description: Rekommendationer och prestanda optimeringar för att läsa in data med hjälp av dedikerade SQL-pooler i Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 34a536ea535fa222340bd004253ee54b9c13bea9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39625914f179dfc8d5511b9a3d386cc8332b7efa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441229"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456300"
 ---
-# <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Metod tips för att läsa in data med Synapse SQL-pool
+# <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Metod tips för att läsa in data med dedikerade SQL-pooler i Azure Synapse Analytics
 
-I den här artikeln får du lära dig rekommendationer och prestanda optimeringar för att läsa in data med SQL-pool.
+I den här artikeln får du lära dig rekommendationer och prestanda optimeringar för att läsa in data med hjälp av dedikerad SQL-pool.
 
 ## <a name="preparing-data-in-azure-storage"></a>Förbereda data i Azure Storage
 
-Du kan minimera svars tiden genom att samplacera ditt lagrings lager och SQL-poolen.
+Du kan minimera svars tiden genom att samplacera ditt lagrings lager och din dedikerade SQL-pool.
 
 När du exporterar data till ett ORC-filformat kan du råka ut för ”slut på minne”-fel i Java när det finns kolumner med mycket text. Du kan undvika denna begränsning genom att bara exportera en del av kolumnerna.
 
@@ -34,7 +34,7 @@ Dela upp stora komprimerade filer i små komprimerade filer.
 
 ## <a name="running-loads-with-enough-compute"></a>Köra belastningar med tillräckligt med beräkning
 
-För högsta hastighet för inläsning, kör du bara ett inläsningsjobb i taget. Om det inte är möjligt kan du köra ett minimalt antal inläsningar samtidigt. Om du förväntar dig ett stort inläsnings jobb kan du skala upp SQL-poolen före belastningen.
+För högsta hastighet för inläsning, kör du bara ett inläsningsjobb i taget. Om det inte är möjligt kan du köra ett minimalt antal inläsningar samtidigt. Om du förväntar dig ett stort inläsnings jobb kan du skala upp din dedikerade SQL-pool före belastningen.
 
 För att köra inläsningar med lämpliga beräkningsresurser skapar du inläsningsanvändare som är avsedda att köra inläsningar. Klassificera varje inläsnings användare till en speciell arbets belastnings grupp. Om du vill köra en inläsning loggar du in som en inläsnings användare och kör sedan belastningen. Belastningen körs med användarens arbets belastnings grupp.  
 
@@ -47,10 +47,10 @@ I det här exemplet skapas en inläsnings användare som klassificeras till en s
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Anslut till SQL-poolen och skapa en användare. Följande kod förutsätter att du är ansluten till databasen som heter mySampleDataWarehouse. Det visar hur du skapar en användare som kallas Loader och ger användaren behörighet att skapa tabeller och läsa in med hjälp av [kopierings instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Sedan klassificerar den användaren till arbets belastnings gruppen DataLoads med maximalt antal resurser. 
+Anslut till den dedikerade SQL-poolen och skapa en användare. Följande kod förutsätter att du är ansluten till databasen som heter mySampleDataWarehouse. Det visar hur du skapar en användare som kallas Loader och ger användaren behörighet att skapa tabeller och läsa in med hjälp av [kopierings instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Sedan klassificerar den användaren till arbets belastnings gruppen DataLoads med maximalt antal resurser. 
 
 ```sql
-   -- Connect to the SQL pool
+   -- Connect to the dedicated SQL pool
    CREATE USER loader FOR LOGIN loader;
    GRANT ADMINISTER DATABASE BULK OPERATIONS TO loader;
    GRANT INSERT ON <yourtablename> TO loader;
@@ -76,7 +76,7 @@ Om du vill köra en belastning med resurser för belastnings arbets belastnings 
 
 ## <a name="allowing-multiple-users-to-load-polybase"></a>Tillåta att flera användare läser in (PolyBase)
 
-Det finns ofta ett behov av att flera användare ska kunna läsa in data i en SQL-pool. Om du läser in med [CREATE TABLE som Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (PolyBase) krävs kontroll behörigheter för databasen.  CONTROL-behörigheten ger kontrollbehörighet till alla scheman.
+Det finns ofta ett behov av att flera användare ska kunna läsa in data i en dedikerad SQL-pool. Om du läser in med [CREATE TABLE som Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (PolyBase) krävs kontroll behörigheter för databasen.  CONTROL-behörigheten ger kontrollbehörighet till alla scheman.
 
 Du kanske inte vill att alla användare som läser in ska ha behörighet för alla scheman. Om du vill begränsa behörigheten använder du DENY CONTROL-instruktionen.
 
@@ -91,9 +91,9 @@ User_A och user_B är nu utelåsta från det andra avd-schemat.
 
 ## <a name="loading-to-a-staging-table"></a>Inläsning i en mellanlagringstabell
 
-För att uppnå den snabbaste inläsnings hastigheten för att flytta data till en SQL-adresspool, ska du läsa in data i en mellanlagrings tabell.  Definiera mellanlagringstabellen som en heap och använd resursallokering som distributionsalternativ.
+För att uppnå den snabbaste inläsnings hastigheten för att flytta data till en dedikerad SQL-adresspool, Läs in data i en mellanlagringsplats.  Definiera mellanlagringstabellen som en heap och använd resursallokering som distributionsalternativ.
 
-Tänk på att inläsningen vanligt vis är en två stegs process där du först läser in till en mellanlagringsplats och sedan infogar data i en SQL-adresspool för produktion. Om produktionstabellen använder en hash-distribution, kan den totala tiden för att läsa in och infoga bli snabbare om du definierar mellanlagringstabellen i hash-distributionen.
+Tänk på att inläsningen vanligt vis är en två stegs process där du först läser in till en mellanlagringsplats och sedan infogar data i en pool för produktion av dedikerade SQL-pooler. Om produktionstabellen använder en hash-distribution, kan den totala tiden för att läsa in och infoga bli snabbare om du definierar mellanlagringstabellen i hash-distributionen.
 
 Inläsning till mellanlagringstabellen tar längre tid, men det andra steget i att infoga rader i produktionstabellen skapar inte dataförflyttning över distributioner.
 
@@ -111,7 +111,7 @@ Vid brist på minne kanske kolumnlagringsindexet inte kan uppnå den maximala ko
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Öka batchstorleken när du använder SqLBulkCopy API eller BCP
 
-Om du läser in med COPY-instruktionen får du högsta data flöde med SQL-poolen. Om du inte kan använda KOPIERINGen för att läsa in och måste använda [SqLBulkCopy-API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) eller [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)bör du fundera på att öka batchstorleken för bättre data flöde.
+Om du läser in med COPY-instruktionen får du högsta data flöde med dedikerade SQL-pooler. Om du inte kan använda KOPIERINGen för att läsa in och måste använda [SqLBulkCopy-API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) eller [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)bör du fundera på att öka batchstorleken för bättre data flöde.
 
 > [!TIP]
 > En batchstorlek mellan 100 K och 1 miljon rader är den rekommenderade bas linjen för att fastställa den optimala storleken för batchstorlek.

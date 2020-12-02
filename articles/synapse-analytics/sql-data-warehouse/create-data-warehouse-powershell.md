@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skapa en Synapse SQL-pool med Azure PowerShell'
-description: Skapa snabbt en Synapse SQL-pool med en brand Väggs regel på server nivå med hjälp av Azure PowerShell.
+title: 'Snabb start: skapa en dedikerad SQL-pool (tidigare SQL DW) med Azure PowerShell'
+description: Skapa snabbt en dedikerad SQL-pool (tidigare SQL DW) med en brand Väggs regel på server nivå med hjälp av Azure PowerShell.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,23 +11,23 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
-ms.openlocfilehash: 5408944f16509f83c30b9ee066d6f0a93dab95f0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0ce94b62d67048896cdf7355043ec2dde7f2df79
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91567663"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456583"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-with-azure-powershell"></a>Snabb start: skapa en Synapse SQL-pool med Azure PowerShell
+# <a name="quickstart-create-a-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Snabb start: skapa en dedikerad SQL-pool (tidigare SQL DW) med Azure PowerShell
 
-Skapa en Synapse SQL-pool (informations lager) i Azure Synapse Analytics med hjälp av Azure PowerShell.
+Skapa en dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics med hjälp av Azure PowerShell.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 > [!IMPORTANT]
-> Att skapa en SQL-pool kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Att skapa en dedikerad SQL-pool (tidigare SQL DW) kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -93,7 +93,7 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Konfigurera en brandväggsregel på servernivå
 
-Skapa en [brand Väggs regel på server nivå](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) med kommandot [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) . En brand Väggs regel på server nivå gör det möjligt för ett externt program, till exempel SQL Server Management Studio eller SQLCMD-verktyget att ansluta till en SQL-pool via SQL-poolens tjänst brand vägg.
+Skapa en [brand Väggs regel på server nivå](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) med kommandot [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) . En brand Väggs regel på server nivå gör det möjligt för ett externt program, till exempel SQL Server Management Studio eller SQLCMD-verktyget, att ansluta till en dedikerad SQL-pool (tidigare SQL DW) via den dedikerade SQL-poolens tjänst brand vägg.
 
 I följande exempel öppnas brandväggen bara för andra Azure-resurser. Aktivera extern anslutning, ändra IP-adressen till en adress som är lämplig för din miljö. Öppna alla IP-adresser genom att använda 0.0.0.0 som den första IP-adressen och 255.255.255.255 som slutadress.
 
@@ -107,9 +107,9 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 > SQL-slutpunkter kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 bli nekad av nätverkets brandvägg. I så fall kan du inte ansluta till servern om inte din IT-avdelning öppnar port 1433.
 >
 
-## <a name="create-a-sql-pool"></a>Skapa en SQL-pool
+## <a name="create-a-dedicated-sql-pool-formerly-sql-dw"></a>Skapa en dedikerad SQL-pool (tidigare SQL DW)
 
-I följande exempel skapas en SQL-pool med hjälp av de tidigare definierade variablerna.  Det anger tjänst målet som DW100c, vilket är en lägre start punkt för SQL-poolen.
+I följande exempel skapas en dedikerad SQL-pool (tidigare SQL DW) med hjälp av de tidigare definierade variablerna.  Den anger tjänst målet som DW100c, som är en lägre start punkt för din dedikerade SQL-pool (tidigare SQL DW).
 
 ```Powershell
 New-AzSqlDatabase `
@@ -125,10 +125,10 @@ New-AzSqlDatabase `
 Erfordrade parametrar är:
 
 * **RequestedServiceObjectiveName**: mängden [data lager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) som du begär. Om du ökar värdet ökar beräknings kostnaden. En lista över värden som stöds finns i [minnes-och samtidiga gränser](memory-concurrency-limits.md).
-* **Databasename**: namnet på den SQL-pool som du skapar.
-* **Server**namn: namnet på den server som du använder för att skapa.
+* **Databasename**: namnet på den dedikerade SQL-pool (tidigare SQL DW) som du skapar.
+* **Server** namn: namnet på den server som du använder för att skapa.
 * **ResourceGroupName**: resurs gruppen som du använder. Använd Get-AzureResource för att hitta tillgängliga resursgrupper i din prenumeration.
-* **Utgåva**: måste vara "DataWarehouse" för att skapa en SQL-pool.
+* **Utgåva**: måste vara "DataWarehouse" för att skapa en dedikerad SQL-pool (tidigare SQL DW).
 
 Valfria parametrar är:
 
@@ -151,4 +151,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du skapat en SQL-pool, skapat en brand Väggs regel och anslutit till din SQL-pool. Om du vill veta mer kan du fortsätta till artikeln [Läs in data i SQL-poolen](load-data-from-azure-blob-storage-using-polybase.md) .
+Nu har du skapat en dedikerad SQL-pool (tidigare SQL DW), skapat en brand Väggs regel och anslutit till din dedikerade SQL-pool. Om du vill veta mer kan du fortsätta till artikeln [Läs in data i en särskild SQL-pool](load-data-from-azure-blob-storage-using-polybase.md) .

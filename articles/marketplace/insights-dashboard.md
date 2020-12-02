@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 8f85e9c77cc6fed7e2763f694664332b124d0780
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 9089fee7565633b198043efeed929fc7446437d5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561802"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458298"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Marketplace Insights-instrumentpanelen i Commersial Marketplace-analys
 
@@ -20,7 +20,7 @@ Den här artikeln innehåller information om instrument panelen för marknads in
 
 Om du vill komma åt **Marketplace Insights** -instrumentpanelen i Partner Center väljer du **[analysera](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **marknads insikter** under kommersiell marknads plats.
 
-Detaljerade definitioner av analys terminologi finns i terminologi för [kommersiella Marketplace-analyser och vanliga frågor](./partner-center-portal/faq-terminology.md).
+Detaljerade definitioner av analys terminologi finns i terminologi för [kommersiella Marketplace-analyser och vanliga frågor](./analytics-faq.md).
 
 ## <a name="marketplace-insights-dashboard"></a>Instrumentpanelen Marknadsplatsinsikter
 
@@ -54,29 +54,29 @@ Du kan hitta en månads intervall markering i det övre högra hörnet på varje
 
 I diagrammet Marketplace Insights- **besökare** visas ett antal _sid besök_ och _unika besökare_ för den valda beräknings perioden.
 
-**Sid besök** : det här antalet representerar antalet olika användarsessioner på sidan erbjudande lista (produkt informations sida) för en vald beräknings period. Rött och grönt procentuella indikatorer representerar tillväxten i procent av sid besök. Trend diagrammet visar antalet sid besök per månad.
+**Sid besök**: det här antalet representerar antalet olika användarsessioner på sidan erbjudande lista (produkt informations sida) för en vald beräknings period. Rött och grönt procentuella indikatorer representerar tillväxten i procent av sid besök. Trend diagrammet visar antalet sid besök per månad.
 
-**Unika besökare** : det här antalet representerar de distinkta besökarnas antalet under den valda beräknings perioden för erbjudandet i Azure Marketplace och AppSource. En besökare som har besökt en eller flera produkt informations sidor räknas som en unik besökare.
+**Unika besökare**: det här antalet representerar de distinkta besökarnas antalet under den valda beräknings perioden för erbjudandet i Azure Marketplace och AppSource. En besökare som har besökt en eller flera produkt informations sidor räknas som en unik besökare.
 
 [![Visar ett diagram över besökare på instrument panelen för Marketplace-insikter.](./media/insights-dashboard/visitors.png)](./media/insights-dashboard/visitors.png#lightbox)
 
 ### <a name="call-to-actions-trend"></a>Anrop till åtgärds trend
 
-Det här talet representerar knappen antal **anrop till åtgärds** klickningar som har slutförts på sidan erbjudande lista (produkt informations sida). _Anrop till åtgärden_ räknas när användarna väljer knapparna **Hämta nu** , **kostnads fri utvärdering** , **kontakta mig** eller **testa enhet** .
+Det här talet representerar knappen antal **anrop till åtgärds** klickningar som har slutförts på sidan erbjudande lista (produkt informations sida). _Anrop till åtgärden_ räknas när användarna väljer knapparna **Hämta nu**, **kostnads fri utvärdering**, **kontakta mig** eller **testa enhet** .
 
 [![Illustrerar anropet till åtgärds diagrammet på instrument panelen för Marketplace-insikter.](./media/insights-dashboard/call-to-actions-trend.png)](./media/insights-dashboard/call-to-actions-trend.png#lightbox)
 
 ### <a name="page-visits-and-call-to-actions-against-offers-referral-domains-and-campaign-ids"></a>Sid besök och anrop till åtgärder mot erbjudanden, referens domäner och kampanj-ID: n
 
-**Referens domäner** : om du väljer en angiven hänvisnings domän visas den månatliga trenden för sid besök och anrop till åtgärden i diagrammet till höger.
+**Referens domäner**: om du väljer en angiven hänvisnings domän visas den månatliga trenden för sid besök och anrop till åtgärden i diagrammet till höger.
 
 :::image type="content" source="./media/insights-dashboard/referral-domain.png" alt-text="Visar hänvisnings domän diagrammet på instrument panelen för Marketplace-insikter.":::
 
-**Erbjudanden** : Välj ett särskilt erbjudande för att se den månatliga trenden för sid besök och anrop till åtgärd i diagrammet till höger.
+**Erbjudanden**: Välj ett särskilt erbjudande för att se den månatliga trenden för sid besök och anrop till åtgärd i diagrammet till höger.
 
 :::image type="content" source="./media/insights-dashboard/offer-alias.png" alt-text="Visar diagrammet för erbjuden alias på instrument panelen för Marketplace-insikter.":::
 
-**Kampanj-ID** : genom att välja ett speciellt kampanj-ID bör du kunna förstå kampanjens framgång. För varje kampanj bör du kunna se den månatliga trenden för sid besök och anrop till åtgärden i diagrammet till höger.
+**Kampanj-ID**: genom att välja ett speciellt kampanj-ID bör du kunna förstå kampanjens framgång. För varje kampanj bör du kunna se den månatliga trenden för sid besök och anrop till åtgärden i diagrammet till höger.
 
 :::image type="content" source="./media/insights-dashboard/campaign.png" alt-text="Visar kampanj diagrammet på instrument panelen för Marketplace-insikter.":::
 
@@ -112,4 +112,4 @@ Den här tabellen innehåller en listvy över sid besöken och anrop till åtgä
 - Detaljerad information om dina kunder, inklusive tillväxt trender, finns [på kund instrument panel i affärs Marketplace-analys](./customer-dashboard.md).
 - En lista över dina nedladdnings begär Anden under de senaste 30 dagarna finns i [Hämta instrument panel i kommersiell Marketplace-analys](./partner-center-portal/downloads-dashboard.md).
 - Om du vill se en samlad vy över kundfeedback för erbjudanden på Azure Marketplace och AppSource, se [klassificeringar & recensioner Analytics-instrumentpanelen i Partner Center](./partner-center-portal/ratings-reviews.md).
-- Vanliga frågor och svar om affärs platser för marknads platser och en omfattande ord lista med data termer finns i [terminologi för kommersiella Marketplace-analyser och vanliga frågor](./partner-center-portal/faq-terminology.md).
+- Vanliga frågor och svar om affärs platser för marknads platser och en omfattande ord lista med data termer finns i [terminologi för kommersiella Marketplace-analyser och vanliga frågor](./analytics-faq.md).

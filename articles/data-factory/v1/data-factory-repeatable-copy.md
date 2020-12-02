@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 10476544e513b52567eb0ca0182039f2c5f482c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd0f389615c95ef9b9bc8280b6486740ddba4fb4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441637"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456824"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Upprepnings bar kopia i Azure Data Factory
 
@@ -104,7 +104,7 @@ Kopierings aktiviteten körde rensnings skriptet för att ta bort motsvarande da
 
 ### <a name="mechanism-2-using-sliceidentifiercolumnname"></a>Mekanism 2: använda sliceIdentifierColumnName
 > [!IMPORTANT]
-> För närvarande stöds inte sliceIdentifierColumnName för Azure Synapse Analytics (tidigare SQL Data Warehouse). 
+> SliceIdentifierColumnName stöds för närvarande inte för Azure Synapse Analytics. 
 
 Den andra mekanismen för att uppnå repeterbarhet är genom att ha en dedikerad kolumn (sliceIdentifierColumnName) i mål tabellen. Den här kolumnen används av Azure Data Factory för att säkerställa att källa och mål är synkroniserade. Den här metoden fungerar när det är flexibelt att ändra eller definiera mål SQL-tabellens schema. 
 

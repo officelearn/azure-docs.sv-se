@@ -1,37 +1,37 @@
 ---
 title: Utforma ELT i stället för ETL
-description: Implementera flexibla data inläsnings strategier för Synapse SQL-pool i Azure Synapse Analytics
+description: Implementera flexibla data inläsnings strategier för dedikerade SQL-pooler i Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 05/13/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 0533e76863d01675cee7aaca79e32821e5efc749
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8b75345743bb398458752d03f853738df713b4f9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92507811"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456441"
 ---
-# <a name="data-loading-strategies-for-synapse-sql-pool"></a>Strategier för att läsa in data till en Synapse SQL-pool
+# <a name="data-loading-strategies-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Data inläsnings strategier för dedikerad SQL-pool i Azure Synapse Analytics
 
-Traditionella SMP SQL-pooler använder en process för extrahering, transformering och inläsning (ETL) för att läsa in data. Synapse SQL, i Azure Synapse Analytics, använder arkitektur för distribuerad bearbetning av processer som drar nytta av skalbarheten och flexibiliteten i beräknings-och lagrings resurser.
+Traditionella SMP-dedikerade SQL-pooler använder ETL-process (Extract, Transform och Load) för att läsa in data. Synapse SQL, i Azure Synapse Analytics, använder arkitektur för distribuerad bearbetning av processer som drar nytta av skalbarheten och flexibiliteten i beräknings-och lagrings resurser.
 
 Genom att använda en process för extrahering, inläsning och transformering (ELT) används inbyggda funktioner för distribuerad frågekörning och eliminerar de resurser som krävs för dataomvandling innan inläsningen.
 
-SQL-poolen har stöd för många inläsnings metoder, inklusive populära SQL Server alternativ som [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) och [SqlBulkCopy-API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), och det snabbaste och mest skalbara sättet att läsa in data är genom PolyBase externa tabeller och [kopierings instruktionen](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Även om dedikerade SQL-pooler stöder många inläsnings metoder, inklusive populära SQL Server alternativ som [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) och [SqlBulkCopy-API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), är det snabbaste och mest skalbara sättet att läsa in data via PolyBase-externa tabeller och [kopierings instruktionen](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Med PolyBase och KOPIERINGs instruktionen kan du komma åt externa data som lagras i Azure Blob Storage eller Azure Data Lake Store via T-SQL-språket. Vi rekommenderar att du använder COPY-instruktionen för största möjliga flexibilitet vid inläsning.
 
 
 ## <a name="what-is-elt"></a>Vad är ELT?
 
-Extrahera, läsa in och transformera (ELT) är en process genom vilken data extraheras från ett käll system, läses in i en SQL-pool och omvandlas sedan.
+Extrahera, läsa in och transformera (ELT) är en process genom vilken data extraheras från ett käll system, läses in i en dedikerad SQL-pool och omvandlas sedan.
 
 De grundläggande stegen för att implementera ELT är:
 
@@ -62,7 +62,7 @@ Verktyg och tjänster som du kan använda för att flytta data till Azure Storag
 
 - [Azure ExpressRoute](../../expressroute/expressroute-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) service förbättrar nätverks data flöde, prestanda och förutsägbarhet. ExpressRoute är en tjänst som dirigerar dina data via en dedikerad privat anslutning till Azure. ExpressRoute-anslutningar dirigerar inte data via det offentliga Internet. Anslutningarna ger högre tillförlitlighet, snabbare hastighet, lägre fördröjning och högre säkerhet än vanliga anslutningar via det offentliga Internet.
 - [AzCopy-verktyget](../../storage/common/storage-choose-data-transfer-solution.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) flyttar data till Azure Storage över det offentliga Internet. Detta fungerar om data storlekarna är mindre än 10 TB. Om du vill utföra belastningen regelbundet med AZCopy testar du nätverks hastigheten för att se om den är acceptabel.
-- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) har en gateway som du kan installera på den lokala servern. Sedan kan du skapa en pipeline för att flytta data från din lokala server upp till Azure Storage. Information om hur du använder Data Factory med SQL-poolen finns i [inläsning av data för SQL-pool](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) har en gateway som du kan installera på den lokala servern. Sedan kan du skapa en pipeline för att flytta data från din lokala server upp till Azure Storage. Om du vill använda Data Factory med dedikerade SQL-pooler, se [inläsning av data för dedikerade SQL-pooler](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Förbered data för inläsning
 
@@ -70,9 +70,9 @@ Du kan behöva förbereda och rensa data i ditt lagrings konto innan du läser i
 
 ### <a name="define-the-tables"></a>Definiera tabellerna
 
-Du måste först definiera de tabeller som du läser in i SQL-poolen när du använder COPY-instruktionen.
+Du måste först definiera de tabeller som du läser in till i din dedikerade SQL-pool när du använder COPY-instruktionen.
 
-Om du använder PolyBase måste du definiera externa tabeller i SQL-poolen innan du läser in. PolyBase använder externa tabeller för att definiera och komma åt data i Azure Storage. En extern tabell liknar en Database-vy. Den externa tabellen innehåller tabellens schema och pekar på data som lagras utanför SQL-poolen.
+Om du använder PolyBase måste du definiera externa tabeller i den dedikerade SQL-poolen innan du läser in. PolyBase använder externa tabeller för att definiera och komma åt data i Azure Storage. En extern tabell liknar en Database-vy. Den externa tabellen innehåller tabellens schema och pekar på data som lagras utanför den dedikerade SQL-poolen.
 
 Definiera externa tabeller innebär att du anger data källan, formatet på textfilerna och tabell definitionerna. Referens artiklar för T-SQL-syntax som du behöver:
 
@@ -130,12 +130,12 @@ Om du använder PolyBase måste de externa objekt som definieras justera raderna
 Formatera textfilerna:
 
 - Om dina data kommer från en icke-relationell källa måste du omvandla den till rader och kolumner. Oavsett om data kommer från en Relations källa eller icke-relationell källa måste data omvandlas för att anpassas efter kolumn definitionerna för den tabell som du planerar att läsa in data i.
-- Formatera data i text filen så att de överensstämmer med kolumnerna och data typerna i mål tabellen. Fel justering mellan data typer i externa textfiler och tabellen SQL-pool gör att rader avvisas under inläsningen.
+- Formatera data i text filen så att de överensstämmer med kolumnerna och data typerna i mål tabellen. Fel justering mellan data typer i externa textfiler och den dedikerade SQL-adresspoolen gör att rader avvisas under belastningen.
 - Separera fält i text filen med en avslutning.  Se till att du använder ett Character eller en teckensekvens som inte finns i dina källdata. Använd den avslutnings fil som du angav med [Skapa externt fil format](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="4-load-the-data-using-polybase-or-the-copy-statement"></a>4. Läs in data med PolyBase eller kopiera instruktionen
 
-Vi rekommenderar att du läser in data i en mellanlagringsplats. Med mellanlagrings tabeller kan du hantera fel utan att störa produktions tabellerna. Med en mellanlagringsplats får du också möjlighet att använda SQL-poolens parallella bearbetnings arkitektur för data transformationer innan du infogar data i produktions tabeller.
+Vi rekommenderar att du läser in data i en mellanlagringsplats. Med mellanlagrings tabeller kan du hantera fel utan att störa produktions tabellerna. Med en mellanlagringsplats får du också möjlighet att använda den dedikerade parallell bearbetnings arkitekturen för SQL-pool för data transformationer innan du infogar data i produktions tabeller.
 
 ### <a name="options-for-loading"></a>Alternativ för inläsning
 

@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3d9d41e80f78af7087c80592d927c193e494eab8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b458b8d76111db6b32d188d9784e56d7fae303b9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442402"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456841"
 ---
 # <a name="use-case---product-recommendations"></a>Användnings fall – produkt rekommendationer
 Azure Data Factory är en av många tjänster som används för att implementera Cortana Intelligence Suite av lösnings acceleratorer.  Se [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) sida för information om den här sviten. I det här dokumentet beskriver vi ett vanligt användnings fall som Azure-användare redan har löst och implementerat med hjälp av Azure Data Factory och andra Cortana Intelligence komponent tjänster.
@@ -41,7 +41,7 @@ Slutligen måste åter försäljare mäta effektiviteten för deras tillvägagå
 ## <a name="solution-overview"></a>Lösning: översikt
 Detta exempel på användnings fall har lösts och implementerats av verkliga Azure-användare med hjälp av Azure Data Factory och andra Cortana Intelligence komponent tjänster, inklusive [HDInsight](https://azure.microsoft.com/services/hdinsight/) och [Power BI](https://powerbi.microsoft.com/).
 
-Online-detaljisten använder Azure Blob Store, en lokal SQL Server, Azure SQL Database och en Relations data mart som data lagrings alternativ i hela arbets flödet.  BLOB Store innehåller kund information, kund beteende data och produkt informations data. Produkt informations data innehåller information om produkt anpassning och en produkt katalog som lagras lokalt i en Azure Synapse-analys (tidigare SQL Data Warehouse). 
+Online-detaljisten använder Azure Blob Store, en lokal SQL Server, Azure SQL Database och en Relations data mart som data lagrings alternativ i hela arbets flödet.  BLOB Store innehåller kund information, kund beteende data och produkt informations data. Produkt informations data innehåller information om produkt anpassning och en produkt katalog som lagras lokalt i en Azure Synapse-analys. 
 
 Alla data kombineras och matas in i ett produkt rekommendations system för att tillhandahålla anpassade rekommendationer baserat på kundernas intressen och åtgärder, medan användaren bläddrar i produkterna i katalogen på webbplatsen. Kunderna kan också se produkter som är relaterade till den produkt de tittar på baserat på de övergripande användnings mönster för webbplatser som inte är relaterade till någon användare.
 

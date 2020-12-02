@@ -3,17 +3,17 @@ title: Beskrivning av Azure IoT Central | Microsoft Docs
 description: Azure IoT Central är en IoT-programplattform som fören klar skapandet av IoT-lösningar och hjälper till att minska belastningen och kostnaden för IoT-hanterings åtgärder och utveckling. Den här artikeln innehåller en översikt över funktionerna i Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/10/2019
+ms.date: 11/23/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 41dba796327d7f5857098af6165be996bed226fb
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 55f187781a0f11417b0c918034dcfe3362be4468
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122703"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457662"
 ---
 # <a name="what-is-azure-iot-central"></a>Vad är Azure IoT Central?
 
@@ -137,7 +137,7 @@ IoT Central program är helt värdar för Microsoft, vilket minskar administrati
 Du kan skapa IoT Central program med en kostnads fri utvärderings version på 7 dagar eller använda en standard pris plan.
 
 - Program som du skapar med hjälp av den *kostnads fria* planen är kostnads fria i sju dagar och har stöd för upp till fem enheter. Du kan konvertera dem till att använda en standard pris plan när som helst innan de upphör att gälla.
-- Program som du skapar med *standard* planen debiteras per enhet. du kan välja standard pris avtal för **standard 1** eller **Standard 2** med de två första enheterna som är kostnads fria. Läs mer om [IoT Central prissättning](https://aka.ms/iotcentral-pricing).
+- Program som du skapar med *standard* planen debiteras per enhet. du kan välja antingen standard pris avtal för **0**, **standard 1** eller **Standard 2** med de två första enheterna som är kostnads fria. Läs mer om [IoT Central prissättning](https://aka.ms/iotcentral-pricing).
 
 ## <a name="quotas"></a>Kvoter
 

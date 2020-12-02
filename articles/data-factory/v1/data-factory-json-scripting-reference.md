@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6372976d85c7fdce2a729047d3ae36911412ecf1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7c4985e32371f029285733117721931e09a30e67
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019675"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456952"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Referens för Azure Data Factory-JSON-skript
 > [!NOTE]
@@ -83,7 +83,7 @@ Hög nivå strukturen för en aktivitet i en pipeline-definition (aktivitets ele
 
 I följande tabell beskrivs egenskaperna i aktivitets-JSON-definitionen:
 
-| Tagg | Beskrivning | Krävs |
+| Tagga | Beskrivning | Krävs |
 | --- | --- | --- |
 | name |Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten har kon figurer ATS att göra<br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \\ "</li></ul> |Yes |
 | beskrivning |Text som beskriver vad aktiviteten används för. |No |
@@ -282,7 +282,7 @@ En data uppsättning i Azure Data Factory definieras enligt följande:
 
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-| Egenskap | Beskrivning | Krävs | Standardvärde |
+| Egenskap | Beskrivning | Krävs | Default |
 | --- | --- | --- | --- |
 | name | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](data-factory-naming-rules.md) för namngivnings regler. |Yes |NA |
 | typ | Typ av data uppsättning. Ange en av de typer som stöds av Azure Data Factory (till exempel: AzureBlob, AzureSqlTable). Se avsnittet [data lager](#data-stores) för alla data lager och data uppsättnings typer som stöds av Data Factory. |
@@ -314,7 +314,7 @@ structure:
 
 I följande tabell beskrivs de egenskaper som du kan använda i avsnittet **tillgänglighet** :
 
-| Egenskap | Beskrivning | Krävs | Standardvärde |
+| Egenskap | Beskrivning | Krävs | Default |
 | --- | --- | --- | --- |
 | frequency |Anger tidsenheten för data uppsättnings sektorns produktion.<br/><br/><b>Frekvens som stöds</b>: minut, timme, dag, vecka, månad |Yes |NA |
 | interval |Anger en multiplikator för frekvens<br/><br/>"Frekvens x-intervall" anger hur ofta sektorn produceras.<br/><br/>Om du vill att data uppsättningen ska segmenteras per timme anger du <b>frekvens</b> till <b>timme</b>och <b>intervall</b> till <b>1</b>.<br/><br/><b>Obs!</b>om du anger frekvensen som minut rekommenderar vi att du anger intervallet till högst 15 |Yes |NA |
@@ -334,7 +334,7 @@ Följande tillgänglighets avsnitt anger att data uppsättningen för utdata ant
 
 I **princip** avsnittet i data uppsättnings definitionen definieras villkoren eller villkoret som data uppsättnings sektorerna måste uppfylla.
 
-| Principnamn | Beskrivning | Tillämpas på | Obligatorisk | Standardvärde |
+| Principnamn | Beskrivning | Tillämpas på | Obligatorisk | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Kontrollerar att data i en Azure- **BLOB** uppfyller minimi kraven för storlek (i megabyte). |Azure-blobb |No |NA |
 | minimumRows |Verifierar att data i **Azure SQL Database** eller en **Azure-tabell** innehåller det lägsta antalet rader. |<ul><li>Azure SQL Database</li><li>Azure-tabell</li></ul> |No |NA |
@@ -377,7 +377,7 @@ Klicka på länken för butiken som du är intresse rad av för att se JSON-sche
 | &nbsp; |Azure Data Lake Store |
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
-| &nbsp; |[Azure Synapse Analytics (tidigare SQL Data Warehouse)](#azure-synapse-analytics) |
+| &nbsp; |[Azure Synapse Analytics](#azure-synapse-analytics) |
 | &nbsp; |[Azure Cognitive Search](#azure-cognitive-search) |
 | &nbsp; |[Azure Table Storage](#azure-table-storage) |
 | **Databaser** |[Amazon Redshift](#amazon-redshift) |
@@ -1169,7 +1169,7 @@ Om du kopierar data från Azure Synapse Analytics anger du **käll typen** för 
 
 | Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |No |
+| sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från käll tabellen. |Namnet på den lagrade proceduren. |No |
 | storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. |No |
 
@@ -1224,7 +1224,7 @@ Om du kopierar data till Azure Synapse Analytics anger du typ av **mottagare** f
 | Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Ange en fråga för kopierings aktivitet som ska köras så att data i en angiven sektor rensas. |Ett frågeuttryck. |No |
-| allowPolyBase |Anger om PolyBase ska användas (när det är tillämpligt) i stället för BULKINSERT-mekanismen. <br/><br/> **Att använda PolyBase är det rekommenderade sättet att läsa in data i Synapse Analytics.** |Sant <br/>False (standard) |No |
+| allowPolyBase |Anger om PolyBase ska användas (när det är tillämpligt) i stället för BULKINSERT-mekanismen. <br/><br/> **Att använda PolyBase är det rekommenderade sättet att läsa in data i Azure Synapse Analytics.** |Sant <br/>False (standard) |No |
 | polyBaseSettings |En grupp egenskaper som kan anges när **allowPolybase** -egenskapen har angetts till **True**. |&nbsp; |No |
 | rejectValue |Anger antalet rader eller procent av rader som kan avvisas innan frågan Miss lyckas. <br/><br/>Läs mer om polybases avvisnings alternativ i avsnittet **arguments** i avsnittet [skapa en extern tabell (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql) . |0 (standard), 1, 2,... |No |
 | rejectType |Anger om alternativet rejectValue anges som ett litteralt värde eller i procent. |Värde (standard), procent |No |
@@ -1652,7 +1652,7 @@ Om du kopierar data från Amazon RedShift anger du **käll typen** för kopierin
 
 | Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
 
 #### <a name="example"></a>Exempel
 
@@ -1771,7 +1771,7 @@ Om du kopierar data från IBM DB2 anger du **käll typen** för kopierings aktiv
 
 | Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `"query": "select * from "MySchema"."MyTable""`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `"query": "select * from "MySchema"."MyTable""`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
 
 #### <a name="example"></a>Exempel
 ```json
@@ -1889,7 +1889,7 @@ Om du kopierar data från en MySQL-databas anger du **käll typen** för kopieri
 
 | Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
 
 
 #### <a name="example"></a>Exempel
@@ -2541,7 +2541,7 @@ Om du kopierar data från en SQL Server databas anger du **käll typen** för ko
 
 | Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. Kan referera till flera tabeller från databasen som refereras av data uppsättningen. Om det inte anges används SQL-instruktionen som körs: Välj från tabellen. |No |
+| sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. Kan referera till flera tabeller från databasen som refereras av data uppsättningen. Om det inte anges används SQL-instruktionen som körs: Välj från tabellen. |No |
 | sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från käll tabellen. |Namnet på den lagrade proceduren. |No |
 | storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. |No |
 
@@ -2738,7 +2738,7 @@ Om du kopierar data från en Sybase-databas anger du **käll typen** för kopier
 
 | Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
 
 #### <a name="example"></a>Exempel
 
@@ -2848,7 +2848,7 @@ Om du kopierar data från en Teradata-databas anger du **käll typen** för kopi
 
 | Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Yes |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. |Yes |
 
 #### <a name="example"></a>Exempel
 
@@ -3097,7 +3097,7 @@ Om du kopierar data från MongoDB anger du **käll typen** för kopierings aktiv
 
 | Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-92-frågesträng. Till exempel: `select * from MyTable`. |Nej (om **samlings** - **dataset** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-92-frågesträng. Exempel: `select * from MyTable`. |Nej (om **samlings** - **dataset** har angetts) |
 
 #### <a name="example"></a>Exempel
 
@@ -3548,7 +3548,7 @@ Mer information finns i [artikeln om fil Systems koppling](data-factory-onprem-f
 ### <a name="linked-service"></a>Länkad tjänst
 För att definiera en länkad FTP-tjänst anger du **typen** av länkad tjänst till **ftpserver** och anger följande egenskaper i avsnittet **typeProperties** :
 
-| Egenskap | Beskrivning | Krävs | Standardvärde |
+| Egenskap | Beskrivning | Krävs | Default |
 | --- | --- | --- | --- |
 | värd |Namn eller IP-adress för FTP-servern |Yes |&nbsp; |
 | authenticationType |Ange autentiseringstyp |Yes |Grundläggande, anonym |
@@ -4539,7 +4539,7 @@ Om du kopierar data från ett ODBC-datalager anger du **käll typen** för kopie
 
 | Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Yes |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. |Yes |
 
 #### <a name="example"></a>Exempel
 

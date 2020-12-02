@@ -8,12 +8,12 @@ ms.date: 10/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: d8c7965a1d77d443b538392a4c190a8f578d8e18
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 496b2ea7272be96774d4bd0900fc35c6de8cf9eb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183217"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457774"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -145,7 +145,7 @@ Tabellmodeller både i minnet och DirectQuery-lägena stöds. Tabellmodeller i I
 
 Partitionering möjliggör stegvis inläsning, ökar parallellisering och minskar minnesanvändningen. Andra avancerade funktioner för datamodeller såsom beräknade tabeller samt alla DAX-funktioner stöds. InMemory-modeller måste uppdateras (bearbetas) för att uppdatera cachelagrade data från datakällor. Med stöd för Azure-tjänstens huvud namn kan oövervakade uppdaterings åtgärder med PowerShell, TOM, TMSL och REST erbjuda flexibilitet i att se till att dina modell data alltid är uppdaterade. 
 
-DirectQuery-läget* använder serverdelens relationsdatabas för lagring och frågekörning. Mycket stora data mängder i enkla SQL Server, SQL Server informations lager, Azure SQL Database, Azure Synapse Analytics (tidigare SQL Data Warehouse), Oracle-och Teradata-datakällor stöds. Serverdelens datauppsättningar kan överskrida tillgängligt resursminne för servern. Det behövs inga avancerade uppdateringsscenarier för datamodeller. Det finns även vissa begränsningar, till exempel begränsade typer av data källor, begränsningar för DAX-formler och vissa avancerade data modellerings funktioner stöds inte. Se [Direkt frågeläge](/analysis-services/tabular-models/directquery-mode-ssas-tabular) innan du bestämmer det bästa läget för dig.
+DirectQuery-läget* använder serverdelens relationsdatabas för lagring och frågekörning. Mycket stora data mängder i enkla SQL Server, SQL Server informations lager, Azure SQL Database, Azure Synapse Analytics, Oracle och Teradata data källor stöds. Serverdelens datauppsättningar kan överskrida tillgängligt resursminne för servern. Det behövs inga avancerade uppdateringsscenarier för datamodeller. Det finns även vissa begränsningar, till exempel begränsade typer av data källor, begränsningar för DAX-formler och vissa avancerade data modellerings funktioner stöds inte. Se [Direkt frågeläge](/analysis-services/tabular-models/directquery-mode-ssas-tabular) innan du bestämmer det bästa läget för dig.
 
 \* Funktionstillgänglighet beror på nivån.
 

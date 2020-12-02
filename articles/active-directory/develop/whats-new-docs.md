@@ -5,22 +5,36 @@ description: Ny och uppdaterad dokumentation för Microsoft Identity Platform.
 services: active-directory
 author: mmacy
 manager: CelesteDG
-ms.date: 11/03/2020
+ms.date: 12/01/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: d5865810dafef9ce2bb525a8f1b6cdbdb1a86566
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 108cd5f74b7b560534baf8f55f7d07ebb6557e7f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322567"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457155"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Microsoft Identity Platform-dokument: Nyheter
 
 Välkommen till nyheter i Microsoft Identity Platform-dokumentationen. Den här artikeln innehåller nya dokument som har lagts till och de som har haft betydande uppdateringar under de senaste tre månaderna.
+
+## <a name="november-2020"></a>November 2020
+
+### <a name="new-articles"></a>Nya artiklar
+
+- [Så här använder du utvärderings funktioner för kontinuerlig åtkomst i dina program](app-resilience-continuous-access-evaluation.md)
+
+### <a name="updated-articles"></a>Uppdaterade artiklar
+
+- [Åtkomsttoken för Microsoft Identity Platform](access-tokens.md)
+- [Konfigurations alternativ för program (MSAL)](msal-client-application-configuration.md)
+- [Gör så här: Ange valfria anspråk för din app](active-directory-optional-claims.md)
+- [Publicera din app i Azure AD App-galleriet](v2-howto-app-gallery-listing.md)
+- [Gör så här: Lägg till app-roller i programmet och ta emot dem i token](howto-add-app-roles-in-azure-ad-apps.md)
 
 ## <a name="october-2020"></a>Oktober 2020
 
@@ -67,23 +81,3 @@ Välkommen till nyheter i Microsoft Identity Platform-dokumentationen. Den här 
 - [Snabb start: Konfigurera ett klient program för att få åtkomst till ett webb-API](quickstart-configure-app-access-web-apis.md)
 - [Snabb start: Konfigurera ett program för att exponera ett webb-API](quickstart-configure-app-expose-web-apis.md)
 - [Snabb start: registrera ett program med Microsoft Identity Platform](quickstart-register-app.md)
-
-## <a name="august-2020"></a>Augusti 2020
-
-### <a name="new-articles"></a>Nya artiklar
-
-- [Migrera Android-program som använder en Broker från ADAL.NET till MSAL.NET](msal-net-migration-android-broker.md)
-- [Hantera undantag och fel i MSAL för Android](msal-android-handling-exceptions.md)
-
-### <a name="updated-articles"></a>Uppdaterade artiklar
-
-- [Migrera iOS-program som använder Microsoft Authenticator från ADAL.NET till MSAL.NET](msal-net-migration-ios-broker.md)
-- [Använda Microsoft Authenticator eller Intune-företagsportal på Xamarin-program](msal-net-use-brokers-with-xamarin-apps.md)
-- [Konfigurations krav och fel söknings tips för Xamarin Android med MSAL.NET](msal-net-xamarin-android-considerations.md)
-- [Konfigurera en mobilapp som anropar webb-API: er](scenario-mobile-app-configuration.md)
-- [Gör så här: anpassa anspråk som skickas i token för en angiven app i en klient (för hands version)](active-directory-claims-mapping.md)
-- [Autentiseringsuppgifter för certifikat för Microsoft Identity Platform Application Authentication](active-directory-certificate-credentials.md)
-- [Begränsningar och begränsningar för omdirigerings-URI (svars-URL)](reply-url.md)
-- [Snabb start: Konfigurera ett program för att exponera ett webb-API](quickstart-configure-app-expose-web-apis.md)
-- [Videor från Microsofts identitetsplattform](identity-videos.md)
-- [Snabb start: anropa ett ASP.NET-webb-API som skyddas av Microsoft Identity Platform](quickstart-v2-dotnet-native-aspnet.md)

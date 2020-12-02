@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 55c884375372b3fea2ff3153aa936893cf668903
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e73381ef0e646f697f5195cb3df7f4c2733cccaf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359993"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456916"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server lagrad procedur aktivitet
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -26,8 +26,8 @@ ms.locfileid: "92359993"
 > * [MapReduce-aktivitet](data-factory-map-reduce.md)
 > * [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
 > * [Spark-aktivitet](data-factory-spark.md)
-> * [Azure Machine Learning Studio (klassisk) batch execution Activity](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio (klassisk) uppdatera resurs aktivitet](data-factory-azure-ml-update-resource-activity.md)
+> * [Batch-körningsaktivitet i Azure Machine Learning Studio (klassisk)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Uppdateringsresursaktivitet i Azure Machine Learning Studio (klassisk)](data-factory-azure-ml-update-resource-activity.md)
 > * [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL-aktivitet](data-factory-usql-activity.md)
 > * [Anpassad .NET-aktivitet](data-factory-use-custom-activities.md)
@@ -41,7 +41,7 @@ Du använder data omvandlings aktiviteter i en Data Factory [pipeline](data-fact
 Du kan använda den lagrade procedur aktiviteten för att anropa en lagrad procedur i något av följande data lager i företaget eller på en virtuell Azure-dator (VM):
 
 - Azure SQL Database
-- Azure Synapse Analytics (tidigare SQL Data Warehouse)
+- Azure Synapse Analytics
 - SQL Server databas. Om du använder SQL Server installerar du Data Management Gateway på samma dator som är värd för databasen eller på en annan dator som har åtkomst till databasen. Data Management Gateway är en komponent som ansluter data källor lokalt/på virtuella Azure-datorer med moln tjänster på ett säkert och hanterat sätt. Mer information finns i [Data Management Gateway](data-factory-data-management-gateway.md) artikel.
 
 > [!IMPORTANT]
@@ -88,14 +88,14 @@ I följande genom gång används den lagrade procedur aktiviteten i en pipeline 
 
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Klicka på **ny** på den vänstra menyn, klicka på **information + analys**och klicka på **Data Factory**.
+2. Klicka på **ny** på den vänstra menyn, klicka på **information + analys** och klicka på **Data Factory**.
 
     ![Ny data fabrik 1](media/data-factory-stored-proc-activity/new-data-factory.png)
 3. På bladet **ny data fabrik** anger du **SProcDF** som namn. Azure Data Factory namn är **globalt unika**. Du måste ge prefixet namnet på data fabriken med ditt namn för att kunna skapa fabriken.
 
    ![Ny data fabrik 2](media/data-factory-stored-proc-activity/new-data-factory-blade.png)
 4. Välj din **Azure-prenumeration**.
-5. För **resurs grupp**utför du något av följande steg:
+5. För **resurs grupp** utför du något av följande steg:
    1. Klicka på **Skapa nytt** och ange ett namn för resurs gruppen.
    2. Klicka på **Använd befintlig** och välj en befintlig resurs grupp.
 6. Välj **plats** för datafabriken.
@@ -127,7 +127,7 @@ När du har skapat data fabriken skapar du en länkad Azure SQL-tjänst som län
 ### <a name="create-an-output-dataset"></a>Skapa en datauppsättning för utdata
 Du måste ange en data uppsättning för utdata för en lagrad procedur aktivitet även om den lagrade proceduren inte skapar några data. Det beror på att det är den utgående data uppsättningen som styr aktivitetens schema (hur ofta aktiviteten körs per timme, dagligen osv.). Data uppsättningen för utdata måste använda en **länkad tjänst** som refererar till en Azure SQL Database eller Azure Synapse Analytics eller en SQL Server databas där du vill att den lagrade proceduren ska köras. Data uppsättningen för utdata kan fungera som ett sätt att skicka resultatet av den lagrade proceduren för efterföljande bearbetning av en annan aktivitet ([länkning av aktiviteter](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) i pipelinen. Data Factory skriver dock inte automatiskt utdata från en lagrad procedur till den här data uppsättningen. Det är den lagrade proceduren som skriver till en SQL-tabell som den resulterande data uppsättningen pekar på. I vissa fall kan data uppsättningen för utdata vara en **dummy-datauppsättning** (en data uppsättning som pekar på en tabell som inte faktiskt innehåller utdata från den lagrade proceduren). Denna dummy-datauppsättning används endast för att ange schemat för körning av den lagrade procedur aktiviteten.
 
-1. Klicka på **... Mer information** om verktygsfältet får du genom att klicka på **ny data uppsättning**och sedan på **Azure SQL**. **Ny data mängd** i kommando fältet och välj **Azure SQL**.
+1. Klicka på **... Mer information** om verktygsfältet får du genom att klicka på **ny data uppsättning** och sedan på **Azure SQL**. **Ny data mängd** i kommando fältet och välj **Azure SQL**.
 
     ![trädvy med länkad tjänst 2](media/data-factory-stored-proc-activity/new-dataset.png)
 2. Kopiera/klistra in följande JSON-skript i JSON-redigeraren.
@@ -201,7 +201,7 @@ Observera följande egenskaper:
 1. Klicka på **X** för att stänga bladen i Data Factory-redigeraren och för att gå tillbaka till Data Factory-bladet och klicka på **Diagram**.
 
     ![diagram panel 1](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
-2. I **diagramvyn**visas en översikt över pipelines och data uppsättningar som används i den här självstudien.
+2. I **diagramvyn** visas en översikt över pipelines och data uppsättningar som används i den här självstudien.
 
     ![diagram panel 2](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
 3. I diagramvyn dubbelklickar du på data uppsättningen `sprocsampleout` . Du ser sektorerna i klart läge. Det bör finnas fem segment eftersom en sektor skapas för varje timme mellan start tiden och slut tiden från JSON.
@@ -305,13 +305,13 @@ Följande tabell beskriver de här JSON-egenskaperna:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| name | Namn på aktiviteten |Ja |
-| description |Text som beskriver vad aktiviteten används för |Nej |
-| typ | Måste vara inställt på: **SqlServerStoredProcedure** | Ja |
-| tillför | Valfritt. Om du anger en indata-datauppsättning måste den vara tillgänglig (i klar status) för att den lagrade procedur aktiviteten ska kunna köras. Det går inte att konsumera indata-dataset i den lagrade proceduren som en parameter. Den används endast för att kontrol lera beroendet innan den lagrade procedur aktiviteten startas. |Nej |
-| utdata | Du måste ange en data uppsättning för utdata för en lagrad procedur aktivitet. Data uppsättningen för utdata anger **schemat** för aktiviteten för lagrad procedur (varje timme, varje vecka, varje månad osv.). <br/><br/>Data uppsättningen för utdata måste använda en **länkad tjänst** som refererar till en Azure SQL Database eller Azure Synapse Analytics eller en SQL Server databas där du vill att den lagrade proceduren ska köras. <br/><br/>Data uppsättningen för utdata kan fungera som ett sätt att skicka resultatet av den lagrade proceduren för efterföljande bearbetning av en annan aktivitet ([länkning av aktiviteter](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) i pipelinen. Data Factory skriver dock inte automatiskt utdata från en lagrad procedur till den här data uppsättningen. Det är den lagrade proceduren som skriver till en SQL-tabell som den resulterande data uppsättningen pekar på. <br/><br/>I vissa fall kan data uppsättningen för utdata vara en **dummy-datauppsättning**, som endast används för att ange schemat för körning av den lagrade procedur aktiviteten. |Ja |
-| storedProcedureName |Ange namnet på den lagrade proceduren i Azure SQL Database, Azure Synapse Analytics eller SQL Server som representeras av den länkade tjänsten som används i utdatatabellen. |Ja |
-| storedProcedureParameters |Ange värden för parametrar för lagrad procedur. Om du behöver skicka null för en parameter använder du syntaxen: "param1": null (alla gemener). I följande exempel hittar du information om hur du använder den här egenskapen. |Nej |
+| name | Namn på aktiviteten |Yes |
+| beskrivning |Text som beskriver vad aktiviteten används för |No |
+| typ | Måste vara inställt på: **SqlServerStoredProcedure** | Yes |
+| tillför | Valfritt. Om du anger en indata-datauppsättning måste den vara tillgänglig (i klar status) för att den lagrade procedur aktiviteten ska kunna köras. Det går inte att konsumera indata-dataset i den lagrade proceduren som en parameter. Den används endast för att kontrol lera beroendet innan den lagrade procedur aktiviteten startas. |No |
+| utdata | Du måste ange en data uppsättning för utdata för en lagrad procedur aktivitet. Data uppsättningen för utdata anger **schemat** för aktiviteten för lagrad procedur (varje timme, varje vecka, varje månad osv.). <br/><br/>Data uppsättningen för utdata måste använda en **länkad tjänst** som refererar till en Azure SQL Database eller Azure Synapse Analytics eller en SQL Server databas där du vill att den lagrade proceduren ska köras. <br/><br/>Data uppsättningen för utdata kan fungera som ett sätt att skicka resultatet av den lagrade proceduren för efterföljande bearbetning av en annan aktivitet ([länkning av aktiviteter](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) i pipelinen. Data Factory skriver dock inte automatiskt utdata från en lagrad procedur till den här data uppsättningen. Det är den lagrade proceduren som skriver till en SQL-tabell som den resulterande data uppsättningen pekar på. <br/><br/>I vissa fall kan data uppsättningen för utdata vara en **dummy-datauppsättning**, som endast används för att ange schemat för körning av den lagrade procedur aktiviteten. |Yes |
+| storedProcedureName |Ange namnet på den lagrade proceduren i Azure SQL Database, Azure Synapse Analytics eller SQL Server som representeras av den länkade tjänsten som används i utdatatabellen. |Yes |
+| storedProcedureParameters |Ange värden för parametrar för lagrad procedur. Om du behöver skicka null för en parameter använder du syntaxen: "param1": null (alla gemener). I följande exempel hittar du information om hur du använder den här egenskapen. |No |
 
 ## <a name="passing-a-static-value"></a>Överför ett statiskt värde
 Nu ska vi överväga att lägga till en annan kolumn med namnet "scenario" i tabellen som innehåller ett statiskt värde med namnet "Document Sample".

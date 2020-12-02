@@ -9,16 +9,16 @@ ms.date: 10/16/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 27881b048a738d4de2acb57dcc4c2dad1f4d5b24
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 62610e1b86671021e66891ae232bacbd4b3e40ed
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435373"
+ms.locfileid: "96458824"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Hantera bibliotek för Apache Spark i Azure Synapse Analytics
 
-Bibliotek ger återanvändbar kod som du kanske vill inkludera i dina program eller projekt. Om du vill göra tredje part eller lokalt skapad kod tillgänglig för dina program kan du installera ett bibliotek på någon av dina Server lös Apache Spark pooler (för hands version). När ett bibliotek har installerats för en spark-pool är det tillgängligt för alla sessioner som använder samma pool. 
+Bibliotek ger återanvändbar kod som du kanske vill inkludera i dina program eller projekt. Om du vill göra tredje part eller lokalt skapad kod tillgänglig för dina program, kan du installera ett bibliotek på någon av dina Server lös Apache Spark pooler. När ett bibliotek har installerats för en spark-pool är det tillgängligt för alla sessioner som använder samma pool. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 - Om du vill installera och uppdatera bibliotek måste du ha behörighet för **Storage BLOB-data deltagare** eller **lagrings-BLOB-data** på det primära Gen2 lagrings konto som är länkat till Azure Synapse Analytics-arbetsytan.
@@ -26,11 +26,11 @@ Bibliotek ger återanvändbar kod som du kanske vill inkludera i dina program el
 ## <a name="default-installation"></a>Standard installation
 Apache Spark i Azure Synapse Analytics har en fullständig Anacondas-installation plus ytterligare bibliotek. Du hittar den fullständiga biblioteks listan på [Apache Spark versions stöd](apache-spark-version-support.md). 
 
-När en spark-instans startar, tas dessa bibliotek automatiskt med. Ytterligare python och anpassade, skapade paket kan läggas till på nivån Spark pool (för hands version).
+När en spark-instans startar, tas dessa bibliotek automatiskt med. Ytterligare python och anpassade, skapade paket kan läggas till på nivån för Spark-poolen.
 
 
 ## <a name="manage-python-packages"></a>Hantera python-paket
-När du har identifierat de bibliotek som du vill använda för Spark-programmet kan du installera dem i en spark-pool (för hands version). 
+När du har identifierat de bibliotek som du vill använda för Spark-programmet kan du installera dem i en spark-pool. 
 
  En *requirements.txt* -fil (utdata från `pip freeze` kommandot) kan användas för att uppgradera den virtuella miljön. Paketen som anges i den här filen för installation eller uppgradering laddas ned från PyPi vid tidpunkten för poolen startades. Den här krav filen används varje gång en spark-instans skapas från den Spark-poolen.
 
@@ -54,7 +54,7 @@ alabaster==0.7.10
 När du utvecklar Spark-programmet kanske du upptäcker att du behöver uppdatera befintliga eller installera nya bibliotek. Bibliotek kan uppdateras under eller efter att poolen har skapats.
 
 #### <a name="install-packages-during-pool-creation"></a>Installera paket när du skapar en pool
-Så här installerar du bibliotek till en spark-pool (för hands version) när du skapar poolen:
+Så här installerar du bibliotek till en spark-pool när du skapar en pool:
    
 1. Navigera till din Azure Synapse Analytics-arbetsyta från Azure Portal.
    
@@ -66,7 +66,7 @@ Så här installerar du bibliotek till en spark-pool (för hands version) när d
  
 
 #### <a name="install-packages-from-the-synapse-workspace"></a>Installera paket från arbets ytan Synapse
-Uppdatera eller lägga till ytterligare bibliotek i en spark-pool (för hands version) från Azure Synapse Analytics-portalen:
+Uppdatera eller lägga till ytterligare bibliotek i en spark-pool från Azure Synapse Analytics-portalen:
 
 1.  Navigera till din Azure Synapse Analytics-arbetsyta från Azure Portal.
    
@@ -79,7 +79,7 @@ Uppdatera eller lägga till ytterligare bibliotek i en spark-pool (för hands ve
     ![Lägga till Python-bibliotek i Synapse](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png)
    
 #### <a name="install-packages-from-the-azure-portal"></a>Installera paket från Azure Portal
-Så här installerar du ett bibliotek på en spark-pool (för hands version) direkt från Azure Portal:
+Så här installerar du ett bibliotek på en spark-pool direkt från Azure Portal:
    
  1. Navigera till din Azure Synapse Analytics-arbetsyta från Azure Portal.
    

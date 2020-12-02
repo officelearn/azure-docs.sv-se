@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: e6708874fee3e15349b4389f1ecafa3d48a628dd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2fbc74304cdb71d9cb3e1ea476af8c92eb99b7e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95917193"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458833"
 ---
 # <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Självstudie: köra experiment med Azures automatiserade ML och Apache Spark
 
@@ -72,7 +72,7 @@ df = spark.read.parquet(wasbs_path)
 
 ```
 
-3. Beroende på storleken på din spark-pool (för hands version) kan rå data vara för stora eller ta för lång tid att arbeta med. Du kan filtrera data nedåt till något mindre genom att använda- ```start_date``` och- ```end_date``` filtren. Detta använder ett filter som returnerar en månad med data. När vi har filtrerat dataframe kommer vi också att köra ```describe()``` funktionen på den nya dataframe för att se sammanfattnings statistik för varje fält. 
+3. Beroende på storleken på din spark-pool kan rå data vara för stora eller ta för lång tid att arbeta med. Du kan filtrera data nedåt till något mindre genom att använda- ```start_date``` och- ```end_date``` filtren. Detta använder ett filter som returnerar en månad med data. När vi har filtrerat dataframe kommer vi också att köra ```describe()``` funktionen på den nya dataframe för att se sammanfattnings statistik för varje fält. 
 
    Utifrån sammanfattnings statistik kan vi se att det finns några felaktigheter och avvikande extrem värden i data. Statistiken visar till exempel att det minsta rese avståndet är mindre än 0. Vi kommer att behöva filtrera bort dessa oregelbundna data punkter.
    

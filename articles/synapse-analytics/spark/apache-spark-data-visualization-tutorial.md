@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
-ms.openlocfilehash: 820dd8b607f5ec2fdc44d25063e0a941f76237ad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8735514b639cb0322a83ffb19d661027327c0f73
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920167"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458773"
 ---
 # <a name="analyze-data-with-apache-spark"></a>Analysera data med Apache Spark
 
@@ -99,7 +99,7 @@ Förutom de inbyggda diagram alternativen för antecknings böcker kan du också
 
 > [!Note]
 > 
-> Som standard innehåller alla Azure Synapse Analytics Apache Spark-poolen en uppsättning ofta använda och standard bibliotek. Du kan visa en fullständig lista över bibliotek i [Azure Synapse runtime](../spark/apache-spark-version-support.md). handlingar. För att göra tredje part eller lokalt skapad kod tillgänglig för dina program kan du dessutom [Installera ett bibliotek](../spark/apache-spark-azure-portal-add-libraries.md) på någon av Spark-poolerna (för hands version).
+> Som standard innehåller alla Azure Synapse Analytics Apache Spark-poolen en uppsättning ofta använda och standard bibliotek. Du kan visa en fullständig lista över bibliotek i [Azure Synapse runtime](../spark/apache-spark-version-support.md). handlingar. För att göra tredje part eller lokalt skapad kod tillgänglig för dina program kan du dessutom [Installera ett bibliotek](../spark/apache-spark-azure-portal-add-libraries.md) på någon av Spark-poolerna.
 >
 
 1. För att göra utvecklingen enklare och billigare kommer vi att se exempel data uppsättningen. Vi kommer att använda den inbyggda Apache Spark samplings funktionen. Dessutom kräver både Seaborn och matplotlib en Pandas-dataframe eller numpy-matris. För att få en Pandas-dataframe kommer vi att använda ```toPandas()``` kommandot för att konvertera vårt dataframe.

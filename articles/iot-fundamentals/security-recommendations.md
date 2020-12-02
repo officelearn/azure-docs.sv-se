@@ -12,12 +12,12 @@ ms.custom:
 - security-recommendations
 - amqp
 - mqtt
-ms.openlocfilehash: 5a7fc2a5a5a6be7695fa816f28e3cdf61c5839f2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a1de3a71253b1a82b4423bff279fbf3f7e378da4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208284"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457608"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Säkerhets rekommendationer för Azure Sakernas Internet-distribution (IoT)
 
@@ -40,7 +40,7 @@ Några av rekommendationerna som ingår i den här artikeln kan övervakas autom
 
 | Rekommendation | Kommentarer | Stöds av ASC |
 |-|----|--|
-| Definiera åtkomst kontroll för hubben | [Förstå och definiera vilken typ av åtkomst](iot-security-deployment.md#securing-the-cloud) varje komponent kommer att ha i din IoT Hub-lösning, baserat på funktionerna. De tillåtna behörigheterna är *Registry Read*, *RegistryReadWrite*, *ServiceConnect*och *DeviceConnect*. Standard [principer för delad åtkomst i IoT Hub](../iot-hub/iot-hub-devguide-security.md#access-control-and-permissions) kan också hjälpa dig att definiera behörigheter för varje komponent baserat på dess roll. | - |
+| Definiera åtkomst kontroll för hubben | [Förstå och definiera vilken typ av åtkomst](iot-security-deployment.md#securing-the-cloud) varje komponent kommer att ha i din IoT Hub-lösning, baserat på funktionerna. De tillåtna behörigheterna är *Registry Read*, *RegistryReadWrite*, *ServiceConnect* och *DeviceConnect*. Standard [principer för delad åtkomst i IoT Hub](../iot-hub/iot-hub-devguide-security.md#access-control-and-permissions) kan också hjälpa dig att definiera behörigheter för varje komponent baserat på dess roll. | - |
 | Definiera åtkomst kontroll för backend-tjänster | Data som matas in av IoT Hub-lösningen kan användas av andra Azure-tjänster som [Cosmos DB](../cosmos-db/index.yml), [Stream Analytics](../stream-analytics/index.yml), [App Service](../app-service/index.yml), [Logic Apps](../logic-apps/index.yml)och [blob-lagring](../storage/blobs/storage-blobs-introduction.md). Se till att förstå och bevilja lämpliga åtkomst behörigheter som dokumenterade för de här tjänsterna. | - |
 
 ## <a name="data-protection"></a>Dataskydd
@@ -63,8 +63,8 @@ Några av rekommendationerna som ingår i den här artikeln kan övervakas autom
 | Rekommendation | Kommentarer | Stöds av ASC |
 |-|----|--|
 | Övervaka obehörig åtkomst till dina enheter |  Använd enhetens operativ Systems loggnings funktion för att övervaka säkerhets överträdelser eller fysisk manipulering av enheten eller dess portar. | - |
-| Övervaka din IoT-lösning från molnet | Övervaka den övergripande hälsan för din IoT Hub lösning med hjälp av [måtten i Azure Monitor](../iot-hub/iot-hub-metrics.md). | - |
-| Konfigurera diagnostik | Titta närmare på dina åtgärder genom att logga händelser i din lösning och skicka sedan diagnostikloggar till Azure Monitor för att få insyn i prestandan. Läs [övervaka och diagnostisera problem i IoT Hub](../iot-hub/iot-hub-monitor-resource-health.md) för mer information. | - |
+| Övervaka din IoT-lösning från molnet | Övervaka den övergripande hälsan för din IoT Hub lösning med hjälp av [måtten i Azure Monitor](../iot-hub/monitor-iot-hub.md). | - |
+| Konfigurera diagnostik | Titta närmare på dina åtgärder genom att logga händelser i din lösning och skicka sedan diagnostikloggar till Azure Monitor för att få insyn i prestandan. Läs [övervaka och diagnostisera problem i IoT Hub](../iot-hub/monitor-iot-hub.md) för mer information. | - |
 
 ## <a name="next-steps"></a>Nästa steg
 

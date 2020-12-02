@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: utforska och analysera data sjöar med Server lös Synapse SQL'
-description: Den här självstudien visar hur du enkelt kan utföra analys av exempel data som kombinerar olika Azure Open-datauppsättningar med hjälp av SQL-poolen utan server (för hands version) och visualisera resultaten i Synapse Studio för Azure Synapse Analytics.
+title: 'Självstudie: Använd Server lös SQL-pool för att analysera Azure Open-datauppsättningar i Azure Synapse Studio'
+description: Den här självstudien visar hur du enkelt kan utföra analys av exempel data som kombinerar olika Azure Open-datauppsättningar med SQL-pool utan server och visualisera resultatet i Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: af6fc75b5de22fc77313932ca17ce695e889dad3
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7b2d4953b3a42c5d66fca4a67b4a6d0f13700a35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95238027"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459121"
 ---
-# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool-preview"></a>Självstudie: utforska och analysera data sjöar med SQL-pool utan server (för hands version)
+# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>Självstudie: utforska och analysera data sjöar med en server lös SQL-pool
 
 I den här självstudien får du lära dig hur du utför analys av exempel data. Du kan kombinera olika Azure Open-datauppsättningar med hjälp av SQL-poolen utan server. Sedan kan du visualisera resultaten i Synapse Studio för Azure Synapse Analytics.
 

@@ -1,6 +1,6 @@
 ---
-title: Metod tips för Server lös SQL-pool (för hands version)
-description: Rekommendationer och metod tips för att arbeta med en server lös SQL-pool (för hands version).
+title: Metod tips för Server lös SQL-pool
+description: Rekommendationer och metod tips för att arbeta med en server lös SQL-pool.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ddf9d689316d3c95c322aa3a967af53621a2e00f
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: b8b93471b6d7f2555cfd71e524718ed0ea1ee191
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638877"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457905"
 ---
-# <a name="best-practices-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Metod tips för Server lös SQL-pool (för hands version) i Azure Synapse Analytics
+# <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Metod tips för Server lös SQL-pool i Azure Synapse Analytics
 
-I den här artikeln hittar du en samling bästa metoder för att använda SQL-poolen utan server (för hands version). SQL-poolen utan server är en resurs i Azure Synapse Analytics.
+I den här artikeln hittar du en samling bästa metoder för att använda SQL-poolen utan server. SQL-poolen utan server är en resurs i Azure Synapse Analytics.
 
 ## <a name="general-considerations"></a>Generella saker att tänka på
 
@@ -129,7 +129,7 @@ Du kan använda en Prestandaoptimerad parser när du frågar CSV-filer. Mer info
 
 ## <a name="manually-create-statistics-for-csv-files"></a>Skapa statistik för CSV-filer manuellt
 
-SQL-poolen utan server använder statistik för att generera optimala fråge körnings planer. Statistik skapas automatiskt för kolumner i Parquet-filer vid behov. Nu skapas statistik inte automatiskt för kolumner i CSV-filer och du bör skapa statistik manuellt för kolumner som du använder i frågor, särskilt de som används i DISTINCT, JOIN, WHERE, ORDER BY och GROUP BY. Mer information finns [i statistik i SQL-poolen utan server](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview) .
+SQL-poolen utan server använder statistik för att generera optimala fråge körnings planer. Statistik skapas automatiskt för kolumner i Parquet-filer vid behov. Nu skapas statistik inte automatiskt för kolumner i CSV-filer och du bör skapa statistik manuellt för kolumner som du använder i frågor, särskilt de som används i DISTINCT, JOIN, WHERE, ORDER BY och GROUP BY. Kontrol lera [statistik i Server lös SQL-pool] (utveckla-tables-Statistics. MD # Statistics-in-server utan SQL-pool för mer information.
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Använd CETAS för att förbättra frågornas prestanda och kopplingar
 

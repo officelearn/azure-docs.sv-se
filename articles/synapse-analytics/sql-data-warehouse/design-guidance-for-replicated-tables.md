@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 036cb15cf16b5f90dc17ccdce378a073a398d403
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cf40990d59aff984226244f520e6f8f937713fd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86181343"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456495"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Design Guide för att använda replikerade tabeller i Synapse SQL-pool
 
@@ -24,11 +24,11 @@ Den här artikeln innehåller rekommendationer för att utforma replikerade tabe
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Den här artikeln förutsätter att du är bekant med koncepten för data distribution och data förflyttning i SQL-poolen.Mer information finns i [arkitektur](massively-parallel-processing-mpp-architecture.md) artikeln.
+Den här artikeln förutsätter att du är bekant med koncepten för data distribution och data förflyttning i SQL-poolen.  Mer information finns i [arkitektur](massively-parallel-processing-mpp-architecture.md) artikeln.
 
-Som en del av tabell designen förstår du så mycket som möjligt av dina data och hur data efter frågas.Överväg till exempel följande frågor:
+Som en del av tabell designen förstår du så mycket som möjligt av dina data och hur data efter frågas.  Överväg till exempel följande frågor:
 
 - Hur stor är tabellen?
 - Hur ofta uppdateras tabellen?
@@ -51,8 +51,8 @@ Replikerade tabeller fungerar bra för dimensions tabeller i ett stjärn schema.
 
 Replikerade tabeller kanske inte ger bästa prestanda för frågor när:
 
-- Tabellen har ofta Infoga-, uppdaterings-och borttagnings åtgärder.DML-åtgärder (Data Manipulation Language) kräver en återskapning av den replikerade tabellen.Återskapande av ofta kan orsaka sämre prestanda.
-- SQL-poolens databas skalas ofta. Om du skalar en SQL-adresspool ändras antalet datornoder, vilket innebär att den replikerade tabellen återskapas.
+- Tabellen har ofta Infoga-, uppdaterings-och borttagnings åtgärder. DML-åtgärder (Data Manipulation Language) kräver en återskapning av den replikerade tabellen. Återskapande av ofta kan orsaka sämre prestanda.
+- SQL-poolen skalas ofta. Skalning av en SQL-pool ändrar antalet datornoder, vilket innebär att den replikerade tabellen återskapas.
 - Tabellen har ett stort antal kolumner, men data åtgärder använder vanligt vis bara ett litet antal kolumner. I det här scenariot, i stället för att replikera hela tabellen, kan det vara mer effektivt att distribuera tabellen och sedan skapa ett index på kolumnerna som används ofta. När en fråga kräver data förflyttning flyttas endast data för de begärda kolumnerna i SQL-poolen.
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Använda replikerade tabeller med enkla frågenoder
@@ -174,8 +174,8 @@ Den här frågan använder [sys.pdw_replicated_table_cache_state](/sql/relationa
 
 ```sql
 SELECT [ReplicatedTable] = t.[name]
-  FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
+  FROM sys.tables t  
+  JOIN sys.pdw_replicated_table_cache_state c  
     ON c.object_id = t.object_id
   JOIN sys.pdw_table_distribution_properties p
     ON p.object_id = t.object_id

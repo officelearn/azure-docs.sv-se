@@ -12,25 +12,25 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4e6b0afab5c86131575d0e3d12b9984a8463f5a3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 68c9e594201f0d0689a289e13f2c4ebf909c2f87
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321107"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457102"
 ---
 # <a name="load-1-tb-into-azure-synapse-analytics-under-15-minutes-with-data-factory"></a>Läs in 1 TB i Azure Synapse Analytics under 15 minuter med Data Factory
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factorys tjänsten, se [Kopiera data till eller från Azure Synapse Analytics (tidigare SQL Data Warehouse) med hjälp av Data Factory](../connector-azure-sql-data-warehouse.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factorys tjänsten, se [Kopiera data till eller från Azure Synapse Analytics med hjälp av Data Factory](../connector-azure-sql-data-warehouse.md).
 
 
 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) är en molnbaserad, skalbar databas som kan bearbeta stora mängder data, både relationella och icke-relationella.  Azure Synapse Analytics bygger på en storskalig parallell bearbetnings arkitektur (MPP) och är optimerad för arbets belastningar för företags data lager.  Det ger moln elastiskhet med flexibiliteten att skala lagring och beräkning oberoende av varandra.
 
 Att komma igång med Azure Synapse Analytics är nu enklare än att någonsin använda **Azure Data Factory**.  Azure Data Factory är en fullständigt hanterad molnbaserad data integrerings tjänst som kan användas för att fylla i Azure Synapse Analytics med data från ditt befintliga system, och spara värdefull tid samtidigt som du utvärderar Azure Synapse Analytics och skapar analys lösningar. Här är de viktigaste fördelarna med att läsa in data i Azure Synapse Analytics med hjälp av Azure Data Factory:
 
-* **Enkelt att konfigurera** : 5-steg intuitiv guide utan skript krävs.
-* **Stöd för omfattande data lager** : inbyggt stöd för en omfattande uppsättning lokala och molnbaserade data lager.
-* **Säkert och kompatibelt** : data överförs via https eller ExpressRoute, och global tjänst närvaro garanterar att dina data aldrig lämnar den geografiska gräns
+* **Enkelt att konfigurera**: 5-steg intuitiv guide utan skript krävs.
+* **Stöd för omfattande data lager**: inbyggt stöd för en omfattande uppsättning lokala och molnbaserade data lager.
+* **Säkert och kompatibelt**: data överförs via https eller ExpressRoute, och global tjänst närvaro garanterar att dina data aldrig lämnar den geografiska gräns
 * **Oöverträffade prestanda med PolyBase** – som använder PolyBase är det mest effektiva sättet att flytta data till Azure Synapse Analytics. Med hjälp av funktionen för mellanlagring av BLOB kan du uppnå höga belastnings hastigheter från alla typer av data lager förutom Azure Blob Storage, som PolyBase stöder som standard.
 
 Den här artikeln visar hur du använder Data Factory kopierings guiden för att läsa in 1 TB data från Azure Blob Storage till Azure Synapse Analytics på under 15 minuter med över 1,2 Gbit/s-genomflöde.
@@ -111,12 +111,12 @@ Den här artikeln innehåller steg-för-steg-instruktioner för att flytta data 
   När de nödvändiga stegen har slutförts är nu nu dags att konfigurera kopierings aktiviteten med hjälp av guiden Kopiera.
 
 ## <a name="launch-copy-wizard"></a>Använda guiden Kopiera
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på **skapa en resurs** i det övre vänstra hörnet, klicka på **information + analys** och klicka på **Data Factory**.
 3. I fönstret **ny data fabrik** :
 
    1. Ange **LoadIntoSQLDWDataFactory** som **namn**.
-       Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: **data fabriks namnet "LoadIntoSQLDWDataFactory" är inte tillgängligt** , ändrar du namnet på data fabriken (till exempel yournameLoadIntoSQLDWDataFactory) och försöker skapa igen. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.  
+       Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: **data fabriks namnet "LoadIntoSQLDWDataFactory" är inte tillgängligt**, ändrar du namnet på data fabriken (till exempel yournameLoadIntoSQLDWDataFactory) och försöker skapa igen. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.  
    2. Välj din Azure- **prenumeration**.
    3. För resursgruppen utför du något av följande steg:
       1. Välj **Använd befintlig** och välj en befintlig resursgrupp.
@@ -137,7 +137,7 @@ Den här artikeln innehåller steg-för-steg-instruktioner för att flytta data 
 ## <a name="step-1-configure-data-loading-schedule"></a>Steg 1: konfigurera schema för data inläsning
 Det första steget är att konfigurera schemat för data inläsning.  
 
-På sidan **Egenskaper** :
+På sidan **Egenskaper**:
 
 1. Ange **CopyFromBlobToAzureSqlDataWarehouse** som **uppgifts namn**
 2. Välj **kör en gång nu** .   

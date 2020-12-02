@@ -3,16 +3,16 @@ title: Minska tjänste kostnaderna med Azure Advisor
 description: Använd Azure Advisor för att optimera kostnaden för dina Azure-distributioner.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 454ed02c06511b55f9f592bbe6fe5ab08605d752
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 767c82c818535304552c1c98ff50a252acc0d08a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075917"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458514"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Minska service kostnaderna genom att använda Azure Advisor
 
-Azure Advisor hjälper dig att optimera och minska dina totala Azure-utgifter genom att identifiera inaktiva och underutnyttjade resurser.Du kan få kostnads rekommendationer från fliken **kostnad** på Advisor-instrumentpanelen.
+Azure Advisor hjälper dig att optimera och minska dina totala Azure-utgifter genom att identifiera inaktiva och underutnyttjade resurser. Du kan få kostnads rekommendationer från fliken **kostnad** på Advisor-instrumentpanelen.
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Optimera utgifterna för den virtuella datorn genom att ändra storlek på eller stänga av underutnyttjade instanser 
 
@@ -71,7 +71,7 @@ Advisor analyserar Azure Blob Storage och Azure Data Lake lagrings användning u
 ### <a name="mariadb-mysql-and-postgresql-reserved-capacity"></a>MariaDB, MySQL och PostgreSQL reserverad kapacitet
 Advisor analyserar användnings mönstren för Azure Database for MariaDB, Azure Database for MySQL och Azure Database for PostgreSQL de senaste 30 dagarna. Sedan rekommenderar vi reserverade kapacitets inköp som optimerar kostnaderna. Med reserverad kapacitet kan du förköpa MariaDB, MySQL och PostgreSQL per timme och spara över dina nuvarande kostnader. Reserverad kapacitet är en fakturerings förmån och gäller automatiskt för nya och befintliga distributioner. Advisor beräknar besparingar för enskilda prenumerationer med hjälp av 3 års reservations priser och användnings mönster som observerats under de senaste 30 dagarna. Delade omfattnings rekommendationer är tillgängliga för reserverade kapacitets inköp och kan öka besparingarna.
 
-### <a name="azure-synapse-analytics-formerly-sql-data-warehouse-reserved-capacity"></a>Azure Synapse Analytics (tidigare SQL Data Warehouse) reserverad kapacitet
+### <a name="azure-synapse-analytics-reserved-capacity"></a>Reserverad Azure Synapse Analytics-kapacitet
 Advisor analyserar användnings mönstren för Azure Synapse-analys under de senaste 30 dagarna och rekommenderar reserverade kapacitets inköp som optimerar kostnaderna. Med reserverad kapacitet kan du förköpa Synapse för analys per timme och spara över dina kostnader på begäran. Reserverad kapacitet är en fakturerings förmån och gäller automatiskt för nya och befintliga distributioner. Advisor beräknar besparingar för enskilda prenumerationer med hjälp av 3 års reservations priser och användnings mönster som observerats under de senaste 30 dagarna. Delade omfattnings rekommendationer är tillgängliga för reserverade kapacitets inköp och kan öka besparingarna.
 
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Ta bort ej associerade offentliga IP-adresser för att spara pengar

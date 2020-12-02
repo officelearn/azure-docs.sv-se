@@ -1,30 +1,30 @@
 ---
 title: Tilldela variabler
-description: I den här artikeln hittar du viktiga tips för att tilldela T-SQL-variabler i SQL-poolen.
+description: I den här artikeln hittar du viktiga tips för att tilldela T-SQL-variabler för dedikerade SQL-pooler i Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 0cbadc10fb817c70bd259397c840aae68abc2d54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 87448ea737c11af13a52632e5bf4f67dc54d9ae3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213337"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459224"
 ---
-# <a name="assign-variables-in-synapse-sql-pool"></a>Tilldela variabler i Synapse SQL-pool
+# <a name="assign-variables-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Tilldela variabler för dedikerade SQL-pooler i Azure Synapse Analytics
 
-I den här artikeln hittar du viktiga tips för att tilldela T-SQL-variabler i SQL-poolen.
+I den här artikeln hittar du viktiga tips för att tilldela T-SQL-variabler i en dedikerad SQL-pool.
 
 ## <a name="set-variables-with-declare"></a>Ange variabler med deklarera
 
-Variabler i SQL-poolen anges med `DECLARE` instruktionen eller `SET` instruktionen. Att initiera variabler med DECLARE är ett av de mest flexibla sätten att ange ett variabel värde i SQL-poolen.
+Variabler i dedikerad SQL-pool anges med `DECLARE` instruktionen eller `SET` instruktionen. Att initiera variabler med DECLARE är ett av de mest flexibla sätten att ange ett variabel värde i SQL-poolen.
 
 ```sql
 DECLARE @v  int = 0

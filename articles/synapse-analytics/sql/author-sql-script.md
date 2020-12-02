@@ -1,6 +1,6 @@
 ---
-title: SQL-skript i Azure Synapse Studio (för hands version)
-description: Introduktion till Azure Synapse Studio (för hands version) SQL-skript
+title: SQL-skript i Synapse Studio
+description: Introduktion till Synapse Studio SQL-skript i Azure Synapse Analytics.
 services: synapse-analytics
 author: pimorano
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 3f3009799889bd6b118f586676e22338d821d37c
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 077815d117af0328a3466346727e135caaf8ff21
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635317"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457996"
 ---
-# <a name="using-sql-scripts-in-azure-synapse-studio-preview"></a>Använda SQL-skript i Azure Synapse Studio (för hands version)
+# <a name="synapse-studio-sql-scripts-in-azure-synapse-analytics"></a>SQL-skript för Synapse Studio i Azure Synapse Analytics 
 
-Azure Synapse Studio (för hands version) innehåller ett webb gränssnitt för SQL-skript där du kan redigera SQL-frågor. Du kan ansluta till SQL-poolen (förhands granskning). 
+Synapse Studio innehåller ett webb gränssnitt för SQL-skript där du kan redigera SQL-frågor. 
 
 ## <a name="begin-authoring-in-sql-script"></a>Börja redigera i SQL-skript 
 

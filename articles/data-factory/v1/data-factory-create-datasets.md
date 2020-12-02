@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ddb99fd7a7ce8265a6e9c63555cd6a226caacc4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45150e00db1885a4ca4d083a8a54cbfd4da0bb10
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440736"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456928"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Data uppsättningar i Azure Data Factory (version 1)
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -26,15 +26,15 @@ ms.locfileid: "89440736"
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [data uppsättningar i v2](../concepts-datasets-linked-services.md).
 
-I den här artikeln beskrivs vilka data uppsättningar som är, hur de definieras i JSON-format och hur de används i Azure Data Factory pipelines. Den innehåller information om varje avsnitt (till exempel struktur, tillgänglighet och princip) i JSON-definitionen för data uppsättningen. Artikeln innehåller också exempel för att använda egenskaperna **offset**, **anchorDateTime**och **Style** i en data uppsättnings JSON-definition.
+I den här artikeln beskrivs vilka data uppsättningar som är, hur de definieras i JSON-format och hur de används i Azure Data Factory pipelines. Den innehåller information om varje avsnitt (till exempel struktur, tillgänglighet och princip) i JSON-definitionen för data uppsättningen. Artikeln innehåller också exempel för att använda egenskaperna **offset**, **anchorDateTime** och **Style** i en data uppsättnings JSON-definition.
 
 > [!NOTE]
 > Om du är nybörjare på Data Factory, se [Introduktion till Azure Data Factory](data-factory-introduction.md) för en översikt. Om du inte har praktisk erfarenhet av att skapa data fabriker kan du få en bättre förståelse genom att läsa självstudien om [data omvandling](data-factory-build-your-first-pipeline.md) och [själv studie kursen för data förflyttning](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Översikt
-En datafabrik kan ha en eller flera pipelines. En **pipeline** är en logisk gruppering av **aktiviteter** som tillsammans utför en aktivitet. Aktiviteterna i en pipeline definierar åtgärder som ska utföras på dina data. Du kan till exempel använda en kopierings aktivitet för att kopiera data från en SQL Server-databas till Azure Blob Storage. Sedan kan du använda en Hive-aktivitet som kör ett Hive-skript på ett Azure HDInsight-kluster för att bearbeta data från Blob Storage för att skapa utdata. Slutligen kan du använda en andra kopierings aktivitet för att kopiera utdata till Azure Synapse Analytics (tidigare SQL Data Warehouse), utöver de Business Intelligence (BI) rapporterings lösningarna skapas. Mer information om pipelines och aktiviteter finns [i pipeline och aktiviteter i Azure Data Factory](data-factory-create-pipelines.md).
+En datafabrik kan ha en eller flera pipelines. En **pipeline** är en logisk gruppering av **aktiviteter** som tillsammans utför en aktivitet. Aktiviteterna i en pipeline definierar åtgärder som ska utföras på dina data. Du kan till exempel använda en kopierings aktivitet för att kopiera data från en SQL Server-databas till Azure Blob Storage. Sedan kan du använda en Hive-aktivitet som kör ett Hive-skript på ett Azure HDInsight-kluster för att bearbeta data från Blob Storage för att skapa utdata. Slutligen kan du använda en andra kopierings aktivitet för att kopiera utmatnings data till Azure Synapse Analytics, som bygger på de rapporterande lösningarna för Business Intelligence (BI). Mer information om pipelines och aktiviteter finns [i pipeline och aktiviteter i Azure Data Factory](data-factory-create-pipelines.md).
 
-En aktivitet kan ta noll eller fler data **uppsättningar**och skapa en eller flera data uppsättningar. En indata-datauppsättning representerar indata för en aktivitet i pipelinen och en data uppsättning för utdata representerar utdata för aktiviteten. Datauppsättningar identifierar data inom olika datalager, till exempel tabeller, filer, mappar och dokument. En Azure Blob-datauppsättning anger till exempel BLOB-behållaren och mappen i Blob Storage som pipelinen ska läsa data från.
+En aktivitet kan ta noll eller fler data **uppsättningar** och skapa en eller flera data uppsättningar. En indata-datauppsättning representerar indata för en aktivitet i pipelinen och en data uppsättning för utdata representerar utdata för aktiviteten. Datauppsättningar identifierar data inom olika datalager, till exempel tabeller, filer, mappar och dokument. En Azure Blob-datauppsättning anger till exempel BLOB-behållaren och mappen i Blob Storage som pipelinen ska läsa data från.
 
 Innan du skapar en data uppsättning skapar du en **länkad tjänst** för att länka ditt data lager till data fabriken. Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Data uppsättningar identifierar data i länkade data lager, till exempel SQL-tabeller, filer, mappar och dokument. Till exempel länkar en Azure Storage länkad tjänst ett lagrings konto till data fabriken. En Azure Blob-datauppsättning representerar BLOB-behållaren och mappen som innehåller de blobar för indata som ska bearbetas.
 
@@ -79,13 +79,13 @@ I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
 | Egenskap | Beskrivning | Krävs | Default |
 | --- | --- | --- | --- |
-| name |Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](data-factory-naming-rules.md) för namngivnings regler. |Ja |Ej tillämpligt |
-| typ |Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typ](#Type). |Ja |Ej tillämpligt |
-| hierarkistruktur |Schema för data uppsättningen.<br/><br/>Mer information finns i [data uppsättnings struktur](#Structure). |Inga |Ej tillämpligt |
-| typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#Type). |Ja |Ej tillämpligt |
-| extern | Boolesk flagga för att ange om en data uppsättning uttryckligen skapas av en Data Factory-pipeline eller inte. Om indata-datauppsättningen för en aktivitet inte produceras av den aktuella pipelinen anger du den här flaggan till true. Ange den här flaggan till true för indata-datauppsättningen för den första aktiviteten i pipelinen.  |Inga |falskt |
-| availability | Definierar bearbetnings fönstret (till exempel varje timme eller varje dag) eller segmenterings modellen för data uppsättnings produktionen. Varje enhet med data som konsumeras och skapas av en aktivitets körning kallas för en data sektor. Om tillgänglighet för en data uppsättning för utdata anges till daglig (frekvens-dag, intervall-1) skapas en sektor varje dag. <br/><br/>Mer information finns i tillgänglighet för data uppsättningar. <br/><br/>Mer information om den data uppsättnings segment modellen finns i artikeln om [schemaläggning och körning](data-factory-scheduling-and-execution.md) . |Ja |Ej tillämpligt |
-| policy |Definierar villkoret eller villkoret som data uppsättnings sektorerna måste uppfylla. <br/><br/>Mer information finns i avsnittet [princip för data uppsättning](#Policy) . |Inga |Ej tillämpligt |
+| name |Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](data-factory-naming-rules.md) för namngivnings regler. |Yes |NA |
+| typ |Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typ](#Type). |Yes |NA |
+| hierarkistruktur |Schema för data uppsättningen.<br/><br/>Mer information finns i [data uppsättnings struktur](#Structure). |No |NA |
+| typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#Type). |Yes |NA |
+| extern | Boolesk flagga för att ange om en data uppsättning uttryckligen skapas av en Data Factory-pipeline eller inte. Om indata-datauppsättningen för en aktivitet inte produceras av den aktuella pipelinen anger du den här flaggan till true. Ange den här flaggan till true för indata-datauppsättningen för den första aktiviteten i pipelinen.  |No |falskt |
+| availability | Definierar bearbetnings fönstret (till exempel varje timme eller varje dag) eller segmenterings modellen för data uppsättnings produktionen. Varje enhet med data som konsumeras och skapas av en aktivitets körning kallas för en data sektor. Om tillgänglighet för en data uppsättning för utdata anges till daglig (frekvens-dag, intervall-1) skapas en sektor varje dag. <br/><br/>Mer information finns i tillgänglighet för data uppsättningar. <br/><br/>Mer information om den data uppsättnings segment modellen finns i artikeln om [schemaläggning och körning](data-factory-scheduling-and-execution.md) . |Yes |NA |
+| policy |Definierar villkoret eller villkoret som data uppsättnings sektorerna måste uppfylla. <br/><br/>Mer information finns i avsnittet [princip för data uppsättning](#Policy) . |No |NA |
 
 ## <a name="dataset-example"></a>Exempel på data uppsättning
 I följande exempel representerar data uppsättningen en tabell med namnet min **tabell** i en SQL-databas.
@@ -149,7 +149,7 @@ Typ av data uppsättning beror på vilket data lager du använder. I följande t
 > [!NOTE]
 > Data lager med * kan vara lokala eller i Azure Infrastructure as a Service (IaaS). Dessa data lager kräver att du installerar [Data Management Gateway](data-factory-data-management-gateway.md).
 
-I exemplet i föregående avsnitt är typ av data uppsättning inställd på **AzureSqlTable**. På samma sätt anges typ av data uppsättning till **AzureBlob**för en Azure Blob-datamängd, som du ser i följande JSON:
+I exemplet i föregående avsnitt är typ av data uppsättning inställd på **AzureSqlTable**. På samma sätt anges typ av data uppsättning till **AzureBlob** för en Azure Blob-datamängd, som du ser i följande JSON:
 
 ```json
 {
@@ -191,14 +191,14 @@ Varje kolumn i strukturen innehåller följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| name |Kolumnens namn. |Ja |
-| typ |Kolumnens datatyp.  |Inga |
-| substrat |. NET-baserad kultur som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset` . Standardvärdet är `en-us`. |Inga |
-| format |Format sträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset` . |Inga |
+| name |Kolumnens namn. |Yes |
+| typ |Kolumnens datatyp.  |No |
+| substrat |.NET-baserad kultur som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset` . Standardvärdet är `en-us`. |No |
+| format |Format sträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset` . |No |
 
 Följande rikt linjer hjälper dig att avgöra när du ska inkludera struktur information och vad som ska ingå i **struktur** avsnittet.
 
-* **För strukturerade data källor**anger du avsnittet struktur endast om du vill att kart käll kolumner ska innehålla kolumner, och deras namn inte är desamma. Den här typen av strukturerad data källa lagrar data schema och skriver information tillsammans med själva data. Exempel på strukturerade data källor är SQL Server, Oracle och Azure Table.
+* **För strukturerade data källor** anger du avsnittet struktur endast om du vill att kart käll kolumner ska innehålla kolumner, och deras namn inte är desamma. Den här typen av strukturerad data källa lagrar data schema och skriver information tillsammans med själva data. Exempel på strukturerade data källor är SQL Server, Oracle och Azure Table.
   
     Eftersom typ information redan är tillgänglig för strukturerade data källor bör du inte ta med typ information när du inkluderar avsnittet struktur.
 * **För schema vid läsning av data källor (särskilt Blob Storage)** kan du välja att lagra data utan att lagra scheman eller ange information med data. För dessa typer av data källor, inkludera struktur när du vill mappa käll kolumner till mottagar kolumner. Ta även med struktur när data uppsättningen är indata för en kopierings aktivitet och data typerna för käll data uppsättningen ska konverteras till interna typer för mottagaren.
@@ -233,11 +233,11 @@ I följande tabell beskrivs de egenskaper som du kan använda i avsnittet tillg�
 
 | Egenskap | Beskrivning | Krävs | Default |
 | --- | --- | --- | --- |
-| frequency |Anger tidsenheten för data uppsättnings sektorns produktion.<br/><br/><b>Frekvens som stöds</b>: minut, timme, dag, vecka, månad |Ja |Ej tillämpligt |
-| interval |Anger en multiplikator för frekvens.<br/><br/>"Frekvens x-intervall" anger hur ofta sektorn produceras. Om du till exempel vill att data uppsättningen ska segmenteras per timme anger du <b>frekvens</b> till <b>timme</b>och <b>intervall</b> till <b>1</b>.<br/><br/>Observera att om du anger **frekvensen** som **minut**bör du ange ett intervall som inte är mindre än 15. |Ja |Ej tillämpligt |
-| stil |Anger om sektorn ska skapas i början eller slutet av intervallet.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Om **frekvensen** är inställd på **månad**och **formatet** är inställt på **EndOfInterval**, produceras sektorn den sista dagen i månaden. Om **format** är inställt på **StartOfInterval**skapas sektorn den första dagen i månaden.<br/><br/>Om **frekvensen** är inställd på **dag**och **formatet** är inställt på **EndOfInterval**, produceras sektorn under den senaste timmen på dagen.<br/><br/>Om **frekvensen** är inställd på **timme**och **formatet** är inställt på **EndOfInterval**, skapas sektorn i slutet av timmen. För en sektor för en PM-2-timmarsperiod skapas till exempel sektorn på 2 PM. |Inga |EndOfInterval |
-| anchorDateTime |Definierar den absoluta position i tid som används av Scheduler för att beräkna data uppsättningens sektor gränser. <br/><br/>Observera att om den här egenskapen har datum delar som är mer detaljerade än den angivna frekvensen, ignoreras fler detaljerade delar. Om **intervallet** exempelvis är **per timme** (frekvens: timme och intervall: 1) och **anchorDateTime** innehåller **minuter och sekunder**, ignoreras sedan minuter och sekunder delar av **anchorDateTime** . |Inga |01/01/0001 |
-| offset |TimeSpan som startar och slutar på alla mängd uppsättnings segment flyttas. <br/><br/>Observera att om både **anchorDateTime** och **offset** anges, är resultatet det kombinerade skiftet. |Inga |Ej tillämpligt |
+| frequency |Anger tidsenheten för data uppsättnings sektorns produktion.<br/><br/><b>Frekvens som stöds</b>: minut, timme, dag, vecka, månad |Yes |NA |
+| interval |Anger en multiplikator för frekvens.<br/><br/>"Frekvens x-intervall" anger hur ofta sektorn produceras. Om du till exempel vill att data uppsättningen ska segmenteras per timme anger du <b>frekvens</b> till <b>timme</b>och <b>intervall</b> till <b>1</b>.<br/><br/>Observera att om du anger **frekvensen** som **minut** bör du ange ett intervall som inte är mindre än 15. |Yes |NA |
+| stil |Anger om sektorn ska skapas i början eller slutet av intervallet.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Om **frekvensen** är inställd på **månad** och **formatet** är inställt på **EndOfInterval**, produceras sektorn den sista dagen i månaden. Om **format** är inställt på **StartOfInterval** skapas sektorn den första dagen i månaden.<br/><br/>Om **frekvensen** är inställd på **dag** och **formatet** är inställt på **EndOfInterval**, produceras sektorn under den senaste timmen på dagen.<br/><br/>Om **frekvensen** är inställd på **timme** och **formatet** är inställt på **EndOfInterval**, skapas sektorn i slutet av timmen. För en sektor för en PM-2-timmarsperiod skapas till exempel sektorn på 2 PM. |No |EndOfInterval |
+| anchorDateTime |Definierar den absoluta position i tid som används av Scheduler för att beräkna data uppsättningens sektor gränser. <br/><br/>Observera att om den här egenskapen har datum delar som är mer detaljerade än den angivna frekvensen, ignoreras fler detaljerade delar. Om **intervallet** exempelvis är **per timme** (frekvens: timme och intervall: 1) och **anchorDateTime** innehåller **minuter och sekunder**, ignoreras sedan minuter och sekunder delar av **anchorDateTime** . |No |01/01/0001 |
+| offset |TimeSpan som startar och slutar på alla mängd uppsättnings segment flyttas. <br/><br/>Observera att om både **anchorDateTime** och **offset** anges, är resultatet det kombinerade skiftet. |No |NA |
 
 ### <a name="offset-example"></a>förskjutnings exempel
 Som standard börjar sektorerna () med 12 () med UTC- `"frequency": "Day", "interval": 1` tid (Coordinated Universal Time). Om du vill att start tiden ska vara 6 UTC-tid i stället anger du förskjutningen enligt följande kodfragment:
@@ -278,10 +278,10 @@ Följande data uppsättning är månatlig och produceras den tredje i varje mån
 **Princip** avsnittet i data uppsättnings definitionen definierar villkoret eller villkoret som data uppsättnings sektorerna måste uppfylla.
 
 ### <a name="validation-policies"></a>Validerings principer
-| Principnamn | Beskrivning | Tillämpas på | Krävs | Default |
+| Principnamn | Description | Tillämpas på | Obligatorisk | Default |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Verifierar att data i **Azure Blob Storage** uppfyller minimi kraven för storlek (i megabyte). |Azure Blob Storage |Inga |Ej tillämpligt |
-| minimumRows |Verifierar att data i en **Azure SQL-databas** eller en **Azure-tabell** innehåller det lägsta antalet rader. |<ul><li>Azure SQL Database</li><li>Azure-tabell</li></ul> |Inga |Ej tillämpligt |
+| minimumSizeMB |Verifierar att data i **Azure Blob Storage** uppfyller minimi kraven för storlek (i megabyte). |Azure Blob Storage |No |NA |
+| minimumRows |Verifierar att data i en **Azure SQL-databas** eller en **Azure-tabell** innehåller det lägsta antalet rader. |<ul><li>Azure SQL Database</li><li>Azure-tabell</li></ul> |No |NA |
 
 #### <a name="examples"></a>Exempel
 **minimumSizeMB:**
@@ -310,16 +310,16 @@ Följande data uppsättning är månatlig och produceras den tredje i varje mån
 ```
 
 ### <a name="external-datasets"></a>Externa data uppsättningar
-Externa data uppsättningar är de som inte produceras av en pågående pipeline i data fabriken. Om data uppsättningen har marker ATS som **extern**kan **extern Aldata** -principen definieras för att påverka beteendet för data uppsättnings sektorns tillgänglighet.
+Externa data uppsättningar är de som inte produceras av en pågående pipeline i data fabriken. Om data uppsättningen har marker ATS som **extern** kan **extern Aldata** -principen definieras för att påverka beteendet för data uppsättnings sektorns tillgänglighet.
 
 Om inte en data uppsättning skapas av Data Factory ska den markeras som **extern**. Den här inställningen gäller normalt indata för första aktiviteten i en pipeline, om inte aktivitet eller pipeline-länkning används.
 
-| Namn | Beskrivning | Krävs | Standardvärde |
+| Name | Beskrivning | Krävs | Standardvärde |
 | --- | --- | --- | --- |
-| dataDelay |Tiden för att försena kontrollen av tillgängligheten för externa data för den aktuella sektorn. Du kan till exempel försena en varje timme-kontroll genom att använda den här inställningen.<br/><br/>Inställningen gäller bara för aktuell tid. Om det till exempel är 1:00 PM nu och det här värdet är 10 minuter, börjar verifieringen med 1:10 PM.<br/><br/>Observera att den här inställningen inte påverkar segment tidigare. Segment med **slut tid i sektor**  +  **dataDelay**  <  **nu** bearbetas utan fördröjning.<br/><br/>Tiden som är större än 23:59 timmar ska anges med `day.hours:minutes:seconds` formatet. Om du till exempel vill ange 24 timmar ska du inte använda 24:00:00. Använd i stället 1,00:00:00. Om du använder 24:00:00 behandlas det som 24 dagar (24.00:00:00). I 1 dag och 4 timmar anger du 1:04:00:00. |Inga |0 |
-| retryInterval |Vänte tiden mellan ett haveri och nästa försök. Den här inställningen gäller för aktuell tid. Om föregående försök misslyckades är nästa försök efter **retryInterval** -perioden. <br/><br/>Om det är 1:00 PM börjar vi med det första försöket. Om varaktigheten för att slutföra den första verifierings kontrollen är 1 minut och åtgärden misslyckades, är nästa nytt försök på 1:00 + 1MIN (varaktighet) + 1MIN (återförsöksintervall) = 1:02 PM. <br/><br/>För sektorer i det förflutna sker ingen fördröjning. Återförsöket sker omedelbart. |Inga |00:01:00 (1 minut) |
-| retryTimeout |Tids gränsen för varje nytt försök.<br/><br/>Om den här egenskapen har angetts till 10 minuter ska verifieringen slutföras inom 10 minuter. Om det tar längre tid än 10 minuter att utföra verifieringen, tids gränsen för återförsök.<br/><br/>Om alla försök för validerings tiden är slut, markeras sektorn som **stängningsåtgärd**. |Inga |00:10:00 (10 minuter) |
-| maximumRetry |Antalet gånger för att kontrol lera tillgängligheten för externa data. Det högsta tillåtna värdet är 10. |Inga |3 |
+| dataDelay |Tiden för att försena kontrollen av tillgängligheten för externa data för den aktuella sektorn. Du kan till exempel försena en varje timme-kontroll genom att använda den här inställningen.<br/><br/>Inställningen gäller bara för aktuell tid. Om det till exempel är 1:00 PM nu och det här värdet är 10 minuter, börjar verifieringen med 1:10 PM.<br/><br/>Observera att den här inställningen inte påverkar segment tidigare. Segment med **slut tid i sektor**  +  **dataDelay**  <  **nu** bearbetas utan fördröjning.<br/><br/>Tiden som är större än 23:59 timmar ska anges med `day.hours:minutes:seconds` formatet. Om du till exempel vill ange 24 timmar ska du inte använda 24:00:00. Använd i stället 1,00:00:00. Om du använder 24:00:00 behandlas det som 24 dagar (24.00:00:00). I 1 dag och 4 timmar anger du 1:04:00:00. |No |0 |
+| retryInterval |Vänte tiden mellan ett haveri och nästa försök. Den här inställningen gäller för aktuell tid. Om föregående försök misslyckades är nästa försök efter **retryInterval** -perioden. <br/><br/>Om det är 1:00 PM börjar vi med det första försöket. Om varaktigheten för att slutföra den första verifierings kontrollen är 1 minut och åtgärden misslyckades, är nästa nytt försök på 1:00 + 1MIN (varaktighet) + 1MIN (återförsöksintervall) = 1:02 PM. <br/><br/>För sektorer i det förflutna sker ingen fördröjning. Återförsöket sker omedelbart. |No |00:01:00 (1 minut) |
+| retryTimeout |Tids gränsen för varje nytt försök.<br/><br/>Om den här egenskapen har angetts till 10 minuter ska verifieringen slutföras inom 10 minuter. Om det tar längre tid än 10 minuter att utföra verifieringen, tids gränsen för återförsök.<br/><br/>Om alla försök för validerings tiden är slut, markeras sektorn som **stängningsåtgärd**. |No |00:10:00 (10 minuter) |
+| maximumRetry |Antalet gånger för att kontrol lera tillgängligheten för externa data. Det högsta tillåtna värdet är 10. |No |3 |
 
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar

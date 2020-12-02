@@ -1,6 +1,6 @@
 ---
-title: Hantera och övervaka arbetsbelastningsprioritet
-description: Lär dig hur du hanterar och övervakar prioriteten på begärans nivå i Azure Synapse Analytics.
+title: Hantera och övervaka arbets belastnings prioritet i dedikerad SQL-pool
+description: Lär dig hur du hanterar och övervakar den dedikerade SQL-poolen för förfrågnings nivå för Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 43006456142728287ddf4adba1fbb9b45f5ccc89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb0a5fbf33b48521882646bf8fb5eb3fe5dacca6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211977"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459216"
 ---
-# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Hantera och övervaka arbets belastnings prioritet i Azure Synapse Analytics
+# <a name="manage-and-monitor-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Hantera och övervaka arbets belastnings prioritet i dedikerad SQL-pool för Azure Synapse Analytics
 
-Hantera och övervaka Synapse för SQL-begäranden i Azure Synapse med hjälp av DMV: er och katalogvyer.
+Hantera och övervaka dedikerad SQL-pool begär nivå prioritet i Azure Synapse med hjälp av DMV: er och katalogfiler.
 
 ## <a name="monitor-importance"></a>Övervaknings prioritet
 

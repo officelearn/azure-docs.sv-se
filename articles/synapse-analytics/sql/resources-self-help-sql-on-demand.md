@@ -1,6 +1,6 @@
 ---
-title: Självhjälp utan server (för hands version) för SQL-pool
-description: Det här avsnittet innehåller information som kan hjälpa dig att felsöka problem med SQL-poolen utan server (för hands version).
+title: Självhjälp utan server utan SQL-pool
+description: Det här avsnittet innehåller information som kan hjälpa dig att felsöka problem med SQL-poolen utan server.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,23 +9,23 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: aefdb90c3e6c8d3abc3924ecebb2aa46739e99ad
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 12ff369cb931eb36014b7c9598b036afdc158750
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682629"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457189"
 ---
-# <a name="self-help-for-serverless-sql-pool-preview"></a>Själv hjälp för Server lös SQL-pool (för hands version)
+# <a name="self-help-for-serverless-sql-pool"></a>Själv hjälp för Server lös SQL-pool
 
-Den här artikeln innehåller information om hur du felsöker de vanligaste problemen med SQL-poolen utan server (för hands version) i Azure Synapse Analytics.
+Den här artikeln innehåller information om hur du felsöker de vanligaste problemen med en server lös SQL-pool i Azure Synapse Analytics.
 
 ## <a name="serverless-sql-pool-is-grayed-out-in-synapse-studio"></a>SQL-poolen utan server är nedtonad i Synapse Studio
 
 Om Synapse Studio inte kan upprätta en anslutning till en server lös SQL-pool, ser du att SQL-poolen utan server är nedtonad eller visar status "offline". Det här problemet uppstår vanligt vis när något av följande inträffar:
 
 1) Nätverket förhindrar kommunikation till Azure Synapse-backend. Det vanligaste fallet är att port 1443 är blockerad. Ta bort den här porten om du vill att SQL-poolen utan server ska fungera. Andra problem kan förhindra att SQL-poolen utan server fungerar. [Mer information finns i fullständig fel söknings guide](../troubleshoot/troubleshoot-synapse-studio.md).
-2) Du har inte behörighet att logga in på en SQL-pool utan server. För att få åtkomst måste en av Azure Synapse-arbetsytans administratörer lägga till dig i arbets ytans administratör eller rollen SQL-administratör. [Mer information finns i fullständig guide om åtkomst kontroll](access-control.md).
+2) Du har inte behörighet att logga in på en SQL-pool utan server. För att du ska få åtkomst måste en av Azure Synapse-arbetsyteadministratörerna lägga till dig i rollen som arbetsyteadministratör eller SQL-administratör. [Mer information finns i den fullständiga guiden för åtkomstkontroll](access-control.md).
 
 ## <a name="query-fails-because-file-cannot-be-opened"></a>Frågan Miss lyckas eftersom det inte går att öppna filen
 
@@ -37,7 +37,7 @@ Om frågan Miss lyckas med fel meddelandet "den här frågan kan inte utföras p
 
 - Se till att data typerna av rimliga storlekar används. Ange också schema för Parquet-filer för sträng kolumner eftersom de kommer att vara VARCHAR (8000) som standard. 
 
-- Om din fråga är CSV-filer bör du överväga att [skapa statistik](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview). 
+- Om din fråga är CSV-filer bör du överväga att [skapa statistik](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
 - Gå till [metod tips för prestanda för Server lös SQL-pool](best-practices-sql-on-demand.md) för att optimera frågan.  
 
@@ -49,7 +49,7 @@ Om frågan Miss lyckas med fel meddelandet:
 
 Det innebär att Master-databasen i SQL-poolen utan stöd för att skapa:
   - Externa tabeller
-  - Externa data källor
+  - Externa datakällor
   - Autentiseringsuppgifter för databasens omfång
   - Externa fil format
 

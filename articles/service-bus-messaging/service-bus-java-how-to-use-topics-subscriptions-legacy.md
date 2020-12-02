@@ -5,18 +5,19 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 5005bcad6a11d31dde8ce44556af2c3db30a6a5f
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 33d8aa9be6a6ee4182e49e658bd41ebf6da588e5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432993"
+ms.locfileid: "96456557"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Snabb start: använda Service Bus ämnen och prenumerationer med Java
 I den här snabb starten skriver du Java-kod för att skicka meddelanden till ett Azure Service Bus ämne och sedan ta emot meddelanden från prenumerationer på det avsnittet. 
 
 > [!WARNING]
->  I den här snabb starten används det aktuella Azure-Service Bus-paketet som är allmänt tillgängligt. För en snabb start som använder det nya paketet Azure-Messaging-Service Bus som finns i för **hands version**, se [skicka och ta emot meddelanden med Azure-Messaging-Service Bus](service-bus-java-how-to-use-topics-subscriptions.md).
+>  I den här snabb starten används de gamla Azure-Service Bus-paketen. En snabb start som använder det senaste paketet Azure-Messaging-Service Bus finns i [skicka och ta emot meddelanden med Azure-Messaging-Service Bus](service-bus-java-how-to-use-topics-subscriptions.md).
+
 
 ## <a name="prerequisites"></a>Förutsättningar
 

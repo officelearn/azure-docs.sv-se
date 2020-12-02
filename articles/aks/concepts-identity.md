@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: ca167a2ae313c29581d40fe921a8742b9b6b61fe
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 983b1a5e024a44733fab418a67375f232e66cfe4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686063"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457169"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Åtkomst och identitetsalternativ för Azure Kubernetes Service (AKS)
 
@@ -46,7 +46,7 @@ En ClusterRole fungerar på samma sätt för att bevilja behörigheter till resu
 
 ### <a name="rolebindings-and-clusterrolebindings"></a>RoleBindings och ClusterRoleBindings
 
-När rollerna har definierats för att ge behörigheter till resurser tilldelar du dessa Kubernetes RBAC-behörigheter till en *RoleBinding*. Om ditt AKS-kluster [integreras med Azure Active Directory](#azure-active-directory-integration), är bindningar hur de Azure AD-användare beviljar behörigheter att utföra åtgärder i klustret, se så [här kontrollerar du åtkomsten till kluster resurser med hjälp av Kubernetes-rollbaserad åtkomst kontroll och Azure Active Directory identiteter](azure-ad-rbac.md).
+När rollerna har definierats för att ge behörigheter till resurser tilldelar du dessa Kubernetes RBAC-behörigheter till en *RoleBinding*. Om ditt AKS [-kluster integreras med Azure Active Directory (Azure AD)](#azure-active-directory-integration), är bindningar som Azure AD-användare beviljar behörighet att utföra åtgärder i klustret, se hur [du kontrollerar åtkomst till kluster resurser med hjälp av Kubernetes-rollbaserad åtkomst kontroll och Azure Active Directory identiteter](azure-ad-rbac.md).
 
 Roll bindningar används för att tilldela roller för en specifik namnrymd. Med den här metoden kan du logiskt särskilja ett enda AKS-kluster, där användare bara kan komma åt program resurserna i sitt tilldelade namn område. Om du behöver binda roller över hela klustret, eller till kluster resurser utanför ett angivet namn område, kan du i stället använda *ClusterRoleBindings*.
 
@@ -144,6 +144,22 @@ AKS tillhandahåller följande fyra inbyggda roller. De liknar de [inbyggda roll
 | Azure Kubernetes service RBAC-kluster administratör  | Ger åtkomst till superanvändare för att utföra alla åtgärder på en resurs. Den ger fullständig kontroll över alla resurser i klustret och i alla namn områden. |
 
 **[Läs här](manage-azure-rbac.md)om du vill veta mer om hur du aktiverar Azure RBAC för Kubernetes-auktorisering.**
+
+## <a name="summary"></a>Sammanfattning
+
+I den här tabellen sammanfattas hur användare kan autentiseras för Kubernetes när Azure AD-integrering är aktiverat.  I samtliga fall är användarens kommandosekvens:
+1. Kör `az login` för att autentisera till Azure.
+1. Kör `az aks get-credentials` för att ladda ned autentiseringsuppgifter för klustret till `.kube/config` .
+1. Kör `kubectl` kommandon (den första som kan utlösa webbläsarbaserad autentisering för att autentisera till klustret, enligt beskrivningen i följande tabell).
+
+Det roll anslag som refereras till i den andra kolumnen är Azure RBAC-rollen som visas på fliken **Access Control** i Azure Portal. Azure AD-gruppen kluster admin visas på fliken **konfiguration** i portalen (eller med parameter namnet `--aad-admin-group-object-ids` i Azure CLI).
+
+| Description        | Roll beviljande krävs| Kluster administratör Azure AD-grupp (er) | När du ska använda detta |
+| -------------------|------------|----------------------------|-------------|
+| Äldre Administratörs inloggning med klient certifikat| **Administratörs roll för Azure-Kubernetes**. Den här rollen kan `az aks get-credentials` användas med `--admin` -flaggan, som laddar ned ett [äldre kluster administratörs certifikat (inte Azure AD)](control-kubeconfig-access.md) till användarens `.kube/config` . Detta är det enda syftet med administratörs rollen för Azure-Kubernetes.|saknas|Om du har blockerat permanent genom att inte ha åtkomst till en giltig Azure AD-grupp med åtkomst till klustret.| 
+| Azure AD med manuellt (kluster) RoleBindings| **Användar rollen Azure-Kubernetes**. Rollen "användare" tillåter `az aks get-credentials` användning utan `--admin` flaggan. (Detta är det enda syftet med användar rollen Azure-Kubernetes.) Resultatet, i ett Azure AD-aktiverat kluster, är hämtningen av [en tom post](control-kubeconfig-access.md) till `.kube/config` , vilket utlöser webbläsarbaserad autentisering när den används första gången `kubectl` .| Användaren finns inte i någon av dessa grupper. Eftersom användaren inte finns i några kluster administratörs grupper, kommer deras rättigheter att kontrol leras helt av alla RoleBindings eller ClusterRoleBindings som har kon figurer ATS av kluster administratörer. RoleBindings (kluster) [nominerade Azure AD-användare eller Azure AD-grupper](azure-ad-rbac.md) som deras `subjects` . Om inga sådana bindningar har kon figurer ATS kommer användaren inte att kunna Excute några `kubectl` kommandon.|Om du vill ha detaljerad åtkomst kontroll och du inte använder Azure RBAC för Kubernetes-auktorisering. Observera att den användare som konfigurerar bindningarna måste logga in med någon av de andra metoderna som anges i den här tabellen.|
+| Azure AD av medlem i administratörs grupp| Samma som ovan|Användaren är medlem i en av de grupper som anges här. AKS genererar automatiskt en ClusterRoleBinding som binder alla listade grupper till `cluster-admin` Kubernetes-rollen. Användare i dessa grupper kan köra alla `kubectl` kommandon som `cluster-admin` .|Om du enkelt vill ge användare fullständiga administratörs rättigheter och _inte_ använder Azure RBAC för Kubernetes-auktorisering.|
+| Azure AD med Azure RBAC för Kubernetes-auktorisering|Två roller: först, **Azure Kubernetes användar roll** (som ovan). För det andra är en av "Azure Kubernetes-tjänsten **RBAC**..." roller som anges ovan eller ditt eget alternativ.|Fältet admin-roller på fliken konfiguration är irrelevant när Azure RBAC för Kubernetes-auktorisering har Aktiver ATS.|Du använder Azure RBAC för Kubernetes-auktorisering. Den här metoden ger dig detaljerad kontroll, utan att behöva ställa in RoleBindings eller ClusterRoleBindings.|
 
 ## <a name="next-steps"></a>Nästa steg
 

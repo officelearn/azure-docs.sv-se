@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 65a77dfaab0bf99207fd27a35d67a12532056476
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a63cd95fdcee7c9ed0c49ba41b4d7e7e6de8f4bf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89442947"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458728"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Snabb start: skapa en arbets belastnings klassificering med T-SQL
 
@@ -25,17 +25,17 @@ I den här snabb starten skapar du snabbt en arbets belastnings klassificering m
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 > [!NOTE]
-> Att skapa en Synapse SQL-instans i Azure Synapse Analytics kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Att skapa en dedikerad instans av SQL-poolen i Azure Synapse Analytics kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här snabb starten förutsätter att du redan har en Synapse SQL-pool i Azure Synapse Analytics och att du har behörighet att kontrol lera databaser. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
+Den här snabb starten förutsätter att du redan har skapat en dedikerad SQL-pool i Azure Synapse Analytics och att du har behörighet att kontrol lera databasen. Om du behöver skapa ett använder du [skapa och Anslut – Portal](create-data-warehouse-portal.md) för att skapa en dedikerad SQL-pool med namnet **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-login-for-theceo"></a>Skapa inloggning för TheCEO
 
@@ -87,27 +87,23 @@ DROP USER [TheCEO]
 ;
 ```
 
-Du debiteras för data lager enheter och data som lagras i ditt informations lager. Dessa beräknings- och lagringsresurser debiteras separat.
+Du debiteras för data lager enheter och data som lagras i din dedikerade SQL-pool. Dessa beräknings- och lagringsresurser debiteras separat.
 
-- Om du vill behålla data i lagringsutrymmet kan du pausa beräkningarna när du inte använder informationslagret. Genom att pausa beräkning debiteras du bara för data lagring. När du är redo att arbeta med data återupptar du beräkningen.
-- Om du vill undvika framtida avgifter kan du ta bort informationslagret.
+- Om du vill behålla data i lagrings utrymmet kan du pausa beräkningen när du inte använder den dedikerade SQL-poolen. Genom att pausa beräkning debiteras du bara för data lagring. När du är redo att arbeta med data återupptar du beräkningen.
+- Om du vill ta bort framtida avgifter kan du ta bort den dedikerade SQL-poolen.
 
 Rensa resurserna genom att följa dessa steg.
 
-1. Logga in på [Azure Portal](https://portal.azure.com)och välj på informations lagret.
+1. Logga in på [Azure Portal](https://portal.azure.com)och välj din dedikerade SQL-pool.
 
     ![Rensa resurser](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Om du vill pausa beräkningen väljer du knappen **pausa** . När informationslagret har pausats visas knappen **Starta**.  Om du vill återuppta beräkningen väljer du **Start**.
+2. Om du vill pausa beräkningen väljer du knappen **pausa** . När den dedikerade SQL-poolen har pausats visas en **Start** -knapp.  Om du vill återuppta beräkningen väljer du **Start**.
 
-3. Om du vill ta bort data lagret så att du inte debiteras för beräkning eller lagring väljer du **ta bort**.
-
-4. Om du vill ta bort den SQL-Server som du har skapat väljer du **mynewserver-20180430.Database.Windows.net** i föregående bild och väljer sedan **ta bort**.  Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
-
-5. Om du vill ta bort resurs gruppen väljer du **myResourceGroup**och väljer sedan **ta bort resurs grupp**.
+3. Om du vill ta bort den dedikerade SQL-poolen så att du inte debiteras för beräkning eller lagring väljer du **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Du har nu skapat en arbets belastnings klassificering. Kör några frågor som TheCEO för att se hur de fungerar. Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att visa frågor och tilldelade prioritet.
-- Mer information om Synapse SQL-arbetsbelastnings hantering finns i avsnittet om [arbets belastnings prioritet](sql-data-warehouse-workload-importance.md) och [arbets belastnings klassificering](sql-data-warehouse-workload-classification.md).
+- Mer information om dedikerad arbets belastnings hantering i SQL-poolen finns i avsnittet om [arbets belastnings prioritet](sql-data-warehouse-workload-importance.md) och [belastnings klassificering](sql-data-warehouse-workload-classification.md).
 - Se instruktions artiklar för att [Konfigurera arbets belastnings prioritet](sql-data-warehouse-how-to-configure-workload-importance.md) och hur du [hanterar och övervakar arbets belastnings hantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

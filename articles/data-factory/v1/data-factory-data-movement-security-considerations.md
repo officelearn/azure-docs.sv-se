@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0da49a6f5299ef4e53b06acd5ce3fb838915a661
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e995cd8f300787a19934e9b9eeae1dea73e8576c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633934"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457091"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory-säkerhets överväganden för data förflyttning
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver grundläggande säkerhets infrastruktur som tjänste
 
 I en Data Factory-lösning skapar du en eller flera data[pipelines](data-factory-create-pipelines.md). En pipeline är en logisk gruppering av aktiviteter som tillsammans utför en uppgift. Dessa pipeliner finns i den region där data fabriken skapades. 
 
-Även om Data Factory är endast tillgängligt i regionerna **västra USA** , **östra USA** och **norra Europa** , är tjänsten för data flyttning tillgänglig [globalt i flera regioner](data-factory-data-movement-activities.md#global). Data Factory tjänsten säkerställer att data inte lämnar något geografiskt område/region, om du inte uttryckligen instruerar tjänsten att använda en alternativ region om data flyttnings tjänsten ännu inte har distribuerats till den regionen. 
+Även om Data Factory är endast tillgängligt i regionerna **västra USA**, **östra USA** och **norra Europa** , är tjänsten för data flyttning tillgänglig [globalt i flera regioner](data-factory-data-movement-activities.md#global). Data Factory tjänsten säkerställer att data inte lämnar något geografiskt område/region, om du inte uttryckligen instruerar tjänsten att använda en alternativ region om data flyttnings tjänsten ännu inte har distribuerats till den regionen. 
 
 Azure Data Factory lagrar inga data utom länkade autentiseringsuppgifter för tjänsten för moln data lager som är krypterade med certifikat. Det gör att du kan skapa data drivna arbets flöden för att dirigera data flödet mellan [data lager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) och bearbetning av data med hjälp av [beräknings tjänster](data-factory-compute-linked-services.md) i andra regioner eller i en lokal miljö. Du kan också [övervaka och hantera arbets flöden](data-factory-monitor-manage-pipelines.md) med både programmerings-och gränssnitts metoder.
 
@@ -42,26 +42,26 @@ Om du är intresse rad av Azure-kompatibilitet och hur Azure skyddar sin egen in
 
 I den här artikeln granskar vi säkerhets aspekter i följande två scenarier för data förflyttning: 
 
-- **Moln scenario** – i det här scenariot är både källa och mål offentligt tillgängliga via Internet. Dessa omfattar hanterade moln lagrings tjänster som Azure Storage, Azure Synapse Analytics (tidigare SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS-tjänster, till exempel Salesforce och webb protokoll som FTP och OData. Du hittar en fullständig lista över data källor som stöds [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
-- **Hybrid scenario** – i det här scenariot är antingen källan eller målet bakom en brand vägg eller i ett lokalt företags nätverk eller så är data lagret i ett privat nätverk/virtuellt nätverk (oftast källan) och är inte offentligt tillgänglig. Databas servrar som är värdar för virtuella datorer omfattas också av det här scenariot.
+- **Moln scenario**– i det här scenariot är både källa och mål offentligt tillgängliga via Internet. Dessa omfattar hanterade moln lagrings tjänster som Azure Storage, Azure Synapse Analytics, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS-tjänster som Salesforce och webb protokoll som FTP och OData. Du hittar en fullständig lista över data källor som stöds [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
+- **Hybrid scenario**– i det här scenariot är antingen källan eller målet bakom en brand vägg eller i ett lokalt företags nätverk eller så är data lagret i ett privat nätverk/virtuellt nätverk (oftast källan) och är inte offentligt tillgänglig. Databas servrar som är värdar för virtuella datorer omfattas också av det här scenariot.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="cloud-scenarios"></a>Moln scenarier
 ### <a name="securing-data-store-credentials"></a>Skydda autentiseringsuppgifter för data lager
-Azure Data Factory skyddar dina data lagrings uppgifter genom att **kryptera** dem med hjälp av **certifikat som hanteras av Microsoft** . Dessa certifikat roteras vartannat **år** (vilket omfattar förnyelse av certifikat och migrering av autentiseringsuppgifter). Dessa krypterade autentiseringsuppgifter lagras säkert i en **Azure Storage som hanteras av Azure Data Factory hanterings tjänster** . Mer information om Azure Storage säkerhet finns [Azure Storage säkerhets översikt](../../storage/blobs/security-recommendations.md).
+Azure Data Factory skyddar dina data lagrings uppgifter genom att **kryptera** dem med hjälp av **certifikat som hanteras av Microsoft**. Dessa certifikat roteras vartannat **år** (vilket omfattar förnyelse av certifikat och migrering av autentiseringsuppgifter). Dessa krypterade autentiseringsuppgifter lagras säkert i en **Azure Storage som hanteras av Azure Data Factory hanterings tjänster**. Mer information om Azure Storage säkerhet finns [Azure Storage säkerhets översikt](../../storage/blobs/security-recommendations.md).
 
 ### <a name="data-encryption-in-transit"></a>Data kryptering under överföring
 Om moln data lagringen stöder HTTPS eller TLS, är alla data överföringar mellan tjänster för data förflyttning i Data Factory och ett moln data lager via säker kanal HTTPS eller TLS.
 
 > [!NOTE]
-> Alla anslutningar till **Azure SQL Database** och **Azure Synapse Analytics** kräver alltid kryptering (SSL/TLS) medan data överförs till och från databasen. När du redigerar en pipeline med hjälp av en JSON-redigerare, lägger du till egenskapen **kryptering** och anger den som **sann** i **anslutnings strängen** . När du använder [guiden Kopiera](data-factory-azure-copy-wizard.md), ställer guiden in den här egenskapen som standard. För **Azure Storage** kan du använda **https** i anslutnings strängen.
+> Alla anslutningar till **Azure SQL Database** och **Azure Synapse Analytics** kräver alltid kryptering (SSL/TLS) medan data överförs till och från databasen. När du redigerar en pipeline med hjälp av en JSON-redigerare, lägger du till egenskapen **kryptering** och anger den som **sann** i **anslutnings strängen**. När du använder [guiden Kopiera](data-factory-azure-copy-wizard.md), ställer guiden in den här egenskapen som standard. För **Azure Storage** kan du använda **https** i anslutnings strängen.
 
 ### <a name="data-encryption-at-rest"></a>Datakryptering i vila
 Vissa data lager stöder kryptering av data i vila. Vi rekommenderar att du aktiverar data krypterings mekanismen för dessa data lager. 
 
 #### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
-Transparent datakryptering (TDE) i Azure Synapse Analytics hjälper till att skydda mot hot från skadlig aktivitet genom att utföra kryptering och dekryptering i real tid av dina data i vila. Det här beteendet är transparent för klienten. Mer information finns i [skydda en databas i Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+Transparent datakryptering (TDE) i Azure Synapse Analytics hjälper till att skydda mot hot från skadlig aktivitet genom att utföra kryptering och dekryptering i real tid av dina data i vila. Det här beteendet är transparent för klienten. Mer information finns i [skydda en databas i Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database stöder även transparent data kryptering (TDE), som hjälper till att skydda mot hot från skadlig aktivitet genom att utföra kryptering och dekryptering i real tid av data utan att kräva ändringar i programmet. Det här beteendet är transparent för klienten. Mer information finns i [Transparent datakryptering med Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
@@ -92,8 +92,8 @@ Hybrid scenarier kräver Data Management Gateway installeras i ett lokalt nätve
 Autentiseringsuppgifterna för dina lokala data lager lagras lokalt (inte i molnet). De kan ställas in på tre olika sätt. 
 
 - Använda **enkel text** (mindre säkert) via https från Azure Portal/guiden Kopiera. Autentiseringsuppgifterna skickas med oformaterad text till den lokala gatewayen.
-- Med hjälp av **Java Script Cryptography Library från guiden Kopiera** .
-- Använda **appen för att klicka på en gång baserat på autentiseringsuppgifter Manager** . Klicknings programmet körs på den lokala datorn som har åtkomst till gatewayen och anger autentiseringsuppgifter för data lagret. Det här alternativet och nästa är de säkraste alternativen. Credential Manager-appen som standard använder port 8050 på datorn med Gateway för säker kommunikation.  
+- Med hjälp av **Java Script Cryptography Library från guiden Kopiera**.
+- Använda **appen för att klicka på en gång baserat på autentiseringsuppgifter Manager**. Klicknings programmet körs på den lokala datorn som har åtkomst till gatewayen och anger autentiseringsuppgifter för data lagret. Det här alternativet och nästa är de säkraste alternativen. Credential Manager-appen som standard använder port 8050 på datorn med Gateway för säker kommunikation.  
 - Använd [New-AzDataFactoryEncryptValue PowerShell-](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) cmdlet för att kryptera autentiseringsuppgifter. Cmdlet: en använder det certifikat som gatewayen är konfigurerad att använda för att kryptera autentiseringsuppgifterna. Du kan använda de krypterade autentiseringsuppgifterna som returnerades av denna cmdlet och lägga till den i **EncryptedCredential** -elementet för **ConnectionString** i JSON-filen som du använder med cmdleten [New-AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) eller i JSON-kodfragmentet i Data Factory redigeraren i portalen. Det här alternativet och programmet Klicka på när är de säkraste alternativen. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>JavaScript-baserad kryptering med kryptering
@@ -106,7 +106,7 @@ Du kan starta appen klicknings-based Credential Manager från Azure Portal/guide
   
 ![HTTPS-port för gatewayen](media/data-factory-data-movement-security-considerations/https-port-for-gateway.png)
 
-För närvarande använder Data Management Gateway ett enda **certifikat** . Det här certifikatet skapas under Gateway-installationen (gäller Data Management Gateway som skapats efter 2016 november och version 2.4. xxxx. x eller senare). Du kan ersätta det här certifikatet med ditt eget SSL/TLS-certifikat. Det här certifikatet används av programmet klickning-Once Credential Manager för att på ett säkert sätt ansluta till gateway-datorn för att ange autentiseringsuppgifter för data lager. Den lagrar autentiseringsuppgifter för data lager på ett säkert sätt lokalt genom att använda Windows [DPAPI](/previous-versions/ms995355(v=msdn.10)) på datorn med Gateway. 
+För närvarande använder Data Management Gateway ett enda **certifikat**. Det här certifikatet skapas under Gateway-installationen (gäller Data Management Gateway som skapats efter 2016 november och version 2.4. xxxx. x eller senare). Du kan ersätta det här certifikatet med ditt eget SSL/TLS-certifikat. Det här certifikatet används av programmet klickning-Once Credential Manager för att på ett säkert sätt ansluta till gateway-datorn för att ange autentiseringsuppgifter för data lager. Den lagrar autentiseringsuppgifter för data lager på ett säkert sätt lokalt genom att använda Windows [DPAPI](/previous-versions/ms995355(v=msdn.10)) på datorn med Gateway. 
 
 > [!NOTE]
 > Äldre gatewayer som installerades före november 2016 eller version 2.3. xxxx. x fortsätter att använda autentiseringsuppgifterna som är krypterade och lagrade i molnet. Även om du uppgraderar gatewayen till den senaste versionen migreras inte autentiseringsuppgifterna till en lokal dator    
@@ -128,9 +128,9 @@ I följande tabell sammanfattas rekommendationerna för nätverks-och gateway-ko
 
 | Källa | Mål | Konfiguration av nätverk | Gateway-konfiguration |
 | ------ | ----------- | --------------------- | ------------- | 
-| Lokal | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | IPSec VPN (punkt-till-plats eller plats-till-plats) | Gateway kan installeras antingen lokalt eller på en virtuell Azure-dator (VM) i VNet | 
-| Lokal | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | ExpressRoute (privat peering) | Gateway kan installeras antingen lokalt eller på en virtuell Azure-dator i VNet | 
-| Lokal | Azure-baserade tjänster som har en offentlig slut punkt | ExpressRoute (offentlig peering) | Gatewayen måste installeras lokalt | 
+| Lokalt | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | IPSec VPN (punkt-till-plats eller plats-till-plats) | Gateway kan installeras antingen lokalt eller på en virtuell Azure-dator (VM) i VNet | 
+| Lokalt | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | ExpressRoute (privat peering) | Gateway kan installeras antingen lokalt eller på en virtuell Azure-dator i VNet | 
+| Lokalt | Azure-baserade tjänster som har en offentlig slut punkt | ExpressRoute (offentlig peering) | Gatewayen måste installeras lokalt | 
 
 I följande bilder visas användningen av Data Management Gateway för att flytta data mellan en lokal databas och Azure-tjänster med hjälp av Express Route och IPSec VPN (med Virtual Network):
 
@@ -147,9 +147,9 @@ I följande bilder visas användningen av Data Management Gateway för att flytt
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Brand Väggs krav för lokalt/privat nätverk  
 I ett företag körs en **företags brand vägg** på den centrala routern i organisationen. Och **Windows-brandväggen** körs som en daemon på den lokala dator där gatewayen är installerad. 
 
-Följande tabell innehåller **utgående port** -och domän krav för **företags brand väggen** .
+Följande tabell innehåller **utgående port** -och domän krav för **företags brand väggen**.
 
-| Domännamn | Utgående portar | Beskrivning |
+| Domännamn | Utgående portar | Description |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443, 80 | Krävs av gatewayen för att ansluta till data flytt tjänster i Data Factory |
 | `*.core.windows.net` | 443 | Används av gatewayen för att ansluta till Azure Storage-kontot när du använder funktionen för [mellanlagrad kopiering](data-factory-copy-activity-performance.md#staged-copy) . | 
@@ -160,9 +160,9 @@ Följande tabell innehåller **utgående port** -och domän krav för **företag
 > [!NOTE] 
 > Du kan behöva hantera portar/filtrerings domäner på företags brand Väggs nivån som krävs av respektive data källor. I den här tabellen används endast Azure SQL Database, Azure Synapse Analytics, Azure Data Lake Store som exempel.   
 
-Följande tabell innehåller krav på **inkommande portar** för **Windows-brandväggen** .
+Följande tabell innehåller krav på **inkommande portar** för **Windows-brandväggen**.
 
-| Ingående portar | Beskrivning | 
+| Ingående portar | Description | 
 | ------------- | ----------- | 
 | 8050 (TCP) | Krävs av Credential Manager-programmet för att på ett säkert sätt ange autentiseringsuppgifter för lokala data lager på gatewayen. | 
 

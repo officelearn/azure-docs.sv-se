@@ -9,18 +9,18 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1a78142ded7be46bdc06c49d6e0a26ef8b266300
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0e3bbb2532340664d0fc54b29bea3ef3af75f9b6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318397"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459151"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse för SQL-resursförbrukning
 
-I den här artikeln beskrivs resurs förbruknings modeller av Synapse SQL (för hands version).
+Den här artikeln beskriver resurs förbruknings modeller för Synapse SQL.
 
-## <a name="serverless-sql-pool"></a>SQL-pool utan Server
+## <a name="serverless-sql-pool"></a>Serverlös SQL-pool
 
 SQL-poolen utan server är en betal tjänst per fråga som inte kräver att du väljer rätt storlek. Systemet justeras automatiskt baserat på dina krav, vilket frigör dig från att hantera infrastrukturen och välja rätt storlek för din lösning.
 

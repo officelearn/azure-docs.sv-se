@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d7c95317667999ac17803f08575e68641100b967
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a9d8c42432d619ab120afd0bd5734f6fa269b514
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023284"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458093"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Självstudie: utforska digitala Azure-enheter med ett exempel på en klient
 
@@ -47,9 +47,9 @@ I Visual Studio-fönstret där _**AdtE2ESample**_ -projektet är öppet använde
 
 Välj *Room.jspå* för att öppna den i redigerings fönstret och ändra den på följande sätt:
 
-* **Uppdatera versions numret** för att indikera att du tillhandahåller en mer uppdaterad version av den här modellen. Gör detta genom att ändra *1* i slutet av `@id` värdet till *2*. Alla tal som är större än det aktuella versions numret fungerar också.
-* **Redigera en egenskap**. Ändra namnet på `Humidity` egenskapen till *HumidityLevel* (eller något annat om du vill. Om du använder något annat än *HumidityLevel*, kom ihåg vad du använde och fortsätta att använda det i stället för *HumidityLevel* i hela kursen.
-* **Lägg till en egenskap**. Under den `HumidityLevel` egenskap som slutar på rad 15 klistrar du in följande kod för att lägga till en `RoomName` egenskap till rummet:
+1. **Uppdatera versions numret** för att indikera att du tillhandahåller en mer uppdaterad version av den här modellen. Gör detta genom att ändra *1* i slutet av `@id` värdet till *2*. Alla tal som är större än det aktuella versions numret fungerar också.
+1. **Redigera en egenskap**. Ändra namnet på `Humidity` egenskapen till *HumidityLevel* (eller något annat om du vill. Om du använder något annat än *HumidityLevel*, kom ihåg vad du använde och fortsätta att använda det i stället för *HumidityLevel* i hela kursen.
+1. **Lägg till en egenskap**. Under den `HumidityLevel` egenskap som slutar på rad 15 klistrar du in följande kod för att lägga till en `RoomName` egenskap till rummet:
 
     ```json
     ,
@@ -59,13 +59,13 @@ Välj *Room.jspå* för att öppna den i redigerings fönstret och ändra den p�
       "schema": "string"
     }
     ```
-* **Lägg till en relation**. Under den `RoomName` egenskap som du just har lagt till klistrar du in följande kod för att lägga till möjligheten för den här typen av dubbla till formulär som *innehåller* relationer med andra dubbla:
+1. **Lägg till en relation**. Under den `RoomName` egenskap som du just har lagt till klistrar du in följande kod för att lägga till möjligheten för den här typen av dubbla till formulär som *innehåller* relationer med andra dubbla:
 
     ```json
     ,
     {
       "@type": "Relationship",
-      "name": "contains",
+      "name": "contains"
     }
     ```
 

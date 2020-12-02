@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 174ad4692d043390e6773a98e31f0985d75c8e2e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 61efc7719b071ff4e8e5c0e07534b72a2883aff1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018822"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458874"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
 
@@ -24,12 +24,12 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Ja      |    Ja      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
 |Azure Synapse Analytics (SQL DW)      |   Ja      |   Ja       |<sup>[11.2](#azprovider)</sup>|
-|Azure Blob Storage      |   Ja       |    Inga      | <sup>[81.1](#tab1400a)</sup> |
-|Azure Table Storage     |   Ja       |    Inga      | <sup>[81.1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  Ja        |  Inga        |<sup>[81.1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen1      |   Ja       |    Inga      |<sup>[81.1](#tab1400a)</sup> |
+|Azure Blob Storage      |   Ja       |    Inga      | <sup>[1](#tab1400a)</sup> |
+|Azure Table Storage     |   Ja       |    Inga      | <sup>[1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  Ja        |  Inga        |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen1      |   Ja       |    Inga      |<sup>[1](#tab1400a)</sup> |
 |Azure Data Lake Store Gen2       |   Ja       |    Inga      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
-|Azure HDInsight HDFS    |     Ja     |   Inga       |<sup>[81.1](#tab1400a)</sup> |
+|Azure HDInsight HDFS    |     Ja     |   Inga       |<sup>[1](#tab1400a)</sup> |
 |Azure HDInsight Spark     |   Ja       |   Inga       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
 
@@ -60,7 +60,7 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 |MySQL-databas     | Ja | Inga |  |
 |OData-feed      |  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
 |ODBC-fråga     | Ja | Inga |  |
-|OLE DB     |   Ja | Inga |  |
+|OLE DB     |   Ja | Nej |  |
 |Oracle  | Ja  |Ja  | <sup>[1.9](#oracle)</sup> |
 |PostgreSQL-databas   | Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
 |Salesforce-objekt|  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
@@ -88,7 +88,7 @@ Anslutning till lokala data källor från en Azure Analysis Services server krä
 
 ## <a name="understanding-providers"></a>Förstå leverantörer
 
-När du skapar tabell 1400 och högre modell projekt i Visual Studio, anger du som standard ingen dataprovider vid anslutning till en data källa med hjälp av **Hämta data**. I tabell 1400 och högre modeller används [Power Query](/power-query/power-query-what-is-power-query) -anslutningar för att hantera anslutningar, data frågor och kombinations program mellan data källan och Analysis Services. Dessa kallas ibland för *strukturerade* data käll anslutningar i dessa inställningar för anslutnings egenskaper. Du kan dock aktivera äldre data källor för ett modell projekt i Visual Studio. När den är aktive rad kan du använda **guiden Importera tabell** för att ansluta till vissa data källor som traditionellt stöds i tabell 1200 och lägre modeller som *äldre*eller data källor för *Provider* . När du har angett som en data källa för en provider kan du ange en viss data leverantör och andra avancerade anslutnings egenskaper. Du kan till exempel ansluta till en SQL Server informations lager instans eller till och med en Azure SQL Database som en äldre data källa. Du kan sedan välja OLE DB driv rutinen för SQL Server MSOLEDBSQL Data Provider. I det här fallet kan det vara bättre att välja en OLE DB dataprovider över Power Query anslutningen. 
+När du skapar tabell 1400 och högre modell projekt i Visual Studio, anger du som standard ingen dataprovider vid anslutning till en data källa med hjälp av **Hämta data**. I tabell 1400 och högre modeller används [Power Query](/power-query/power-query-what-is-power-query) -anslutningar för att hantera anslutningar, data frågor och kombinations program mellan data källan och Analysis Services. Dessa kallas ibland för *strukturerade* data käll anslutningar i dessa inställningar för anslutnings egenskaper. Du kan dock aktivera äldre data källor för ett modell projekt i Visual Studio. När den är aktive rad kan du använda **guiden Importera tabell** för att ansluta till vissa data källor som traditionellt stöds i tabell 1200 och lägre modeller som *äldre* eller data källor för *Provider* . När du har angett som en data källa för en provider kan du ange en viss data leverantör och andra avancerade anslutnings egenskaper. Du kan till exempel ansluta till en SQL Server informations lager instans eller till och med en Azure SQL Database som en äldre data källa. Du kan sedan välja OLE DB driv rutinen för SQL Server MSOLEDBSQL Data Provider. I det här fallet kan det vara bättre att välja en OLE DB dataprovider över Power Query anslutningen. 
 
 När du använder guiden Importera tabell i Visual Studio kräver anslutningarna till en data källa en data leverantör. En standardprovider för data har valts. Du kan ändra data leverantören om det behövs. Vilken typ av provider du väljer kan bero på prestanda, om modellen använder minnes lagring eller DirectQuery, och vilken Analysis Services plattform som du distribuerar din modell till.
 
@@ -120,7 +120,7 @@ För moln data Källor:
 
 ## <a name="oauth-credentials"></a>Autentiseringsuppgifter för OAuth
 
-För tabell modeller på nivån 1400 och högre med i-minnes läge, Azure SQL Database, Azure-Synapse (tidigare SQL Data Warehouse), Dynamics 365 och SharePoint-lista stöder OAuth-autentiseringsuppgifter. Azure Analysis Services hanterar token-uppdatering för OAuth-datakällor för att undvika tids gränser för tids krävande uppdaterings åtgärder. Ange autentiseringsuppgifter genom att använda Power Query för att generera giltiga tokens.
+För tabell modeller på nivån 1400 och högre med i-minnes läge, Azure SQL Database, Azure Synapse, Dynamics 365 och SharePoint-listan stöder OAuth-autentiseringsuppgifter. Azure Analysis Services hanterar token-uppdatering för OAuth-datakällor för att undvika tids gränser för tids krävande uppdaterings åtgärder. Ange autentiseringsuppgifter genom att använda Power Query för att generera giltiga tokens.
 
 Direct Query-läget stöds inte med OAuth-autentiseringsuppgifter.
 

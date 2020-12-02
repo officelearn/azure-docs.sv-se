@@ -8,12 +8,12 @@ ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: ccdc87d03181bad1aba4dd362a651fa42381343a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 39a9b363c847b615bfbe049b4b47628e8688c607
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542294"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458124"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Skapa ett kommersiellt marknads plats konto i Partner Center
 
@@ -114,7 +114,7 @@ Nu har du skapat ett kommersiellt marknads plats konto i Partner Center. Fortsä
 >
 >Enskilda konton är för utvecklare som arbetar på egen hand. Företags konton är för organisationer och företag. Företags konton ger dig åtkomst till att skicka appar med ytterligare funktioner.
 >
-> För att säkerställa att du har behörighet att konfigurera kontot för ditt företag kräver vi ytterligare verifiering av företags konton när du har registrerat dig. Den här verifieringen kan ta från några dagar till några veckor, och det innehåller ofta ett telefonsamtal till ditt företag. Med båda typerna av konton kan du skicka appar, tillägg och tjänster. Mer information finns i [konto typer, platser och avgifter](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
+> För att säkerställa att du har behörighet att konfigurera kontot för ditt företag kräver vi ytterligare verifiering av företags konton när du har registrerat dig. Den här verifieringen kan ta från några dagar till några veckor, och det innehåller ofta ett telefonsamtal till ditt företag. Med båda typerna av konton kan du skicka appar, tillägg och tjänster. Mer information finns i [konto typer, platser och avgifter](/windows/uwp/publish/account-types-locations-and-fees).
 
 När du registrerar dig för programmet för kommersiella marknads platser med samma konto som Developer-programmet kan du se alla befintliga program registreringar i det vänstra fönstret i Partner Center.
 

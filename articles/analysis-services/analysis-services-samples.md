@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 24c2fe9b6bbb0b5a40edd395bfe669abfc8c9adc
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 0ab0e64d9a088a332ba037dccf01dc445998ebfb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183183"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457556"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services exempel
 
@@ -28,7 +28,7 @@ Använd följande exempel resurser för att få hjälp att lära dig om och test
 
 ## <a name="sample-database-on-azure"></a>Exempel databas på Azure
 
-Azure Synapse Analytics (tidigare SQL Data Warehouse) innehåller ett exempel på en AdventureWorksDW-databas som kan ingå i en etablerad resurs. Mer information finns i [snabb start: skapa och fråga en dedikerad SQL-pool i Azure Synapse Analytics ](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+Azure Synapse Analytics innehåller ett exempel på en AdventureWorksDW-databas som kan ingå i en etablerad resurs. Mer information finns i [snabb start: skapa och fråga en dedikerad SQL-pool i Azure Synapse Analytics ](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 ## <a name="sample-databases-on-github"></a>Exempel databaser på GitHub
 

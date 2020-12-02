@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 97dc53c9870112dc5d547ab477e54f15f802cc05
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: dc47c996748b126841cbeff1ea3f6f18f423951f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310647"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457640"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Utforska SaaS Analytics med Azure SQL Database, Azure Synapse Analytics, Data Factory och Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,7 +45,7 @@ SaaS-program innehåller en potentiell mängd klient data i molnet. Dessa data k
 
 Det är enkelt att komma åt data för alla klienter när alla data bara finns i en databas med flera innehavare. Men åtkomsten är mer komplex när den distribueras i stor skala över tusentals databaser. Ett sätt att molndata komplexiteten är att extrahera data till en Analytics-databas eller ett informations lager för frågor.
 
-I den här självstudien presenteras ett scenario från slut punkt till slut punkt för Wingtip Ticket-programmet. Först används [Azure Data Factory (ADF)](../../data-factory/introduction.md) som Orchestration-verktyg för att extrahera biljett försäljning och relaterade data från varje klient databas. Dessa data läses in i mellanlagrings tabeller i ett analys lager. Analytics-butiken kan antingen vara en SQL Database eller en dedikerad SQL-pool. I den här självstudien används [Azure Synapse Analytics (tidigare SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) som analys lager.
+I den här självstudien presenteras ett scenario från slut punkt till slut punkt för Wingtip Ticket-programmet. Först används [Azure Data Factory (ADF)](../../data-factory/introduction.md) som Orchestration-verktyg för att extrahera biljett försäljning och relaterade data från varje klient databas. Dessa data läses in i mellanlagrings tabeller i ett analys lager. Analytics-butiken kan antingen vara en SQL Database eller en dedikerad SQL-pool. I den här självstudien används [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) som analys lager.
 
 Sedan omvandlas de extraherade data till en uppsättning med [stjärn schema](https://www.wikipedia.org/wiki/Star_schema) tabeller. Tabellerna består av en central fakta tabell plus relaterade dimensions tabeller:
 
@@ -85,9 +85,9 @@ Den här självstudien utforskar analys över biljett försäljnings data. I det
 
 ### <a name="deploy-azure-synapse-analytics-data-factory-and-blob-storage"></a>Distribuera Azure Synapse Analytics, Data Factory och Blob Storage
 
-I Wingtip biljetter-appen distribueras klientens transaktions data över flera databaser. Azure Data Factory (ADF) används för att dirigera extrahering, belastning och transformering (ELT) av dessa data till data lagret. För att läsa in data i Azure Synapse Analytics (tidigare SQL Data Warehouse), extraherar ADF data till mellanliggande BLOB-filer och använder [PolyBase](../../synapse-analytics/sql-data-warehouse/design-elt-data-loading.md) för att läsa in data till data lagret.
+I Wingtip biljetter-appen distribueras klientens transaktions data över flera databaser. Azure Data Factory (ADF) används för att dirigera extrahering, belastning och transformering (ELT) av dessa data till data lagret. För att läsa in data i Azure Synapse Analytics, extraherar ADF data till mellanliggande BLOB-filer och använder [PolyBase](../../synapse-analytics/sql-data-warehouse/design-elt-data-loading.md) för att läsa in data till data lagret.
 
-I det här steget distribuerar du ytterligare resurser som används i självstudien: en dedikerad SQL-pool med namnet _tenantanalytics_ , ett Azure Data Factory som kallas _dbtodwload- \<user\>_ och ett Azure Storage-konto som kallas _wingtipstaging \<user\>_. Lagrings kontot används för att tillfälligt lagra extraherade datafiler som blobbar innan de läses in i data lagret. Det här steget distribuerar även data lagrets schema och definierar de ADF-pipeliner som dirigerar ELT-processen.
+I det här steget distribuerar du ytterligare resurser som används i självstudien: en dedikerad SQL-pool med namnet _tenantanalytics_, ett Azure Data Factory som kallas _dbtodwload- \<user\>_ och ett Azure Storage-konto som kallas _wingtipstaging \<user\>_. Lagrings kontot används för att tillfälligt lagra extraherade datafiler som blobbar innan de läses in i data lagret. Det här steget distribuerar även data lagrets schema och definierar de ADF-pipeliner som dirigerar ELT-processen.
 
 1. I PowerShell ISE öppnar du *. ..\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* och anger:
     - **$DemoScenario**  =  **2** distribuera klient analys data lager, Blob Storage och Data Factory
@@ -107,8 +107,8 @@ I Object Explorer:
 1. Expandera noden databaser och se listan över klient databaser.
 1. Expandera *katalogen-DPT- &lt; User &gt;* Server.
 1. Kontrol lera att Analytics Store innehåller följande objekt:
-    1. Tabeller **raw_Tickets** , **raw_Customers** , **raw_Events** och **raw_Venues** lagra rå data från klient databaserna.
-    1. De stjärn schema tabellerna är **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** och **dim_Dates**.
+    1. Tabeller **raw_Tickets**, **raw_Customers**, **raw_Events** och **raw_Venues** lagra rå data från klient databaserna.
+    1. De stjärn schema tabellerna är **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** och **dim_Dates**.
     1. Den lagrade proceduren **sp_transformExtractedData** används för att transformera data och läsa in dem i stjärn schema tabeller.
 
 ![Skärm bild som visar Object Explorer med tabeller expanderade för att visa olika databas objekt.](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
@@ -138,7 +138,7 @@ Följ stegen nedan för att starta data fabriken:
 
 ## <a name="extract-load-and-transform-data"></a>Extrahera, läsa in och transformera data
 
-Azure Data Factory används för att dirigera extrahering, inläsning och transformering av data. I den här självstudien extraherar du data från fyra olika SQL-vyer från var och en av klient databaserna: **rawTickets** , **rawCustomers** , **rawEvents** och **rawVenues**. Dessa vyer innehåller plats-ID så att du kan diskriminera data från varje plats i data lagret. Data läses in i motsvarande mellanlagrings tabeller i data lagret: **raw_Tickets** **raw_customers** **raw_Events** och **raw_Venue**. En lagrad procedur transformerar rå data och fyller i stjärn schema tabeller: **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** och **dim_Dates**.
+Azure Data Factory används för att dirigera extrahering, inläsning och transformering av data. I den här självstudien extraherar du data från fyra olika SQL-vyer från var och en av klient databaserna: **rawTickets**, **rawCustomers**, **rawEvents** och **rawVenues**. Dessa vyer innehåller plats-ID så att du kan diskriminera data från varje plats i data lagret. Data läses in i motsvarande mellanlagrings tabeller i data lagret: **raw_Tickets** **raw_customers** **raw_Events** och **raw_Venue**. En lagrad procedur transformerar rå data och fyller i stjärn schema tabeller: **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** och **dim_Dates**.
 
 I föregående avsnitt har du distribuerat och initierat nödvändiga Azure-resurser, inklusive Data Factory. Den distribuerade data fabriken innehåller pipelines, data uppsättningar, länkade tjänster osv., som krävs för att extrahera, läsa in och transformera klient data. Låt oss utforska dessa objekt ytterligare och Utlös sedan pipelinen för att flytta data från klient databaser till data lagret.
 
@@ -157,7 +157,7 @@ De tre kapslade pipelinen är: SQLDBToDW, DBCopy och TableCopy.
 
 **Pipeline 2 – DBCopy** letar upp namnen på käll tabellerna och kolumnerna från en konfigurations fil som lagras i Blob Storage.  **TableCopy** -pipeline körs sedan för var och en av de fyra tabellerna: TicketFacts, CustomerFacts, EventFacts och VenueFacts. **[Förgrunds](../../data-factory/control-flow-for-each-activity.md)** aktiviteten körs parallellt för alla 20 databaser. ADF tillåter att maximalt 20 upprepnings iterationer körs parallellt. Överväg att skapa flera pipelines för fler databaser.
 
-**Pipeliner 3-TableCopy** använder rad versions nummer i SQL Database ( _ROWVERSION_ ) för att identifiera rader som har ändrats eller uppdaterats. Den här aktiviteten söker upp start-och slut rads versionen för att extrahera rader från käll tabellerna. **CopyTracker** -tabellen som lagras i varje klient databas spårar den sista raden som extraheras från varje käll tabell i varje körning. Nya eller ändrade rader kopieras till motsvarande mellanlagrings tabeller i data lagret: **raw_Tickets** , **raw_Customers** , **raw_Venues** och **raw_Events**. Slutligen är den sista rad versionen Sparad i **CopyTracker** -tabellen som ska användas som den första rad versionen för nästa extrahering.
+**Pipeliner 3-TableCopy** använder rad versions nummer i SQL Database (_ROWVERSION_) för att identifiera rader som har ändrats eller uppdaterats. Den här aktiviteten söker upp start-och slut rads versionen för att extrahera rader från käll tabellerna. **CopyTracker** -tabellen som lagras i varje klient databas spårar den sista raden som extraheras från varje käll tabell i varje körning. Nya eller ändrade rader kopieras till motsvarande mellanlagrings tabeller i data lagret: **raw_Tickets**, **raw_Customers**, **raw_Venues** och **raw_Events**. Slutligen är den sista rad versionen Sparad i **CopyTracker** -tabellen som ska användas som den första rad versionen för nästa extrahering.
 
 Det finns också tre parametriserade länkade tjänster som länkar data fabriken till SQL-källans SQL-databaser, den dedikerade SQL-poolen och den mellanliggande blob-lagringen. På fliken **författare** klickar du på **anslutningar** för att utforska de länkade tjänsterna, som du ser i följande bild:
 
@@ -167,7 +167,7 @@ Det finns tre data uppsättningar som motsvarar de tre länkade tjänsterna och 
   
 ### <a name="data-warehouse-pattern-overview"></a>Översikt över informations lager mönster
 
-Azure Synapse (tidigare SQL Data Warehouse) används som analys lager för att utföra agg regering på klient data. I det här exemplet används PolyBase för att läsa in data till data lagret. Rå data läses in i tillfälliga tabeller som har en identitets kolumn för att hålla reda på rader som har omvandlats till stjärn schema tabeller. Följande bild visar inläsnings mönstret: ![ diagrammet visar inläsnings mönstret för databas tabeller.](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
+Azure Synapse används som Analytics Store för att utföra agg regering på klient data. I det här exemplet används PolyBase för att läsa in data till data lagret. Rå data läses in i tillfälliga tabeller som har en identitets kolumn för att hålla reda på rader som har omvandlats till stjärn schema tabeller. Följande bild visar inläsnings mönstret: ![ diagrammet visar inläsnings mönstret för databas tabeller.](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
 
 SCD-typ 1-dimensions tabeller (långsamt ändring av dimension) används i det här exemplet. Varje dimension har en surrogat nyckel definierad med en identitets kolumn. Som bästa praxis är datum dimensions tabellen i förväg ifylld för att spara tid. För de andra dimensions tabellerna visas en CREATE TABLE som Välj... (CTAS)-instruktionen används för att skapa en temporär tabell som innehåller befintliga ändrade och icke-ändrade rader, tillsammans med surrogat nycklar. Detta görs med IDENTITY_INSERT = på. Nya rader infogas sedan i tabellen med IDENTITY_INSERT = OFF. För enkel återställning ändras namnet på den befintliga dimensions tabellen och den temporära tabellen byter namn till den nya dimensions tabellen. Innan varje körning tas den gamla dimensions tabellen bort.
 
@@ -204,7 +204,7 @@ Använd följande steg för att ansluta till Power BI och för att importera de 
 1. Starta Power BI skriv bord.
 2. Från menyfliksområdet start väljer du **Hämta data** och väljer **mer...** från menyn.
 3. I fönstret **Hämta data** väljer du **Azure SQL Database**.
-4. I fönstret databas inloggning anger du Server namnet ( **Catalog-DPT- &lt; User &gt; . Database.Windows.net** ). Välj **Importera** för **data anslutnings läge** och klicka sedan på **OK**.
+4. I fönstret databas inloggning anger du Server namnet (**Catalog-DPT- &lt; User &gt; . Database.Windows.net**). Välj **Importera** för **data anslutnings läge** och klicka sedan på **OK**.
 
     ![Logga in till Power BI](./media/saas-tenancy-tenant-analytics-adf/powerBISignIn.PNG)
 
@@ -212,7 +212,7 @@ Använd följande steg för att ansluta till Power BI och för att importera de 
 
     ![databas inloggning](./media/saas-tenancy-tenant-analytics-adf/databaseSignIn.PNG)
 
-6. I **navigerings** fönstret, under Analytics-databasen, väljer du stjärn schema tabeller: **fact_Tickets** , **dim_Events** , **dim_Venues** , **dim_Customers** och **dim_Dates**. Välj sedan **load**.
+6. I **navigerings** fönstret, under Analytics-databasen, väljer du stjärn schema tabeller: **fact_Tickets**, **dim_Events**, **dim_Venues**, **dim_Customers** och **dim_Dates**. Välj sedan **load**.
 
 Grattis! Du har läst in data i Power BI. Utforska nu intressanta visualiseringar för att få insikter om dina klienter. Låt oss gå igenom hur Analytics kan ge vissa data drivna rekommendationer till affärs teamet för Wingtip-biljetter. Rekommendationerna kan hjälpa till att optimera affärs modellen och kund upplevelsen.
 
@@ -242,7 +242,7 @@ Det här området av kumulativ biljett försäljning över tid för Contoso kons
 
 Insikterna i biljett Sälj mönstren kan leda Wingtip-biljetter för att optimera sina affärs modeller. I stället för att debitera alla klienter på samma sätt bör Wingtip införa tjänst nivåer med olika beräknings storlekar. Större platser som behöver sälja fler biljetter per dag kan erbjudas en högre nivå med ett högre service nivå avtal (SLA). Dessa platser kan ha sina databaser placerade i poolen med högre resurs gränser per databas. Varje tjänst nivå kan ha en tilldelning per timme, med ytterligare avgifter som debiteras för att överskrida tilldelningen. Större platser som har regelbundna försäljnings nivåer skulle ha nytta av de högre nivåerna, och Wingtip-biljetter kan använda tjänsten mer effektivt.
 
-Samtidigt har vissa Wingtip-biljetter för kunder klagat att sälja tillräckligt med biljetter för att motivera tjänste kostnaden. I dessa insikter finns det en möjlighet att öka biljett försäljningen för att under utföra platser. Högre försäljning skulle öka det uppfattade värdet för tjänsten. Högerklicka på fact_Tickets och välj **nytt mått**. Ange följande uttryck för det nya måttet med namnet **AverageTicketsSold** :
+Samtidigt har vissa Wingtip-biljetter för kunder klagat att sälja tillräckligt med biljetter för att motivera tjänste kostnaden. I dessa insikter finns det en möjlighet att öka biljett försäljningen för att under utföra platser. Högre försäljning skulle öka det uppfattade värdet för tjänsten. Högerklicka på fact_Tickets och välj **nytt mått**. Ange följande uttryck för det nya måttet med namnet **AverageTicketsSold**:
 
 ```sql
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
@@ -256,7 +256,7 @@ Ritningen ovan visar att även om de flesta platser säljer mer än 80% av deras
 
 ## <a name="embedding-analytics-in-your-apps"></a>Bädda in analyser i dina appar
 
-Den här självstudien har fokuserat på analys av flera klienter som används för att förbättra program varu leverantörens förståelse för sina klienter. Analytics kan även ge insikter till _klienterna_ , så att de kan hantera sin verksamhet mer effektivt.
+Den här självstudien har fokuserat på analys av flera klienter som används för att förbättra program varu leverantörens förståelse för sina klienter. Analytics kan även ge insikter till _klienterna_, så att de kan hantera sin verksamhet mer effektivt.
 
 I Wingtip Ticket-exemplet har du tidigare identifierat att biljett försäljningen tenderar att följa förutsägbara mönster. Den här insikten kan användas för att under lätta undersökandet av Sälj platser. Det kanske finns möjlighet att använda Machine Learning-tekniker för att förutse biljett försäljning för evenemang. Effekterna av pris ändringar kan också modelleras för att tillåta effekten av att erbjuda rabatter. Power BI Embedded kan integreras i ett händelse hanterings program för att visualisera förväntad försäljning, inklusive inverkan på rabatter på totalt antal sålda platser och intäkter för händelser med låg försäljning. Med Power BI Embedded kan du till och med integrera rabatten på biljett priserna, direkt i visualiserings upplevelsen.
 

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 5c8af8ddb7a0870de37b73cbe09965ee63c88ba1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: eb1be4c78be0eb7fb943700b168fa82ede4d3861
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353756"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458388"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Fördefinierad faktura modell för formulär tolken
 
@@ -45,7 +45,7 @@ Du behöver en Azure-prenumeration ([skapa en kostnads fri](https://azure.micros
 
 ## <a name="the-analyze-invoice-operation"></a>Faktura åtgärden analysera
 
-[Faktura åtgärden analysera](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync) tar en bild eller PDF av en faktura som indata och extraherar värdena för ränta. Anropet returnerar ett svars huvud fält som kallas `Operation-Location` . `Operation-Location`Värdet är en URL som innehåller det resultat-ID som ska användas i nästa steg.
+[Faktura åtgärden analysera](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291) tar en bild eller PDF av en faktura som indata och extraherar värdena för ränta. Anropet returnerar ett svars huvud fält som kallas `Operation-Location` . `Operation-Location`Värdet är en URL som innehåller det resultat-ID som ska användas i nästa steg.
 
 |Svars huvud| Resultat-URL |
 |:-----|:----|
@@ -53,7 +53,7 @@ Du behöver en Azure-prenumeration ([skapa en kostnads fri](https://azure.micros
 
 ## <a name="the-get-analyze-invoice-result-operation"></a>Resultat åtgärden hämta faktura resultat
 
-Det andra steget är att anropa åtgärden för att [analysera resultat för faktura resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeInvoiceResult) . Den här åtgärden tar in det resultat-ID som skapades av faktura åtgärden analysera. Den returnerar ett JSON-svar som innehåller ett **status** fält med följande möjliga värden. Du anropar den här åtgärden iterativt tills den returnerar värdet **lyckades** . Använd ett intervall på 3 till 5 sekunder för att undvika att överskrida antalet begär Anden per sekund (RPS).
+Det andra steget är att anropa åtgärden för att [analysera resultat för faktura resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9acb78c40a2533aee83) . Den här åtgärden tar in det resultat-ID som skapades av faktura åtgärden analysera. Den returnerar ett JSON-svar som innehåller ett **status** fält med följande möjliga värden. Du anropar den här åtgärden iterativt tills den returnerar värdet **lyckades** . Använd ett intervall på 3 till 5 sekunder för att undvika att överskrida antalet begär Anden per sekund (RPS).
 
 |Fält| Typ | Möjliga värden |
 |:-----|:----:|:----|
@@ -74,7 +74,7 @@ JSON-utdata har 3 delar:
 
 Faktura tjänsten kommer att extrahera fälten text, tabeller och 26 fakturor. Nedan visas fälten som extraheras från en faktura i JSON-utdata (resultatet nedan använder den här [exempel fakturan](./media/sample-invoice.jpg))  
 
-|Namn| Typ | Beskrivning | Text | Värde (standardiserad utdata) |
+|Namn| Typ | Description | Text | Värde (standardiserad utdata) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | sträng | Kunden faktureras | Microsoft Corp |  |
 | CustomerId | sträng | Referens-ID för kunden | CID – 12345 |  |

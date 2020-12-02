@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 10/28/2020
-ms.openlocfilehash: 2a648b4f4c614fc64fa7817102215720e51abe7f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d303a5d5b9779a2003b12d063c97c36a90576dd3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095609"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456633"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Alternativet för säljsamarbete i Partner Center
 
@@ -83,10 +83,10 @@ Du kan ange dina kontakter genom att hämta CSV-mallen från Partner Center, fyl
 
 Du kan också exportera din befintliga lista med kontakter från ett erbjudande och sedan göra ändringar i filen.
 
-* *Namn (obligatoriskt)* : kontaktens namn.
-* *E-postadress (krävs)* : kontaktens e-postadress.
-* *Jobb titel (krävs)* : befattning.
-* *Roll (krävs)* : Använd någon av följande roller.
+* *Namn (obligatoriskt)*: kontaktens namn.
+* *E-postadress (krävs)*: kontaktens e-postadress.
+* *Jobb titel (krävs)*: befattning.
+* *Roll (krävs)*: Använd någon av följande roller.
 
     | **Role**    | **Beskrivning**  |
     | :------------------- | :-------------------|
@@ -108,7 +108,7 @@ Referens arkitektur diagrammet är en modell som representerar den infrastruktur
 
 Dokumentet kan skapas via flera verktyg. Vi rekommenderar Microsoft Visio eftersom det finns flera stenciler som illustrerar Azure Architecture-modeller.
 
-En bra utgångs punkt för att skapa referens arkitektur diagram är att utnyttja [Azures arkitektur modeller](https://docs.microsoft.com/azure/architecture/browse/).
+En bra utgångs punkt för att skapa referens arkitektur diagram är att utnyttja [Azures arkitektur modeller](/azure/architecture/browse/).
 
 ### <a name="typical-components-of-a-reference-architecture-diagram"></a>Typiska komponenter i ett referens arkitektur diagram
 - Moln tjänster som är värdar för och interagerar med ditt erbjudande, inklusive de som genererar Azure-förbrukning

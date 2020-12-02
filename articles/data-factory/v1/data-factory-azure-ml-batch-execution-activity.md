@@ -3,20 +3,20 @@ title: Skapa förväntande data pipelines med Azure Data Factory
 description: Beskriver hur du skapar skapa förutsägande pipelines med hjälp av Azure Data Factory och Azure Machine Learning Studio (klassisk)
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: ce3175a015b7a5813f62c639fdadbeea367bbc22
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 481b801d481f32ef84279be2d8bd6089670a01b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631775"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496527"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Skapa förutsägande pipelines med Azure Machine Learning Studio (klassisk) och Azure Data Factory
 
@@ -40,9 +40,9 @@ ms.locfileid: "92631775"
 ### <a name="azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (klassisk)
 [Azure Machine Learning Studio (klassisk)](https://azure.microsoft.com/documentation/services/machine-learning/) ger dig möjlighet att bygga, testa och distribuera lösningar för förutsägelse analys. Från en överblick på hög nivå görs det i tre steg:
 
-1. **Skapa ett övnings experiment** . Du gör detta genom att använda Azure Machine Learning Studio (klassisk). Studio (klassisk) är en samarbets miljö för visuell utveckling som du använder för att träna och testa en förutsägelse analys modell med hjälp av tränings data.
-2. **Konvertera det till ett förutsägelse experiment** . När din modell har tränats med befintliga data och du är redo att använda den för att skapa nya data, förbereder du och effektiviserar experimentet med poäng.
-3. **Distribuera den som en webb tjänst** . Du kan publicera bedömnings experimentet som en Azure-webbtjänst. Du kan skicka data till din modell via den här webb tjänst slut punkten och ta emot resultat förutsägelser från modellen.
+1. **Skapa ett övnings experiment**. Du gör detta genom att använda Azure Machine Learning Studio (klassisk). Studio (klassisk) är en samarbets miljö för visuell utveckling som du använder för att träna och testa en förutsägelse analys modell med hjälp av tränings data.
+2. **Konvertera det till ett förutsägelse experiment**. När din modell har tränats med befintliga data och du är redo att använda den för att skapa nya data, förbereder du och effektiviserar experimentet med poäng.
+3. **Distribuera den som en webb tjänst**. Du kan publicera bedömnings experimentet som en Azure-webbtjänst. Du kan skicka data till din modell via den här webb tjänst slut punkten och ta emot resultat förutsägelser från modellen.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 Data Factory är en molnbaserad data integrerings tjänst som dirigerar och automatiserar **flytt** och **transformering** av data. Du kan skapa lösningar för data integrering med Azure Data Factory som kan mata in data från olika data lager, transformera/bearbeta data och publicera resultat data till data lager.
@@ -59,7 +59,7 @@ Med tiden måste förutsägande modeller i de Studio (klassiska) bedömnings exp
 1. Publicera utbildnings experimentet (inte förutsägande experiment) som en webb tjänst. Du gör det här steget i Studio (klassisk) som du gjorde för att exponera ett förutsägelse experiment som en webb tjänst i föregående scenario.
 2. Använd aktiviteten Studio (klassisk) batch execution för att anropa webb tjänsten för inlärnings experimentet. I princip kan du använda batch-körningen Studio (klassisk) för att anropa webb tjänsten för webb tjänster och Poäng för utbildning.
 
-När du är färdig med omträningen uppdaterar du bedömnings webb tjänsten (förutsägande experiment som exponeras som en webb tjänst) med den nya modellen genom att använda den **Azure Machine Learning Studio (klassisk) uppdatera resurs aktiviteten** . Mer information finns i uppdatera [modeller med hjälp av artikeln Uppdatera resurs aktivitet](data-factory-azure-ml-update-resource-activity.md) .
+När du är färdig med omträningen uppdaterar du bedömnings webb tjänsten (förutsägande experiment som exponeras som en webb tjänst) med den nya modellen genom att använda den **Azure Machine Learning Studio (klassisk) uppdatera resurs aktiviteten**. Mer information finns i uppdatera [modeller med hjälp av artikeln Uppdatera resurs aktivitet](data-factory-azure-ml-update-resource-activity.md) .
 
 ## <a name="invoking-a-web-service-using-batch-execution-activity"></a>Anropa en webb tjänst med aktivitet för batch-körning
 Du använder Azure Data Factory för att dirigera data förflyttning och bearbetning och sedan köra batch-körning med Studio (klassisk). Här följer stegen på översta nivån:
@@ -78,9 +78,9 @@ Du använder Azure Data Factory för att dirigera data förflyttning och bearbet
 I det här scenariot gör Studio (klassisk)-webb tjänsten förutsägelser med data från en fil i Azure Blob Storage och lagrar förutsägelse resultatet i blob-lagringen. Följande JSON definierar en Data Factory pipeline med en AzureMLBatchExecution-aktivitet. Aktiviteten har data uppsättningen **DecisionTreeInputBlob** som indata och **DecisionTreeResultBlob** som utdata. **DecisionTreeInputBlob** skickas som en inmatare till webb tjänsten med hjälp av JSON-egenskapen **WebServiceInputActivity** . **DecisionTreeResultBlob** skickas som utdata till webb tjänsten med hjälp av JSON-egenskapen **webServiceOutputs** .
 
 > [!IMPORTANT]
-> Om webb tjänsten tar flera indata använder du egenskapen **webServiceInputs** i stället för att använda **WebServiceInputActivity** . I avsnittet [webb tjänst krävs flera inmatningar](#web-service-requires-multiple-inputs) finns ett exempel på hur du använder egenskapen webServiceInputs.
+> Om webb tjänsten tar flera indata använder du egenskapen **webServiceInputs** i stället för att använda **WebServiceInputActivity**. I avsnittet [webb tjänst krävs flera inmatningar](#web-service-requires-multiple-inputs) finns ett exempel på hur du använder egenskapen webServiceInputs.
 >
-> Data uppsättningar som refereras till av egenskaperna **WebServiceInputActivity** / **webServiceInputs** och **webServiceOutputs** (i **typeProperties** ) måste också inkluderas i aktivitetens **indata** och **utdata** .
+> Data uppsättningar som refereras till av egenskaperna **WebServiceInputActivity** / **webServiceInputs** och **webServiceOutputs** (i **typeProperties**) måste också inkluderas i aktivitetens **indata** och **utdata**.
 >
 > I ditt Studio (klassiska) experiment är webb tjänstens indata-och utgående portar och globala parametrar standard namn ("INPUT1", "INPUT2") som du kan anpassa. De namn du använder för inställningarna webServiceInputs, webServiceOutputs och Dublettparameternamnet måste exakt matcha namnen i experimenten. Du kan visa nytto lasten för exempel förfrågan på hjälp sidan för batch-körning för den klassiska Studio-slutpunkten för att verifiera den förväntade mappningen.
 >
@@ -137,7 +137,7 @@ I det här exemplet används Azure Storage för att lagra både indata och utdat
 
 Vi rekommenderar att du går igenom den [första pipelinen med Data Factory][adf-build-1st-pipeline] själv studie kursen innan du går igenom det här exemplet. Använd Data Factory redigeraren för att skapa Data Factory artefakter (länkade tjänster, data uppsättningar, pipeline) i det här exemplet.
 
-1. Skapa en **länkad tjänst** för **Azure Storage** . Om indata-och utdatafilerna finns i olika lagrings konton behöver du två länkade tjänster. Här är ett JSON-exempel:
+1. Skapa en **länkad tjänst** för **Azure Storage**. Om indata-och utdatafilerna finns i olika lagrings konton behöver du två länkade tjänster. Här är ett JSON-exempel:
 
     ```JSON
     {
@@ -182,7 +182,7 @@ Vi rekommenderar att du går igenom den [första pipelinen med Data Factory][adf
     }
     ```
 
-    CSV-filen med indata måste ha kolumn rubrik raden. Om du använder **kopierings aktiviteten** för att skapa/flytta CSV-filen till blob-lagringen bör du ange egenskapen **blobWriterAddHeader** till **True** . Exempel:
+    CSV-filen med indata måste ha kolumn rubrik raden. Om du använder **kopierings aktiviteten** för att skapa/flytta CSV-filen till blob-lagringen bör du ange egenskapen **blobWriterAddHeader** till **True**. Exempel:
 
     ```JSON
     sink:
@@ -192,7 +192,7 @@ Vi rekommenderar att du går igenom den [första pipelinen med Data Factory][adf
     }
     ```
 
-    Om CSV-filen inte har raden rubrik kan du se följande fel: **fel i aktivitet: fel vid läsning av sträng. Oväntad token: StartObject. Sökväg ' ', rad 1, position 1** .
+    Om CSV-filen inte har raden rubrik kan du se följande fel: **fel i aktivitet: fel vid läsning av sträng. Oväntad token: StartObject. Sökväg ' ', rad 1, position 1**.
 3. Skapa **data uppsättningen** för **utdata** Azure Data Factory. I det här exemplet används partitionering för att skapa en unik utgående sökväg för varje sektor körning. Utan partitionering skulle aktiviteten skriva över filen.
 
     ```JSON
@@ -234,7 +234,7 @@ Vi rekommenderar att du går igenom den [första pipelinen med Data Factory][adf
       }
     }
     ```
-4. Skapa en **länkad tjänst** av typen: **AzureMLLinkedService** , och ange URL: en för API-nyckel och körning av modell grupp.
+4. Skapa en **länkad tjänst** av typen: **AzureMLLinkedService**, och ange URL: en för API-nyckel och körning av modell grupp.
 
     ```JSON
     {
@@ -301,7 +301,7 @@ Vi rekommenderar att du går igenom den [första pipelinen med Data Factory][adf
       }
       ```
 
-      Både **Start** - **och slutdatum måste** vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. **Slut** tiden är valfri. Om du inte anger värdet för **slut** egenskapen, beräknas det som " **Start + 48 timmar".** Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut** egenskapen. Se [Referens för JSON-skript](/previous-versions/azure/dn835050(v=azure.100)) för information om JSON-egenskaper.
+      Både **Start** - **och slutdatum måste** vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. **Slut** tiden är valfri. Om du inte anger värdet för **slut** egenskapen, beräknas det som "**Start + 48 timmar".** Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut** egenskapen. Se [Referens för JSON-skript](/previous-versions/azure/dn835050(v=azure.100)) för information om JSON-egenskaper.
 
       > [!NOTE]
       > Det är valfritt att ange indata för AzureMLBatchExecution-aktiviteten.
@@ -347,7 +347,7 @@ Du kan också använda [Data Factory funktioner](data-factory-functions-variable
 ### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Använda en läsar modul för att läsa data från flera filer i Azure Blob
 Stora datapipelines med aktiviteter som till exempel gris och Hive kan producera en eller flera utdatafiler utan tillägg. Om du till exempel anger en extern Hive-tabell kan data för den externa Hive-tabellen lagras i Azure Blob Storage med följande namn 000000_0. Du kan använda modulen läsare i ett experiment för att läsa flera filer och använda dem för förutsägelser.
 
-När du använder modulen läsare i ett Studio (klassiskt) experiment kan du ange Azure blob som inmatade. Filerna i Azure Blob Storage kan vara utdatafilerna (exempel: 000000_0) som skapas av ett gris-och Hive-skript som körs på HDInsight. Med modulen läsare kan du läsa filer (utan tillägg) genom att konfigurera **sökvägen till container, Directory/BLOB** . **Sökvägen till container** pekar på behållaren och **katalogen/blobben** som pekar på den mapp som innehåller filerna som visas i följande bild. Asterisken är, \* ) **anger att alla filer i behållaren/mappen (det vill säga data/aggregateddata/Year = 2014/month-6/ \* )** läses som en del av experimentet.
+När du använder modulen läsare i ett Studio (klassiskt) experiment kan du ange Azure blob som inmatade. Filerna i Azure Blob Storage kan vara utdatafilerna (exempel: 000000_0) som skapas av ett gris-och Hive-skript som körs på HDInsight. Med modulen läsare kan du läsa filer (utan tillägg) genom att konfigurera **sökvägen till container, Directory/BLOB**. **Sökvägen till container** pekar på behållaren och **katalogen/blobben** som pekar på den mapp som innehåller filerna som visas i följande bild. Asterisken är, \* ) **anger att alla filer i behållaren/mappen (det vill säga data/aggregateddata/Year = 2014/month-6/ \* )** läses som en del av experimentet.
 
 ![Egenskaper för Azure-Blob](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -405,11 +405,11 @@ När du använder modulen läsare i ett Studio (klassiskt) experiment kan du ang
 I ovanstående JSON-exempel:
 
 * Den distribuerade Studio-webbtjänsten använder en läsare och en Writer-modul för att läsa/skriva data från/till en Azure SQL Database. Den här webb tjänsten exponerar följande fyra parametrar: databas server namn, databas namn, konto namn för Server användare och lösen ord för användar konto för Server.
-* Både **Start** - **och slutdatum måste** vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. **Slut** tiden är valfri. Om du inte anger värdet för **slut** egenskapen, beräknas det som " **Start + 48 timmar".** Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut** egenskapen. Se [Referens för JSON-skript](/previous-versions/azure/dn835050(v=azure.100)) för information om JSON-egenskaper.
+* Både **Start** - **och slutdatum måste** vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. **Slut** tiden är valfri. Om du inte anger värdet för **slut** egenskapen, beräknas det som "**Start + 48 timmar".** Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut** egenskapen. Se [Referens för JSON-skript](/previous-versions/azure/dn835050(v=azure.100)) för information om JSON-egenskaper.
 
 ### <a name="other-scenarios"></a>Andra scenarier
 #### <a name="web-service-requires-multiple-inputs"></a>Webb tjänsten kräver flera indata
-Om webb tjänsten tar flera indata använder du egenskapen **webServiceInputs** i stället för att använda **WebServiceInputActivity** . Data uppsättningar som **webServiceInputs** refererar till måste också tas med i aktivitetens **indata** .
+Om webb tjänsten tar flera indata använder du egenskapen **webServiceInputs** i stället för att använda **WebServiceInputActivity**. Data uppsättningar som **webServiceInputs** refererar till måste också tas med i aktivitetens **indata**.
 
 I ditt Azure Machine Learning Studio (klassiska) experiment är webb tjänstens indata-och utgående portar och globala parametrar standard namn ("INPUT1", "INPUT2") som du kan anpassa. De namn du använder för inställningarna webServiceInputs, webServiceOutputs och Dublettparameternamnet måste exakt matcha namnen i experimenten. Du kan visa nytto lasten för exempel förfrågan på hjälp sidan för batch-körning för den klassiska Studio-slutpunkten för att verifiera den förväntade mappningen.
 
@@ -545,7 +545,7 @@ Modulerna för webb tjänst läsare och skrivare i Azure Machine Learning Studio
 
 
 ## <a name="updating-models-using-update-resource-activity"></a>Uppdatera modeller med uppdatering av resurs aktivitet
-När du är färdig med omträningen uppdaterar du bedömnings webb tjänsten (förutsägande experiment som exponeras som en webb tjänst) med den nya modellen genom att använda den **Azure Machine Learning Studio (klassisk) uppdatera resurs aktiviteten** . Mer information finns i uppdatera [modeller med hjälp av artikeln Uppdatera resurs aktivitet](data-factory-azure-ml-update-resource-activity.md) .
+När du är färdig med omträningen uppdaterar du bedömnings webb tjänsten (förutsägande experiment som exponeras som en webb tjänst) med den nya modellen genom att använda den **Azure Machine Learning Studio (klassisk) uppdatera resurs aktiviteten**. Mer information finns i uppdatera [modeller med hjälp av artikeln Uppdatera resurs aktivitet](data-factory-azure-ml-update-resource-activity.md) .
 
 ### <a name="reader-and-writer-modules"></a>Reader-och Writer-moduler
 Ett vanligt scenario för att använda webb tjänst parametrar är användningen av Azure SQL-läsare och-skrivare. Modulen läsare används för att läsa in data i ett experiment från data Management Services utanför Studio (klassisk). Modulen skrivare är att spara data från dina experiment i data hanterings tjänster utanför Studio (klassisk).

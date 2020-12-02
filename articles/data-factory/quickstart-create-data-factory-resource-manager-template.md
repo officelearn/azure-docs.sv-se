@@ -5,18 +5,18 @@ services: data-factory
 ms.service: data-factory
 tags: azure-resource-manager
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/16/2020
-ms.openlocfilehash: eb423ebd354adeb8273755d34323b283d53eb8b5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a9c4f6d9e98e721370f54dfbe261025cf186b6c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87283902"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497497"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Snabb start: skapa en Azure Data Factory med ARM-mall
 
@@ -41,7 +41,7 @@ Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar v
 
 ### <a name="azure-subscription"></a>Azure-prenumeration
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ### <a name="create-a-file"></a>Skapa en fil
 
@@ -94,23 +94,23 @@ Du hittar fler Azure Data Factory mal sampel i [galleriet snabb starts mal len](
 
 1. Välj **gå till resurs grupp**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Distribuera ADF ARM-mall":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Resursgrupp":::
 
 2.  Verifiera att din Azure Data Factory skapas.
     1. Ditt Azure Data Factory namn är i formatet-DataFactory \<uniqueid\> .
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Distribuera ADF ARM-mall":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Exempel Data Factory":::
 
 2. Verifiera att ditt lagrings konto har skapats.
     1. Lagrings kontots namn är i formatet-lagring \<uniqueid\> .
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Distribuera ADF ARM-mall":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Lagrings konto":::
 
 3. Välj det lagrings konto som skapats och välj **behållare**.
     1. På sidan **behållare** väljer du den BLOB-behållare som du skapade.
         1. BLOB container-namnet är i formatet-BLOB \<uniqueid\> .
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Distribuera ADF ARM-mall":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Blobcontainer":::
 
 ### <a name="upload-a-file"></a>Ladda upp en fil
 
@@ -126,7 +126,7 @@ Du hittar fler Azure Data Factory mal sampel i [galleriet snabb starts mal len](
 
 6. Välj ikonen **Stäng** (a **X**) för att stänga sidan **Ladda upp BLOB** .
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Distribuera ADF ARM-mall":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Ladda upp fil till indata-mapp":::
 
 Låt sidan behållare vara öppen eftersom du kan använda den för att verifiera utdata i slutet av den här snabb starten.
 
@@ -136,19 +136,19 @@ Låt sidan behållare vara öppen eftersom du kan använda den för att verifier
 
 2. Välj panelen **författare & Monitor** . 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Distribuera ADF ARM-mall":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Övervaka & övervakare":::
 
 2. Välj fliken **författare** :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author.png" border="false"::: .
 
 3. Välj pipeline created-ArmtemplateSampleCopyPipeline.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="Distribuera ADF ARM-mall":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="ARM-mallens pipeline":::
 
 4. Välj **Lägg till Utlös**  >  **utlösare nu**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Distribuera ADF ARM-mall":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Utlösare":::
 
-5. I den högra rutan under **pipeline-körning**väljer du **OK**.
+5. I den högra rutan under **pipeline-körning** väljer du **OK**.
 
 ### <a name="monitor-the-pipeline"></a>Övervaka pipeline
 
@@ -156,7 +156,7 @@ Låt sidan behållare vara öppen eftersom du kan använda den för att verifier
 
 2. Du ser att aktiviteten som körs är associerad med pipelinekörningen. I den här snabbstarten har pipelinen endast en aktivitet av typen: kopiera. Därför visas en körning för den aktiviteten.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Distribuera ADF ARM-mall":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Lyckad körning":::
 
 ### <a name="verify-the-output-file"></a>Verifiera utdatafilen
 
@@ -168,7 +168,7 @@ Pipelinen skapar automatiskt en output-mapp i BLOB-behållaren. Filen emp.txt ko
 
 3. Kontrollera att **emp.txt** har kopierats till utdatamappen. 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Distribuera ADF ARM-mall":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Resultat":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

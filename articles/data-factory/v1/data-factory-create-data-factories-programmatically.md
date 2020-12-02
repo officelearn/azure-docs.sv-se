@@ -3,8 +3,8 @@ title: Skapa datapipelines med hjälp av Azure .NET SDK
 description: Lär dig att program mässigt skapa, övervaka och hantera Azure-datafabriker med hjälp av Data Factory SDK.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c9dce90b0dc563fb0fa7ecaaa0882167eef444a0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dd1c7c20441d12600e2101f738904caf6260509e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003641"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496032"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Skapa, övervaka och hantera Azure-datafabriker med Azure Data Factory .NET SDK
 > [!NOTE]
@@ -101,7 +101,7 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 
 * Klientorganisations-ID
 * Prenumerations-ID:t
-* Program-ID
+* Program-ID:t
 * Lösenord (anges i det första kommandot)
 
 ## <a name="walkthrough"></a>Genomgång

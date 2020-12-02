@@ -2,59 +2,27 @@
 title: Distributions planer – Azure Active Directory | Microsoft Docs
 description: Fullständig vägledning om hur du distribuerar många Azure Active Directory-funktioner.
 services: active-directory
-author: ajburnle
+author: BarbaraSelden
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/20/2019
-ms.author: ajburnle
+ms.date: 12/01/2020
+ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2a7c2813919321227bfcdc4ee43ca15186b89df
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 069cf348bb6d0432d02a8350bc0847c2b155f90a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836826"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498089"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory-distributionsplaner
 Letar du efter slut punkt till slut punkt om hur du distribuerar Azure Active Directory (Azure AD)-funktioner? Distributions planer för Azure AD vägleder dig genom affärs värde, planerings överväganden och operativa procedurer som krävs för att distribuera vanliga funktioner i Azure AD.
 
 Från någon av plan sidorna använder du webbläsarens utskrifts-till-PDF-funktion för att skapa en uppdaterad offline-version av dokumentationen.
-## <a name="include-the-right-stakeholders"></a>Ta med rätt intressenter
-
-När du påbörjar distributions planeringen för en ny funktion är det viktigt att inkludera viktiga intressenter i organisationen. Vi rekommenderar att du identifierar och dokumenterar den person eller de personer som uppfyller var och en av följande roller, och arbetar med dem för att fastställa deras medverkan i projektet.  
-
-Roller kan innehålla följande 
-
-|Roll |Beskrivning |
-|-|-|
-|Slutanvändare|En representativ grupp användare för vilka funktionen ska implementeras. Visar ofta ändringarna i ett pilotprogram.
-|IT-support ansvarig|IT-avdelningen stöder organisations representant som kan tillhandahålla insikter om den här förändringen från ett support perspektiv.  
-|Identitets arkitekt eller Global Azure-administratör|Identitets hanterings team som är ansvarig för att definiera hur den här ändringen justeras med infrastrukturen för kärn identitets hantering i din organisation.|
-|Programmets företags ägare |Den övergripande företags ägaren av de berörda programmen, som kan innehålla hanterings åtkomst.Kan även ge indata om användar upplevelsen och användbarheten för den här ändringen från slutanvändarens perspektiv.
-|Säkerhets ägare|En representant från säkerhets teamet som kan godkänna att planen uppfyller organisationens säkerhets krav.|
-|Compliance Manager (Efterlevnadshanteraren)|Den person i organisationen som ansvarar för att säkerställa efterlevnaden av företags-, bransch-eller myndighets krav.|
-
-**Inblandning nivåer kan vara:**
-
-- **R**-esponsible för implementering av projekt plan och resultat 
-
-- **En** pproval av projekt plan och resultat 
-
-- **C**-ontributor till projekt plan och resultat 
-
-- **I** nformed för projekt plan och resultat
-
-
-## <a name="best-practices-for-a-pilot"></a>Metod tips för en pilot
-Med en pilot kan du testa med en liten grupp innan du aktiverar en funktion för alla. Se till att varje användnings fall i din organisation testas grundligt under testningen. Det är bäst att rikta in sig på en bestämd grupp pilot användare innan du går över till din organisation som helhet.
-
-I din första Wave, rikta in dig på den, användbarhet och andra lämpliga användare som kan testa och ge feedback. Den här feedbacken bör användas för att ytterligare utveckla kommunikationen och anvisningarna som du skickar till användarna och ger insikter om vilka typer av problem som support Personalen kan se. 
-
-Att utöka distributionen till större grupper av användare bör utföras genom att utöka omfånget för de grupper som är riktade till varandra. Detta kan göras via [dynamiskt grupp medlemskap](../enterprise-users/groups-dynamic-membership.md)eller genom att manuellt lägga till användare till mål grupperna.
 
 
 ## <a name="deploy-authentication"></a>Distribuera autentisering
@@ -98,3 +66,36 @@ Att utöka distributionen till större grupper av användare bör utföras genom
 | [Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)| Azure AD Privileged Identity Management (PIM) hjälper dig att hantera privilegierade administrativa roller i Azure AD, Azure-resurser och andra Microsoft Online Services. PIM innehåller lösningar som just-in-Time-åtkomst, begär godkännande arbets flöden och fullständigt integrerade åtkomst granskningar, så att du kan identifiera, upptäcka och förhindra illvilliga aktiviteter för privilegierade roller i real tid. |
 | [Rapportering och övervakning](../reports-monitoring/plan-monitoring-and-reporting.md)| Utformningen av din Azure AD-rapportering och övervaknings lösning är beroende av dina juridiska, säkerhets-och drift krav samt din befintliga miljö och befintliga processer. Den här artikeln visar de olika design alternativen och vägleder dig till rätt distributions strategi. |
 | [Åtkomst granskningar](../governance/deploy-access-reviews.md) | Åtkomst granskningar är en viktig del av din styrnings strategi, så att du kan känna till och hantera vem som har åtkomst och vad de har åtkomst till. Den här artikeln hjälper dig att planera och distribuera åtkomst granskningar för att uppnå önskad säkerhets-och samarbets postures. |
+
+## <a name="include-the-right-stakeholders"></a>Ta med rätt intressenter
+
+När du påbörjar distributions planeringen för en ny funktion är det viktigt att inkludera viktiga intressenter i organisationen. Vi rekommenderar att du identifierar och dokumenterar den person eller de personer som uppfyller var och en av följande roller, och arbetar med dem för att fastställa deras medverkan i projektet.  
+
+Roller kan innehålla följande 
+
+|Roll |Beskrivning |
+|-|-|
+|Slutanvändare|En representativ grupp användare för vilka funktionen ska implementeras. Visar ofta ändringarna i ett pilotprogram.
+|IT-support ansvarig|IT-avdelningen stöder organisations representant som kan tillhandahålla insikter om den här förändringen från ett support perspektiv.  
+|Identitets arkitekt eller Global Azure-administratör|Identitets hanterings team som är ansvarig för att definiera hur den här ändringen justeras med infrastrukturen för kärn identitets hantering i din organisation.|
+|Programmets företags ägare |Den övergripande företags ägaren av de berörda programmen, som kan innehålla hanterings åtkomst.Kan även ge indata om användar upplevelsen och användbarheten för den här ändringen från slutanvändarens perspektiv.
+|Säkerhets ägare|En representant från säkerhets teamet som kan godkänna att planen uppfyller organisationens säkerhets krav.|
+|Compliance Manager (Efterlevnadshanteraren)|Den person i organisationen som ansvarar för att säkerställa efterlevnaden av företags-, bransch-eller myndighets krav.|
+
+**Inblandning nivåer kan vara:**
+
+- **R**-esponsible för implementering av projekt plan och resultat 
+
+- **En** pproval av projekt plan och resultat 
+
+- **C**-ontributor till projekt plan och resultat 
+
+- **I** nformed för projekt plan och resultat
+
+
+## <a name="best-practices-for-a-pilot"></a>Metod tips för en pilot
+Med en pilot kan du testa med en liten grupp innan du aktiverar en funktion för alla. Se till att varje användnings fall i din organisation testas grundligt under testningen. Det är bäst att rikta in sig på en bestämd grupp pilot användare innan du går över till din organisation som helhet.
+
+I din första Wave, rikta in dig på den, användbarhet och andra lämpliga användare som kan testa och ge feedback. Den här feedbacken bör användas för att ytterligare utveckla kommunikationen och anvisningarna som du skickar till användarna och ger insikter om vilka typer av problem som support Personalen kan se. 
+
+Att utöka distributionen till större grupper av användare bör utföras genom att utöka omfånget för de grupper som är riktade till varandra. Detta kan göras via [dynamiskt grupp medlemskap](../enterprise-users/groups-dynamic-membership.md)eller genom att manuellt lägga till användare till mål grupperna.

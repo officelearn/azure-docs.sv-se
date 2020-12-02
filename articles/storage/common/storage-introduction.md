@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7bb4cca6f58cb4ad0722c1407d2ef3062c3747e2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b49e780714bd5e0662c6cb7ef208c473a8b45ccc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781965"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498157"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introduktion till Core Azure Storage Services
 
@@ -131,7 +131,7 @@ De Azure Storage klient biblioteken innehåller metoder för att kryptera data f
 
 ## <a name="redundancy"></a>Redundans
 
-För att säkerställa att dina data är beständiga, Azure Storage lagra flera kopior av dina data. När du konfigurerar ditt lagringskonto väljer du ett redundansalternativ. Läs mer i [Redundansalternativ för Azure Storage](./storage-redundancy.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
+För att säkerställa att dina data är beständiga, Azure Storage lagra flera kopior av dina data. När du konfigurerar ditt lagringskonto väljer du ett redundansalternativ. Läs mer i [Redundansalternativ för Azure Storage](./storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="transfer-data-to-and-from-azure-storage"></a>Överföra data till och från Azure Storage
 

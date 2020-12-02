@@ -4,12 +4,12 @@ description: Lär dig hur du använder Azure Custom Vision för att bygga en beh
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 685aab603b2589a97b4c80ef0f8c5860617f1147
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b4d9f82d99542bde216f0eaa1459d0f6c1a52659
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358323"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498344"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Självstudie: analysera direktsänd video med real tids video analys på IoT Edge och Azure Custom Vision
 
@@ -194,7 +194,7 @@ Högerklicka på Live Video Analytics-enheten och välj **starta övervakning in
 
 Om du öppnar Graph-topologin för den här självstudien i en webbläsare ser du att värdet för `inferencingUrl` har angetts till `http://cv:80/image` . Den här inställningen innebär att en härlednings server returnerar resultat när du har identifierat eventuella leksaks truckar i Live-videon.
 
-1. Öppna fliken **tillägg** i Visual Studio Code (eller Välj **CTRL + SHIFT + X** ) och sök efter Azure-IoT Hub.
+1. Öppna fliken **tillägg** i Visual Studio Code (eller Välj **CTRL + SHIFT + X**) och sök efter Azure-IoT Hub.
 1. Högerklicka och välj Inställningar för **tillägg**.
 
     > [!div class="mx-imgBorder"]
@@ -391,6 +391,6 @@ Om du avser att testa de andra självstudierna eller snabb starterna, måste du 
 Granska ytterligare utmaningar för avancerade användare:
 
 * Använd en [IP-kamera](https://en.wikipedia.org/wiki/IP_camera) som har stöd för RTSP i stället för att använda RTSP-simulatorn. Du kan söka efter IP-kameror som stöder RTSP på sidan [ONVIF](https://www.onvif.org/conformant-products/) -produkter. Sök efter enheter som uppfyller profilerna G, S eller T.
-* Använd en AMD64-eller x64 Linux-enhet i stället för en virtuell Azure Linux-dator. Enheten måste finnas i samma nätverk som IP-kameran. Du kan följa anvisningarna i [installera Azure IoT Edge runtime på Linux](../../iot-edge/how-to-install-iot-edge-linux.md).
+* Använd en AMD64-eller x64 Linux-enhet i stället för en virtuell Azure Linux-dator. Enheten måste finnas i samma nätverk som IP-kameran. Du kan följa anvisningarna i [installera Azure IoT Edge runtime på Linux](../../iot-edge/how-to-install-iot-edge.md).
 
 Registrera sedan enheten med Azure IoT Hub genom att följa anvisningarna i [distribuera din första IoT Edge-modul till en virtuell Linux-enhet](../../iot-edge/quickstart-linux.md).

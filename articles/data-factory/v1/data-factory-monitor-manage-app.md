@@ -3,8 +3,8 @@ title: Övervaka och hantera data pipelines – Azure
 description: Lär dig hur du använder appen för övervakning och hantering för att övervaka och hantera Azure-datafabriker och pipeliner.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e378c1e25fb434e689eadd91e9e8562ffe7e61fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afab2b03d31045b9f49f357b49d15368cde898da
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570083"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495709"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av appen övervakning och hantering
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Du bör se appen övervakning och hantering öppen i ett separat fönster.
 ![Övervaknings- och hanteringsapp](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
 > [!NOTE]
-> Om du ser att webbläsaren har fastnat på "auktoriserar..." avmarkerar du kryss rutan **blockera cookies från tredje part** , eller låter den vara markerad, skapar ett undantag för **login.microsoftonline.com**och försöker sedan öppna appen igen.
+> Om du ser att webbläsaren har fastnat på "auktoriserar..." avmarkerar du kryss rutan **blockera cookies från tredje part** , eller låter den vara markerad, skapar ett undantag för **login.microsoftonline.com** och försöker sedan öppna appen igen.
 
 
 I listan aktivitets fönster i mitten av fönstret visas ett aktivitets fönster för varje körning av en aktivitet. Om du till exempel har schemalagt aktiviteten för att köra per timme i fem timmar visas fem aktivitets fönster som är kopplade till fem data sektorer. Om du inte ser aktivitets fönster i listan längst ned gör du följande:
@@ -58,7 +58,7 @@ I listan aktivitets fönster i mitten av fönstret visas ett aktivitets fönster
 Om du inte har ett Data Factory-program för att testa de här stegen med, gör du självstudierna: [Kopiera data från Blob Storage till SQL Database med Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="understand-the-monitoring-and-management-app"></a>Förstå övervaknings-och hanterings appen
-Det finns tre flikar till vänster: **Resursläsaren**, **övervaka vyer**och **aviseringar**. Den första fliken (**Resursläsaren**) är markerad som standard.
+Det finns tre flikar till vänster: **Resursläsaren**, **övervaka vyer** och **aviseringar**. Den första fliken (**Resursläsaren**) är markerad som standard.
 
 ### <a name="resource-explorer"></a>Resursläsaren
 Du ser följande:
@@ -66,7 +66,7 @@ Du ser följande:
 * Vyn Resursläsaren **träd** i det vänstra fönstret.
 * **Diagramvyn** överst i fönstret i mitten.
 * Listan **aktivitets fönster** längst ned i fönstret i mitten.
-* Fliken **Egenskaper**, **aktivitets fönstret Utforskaren**och fliken **skript** i den högra rutan.
+* Fliken **Egenskaper**, **aktivitets fönstret Utforskaren** och fliken **skript** i den högra rutan.
 
 I Resursläsaren visas alla resurser (pipelines, data uppsättningar, länkade tjänster) i data fabriken i en trädvy. När du väljer ett objekt i Resursläsaren:
 
@@ -159,7 +159,7 @@ Aktivitets fönster kan ha någon av följande statusar:
 
 <table>
 <tr>
-    <th align="left">Status</th><th align="left">Substatus</th><th align="left">Beskrivning</th>
+    <th align="left">Status</th><th align="left">Substatus</th><th align="left">Description</th>
 </tr>
 <tr>
     <td rowspan="8">Väntar</td><td>ScheduleTime</td><td>Det går inte att köra tids perioden för aktivitets fönstret.</td>
@@ -193,7 +193,7 @@ Aktivitets fönster kan ha någon av följande statusar:
 <td>Aktivitets fönstret bearbetas.</td>
 </tr>
 <tr>
-<td rowspan="4">Misslyckades</td><td>Stängningsåtgärd</td><td>Aktivitets körningen tog längre tid än vad som tillåts av aktiviteten.</td>
+<td rowspan="4">Misslyckad</td><td>Stängningsåtgärd</td><td>Aktivitets körningen tog längre tid än vad som tillåts av aktiviteten.</td>
 </tr>
 <tr>
 <td>Avbrutna</td><td>Aktivitets fönstret avbröts av en användar åtgärd.</td>
@@ -244,7 +244,7 @@ Du kan använda fliken **skript** för att Visa JSON-definitionen för den valda
 ![Fliken skript](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 ## <a name="use-system-views"></a>Använda systemvyer
-Övervaknings-och hanterings appen innehåller förskapade systemvyer (**senaste aktivitets fönster**, **misslyckad aktivitets fönster**, pågående **aktivitets**fönster) som gör att du kan visa senaste/misslyckade aktivitets Fönstren för din data fabrik.
+Övervaknings-och hanterings appen innehåller förskapade systemvyer (**senaste aktivitets fönster**, **misslyckad aktivitets fönster**, pågående **aktivitets** fönster) som gör att du kan visa senaste/misslyckade aktivitets Fönstren för din data fabrik.
 
 Växla till fliken **övervakande vyer** till vänster genom att klicka på den.
 
@@ -266,7 +266,7 @@ Du kan använda vyn för **misslyckad aktivitet i Windows** för att se alla mis
 >
 >
 
-I **listan aktivitets fönster**klickar du på namnet på en kolumn (till exempel: status).
+I **listan aktivitets fönster** klickar du på namnet på en kolumn (till exempel: status).
 
 ![Kolumn meny för aktivitets lista i Windows](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 

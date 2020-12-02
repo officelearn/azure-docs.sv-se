@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 11/09/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0596d118d1f3c09bc295891f023fe9990f3f1e05
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: c8ecd3afc95cf4b8054cd7db3530c15afebea3ce
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94558029"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498242"
 ---
 # <a name="fresnel-effect"></a>Fresnel-påverkan
 
@@ -21,7 +21,7 @@ Fresnel-effekter ger påverkade objekt en färgad Skin runt deras kanter. Inform
 
 ## <a name="enabling-the-fresnel-effect"></a>Aktivera Fresnel-påverkan
 
-Om du vill använda Fresnel-funktionen måste den vara aktive rad på det aktuella materialet. Du kan aktivera det genom att ange FresnelEffect-biten för [PbrMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures) på [PBR-materialet](../../overview/features/pbr-materials.md). Samma mönster gäller för [ColorMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering) och [färg materialet](../../overview/features/color-materials.md). I avsnittet kod exempel finns en demonstration av användningen.
+Om du vill använda Fresnel-funktionen måste den vara aktive rad på det aktuella materialet. Du kan aktivera det genom att ange FresnelEffect-biten för [PbrMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures) på [PBR-materialet](../../overview/features/pbr-materials.md). Samma mönster gäller för [ColorMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering) och [färg materialet](../../overview/features/color-materials.md). I avsnittet kod exempel finns en demonstration av användningen.
 
 När aktiveringen är aktive rad visas Fresnel-effekter direkt. Som standard är skinen vit (1, 1, 1, 1) och har en exponent på 1. Du kan anpassa dessa inställningar med hjälp av parametern setter nedan.
 
@@ -93,10 +93,10 @@ void SetFresnelEffect(ApiHandle<AzureSession> session, ApiHandle<Material> mater
 
 ## <a name="api-documentation"></a>API-dokumentation
 
-* [C#-PbrMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures)
-* [C++-PbrMaterialFeatures](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterialfeatures)
-* [C#-ColorMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.colormaterialfeatures)
-* [C++-ColorMaterialFeatures](https://docs.microsoft.com/cpp/api/remote-rendering/colormaterialfeatures)
+* [C#-PbrMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures)
+* [C++-PbrMaterialFeatures](/cpp/api/remote-rendering/pbrmaterialfeatures)
+* [C#-ColorMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering.colormaterialfeatures)
+* [C++-ColorMaterialFeatures](/cpp/api/remote-rendering/colormaterialfeatures)
 
 ## <a name="next-steps"></a>Nästa steg
 

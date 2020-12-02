@@ -4,16 +4,16 @@ description: Beskriver hur du flyttar en Azure Analysis Services-resurs till en 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 1f7ecf960ae94fae4d829e73daf051b9062e478d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 049ff6d14c3967481eb73037814082fa261154e3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018202"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497936"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Flytta Analysis Services till en annan region
 
@@ -73,9 +73,9 @@ Så här exporterar du en mall med Azure-portalen:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Välj **alla resurser**och välj sedan din Analysis Services-server.
+2. Välj **alla resurser** och välj sedan din Analysis Services-server.
 
-3. Välj **Settings**  >  **Exportera mall**för > inställningar.
+3. Välj **Settings**  >  **Exportera mall** för > inställningar.
 
 4. Välj **Hämta** på bladet **Exportera mall** .
 
@@ -88,7 +88,7 @@ Så här exporterar du en mall med Azure-portalen:
 
 Exportera en mall med hjälp av PowerShell:
 
-1. Logga in på din Azure-prenumeration med kommandot [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) och följ anvisningarna på skärmen:
+1. Logga in på din Azure-prenumeration med kommandot [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) och följ anvisningarna på skärmen:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -123,13 +123,13 @@ Så här hämtar du en signatur för delad åtkomst med hjälp av portalen:
 
 1. I portalen väljer du det lagrings konto som används för att säkerhetskopiera Server databasen.
 
-2. Välj **Storage Explorer**och expandera sedan **BLOB-behållare**. 
+2. Välj **Storage Explorer** och expandera sedan **BLOB-behållare**. 
 
 3. Högerklicka på lagrings behållaren och välj sedan **Hämta signatur för delad åtkomst**.
 
     :::image type="content" source="media/move-between-regions/get-sas.png" alt-text="Hämta SAS":::
 
-4. I **signaturen för delad åtkomst**väljer du **skapa**. Som standard upphör SAS att gälla om 24 timmar.
+4. I **signaturen för delad åtkomst** väljer du **skapa**. Som standard upphör SAS att gälla om 24 timmar.
 
 5. Kopiera och spara **URI: n**. 
 
@@ -177,7 +177,7 @@ Använd en text redigerare för att ändra template.jspå filen som du har expor
 
 #### <a name="regions"></a>Regioner
 
-Information om hur du skaffar Azure-regioner finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/). Kör kommandot [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) för att hämta regioner med hjälp av PowerShell.
+Information om hur du skaffar Azure-regioner finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/). Kör kommandot [Get-AzLocation](/powershell/module/az.resources/get-azlocation) för att hämta regioner med hjälp av PowerShell.
 
 ```azurepowershell-interactive
    Get-AzLocation | format-table 
@@ -191,7 +191,7 @@ Om du vill distribuera en ny server resurs i en annan region använder du **temp
 
 1. I portalen väljer du **skapa en resurs**.
 
-2. I **Sök på Marketplace**skriver du **mall distribution**och trycker sedan på **RETUR**.
+2. I **Sök på Marketplace** skriver du **mall distribution** och trycker sedan på **RETUR**.
 
 3. Välj **malldistribution**.
 
@@ -199,7 +199,7 @@ Om du vill distribuera en ny server resurs i en annan region använder du **temp
 
 5. Välj **Bygg en egen mall i redigeraren**.
 
-6. Välj **Läs in fil**och följ sedan anvisningarna för att läsa in **template.jspå** filen som du exporterade och ändrade.
+6. Välj **Läs in fil** och följ sedan anvisningarna för att läsa in **template.jspå** filen som du exporterade och ändrade.
 
 7. Kontrol lera att rätt egenskaper för den nya mål servern visas i mal Lav redigeraren.
 
@@ -209,7 +209,7 @@ Om du vill distribuera en ny server resurs i en annan region använder du **temp
 
     - **Prenumeration**: Välj Azure-prenumerationen.
     
-    - **Resurs grupp**: Välj **Skapa ny**och ange sedan ett resurs grupps namn. Du kan välja en befintlig resurs grupp förutsatt att den inte redan innehåller en Analysis Services-server med samma namn.
+    - **Resurs grupp**: Välj **Skapa ny** och ange sedan ett resurs grupps namn. Du kan välja en befintlig resurs grupp förutsatt att den inte redan innehåller en Analysis Services-server med samma namn.
     
     - **Plats**: Välj samma region som du angav i mallen.
 
@@ -270,7 +270,7 @@ Valfritt: när du har återställt modell databasen bearbetar du modellen och ta
 
 1. I portalen går du till den nya mål servern.
 
-2. På sidan Översikt går du till **modeller på Analysis Services server**och kontrollerar att återställda modeller visas.
+2. På sidan Översikt går du till **modeller på Analysis Services server** och kontrollerar att återställda modeller visas.
 
 3. Använd ett klient program som Power BI eller Excel för att ansluta till modellen på den nya servern. Kontrol lera att modell objekt som tabeller, mått och hierarkier visas. 
 
@@ -278,7 +278,7 @@ Valfritt: när du har återställt modell databasen bearbetar du modellen och ta
 
 Valfritt: [Alm Toolkit](http://alm-toolkit.com/) är ett verktyg med *öppen källkod* som används för att jämföra och hantera Power BI data uppsättningar *och* Analysis Services tabell modell databaser. Använd verktygs verktyget för att ansluta till både käll-och mål Server databaser och jämför. Om migreringen av databasen lyckas, är modell objekt samma definition. 
 
-:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Hämta SAS":::
+:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="ALM Toolkit":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -80,6 +80,8 @@
       href: observability.md
     - name: CI/CD med hjälp av ARM-mallar
       href: devops-api-development-templates.md
+    - name: Mjuk borttagning
+      href: soft-delete.md
 - name: Anvisningar
   items:
     - name: 'Definiera API: er'

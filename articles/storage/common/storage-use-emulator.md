@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: b51746326c2df81e2dd2bdc72bf2a9ab72b649b5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d9e0e63a3586be139620c154616acfcba2ab10f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790567"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498225"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure Storage emulatorn för utveckling och testning
 
@@ -184,11 +184,11 @@ Om du vill visa en lista över alternativ skriver du `/help` i kommandotolken.
 
 | Alternativ | Beskrivning | Kommando | Argument |
 | --- | --- | --- | --- |
-| **Start** |Startar Storage-emulatorn. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess* : starta emulatorn i den aktuella processen i stället för att skapa en ny process. |
+| **Start** |Startar Storage-emulatorn. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess*: starta emulatorn i den aktuella processen i stället för att skapa en ny process. |
 | **Stopp** |Stoppar Storage-emulatorn. |`AzureStorageEmulator.exe stop` | |
 | **Status** |Skriver ut statusen för Storage-emulatorn. |`AzureStorageEmulator.exe status` | |
-| **Rensa** |Rensar data i alla tjänster som anges på kommando raden. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*BLOB* : rensar BLOB-data. <br/>*Queue* : tar bort köa data. <br/>*tabell* : raderar tabell data. <br/>*alla* : alla data i alla tjänster raderas. |
-| **Initiering** |Konfigurerar emulatorn vid ett engångs initiering. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-Server serverName\instanceName* : anger den server som är värd för SQL-instansen. <br/>*-Sqlinstance instans* namn: anger namnet på den SQL-instans som ska användas i standard Server instansen. <br/>*-forcecreate* : tvingar fram skapandet av SQL-databasen, även om den redan finns. <br/>*-skipcreate* : hoppar över skapandet av SQL-databasen. Detta prioriteras över-forcecreate.<br/>*-reserveports* : försöker reservera de http-portar som är kopplade till tjänsterna.<br/>*-unreserveports* : försöker ta bort reservationer för de http-portar som är kopplade till tjänsterna. Detta prioriteras över-reserveports.<br/>*-InProcess* : utför initiering i den aktuella processen i stället för att skapa en ny process. Den aktuella processen måste startas med utökade behörigheter om du ändrar port reservationer. |
+| **Rensa** |Rensar data i alla tjänster som anges på kommando raden. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*BLOB*: rensar BLOB-data. <br/>*Queue*: tar bort köa data. <br/>*tabell*: raderar tabell data. <br/>*alla*: alla data i alla tjänster raderas. |
+| **Initiering** |Konfigurerar emulatorn vid ett engångs initiering. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-Server serverName\instanceName*: anger den server som är värd för SQL-instansen. <br/>*-Sqlinstance instans* namn: anger namnet på den SQL-instans som ska användas i standard Server instansen. <br/>*-forcecreate*: tvingar fram skapandet av SQL-databasen, även om den redan finns. <br/>*-skipcreate*: hoppar över skapandet av SQL-databasen. Detta prioriteras över-forcecreate.<br/>*-reserveports*: försöker reservera de http-portar som är kopplade till tjänsterna.<br/>*-unreserveports*: försöker ta bort reservationer för de http-portar som är kopplade till tjänsterna. Detta prioriteras över-reserveports.<br/>*-InProcess*: utför initiering i den aktuella processen i stället för att skapa en ny process. Den aktuella processen måste startas med utökade behörigheter om du ändrar port reservationer. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Skillnader mellan Storage-emulatorn och Azure Storage
 
@@ -310,7 +310,7 @@ Det finns inga skillnader vad gäller Queue Storage i emulatorn.
 
 ### <a name="version-40"></a>Version 4,0
 
-* Den körbara filen för lagrings emulatorn har döpts om till *AzureStorageEmulator.exe* .
+* Den körbara filen för lagrings emulatorn har döpts om till *AzureStorageEmulator.exe*.
 
 ### <a name="version-32"></a>Version 3,2
 

@@ -3,8 +3,8 @@ title: Transformera data med hjälp av gris-aktivitet i Azure Data Factory
 description: Lär dig hur du kan använda aktiviteten gris i Azure Data Factory v1 för att köra gris-skript på ett eget HDInsight-kluster på begäran.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: 5af07a1a-2087-455e-a67b-a79841b4ada5
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c94d66bf98645e12a6c603f2b35d229080717734
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 0ad84a0e848abda1b786958947b4081b11b139a7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616866"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495353"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformera data med hjälp av gris-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -84,15 +84,15 @@ HDInsight gris-aktiviteten i en Data Factory [pipeline](data-factory-create-pipe
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| name |Namn på aktiviteten |Ja |
-| beskrivning |Text som beskriver vad aktiviteten används för |Nej |
-| typ |HDinsightPig |Ja |
-| tillför |En eller flera indata som används av aktiviteten gris |Nej |
-| utdata |En eller flera utdata som produceras av gris-aktiviteten |Ja |
-| linkedServiceName |Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory |Ja |
-| skript |Ange det infogade gris-skriptet |Nej |
-| scriptPath |Lagra ditt gris-skript i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |Nej |
-| definierar |Ange parametrar som nyckel/värde-par för referenser i gris-skriptet |Nej |
+| name |Namn på aktiviteten |Yes |
+| beskrivning |Text som beskriver vad aktiviteten används för |No |
+| typ |HDinsightPig |Yes |
+| tillför |En eller flera indata som används av aktiviteten gris |No |
+| utdata |En eller flera utdata som produceras av gris-aktiviteten |Yes |
+| linkedServiceName |Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory |Yes |
+| skript |Ange det infogade gris-skriptet |No |
+| scriptPath |Lagra ditt gris-skript i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |No |
+| definierar |Ange parametrar som nyckel/värde-par för referenser i gris-skriptet |No |
 
 ## <a name="example"></a>Exempel
 Nu ska vi titta på ett exempel på Game logs Analytics där du vill identifiera den tid som spelare kan spela för spel som lanseras av ditt företag.

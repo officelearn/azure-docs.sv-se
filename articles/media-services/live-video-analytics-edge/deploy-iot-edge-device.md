@@ -3,12 +3,12 @@ title: Distribuera video analys i real tid på en IoT Edge enhet – Azure
 description: Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din IoT Edge-enhet. Du skulle göra detta, till exempel om du har åtkomst till en lokal Linux-dator och/eller om du tidigare har skapat ett Azure Media Services-konto.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: a64fc11d7afa70d5200fdbd24bd3facdb8a95a7e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 4fa4a9643976ba513b025706cacec26b2a50afb5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019587"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498327"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuera video analys i real tid på en IoT Edge enhet
 
@@ -23,8 +23,8 @@ Den här artikeln innehåller de steg som hjälper dig att distribuera video ana
 * En x86-64-eller ARM64-enhet som kör ett av de [Linux-operativsystem som stöds](../../iot-edge/support.md#operating-systems)
 * Azure-prenumeration som du har [ägar behörighet](../../role-based-access-control/built-in-roles.md#owner) till
 * [Skapa och konfigurera IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
-* [Registrera IoT Edge enhet](../../iot-edge/how-to-register-device.md)
-* [Installera Azure IoT Edge-körningen på Debian-baserade Linux-system](../../iot-edge/how-to-install-iot-edge-linux.md)
+* [Registrera IoT Edge enhet](../../iot-edge/how-to-manual-provision-symmetric-key.md)
+* [Installera Azure IoT Edge-körningen på Debian-baserade Linux-system](../../iot-edge/how-to-install-iot-edge.md)
 * [Skapa ett Azure Media Services-konto](../latest/create-account-howto.md)
 
     * Använd något av följande regioner: östra USA 2, östra USA, centrala USA, norra centrala USA, Östra Japan, västra USA, västra USA 2, västra centrala USA, Östra Kanada, Storbritannien, södra, Frankrike, centrala, Frankrike, Schweiz, norra, Schweiz, västra och Japan, västra.
@@ -99,7 +99,7 @@ Azure Portal vägleder dig genom att skapa ett distributions manifest och distri
 
 #### <a name="configure-a-deployment-manifest"></a>Konfigurera ett distributions manifest
 
-Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som ska distribueras, hur data flödar mellan moduler och önskade egenskaper för modulen. Azure Portal har en guide som vägleder dig genom att skapa ett distributions manifest. Den har tre steg indelade i flikar: **moduler**, **vägar**och **Granska + skapa**.
+Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som ska distribueras, hur data flödar mellan moduler och önskade egenskaper för modulen. Azure Portal har en guide som vägleder dig genom att skapa ett distributions manifest. Den har tre steg indelade i flikar: **moduler**, **vägar** och **Granska + skapa**.
 
 #### <a name="add-modules"></a>Lägga till moduler
 
@@ -113,7 +113,7 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
     ![Skärm bild som visar fliken modul inställningar.](./media/deploy-iot-edge-device/add.png)
     
     > [!TIP]
-    > Välj inte **Lägg till** förrän du har angett värden för **modulens inställningar**, alternativet för att **skapa behållare**och fliken **dubbla inställningar** enligt beskrivningen i den här proceduren.
+    > Välj inte **Lägg till** förrän du har angett värden för **modulens inställningar**, alternativet för att **skapa behållare** och fliken **dubbla inställningar** enligt beskrivningen i den här proceduren.
     
     > [!WARNING]
     > Azure IoT Edge är Skift läges känslig när du gör anrop till moduler. Anteckna den exakta strängen som du använder som modulnamn.

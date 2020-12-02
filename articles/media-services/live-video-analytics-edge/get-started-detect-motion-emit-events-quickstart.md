@@ -3,12 +3,12 @@ title: Kom igång med live video analys på IoT Edge – Azure
 description: Den här snabb starten visar hur du kommer igång med live video analys på IoT Edge. Lär dig hur du identifierar rörelser i en video ström i real tid.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 2d426952e92951185c43b68266196a6764f4f601
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e67c717a4476ab9191471483d9aa8e8f222cd750
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125021"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498276"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Snabb start: kom igång – direktsända video analyser på IoT Edge
 
@@ -39,7 +39,7 @@ I den här självstudien krävs följande Azure-resurser:
 * IoT Hub
 * Lagringskonto
 * Azure Media Services konto
-* En virtuell Linux-dator i Azure, med [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installerat
+* En virtuell Linux-dator i Azure, med [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md) installerat
 
 I den här snabb starten rekommenderar vi att du använder [installations skriptet Live Video Analytics-resurser](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) för att distribuera de nödvändiga resurserna i din Azure-prenumeration. Det gör du på följande sätt:
 
@@ -48,7 +48,11 @@ I den här snabb starten rekommenderar vi att du använder [installations skript
 1. I den nedrullningsbara menyn på vänster sida av Cloud Shells fönstret väljer du **bash** som din miljö.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstarts/env-selector.png" alt-text="Real video analys baserat på rörelse identifiering"
+    > :::image type="content" source="./media/quickstarts/env-selector.png" alt-text="Miljö väljare":::
+1. Kör följande kommando.
+
+    ```
+    bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
 Om skriptet har slutförts bör du se alla nödvändiga resurser i din prenumeration. I skriptets utdata visar en resurs tabell namnet på IoT Hub. Sök efter resurs typen `Microsoft.Devices/IotHubs` och Anteckna namnet. Du behöver det här namnet i nästa steg. 
@@ -80,11 +84,11 @@ Följ dessa anvisningar för att ansluta till din IoT Hub med hjälp av tillägg
 1. Högerklicka och välj **Inställningar för tillägg**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Real video analys baserat på rörelse identifiering":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Tilläggs inställningar":::
 1. Sök och aktivera "Visa utförligt meddelande".
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Real video analys baserat på rörelse identifiering":::
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Visa utförligt meddelande":::
 1. Välj **Visa**  >  **Utforskaren**. Eller Välj CTRL + SKIFT + E.
 1. I det nedre vänstra hörnet på fliken **Utforskaren** väljer du **Azure IoT Hub**.
 1. Välj ikonen **fler alternativ** om du vill se snabb menyn. Välj sedan **ange IoT Hub anslutnings sträng**.

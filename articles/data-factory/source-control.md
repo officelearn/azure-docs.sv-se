@@ -4,19 +4,19 @@ description: Lär dig hur du konfigurerar käll kontroll i Azure Data Factory
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 37982d1c28d445d40fa9d53a2a1eb076fbbf7f2f
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: d219ff8469c471a37deb47e0f217292d70e8f0f9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566715"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497120"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Käll kontroll i Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -150,7 +150,7 @@ I konfigurations fönstret visas följande inställningar för GitHub-lagringspl
 |:--- |:--- |:--- |
 | **Typ av databas** | Typen av Azure databaser Code-lagringsplatsen. | GitHub |
 | **Använda GitHub Enterprise** | Kryss ruta för att välja GitHub Enterprise | omarkerat (standard) |
-| **GitHub Enterprise-URL** | GitHub Enterprise-rot-URL (måste vara HTTPS för den lokala GitHub Enterprise Server). Till exempel: `https://github.mydomain.com`. Krävs endast om **Använd GitHub Enterprise** är valt | `<your GitHub enterprise url>` |                                                           
+| **GitHub Enterprise-URL** | GitHub Enterprise-rot-URL (måste vara HTTPS för den lokala GitHub Enterprise Server). Exempel: `https://github.mydomain.com`. Krävs endast om **Använd GitHub Enterprise** är valt | `<your GitHub enterprise url>` |                                                           
 | **GitHub-konto** | Namnet på GitHub-kontot. Det här namnet kan hittas från https: \/ /GitHub.com/{account Name}/{repository Name}. Om du navigerar till den här sidan uppmanas du att ange GitHub OAuth-autentiseringsuppgifter för ditt GitHub-konto. | `<your GitHub account name>` |
 | **Namn på databas**  | Ditt GitHub kod lagrings namn. GitHub-konton innehåller git-databaser för att hantera din käll kod. Du kan skapa en ny databas eller använda en befintlig databas som redan finns i ditt konto. | `<your repository name>` |
 | **Samarbets gren** | Din GitHub Collaboration-gren som används för publicering. Som standard är originalet. Ändra den här inställningen om du vill publicera resurser från en annan gren. | `<your collaboration branch>` |
@@ -203,7 +203,7 @@ När du följer de här stegen kan fabriken ansluta till både offentliga och pr
 
 ## <a name="version-control"></a>Versionskontroll
 
-Med versions kontroll system (även kallat _käll kontroll_ ) kan utvecklare samar beta om kod och spåra ändringar som görs i kodbasen. Käll kontroll är ett viktigt verktyg för projekt med flera utvecklare.
+Med versions kontroll system (även kallat _käll kontroll_) kan utvecklare samar beta om kod och spåra ändringar som görs i kodbasen. Käll kontroll är ett viktigt verktyg för projekt med flera utvecklare.
 
 ### <a name="creating-feature-branches"></a>Skapa funktions grenar
 
@@ -260,7 +260,7 @@ Vi rekommenderar att du använder Azure Key Vault för att lagra anslutnings str
 
 Med hjälp av Key Vault-eller MSI-autentisering kan du också göra kontinuerlig integrering och distribution enklare eftersom du inte behöver tillhandahålla dessa hemligheter under distributionen av Resource Manager-mallar.
 
-## <a name="troubleshooting-git-integration"></a>Felsöka git-integrering
+## <a name="troubleshooting-git-integration"></a>Felsöka Git-integrering
 
 ### <a name="stale-publish-branch"></a>Inaktuell publicerings gren
 
@@ -268,7 +268,7 @@ Om publicerings grenen inte är synkroniserad med huvud grenen och innehåller i
 
 1. Ta bort din aktuella git-lagringsplats
 1. Konfigurera om git med samma inställningar, men se till att **Importera befintliga data Factory resurser till databasen** är markerat och välj **ny gren**
-1. Skapa en pull-begäran för att slå samman ändringarna i samarbets grenen 
+1. Skapa en pull-begäran för att sammanslå ändringarna till samarbetsgrenen 
 
 Nedan visas några exempel på situationer som kan orsaka en inaktuell publicerings gren:
 - En användare har flera grenar. I en funktions gren har de tagit bort en länkad tjänst som inte är AKV kopplad (icke-AKV länkade tjänster publiceras direkt oavsett om de är i git eller inte) och aldrig sammanfogade funktions grenen i samarbets grenen.

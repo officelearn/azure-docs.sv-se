@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/03/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 89aab37b750a61bd21ba9af23875536a8cfbff4a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: b13b5e1e27e9717066ff8f1aa8e245e8d9f54bbb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414824"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498123"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Auktorisera åtkomst till blobbar med AzCopy och Azure Active Directory (Azure AD)
 
@@ -42,7 +42,7 @@ De här rollerna kan tilldelas till säkerhets objekt i alla dessa omfattningar:
 - Resursgrupp
 - Prenumeration
 
-Information om hur du verifierar och tilldelar roller finns i [använda Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](./storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
+Information om hur du verifierar och tilldelar roller finns i [använda Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](./storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Tänk på att Azure Role-tilldelningar kan ta upp till fem minuter att sprida.

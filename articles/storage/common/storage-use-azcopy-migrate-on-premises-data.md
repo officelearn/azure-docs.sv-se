@@ -8,18 +8,18 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 154a7b17fc09c55e83b65eef8d479904c36e87eb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: eddee58d70cf621bd6c82d54fe75434f4e596d9e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791196"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498174"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Självstudie: migrera lokala data till moln lagring med AzCopy
 
 AzCopy är ett kommandoradsverktyg med vilket du kan kopiera data till eller från Azure Blob Storage, Azure Files och Azure Table Storage med hjälp av enkla kommandon. Kommandona är utformade för att ge optimala prestanda. Med AzCopy kan du antingen kopiera data mellan ett filsystem och ett lagringskonto eller mellan lagringskonton. AzCopy kan användas för att kopiera data från lokala data till ett lagringskonto.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett lagringskonto. 
@@ -44,7 +44,7 @@ Det första steget är att skapa en container, eftersom blobar alltid måste lad
 Skapa en container genom att följa de här stegen:
 
 1. Välj knappen **Lagringskonton** på huvudsidan och markera det lagringskonto som du har skapat.
-2. Välj **Blobar** under **Tjänster** , och välj sedan **Container** .
+2. Välj **Blobar** under **Tjänster**, och välj sedan **Container**.
 
    ![Skärm bild som visar skapande av behållare](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
@@ -176,7 +176,7 @@ Du kan verifiera att den schemalagda uppgiften/Cron-jobbet körs korrekt genom a
 
 Mer information om hur du flyttar lokala data till Azure Storage och vice versa finns i följande länk:
 
-* [Flytta data till och från Azure Storage](./storage-choose-data-transfer-solution.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).  
+* [Flytta data till och från Azure Storage](./storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
 Mer information om AzCopy finns i följande artiklar:
 

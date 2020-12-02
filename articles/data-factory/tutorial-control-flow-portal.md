@@ -2,8 +2,8 @@
 title: Branchning och länkning av aktiviteter i en pipeline med hjälp av Azure Portal
 description: Lär dig hur du styr flödet av data i Azure Data Factory pipelinen med hjälp av Azure Portal.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc82cfdc4e5a063e7c5cb833b617da58023d1ba6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568548"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497460"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Branchning och länkning av aktiviteter i en Azure Data Factory pipelinen med hjälp av Azure Portal
 
@@ -40,7 +40,7 @@ I den här självstudiekursen får du göra följande:
 
 I den här självstudien används Azure-portalen. Du kan använda andra metoder för att interagera med Azure Data Factory (se Snabbstarter i innehållsförteckningen).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 * **Azure Storage konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto kan du läsa artikeln [skapa ett lagrings konto](../storage/common/storage-account-create.md) för steg för att skapa ett.
@@ -144,8 +144,8 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 3. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i.
 4. För **resursgruppen** utför du något av följande steg:
 
-      - Välj **Använd befintlig**och välj en befintlig resurs grupp i den nedrullningsbara listan.
-      - Välj **Skapa ny**och ange namnet på en resurs grupp.   
+      - Välj **Använd befintlig** och välj en befintlig resurs grupp i den nedrullningsbara listan.
+      - Välj **Skapa ny** och ange namnet på en resurs grupp.   
          
         Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
 4. Välj **V2** för **versionen**.

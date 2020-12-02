@@ -7,15 +7,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/11/2020
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 3c7765d65b63c9cee83a76a13448506f61aa8472
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 4eb9b0077d1d0591953a40d98a220d7aa0683de7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637164"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497953"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integreringskörning i Azure Data Factory
 
@@ -47,12 +47,12 @@ Följande tabell innehåller beskrivningar av egenskaper som returneras av cmdle
 
 | Egenskap | Beskrivning |
 -------- | ------------- | 
-| Namn | Namnet på Azure integration Runtime. |  
-| Tillstånd | Status för Azure integration Runtime. | 
+| Name | Namnet på Azure integration Runtime. |  
+| Stat | Status för Azure integration Runtime. | 
 | Plats | Platsen för Azure integration Runtime. Mer information om platsen för en Azure integration runtime finns i [Introduktion till integration runtime](concepts-integration-runtime.md). |
 | DataFactoryName | Namnet på den data fabrik som Azure integration runtime tillhör. | 
 | ResourceGroupName | Namnet på den resurs grupp som data fabriken tillhör.  |
-| Beskrivning | Beskrivning av integrerings körningen.  |
+| Description | Beskrivning av integrerings körningen.  |
 
 ### <a name="status"></a>Status
 
@@ -72,17 +72,17 @@ Det här avsnittet innehåller beskrivningar av egenskaper som returneras av Get
 
 ### <a name="properties"></a>Egenskaper
 
-Följande tabell innehåller beskrivningar av övervaknings egenskaper för **varje nod** :
+Följande tabell innehåller beskrivningar av övervaknings egenskaper för **varje nod**:
 
 | Egenskap | Beskrivning | 
 | -------- | ----------- | 
-| Namn | Namnet på den egna värdbaserade integrerings körningen och noder som är kopplade till den. Node är en lokal Windows-dator som har den lokala integrerings körningen installerad. |  
+| Name | Namnet på den egna värdbaserade integrerings körningen och noder som är kopplade till den. Node är en lokal Windows-dator som har den lokala integrerings körningen installerad. |  
 | Status | Status för den övergripande integrerings körningen med egen värd och varje nod. Exempel: online/offline/begränsat/osv. Information om dessa statusar finns i nästa avsnitt. | 
 | Version | Versionen av integration runtime med egen värd och varje nod. Versionen av den lokala integration runtime-versionen bestäms baserat på den version av majoriteten av noderna i gruppen. Om det finns noder med olika versioner i installations programmet för lokal installation av integration runtime fungerar bara noderna med samma versions nummer som den logiska integrerings körningen för egen värd. Andra är i begränsat läge och måste uppdateras manuellt (endast om automatisk uppdatering Miss lyckas). | 
 | Tillgängligt minne | Tillgängligt minne på en egen värd för integration runtime-noden. Det här värdet är en nära real tids ögonblicks bild. | 
 | CPU-användning | CPU-användning för en egen värd för integration runtime-noden. Det här värdet är en nära real tids ögonblicks bild. |
 | Nätverk (in/ut) | Nätverks användning av en egen värd för integration runtime-noden. Det här värdet är en nära real tids ögonblicks bild. | 
-| Samtidiga jobb (som körs/begränsas) | **Körs** . Antal jobb eller aktiviteter som körs på varje nod. Det här värdet är en nära real tids ögonblicks bild. <br/><br/>**Begränsa** . Gränsen visar maximalt antal samtidiga jobb för varje nod. Det här värdet definieras baserat på datorns storlek. Du kan öka gränsen för att skala upp samtidiga jobb körningar i avancerade scenarier, när aktiviteterna är tids gräns, även om processor, minne eller nätverk används. Den här funktionen är också tillgänglig med en lokal integration runtime med egen värd. |
+| Samtidiga jobb (som körs/begränsas) | **Körs**. Antal jobb eller aktiviteter som körs på varje nod. Det här värdet är en nära real tids ögonblicks bild. <br/><br/>**Begränsa**. Gränsen visar maximalt antal samtidiga jobb för varje nod. Det här värdet definieras baserat på datorns storlek. Du kan öka gränsen för att skala upp samtidiga jobb körningar i avancerade scenarier, när aktiviteterna är tids gräns, även om processor, minne eller nätverk används. Den här funktionen är också tillgänglig med en lokal integration runtime med egen värd. |
 | Roll | Det finns två typer av roller i en integration runtime med egen värd för flera noder – dispatcher och Worker. Alla noder är arbetare, vilket innebär att de kan användas för att köra jobb. Det finns bara en dispatcher-nod som används för att hämta aktiviteter/jobb från moln tjänster och skicka dem till olika arbetsnoder. Dispatcher-noden är också en arbetsnod. |
 
 Vissa inställningar för egenskaperna är mer begripliga när det finns två eller fler noder i den egna värdbaserade integrerings körningen (det vill säga i ett scenario med skala ut).
@@ -175,13 +175,13 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 Följande tabell innehåller beskrivningar av egenskaper som returneras av ovanstående cmdlet för en Azure-SSIS IR.
 
-| Egenskap/status              | Beskrivning                  |
+| Egenskap/status              | Description                  |
 | ---------------------------- | ---------------------------- |
 | CreateTime                   | UTC-tiden när Azure-SSIS IR skapades. |
 | Noder                        | De allokerade/tillgängliga noderna i din Azure-SSIS IR med Node-/regionsspecifika status (start/tillgänglighet/åter användning/ej tillgänglig) och åtgärds bara fel. |
 | OtherErrors                  | De åtgärds bara fel som inte är noder i Azure-SSIS IR. |
 | LastOperation                | Resultatet av den senaste start-/stopp åtgärden på Azure-SSIS IR med åtgärds bara fel om det Miss lyckas. |
-| Tillstånd                        | Övergripande status (första/starta/starta/stoppa/stoppas) för Azure-SSIS IR. |
+| Stat                        | Övergripande status (första/starta/starta/stoppa/stoppas) för Azure-SSIS IR. |
 | Plats                     | Azure-SSIS IR plats. |
 | NodeSize                     | Storleken på varje nod i Azure-SSIS IR. |
 | NodeCount                    | Antalet noder i Azure-SSIS IR. |
@@ -196,25 +196,25 @@ Följande tabell innehåller beskrivningar av egenskaper som returneras av ovans
 | Typ                         | IR-typen (hanterad/egen värd) för din Azure-SSIS IR. |
 | ResourceGroupName            | Namnet på din Azure-adressresurs där ADF och Azure-SSIS IR skapades. |
 | DataFactoryName              | Namnet på din ADF. |
-| Namn                         | Namnet på din Azure-SSIS IR. |
-| Beskrivning                  | Beskrivning av din Azure-SSIS IR. |
+| Name                         | Namnet på din Azure-SSIS IR. |
+| Description                  | Beskrivning av din Azure-SSIS IR. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>Status (per Azure-SSIS IR nod)
 
 Följande tabell innehåller möjliga status värden för en Azure-SSIS IR-nod:
 
-| Node-/regionsspecifika status | Beskrivning |
+| Node-/regionsspecifika status | Description |
 | -------------------- | ----------- | 
 | Startar             | Den här noden förbereds. |
 | Tillgänglig            | Den här noden är redo att distribuera/köra SSIS-paket. |
 | Pappers            | Den här noden repareras/startas om. |
-| Inte tillgänglig          | Den här noden kan inte användas för att distribuera/köra SSIS-paket och har åtgärds bara fel/problem som du kan lösa. |
+| Ej tillgänglig          | Den här noden kan inte användas för att distribuera/köra SSIS-paket och har åtgärds bara fel/problem som du kan lösa. |
 
 #### <a name="status-overall-azure-ssis-ir"></a>Status (övergripande Azure-SSIS IR)
 
 Följande tabell innehåller möjliga övergripande status för en Azure-SSIS IR. Den övergripande statusen i tur är beroende av de kombinerade statusarna för alla noder som tillhör Azure-SSIS IR. 
 
-| Övergripande status | Beskrivning | 
+| Övergripande status | Description | 
 | -------------- | ----------- | 
 | Inledande        | Noderna i Azure-SSIS IR inte har allokerats/för berett. | 
 | Startar       | Noderna i dina Azure-SSIS IR tilldelas/förbereds och faktureringen har påbörjats. |
@@ -234,7 +234,7 @@ Välj sedan namnet på din Azure-SSIS IR för att öppna sidan övervakning där
 
 #### <a name="status-tile"></a>STATUS panel
 
-På **status** panelen på sidan Azure-SSIS IR övervakning kan du se dess övergripande status, till exempel **körs** eller **stoppas** . Om du väljer **körnings** status öppnas ett fönster med knappen för att **stoppa** din Azure-SSIS IR. Om du väljer **stoppad** status öppnas ett fönster med knappen Live **Start** för att starta din Azure-SSIS IR. Popup-fönstret innehåller också knappen **kör SSIS-paket** för att automatiskt generera en ADF-pipeline med kör SSIS-paket-aktivitet som körs på din Azure-SSIS IR (se [köra SSIS-paket som EXECUTE SSIS-paket aktiviteter i ADF-pipeliner](./how-to-invoke-ssis-package-ssis-activity.md)) och en text ruta för **resurs-ID** som du kan använda för att kopiera Azure-SSIS IR resurs-ID ( `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` ). Suffixet för Azure-SSIS IR resurs-ID som innehåller dina ADF-och Azure-SSIS IR-namn utgör ett kluster-ID som kan användas för att köpa ytterligare Premium/licensierade SSIS-komponenter från oberoende program varu leverantörer (ISV) och binda dem till din Azure-SSIS IR (se [Installera Premium/licensierade komponenter på din Azure-SSIS IR](./how-to-develop-azure-ssis-ir-licensed-components.md)).
+På **status** panelen på sidan Azure-SSIS IR övervakning kan du se dess övergripande status, till exempel **körs** eller **stoppas**. Om du väljer **körnings** status öppnas ett fönster med knappen för att **stoppa** din Azure-SSIS IR. Om du väljer **stoppad** status öppnas ett fönster med knappen Live **Start** för att starta din Azure-SSIS IR. Popup-fönstret innehåller också knappen **kör SSIS-paket** för att automatiskt generera en ADF-pipeline med kör SSIS-paket-aktivitet som körs på din Azure-SSIS IR (se [köra SSIS-paket som EXECUTE SSIS-paket aktiviteter i ADF-pipeliner](./how-to-invoke-ssis-package-ssis-activity.md)) och en text ruta för **resurs-ID** som du kan använda för att kopiera Azure-SSIS IR resurs-ID ( `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` ). Suffixet för Azure-SSIS IR resurs-ID som innehåller dina ADF-och Azure-SSIS IR-namn utgör ett kluster-ID som kan användas för att köpa ytterligare Premium/licensierade SSIS-komponenter från oberoende program varu leverantörer (ISV) och binda dem till din Azure-SSIS IR (se [Installera Premium/licensierade komponenter på din Azure-SSIS IR](./how-to-develop-azure-ssis-ir-licensed-components.md)).
 
 ![Övervaka din Azure-SSIS IR-STATUS panel](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
 

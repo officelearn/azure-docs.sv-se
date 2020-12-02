@@ -3,20 +3,20 @@ title: Användnings fall – kund profilering
 description: Lär dig hur Azure Data Factory används för att skapa ett data drivet arbets flöde (pipeline) för att profilera spel kunder.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 63c31312070fbac99959d833344ccf04760bb8e4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 313050035694eaeabaefc8e09383ec3a887eb32b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637895"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495930"
 ---
 # <a name="use-case---customer-profiling"></a>Användnings fall – kund profilering
 Azure Data Factory är en av många tjänster som används för att implementera Cortana Intelligence Suite av lösnings acceleratorer.  Mer information om Cortana Intelligence finns [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). I det här dokumentet beskriver vi ett enkelt användnings fall som hjälper dig att komma igång med att förstå hur Azure Data Factory kan lösa vanliga analys problem.

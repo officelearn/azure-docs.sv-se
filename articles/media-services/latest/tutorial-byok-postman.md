@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: tutorial
 ms.date: 10/18/2020
-ms.openlocfilehash: 93bbd84c25f02ac1653a46ebb4a70c1dfa90c744
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: c8a5b682e2ac4879d2181bdb069cf554bad512d9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687267"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498293"
 ---
 # <a name="tutorial-use-customer-managed-keys-or-byok-with-media-services-rest-api"></a>Självstudie: använda Kundhanterade nycklar eller BYOK med Media Services REST API
 
@@ -35,7 +35,7 @@ I den här självstudien får du lära dig att använda Postman för att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt utvärderings konto](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Registrera ett huvud namn för tjänsten med rätt behörigheter.
 1. Installera [Postman](https://www.postman.com).
@@ -43,8 +43,8 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt utvärder
 
 ### <a name="register-a-service-principal-with-the-needed-permissions"></a>Registrera ett huvud namn för tjänsten med de behörigheter som krävs
 
-1. [Skapa ett huvud namn för tjänsten](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-1. Gå till [Alternativ 2: skapa en ny program hemlighet](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#authentication-two-options) för att hämta tjänstens huvud namns hemlighet.
+1. [Skapa ett huvud namn för tjänsten](../../active-directory/develop/howto-create-service-principal-portal.md).
+1. Gå till [Alternativ 2: skapa en ny program hemlighet](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) för att hämta tjänstens huvud namns hemlighet.
 
    > [!IMPORTANT]
    >Kopiera och spara hemligheten för senare användning. Du kan inte komma åt hemligheten när du har lämnat sidan hemligt i portalen.

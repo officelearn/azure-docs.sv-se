@@ -3,20 +3,20 @@ title: 'Data Factory självstudie: första data pipelinen '
 description: Den här Azure Data Factory själv studie kursen visar hur du skapar och schemalägger en data fabrik som bearbetar data med hjälp av Hive-skript i ett Hadoop-kluster.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 80644ed2d655544fa176a7be92aec3c01aa3bf14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a79872c11d76a74932fe232fa3f7818edc58ffcc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75966078"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496219"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Självstudie: Bygg din första pipeline för att transformera data med Hadoop-kluster
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ I den här självstudien får du göra följande:
 3. Skapa **länkade tjänster**. Du skapar en länkad tjänst för att länka ett data lager eller en beräknings tjänst till data fabriken. Ett data lager som Azure Storage innehåller indata/utdata för aktiviteter i pipelinen. En beräknings tjänst som HDInsight Hadoop Cluster processs/transformerar data.
 
     I den här självstudien skapar du två länkade tjänster: **Azure Storage** och **Azure HDInsight**. Den länkade tjänsten Azure Storage länkar ett Azure Storage konto som innehåller in-/utdata-data till data fabriken. Den länkade Azure HDInsight-tjänsten länkar ett Azure HDInsight-kluster som används för att omvandla data till data fabriken.
-3. Skapa data **uppsättningar**för indata och utdata. En indatauppsättning representerar indata för en aktivitet i pipeline och en utdatauppsättning representerar utdata för aktiviteten.
+3. Skapa data **uppsättningar** för indata och utdata. En indatauppsättning representerar indata för en aktivitet i pipeline och en utdatauppsättning representerar utdata för aktiviteten.
 
     I den här självstudien anger indata och utdata-datauppsättningar platser för indata och utdata i Azure-Blob Storage. Den länkade tjänsten Azure Storage anger vilket Azure Storage konto som används. En indata-datauppsättning anger var indatafilerna finns och en data uppsättning för utdata anger var utdatafilerna placeras.
 
@@ -76,7 +76,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 
 Från de exempel rader som visas ovan skrivs den första (med 2016-01-01) till filen 000000_0 i mappen månad = 1. På samma sätt skrivs den andra filen i mappen månad = 2 och den tredje är skriven i filen i mappen månad = 3.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar den här självstudien måste du ha följande krav:
 
 1. **Azure-prenumeration** – om du inte har en Azure-prenumeration kan du skapa ett kostnads fritt utvärderings konto på bara några minuter. Se artikeln om [kostnads fri utvärdering](https://azure.microsoft.com/pricing/free-trial/) av hur du kan skaffa ett kostnads fritt utvärderings konto.

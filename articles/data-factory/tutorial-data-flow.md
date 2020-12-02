@@ -1,19 +1,19 @@
 ---
 title: Transformera data med ett data flöde för mappning
 description: Den här självstudien innehåller stegvisa instruktioner för hur du använder Azure Data Factory för att omvandla data med data flöde för mappning
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/09/2019
-ms.openlocfilehash: fa516f577254f827a6437697df82010bd9b631ee
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b0f564f68a638e7efd1cd1ce9116a26f4d19f277
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555918"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497069"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Omvandla data med Mappa dataflöden
 
@@ -43,17 +43,17 @@ Filen som vi transformerar i den här självstudien är MoviesDB.csv, som du hit
 I det här steget skapar du en data fabrik och öppnar Data Factory UX för att skapa en pipeline i data fabriken.
 
 1. Öppna **Microsoft Edge** eller **Google Chrome**. Data Factory-gränssnittet stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-2. På den vänstra menyn väljer du **skapa en resurs**  >  **integrations**  >  **Data Factory** :
+2. På den vänstra menyn väljer du **skapa en resurs**  >  **integrations**  >  **Data Factory**:
 
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-3. I fönstret **Ny datafabrik** , under **Namn** anger du **ADFTutorialDataFactory**.
+3. I fönstret **Ny datafabrik**, under **Namn** anger du **ADFTutorialDataFactory**.
 
    Namnet på Azure Data Factory måste vara *globalt unikt*. Ange ett annat namn för datafabriken om du får ett felmeddelande om namnvärdet. (till exempel Dittnamnadftutorialdatafactory). Se artikeln [Namnregler för Data Factory](naming-rules.md) för namnregler för Data Factory-artefakter.
 
      ![Ny datafabrik](./media/doc-common-process/name-not-available-error.png)
-4. Välj den Azure- **prenumeration** som du vill skapa den nya datafabriken i.
-5. Gör något av följande för **Resursgrupp** :
+4. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i.
+5. Gör något av följande för **Resursgrupp**:
 
     a. Välj **Använd befintlig** och välj en befintlig resurs grupp i den nedrullningsbara listan.
 

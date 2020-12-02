@@ -2,8 +2,8 @@
 title: Förgrening i Azure Data Factory pipeline
 description: Lär dig hur du styr flödet av data i Azure Data Factory genom branchning och kedjesammansättning av aktiviteter.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 0a6fc68ddcb86c7ba768f59519cfb4273d381fab
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ab7d17ee61d733483b6d3573e9bd69b1628c7940
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637708"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496967"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
 
@@ -54,28 +54,28 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 En lista över Azure-regioner där Data Factory för närvarande är tillgänglig finns i [produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). Data lager och beräkningar kan finnas i andra regioner. Butikerna innehåller Azure Storage och Azure SQL Database. Beräkningarna inkluderar HDInsight, som Data Factory använder.
 
-Skapa ett program enligt beskrivningen i [skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tilldela programmet till **deltagar** rollen genom att följa anvisningarna i samma artikel. Du behöver flera värden för senare delar av den här självstudien, till exempel **program-ID** och **katalog (klient)-ID** .
+Skapa ett program enligt beskrivningen i [skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tilldela programmet till **deltagar** rollen genom att följa anvisningarna i samma artikel. Du behöver flera värden för senare delar av den här självstudien, till exempel **program-ID** och **katalog (klient)-ID**.
 
 ### <a name="create-a-blob-table"></a>Skapa en BLOB-tabell
 
-1. Öppna en textredigerare. Kopiera följande text och spara den lokalt som *input.txt* .
+1. Öppna en textredigerare. Kopiera följande text och spara den lokalt som *input.txt*.
 
    ```
    Ethel|Berg
    Tamika|Walsh
    ```
 
-1. Öppna Azure Storage Explorer. Expandera ditt lagrings konto. Högerklicka på **Blobcontainrar** och välj **Skapa blobcontainer** .
+1. Öppna Azure Storage Explorer. Expandera ditt lagrings konto. Högerklicka på **Blobcontainrar** och välj **Skapa blobcontainer**.
 1. Namnge den nya behållaren *adfv2branch* och välj **Ladda upp** för att lägga till *input.txt* -filen i behållaren.
 
 ## <a name="create-visual-studio-project"></a>Skapa Visual Studio-projekt<a name="create-visual-studio-project"></a>
 
 Skapa ett C# .NET-konsol program:
 
-1. Starta Visual Studio och välj **skapa ett nytt projekt** .
-1. I **skapa ett nytt projekt** väljer du **konsol program (.NET Framework)** för C# och väljer **sedan nästa** .
-1. Ge projektet namnet *ADFv2BranchTutorial* .
-1. Välj **.NET version 4.5.2** eller senare och välj sedan **skapa** .
+1. Starta Visual Studio och välj **skapa ett nytt projekt**.
+1. I **skapa ett nytt projekt** väljer du **konsol program (.NET Framework)** för C# och väljer **sedan nästa**.
+1. Ge projektet namnet *ADFv2BranchTutorial*.
+1. Välj **.NET version 4.5.2** eller senare och välj sedan **skapa**.
 
 ### <a name="install-nuget-packages"></a>Installera NuGet-paket
 
@@ -211,7 +211,7 @@ I det här avsnittet skapar du två data uppsättningar, en för källan och en 
 
 ### <a name="create-a-dataset-for-a-source-azure-blob"></a>Skapa en data uppsättning för en Azure Blob-källa
 
-Lägg till en metod som skapar en *Azure Blob-datauppsättning* . Mer information om vilka egenskaper och information som stöds finns i [Egenskaper för Azure Blob-datauppsättningar](connector-azure-blob-storage.md#dataset-properties).
+Lägg till en metod som skapar en *Azure Blob-datauppsättning*. Mer information om vilka egenskaper och information som stöds finns i [Egenskaper för Azure Blob-datauppsättningar](connector-azure-blob-storage.md#dataset-properties).
 
 Lägg till en `SourceBlobDatasetDefinition` metod i din *program.cs* -fil:
 
@@ -234,7 +234,7 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 }
 ```
 
-Du definierar en datauppsättning som representerar källdata i Azure Blob. Denna BLOB-datauppsättning refererar till den Azure Storage länkade tjänsten som stöds i föregående steg. BLOB-datauppsättningen beskriver platsen för blobben att kopiera från: *FolderPath* och *filename* .
+Du definierar en datauppsättning som representerar källdata i Azure Blob. Denna BLOB-datauppsättning refererar till den Azure Storage länkade tjänsten som stöds i föregående steg. BLOB-datauppsättningen beskriver platsen för blobben att kopiera från: *FolderPath* och *filename*.
 
 Observera att parametrarna för *FolderPath* används. `sourceBlobContainer` är namnet på parametern och uttrycket ersätts med värdena som skickas i pipeline-körningen. Syntaxen för att definiera parametrar är `@pipeline().parameters.<parameterName>`
 
@@ -344,7 +344,7 @@ När du har sparat arbets flödet kopierar du och sparar värdet **http post URL
 
 ## <a name="fail-email-workflow"></a>Arbetsflöde för e-postmeddelande om misslyckad kopiering
 
-Klona **CopySuccessEmail** som ett annat Logic Apps arbets flöde med namnet *CopyFailEmail* . `Request Body JSON schema` är samma i begärandeutlösaren. Ändra formatet för ditt e-postmeddelande som `Subject` för att skapa ett e-postmeddelande om att kopieringen misslyckats. Här är ett exempel:
+Klona **CopySuccessEmail** som ett annat Logic Apps arbets flöde med namnet *CopyFailEmail*. `Request Body JSON schema` är samma i begärandeutlösaren. Ändra formatet för ditt e-postmeddelande som `Subject` för att skapa ett e-postmeddelande om att kopieringen misslyckats. Här är ett exempel:
 
 ![Logic App Designer – arbets flöde för misslyckad e-post](media/tutorial-control-flow/fail-email-workflow.png)
 

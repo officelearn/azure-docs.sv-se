@@ -3,12 +3,12 @@ title: Kontinuerlig video inspelning till molnet och uppspelningen från Cloud-s
 description: I den här självstudien får du lära dig hur du använder Azure Live Video Analytics på Azure IoT Edge för att kontinuerligt spela in video i molnet och strömma någon del av videon med hjälp av Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 7e8bf1202e95cb4e76b54473f9d84076d24accea
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: c38ab1f32d1ef4e54cd8568ff17d325fabdefc31
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346374"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498378"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Självstudie: kontinuerlig video inspelning till molnet och uppspelningen från molnet
 
@@ -49,7 +49,7 @@ I slutet av de här stegen har du relevanta Azure-resurser distribuerade i din A
 * Azure IoT Hub
 * Azure-lagringskonto
 * Azure Media Services konto
-* Virtuella Linux-datorer i Azure med [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installerat
+* Virtuella Linux-datorer i Azure med [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md) installerat
 
 ## <a name="concepts"></a>Begrepp
 
@@ -74,8 +74,8 @@ Innan du börjar bör du kontrol lera att du har slutfört den tredje punkten i 
 
 Av intresse i den här självstudien är filerna:
 
-* **~/clouddrive/lva-Sample/Edge-Deployment/.env** : innehåller egenskaper som Visual Studio Code använder för att distribuera moduler till en Edge-enhet.
-* **~/clouddrive/lva-sample/appsettings.jspå** : används av Visual Studio Code för att köra exempel koden.
+* **~/clouddrive/lva-Sample/Edge-Deployment/.env**: innehåller egenskaper som Visual Studio Code använder för att distribuera moduler till en Edge-enhet.
+* **~/clouddrive/lva-sample/appsettings.jspå**: används av Visual Studio Code för att köra exempel koden.
 
 Du behöver filerna för följande steg:
 
@@ -114,14 +114,14 @@ Du behöver filerna för följande steg:
 
 Öppna src/Edge/deployment.template.jspå i Visual Studio Code. Den här mallen definierar vilka Edge-moduler du distribuerar till gräns enheten (den virtuella Azure Linux-datorn). Det finns två poster under avsnittet **moduler** med följande namn:
 
-* **lvaEdge** : det här är video analys i real tid i IoT Edge modul.
-* **rtspsim** : Detta är RTSP-simulatorn.
+* **lvaEdge**: det här är video analys i real tid i IoT Edge modul.
+* **rtspsim**: Detta är RTSP-simulatorn.
 
 Bläddra sedan till mappen src/Cloud-to-Device-console-app. Här ser du appsettings.jspå filen som du skapade tillsammans med några andra filer:
 
-* **C2D-console-app. CSPROJ** : projekt filen för Visual Studio Code.
-* **operations.jspå** : den här filen visar de olika åtgärder som du skulle köra.
-* **Program.cs** : kod för exempel program som:
+* **C2D-console-app. CSPROJ**: projekt filen för Visual Studio Code.
+* **operations.jspå**: den här filen visar de olika åtgärder som du skulle köra.
+* **Program.cs**: kod för exempel program som:
     * Läser in appinställningar.
     * Anropar direkta metoder som exponeras av direktsänd video analys i IoT Edge modul. Du kan använda modulen för att analysera direktuppspelade video strömmar genom att anropa dess [direkta metoder](direct-methods.md).
     * Pausar så att du kan granska utdata från programmet i **terminalfönstret** och de händelser som genererats av modulen i fönstret **utdata** .
@@ -143,8 +143,8 @@ Distributions manifestet definierar vilka moduler som distribueras till en grän
    ![Skapa distribution för en enskild enhet](./media/quickstarts/create-deployment-single-device.png)
 1. Sedan uppmanas du att **välja en IoT Hub enhet**. Välj lva-Sample-Device i list rutan.
 1. Om 30 sekunder uppdaterar du Azure-IoT Hub i det nedre vänstra avsnittet. Du bör se att Edge-enheten har följande moduler distribuerade:
-    * Video analys i real tid för IoT Edge (Modulnamn **lvaEdge** )
-    * RTSP Simulator (Modulnamn **rtspsim** )
+    * Video analys i real tid för IoT Edge (Modulnamn **lvaEdge**)
+    * RTSP Simulator (Modulnamn **rtspsim**)
  
     ![IoT Hub](./media/continuous-video-recording-tutorial/iot-hub.png)
 
@@ -180,7 +180,7 @@ När du använder live video analys i IoT Edge-modulen för att spela in direktu
 
     `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
 1. Starta en felsökningssession genom att välja F5. Du ser vissa meddelanden som skrivs ut i **terminalfönstret** .
-1. operations.jspå filen börjar med anrop till GraphTopologyList och GraphInstanceList. Om du har rensat resurser efter tidigare snabb starter eller självstudier returnerar den här åtgärden tomma listor och pausar sedan för att välja **RETUR** , som visas:
+1. operations.jspå filen börjar med anrop till GraphTopologyList och GraphInstanceList. Om du har rensat resurser efter tidigare snabb starter eller självstudier returnerar den här åtgärden tomma listor och pausar sedan för att välja **RETUR**, som visas:
 
     ```
     --------------------------------------------------------------------------
@@ -385,4 +385,4 @@ Om du tänker testa de andra självstudierna ska du hålla på de resurser som d
 ## <a name="next-steps"></a>Nästa steg
 
 * Använd en [IP-kamera](https://en.wikipedia.org/wiki/IP_camera) med stöd för RTSP i stället för att använda RTSP-simulatorn. Du kan söka efter IP-kameror med RTSP-stöd på [ONVIF-sidan produkter](https://www.onvif.org/conformant-products/) genom att söka efter enheter som uppfyller profilerna G, S eller T.
-* Använd en AMD64-eller x64 Linux-enhet (jämfört med en virtuell Azure Linux-dator). Enheten måste finnas i samma nätverk som IP-kameran. Följ anvisningarna i [installera Azure IoT Edge runtime på Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Följ sedan anvisningarna i avsnittet [distribuera din första IoT Edge till en virtuell Linux-enhet](../../iot-edge/quickstart-linux.md) snabb start för att registrera enheten med Azure IoT Hub.
+* Använd en AMD64-eller x64 Linux-enhet (jämfört med en virtuell Azure Linux-dator). Enheten måste finnas i samma nätverk som IP-kameran. Följ anvisningarna i [installera Azure IoT Edge runtime på Linux](../../iot-edge/how-to-install-iot-edge.md). Följ sedan anvisningarna i avsnittet [distribuera din första IoT Edge till en virtuell Linux-enhet](../../iot-edge/quickstart-linux.md) snabb start för att registrera enheten med Azure IoT Hub.

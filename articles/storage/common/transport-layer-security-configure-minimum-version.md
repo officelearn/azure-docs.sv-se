@@ -10,12 +10,12 @@ ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 5f772bd996b126a4cd7182a2ce088c2d3edc8e7d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 683f0e070ad77add62ed76eabd70b42ba15f012e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312024"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498140"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Framtvinga en minsta version av Transport Layer Security (TLS) som krävs för begär anden till ett lagrings konto
 
@@ -35,7 +35,7 @@ När du tillämpar en lägsta TLS-version för ditt lagrings konto riskerar du a
 
 Om du vill logga förfrågningar till ditt Azure Storage-konto och fastställa vilken TLS-version som används av klienten, kan du använda Azure Storage inloggning Azure Monitor (för hands version). Mer information finns i [övervaka Azure Storage](../blobs/monitor-blob-storage.md).
 
-Azure Storage loggning i Azure Monitor har stöd för att använda logg frågor för att analysera loggdata. Om du vill söka i loggar kan du använda en Azure Log Analytics-arbetsyta. Mer information om logg frågor finns i [Självstudier: komma igång med Log Analytics frågor](../../azure-monitor/log-query/get-started-portal.md).
+Azure Storage loggning i Azure Monitor har stöd för att använda logg frågor för att analysera loggdata. Om du vill söka i loggar kan du använda en Azure Log Analytics-arbetsyta. Mer information om logg frågor finns i [Självstudier: komma igång med Log Analytics frågor](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Om du vill logga Azure Storage data med Azure Monitor och analysera dem med Azure Log Analytics måste du först skapa en diagnostisk inställning som anger vilka typer av begär Anden och för vilka lagrings tjänster du vill logga data. Följ dessa steg om du vill skapa en diagnostisk inställning i Azure Portal:
 
@@ -44,7 +44,7 @@ Om du vill logga Azure Storage data med Azure Monitor och analysera dem med Azur
 1. Navigera till ditt lagringskonto i Azure-portalen.
 1. I avsnittet övervakning väljer du **diagnostikinställningar (för hands version)**.
 1. Välj den Azure Storage tjänst som du vill logga förfrågningar för. Välj till exempel **BLOB** för att logga förfrågningar till Blob Storage.
-1. Välj **Lägg till diagnostisk inställning**.
+1. Välj **Lägg till diagnostikinställning**.
 1. Ange ett namn för den diagnostiska inställningen.
 1. Under **kategori information** i avsnittet **logg** väljer du vilka typer av begär Anden som ska loggas. Du kan logga läsnings-, skriv-och borttagnings begär Anden. Om du till exempel väljer **StorageRead** och **StorageWrite** loggas Läs-och skriv förfrågningar till den valda tjänsten.
 1. Under **mål information** väljer **du skicka till Log Analytics**. Välj din prenumeration och Log Analytics arbets ytan som du skapade tidigare, som du ser i följande bild.
@@ -173,7 +173,7 @@ Om du vill konfigurera den lägsta TLS-versionen för ett lagrings konto med en 
 
 1. I Azure Portal väljer du **skapa en resurs**.
 1. I **Sök på Marketplace** skriver du **mall distribution** och trycker sedan på **RETUR**.
-1. Välj **malldistribution (distribuera med anpassade mallar) (för hands version)** , Välj **skapa** och välj sedan **skapa en egen mall i redigeraren**.
+1. Välj **malldistribution (distribuera med anpassade mallar) (för hands version)**, Välj **skapa** och välj sedan **skapa en egen mall i redigeraren**.
 1. I redigeraren för mallar klistrar du in följande JSON för att skapa ett nytt konto och anger den lägsta TLS-versionen till TLS 1,2. Kom ihåg att ersätta plats hållarna inom vinkelparenteser med dina egna värden.
 
     ```json

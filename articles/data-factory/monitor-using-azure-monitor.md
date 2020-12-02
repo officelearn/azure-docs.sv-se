@@ -3,20 +3,20 @@ title: Övervaka data fabriker med hjälp av Azure Monitor
 description: Lär dig hur du använder Azure Monitor för att övervaka/Azure Data Factory pipelines genom att aktivera diagnostiska loggar med information från Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: af274c9c50b514befb4a3ce5930877edf964d976
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 35d2073dca21b4a0d48a43bed9933bb7549cf8f3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638099"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497902"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Övervaka och varna Data Factory med Azure Monitor
 
@@ -34,9 +34,9 @@ Mer information finns i [Översikt av Azure Monitor](../azure-monitor/overview.m
 
 Data Factory lagrar pipelinen – kör data endast i 45 dagar. Använd Azure Monitor om du vill behålla dessa data under en längre tid. Med övervakaren kan du vidarebefordra diagnostikloggar för analys till flera olika mål.
 
-* **Lagrings konto** : Spara dina diagnostikloggar till ett lagrings konto för granskning eller manuell kontroll. Du kan använda diagnostikinställningar för att ange Retentions tiden i dagar.
-* **Event Hub** : strömma loggarna till Azure Event Hubs. Loggarna blir inmatade i en partner tjänst/anpassad analys lösning som Power BI.
-* **Log Analytics** : analysera loggarna med Log Analytics. Data Factory-integration med Azure Monitor är användbar i följande scenarier:
+* **Lagrings konto**: Spara dina diagnostikloggar till ett lagrings konto för granskning eller manuell kontroll. Du kan använda diagnostikinställningar för att ange Retentions tiden i dagar.
+* **Event Hub**: strömma loggarna till Azure Event Hubs. Loggarna blir inmatade i en partner tjänst/anpassad analys lösning som Power BI.
+* **Log Analytics**: analysera loggarna med Log Analytics. Data Factory-integration med Azure Monitor är användbar i följande scenarier:
   * Du vill skriva komplexa frågor på en omfattande uppsättning mått som publiceras av Data Factory som ska övervakas. Du kan skapa anpassade aviseringar för dessa frågor via övervakaren.
   * Du vill övervaka över data fabriker. Du kan dirigera data från flera data fabriker till en arbets yta för en övervakare.
 
@@ -46,19 +46,19 @@ Du kan också använda ett lagrings konto eller ett namn område för händelse 
 
 Skapa eller Lägg till diagnostikinställningar för din data fabrik.
 
-1. I portalen går du till övervaka. Välj **Inställningar**  >  **diagnostikinställningar** .
+1. I portalen går du till övervaka. Välj **Inställningar**  >  **diagnostikinställningar**.
 
 1. Välj den data fabrik som du vill ange en diagnostisk inställning för.
 
-1. Om det inte finns några inställningar på den valda data fabriken uppmanas du att skapa en inställning. Välj **Aktivera diagnostik** .
+1. Om det inte finns några inställningar på den valda data fabriken uppmanas du att skapa en inställning. Välj **Aktivera diagnostik**.
 
    ![Skapa en diagnostisk inställning om inga inställningar finns](media/data-factory-monitor-oms/monitor-oms-image1.png)
 
-   Om det finns befintliga inställningar på data fabriken visas en lista över inställningar som redan har kon figurer ATS på data fabriken. Välj **Lägg till diagnostisk inställning** .
+   Om det finns befintliga inställningar på data fabriken visas en lista över inställningar som redan har kon figurer ATS på data fabriken. Välj **Lägg till diagnostikinställning**.
 
    ![Lägg till en diagnostisk inställning om det finns inställningar](media/data-factory-monitor-oms/add-diagnostic-setting.png)
 
-1. Ange ett namn, Välj **Skicka till Log Analytics** och välj sedan en arbets yta från **Log Analytics arbets yta** .
+1. Ange ett namn, Välj **Skicka till Log Analytics** och välj sedan en arbets yta från **Log Analytics arbets yta**.
 
     * I _Azure-diagnostik-_ läge flödar diagnostikloggar till _AzureDiagnostics_ -tabellen.
 
@@ -80,9 +80,9 @@ Skapa eller Lägg till diagnostikinställningar för din data fabrik.
    ![Namnge dina inställningar och välj en arbets yta för Log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Eftersom en Azure-loggfil inte kan ha fler än 500 kolumner rekommenderar vi **starkt** att du väljer _resurs-/regionsspecifika läge_ . Mer information finns i [Log Analytics kända begränsningar](../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
+    > Eftersom en Azure-loggfil inte kan ha fler än 500 kolumner rekommenderar vi **starkt** att du väljer _resurs-/regionsspecifika läge_. Mer information finns i [Log Analytics kända begränsningar](../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
 
-1. Välj **Spara** .
+1. Välj **Spara**.
 
 Efter en liten stund visas den nya inställningen i listan med inställningar för den här data fabriken. Diagnostikloggar strömmas till den arbets ytan så snart som nya händelse data genereras. Upp till 15 minuter kan förflyta mellan när en händelse genereras och när den visas i Log Analytics.
 
@@ -94,7 +94,7 @@ Den här lösningen ger dig en översikt över övergripande hälso tillstånd f
 * Möjlighet att öka detalj nivån för Data Factory-aktivitet som körs efter typ
 * Översikt över den övre pipelinen för Data Factory, aktivitets fel
 
-1. Gå till **Azure Marketplace** , Välj **analys** filter och Sök efter **Azure Data Factory Analytics (för hands version)**
+1. Gå till **Azure Marketplace**, Välj **analys** filter och Sök efter **Azure Data Factory Analytics (för hands version)**
 
    ![Gå till "Azure Marketplace", ange "Analytics filter" och välj "Azure Data Factory Analytics (Preview")](media/data-factory-monitor-oms/monitor-oms-image3.png)
 
@@ -102,7 +102,7 @@ Den här lösningen ger dig en översikt över övergripande hälso tillstånd f
 
    ![Information om "Azure Data Factory Analytics (för hands version)"](media/data-factory-monitor-oms/monitor-oms-image4.png)
 
-1. Välj **skapa** och skapa eller Välj **arbets ytan Log Analytics** .
+1. Välj **skapa** och skapa eller Välj **arbets ytan Log Analytics**.
 
    ![Skapa en ny lösning](media/data-factory-monitor-oms/monitor-log-analytics-image-5.png)
 
@@ -127,7 +127,7 @@ Du kan visualisera föregående mått, titta på frågorna bakom dessa mått, re
 ![Grafisk representation av pipelines körs av Data Factory "](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 > [!NOTE]
-> Azure Data Factory Analytics (för hands version) skickar diagnostikloggar till _resursbaserade_ mål tabeller. Du kan skriva frågor mot följande tabeller: _ADFPipelineRun_ , _ADFTriggerRun_ och _ADFActivityRun_ .
+> Azure Data Factory Analytics (för hands version) skickar diagnostikloggar till _resursbaserade_ mål tabeller. Du kan skriva frågor mot följande tabeller: _ADFPipelineRun_, _ADFTriggerRun_ och _ADFActivityRun_.
 
 ## <a name="data-factory-metrics"></a>Data Factory mått
 
@@ -269,7 +269,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | --- | --- | --- |
 | **storageAccountId** |Sträng | Resurs-ID för det lagrings konto som du vill skicka diagnostikloggar till. |
 | **serviceBusRuleId** |Sträng | Service Bus-regelns ID för det namn område för Service Bus som du vill ha Event Hubs skapat för för strömning av diagnostikloggar. Regel-ID: t har formatet `{service bus resource ID}/authorizationrules/{key name}` .|
@@ -446,7 +446,7 @@ Mer information finns i [diagnostikinställningar](/rest/api/monitor/diagnostics
 | --- | --- | --- | --- |
 | **Nivå** |Sträng | Nivån för diagnostikloggar. För aktivitets körnings loggar anger du egenskap svärdet 4. | `4` |
 | **correlationId** |Sträng | Unikt ID för spårning av en viss begäran. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **time** | Sträng | Tiden för händelsen i UTC-formatet i TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
+| **tid** | Sträng | Tiden för händelsen i UTC-formatet i TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
 |**activityRunId**| Sträng| ID för aktivitets körningen. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |**pipelineRunId**| Sträng| ID för pipeline-körningen. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**resourceId**| Sträng | Det ID som är kopplat till Data Factory-resursen. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -492,7 +492,7 @@ Mer information finns i [diagnostikinställningar](/rest/api/monitor/diagnostics
 | --- | --- | --- | --- |
 | **Nivå** |Sträng | Nivån för diagnostikloggar. För aktivitets körnings loggar anger du egenskap svärdet 4. | `4` |
 | **correlationId** |Sträng | Unikt ID för spårning av en viss begäran. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **time** | Sträng | Tiden för händelsen i UTC-formatet i TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
+| **tid** | Sträng | Tiden för händelsen i UTC-formatet i TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
 |**runId**| Sträng| ID för pipeline-körningen. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**resourceId**| Sträng | Det ID som är kopplat till Data Factory-resursen. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**kategori**| Sträng | Kategorin för diagnostikloggar. Ange egenskapens värde till `PipelineRuns` . | `PipelineRuns` |
@@ -535,7 +535,7 @@ Mer information finns i [diagnostikinställningar](/rest/api/monitor/diagnostics
 | --- | --- | --- | --- |
 | **Nivå** |Sträng | Nivån för diagnostikloggar. För aktivitets körnings loggar anger du egenskap svärdet 4. | `4` |
 | **correlationId** |Sträng | Unikt ID för spårning av en viss begäran. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **time** | Sträng | Tiden för händelsen i UTC-formatet i TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
+| **tid** | Sträng | Tiden för händelsen i UTC-formatet i TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
 |**triggerId**| Sträng| ID: t för utlösarens körning. | `08587023010602533858661257311` |
 |**resourceId**| Sträng | Det ID som är kopplat till Data Factory-resursen. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**kategori**| Sträng | Kategorin för diagnostikloggar. Ange egenskapens värde till `PipelineRuns` . | `PipelineRuns` |
@@ -570,7 +570,7 @@ Här följer SSIS för IR-åtgärder för start/stopp/underhåll.
 
 | Egenskap                   | Typ   | Beskrivning                                                   | Exempel                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
-| **time**                   | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| **tid**                   | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | Sträng | Namnet på din SSIS-IR-åtgärd                            | `Start/Stop/Maintenance` |
 | **kategori**               | Sträng | Kategorin för diagnostikloggar                               | `SSISIntegrationRuntimeLogs` |
 | **correlationId**          | Sträng | Unikt ID för att spåra en viss åtgärd             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
@@ -610,7 +610,7 @@ Här är de loggnings attributen för villkor som rör händelse meddelanden som
 
 | Egenskap                   | Typ   | Beskrivning                                                          | Exempel                        |
 | -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
-| **time**                   | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
+| **tid**                   | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | Sträng | Detta är inställt på `YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
 | **kategori**               | Sträng | Kategorin för diagnostikloggar                                      | `SSISPackageEventMessageContext` |
 | **correlationId**          | Sträng | Unikt ID för att spåra en viss åtgärd                    | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
@@ -660,7 +660,7 @@ Här är de logg-attribut för händelse meddelanden som genereras av SSIS-paket
 
 | Egenskap                   | Typ   | Beskrivning                                                        | Exempel                        |
 | -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
-| **time**                   | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **tid**                   | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | Sträng | Detta är inställt på `YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
 | **kategori**               | Sträng | Kategorin för diagnostikloggar                                    | `SSISPackageEventMessages` |
 | **correlationId**          | Sträng | Unikt ID för att spåra en viss åtgärd                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
@@ -709,7 +709,7 @@ Här är de loggfiler för körbar statistik som genereras av SSIS-paket körnin
 
 | Egenskap                   | Typ   | Beskrivning                                                      | Exempel                        |
 | -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
-| **time**                   | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
+| **tid**                   | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | Sträng | Detta är inställt på `YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
 | **kategori**               | Sträng | Kategorin för diagnostikloggar                                  | `SSISPackageExecutableStatistics` |
 | **correlationId**          | Sträng | Unikt ID för att spåra en viss åtgärd                | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
@@ -754,7 +754,7 @@ Här följer logg attributen för körnings statistik för data flödes komponen
 
 | Egenskap                   | Typ   | Beskrivning                                                         | Exempel                        |
 | -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
-| **time**                   | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
+| **tid**                   | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | Sträng | Detta är inställt på `YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
 | **kategori**               | Sträng | Kategorin för diagnostikloggar                                     | `SSISPackageExecutionComponentPhases` |
 | **correlationId**          | Sträng | Unikt ID för att spåra en viss åtgärd                   | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
@@ -802,7 +802,7 @@ Här följer de Säkerhetsattributen för data förflyttningar genom varje steg 
 
 | Egenskap                     | Typ   | Beskrivning                                                        | Exempel                        |
 | ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
-| **time**                     | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **tid**                     | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**            | Sträng | Detta är inställt på `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
 | **kategori**                 | Sträng | Kategorin för diagnostikloggar                                    | `SSISPackageExecutionDataStatistics` |
 | **correlationId**            | Sträng | Unikt ID för att spåra en viss åtgärd                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
@@ -834,7 +834,7 @@ Log Analytics ärver schemat från övervakaren med följande undantag:
     | $. Properties. UserProperties | UserProperties | Dynamisk |
     | $. Properties. Anteckningar | Anteckningar | Dynamisk |
     | $. Properties. Inleveranstransport | Indata | Dynamisk |
-    | $. Properties. Utdataparametrar | Utdata | Dynamisk |
+    | $. Properties. Utdataparametrar | Resultat | Dynamisk |
     | $. Properties. Fel. felkod | Felkod | int |
     | $. Properties. Fel. meddelande | ErrorMessage | sträng |
     | $. Properties. Fels | Fel | Dynamisk |

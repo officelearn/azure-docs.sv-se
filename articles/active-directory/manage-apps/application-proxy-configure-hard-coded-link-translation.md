@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ad45d5f0e313c06619fa9c998515e434de957ea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 08c4020fc03f89b2c583a2458c70e18ecbbe0ba1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997570"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498072"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Omdirigera hårdkodade länkar för appar som publicerats med Azure AD-programproxy
 
@@ -86,28 +86,28 @@ Det finns två vanliga typer av interna länkar i lokala program:
 - **Relativa interna länkar** som pekar på en delad resurs i en lokal fil struktur som `/claims/claims.html` . Dessa länkar fungerar automatiskt i appar som publiceras via programproxy och fortsätter att arbeta med eller utan länk översättning. 
 - **Hårdkodade interna länkar** till andra lokala appar som `http://expenses` eller publicerade filer som `http://expenses/logo.jpg` . Funktionen länk översättning fungerar på hårdkodade interna länkar och ändrar dem så att de pekar på de externa URL: er som fjärran vändarna måste gå igenom.
 
-Den fullständiga listan med HTML-taggar som Application Proxy stöder för länk översättning för inkluderar:
-* a
-* ljud
-* base
-* knapp
-* div
-* inbädda
-* typ
-* ramens
-* företagets
-* html
-* iframe
-* bild
-* indata
-* länka
-* MENUITEM
-* metadata
-* objekt
-* skript
-* källa
-* spåra
-* video
+Den fullständiga listan med attribut i HTML-kodfragment som programproxy stöder länk översättning för inkluderar:
+* a (href)
+* ljud (SRC)
+* Base (href)
+* knapp (formaction)
+* div (data – bakgrund, format, data-src)
+* bädda in (SRC)
+* formulär (åtgärd)
+* RAM (SRC)
+* huvud (profil)
+* HTML (manifest)
+* iframe (longdesc, src)
+* IMG (longdesc, src)
+* ininformation (formaction, src, Value)
+* länk (href)
+* MENUITEM (ikon)
+* Meta (innehåll)
+* objekt (Arkiv, data, Codebase)
+* skript (SRC)
+* källa (SRC)
+* spåra (SRC)
+* video (src, affisch)
 
 Dessutom översätts URL-attributet även i CSS.
 

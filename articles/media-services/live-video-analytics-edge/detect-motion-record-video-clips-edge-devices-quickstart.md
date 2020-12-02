@@ -4,12 +4,12 @@ description: Den här snabb starten visar hur du använder real tids analys på 
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: e456bb5b8d6d6658158af0c58f05ab38fe4693b8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e4334cdd14242337a2a870f31886606020654685
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88682346"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498361"
 ---
 # <a name="quickstart-detect-motion-and-record-video-on-edge-devices"></a>Snabb start: identifiera rörelse-och inspelnings video på gräns enheter
  
@@ -123,4 +123,4 @@ Om du tänker testa de andra snabb starterna ska du behålla de resurser som du 
 * Granska ytterligare utmaningar för avancerade användare:
 
     * Använd en [IP-kamera](https://en.wikipedia.org/wiki/IP_camera) som stöder RTSP i stället för att använda RTSP-simulatorn. Du hittar IP-kameror som har stöd för RTSP på sidan [ONVIF-produkter](https://www.onvif.org/conformant-products) . Sök efter enheter som uppfyller profilerna G, S eller T.
-    * Använd en AMD64-eller x64 Linux-enhet i stället för att använda en virtuell Linux-dator i Azure. Enheten måste finnas i samma nätverk som IP-kameran. Följ anvisningarna i [installera Azure IoT Edge runtime på Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Följ sedan anvisningarna i [distribuera din första IoT Edge-modul till en virtuell Linux-enhet](../../iot-edge/quickstart-linux.md) för att registrera enheten med Azure IoT Hub.
+    * Använd en AMD64-eller x64 Linux-enhet i stället för att använda en virtuell Linux-dator i Azure. Enheten måste finnas i samma nätverk som IP-kameran. Följ anvisningarna i [installera Azure IoT Edge runtime på Linux](../../iot-edge/how-to-install-iot-edge.md). Följ sedan anvisningarna i [distribuera din första IoT Edge-modul till en virtuell Linux-enhet](../../iot-edge/quickstart-linux.md) för att registrera enheten med Azure IoT Hub.

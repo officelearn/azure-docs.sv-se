@@ -3,12 +3,12 @@ title: Händelsebaserade videoinspelningar till molnet och uppspelningen från m
 description: I den här självstudien får du lära dig hur du använder Azure Live Video Analytics på Azure IoT Edge för att registrera en Event-baserad videoinspelning i molnet och spela upp den från molnet igen.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 03c97854673b369db9fe1cb026161a1e81a6bf31
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 84f6ef813fb1b2cc425e096212010717d0561aef
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346663"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498310"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Självstudie: Event-baserad videoinspelning till molnet och uppspelningen från molnet
 
@@ -52,7 +52,7 @@ I slutet av de här stegen har du relevanta Azure-resurser distribuerade i din A
 * Azure IoT Hub
 * Azure-lagringskonto
 * Azure Media Services konto
-* Virtuella Linux-datorer i Azure med [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installerat
+* Virtuella Linux-datorer i Azure med [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md) installerat
 
 ## <a name="concepts"></a>Begrepp
 
@@ -86,8 +86,8 @@ Innan du börjar bör du kontrol lera att du har slutfört den tredje punkten i 
 
 Av intresse i den här självstudien är filerna:
 
-* **~/clouddrive/lva-Sample/Edge-Deployment/.env** : innehåller egenskaper som Visual Studio Code använder för att distribuera moduler till en Edge-enhet.
-* **~/clouddrive/lva-sample/appsetting.jspå** : används av Visual Studio Code för att köra exempel koden.
+* **~/clouddrive/lva-Sample/Edge-Deployment/.env**: innehåller egenskaper som Visual Studio Code använder för att distribuera moduler till en Edge-enhet.
+* **~/clouddrive/lva-sample/appsetting.jspå**: används av Visual Studio Code för att köra exempel koden.
 
 Du behöver filerna för de här stegen.
 
@@ -132,10 +132,10 @@ Bläddra till src/Edge i Visual Studio Code. Du ser den. kuvert-fil som du skapa
 
 Öppna src/Edge/deployment.objectCounter.template.jspå. Det finns fyra poster i avsnittet **moduler** som motsvarar de objekt som anges i föregående "begrepp"-avsnitt:
 
-* **lvaEdge** : det här är video analys i real tid i IoT Edge modul.
-* **yolov3** : det här är AI-modulen som skapats med hjälp av Yolo v3-modellen.
-* **rtspsim** : Detta är RTSP-simulatorn.
-* **objectCounter** : det här är den modul som söker efter vissa objekt i resultatet från yolov3.
+* **lvaEdge**: det här är video analys i real tid i IoT Edge modul.
+* **yolov3**: det här är AI-modulen som skapats med hjälp av Yolo v3-modellen.
+* **rtspsim**: Detta är RTSP-simulatorn.
+* **objectCounter**: det här är den modul som söker efter vissa objekt i resultatet från yolov3.
 
 För modulen objectCounter, se strängen ($ {MODULES. objectCounter}) som används för värdet "bild". Detta baseras på [självstudien](../../iot-edge/tutorial-develop-for-linux.md) om hur du utvecklar en IoT Edge-modul. Visual Studio Code känner automatiskt av att koden för objectCounter-modulen är under src/Edge/modules/objectCounter. 
 
@@ -207,7 +207,7 @@ Följ dessa steg om du vill visa händelserna från modulen objectCounter och fr
 
     `"topologyName" : "EVRtoAssetsOnObjDetect"`
 1. Starta en felsökningssession genom att välja F5. Du ser vissa meddelanden som skrivs ut i **terminalfönstret** .
-1. operations.jspå filen börjar med anrop till GraphTopologyList och GraphInstanceList. Om du har rensat resurser efter tidigare snabb starter eller självstudier, returnerar den här åtgärden tomma listor och pausar så att du kan välja **RETUR** , som visas:
+1. operations.jspå filen börjar med anrop till GraphTopologyList och GraphInstanceList. Om du har rensat resurser efter tidigare snabb starter eller självstudier, returnerar den här åtgärden tomma listor och pausar så att du kan välja **RETUR**, som visas:
 
     ```
     --------------------------------------------------------------------------
@@ -424,4 +424,4 @@ Om du tänker testa de andra självstudierna ska du hålla på de resurser som d
 ## <a name="next-steps"></a>Nästa steg
 
 * Använd en [IP-kamera](https://en.wikipedia.org/wiki/IP_camera) med stöd för RTSP i stället för att använda RTSP-simulatorn. Du kan söka efter IP-kameror med RTSP-stöd på [ONVIF-sidan produkter](https://www.onvif.org/conformant-products/) genom att söka efter enheter som uppfyller profilerna G, S eller T.
-* Använd en AMD64-eller x64 Linux-enhet (jämfört med en virtuell Azure Linux-dator). Enheten måste finnas i samma nätverk som IP-kameran. Följ anvisningarna i [installera Azure IoT Edge runtime på Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Följ sedan anvisningarna i avsnittet [distribuera din första IoT Edge till en virtuell Linux-enhet](../../iot-edge/quickstart-linux.md) snabb start för att registrera enheten med Azure IoT Hub.
+* Använd en AMD64-eller x64 Linux-enhet (jämfört med en virtuell Azure Linux-dator). Enheten måste finnas i samma nätverk som IP-kameran. Följ anvisningarna i [installera Azure IoT Edge runtime på Linux](../../iot-edge/how-to-install-iot-edge.md). Följ sedan anvisningarna i avsnittet [distribuera din första IoT Edge till en virtuell Linux-enhet](../../iot-edge/quickstart-linux.md) snabb start för att registrera enheten med Azure IoT Hub.

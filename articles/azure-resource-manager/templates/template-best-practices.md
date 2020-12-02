@@ -2,13 +2,13 @@
 title: Metodtips för mallar
 description: Beskriver rekommenderade metoder för att redigera Azure Resource Manager mallar. Innehåller förslag på hur du undviker vanliga problem när du använder mallar.
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/01/2020
+ms.openlocfilehash: c62bde8fc8cfc79330d13b7b2ff4f778dadf1339
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87809263"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497987"
 ---
 # <a name="arm-template-best-practices"></a>Metod tips för ARM-mall
 
@@ -87,8 +87,6 @@ Informationen i det här avsnittet kan vara till hjälp när du arbetar med [par
    },
    ```
 
-* Använd inte en parameter för API-versionen för en resurs typ. Resurs egenskaper och värden kan variera efter versions nummer. IntelliSense i en kod redigerare kan inte fastställa rätt schema när API-versionen har angetts till en parameter. Hårdkoda i stället API-versionen i mallen.
-
 * Använd `allowedValues` sparsamhet. Använd bara det när du måste se till att vissa värden inte ingår i de tillåtna alternativen. Om du använder `allowedValues` för ett för stort kan du blockera giltiga distributioner genom att inte hålla din lista uppdaterad.
 
 * När ett parameter namn i mallen matchar en parameter i PowerShell-distributions kommandot, löser Resource Manager denna namngivnings konflikt genom att lägga till postfix- **FromTemplate** till Template-parametern. Om du till exempel inkluderar en parameter med namnet **ResourceGroupName** i din mall, står den i konflikt med parametern **ResourceGroupName** i cmdleten [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Under distributionen uppmanas du att ange ett värde för **ResourceGroupNameFromTemplate**.
@@ -146,8 +144,6 @@ Följande information kan vara till hjälp när du arbetar med [variabler](templ
 
 * Använd variabler för värden som du skapar i ett komplext arrangemang av mall-funktioner. Mallen är lättare att läsa när det komplexa uttrycket visas i variabler.
 
-* Använd inte variabler för `apiVersion` på en resurs. API-versionen avgör resursens schema. Ofta kan du inte ändra versionen utan att ändra resursens egenskaper.
-
 * Du kan inte använda funktionen [Reference](template-functions-resource.md#reference) i avsnittet **Variables** i mallen. Funktionen **Reference** härleder sitt värde från resursens körnings tillstånd. Variablerna löses dock vid den inledande parsningen av mallen. Skapa värden som behöver funktionen **referens** direkt i avsnittet **resurser** eller **utdata** i mallen.
 
 * Inkludera variabler för resurs namn som måste vara unika.
@@ -155,6 +151,16 @@ Följande information kan vara till hjälp när du arbetar med [variabler](templ
 * Använd en [kopierings slinga i variabler](copy-variables.md) för att skapa ett upprepat mönster av JSON-objekt.
 
 * Ta bort oanvända variabler.
+
+## <a name="api-version"></a>API-version
+
+Ange `apiVersion` egenskapen till en hårdkodad API-version för resurs typen. När du skapar en ny mall rekommenderar vi att du använder den senaste API-versionen för en resurs typ. Information om vilka värden som är tillgängliga finns i [referens för mallar](/azure/templates/).
+
+När din mall fungerar som förväntat, rekommenderar vi att du fortsätter använda samma API-version. Genom att använda samma API-version behöver du inte bekymra dig om att bryta ändringar som kan införas i senare versioner.
+
+Använd inte en parameter för API-versionen. Resurs egenskaper och-värden kan variera beroende på API-version. IntelliSense i en kod redigerare kan inte fastställa rätt schema när API-versionen har angetts till en parameter. Om du skickar i en API-version som inte matchar egenskaperna i mallen kommer distributionen att Miss lyckas.
+
+Använd inte variabler för API-versionen. Använd i synnerhet inte [providers-funktionen](template-functions-resource.md#providers) för att dynamiskt hämta API-versioner under distributionen. Den dynamiskt hämtade API-versionen kanske inte matchar egenskaperna i mallen.
 
 ## <a name="resource-dependencies"></a>Resursberoenden
 

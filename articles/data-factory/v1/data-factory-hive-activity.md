@@ -3,8 +3,8 @@ title: Transformera data med Hive-aktivitet – Azure
 description: Lär dig hur du kan använda Hive-aktiviteten i Azure Data Factory v1 för att köra Hive-frågor på ett eget HDInsight-kluster på begäran.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: 80083218-743e-4da8-bdd2-60d1c77b1227
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 0271029814071b3a692209d3a2015cfdbe5fa941
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 6a337ad4d623ef73657d473974248cbefd016ba3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616781"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495556"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformera data med Hive-aktivitet i Azure Data Factory 
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -74,15 +74,15 @@ HDInsight Hive-aktiviteten i en Data Factory [pipelinen](data-factory-create-pip
 ## <a name="syntax-details"></a>Information om syntax
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| name |Namn på aktiviteten |Ja |
-| beskrivning |Text som beskriver vad aktiviteten används för |Nej |
-| typ |HDinsightHive |Ja |
-| tillför |Indata som används av Hive-aktiviteten |Nej |
-| utdata |Utdata som produceras av Hive-aktiviteten |Ja |
-| linkedServiceName |Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory |Ja |
-| skript |Ange Hive-skriptet infogat |Nej |
-| scriptPath |Lagra Hive-skriptet i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |Nej |
-| definierar |Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet med hjälp av "hiveconf" |Nej |
+| name |Namn på aktiviteten |Yes |
+| beskrivning |Text som beskriver vad aktiviteten används för |No |
+| typ |HDinsightHive |Yes |
+| tillför |Indata som används av Hive-aktiviteten |No |
+| utdata |Utdata som produceras av Hive-aktiviteten |Yes |
+| linkedServiceName |Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory |Yes |
+| skript |Ange Hive-skriptet infogat |No |
+| scriptPath |Lagra Hive-skriptet i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |No |
+| definierar |Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet med hjälp av "hiveconf" |No |
 
 ## <a name="example"></a>Exempel
 Nu ska vi titta på ett exempel på spel loggar för att identifiera hur lång tid det tar för användare att spela spel som lanserats av ditt företag. 

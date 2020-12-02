@@ -3,20 +3,20 @@ title: Uppdatera Azure Machine Learning Studio (klassiska) modeller med Azure Da
 description: Beskriver hur du skapar förutsägbara pipelines med hjälp av Azure Data Factory och Azure Machine Learning Studio (klassisk)
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 83950c2d3c5439886ff787b69d9da4d0c214de31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bec300414483181617a7aa009157a4c4a332c745
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092549"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496763"
 ---
 # <a name="update-azure-machine-learning-studio-classic-models-by-using-update-resource-activity"></a>Uppdatera Azure Machine Learning Studio (klassiska) modeller med hjälp av aktiviteten uppdatera resurs
 
@@ -61,13 +61,13 @@ Följande JSON-kodfragment definierar en Azure Machine Learning Studio (klassisk
 
 | Egenskap                      | Beskrivning                              | Krävs |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | Namn på aktiviteten i pipelinen     | Ja      |
-| description                   | Text som beskriver vad aktiviteten gör.  | Inga       |
-| typ                          | För Azure Machine Learning Studio (klassisk) uppdatera resurs aktivitet är aktivitets typen  **AzureMLUpdateResource**. | Ja      |
-| linkedServiceName             | Azure Machine Learning Studio (klassisk) länkad tjänst som innehåller egenskapen updateResourceEndpoint. | Ja      |
-| trainedModelName              | Namnet på den tränade modell modulen i webb tjänst experimentet som ska uppdateras | Ja      |
-| trainedModelLinkedServiceName | Namnet på Azure Storage länkade tjänsten som innehåller den ilearner-fil som överförs av uppdaterings åtgärden | Ja      |
-| trainedModelFilePath          | Den relativa fil Sök vägen i trainedModelLinkedService för att representera ilearner-filen som överförs av uppdaterings åtgärden | Ja      |
+| name                          | Namn på aktiviteten i pipelinen     | Yes      |
+| beskrivning                   | Text som beskriver vad aktiviteten gör.  | No       |
+| typ                          | För Azure Machine Learning Studio (klassisk) uppdatera resurs aktivitet är aktivitets typen  **AzureMLUpdateResource**. | Yes      |
+| linkedServiceName             | Azure Machine Learning Studio (klassisk) länkad tjänst som innehåller egenskapen updateResourceEndpoint. | Yes      |
+| trainedModelName              | Namnet på den tränade modell modulen i webb tjänst experimentet som ska uppdateras | Yes      |
+| trainedModelLinkedServiceName | Namnet på Azure Storage länkade tjänsten som innehåller den ilearner-fil som överförs av uppdaterings åtgärden | Yes      |
+| trainedModelFilePath          | Den relativa fil Sök vägen i trainedModelLinkedService för att representera ilearner-filen som överförs av uppdaterings åtgärden | Yes      |
 
 ## <a name="end-to-end-workflow"></a>Arbetsflödet slutpunkt till slutpunkt
 
@@ -97,7 +97,7 @@ Du kan hämta värden för plats hållare i URL: en när du frågar webb tjänst
 
 Den nya typen av resurs slut punkt för uppdateringar kräver tjänstens huvud namns autentisering. Om du vill använda tjänstens huvud namns autentisering registrerar du en programentitet i Azure Active Directory (Azure AD) och ger rollen som **deltagare** eller **ägare** till den prenumeration eller resurs grupp där webb tjänsten tillhör. Se [hur du skapar tjänstens huvud namn och tilldelar behörigheter för att hantera Azure-resurser](../active-directory/develop/howto-create-service-principal-portal.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 
-- Program-ID
+- Program-ID:t
 - Program nyckel
 - Klientorganisations-ID
 

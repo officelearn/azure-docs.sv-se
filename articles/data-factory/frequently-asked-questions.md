@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: ba3cc376edef1e6dc8fbf859e456219a1fd3ca60
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: f65ee85b37e74f0ca16ccf6988eb2117231c3bc5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635770"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452211"
 ---
 # <a name="azure-data-factory-faq"></a>Vanliga frågor och svar om Azure Data Factory
 
@@ -67,7 +67,7 @@ Användare kan också använda de dokumenterade REST API: erna för gränssnitt 
 ### <a name="iterative-development-and-debugging-by-using-visual-tools"></a>Iterativ utveckling och fel sökning med hjälp av visuella verktyg
 Azure Data Factory visuella verktyg möjliggör iterativ utveckling och fel sökning. Du kan skapa dina pipelines och utföra test körningar med hjälp av **fel söknings** funktionen i pipeline-arbetsytan utan att skriva en enda rad med kod. Du kan visa resultatet av dina test körningar i fönstret **utdata** för din pipeline-arbetsyta. När test körningen lyckas kan du lägga till fler aktiviteter i din pipeline och fortsätta fel sökningen på ett iterativt sätt. Du kan också avbryta test körningarna när de pågår. 
 
-Du behöver inte publicera dina ändringar i Data Factory-tjänsten innan du väljer **Felsök** . Detta är användbart i scenarier där du vill se till att de nya tilläggen eller ändringarna fungerar som förväntat innan du uppdaterar data Factory-arbetsflöden i utvecklings-, test-eller produktions miljöer. 
+Du behöver inte publicera dina ändringar i Data Factory-tjänsten innan du väljer **Felsök**. Detta är användbart i scenarier där du vill se till att de nya tilläggen eller ändringarna fungerar som förväntat innan du uppdaterar data Factory-arbetsflöden i utvecklings-, test-eller produktions miljöer. 
 
 ### <a name="ability-to-deploy-ssis-packages-to-azure"></a>Möjlighet att distribuera SSIS-paket till Azure 
 Om du vill flytta dina SSIS-arbetsbelastningar kan du skapa en Data Factory och etablera en Azure-SSIS integration Runtime. En Azure-SSIS integration runtime är ett fullständigt hanterat kluster med virtuella Azure-datorer (noder) som är dedikerade att köra dina SSIS-paket i molnet. Stegvisa instruktioner finns i själv studie kursen [distribuera SSIS-paket till Azure](./tutorial-deploy-ssis-packages-azure.md) . 
@@ -95,9 +95,9 @@ Eftersom den första offentliga för hands versionen i 2017 har Data Factory lag
 ## <a name="what-is-the-integration-runtime"></a>Vad är integrerings körningen?
 Integrerings körningen är den beräknings infrastruktur som Azure Data Factory använder för att tillhandahålla följande funktioner för data integrering i olika nätverks miljöer:
 
-- **Data förflyttning** : vid data förflyttning flyttar integration runtime data mellan käll-och mål data lager, samtidigt som stöd för inbyggda anslutnings program, format konvertering, kolumn mappning och utförd och skalbar data överföring.
-- **Sändnings aktiviteter** : för omvandling ger integrerings körningen möjlighet att internt köra SSIS-paket.
-- **Köra SSIS-paket** : integrerings körningen exekverar internt SSIS-paket i en hanterad Azure Compute-miljö. Integrerings körningen har även stöd för att skicka och övervaka omvandlings aktiviteter som körs på en mängd olika beräknings tjänster, till exempel Azure HDInsight, Azure Machine Learning, SQL Database och SQL Server.
+- **Data förflyttning**: vid data förflyttning flyttar integration runtime data mellan käll-och mål data lager, samtidigt som stöd för inbyggda anslutnings program, format konvertering, kolumn mappning och utförd och skalbar data överföring.
+- **Sändnings aktiviteter**: för omvandling ger integrerings körningen möjlighet att internt köra SSIS-paket.
+- **Köra SSIS-paket**: integrerings körningen exekverar internt SSIS-paket i en hanterad Azure Compute-miljö. Integrerings körningen har även stöd för att skicka och övervaka omvandlings aktiviteter som körs på en mängd olika beräknings tjänster, till exempel Azure HDInsight, Azure Machine Learning, SQL Database och SQL Server.
 
 Du kan distribuera en eller flera instanser av integration runtime efter behov för att flytta och transformera data. Integrerings körningen kan köras på ett offentligt Azure-nätverk eller i ett privat nätverk (lokalt, Azure Virtual Network eller Amazon Web Services virtuellt privat moln [VPC]). 
 
@@ -190,7 +190,7 @@ Ange data flödes skriptet när Microsoft tillhandahåller hjälp eller fel sök
 
 ### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>Hur gör jag för att åtkomst till data genom att använda de andra 90 data uppsättnings typerna i Data Factory?
 
-Funktionen mappa data flöde tillåter för närvarande Azure SQL Database, Azure Synapse Analytics (tidigare SQL Data Warehouse), avgränsade textfiler från Azure Blob Storage eller Azure Data Lake Storage Gen2 och Parquet-filer från Blob Storage eller Data Lake Storage Gen2 internt för källa och mottagare. 
+Funktionen mappa data flöde tillåter för närvarande Azure SQL Database, Azure Synapse Analytics, avgränsade textfiler från Azure Blob Storage eller Azure Data Lake Storage Gen2 och Parquet-filer från Blob Storage eller Data Lake Storage Gen2 internt för källa och mottagare. 
 
 Använd kopierings aktiviteten till att mellanlagra data från någon av de andra kopplingarna och kör sedan en data flödes aktivitet för att transformera data när de har mellanlagrats. Till exempel kommer din pipeline först att kopieras till Blob Storage och sedan använder en data flödes aktivitet en data uppsättning i källan för att transformera dessa data.
 

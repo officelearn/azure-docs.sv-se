@@ -2,14 +2,14 @@
 title: Resurs leverantörer och resurs typer
 description: Beskriver de resurs leverantörer som stöder Azure Resource Manager. Den beskriver scheman, tillgängliga API-versioner och de regioner som kan vara värdar för resurserna.
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a8adbce80d5e8f9ee9df2050d8f43363cbf57dc3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 6413a1279c9c7a995bb144097e3db55d5f3a90d2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352107"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452098"
 ---
 # <a name="azure-resource-providers-and-types"></a>Resursproviders och resurstyper i Azure
 
@@ -32,7 +32,7 @@ En lista som mappar resurs leverantörer till Azure-tjänster finns i [Resource 
 
 ## <a name="register-resource-provider"></a>Registrera resursprovider
 
-Innan du använder en resurs leverantör måste du registrera din Azure-prenumeration för resurs leverantören. Registreringen konfigurerar din prenumeration så att den fungerar med resurs leverantören. Vissa resurs leverantörer registreras som standard. Andra resurs leverantörer registreras automatiskt när du vidtar vissa åtgärder. När du till exempel skapar en resurs via portalen registreras resurs leverantören vanligt vis. För andra scenarier kan du behöva registrera en resurs leverantör manuellt.
+Innan du använder en resurs leverantör måste du registrera din Azure-prenumeration för resurs leverantören. Registreringen konfigurerar din prenumeration så att den fungerar med resurs leverantören. Vissa resurs leverantörer registreras som standard. Andra resurs leverantörer registreras automatiskt när du vidtar vissa åtgärder. När du till exempel skapar en resurs via portalen registreras resurs leverantören vanligt vis. För andra scenarier kan du behöva registrera en resurs leverantör manuellt. En lista över resurs leverantörer som är registrerade som standard finns i [Resource providers för Azure-tjänster](azure-services-resource-providers.md).
 
 Den här artikeln visar hur du kontrollerar registrerings status för en resurs leverantör och registrerar den efter behov. Du måste ha behörighet att utföra `/register/action` åtgärden för resurs leverantören. Behörigheten ingår i rollerna deltagare och ägare.
 

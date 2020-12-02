@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5d167ef06e8319004a1f33bead29485b22abc3d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6920d6cd190927747a69fc4dc0f0791278665abe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685791"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451697"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Användardefinierade scheman i Synapse SQL
 
@@ -27,7 +27,7 @@ Traditionell analys arkitektur använder ofta separata databaser för att skapa 
 I stället kör Synapse SQL hela analys arbets belastningen i en databas. Kopplingar mellan databaser är inte tillåtna. Synapse SQL förväntar sig att alla tabeller som används av lagret lagras i en databas.
 
 > [!NOTE]
-> Dedikerade SQL-pooler stöder inte kors databas frågor av någon typ. Därför måste analys implementeringar som använder det här mönstret ändras. SQL-poolen utan server (för hands version) stöder kors databas frågor.
+> Dedikerade SQL-pooler stöder inte kors databas frågor av någon typ. Därför måste analys implementeringar som använder det här mönstret ändras. SQL-poolen utan Server stöder kors databas frågor.
 
 ## <a name="user-defined-schema-recommendations"></a>Användar definierade schema rekommendationer
 

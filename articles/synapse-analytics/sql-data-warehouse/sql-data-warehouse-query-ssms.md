@@ -1,6 +1,6 @@
 ---
-title: Anslut med SSMS
-description: Använd SQL Server Management Studio (SSMS) för att ansluta till och fråga en dedikerad SQL-pool i Azure Synapse Analytics.
+title: Anslut till dedikerad SQL-pool (tidigare SQL DW) med SSMS
+description: Använd SQL Server Management Studio (SSMS) för att ansluta till och fråga en dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,34 +11,34 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c2fab8f02f31897a2e3d38094b9bd365f8e921e9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 950cb4c40a534f252ec8b0daa5a57eb87c098450
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325330"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450465"
 ---
-# <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Ansluta till en dedikerad SQL-pool i Azure Synapse Analytics med SQL Server Management Studio (SSMS)
+# <a name="connect-to-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Ansluta till en dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics med SQL Server Management Studio (SSMS)
 
 > [!div class="op_single_selector"]
 >
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
+> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Använd SQL Server Management Studio (SSMS) för att ansluta till och fråga ett informations lager i Azure Synapse.
+Använd SQL Server Management Studio (SSMS) för att ansluta till och fråga en dedikerad SQL-pool (tidigare SQL DW).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att använda de här självstudierna:
 
-* En befintlig dedikerad SQL-pool. Om du vill skapa en, se [skapa en dedikerad SQL-pool](create-data-warehouse-portal.md).
+* En befintlig dedikerad SQL-pool. Om du vill skapa en, se [skapa en dedikerad SQL-pool (tidigare SQL DW)](create-data-warehouse-portal.md).
 * SQL Server Management Studio (SSMS) har installerats. [Hämta SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) kostnads fritt om du inte redan har det.
-* Det fullständigt kvalificerade servernamnet. Information om hur du hittar den här informationen finns i [Anslut till en dedikerad SQL-pool](sql-data-warehouse-connect-overview.md).
+* Det fullständigt kvalificerade servernamnet. Information om hur du hittar den här informationen finns i [dedikerad SQL-pool (tidigare SQL DW)](sql-data-warehouse-connect-overview.md).
 
-## <a name="1-connect-to-your-dedicated-sql-pool"></a>1. Anslut till din dedikerade SQL-pool
+## <a name="1-connect-to-your-dedicated-sql-pool-formerly-sql-dw"></a>1. Anslut till din dedikerade SQL-pool (tidigare SQL DW)
 
 1. Öppna SSMS.
 2. Öppna Object Explorer genom att välja **fil**  >  **Connect Object Explorer**.

@@ -10,18 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: dd285e8029d8e140380b0f90c60081d0e1f8dd56
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 06faa1da71331c299245a93af96166880e7732de
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305038"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451783"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Temporära tabeller i Synapse SQL
 
 Den här artikeln innehåller grundläggande information om hur du använder temporära tabeller och visar principerna för temporära tabeller på sessionsläge i Synapse SQL. 
 
-Både den dedikerade SQL-poolen och den serverbaserade SQL-poolen (förhands granskning) kan använda temporära tabeller. SQL-poolen utan server har begränsningar som beskrivs i slutet av den här artikeln. 
+Både den dedikerade SQL-poolen och resurserna för Server lös SQL-pool kan använda temporära tabeller. SQL-poolen utan server har begränsningar som beskrivs i slutet av den här artikeln. 
 
 ## <a name="temporary-tables"></a>Temporära tabeller
 
@@ -226,7 +226,7 @@ Dedikerad SQL-pool har några implementerings begränsningar för temporära tab
 - Det går inte att skapa vyer för temporära tabeller.
 - Temporära tabeller kan bara skapas med hash-eller resursallokering-distribution.  Replikerad temporär tabell distribution stöds inte. 
 
-## <a name="temporary-tables-in-serverless-sql-pool-preview"></a>Temporära tabeller i SQL-poolen utan server (för hands version)
+## <a name="temporary-tables-in-serverless-sql-pool"></a>Temporära tabeller i SQL-poolen utan Server
 
 Temporära tabeller i SQL-poolen utan Server stöds men deras användning är begränsad. De kan inte användas i frågor som målfil. 
 

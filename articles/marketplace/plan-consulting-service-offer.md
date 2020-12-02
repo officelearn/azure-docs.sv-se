@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: dfc812771f0eeb8dcb0d95bdad1e76ed0b12297e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c56d83e551265f3fb4de106cb8fa77efd6dcbabc
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754564"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452126"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Planera ett konsult tjänst erbjudande i den kommersiella marknads platsen
 
@@ -27,16 +27,16 @@ Konsult tjänst erbjudanden publiceras som **kontakta mig** -listor. Det innebä
 
 ## <a name="primary-products-and-online-stores"></a>Primära produkter och onlinebutiker
 
-Varje konsult tjänst erbjudande bör fokuseras på en Microsoft-produkt som kallas **primär produkt** . Den primära produkt du väljer i Partner Center avgör om ditt erbjudande ska publiceras till Microsoft AppSource eller Azure Marketplace.
+Varje konsult tjänst erbjudande bör fokuseras på en Microsoft-produkt som kallas **primär produkt**. Den primära produkt du väljer i Partner Center avgör om ditt erbjudande ska publiceras till Microsoft AppSource eller Azure Marketplace.
 
 * Om den primära produkten av konsult tjänsten är Azure visas erbjudandet i Azure Marketplace.
 * Om den primära produkten inte är Azure, visas erbjudandet i AppSource.
 
 Mer information om skillnaderna mellan AppSource och Azure Marketplace finns i onlinebutiker för [kommersiella Marketplace](./overview.md#commercial-marketplace-online-stores).
 
-## <a name="eligibility-requirements"></a>Krav för berättigande
+## <a name="eligibility-requirements"></a>Behörighetskrav
 
-För att demonstrera kundernas expertis i ett fält måste du uppfylla ett antal krav innan du publicerar ett konsult tjänst erbjudande. Kraven beror på produkten med ditt erbjudandes kärna. En fullständig lista över krav krav för varje primär produkt finns i [certifierings principerna för konsult tjänster](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services).
+För att demonstrera kundernas expertis i ett fält måste du uppfylla ett antal krav innan du publicerar ett konsult tjänst erbjudande. Kraven beror på produkten med ditt erbjudandes kärna. En fullständig lista över krav krav för varje primär produkt finns i [certifierings principerna för konsult tjänster](/legal/marketplace/certification-policies#800-consulting-services).
 
 > [!NOTE]
 > För vissa primära produkter måste du ha en Microsoft-kompetens på guld eller silver i ditt lösnings områden. Mer information finns i [Microsoft Partner Network kompetenser](https://partner.microsoft.com/membership/competencies).
@@ -45,11 +45,11 @@ För att demonstrera kundernas expertis i ett fält måste du uppfylla ett antal
 
 Den kommersiella Marketplace har stöd för fem typer av konsult tjänster:
 
-* **Utvärdering** : en utvärdering av en kunds miljö för att fastställa tillämpligheten för en lösning och beräkna kostnaden och tids linjen för implementeringen.
-* **Kort** : en introduktion till en lösning eller en tjänst med hjälp av ramverk, demonstrationer och kund exempel.
-* **Implementering** : en fullständig installation som resulterar i en helt fungerande lösning.
-* **Koncept bevis** : en begränsad omfattning för att avgöra om en lösning uppfyller kundens krav.
-* **Workshop** : ett interaktivt engagemang på kundens plats. Det kan omfatta utbildning, kortfattade, utvärderingar eller demonstrationer som bygger på kundens data eller miljö.
+* **Utvärdering**: en utvärdering av en kunds miljö för att fastställa tillämpligheten för en lösning och beräkna kostnaden och tids linjen för implementeringen.
+* **Kort**: en introduktion till en lösning eller en tjänst med hjälp av ramverk, demonstrationer och kund exempel.
+* **Implementering**: en fullständig installation som resulterar i en helt fungerande lösning.
+* **Koncept bevis**: en begränsad omfattning för att avgöra om en lösning uppfyller kundens krav.
+* **Workshop**: ett interaktivt engagemang på kundens plats. Det kan omfatta utbildning, kortfattade, utvärderingar eller demonstrationer som bygger på kundens data eller miljö.
 
 Tjänsten bör ha en fast och fördefinierad varaktighet på upp till 10 veckor. Tjänste tiden måste göras explicit i erbjudande listan.
 
@@ -75,7 +75,7 @@ När du skapar ett konsult tjänst erbjudande i Partner Center, anger du text, b
 6. Land/region
 7. Erbjudandets namn
 8. Sammanfattning av Sök Resultat
-9. Beskrivning
+9. Description
 10. Skärm bilder/videor
 11. Stöd dokument
 
@@ -84,7 +84,7 @@ När du skapar ett konsult tjänst erbjudande i Partner Center, anger du text, b
 
 För att hjälpa till att skapa ett erbjudande enklare kan du förbereda några av dessa objekt i förväg. Följande objekt krävs om inget annat anges.
 
-**Namn** : namnet visas som rubrik på din erbjudande lista på den kommersiella Marketplace. Namnet kan vara ett varumärke. Den får inte innehålla emojis (om de inte är varumärken och Copyright-symboler) och måste vara begränsade till 50 tecken. Namnet måste innehålla erbjudandets varaktighet och service typ för att maximera sökmotorns optimering (SEO). Det format som krävs är *Namn: varaktighet och typ* . Ta inte med ditt företags namn om det inte också är produkt namnet. Här följer några exempel:
+**Namn**: namnet visas som rubrik på din erbjudande lista på den kommersiella Marketplace. Namnet kan vara ett varumärke. Den får inte innehålla emojis (om de inte är varumärken och Copyright-symboler) och måste vara begränsade till 50 tecken. Namnet måste innehålla erbjudandets varaktighet och service typ för att maximera sökmotorns optimering (SEO). Det format som krävs är *Namn: varaktighet och typ*. Ta inte med ditt företags namn om det inte också är produkt namnet. Här följer några exempel:
 
 |Säg inte |Säg  |
 |---|---|
@@ -92,9 +92,9 @@ För att hjälpa till att skapa ett erbjudande enklare kan du förbereda några 
 |Workshop på smarta popups |Smarta popup-användare: 1 – veckas workshop |
 |SQL Server migrering av PoC enligt contoso |SQL-migrering: 3 – veckor proof of Concept |
 
-**Sammanfattning av Sök Resultat** : Beskriv syftet eller målet med ditt erbjudande på högst 200 tecken. Den här sammanfattningen används i Sök resultaten på den kommersiella Marketplace-listan. Den bör inte vara identisk med rubriken. Överväg att ta med dina främsta SEO-Nyckelord.
+**Sammanfattning av Sök Resultat**: Beskriv syftet eller målet med ditt erbjudande på högst 200 tecken. Den här sammanfattningen används i Sök resultaten på den kommersiella Marketplace-listan. Den bör inte vara identisk med rubriken. Överväg att ta med dina främsta SEO-Nyckelord.
 
-**Beskrivning** : den här beskrivningen kommer att visas i den kommersiella Marketplace-listan. Överväg att inkludera ett värde förslag, viktiga fördelar, avsedd användar bas och eventuella kategori-eller bransch associationer.
+**Beskrivning**: den här beskrivningen kommer att visas i den kommersiella Marketplace-listan. Överväg att inkludera ett värde förslag, viktiga fördelar, avsedd användar bas och eventuella kategori-eller bransch associationer.
 
 När du skriver beskrivningen följer du dessa kriterier enligt tjänst typen:
 
@@ -117,15 +117,15 @@ Här följer några tips om hur du skriver beskrivningen:
 
 Du kan använda HTML-taggar för att formatera beskrivningen. Du kan ange upp till 2 000 tecken text i den här rutan, inklusive HTML-taggar och blank steg. Information om HTML-formatering finns [i HTML-taggar som stöds i de kommersiella erbjudandena för Marketplace-erbjudanden](./supported-html-tags.md).
 
-**Sök Nyckelord** (valfritt): ange upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande i onlinebutiker. Du behöver inte inkludera erbjudandets **namn** och **Beskrivning** .
+**Sök Nyckelord** (valfritt): ange upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande i onlinebutiker. Du behöver inte inkludera erbjudandets **namn** och **Beskrivning**.
 
-**Varaktighet** : ditt konsult tjänst erbjudande måste ha en fördefinierad varaktighet på upp till 10 veckor.
+**Varaktighet**: ditt konsult tjänst erbjudande måste ha en fördefinierad varaktighet på upp till 10 veckor.
 
-**Kontakt information** : i Partner Center uppmanas du att ange namn, e-postadress och telefonnummer för två personer i företaget (du kan vara en av de två kontakterna). Vi använder den här informationen för att kommunicera med dig om ditt erbjudande. Den här informationen visas inte för kunder, men kan tillhandahållas av CSP-partner (Cloud Solution Provider).
+**Kontakt information**: i Partner Center uppmanas du att ange namn, e-postadress och telefonnummer för två personer i företaget (du kan vara en av de två kontakterna). Vi använder den här informationen för att kommunicera med dig om ditt erbjudande. Den här informationen visas inte för kunder, men kan tillhandahållas av CSP-partner (Cloud Solution Provider).
 
-**Stöd dokument** : överför minst ett och upp till tre kund motstående PDF-dokument som innehåller information om ditt erbjudande. De kan till exempel vara fakta blad eller broschyrer.
+**Stöd dokument**: överför minst ett och upp till tre kund motstående PDF-dokument som innehåller information om ditt erbjudande. De kan till exempel vara fakta blad eller broschyrer.
 
-**Marketplace-Media – logo typer** : Ange en PNG-fil för stor logo typ. Partner Center kommer att använda den för att skapa en liten logo typ. Du kan välja att ersätta den lilla logo typen med en annan avbildning senare.
+**Marketplace-Media – logo typer**: Ange en PNG-fil för stor logo typ. Partner Center kommer att använda den för att skapa en liten logo typ. Du kan välja att ersätta den lilla logo typen med en annan avbildning senare.
 
 * Stor (från 216 x 216 till 350 x 350 BPT, krävs)
 * Liten (48 x 48 BPT, valfritt)
@@ -139,7 +139,7 @@ Följ dessa rikt linjer för dina logo typer:
 * Om du använder en genomskinlig bakgrund måste du se till att logotypen och texten inte är vit, svart eller blå.
 * Undvik övertoningar i logo typen eller bakgrunden. Placera inte text på logotypen – inte ens företagets eller varumärkets namn.
 
-**Marketplace-Media – skärm bilder** : Lägg till minst en och upp till fem bilder som demonstrerar ditt erbjudande. Alla bilder måste vara 1280 x 720 bild punkter i storlek och i. PNG-format.
+**Marketplace-Media – skärm bilder**: Lägg till minst en och upp till fem bilder som demonstrerar ditt erbjudande. Alla bilder måste vara 1280 x 720 bild punkter i storlek och i. PNG-format.
 
 **Marketplace-Media – videor** (valfritt): du kan lägga till upp till fyra videor som demonstrerar ditt erbjudande. Videorna måste finnas på YouTube eller Vimeo och ha en miniatyr bild (1280 x 720 PNG-fil).
 

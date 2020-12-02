@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 9fb8bbffb423031afd31e156183bc4f8be3c147e
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 791cab369dcbf9cab8d1256377cfee4a433c21b9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302541"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450899"
 ---
 # <a name="tutorial-create-a-power-bi-report-using-apache-spark-and-azure-synapse-analytics"></a>Självstudie: skapa en Power BI rapport med Apache Spark och Azure Synapse Analytics
 
@@ -74,7 +74,7 @@ I det här exemplet ska du använda Apache Spark för att utföra en del analys 
   ```
    
 ## <a name="query-data-using-serverless-sql-pools"></a>Fråga efter data med Server lös SQL-pooler
-Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och tabeller mellan server lös Apache Spark pooler (för hands version) och Server lös SQL-pool (för hands version). Detta drivs genom Synapse-funktionen för [delad hantering av metadata](../metadata/overview.md) . Som ett resultat blir Spark-skapade databaser och deras Parquet tabeller synliga i SQL-poolen för arbets ytans Server.
+Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och tabeller mellan server lös Apache Spark pooler och SQL-pool utan server. Detta drivs genom Synapse-funktionen för [delad hantering av metadata](../metadata/overview.md) . Som ett resultat blir Spark-skapade databaser och deras Parquet tabeller synliga i SQL-poolen för arbets ytans Server.
 
 Så här frågar du Apache Spark-tabellen med hjälp av SQL-poolen utan server:
    1. När du har sparat Apache Spark tabellen växlar du till fliken **data** .

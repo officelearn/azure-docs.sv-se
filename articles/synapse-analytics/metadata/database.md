@@ -1,6 +1,6 @@
 ---
 title: Delad databas
-description: Azure Synapse Analytics tillhandahåller en delad metadata modell där du skapar en databas i en server lös Apache Spark pool kommer att vara tillgänglig från sin server utan SQL-pool (för hands version) och SQL-pooler.
+description: Azure Synapse Analytics tillhandahåller en delad metadata modell där du skapar en databas i en server lös Apache Spark pool kommer att vara tillgänglig från sin server utan SQL-pool och SQL-pooler.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,20 +10,18 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e17eb44a5f4f4aace9ce9d541b8218b35db0f5d3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 14ae8b8670db53761d085bc019711e829633601b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317836"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451814"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Delad Azure Synapse Analytics-databas
 
-Med Azure Synapse Analytics kan olika data behandlings arbets Ytors motorer dela databaser och tabeller mellan server lös Apache Spark pooler (för hands version) och Server lös SQL-pool (för hands version).
+Med Azure Synapse Analytics kan olika data behandlings arbets Ytors motorer dela databaser och tabeller mellan server lös Apache Spark pooler och SQL-pool utan server.
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
-
-En databas som skapats med ett Spark-jobb visas med samma namn för alla aktuella och framtida Spark-pooler (för hands version) i arbets ytan, inklusive SQL-poolen utan server.
+En databas som skapats med ett Spark-jobb visas med samma namn för alla aktuella och framtida Spark-pooler i arbets ytan, inklusive SQL-poolen utan server.
 
 Spark-standarddatabasen, `default` som anropas, visas också i den serverbaserade SQL-poolen kontext som en databas som kallas `default` .
 
@@ -48,7 +46,7 @@ Om t. ex. en spark-databas som heter `mydb` skapas i Azure DataSynapses-arbetsyt
 
 Spark-databaser och-tabeller, tillsammans med deras synkroniserade representationer i SQL-motorn, kommer att skyddas på den underliggande lagrings nivån.
 
-Det säkerhets objekt som skapar en databas anses vara ägare till databasen och har alla rättigheter till databasen och dess objekt.
+Det säkerhetsobjekt som skapar en databas anses vara ägare av den databasen och har alla rättigheter till databasen och dess objekt.
 
 Om du vill ge ett säkerhets objekt, till exempel en användare eller en säkerhets grupp, åtkomst till en databas, anger du rätt POSIX-mapp och fil behörigheter för de underliggande mapparna och filerna i `warehouse` katalogen. 
 

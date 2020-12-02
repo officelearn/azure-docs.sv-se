@@ -9,14 +9,14 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: f5c5edc067b3f7b525fd129462c48ca50fdafc8f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 605a5f2f74ca6fb46d851c41f60001c48a95be95
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314044"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450877"
 ---
-# <a name="tutorial-machine-learning-model-scoring-wizard-for-dedicated-sql-pools"></a>Självstudie: bedömnings guide för Machine Learning-modell för dedikerade SQL-pooler
+# <a name="tutorial-machine-learning-model-scoring-wizard-preview-for-dedicated-sql-pools"></a>Självstudie: guiden bedömnings modell för Machine Learning (för hands version) för dedikerade SQL-pooler
 
 Lär dig hur du enkelt kan utöka dina data i dedikerade SQL-pooler med förutsägande Machine Learning-modeller.  De modeller som dina data experter skapar är nu lättillgängliga för data experter för förutsägelse analys. En data Professional i Synapse kan helt enkelt välja en modell i Azure Machine Learning Model-registret för distribution i Synapse SQL-pooler och starta förutsägelser för att utöka data.
 
@@ -31,8 +31,8 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto inn
 ## <a name="prerequisites"></a>Förutsättningar
 
 - [Synapse Analytics-arbetsyta](../get-started-create-workspace.md) med ett ADLS Gen2 lagrings konto konfigurerat som standard lagring. Du måste vara **data deltagare i Storage BLOB** för det ADLS Gen2-filsystem som du arbetar med.
-- Dedikerad SQL-pool i din Synapse Analytics-arbetsyta. Mer information finns i [skapa en dedikerad SQL-pool](../quickstart-create-sql-pool-studio.md).
-- Azure Machine Learning länkad tjänst i din Synapse Analytics-arbetsyta. Mer information finns i [skapa en Azure Machine Learning länkad tjänst i Synapse](quickstart-integrate-azure-machine-learning.md).
+- Dedikerad SQL-pool i din Azure Synapse Analytics-arbetsyta. Mer information finns i [skapa en dedikerad SQL-pool](../quickstart-create-sql-pool-studio.md).
+- Azure Machine Learning länkad tjänst i din Azure Synapse Analytics-arbetsyta. Mer information finns i [skapa en Azure Machine Learning länkad tjänst i Synapse](quickstart-integrate-azure-machine-learning.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -52,7 +52,7 @@ Innan du kör alla celler i antecknings boken kontrollerar du om beräknings ins
 
 1. Starta arbets ytan Azure Machine Learning i [Azure Machine Learning Studio](https://ml.azure.com).
 
-1. Gå till **antecknings böcker** och klicka på **överför filer** , välj "predict NYC taxi-tips. ipynb" som du laddade ned och överför filen.
+1. Gå till **antecknings böcker** och klicka på **överför filer**, välj "predict NYC taxi-tips. ipynb" som du laddade ned och överför filen.
    ![Ladda upp filen](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00a.png)
 
 1. När antecknings boken har laddats upp och öppnats klickar du på **Kör alla celler**.
@@ -149,4 +149,4 @@ Innan du kör alla celler i antecknings boken kontrollerar du om beräknings ins
 ## <a name="next-steps"></a>Nästa steg
 
 - [Snabb start: skapa en ny Azure Machine Learning länkad tjänst i Synapse](quickstart-integrate-azure-machine-learning.md)
-- [Machine Learning funktioner i Azure Synapse Analytics (för hands versioner av arbets ytor)](what-is-machine-learning.md)
+- [Machine Learning funktioner i Azure Synapse Analytics](what-is-machine-learning.md)

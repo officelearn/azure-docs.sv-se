@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 8957d8982a3bfe1da2811dc10d0c3e77a72fc288
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ec7a32739940d53d976e73a7e170df96a0acc245
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367609"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449513"
 ---
 # <a name="azure-key-vault-integration-with-azure-stack-edge"></a>Azure Key Vault integration med Azure Stack Edge 
 
@@ -49,7 +49,7 @@ Ett nyckel valv skapas för Azure Stack Edge-resurs under genereringen av aktive
 
 - För att förhindra oavsiktlig borttagning är ett resurs lås aktiverat i nyckel valvet. En mjuk borttagning är också aktive rad i nyckel valvet som gör att nyckel valvet kan återställas inom 90 dagar om det uppstår en oavsiktlig borttagning. Mer information finns i [Azure Key Vault översikt över mjuk borttagning](../key-vault/general/soft-delete-overview.md)
 
-    Om nyckel valvet har tagits bort av misstag och varaktigheten för rensnings skyddet på 90 dagar inte har gått ut, följer du dessa steg för att [återställa nyckel valvet](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault). 
+    Om nyckel valvet har tagits bort av misstag och varaktigheten för rensnings skyddet på 90 dagar inte har gått ut, följer du dessa steg för att [återställa nyckel valvet](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates). 
 
 - Om du har en befintlig Azure Stack Edge-resurs innan Azure Key Vault hade integrerats med Azure Stack Edge-resurs påverkas inte du. Du kan fortsätta att använda din befintliga Azure Stack Edge-resurs. 
 
@@ -73,4 +73,3 @@ When you generate an activation key, the following events occur:
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om hur du [genererar aktiverings nyckeln](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
-

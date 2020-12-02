@@ -11,16 +11,16 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: b3e1c4b8dec0e62bb2a77939a36e38b61837033a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 52e3ea3e07a81495f64f70f72686154a02a654af
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638860"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451804"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistik i Synapse SQL
 
-I den här artikeln finns rekommendationer och exempel för att skapa och uppdatera statistik för att optimera frågor med hjälp av SQL-Synapse: dedikerad SQL-pool och Server lös SQL-pool (för hands version).
+I den här artikeln finns rekommendationer och exempel för att skapa och uppdatera statistik för optimering av frågor med hjälp av SQL-Synapse: dedikerad SQL-pool och Server lös SQL-pool.
 
 ## <a name="statistics-in-dedicated-sql-pool"></a>Statistik i dedikerad SQL-pool
 
@@ -74,7 +74,7 @@ För att undvika mätbar prestanda försämring bör du se till att statistik ha
 > [!NOTE]
 > När du skapar statistik loggas [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) under en annan användar kontext.
 
-När automatisk statistik skapas, kommer de att ha formen: _WA_Sys_ <8 siffer kolumn-ID i hex>_<8 siffror tabell-ID i hex>. Du kan visa redan skapade statistik genom att köra [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) -kommandot:
+När automatisk statistik skapas, kommer de att ha formen: _WA_Sys_<8 siffer kolumn-ID i hex>_<8 siffror tabell-ID i hex>. Du kan visa redan skapade statistik genom att köra [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) -kommandot:
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -245,7 +245,7 @@ Använd föregående exempel, men ange fler kolumner för att skapa ett statisti
 > [!NOTE]
 > Histogrammet, som används för att uppskatta antalet rader i frågeresultatet, är bara tillgängligt för den första kolumnen som anges i statistik objekt definitionen.
 
-I det här exemplet är histogrammet i *produkt \_ kategorin*. Statistik över kolumner beräknas för *produkt \_ kategori* och *produkt \_ sub_category* :
+I det här exemplet är histogrammet i *produkt \_ kategorin*. Statistik över kolumner beräknas för *produkt \_ kategori* och *produkt \_ sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -254,7 +254,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-Eftersom det finns en korrelation mellan *produkt \_ kategori* och *produkt \_ under \_ kategori* , kan ett statistik objekt med flera kolumner vara användbart om dessa kolumner används samtidigt.
+Eftersom det finns en korrelation mellan *produkt \_ kategori* och *produkt \_ under \_ kategori*, kan ett statistik objekt med flera kolumner vara användbart om dessa kolumner används samtidigt.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>Skapa statistik för alla kolumner i en tabell
 
@@ -443,7 +443,7 @@ Det finns flera systemvyer och funktioner som du kan använda för att hitta inf
 
 Dessa system visningar innehåller information om statistik:
 
-| Katalogvy | Beskrivning |
+| Katalogvy | Description |
 |:--- |:--- |
 | [sys. columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |En rad för varje kolumn. |
 | [sys. Objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |En rad för varje objekt i databasen. |
@@ -457,7 +457,7 @@ Dessa system visningar innehåller information om statistik:
 
 Dessa system funktioner är användbara när du arbetar med statistik:
 
-| System funktion | Beskrivning |
+| System funktion | Description |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Datum då statistik objekt senast uppdaterades. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Sammanfattnings nivå och detaljerad information om distributionen av värden som förstås av statistik objekt. |
@@ -557,7 +557,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - Anpassad fel 2767 stöds inte.
 
 
-## <a name="statistics-in-serverless-sql-pool-preview"></a>Statistik i SQL-pool utan server (för hands version)
+## <a name="statistics-in-serverless-sql-pool"></a>Statistik i SQL-pool utan Server
 
 Statistik skapas per viss kolumn för viss data uppsättning (lagrings Sök väg).
 
@@ -566,7 +566,7 @@ Statistik skapas per viss kolumn för viss data uppsättning (lagrings Sök väg
 
 ### <a name="why-use-statistics"></a>Varför använda statistik
 
-Den mer Server avvisade SQL-poolen (för hands version) vet om dina data, desto snabbare kan den köra frågor mot den. Insamling av statistik för dina data är ett av de viktigaste sakerna du kan göra för att optimera dina frågor. 
+Ju mer Server lös SQL-poolen vet om dina data, desto snabbare kan den köra frågor mot den. Insamling av statistik för dina data är ett av de viktigaste sakerna du kan göra för att optimera dina frågor. 
 
 Den serverbaserade SQL-poolens fråga optimering är en kostnads baserad optimering. Den Jämför kostnaden för olika fråge planer och väljer sedan planen med den lägsta kostnaden. I de flesta fall väljer den den plan som ska köras snabbast. 
 
@@ -825,7 +825,7 @@ Det finns flera systemvyer och funktioner som du kan använda för att hitta inf
 
 Dessa system visningar innehåller information om statistik:
 
-| Katalogvy                                                 | Beskrivning                                                  |
+| Katalogvy                                                 | Description                                                  |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | [sys. columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | En rad för varje kolumn.                                     |
 | [sys. Objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | En rad för varje objekt i databasen.                     |
@@ -839,7 +839,7 @@ Dessa system visningar innehåller information om statistik:
 
 Dessa system funktioner är användbara när du arbetar med statistik:
 
-| System funktion                                              | Beskrivning                                  |
+| System funktion                                              | Description                                  |
 | :----------------------------------------------------------- | :------------------------------------------- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Datum då statistik objekt senast uppdaterades. |
 

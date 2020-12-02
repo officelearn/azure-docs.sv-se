@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 91a3a0c2ae066fde55892af90a3d666a3c1221a3
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 3f28c50be73b2b87ed8b25429cfa2dee9a663f1b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445497"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452178"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Säker åtkomst till ett nyckel valv
 
@@ -44,9 +44,9 @@ Mer information om autentisering till Key Vault finns i [autentisera till Azure 
 
 När du skapar ett nyckel valv i en Azure-prenumeration associeras det automatiskt med Azure AD-klienten för prenumerationen. Alla anropare i båda planerna måste registreras i den här klienten och autentiseras för åtkomst till nyckel valvet. I båda fallen kan program komma åt Key Vault på tre sätt:
 
-- **Endast program** : programmet representerar ett huvud namn för tjänsten eller en hanterad identitet. Den här identiteten är det vanligaste scenariot för program som regelbundet behöver komma åt certifikat, nycklar eller hemligheter från nyckel valvet. För att det här scenariot ska fungera `objectId` måste programmet anges i åtkomst principen och `applicationId` får _inte_ anges eller måste vara `null` .
-- **Endast användare** : användaren får åtkomst till nyckel valvet från alla program som är registrerade i klienten. Exempel på den här typen av åtkomst är Azure PowerShell och Azure Portal. För att det här scenariot ska fungera `objectId` måste användaren anges i åtkomst principen och `applicationId` får _inte_ anges eller måste vara `null` .
-- **Program-Plus-användare** (kallas ibland _sammansatt identitet_ ): användaren krävs åtkomst till nyckel valvet från ett särskilt program _och_ programmet måste använda OBO-flödet för att personifiera användaren. För att det här scenariot ska `applicationId` fungera `objectId` måste både och anges i åtkomst principen. `applicationId`Identifierar det program som krävs och `objectId` identifierar användaren. Det här alternativet är för närvarande inte tillgängligt för data planet Azure RBAC (för hands version).
+- **Endast program**: programmet representerar ett huvud namn för tjänsten eller en hanterad identitet. Den här identiteten är det vanligaste scenariot för program som regelbundet behöver komma åt certifikat, nycklar eller hemligheter från nyckel valvet. För att det här scenariot ska fungera `objectId` måste programmet anges i åtkomst principen och `applicationId` får _inte_ anges eller måste vara `null` .
+- **Endast användare**: användaren får åtkomst till nyckel valvet från alla program som är registrerade i klienten. Exempel på den här typen av åtkomst är Azure PowerShell och Azure Portal. För att det här scenariot ska fungera `objectId` måste användaren anges i åtkomst principen och `applicationId` får _inte_ anges eller måste vara `null` .
+- **Program-Plus-användare** (kallas ibland _sammansatt identitet_): användaren krävs åtkomst till nyckel valvet från ett särskilt program _och_ programmet måste använda OBO-flödet för att personifiera användaren. För att det här scenariot ska `applicationId` fungera `objectId` måste både och anges i åtkomst principen. `applicationId`Identifierar det program som krävs och `objectId` identifierar användaren. Det här alternativet är för närvarande inte tillgängligt för data planet Azure RBAC (för hands version).
 
 I alla typer av åtkomst autentiserar programmet med Azure AD. Programmet använder en [autentiseringsmetod som stöds](../../active-directory/develop/authentication-vs-authorization.md) baserat på program typen. Programmet hämtar en token för en resurs i planet för att ge åtkomst. Resursen är en slut punkt i hanterings-eller data planet, baserat på Azure-miljön. Programmet använder token och skickar en REST API begäran till Key Vault. Läs mer i [hela autentiserings flödet](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
@@ -73,9 +73,9 @@ I hanterings planet använder du [rollbaserad åtkomst kontroll i Azure (Azure R
 
 Du skapar ett nyckel valv i en resurs grupp och hanterar åtkomst med hjälp av Azure AD. Du beviljar användare eller grupper möjligheten att hantera nyckel valv i en resurs grupp. Du beviljar åtkomst på en bestämd omfattnings nivå genom att tilldela lämpliga Azure-roller. Om du vill bevilja åtkomst till en användare för att hantera nyckel valv tilldelar du en fördefinierad [Key Vault deltagar](../../role-based-access-control/built-in-roles.md#key-vault-contributor) roll till användaren vid en speciell omfattning. Följande omfattnings nivåer kan tilldelas en Azure-roll:
 
-- **Prenumeration** : en Azure-roll som tilldelas på prenumerations nivån gäller för alla resurs grupper och resurser i prenumerationen.
-- **Resurs grupp** : en Azure-roll som tilldelas på resurs grupps nivå gäller för alla resurser i den resurs gruppen.
-- **Resurs** : en Azure-roll som är tilldelad en angiven resurs gäller resursen. I det här fallet är resursen ett särskilt nyckel valv.
+- **Prenumeration**: en Azure-roll som tilldelas på prenumerations nivån gäller för alla resurs grupper och resurser i prenumerationen.
+- **Resurs grupp**: en Azure-roll som tilldelas på resurs grupps nivå gäller för alla resurser i den resurs gruppen.
+- **Resurs**: en Azure-roll som är tilldelad en angiven resurs gäller resursen. I det här fallet är resursen ett särskilt nyckel valv.
 
 Det finns flera fördefinierade roller. Om en fördefinierad roll inte passar dina behov kan du definiera en egen roll. Mer information finns i [Inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md). 
 
@@ -130,19 +130,19 @@ Mer information om Key Vault brand vägg och virtuella nätverk finns i [konfigu
 
 ## <a name="private-endpoint-connection"></a>Anslutning till privat slutpunkt
 
-Om du behöver blockera Key Vault exponering på ett helt enkelt sätt kan du använda en [privat Azure-slutpunkt](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) . En privat Azure-slutpunkt är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Den privata slut punkten använder en privat IP-adress från ditt virtuella nätverk, vilket effektivt ansluter tjänsten till ditt VNet. All trafik till tjänsten kan dirigeras via den privata slut punkten, så inga gatewayer, NAT-enheter, ExpressRoute-eller VPN-anslutningar eller offentliga IP-adresser krävs. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan ansluta till en instans av en Azure-resurs, vilket ger dig den högsta nivån av granularitet i åtkomst kontroll.
+Om du behöver blockera Key Vault exponering på ett helt enkelt sätt kan du använda en [privat Azure-slutpunkt](../../private-link/private-endpoint-overview.md) . En privat Azure-slutpunkt är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Den privata slut punkten använder en privat IP-adress från ditt virtuella nätverk, vilket effektivt ansluter tjänsten till ditt VNet. All trafik till tjänsten kan dirigeras via den privata slut punkten, så inga gatewayer, NAT-enheter, ExpressRoute-eller VPN-anslutningar eller offentliga IP-adresser krävs. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan ansluta till en instans av en Azure-resurs, vilket ger dig den högsta nivån av granularitet i åtkomst kontroll.
 
 Vanliga scenarier för att använda privat länk för Azure-tjänster:
 
-- **Privat åtkomst till tjänster på Azure-plattformen** : Anslut ditt virtuella nätverk till tjänster i Azure utan en offentlig IP-adress på källan eller målet. Tjänste leverantörer kan återge sina tjänster i sitt eget virtuella nätverk och konsumenter kan komma åt dessa tjänster i sitt lokala virtuella nätverk. Den privata länk plattformen hanterar anslutningen mellan konsumenter och tjänster över Azures stamnät nätverk. 
+- **Privat åtkomst till tjänster på Azure-plattformen**: Anslut ditt virtuella nätverk till tjänster i Azure utan en offentlig IP-adress på källan eller målet. Tjänste leverantörer kan återge sina tjänster i sitt eget virtuella nätverk och konsumenter kan komma åt dessa tjänster i sitt lokala virtuella nätverk. Den privata länk plattformen hanterar anslutningen mellan konsumenter och tjänster över Azures stamnät nätverk. 
  
-- **Lokala och peer-baserade nätverk** : få åtkomst till tjänster som körs i Azure från lokala ExpressRoute privata peering, VPN-tunnlar och peer-baserade virtuella nätverk med privata slut punkter. Du behöver inte konfigurera offentlig peering eller gå igenom Internet för att komma åt tjänsten. Privat länk är ett säkert sätt att migrera arbets belastningar till Azure.
+- **Lokala och peer-baserade nätverk**: få åtkomst till tjänster som körs i Azure från lokala ExpressRoute privata peering, VPN-tunnlar och peer-baserade virtuella nätverk med privata slut punkter. Du behöver inte konfigurera offentlig peering eller gå igenom Internet för att komma åt tjänsten. Privat länk är ett säkert sätt att migrera arbets belastningar till Azure.
  
-- **Skydd mot data läckage** : en privat slut punkt mappas till en instans av en PaaS-resurs i stället för hela tjänsten. Konsumenter kan bara ansluta till den angivna resursen. Åtkomst till någon annan resurs i tjänsten blockeras. Den här mekanismen ger skydd mot data läcker risker. 
+- **Skydd mot data läckage**: en privat slut punkt mappas till en instans av en PaaS-resurs i stället för hela tjänsten. Konsumenter kan bara ansluta till den angivna resursen. Åtkomst till någon annan resurs i tjänsten blockeras. Den här mekanismen ger skydd mot data läcker risker. 
  
-- **Global räckvidd** : Anslut privat till tjänster som körs i andra regioner. Användarens virtuella nätverk kan vara i region A och det kan ansluta till tjänster bakom privat länk i region B.  
+- **Global räckvidd**: Anslut privat till tjänster som körs i andra regioner. Användarens virtuella nätverk kan vara i region A och det kan ansluta till tjänster bakom privat länk i region B.  
  
-- **Utöka till dina egna tjänster** : Aktivera samma upplevelse och funktionalitet för att återge din tjänst privat för konsumenter i Azure. Genom att placera tjänsten bakom en standard Azure Load Balancer kan du aktivera den för privat länk. Konsumenten kan sedan ansluta direkt till tjänsten med hjälp av en privat slut punkt i ett eget virtuellt nätverk. Du kan hantera anslutnings begär Anden med ett samtals flöde för godkännande. En privat Azure-länk fungerar för konsumenter och tjänster som tillhör olika Azure Active Directory klienter. 
+- **Utöka till dina egna tjänster**: Aktivera samma upplevelse och funktionalitet för att återge din tjänst privat för konsumenter i Azure. Genom att placera tjänsten bakom en standard Azure Load Balancer kan du aktivera den för privat länk. Konsumenten kan sedan ansluta direkt till tjänsten med hjälp av en privat slut punkt i ett eget virtuellt nätverk. Du kan hantera anslutnings begär Anden med ett samtals flöde för godkännande. En privat Azure-länk fungerar för konsumenter och tjänster som tillhör olika Azure Active Directory klienter. 
 
 Mer information om privata slut punkter finns i [Key Vault med Azures privata länk](./private-link-service.md)
 
@@ -151,15 +151,15 @@ Mer information om privata slut punkter finns i [Key Vault med Azures privata l�
 I det här exemplet utvecklar vi ett program som använder ett certifikat för TLS/SSL, Azure Storage att lagra data och en RSA 2 048-bitars nyckel för kryptering av data i Azure Storage. Vårt program körs på en virtuell Azure-dator (eller en virtuell dators skalnings uppsättning). Vi kan använda ett nyckel valv för att lagra program hemligheterna. Vi kan lagra start certifikatet som används av programmet för att autentisera med Azure AD.
 
 Vi behöver åtkomst till följande lagrade nycklar och hemligheter:
-- **TLS/SSL-certifikat** : används för TLS/SSL.
-- **Lagrings nyckel** : används för att komma åt lagrings kontot.
-- **RSA 2 048-bitars nyckel** : används för data krypterings nyckeln wrap/unwrap i Azure Storage.
-- **Programhanterad identitet** : används för att autentisera med Azure AD. När åtkomsten till Key Vault beviljas kan programmet Hämta lagrings nyckeln och certifikatet.
+- **TLS/SSL-certifikat**: används för TLS/SSL.
+- **Lagrings nyckel**: används för att komma åt lagrings kontot.
+- **RSA 2 048-bitars nyckel**: används för data krypterings nyckeln wrap/unwrap i Azure Storage.
+- **Programhanterad identitet**: används för att autentisera med Azure AD. När åtkomsten till Key Vault beviljas kan programmet Hämta lagrings nyckeln och certifikatet.
 
 Vi måste definiera följande roller för att ange vem som kan hantera, distribuera och granska vårt program:
-- **Säkerhets team** : IT-personal från byråns skydds chef (säkerhets tjänsteman) eller liknande bidrags givare. Säkerhets teamet ansvarar för rätt säkerhet. Hemligheterna kan omfatta TLS/SSL-certifikat, RSA-nycklar för kryptering, anslutnings strängar och lagrings konto nycklar.
-- **Utvecklare och operatörer** : personal som utvecklar programmet och distribuerar det i Azure. Medlemmarna i det här teamet är inte en del av säkerhets personalen. De bör inte ha till gång till känsliga data som TLS/SSL-certifikat och RSA-nycklar. Endast det program som de distribuerar bör ha åtkomst till känsliga data.
-- **Granskare** : den här rollen är för deltagare som inte är medlemmar i utvecklings-eller allmän IT-personal. De granskar användningen och underhållet av certifikat, nycklar och hemligheter för att säkerställa efterlevnaden av säkerhets standarder.
+- **Säkerhets team**: IT-personal från byråns skydds chef (säkerhets tjänsteman) eller liknande bidrags givare. Säkerhets teamet ansvarar för rätt säkerhet. Hemligheterna kan omfatta TLS/SSL-certifikat, RSA-nycklar för kryptering, anslutnings strängar och lagrings konto nycklar.
+- **Utvecklare och operatörer**: personal som utvecklar programmet och distribuerar det i Azure. Medlemmarna i det här teamet är inte en del av säkerhets personalen. De bör inte ha till gång till känsliga data som TLS/SSL-certifikat och RSA-nycklar. Endast det program som de distribuerar bör ha åtkomst till känsliga data.
+- **Granskare**: den här rollen är för deltagare som inte är medlemmar i utvecklings-eller allmän IT-personal. De granskar användningen och underhållet av certifikat, nycklar och hemligheter för att säkerställa efterlevnaden av säkerhets standarder.
 
 Det finns en annan roll som ligger utanför omfånget för programmet: prenumerationen (eller resurs gruppens) administratör. Prenumerations administratören konfigurerar inledande åtkomst behörighet för säkerhets teamet. De ger åtkomst till säkerhets teamet genom att använda en resurs grupp som har de resurser som krävs av programmet.
 

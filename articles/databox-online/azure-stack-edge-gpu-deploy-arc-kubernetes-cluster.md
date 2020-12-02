@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 11/12/2020
 ms.author: alkohli
-ms.openlocfilehash: c38b0b1d3a2e71502ac86bf46771ecfb637ba15d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 342f6a2c4761104823694f2181b3ffa8726a441e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952224"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449421"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Aktivera Azure Arc på Kubernetes-kluster på din Azure Stack Edge Pro GPU-enhet
 
 Den här artikeln visar hur du aktiverar Azure Arc på ett befintligt Kubernetes-kluster på din Azure Stack Edge Pro-enhet. 
 
-Den här proceduren är avsedd för de som har granskat [Kubernetes-arbetsbelastningar på Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-kubernetes-workload-management.md) och som är bekanta med begreppen [Vad är Azure Arc Enabled Kubernetes (för hands version)?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+Den här proceduren är avsedd för de som har granskat [Kubernetes-arbetsbelastningar på Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-kubernetes-workload-management.md) och som är bekanta med begreppen [Vad är Azure Arc Enabled Kubernetes (för hands version)?](../azure-arc/kubernetes/overview.md).
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -39,14 +39,13 @@ Innan du kan aktivera Azure Arc på Kubernetes-kluster måste du kontrol lera at
 
 1. Du har ett Windows-klientsystem som ska användas för att få åtkomst till Azure Stack Edge Pro-enheten.
   
-    - Klienten kör Windows PowerShell 5,0 eller senare. Om du vill hämta den senaste versionen av Windows PowerShell går du till [Installera Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - Klienten kör Windows PowerShell 5,0 eller senare. Om du vill hämta den senaste versionen av Windows PowerShell går du till [Installera Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows).
     
     - Du kan också ha andra klienter med ett [operativ system som stöds](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . Den här artikeln beskriver proceduren när du använder en Windows-klient. 
     
 1. Du har slutfört proceduren som beskrivs i [komma åt Kubernetes-klustret på Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md). Du har:
     
-    - Installerad `kubectl` på klienten  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
-    
+    - Installerat `kubectl` på klienten.    
     - Kontrol lera att `kubectl` klient versionen inte är mer än en version från den Kubernetes huvud version som körs på din Azure Stack Edge Pro-enhet. 
       - Används `kubectl version` för att kontrol lera vilken version av kubectl som körs på klienten. Anteckna den fullständiga versionen.
       - I det lokala användar gränssnittet för din Azure Stack Edge Pro-enhet går du till **program uppdatering** och noterar Kubernetes-serverns versions nummer. 
@@ -55,7 +54,6 @@ Innan du kan aktivera Azure Arc på Kubernetes-kluster måste du kontrol lera at
       
       - Kontrol lera att dessa två versioner är kompatibla. 
 
-<!-- az cli version requirements-->
 
 ## <a name="register-kubernetes-resource-providers"></a>Registrera Kubernetes-resurs leverantörer
 
@@ -90,7 +88,7 @@ Du kan också registrera resurs leverantörer via `az cli` . Mer information fin
 
     `az ad sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
 
-    För information om hur du loggar in på `az cli` [startar du Cloud Shell i Azure Portal](../cloud-shell/quickstart-powershell.md?view=azure-cli-latest#start-cloud-shell)
+    För information om hur du loggar in på `az cli` [startar du Cloud Shell i Azure Portal](../cloud-shell/quickstart-powershell.md#start-cloud-shell)
 
     Här är ett exempel. 
     
@@ -129,7 +127,7 @@ Du kan också registrera resurs leverantörer via `az cli` . Mer information fin
     }
     PS /home/user>
     ```
-    Mer information om hur du skapar tjänstens huvud namn och utför roll tilldelningen finns i stegen i [skapa en Azure Arc-aktiverad onboarding-tjänstens huvud namn](https://docs.microsoft.com/azure/azure-arc/kubernetes/create-onboarding-service-principal).
+    Mer information om hur du skapar tjänstens huvud namn och utför roll tilldelningen finns i stegen i [skapa en Azure Arc-aktiverad onboarding-tjänstens huvud namn](../azure-arc/kubernetes/create-onboarding-service-principal.md).
 
 
 ## <a name="enable-arc-on-kubernetes-cluster"></a>Aktivera Arc på Kubernetes-kluster
@@ -142,7 +140,10 @@ Följ dessa steg för att konfigurera Kubernetes-klustret för hantering av Azur
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
 
-    Om du vill distribuera Azure Arc på Azure Stack Edge Pro-enhet kontrollerar du att du använder en [region som stöds för Azure-bågen](../azure-arc/kubernetes/overview.md#supported-regions). Azure-bågen är för närvarande en för hands version. Du kan också ta reda på det exakta namnet på regionen för att skicka in cmdleten med hjälp av `az account list-locations` kommandot.
+
+    > [!NOTE]
+    > - Om du vill distribuera Azure-bågen på enheten kontrollerar du att du använder en [region som stöds för Azure-bågen](../azure-arc/kubernetes/overview.md#supported-regions). 
+    > - Använd `az account list-locations` kommandot för att ta reda på det exakta plats namnet som ska skickas i- `Set-HcsKubernetesAzureArcAgent` cmdleten. Plats namn är vanligt vis formaterade utan blank steg.
     
     Här är ett exempel:
    
@@ -221,6 +222,9 @@ Följ dessa steg om du vill ta bort hanteringen av Azure-bågen:
 
     `Remove-HcsKubernetesAzureArcAgent` 
 
+
+> [!NOTE]
+> När resursen `yamls` tas bort från git-lagringsplatsen tas som standard inte de motsvarande resurserna bort från Kubernetes-klustret. Du måste ställa in `--sync-garbage-collection`  i Arc-OperatorParams för att tillåta borttagning av resurser när de tas bort från git-lagringsplatsen. Mer information finns i [ta bort en konfiguration](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters)
 
 ## <a name="next-steps"></a>Nästa steg
 

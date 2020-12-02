@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 26b155484dafac4a63fe2a6c7ff292ee8bbacbc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ce9183fad50c43ea7070f5fa09e0d445caf89df
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317216"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451258"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Självstudie: skapa ett mått diagram i Azure Monitor
 Mått Utforskaren är en funktion i Azure Monitor i Azure Portal som gör att du kan skapa diagram från metriska värden, visuellt korrelera trender och undersöka toppar och DIP i metriska värden. Använd Mät Utforskaren för att undersöka hälsan och användningen av dina Azure-resurser eller för att rita diagram från anpassade mått. 
@@ -27,7 +27,7 @@ Följande är en video som visar ett mer omfattande scenario än proceduren som 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4qO59]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du en Azure-resurs för att övervaka. Du kan använda vilken resurs som helst i din Azure-prenumeration som har stöd för mått. Ta reda på om en resurs stöder mått genom att gå till menyn i Azure Portal och kontrol lera att det finns ett **mått** alternativ i avsnittet **övervakning** på menyn.
 
@@ -85,5 +85,5 @@ Du kan anpassa diagram stil, rubrik och ändra avancerade diagram inställningar
 Nu när du har lärt dig hur du arbetar med mått i Azure Monitor kan du lära dig hur du använder mått för att skicka proaktiva aviseringar.
 
 > [!div class="nextstepaction"]
-> [Skapa, visa och hantera måttaviseringar med Azure Monitor](../platform/alerts-metric.md)
+> [Skapa, visa och hantera måttaviseringar med Azure Monitor](../platform/metrics-charts.md#create-alert-rules)
 

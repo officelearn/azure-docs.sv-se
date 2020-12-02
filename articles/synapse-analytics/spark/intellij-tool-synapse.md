@@ -1,6 +1,6 @@
 ---
 title: Självstudie – Azure Toolkit for IntelliJ (Spark-program)
-description: Självstudie – Använd Azure Toolkit for IntelliJ för att utveckla Spark-program som är skrivna i Scala och skicka dem till en server lös Apache Spark pool (för hands version).
+description: Självstudie – Använd Azure Toolkit for IntelliJ för att utveckla Spark-program som är skrivna i Scala och skicka dem till en server lös Apache Spark-pool.
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,22 +9,22 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 5a9fcf3e13c2f86a11e9626be486a585ec659044
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 75cc23df41741a95e87ad64d168aea4fa4f45733
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013776"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451046"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Självstudie: skapa ett Apache Spark program med IntelliJ med hjälp av en Synapse-arbetsyta
 
-Den här självstudien visar hur du använder Azure Toolkit for IntelliJ plugin-programmet för att utveckla Apache Spark program som är skrivna i [Scala](https://www.scala-lang.org/)och sedan skicka dem till en server lös Apache Spark-pool (för hands version) direkt från IntelliJ Integrated Development Environment (IDE). Du kan använda plugin-programmet på några sätt:
+Den här självstudien visar hur du använder Azure Toolkit for IntelliJ plugin-programmet för att utveckla Apache Spark-program som är skrivna i [Scala](https://www.scala-lang.org/)och sedan skicka dem till en server lös Apache Spark pool direkt från IntelliJ Integrated Development Environment (IDE). Du kan använda plugin-programmet på några sätt:
 
 - Utveckla och skicka in ett Scala Spark-program på en spark-pool.
 - Få åtkomst till dina Spark-pooler resurser.
 - Utveckla och kör ett Scala Spark-program lokalt.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 >
 > - Använd plugin-programmet Azure Toolkit for IntelliJ

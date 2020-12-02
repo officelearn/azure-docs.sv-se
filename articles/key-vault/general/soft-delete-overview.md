@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/30/2020
-ms.openlocfilehash: c8ae10fa059bb9cfd32b95f9bc6d21f30ad9f880
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 184003e42a14e786cc52c4f585c6781f7b9fe0e7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744210"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452189"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Översikt av mjuk borttagning för Azure Key Vault
 
@@ -27,7 +27,7 @@ Key Vault funktionen för mjuk borttagning kan återställa de borttagna valven 
 
 ## <a name="supporting-interfaces"></a>Stöd för gränssnitt
 
-Funktionen mjuk borttagning är tillgänglig via [REST API](/rest/api/keyvault/), [Azure CLI](soft-delete-cli.md)-, [Azure PowerShell](soft-delete-powershell.md)-och [.net/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) -gränssnitt, samt [arm-mallar](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+Funktionen mjuk borttagning är tillgänglig via [REST API](/rest/api/keyvault/), [Azure CLI](./key-vault-recovery.md)-, [Azure PowerShell](./key-vault-recovery.md)-och [.net/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) -gränssnitt, samt [arm-mallar](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## <a name="scenarios"></a>Scenarier
 
@@ -41,7 +41,7 @@ Azure Key Vaults är spårade resurser som hanteras av Azure Resource Manager. A
 
 När mjuk borttagning är aktiverat behålls resurser som har marker ATS som borttagna resurser för en angiven period (90 dagar som standard). Tjänsten tillhandahåller ytterligare en mekanism för att återställa det borttagna objektet, i princip ångra borttagningen.
 
-När du skapar ett nytt nyckel valv är mjuk borttagning aktiverat som standard. Du kan skapa ett nyckel valv utan mjuk borttagning via [Azure CLI](soft-delete-cli.md) eller [Azure PowerShell](soft-delete-powershell.md). När mjuk borttagning har Aktiver ATS för ett nyckel valv kan det inte inaktive ras
+När du skapar ett nytt nyckel valv är mjuk borttagning aktiverat som standard. Du kan skapa ett nyckel valv utan mjuk borttagning via [Azure CLI](./key-vault-recovery.md) eller [Azure PowerShell](./key-vault-recovery.md). När mjuk borttagning har Aktiver ATS för ett nyckel valv kan det inte inaktive ras
 
 Standardkvarhållning är 90 dagar, men när nyckel valvet skapas är det möjligt att ange lagrings princip intervallet till ett värde mellan 7 och 90 dagar via Azure Portal. Bevarande principen rensa skydd använder samma intervall. När du har angett går det inte att ändra lagrings princip intervallet.
 
@@ -49,7 +49,7 @@ Du kan inte återanvända namnet på ett nyckel valv som har varit mjuk-Borttage
 
 ### <a name="purge-protection"></a>Rensa skydd
 
-Rensnings skyddet är ett valfritt Key Vault beteende och är **inte aktiverat som standard**. Rensnings skydd kan bara aktive ras när mjuk borttagning har Aktiver ATS.  Den kan aktive ras via [CLI](soft-delete-cli.md#enabling-purge-protection) eller [PowerShell](soft-delete-powershell.md#enabling-purge-protection).
+Rensnings skyddet är ett valfritt Key Vault beteende och är **inte aktiverat som standard**. Rensnings skydd kan bara aktive ras när mjuk borttagning har Aktiver ATS.  Den kan aktive ras via [CLI](./key-vault-recovery.md?tabs=azure-cli) eller [PowerShell](./key-vault-recovery.md?tabs=azure-powershell).
 
 När rensnings skyddet är på kan inte ett valv eller ett objekt i det borttagna läget rensas förrän kvarhållningsperioden har passerat. Borttagnings bara valv och objekt kan fortfarande återställas, vilket säkerställer att bevarande principen kommer att följas.
 
@@ -60,10 +60,10 @@ Standardkvarhållning är 90 dagar, men det är möjligt att ange ett värde mel
 Det går att ta bort, rensa och ta bort ett nyckel valv via en POST-åtgärd på proxy-resursen och kräver särskilda privilegier. I allmänhet kommer bara prenumerations ägaren att kunna rensa ett nyckel valv. POST-åtgärden utlöser omedelbar och oåterkalleligt borttagning av det valvet. 
 
 Undantag är:
-- När Azure-prenumerationen har marker ATS som *borttagnings*bar. I det här fallet kan endast tjänsten utföra den faktiska borttagningen och göra det som en schemalagd process. 
+- När Azure-prenumerationen har marker ATS som *borttagnings* bar. I det här fallet kan endast tjänsten utföra den faktiska borttagningen och göra det som en schemalagd process. 
 - När `--enable-purge-protection flag` är aktive rad i själva valvet. I det här fallet kommer Key Vault att vänta i 90 dagar från när det ursprungliga hemliga objektet markerades för borttagning för att ta bort objektet permanent.
 
-Anvisningar finns i [använda Key Vault mjuk borttagning med CLI: rensa ett nyckel valv](soft-delete-cli.md#purging-a-key-vault) eller [använda Key Vault mjuk borttagning med PowerShell: rensar ett nyckel valv](soft-delete-powershell.md#purging-a-key-vault).
+Anvisningar finns i [använda Key Vault mjuk borttagning med CLI: rensa ett nyckel valv](./key-vault-recovery.md?tabs=azure-cli#key-vault-cli) eller [använda Key Vault mjuk borttagning med PowerShell: rensar ett nyckel valv](./key-vault-recovery.md?tabs=azure-powershell#key-vault-powershell).
 
 ### <a name="key-vault-recovery"></a>Återställning av nyckel valv
 
@@ -71,7 +71,7 @@ När du tar bort ett nyckel valv skapar tjänsten en proxy-resurs under prenumer
 
 ### <a name="key-vault-object-recovery"></a>Nyckel valvs objekt återställning
 
-När du tar bort ett nyckel valv objekt, till exempel en nyckel, kommer tjänsten att placera objektet i ett borttaget tillstånd, vilket gör att det inte går att komma åt några hämtnings åtgärder. I det här läget kan Key Vault-objektet bara visas, återställas eller framtvingas/tas bort permanent. Om du vill visa objekten använder du Azure CLI `az keyvault key list-deleted` -kommandot (som dokumenteras i [använda Key Vault mjuk borttagning med CLI](soft-delete-cli.md)) eller `-InRemovedState` parametern Azure PowerShell (enligt beskrivningen i [använda Key Vault mjuk borttagning med PowerShell](soft-delete-powershell.md#secrets)).  
+När du tar bort ett nyckel valv objekt, till exempel en nyckel, kommer tjänsten att placera objektet i ett borttaget tillstånd, vilket gör att det inte går att komma åt några hämtnings åtgärder. I det här läget kan Key Vault-objektet bara visas, återställas eller framtvingas/tas bort permanent. Om du vill visa objekten använder du Azure CLI `az keyvault key list-deleted` -kommandot (som dokumenteras i [använda Key Vault mjuk borttagning med CLI](./key-vault-recovery.md)) eller `-InRemovedState` parametern Azure PowerShell (enligt beskrivningen i [använda Key Vault mjuk borttagning med PowerShell](./key-vault-recovery.md?tabs=azure-powershell#key-vault-powershell)).  
 
 Samtidigt schemalägger Key Vault borttagningen av underliggande data som motsvarar det borttagna nyckel valvet eller Key Vault-objektet som ska köras efter ett förutbestämt kvarhållningsintervall. DNS-posten som motsvarar valvet behålls också under lagrings periodens varaktighet.
 
@@ -99,5 +99,5 @@ I allmänhet finns det bara två åtgärder som är tillgängliga när ett objek
 
 Följande två guider ger de vanligaste användnings scenarierna för att använda mjuk borttagning.
 
-- [Så här använder du Key Vault mjuk borttagning med PowerShell](soft-delete-powershell.md) 
-- [Så här använder du Key Vault mjuk borttagning med CLI](soft-delete-cli.md)
+- [Så här använder du Key Vault mjuk borttagning med PowerShell](./key-vault-recovery.md) 
+- [Så här använder du Key Vault mjuk borttagning med CLI](./key-vault-recovery.md)

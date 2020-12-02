@@ -7,33 +7,33 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 07/12/2019
-ms.author: anjangsh
+ms.date: 11/13/2020
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7496cedd127182482bccf97909cc0a0a4a78253f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4683bd84873506483209f4a0eb3751a1b163ed48
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313424"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449884"
 ---
 # <a name="geo-restore-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Geo-Återställ en dedikerad SQL-pool i Azure Synapse Analytics
 
-I den här artikeln får du lära dig att återställa din dedikerade SQL-pool från en geo-säkerhetskopiering via Azure Portal och PowerShell.
+I den här artikeln får du lära dig att återställa din dedikerade SQL-pool (tidigare SQL DW) från en geo-säkerhetskopiering via Azure Portal och PowerShell.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verifiera din DTU-kapacitet.** Varje dedikerad SQL-pool finns på en [logisk SQL-Server](../../azure-sql/database/logical-servers.md) (till exempel myserver.Database.Windows.net) som har en standard-DTU-kvot. Kontrol lera att SQL Server har tillräckligt med den återstående DTU-kvoten för databasen som återställs. Information om hur du beräknar DTU krävs eller begär mer DTU finns i [begär en ändring av DTU-kvot](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verifiera din DTU-kapacitet.** Varje dedikerad SQL-pool (tidigare SQL DW) finns på en [logisk SQL-Server](../../azure-sql/database/logical-servers.md) (till exempel myserver.Database.Windows.net) som har en standard-DTU-kvot. Kontrol lera att SQL Server har tillräckligt med den återstående DTU-kvoten för databasen som återställs. Information om hur du beräknar DTU krävs eller begär mer DTU finns i [begär en ändring av DTU-kvot](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Återställa från en geografisk Azure-region via PowerShell
 
 Om du vill återställa från en geo-säkerhets kopiering använder du cmdleten [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och [restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
 > [!NOTE]
-> Du kan utföra en geo-återställning till Gen2! Det gör du genom att ange en Gen2-ServiceObjectiveName (t. ex. DW1000 **c** ) som en valfri parameter.
+> Du kan utföra en geo-återställning till Gen2! Det gör du genom att ange en Gen2-ServiceObjectiveName (t. ex. DW1000 **c**) som en valfri parameter.
 >
 
 1. Innan du börjar ska du se till att [installera Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
@@ -74,28 +74,24 @@ Den återställda databasen kommer att TDEs om käll databasen är TDE-aktive ra
 
 ## <a name="restore-from-an-azure-geographical-region-through-azure-portal"></a>Återställa från en geografisk region i Azure via Azure Portal
 
-Följ stegen som beskrivs nedan för att återställa en dedikerad SQL-pool från en geo-säkerhets kopiering:
+Följ stegen som beskrivs nedan för att återställa en dedikerad SQL-pool (tidigare SQL DW) från en geo-säkerhets kopiering:
 
 1. Logga in på ditt [Azure Portal](https://portal.azure.com/) -konto.
-2. Klicka på **+ Skapa en resurs**.
+1. Sök efter **dedikerade SQL-pooler (tidigare SQL DW)**.
 
-   ![Ny DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
+   ![Ny DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-3. Klicka på **databaser** och sedan på **Azure Synapse Analytics (tidigare SQL DW)**.
+1. Klicka på Lägg till och fyll i informationen som begärs på fliken **grundläggande** och klicka på **Nästa: ytterligare inställningar**.
 
-   ![Ny DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
+   ![Grundläggande inställningar](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
-4. Fyll i informationen som begärs på fliken **grundläggande** och klicka på **Nästa: ytterligare inställningar**.
-
-   ![Grunder](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
-
-5. Om du vill **använda befintlig data** parameter väljer du **säkerhets kopiering** och väljer lämplig säkerhets kopia från rullnings List alternativen. Klicka på **Granska + Skapa**.
+1. Om du vill **använda befintlig data** parameter väljer du **säkerhets kopiering** och väljer lämplig säkerhets kopia från rullnings List alternativen. Klicka på **Granska + Skapa**.
 
    ![säkerhetskopiering](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 
-6. När data lagret har återställts kontrollerar du att **statusen** är online.
+1. När data lagret har återställts kontrollerar du att **statusen** är online.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Återställa en befintlig dedikerad SQL-pool](sql-data-warehouse-restore-active-paused-dw.md)
-- [Återställa en borttagen dedikerad SQL-pool](sql-data-warehouse-restore-deleted-dw.md)
+- [Återställa en befintlig dedikerad SQL-pool (tidigare SQL DW)](sql-data-warehouse-restore-active-paused-dw.md)
+- [Återställa en borttagen dedikerad SQL-pool (tidigare SQL DW)](sql-data-warehouse-restore-deleted-dw.md)

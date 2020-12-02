@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 2e976b895c6aa63b73c55b458668c00b64c6f960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 705b0f02682b6aa41cb5c8e77d8da39faa5edb1f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91660912"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450116"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicera en integrerad lösning
 
-Den här artikeln beskriver den övergripande processen och kraven för att publicera en integrerad lösning på den kommersiella marknads platsen. I ett enda samlat erbjudande kombinerar en integrerad lösning lösnings tekniker från program varu leverantörer med distribution och support för en tjänste partner. Tjänste partnern listar erbjudandet i Microsoft AppSource eller Azure Marketplace som [konsult tjänst](./consulting-services.md).
+Den här artikeln beskriver den övergripande processen och kraven för att publicera en integrerad lösning på den kommersiella marknads platsen. I ett enda samlat erbjudande kombinerar en integrerad lösning lösnings tekniker från program varu leverantörer med distribution och support för en tjänste partner. Tjänste partnern listar erbjudandet i Microsoft AppSource eller Azure Marketplace som [konsult tjänst](./plan-consulting-service-offer.md).
 
 Integrerade lösningar syftar till att tillgodose ett bestämt kund behov eller scenario. Leverantörer börjar med att förstå branschens utmaning eller smärta. De integrerar sedan två eller fler bästa tekniker för att skapa en enhetlig och upprepnings bar distributions upplevelse för kunderna. Leverantörer får kunderna igång snabbt. De erbjuder en enda kontakt punkt för kunden, vilket ger relevant anpassning, rådgivning och lösnings support. Resultatet är en integrerad lösning, inklusive teknik och tjänster.
 
@@ -56,7 +56,7 @@ Partner som vill delta i programmet ska identifiera andra partner som de vill ar
 
 ## <a name="develop-an-integrated-solution"></a>Utveckla en integrerad lösning
 
-När din utnämning har godkänts använder du de länkade program resurserna för att utveckla din integrerade lösning. Följ de här stegen:
+När din utnämning har godkänts använder du de länkade program resurserna för att utveckla din integrerade lösning. Gör så här:
 
 1. Slutför viktiga affärs-och teknik diskussioner i ett workshop-format för att definiera lösningen och integrerings metoden.
 
@@ -74,7 +74,7 @@ När din utnämning har godkänts använder du de länkade program resurserna f�
 
     Din diskussion om integrerings metoden bör omfatta följande punkter:
     * Integrations platser
-    * Lösningsarkitektur
+    * Lösningsarkitekturen
     * Autentisering
     * Användargränssnitt
     * Övervakning
@@ -104,7 +104,7 @@ När din utnämning har godkänts använder du de länkade program resurserna f�
 
 ## <a name="publish-your-integrated-solution"></a>Publicera din integrerade lösning
 
-När du har slutfört teknisk integrering och marknadsförings säkerhet kan du läsa mer i utgivar guiden för [konsult tjänster för Microsoft AppSource och Azure Marketplace](./consulting-services.md). Använd den här resursen för att avgöra om din lösning ska publiceras i Microsoft AppSource eller på Azure Marketplace. Använd också guiden för att förbereda dina publicerings artefakter och slutföra publicerings processen.
+När du har slutfört teknisk integrering och marknadsförings säkerhet kan du läsa mer i utgivar guiden för [konsult tjänster för Microsoft AppSource och Azure Marketplace](./plan-consulting-service-offer.md). Använd den här resursen för att avgöra om din lösning ska publiceras i Microsoft AppSource eller på Azure Marketplace. Använd också guiden för att förbereda dina publicerings artefakter och slutföra publicerings processen.
 
 Även om fem tjänst typer är tillgängliga för konsult tjänster, måste en integrerad lösning antingen vara ett koncept bevis eller en fullständig implementering.
 

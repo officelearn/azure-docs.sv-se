@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: d323504a46cd35525c889a94d2d044193c1471ac
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8637b33ebc4b697ee6f498acb84ee33718c53f6d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535953"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448860"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Distribuera ett tillstånds lösa program i PHP-programmet med Redis on Arc Enabled Kubernetes Cluster på Azure Stack Edge Pro GPU
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du skapar och distribuerar ett enkelt webb program m
 
 Distributionen görs med hjälp av GitOps på Kubernetes-klustret på din Azure Stack Edge Pro-enhet. 
 
-Den här proceduren är avsedd för de som har granskat [Kubernetes-arbetsbelastningarna på Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-kubernetes-workload-management.md) och som är bekanta med begreppen [Vad är Azure Arc Enabled Kubernetes (för hands version)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+Den här proceduren är avsedd för de som har granskat [Kubernetes-arbetsbelastningarna på Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-kubernetes-workload-management.md) och som är bekanta med begreppen [Vad är Azure Arc Enabled Kubernetes (för hands version)](../azure-arc/kubernetes/overview.md).
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -44,7 +44,7 @@ Innan du kan distribuera det tillstånds lösa programmet måste du kontrol lera
 
 1. Du har ett Windows-klientsystem som ska användas för att få åtkomst till Azure Stack Edge Pro-enheten.
   
-    - Klienten kör Windows PowerShell 5,0 eller senare. Om du vill hämta den senaste versionen av Windows PowerShell går du till [Installera Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - Klienten kör Windows PowerShell 5,0 eller senare. Om du vill hämta den senaste versionen av Windows PowerShell går du till [Installera Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - Du kan också ha andra klienter med ett [operativ system som stöds](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . Den här artikeln beskriver proceduren när du använder en Windows-klient. 
     

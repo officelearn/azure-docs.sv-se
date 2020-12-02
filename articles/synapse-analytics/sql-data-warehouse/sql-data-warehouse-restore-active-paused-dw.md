@@ -1,5 +1,5 @@
 ---
-title: Återställa en befintlig dedikerad SQL-pool i Azure Synapse Analytics
+title: Återställa en befintlig dedikerad SQL-pool
 description: Instruktions guide för att återställa en befintlig dedikerad SQL-pool i Azure Synapse Analytics.
 services: synapse-analytics
 author: anumjs
@@ -7,20 +7,20 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 08/29/2018
-ms.author: anjangsh
+ms.date: 11/13/2020
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0c3fd0aee0a70743db721f469d91f269b9764e5e
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: d3c84f7d951db715d26042f524f385826197e076
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577557"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450002"
 ---
-# <a name="restore-an-existing-dedicated-sql-pool-in-azure-synapse-analytics"></a>Återställa en befintlig dedikerad SQL-pool i Azure Synapse Analytics
+# <a name="restore-an-existing-dedicated-sql-pool-formerly-sql-dw"></a>Återställa en befintlig dedikerad SQL-pool (tidigare SQL DW)
 
-I den här artikeln får du lära dig hur du återställer en befintlig dedikerad SQL-pool i Azure Synapse Analytics med hjälp av Azure Portal och PowerShell.
+I den här artikeln får du lära dig hur du återställer en befintlig dedikerad SQL-pool (tidigare SQL DW) med hjälp av Azure Portal och PowerShell.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -31,9 +31,9 @@ I den här artikeln får du lära dig hur du återställer en befintlig dedikera
 1. Se till att [installera Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Ha en befintlig återställnings punkt som du vill återställa från. Om du vill skapa en ny återställning går [du till självstudien för att skapa en ny användardefinierad återställnings punkt](sql-data-warehouse-restore-points.md).
 
-## <a name="restore-an-existing-dedicated-sql-pool-through-powershell"></a>Återställa en befintlig dedikerad SQL-pool via PowerShell
+## <a name="restore-an-existing-dedicated-sql-pool-formerly-sql-dw-through-powershell"></a>Återställa en befintlig dedikerad SQL-pool (tidigare SQL DW) via PowerShell
 
-Om du vill återställa en befintlig dedikerad SQL-pool från en återställnings punkt använder du PowerShell-cmdleten [restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
+Om du vill återställa en befintlig dedikerad SQL-pool (tidigare SQL DW) från en återställnings punkt använder du PowerShell-cmdleten [restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
 1. Öppna PowerShell.
 
@@ -41,18 +41,18 @@ Om du vill återställa en befintlig dedikerad SQL-pool från en återställning
 
 3. Välj den prenumeration som innehåller den databas som ska återställas.
 
-4. Visa en lista över återställnings punkterna för den dedikerade SQL-poolen.
+4. Lista över återställnings punkterna för den dedikerade SQL-poolen (tidigare SQL DW).
 
 5. Välj önskad återställnings punkt med hjälp av RestorePointCreationDate.
 
-6. Återställ den dedikerade SQL-poolen till önskad återställnings punkt med hjälp av [restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell-cmdlet.
+6. Återställ den dedikerade SQL-poolen (tidigare SQL DW) till önskad återställnings punkt med hjälp av [restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell-cmdlet.
 
-    1. Om du vill återställa den dedikerade SQL-poolen till en annan server, måste du ange det andra Server namnet.  Den här servern kan också finnas i en annan resurs grupp och region.
+    1. Om du vill återställa den dedikerade SQL-poolen (tidigare SQL DW) till en annan server, måste du ange det andra Server namnet.  Den här servern kan också finnas i en annan resurs grupp och region.
     2. Om du vill återställa till en annan prenumeration använder du knappen flytta för att flytta servern till en annan prenumeration.
 
-7. Kontrol lera att den återställda dedikerade SQL-poolen är online.
+7. Kontrol lera att den återställda dedikerade SQL-poolen (tidigare SQL DW) är online.
 
-8. När återställningen har slutförts kan du konfigurera den återställda dedikerade SQL-poolen genom att följa [konfiguration av databasen efter återställningen](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+8. När återställningen har slutförts kan du konfigurera den återställda dedikerade SQL-poolen (tidigare SQL DW) genom att följa [konfigurationen av databasen efter återställningen](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 
@@ -89,7 +89,7 @@ $RestoredDatabase.status
 
 ```
 
-## <a name="restore-an-existing-dedicated-sql-pool-through-the-azure-portal"></a>Återställa en befintlig dedikerad SQL-pool via Azure Portal
+## <a name="restore-an-existing-dedicated-sql-pool-formerly-sql-dw-through-the-azure-portal"></a>Återställa en befintlig dedikerad SQL-pool (tidigare SQL DW) via Azure Portal
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Navigera till den dedikerade som du vill återställa från.
@@ -97,11 +97,11 @@ $RestoredDatabase.status
 
     ![ Återställa översikt](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. Välj antingen **automatiska återställnings punkter** eller **användardefinierade återställnings punkter**. Om den dedikerade SQL-poolen inte har några automatiska återställnings punkter väntar du några timmar eller skapar en användardefinierad återställnings punkt innan du återställer. För User-Defined återställnings punkter väljer du en befintlig eller skapar en ny. För **Server** kan du välja en server i en annan resurs grupp och region eller skapa en ny. När du har angett alla parametrar klickar du på **Granska + Återställ**.
+4. Välj antingen **automatiska återställnings punkter** eller **användardefinierade återställnings punkter**. Om den dedikerade SQL-poolen (tidigare SQL DW) inte har några automatiska återställnings punkter väntar du några timmar eller skapar en användardefinierad återställnings punkt innan du återställer. För User-Defined återställnings punkter väljer du en befintlig eller skapar en ny. För **Server** kan du välja en server i en annan resurs grupp och region eller skapa en ny. När du har angett alla parametrar klickar du på **Granska + Återställ**.
 
     ![Automatiska återställningspunkter](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Återställa en borttagen dedikerad SQL-pool](sql-data-warehouse-restore-deleted-dw.md)
-- [Återställa från en dedikerad geo-säkerhetskopia SQL-pool](sql-data-warehouse-restore-from-geo-backup.md)
+- [Återställa en borttagen dedikerad SQL-pool (tidigare SQL DW)](sql-data-warehouse-restore-deleted-dw.md)
+- [Återställa från en dedikerad geo-säkerhetskopia SQL-pool (tidigare SQL DW)](sql-data-warehouse-restore-from-geo-backup.md)

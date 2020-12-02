@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 4cb707896aa7874aa2bf287723e8a53d7d6d974c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: bcb8cc6da3d2fc631058386103575549e376a32c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577795"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452157"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planera ett Azure Application erbjudande för den kommersiella marknads platsen
 
@@ -33,18 +33,18 @@ Design, utveckling och testning av Azure-programerbjudanden kräver teknisk kuns
 
 Granska följande resurser när du planerar ditt Azure Application-erbjudande för den kommersiella Marketplace.
 
-- [Förstå Azure Resource Manager mallar](/azure/azure-resource-manager/templates/template-syntax)
+- [Förstå Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md)
 - Snabbstarter:
     - [Azure-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/)
     - [Best Practices guide för Azure-mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
-    - [Publicera programdefinition](/azure/managed-applications/publish-service-catalog-app)
-    - [Distribuera tjänstkatalogapp](/azure/managed-applications/deploy-service-catalog-quickstart)
+    - [Publicera programdefinition](../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
+    - [Distribuera tjänstkatalogapp](../azure-resource-manager/managed-applications/deploy-service-catalog-quickstart.md)
 - Självstudier:
-    - [Skapa definitionsfiler](/azure/managed-applications/publish-service-catalog-app)
+    - [Skapa definitionsfiler](../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
 - Stickprov
-    - [Azure CLI](/azure/managed-applications/cli-samples)
-    - [Azure PowerShell](/azure/managed-applications/powershell-samples)
-    - [Hanterade programlösningar](/azure/managed-applications/sample-projects)
+    - [Azure CLI](../azure-resource-manager/managed-applications/cli-samples.md)
+    - [Azure PowerShell](../azure-resource-manager/managed-applications/powershell-samples.md)
+    - [Hanterade programlösningar](../azure-resource-manager/managed-applications/sample-projects.md)
 
 [Mallarna för video skapande lösningar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) ger en omfattande introduktion till Azures program erbjudande typ:
 
@@ -59,12 +59,12 @@ Granska följande resurser när du planerar ditt Azure Application-erbjudande f�
 
 Välj en eller båda av följande skript miljöer för att hantera ditt Azure-program:
 
-- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure PowerShell](/powershell/azure/)
+- [Azure CLI](/cli/azure)
 
 Vi rekommenderar att du lägger till följande verktyg i utvecklings miljön:
 
-- [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+- [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 - [Visual Studio Code](https://code.visualstudio.com/) med följande fil namns tillägg:
     - Tillägg: [Azure Resource Manager verktyg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     - Tillägg: [beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -93,11 +93,11 @@ Du måste ansluta ditt erbjudande till ditt CRM-system (Customer Relations hip M
 
 Du kan lägga till eller ändra en CRM-anslutning när som helst under eller efter att erbjudandet har skapats. Mer detaljerad information finns i [kund leads från ditt kommersiella Marketplace-erbjudande](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
-## <a name="categories-and-subcategories"></a>Kategorier och under Kategorier
+## <a name="categories-and-subcategories"></a>Kategorier och underkategorier
 
 Du kan välja minst en och upp till två kategorier för att gruppera ditt erbjudande i lämpliga sökområden för handels platser. Du kan välja upp till två under Kategorier för varje primär och sekundär kategori. En fullständig lista över kategorier och under kategorier finns i [erbjudande om bästa praxis](gtm-offer-listing-best-practices.md#categories).
 
-## <a name="legal-contracts"></a>Juridiska avtal
+## <a name="legal-contracts"></a>Juridiska kontrakt
 
 För att förenkla inköps processen för kunder och minska den juridiska komplexiteten för program varu leverantörer erbjuder Microsoft ett standard kontrakt som du kan använda för dina erbjudanden på den kommersiella marknaden. När du erbjuder program varan under standard kontraktet behöver kunderna bara läsa och godkänna den en gång, och du behöver inte skapa anpassade allmänna villkor.
 
@@ -121,7 +121,7 @@ När du skapar ett nytt Azure Application erbjudande i Partner Center, kommer du
 5. Sekretess policy adress (länk)
 6. Erbjudandets namn
 7. Sammanfattning
-8. Beskrivning
+8. Description
 9. Skärm bilder/videor
 
 Följande skärm bild visar hur information om erbjudandet visas i Azure Portal:
@@ -140,21 +140,21 @@ Följande skärm bild visar hur information om erbjudandet visas i Azure Portal:
 
 För att hjälpa till att skapa ett erbjudande enklare kan du förbereda några av dessa objekt i förväg. Följande objekt krävs om inget annat anges.
 
-- **Namn** : namnet visas som rubrik på din erbjudande lista på den kommersiella Marketplace. Namnet kan vara ett varumärke. Den får inte innehålla emojis (om de inte är varumärken och Copyright-symboler) och måste vara begränsade till 50 tecken.
-- **Sammanfattning av Sök Resultat** : Beskriv syftet eller funktionen hos ditt erbjudande som en enda mening, i klartext utan rad brytningar, med 100 tecken eller mindre. Den här sammanfattningen används i Sök resultaten för de kommersiella Marketplace-listorna.
-- **Kort beskrivning** : ger upp till 256 tecken med oformaterad text. Den här sammanfattningen visas på ditt erbjudandes informations sida.
-- **Beskrivning** : den här beskrivningen visas i Översikt över Azure Marketplace-lista (er). Överväg att inkludera ett värde förslag, viktiga fördelar, avsedda användar Base, kategori-eller bransch associationer, inköps möjligheter för appar, kund behov eller smärta som erbjudande adresser, obligatoriska upplysningar och en länk till mer information.
+- **Namn**: namnet visas som rubrik på din erbjudande lista på den kommersiella Marketplace. Namnet kan vara ett varumärke. Den får inte innehålla emojis (om de inte är varumärken och Copyright-symboler) och måste vara begränsade till 50 tecken.
+- **Sammanfattning av Sök Resultat**: Beskriv syftet eller funktionen hos ditt erbjudande som en enda mening, i klartext utan rad brytningar, med 100 tecken eller mindre. Den här sammanfattningen används i Sök resultaten för de kommersiella Marketplace-listorna.
+- **Kort beskrivning**: ger upp till 256 tecken med oformaterad text. Den här sammanfattningen visas på ditt erbjudandes informations sida.
+- **Beskrivning**: den här beskrivningen visas i Översikt över Azure Marketplace-lista (er). Överväg att inkludera ett värde förslag, viktiga fördelar, avsedda användar Base, kategori-eller bransch associationer, inköps möjligheter för appar, kund behov eller smärta som erbjudande adresser, obligatoriska upplysningar och en länk till mer information.
 
     Den här text rutan innehåller text redigerings kontroller som du kan använda för att göra din beskrivning mer engagerande. Du kan också använda HTML-taggar för att formatera beskrivningen. Du kan ange upp till 3 000 tecken text i den här rutan, inklusive HTML-kod och blank steg. Ytterligare tips finns i [skriva en fantastisk app-Beskrivning](/windows/uwp/publish/write-a-great-app-description) och [HTML-taggar som stöds i de kommersiella erbjudandena för Marketplace-erbjudanden](supported-html-tags.md).
 
 - **Sök Nyckelord** (valfritt): ange upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande i onlinebutiken. För bästa resultat bör du också använda dessa nyckelord i beskrivningen. Du behöver inte inkludera erbjudandets **namn** och **Beskrivning**. Texten tas automatiskt med i sökningen.
-- **Länk till sekretess policy** : URL: en för ditt företags sekretess policy. Du måste ange en giltig sekretess policy och du ansvarar för att se till att appen uppfyller sekretess lagar och föreskrifter.
+- **Länk till sekretess policy**: URL: en för ditt företags sekretess policy. Du måste ange en giltig sekretess policy och du ansvarar för att se till att appen uppfyller sekretess lagar och föreskrifter.
 - **Användbara länkar** (valfritt): du kan ange länkar till olika resurser för användare av ditt erbjudande. Till exempel forum, FAQ och viktig information.
-- **Kontakt information** : du måste ange följande kontakter från din organisation:
-  - **Support kontakt** : Ange namn, telefon och e-postadress för Microsoft-partner som ska användas när dina kunder öppnar biljetter. Du måste även ta med URL: en för din support webbplats.
-  - **Teknisk kontakt** : Ange namn, telefon och e-postadress som Microsoft ska använda direkt när det är problem med erbjudandet. Den här kontakt informationen visas inte i den kommersiella marknads platsen.
+- **Kontakt information**: du måste ange följande kontakter från din organisation:
+  - **Support kontakt**: Ange namn, telefon och e-postadress för Microsoft-partner som ska användas när dina kunder öppnar biljetter. Du måste även ta med URL: en för din support webbplats.
+  - **Teknisk kontakt**: Ange namn, telefon och e-postadress som Microsoft ska använda direkt när det är problem med erbjudandet. Den här kontakt informationen visas inte i den kommersiella marknads platsen.
   - **Kontakta CSP-programmet** (valfritt): Ange namn, telefon och e-postadress om du väljer att använda Cloud Solution Provider (CSP) så att dessa partner kan kontakta dig med frågor. Du kan också inkludera en URL till ditt marknadsförings material.
-- **Media – logo typer** : Ange en PNG-fil för logo typen för **stor** storlek. Partner Center använder detta för att skapa en **liten** och en **medie** logo typ. Du kan också ersätta dem med olika avbildningar senare.
+- **Media – logo typer**: Ange en PNG-fil för logo typen för **stor** storlek. Partner Center använder detta för att skapa en **liten** och en **medie** logo typ. Du kan också ersätta dem med olika avbildningar senare.
   - Stor (från 216 x 216 till 350 x 350 BPT, krävs)
   - Medel (90 x 90 BPT, valfritt)
   - Liten (48 x 48 BPT, valfritt)
@@ -177,7 +177,7 @@ För att hjälpa till att skapa ett erbjudande enklare kan du förbereda några 
   - . png-fil
   - Måste innehålla en beskrivning
 - **Media – videor** (valfritt): du kan lägga till upp till fem videor med följande krav som demonstrerar ditt erbjudande:
-  - Namn
+  - Name
   - URL: måste vara värd för YouTube eller Vimeo.
   - Miniatyr: 1280 x 720. png-fil
 
@@ -197,10 +197,10 @@ Du definierar förhands gransknings publiken med ID: n för Azure-prenumeratione
 
 För hanterade program som genererar mätnings händelser med hjälp av [API: er för avläsning](partner-center-portal/marketplace-metering-service-apis.md)av program vara, måste du ange den identitet som din tjänst kommer att använda när du genererar Mät händelser.
 
-Den här konfigurationen krävs om du vill använda [händelsen för batch-användning](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event). Om du vill skicka [användnings händelse](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event)kan du också använda [instansens metadatatjänst](/azure/active-directory/managed-identities-azure-resources/overview) för att hämta [token för JSON-webbtoken (JWT)](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token).
+Den här konfigurationen krävs om du vill använda [händelsen för batch-användning](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event). Om du vill skicka [användnings händelse](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event)kan du också använda [instansens metadatatjänst](../active-directory/managed-identities-azure-resources/overview.md) för att hämta [token för JSON-webbtoken (JWT)](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token).
 
-- **Azure Active Directory klient-ID** (krävs): inuti Azure Portal måste du [skapa en Azure Active Directory-app (AD)](/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID:](/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in) t för din Azure Active Directory (Azure AD)-app i [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) bladet i din Azure Active Directory. I kolumnen **visnings namn** väljer du appen. Leta sedan efter **Egenskaper** och sedan för **katalog (klient) ID** (till exempel `50c464d3-4930-494c-963c-1e951d15360e` ).
-- **Azure Active Directory program-ID** (obligatoriskt): du behöver också ditt [program-ID](/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in.md) och en autentiseringsnyckel. Om du vill hitta ditt program-ID går du till bladet [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Active Directory. I kolumnen **visnings namn** väljer du appen och letar sedan efter **program-ID** (till exempel `50c464d3-4930-494c-963c-1e951d15360e` ). Om du vill hitta autentiseringsnyckel går du till **Inställningar** och väljer **nycklar**. Du måste ange en beskrivning och varaktighet och kommer sedan att tillhandahålla ett Number-värde.
+- **Azure Active Directory klient-ID** (krävs): inuti Azure Portal måste du [skapa en Azure Active Directory-app (AD)](../active-directory/develop/howto-create-service-principal-portal.md) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID:](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) t för din Azure Active Directory (Azure AD)-app i [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) bladet i din Azure Active Directory. I kolumnen **visnings namn** väljer du appen. Leta sedan efter **Egenskaper** och sedan för **katalog (klient) ID** (till exempel `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **Azure Active Directory program-ID** (obligatoriskt): du behöver också ditt [program-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) och en autentiseringsnyckel. Om du vill hitta ditt program-ID går du till bladet [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Active Directory. I kolumnen **visnings namn** väljer du appen och letar sedan efter **program-ID** (till exempel `50c464d3-4930-494c-963c-1e951d15360e` ). Om du vill hitta autentiseringsnyckel går du till **Inställningar** och väljer **nycklar**. Du måste ange en beskrivning och varaktighet och kommer sedan att tillhandahålla ett Number-värde.
 
 > [!NOTE]
 > Azure-program-ID: t associeras med ditt utgivar-ID och kan bara användas på nytt i det här utgivar kontot.
@@ -209,7 +209,7 @@ Den här konfigurationen krävs om du vill använda [händelsen för batch-anvä
 
 Du kan välja att välja mellan marknadsförings-och försäljnings kanaler som stöds av Microsoft. När du skapar erbjudandet i Partner Center visas två flikar i slutet av processen:
 
-- Att **sälja via CSP** : Använd det här alternativet om du vill att CSP-partner (Microsoft Cloud solution providers) ska kunna sälja din lösning som en del av ett sammanslaget erbjudande. Mer information finns i [Cloud Solution Provider-programmet](/azure/marketplace/cloud-solution-providers) .
+- Att **sälja via CSP**: Använd det här alternativet om du vill att CSP-partner (Microsoft Cloud solution providers) ska kunna sälja din lösning som en del av ett sammanslaget erbjudande. Mer information finns i [Cloud Solution Provider-programmet](./cloud-solution-providers.md) .
 - **Samförsäljning med Microsoft: med** det här alternativet kan Microsofts försäljnings team överväga din IP-samkunds kvalificerade lösning vid utvärdering av kundernas behov. Se [samförsäljnings alternativ i Partner Center](partner-center-portal/commercial-marketplace-co-sell.md) för detaljerad information om hur du förbereder erbjudandet för utvärdering. Mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner Channels finns i [moln lösnings leverantörer](cloud-solution-providers.md).
 
 Mer information finns i [utveckla din moln verksamhet med Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
@@ -224,12 +224,12 @@ Allmän vägledning om planer, inklusive pris modeller och privata planer finns 
 
 Det finns två typer av Azure-programplaner: _lösnings mal len_ och _hanterade program_. Båda plan typerna stöder automatisering av distribution och konfiguration av en lösning utöver en enskild virtuell dator (VM). Du kan automatisera processen med att tillhandahålla flera resurser, inklusive virtuella datorer, nätverk och lagrings resurser för att tillhandahålla komplexa lösningar, till exempel IaaS-lösningar. Båda typerna av abonnemang kan använda många olika typer av Azure-resurser, inklusive men inte begränsat till virtuella datorer.
 
-- **Lösnings mal len** planer är ett av de största sätten att publicera en lösning på den kommersiella marknads platsen. Lösningar för lösnings mal len är inte i ett särskilt lägen i den kommersiella marknads platsen, men de kan användas för att distribuera betalda VM-erbjudanden som debiteras via den kommersiella marknads platsen. Använd lösnings mal len plan typ när kunden ska hantera lösningen och transaktionerna debiteras genom en annan plan. Mer information om hur du skapar Solution-mallar finns i [Vad är Azure Resource Manager?](/azure/azure-resource-manager/resource-group-overview)
+- **Lösnings mal len** planer är ett av de största sätten att publicera en lösning på den kommersiella marknads platsen. Lösningar för lösnings mal len är inte i ett särskilt lägen i den kommersiella marknads platsen, men de kan användas för att distribuera betalda VM-erbjudanden som debiteras via den kommersiella marknads platsen. Använd lösnings mal len plan typ när kunden ska hantera lösningen och transaktionerna debiteras genom en annan plan. Mer information om hur du skapar Solution-mallar finns i [Vad är Azure Resource Manager?](../azure-resource-manager/management/overview.md)
 - Med **hanterade program** planer kan du enkelt skapa och leverera fullständigt hanterade, färdiga program för dina kunder. De har samma funktioner som lösnings mal len planer, med några viktiga skillnader:
     - Resurserna distribueras till en resurs grupp och hanteras av appens utgivare. Resursgruppen finns i kundens prenumeration, men en identitet i utgivarens klient har åtkomst till resursgruppen. 
     - Som utgivare kan du ange kostnaden för kontinuerlig support för lösningen och transaktioner som stöds via den kommersiella Marketplace.
  
-    Använd den hanterade program Plans typen när du eller din kund kräver att lösningen hanteras av en partner eller att du distribuerar en prenumerations-baserad lösning. Mer information om fördelarna och typerna av hanterade program finns i [Översikt över Azure Managed Applications](/azure/managed-applications/overview).
+    Använd den hanterade program Plans typen när du eller din kund kräver att lösningen hanteras av en partner eller att du distribuerar en prenumerations-baserad lösning. Mer information om fördelarna och typerna av hanterade program finns i [Översikt över Azure Managed Applications](../azure-resource-manager/managed-applications/overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

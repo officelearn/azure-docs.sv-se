@@ -1,6 +1,6 @@
 ---
-title: Autentisering
-description: Lär dig hur du autentiserar till Azure Synapse Analytics genom att använda Azure Active Directory (Azure AD) eller SQL Server autentisering.
+title: Autentisering för dedikerad SQL-pool (tidigare SQL DW)
+description: Lär dig hur du autentiserar till dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics genom att använda Azure Active Directory (Azure AD) eller SQL Server autentisering.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -12,29 +12,29 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: 29709dc03ee3a06bdf2aec2587909a08ee13504e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2b5ca024046c5bc46fff756c55688d3ff0cfea1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85206738"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451970"
 ---
-# <a name="authenticate-to-azure-synapse-analytics"></a>Autentisera till Azure Synapse Analytics
+# <a name="authenticate-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Autentisera till dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics
 
-Lär dig att autentisera till Synapse SQL i Azure Synapse med hjälp av Azure Active Directory (AAD) eller SQL Server autentisering.
+Lär dig hur du autentiserar till dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse med hjälp av Azure Active Directory (Azure AD) eller SQL Server autentisering.
 
-Om du vill ansluta till en SQL-pool måste du skicka säkerhets uppgifter för autentisering. När du upprättar en anslutning konfigureras vissa anslutnings inställningar som en del av upprättandet av sessionen.  
+Om du vill ansluta till en dedikerad SQL-pool (tidigare SQL DW) måste du skicka säkerhets uppgifter för autentisering. När du upprättar en anslutning konfigureras vissa anslutnings inställningar som en del av upprättandet av sessionen.  
 
-Mer information om säkerhet och hur du aktiverar anslutningar till data lagret finns i [skydda en databas dokumentation](sql-data-warehouse-overview-manage-security.md).
+Mer information om säkerhet och hur du aktiverar anslutningar till din dedikerade SQL-pool (tidigare SQL DW) finns i [skydda en databas dokumentation](sql-data-warehouse-overview-manage-security.md).
 
 ## <a name="sql-authentication"></a>SQL-autentisering
 
-För att ansluta till SQL-poolen måste du ange följande information:
+Om du vill ansluta till en dedikerad SQL-pool (tidigare SQL DW) måste du ange följande information:
 
 * Fullständigt kvalificerat Server namn
 * Ange SQL-autentisering
 * Användarnamn
-* lösenordsinställning
+* Lösenord
 * Standard databas (valfritt)
 
 Som standard ansluter anslutningen till *huvud* databasen och inte till din användar databas. Om du vill ansluta till din användar databas kan du välja att göra något av följande:
@@ -45,9 +45,9 @@ Som standard ansluter anslutningen till *huvud* databasen och inte till din anv�
 > [!NOTE]
 > Transact-SQL-instruktionen **använder-databasen;** stöds inte för att ändra databasen för en anslutning. Vägledning för att ansluta till en SQL-pool med SSDT finns i artikeln [fråga med Visual Studio](sql-data-warehouse-query-visual-studio.md) .
 
-## <a name="azure-active-directory-aad-authentication"></a>Azure Active Directory autentisering (AAD)
+## <a name="azure-active-directory-authentication"></a>Azure Active Directory-autentisering
 
-[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) autentisering är en mekanism för att ansluta till SQL-poolen med hjälp av identiteter i Azure Active Directory (Azure AD). Med Azure Active Directory autentisering kan du centralt hantera identiteter för databas användare och andra Microsoft-tjänster på en central plats. Hantering av central-ID är en enda plats där du kan hantera Azure Synapse-användare och förenkla behörighets hanteringen.
+[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) autentisering är en mekanism för att ansluta till SQL-poolen med hjälp av identiteter i Azure Active Directory (Azure AD). Med Azure Active Directory autentisering kan du centralt hantera identiteter för databas användare och andra Microsoft-tjänster på en central plats. Hantering av centrala ID ger en enda plats för att hantera dedikerad SQL-pool (tidigare SQL DW) användare och fören klar behörighets hanteringen.
 
 ### <a name="benefits"></a>Fördelar
 
@@ -57,7 +57,7 @@ Azure Active Directory fördelarna är:
 * Hjälper till att stoppa spridningen av användar identiteter mellan servrar.
 * Lösenord kan roteras på ett och samma ställe
 * Hantera databas behörigheter med hjälp av externa (Azure AD) grupper.
-* Eliminerar lagring av lösen ord genom att aktivera integrerad Windows-autentisering och o nnan former av autentisering som stöds av Azure Active Directory.
+* Eliminerar lagring av lösen ord genom att aktivera integrerad Windows-autentisering och andra former av autentisering som stöds av Azure Active Directory.
 * Använder inneslutna databas användare för att autentisera identiteter på databas nivå.
 * Stöder tokenbaserad autentisering för program som ansluter till SQL-poolen.
 * Stöder Multi-Factor Authentication via Active Directory Universal Authentication för olika verktyg, inklusive [SQL Server Management Studio](../../azure-sql/database/authentication-mfa-ssms-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och [SQL Server Data Tools](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).

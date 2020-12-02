@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 46c5271c8ded970442d1ae4022573473997d98af
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: cdfd012d5015e156439a1afa89e818bf82b64dc6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426998"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449327"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Självstudie: förbereda för att distribuera Azure Stack Edge Pro med GPU 
 
@@ -58,7 +58,7 @@ Nu kan du börja samla in information om program varu konfigurationen för din A
 Innan du distribuerar enheten måste du samla in information för att konfigurera program varan på din Azure Stack Edge Pro-enhet. Att förbereda en del av den här informationen i förväg bidrar till att effektivisera processen att distribuera enheten i din miljö. Använd [Check listan Azure Stack Edge Pro Deployment Configuration](azure-stack-edge-gpu-deploy-checklist.md) för att anteckna konfigurations informationen när du distribuerar enheten.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande är konfigurations kraven för din Azure Stack Edge-resurs, din Azure Stack Edge-enhet och data Center nätverket.
 
@@ -66,15 +66,15 @@ Följande är konfigurations kraven för din Azure Stack Edge-resurs, din Azure 
 
 Innan du börjar ska du kontrollera att:
 
-- Din Microsoft Azure prenumeration är aktive rad för en Azure Stack Edge-resurs. Se till att du har använt en prenumeration som stöds, till exempel [Microsoft Enterprise-avtal (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)eller [Microsoft Azure-sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/). Prenumerationer med principen betala per användning stöds inte. För att identifiera vilken typ av Azure-prenumeration du har, se [Vad är ett Azure-erbjudande?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer).
+- Din Microsoft Azure prenumeration är aktive rad för en Azure Stack Edge-resurs. Se till att du har använt en prenumeration som stöds, till exempel [Microsoft Enterprise-avtal (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp)eller [Microsoft Azure-sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/). Prenumerationer med principen betala per användning stöds inte. För att identifiera vilken typ av Azure-prenumeration du har, se [Vad är ett Azure-erbjudande?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer).
 - Du har ägar-eller deltagar åtkomst på resurs grupps nivå för Azure Stack Edge Pro/Data Box Gateway, IoT Hub och Azure Storage resurser.
 
     - Om du vill skapa en Azure Stack gräns-/Data Box Gateway-resurs, bör du ha behörighet som deltagare (eller högre) som är begränsade till resurs grupps nivå. 
     - Du måste också kontrol lera att- `Microsoft.DataBoxEdge` och- `MicrosoftKeyVault` resurs leverantörerna har registrerats. Om du vill skapa en IoT Hub resurs `Microsoft.Devices` ska leverantören registreras. 
-        - Om du vill registrera en resurs leverantör går du till **start > prenumerationer > dina prenumerations > resurs leverantörer**i Azure Portal. 
+        - Om du vill registrera en resurs leverantör går du till **start > prenumerationer > dina prenumerations > resurs leverantörer** i Azure Portal. 
         - Sök efter den angivna resurs leverantören, till exempel, `Microsoft.DataBoxEdge` och registrera resurs leverantören. 
     - Om du vill skapa en lagrings konto resurs måste du igen med deltagar-eller högre åtkomst omfång på resurs grupps nivå. Azure Storage är som standard en registrerad resurs leverantör.
-- Du har administratörs-eller användar åtkomst till Azure Active Directory Graph API för att skapa aktiverings nyckel eller Credential-åtgärder, till exempel dela skapande som använder ett lagrings konto. Mer information finns i [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+- Du har administratörs-eller användar åtkomst till Azure Active Directory Graph API för att skapa aktiverings nyckel eller Credential-åtgärder, till exempel dela skapande som använder ett lagrings konto. Mer information finns i [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
 
 ### <a name="for-the-azure-stack-edge-pro-device"></a>För Azure Stack Edge Pro-enhet
@@ -113,7 +113,7 @@ För att skapa en Azure Stack Edge-resurs, utför följande steg i Azure Portal.
 
     ![Skapa en resurs 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 
-4. Välj enhets typ. Under **Azure Stack Edge Pro**väljer du **Azure Stack Edge Pro med GPU** och väljer sedan **Välj**. Om du ser några problem eller inte kan välja enhets typ går du till [Felsöka beställnings problem](azure-stack-edge-troubleshoot-ordering.md).
+4. Välj enhets typ. Under **Azure Stack Edge Pro** väljer du **Azure Stack Edge Pro med GPU** och väljer sedan **Välj**. Om du ser några problem eller inte kan välja enhets typ går du till [Felsöka beställnings problem](azure-stack-edge-troubleshoot-ordering.md).
 
     ![Skapa en resurs 3](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
 
@@ -126,7 +126,7 @@ För att skapa en Azure Stack Edge-resurs, utför följande steg i Azure Portal.
     |Inställning  |Värde  |
     |---------|---------|
     |Prenumeration    |Detta fylls i automatiskt baserat på den tidigare markeringen. Prenumerationen är kopplad till ditt faktureringskonto. |
-    |Resursgrupp  |Välj en befintlig grupp eller skapa en ny grupp.<br>Lär dig mer om [Azures resurs grupper](../azure-resource-manager/resource-group-overview.md).     |
+    |Resursgrupp  |Välj en befintlig grupp eller skapa en ny grupp.<br>Lär dig mer om [Azures resurs grupper](../azure-resource-manager/management/overview.md).     |
 
 7. Ange eller Välj följande **instans information**.
 
@@ -149,7 +149,7 @@ För att skapa en Azure Stack Edge-resurs, utför följande steg i Azure Portal.
 
 9. Välj **Nästa: Taggar**. Du kan också ange taggar för att kategorisera resurser och konsolidera fakturering. Välj **Nästa: Granska + skapa**.
 
-10. På fliken **Granska + skapa** granskar du **pris informationen**, **användningsvillkor**och informationen för resursen. Välj kombinations rutan för **Jag har granskat sekretess villkoren**.
+10. På fliken **Granska + skapa** granskar du **pris informationen**, **användningsvillkor** och informationen för resursen. Välj kombinations rutan för **Jag har granskat sekretess villkoren**.
 
     ![Skapa en resurs 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
 
@@ -207,6 +207,3 @@ Gå vidare till nästa självstudie och lär dig hur du installerar Azure Stack 
 
 > [!div class="nextstepaction"]
 > [Installera Azure Stack Edge Pro](./azure-stack-edge-gpu-deploy-install.md)
-
-
-

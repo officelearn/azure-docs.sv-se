@@ -1,6 +1,6 @@
 ---
-title: Ansluta till Synapse SQL med Azure Data Studio (för hands version)
-description: Använd Azure Data Studio (för hands version) för att ansluta till och fråga Synapse SQL i Azure Synapse Analytics.
+title: Ansluta till Synapse SQL med Azure Data Studio
+description: Använd Azure Data Studio för att ansluta till och fråga Synapse SQL i Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,24 +9,24 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3af28ef575f770a5b8c3fb73ade1f9c53be66843
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 580dfe779ff0f550524781076d3e27805ffd6689
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685757"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451662"
 ---
-# <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Ansluta till Synapse SQL med Azure Data Studio (för hands version)
+# <a name="connect-to-synapse-sql-with-azure-data-studio"></a>Ansluta till Synapse SQL med Azure Data Studio
 
 > [!div class="op_single_selector"]
 >
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-> * [SQLCMD](get-started-connect-sqlcmd.md)
+> * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Du kan använda [Azure Data Studio (för hands version)](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att ansluta till och fråga Synapse SQL i Azure Synapse Analytics. 
+Du kan använda [Azure Data Studio)](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att ansluta till och fråga Synapse SQL i Azure Synapse Analytics. 
 
 ## <a name="connect"></a>Anslut
 
@@ -42,7 +42,7 @@ Anslutningen kräver följande parametrar:
 * **Databas:** Databas namn
 
 > [!NOTE]
-> Om du vill använda en **Server lös SQL-pool (förhands granskning)** bör URL: en se ut så här:
+> Om du vill använda en **Server utan SQL-pool** bör URL: en se ut så här:
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >
@@ -93,6 +93,6 @@ Utforska andra sätt att ansluta till Synapse SQL:
 - [SSMS](get-started-ssms.md)
 - [Power BI](get-started-power-bi-professional.md)
 - [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [SQLCMD](get-started-connect-sqlcmd.md)
+- [sqlcmd](get-started-connect-sqlcmd.md)
 
 Mer information finns på [använd Azure Data Studio för att ansluta och fråga efter data med en dedikerad SQL-pool i Azure Synapse Analytics](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-dw). 

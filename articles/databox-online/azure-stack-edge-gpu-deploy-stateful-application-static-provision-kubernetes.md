@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 6949b2265e1b22d924b67d0d46e5b2f2bf9c23ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2a14c12baac29d73754bb17e3ca386cc48e1ba0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330408"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449223"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Använda kubectl för att köra ett Kubernetes tillstånds känsligt program med en PersistentVolume på din Azure Stack Edge Pro-enhet
 
@@ -37,7 +37,7 @@ Innan du kan distribuera det tillstånds känsliga programmet måste du kontrol 
 ### <a name="for-client-accessing-the-device"></a>För klient åtkomst till enheten
 
 - Du har ett Windows-klientsystem som ska användas för att få åtkomst till Azure Stack Edge Pro-enheten.
-    - Klienten kör Windows PowerShell 5,0 eller senare. Om du vill hämta den senaste versionen av Windows PowerShell går du till [Installera Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - Klienten kör Windows PowerShell 5,0 eller senare. Om du vill hämta den senaste versionen av Windows PowerShell går du till [Installera Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - Du kan också ha andra klienter med ett [operativ system som stöds](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . Den här artikeln beskriver proceduren när du använder en Windows-klient. 
     
@@ -68,7 +68,7 @@ Om du vill konfigurera ett PV statiskt måste du skapa en resurs på enheten. F�
 
     1. I stället för att skapa en ny resurs måste du montera resursen om du väljer att använda en befintlig resurs.
     
-        Gå till **resurser**i Azure Portal för din Azure Stack Edge-resurs. Från den befintliga listan över resurser väljer du och klickar på en resurs som du vill använda.
+        Gå till **resurser** i Azure Portal för din Azure Stack Edge-resurs. Från den befintliga listan över resurser väljer du och klickar på en resurs som du vill använda.
 
         ![Välj befintlig lokal resurs för PV](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/mount-edge-share-1.png)
 
@@ -343,7 +343,7 @@ persistentvolumeclaim "mysql-pv-claim" deleted
 C:\Users\user>
 ```                                                                                         
 
-NUVÄRDEt är inte längre kopplat till PVC: n eftersom den har tagits bort. När PV etablerades när resursen skapades måste du ta bort resursen. Följ de här stegen:
+NUVÄRDEt är inte längre kopplat till PVC: n eftersom den har tagits bort. När PV etablerades när resursen skapades måste du ta bort resursen. Gör så här:
 
 1. Demontera resursen. I Azure Portal går du till **Azure Stack Edge-resurs > resurser** och väljer och klickar på den resurs som du vill demontera. Välj **demontera** och bekräfta åtgärden. Vänta tills resursen har demonterats. Demonteringen frigör resursen (och därmed tillhör ande PersistentVolume) från Kubernetes-klustret. 
 

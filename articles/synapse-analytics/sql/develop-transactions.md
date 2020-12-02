@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a2597a4bc6c5ed44f0e0050be3f69d7e840665e5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c4fe512ff6db24498148ffa724c3144a2f61823f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323842"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451705"
 ---
 # <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Använda transaktioner med dedikerad SQL-pool i Azure Synapse Analytics
 
@@ -27,7 +27,7 @@ Som förväntat stöder dedikerad SQL-pool transaktioner som en del av arbets be
 
 ## <a name="transaction-isolation-levels"></a>Transaktions isolerings nivåer
 
-SQL-poolen implementerar syror-transaktioner. Isolerings nivån för transaktions stödet är som standard SKRIVSKYDDad.  Du kan ändra den för att läsa en ISOLERAd ÖGONBLICKs bild isolering genom att aktivera READ_COMMITTED_SNAPSHOT databas alternativ för en användar databas när du är ansluten till huvud databasen.  
+Dedikerad SQL-pool implementerar syror-transaktioner. Isolerings nivån för transaktions stödet är som standard SKRIVSKYDDad.  Du kan ändra den för att läsa en ISOLERAd ÖGONBLICKs bild isolering genom att aktivera READ_COMMITTED_SNAPSHOT databas alternativ för en användar databas när du är ansluten till huvud databasen.  
 
 När den är aktive rad körs alla transaktioner i den här databasen under den SKRIVSKYDDade ÖGONBLICKs bild ISOLERINGen och inställningen Läs upp ej ALLOKERAd på sessions nivå kommer inte att ske. Se [Alter Database set Options (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true) för mer information.
 
@@ -89,7 +89,7 @@ Information om hur du optimerar och minimerar mängden data som skrivs till logg
 
 ## <a name="transaction-state"></a>Transaktions tillstånd
 
-SQL-poolen använder funktionen XACT_STATE () för att rapportera en misslyckad transaktion med värdet-2. Det här värdet innebär att transaktionen har misslyckats och bara har marker ATS för återställning.
+Dedikerad SQL-pool använder funktionen XACT_STATE () för att rapportera en misslyckad transaktion med värdet-2. Det här värdet innebär att transaktionen har misslyckats och bara har marker ATS för återställning.
 
 > [!NOTE]
 > Användningen av-2 i XACT_STATE-funktionen för att beteckna en misslyckad transaktion representerar olika beteenden för SQL Server. SQL Server använder värdet-1 för att representera en allokerad-transaktion. SQL Server kan tolerera fel i en transaktion utan att den måste markeras som allokerad. Till exempel `SELECT 1/0` skulle orsaka ett fel, men inte framtvinga en transaktion i ett allokerad-tillstånd. SQL Server tillåter också läsningar i allokerad-transaktionen. Dedikerad SQL-pool tillåter dock inte detta. Om ett fel uppstår i en dedikerad transaktion i en SQL-pool, anges-2-tillstånd automatiskt och du kommer inte att kunna göra några fler SELECT-instruktioner förrän instruktionen har återställts. Det är därför viktigt att kontrol lera att program koden för att se om den använder XACT_STATE () som du kan behöva göra kod ändringar.
@@ -193,7 +193,7 @@ THROW är den mer moderna implementeringen för att generera undantag i dedikera
 
 ## <a name="limitations"></a>Begränsningar
 
-SQL-poolen har några andra begränsningar som relaterar till transaktioner. Det här är skillnaderna:
+Dedikerad SQL-pool har några andra begränsningar som relaterar till transaktioner. Det här är skillnaderna:
 
 * Inga distribuerade transaktioner
 * Inga kapslade transaktioner tillåts
@@ -204,4 +204,4 @@ SQL-poolen har några andra begränsningar som relaterar till transaktioner. Det
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du optimerar transaktioner finns i [metod tips för transaktioner](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Ytterligare metod tips finns också för SQL- [poolen](best-practices-sql-pool.md) och [SQL-poolen utan server (för hands version)](best-practices-sql-on-demand.md).
+Mer information om hur du optimerar transaktioner finns i [metod tips för transaktioner](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Ytterligare metod tips finns också för [dedikerad SQL-pool](best-practices-sql-pool.md) och [Server lös SQL-pool](best-practices-sql-on-demand.md).

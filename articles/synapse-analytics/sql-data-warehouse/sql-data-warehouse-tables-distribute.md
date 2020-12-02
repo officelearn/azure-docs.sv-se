@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: a3715abdebce319979d867d12764a22b4ed16c35
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c452d51018ef3f204cd7281971c07fb6337d39bf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323627"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449704"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Vägledning för att utforma distribuerade tabeller med dedikerad SQL-pool i Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ En hash-distribuerad tabell distribuerar tabell rader över datornoderna genom a
 
 ![Distribuerad tabell](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Distribuerad tabell")  
 
-Eftersom identiska värden alltid hash-kodas till samma distribution, har informations lagret inbyggd kunskap om rad platserna. I dedikerad SQL-pool används den här kunskapen för att minimera data flyttningen under frågor, vilket förbättrar frågans prestanda.
+Eftersom identiska värden alltid hash till samma distribution har SQL Analytics inbyggd kunskap om rad platser. I dedikerad SQL-pool används den här kunskapen för att minimera data flyttningen under frågor, vilket förbättrar frågans prestanda.
 
 Hash-distribuerade tabeller fungerar bra för stora fakta tabeller i ett stjärn schema. De kan ha ett stort antal rader och har fortfarande höga prestanda. Det finns naturligtvis några design överväganden som hjälper dig att få den prestanda som det distribuerade systemet har utformats för att tillhandahålla. Att välja en lämplig distributions kolumn är en sådan som beskrivs i den här artikeln.
 

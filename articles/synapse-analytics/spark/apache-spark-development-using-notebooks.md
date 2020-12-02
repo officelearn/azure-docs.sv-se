@@ -1,6 +1,6 @@
 ---
 title: Synapse Studio-anteckningsböcker
-description: I den här artikeln får du lära dig att skapa och utveckla bärbara datorer i Azure Synapse Studio (för hands version) för att förbereda data och visualiseringar.
+description: I den här artikeln får du lära dig hur du skapar och utvecklar Azure Synapse Studio-anteckningsböcker för förberedelse av data och visualisering.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
@@ -10,16 +10,16 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: c35ee7bcdefa5091d9c887430182638f066cb9fa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bfb822481e00e84fa17bd4b1fcb58c1d4b89a124
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95900915"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450868"
 ---
-# <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Skapa, utveckla och underhålla antecknings böcker för Synapse Studio (för hands version) i Azure Synapse Analytics
+# <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Skapa, utveckla och underhålla Synapse Studio-anteckningsböcker i Azure Synapse Analytics
 
-En Synapse Studio-anteckningsbok (för hands version) är ett webb gränssnitt där du kan skapa filer som innehåller Live-kod, visualiseringar och text. Bärbara datorer är en bra plats för att verifiera idéer och använda snabba experiment för att få insikter om dina data. Antecknings böcker används också ofta i förberedelse av data, data visualisering, maskin inlärning och andra stora data scenarier.
+En Synapse Studio-anteckningsbok är ett webb gränssnitt där du kan skapa filer som innehåller Live-kod, visualiseringar och text. Bärbara datorer är en bra plats för att verifiera idéer och använda snabba experiment för att få insikter om dina data. Antecknings böcker används också ofta i förberedelse av data, data visualisering, maskin inlärning och andra stora data scenarier.
 
 Med en Azure Synapse Studio-anteckningsbok kan du:
 
@@ -149,7 +149,7 @@ IntelliSense-funktionerna finns på olika förfallo nivåer för olika språk. A
 
 |Språk| Syntaxkontroll | Fel markör för syntaxfel  | Komplettering av syntax kod | Slut för ande av variabel kod| Slut för ande av system funktions kod| Slut för ande av användar funktions kod| Smarta indrag | Kod vikning|
 |--|--|--|--|--|--|--|--|--|
-|PySpark (python)|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
+|PySpark (Python)|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Spark (Scala)|Ja|Ja|Ja|Ja|-|-|-|Ja|
 |SparkSQL|Ja|Ja|-|-|-|-|-|-|
 |.NET för Spark (C#)|Yes|-|-|-|-|-|-|-|
@@ -549,7 +549,7 @@ Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse
 
 ## <a name="next-steps"></a>Nästa steg
 - [Kolla Synapse-exempel Notebooks](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
-- [Snabb start: skapa en Apache Spark pool (förhands granskning) i Azure Synapse Analytics med hjälp av webb verktyg](../quickstart-apache-spark-notebook.md)
+- [Snabb start: skapa en Apache Spark pool i Azure Synapse Analytics med hjälp av webb verktyg](../quickstart-apache-spark-notebook.md)
 - [Vad är Apache Spark i Azure Synapse Analytics](apache-spark-overview.md)
 - [Använda .NET för Apache Spark med Azure Synapse Analytics](spark-dotnet.md)
 - [Dokumentation om .NET för Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 05/04/2020
-ms.openlocfilehash: 60bb16b0a4fd2e710d0d5fddc6cf82916f2f66af
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 750e8cc59f196fda6bf3a816885c3c0b29a69a56
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741421"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451922"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planera ett virtuellt nätverk för Azure HDInsight
 
@@ -148,7 +148,7 @@ Om du vill aktivera namn matchning mellan det virtuella nätverket och resursern
 
          * Vidarebefordra alla andra begär anden till den lokala DNS-servern. Den lokala DNS-tjänsten hanterar alla andra namn matchnings begär Anden, även begär Anden för Internet resurser som Microsoft.com.
 
-     * __Lokalt DNS__ : vidarebefordra begär Anden för det virtuella nätverkets DNS-suffix till den anpassade DNS-servern. Den anpassade DNS-servern vidarebefordrar sedan till den rekursiva Azure-matcharen.
+     * __Lokalt DNS__: vidarebefordra begär Anden för det virtuella nätverkets DNS-suffix till den anpassade DNS-servern. Den anpassade DNS-servern vidarebefordrar sedan till den rekursiva Azure-matcharen.
 
        Den här konfigurationen dirigerar begär Anden om fullständigt kvalificerade domän namn som innehåller det virtuella nätverkets DNS-suffix till den anpassade DNS-servern. Alla andra begär Anden (även för offentliga Internet adresser) hanteras av den lokala DNS-servern.
 
@@ -212,4 +212,4 @@ När du skapar ett HDInsight-kluster skapas även en belastnings utjämning. Den
 * Mer information om virtuella Azure-nätverk finns i [Översikt över Azure-Virtual Network](../virtual-network/virtual-networks-overview.md).
 * Mer information om nätverks säkerhets grupper finns i [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md).
 * Mer information om användardefinierade vägar finns i [användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md).
-* Mer information om hur du styr trafik finns i [kontrol lera nätverks trafik](./control-network-traffic.md).
+* Mer information om hur du styr trafik inklusive brand Väggs integrering finns i [kontrol lera nätverks trafik](./control-network-traffic.md).

@@ -1,6 +1,6 @@
 ---
 title: Skydda autentiseringsuppgifter för åtkomst med länkade tjänster i Apache Spark för Azure Synapse Analytics
-description: Den här artikeln innehåller begrepp för hur du på ett säkert sätt kan integrera Apache Spark för Synapse-analys med andra tjänster med hjälp av länkade tjänster och token-bibliotek
+description: Den här artikeln innehåller begrepp för hur du på ett säkert sätt kan integrera Apache Spark för Azure Synapse Analytics med andra tjänster med hjälp av länkade tjänster och token-bibliotek
 services: synapse-analytics
 author: mlee3gsd
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 08/26/2020
 ms.author: martinle
 ms.reviewer: euang
-ms.openlocfilehash: 1cdb010e34674d52ebe2135ad1591a163a078708
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d542e6ef784d763e406aad28231431cbc382fbfd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324953"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450913"
 ---
 # <a name="securing-your-credentials-through-linked-services-with-the-tokenlibrary"></a>Skydda dina autentiseringsuppgifter genom länkade tjänster med TokenLibrary
 Att komma åt data från externa källor är ett vanligt mönster. Om inte den externa data källan tillåter anonym åtkomst måste du skydda anslutningen med en autentiseringsuppgift, hemlig eller anslutnings sträng.  

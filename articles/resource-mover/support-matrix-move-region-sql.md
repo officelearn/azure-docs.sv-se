@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: 573d52b836aef36063dd288bf5a5016b98d220ef
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 22a7738c2d4d3cc02c03c233e0821f07b459dd94
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95524138"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452093"
 ---
 # <a name="support-for-moving-azure-sql-resources-between-azure-regions"></a>Stöd för flytt av Azure SQL-resurser mellan Azure-regioner
 
@@ -22,7 +22,7 @@ Den här artikeln sammanfattar support och förutsättningar för att flytta Azu
 
 Kraven sammanfattas i följande tabell.
 
-**Funktion** | **Stöds/stöds inte** | **Detaljer**
+**Funktion** | **Stöds/stöds inte** | **Information**
 --- | --- | ---
 **Azure SQL Database storskalig** | Stöds inte | Det går inte att flytta databaser på Azure SQL-tjänstenivån med resurs förflyttning.
 **Zonredundans** | Stöds |  Flytt alternativ som stöds:<br/><br/> – Mellan regioner som har stöd för zon redundans.<br/><br/> – Mellan regioner som inte stöder zon-redundans.<br/><br/> – Mellan en region som stöder zon redundans till en region som inte stöder zon redundans.<br/><br/> – Mellan en region som inte stöder zon-redundans till en region som har stöd för zon redundans. 
@@ -38,7 +38,7 @@ Kraven sammanfattas i följande tabell.
 **Automatisk justering** | Stöds inte. | Lösning: Ange inställningar för automatisk justering efter flytten. [Läs mer](../azure-sql/database/automatic-tuning-enable.md).
 **Databas aviseringar** | Stöds inte. | Lösning: Ange aviseringar efter flytten. [Läs mer](../azure-sql/database/alerts-insights-configure-portal.md).
 **Databas för Azure SQL Server-utsträckning** | Stöds inte | Det går inte att flytta SQL Server-utsträckta databaser med resurs förflyttning.
-**Azure Synapse Analytics** | Stöds inte | Det går inte att flytta Synapse Analytics (tidigare SQL Data Warehouse) med resurs förflyttning.
+**Azure Synapse Analytics** | Stöds inte | Det går inte att flytta Azure Synapse Analytics med resurs förflyttning.
 ## <a name="next-steps"></a>Nästa steg
 
 Testa [Azure SQL-resurser](tutorial-move-region-sql.md) till en annan region med resurs förflyttning.

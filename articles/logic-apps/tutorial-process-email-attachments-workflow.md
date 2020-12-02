@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 38b4713383368f0c64983738f2ed65f60edb9e67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e58dcf8206ae9feab4d8a09517bf9efda244dd5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334097"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451574"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Självstudie: automatisera uppgifter för att bearbeta e-postmeddelanden med hjälp av Azure Logic Apps, Azure Functions och Azure Storage
 
@@ -55,7 +55,7 @@ Du kan spara inkommande e-postmeddelanden och blobar i en [Azure-lagringscontain
 
 1. Innan du kan skapa en lagrings behållare [skapar du ett lagrings konto](../storage/common/storage-account-create.md) med de här inställningarna på fliken **grundläggande** i Azure Portal:
 
-   | Inställningen | Värde | Beskrivning |
+   | Inställning | Värde | Beskrivning |
    |---------|-------|-------------|
    | **Prenumeration** | <*Azure-prenumeration-namn*> | Azure-prenumerationens namn |  
    | **Resursgrupp** | <*Azure-resurs-grupp*> | Namnet på den [Azure-resursgrupp](../azure-resource-manager/management/overview.md) som används för att organisera och hantera relaterade resurser. I det här exemplet används "LA-självstudie-RG". <p>**Obs!** En resursgrupp finns i en viss region. Trots att objekten i den här självstudien kanske inte är tillgängliga i alla regioner ska du försöka att använda samma region när det är möjligt. |
@@ -69,7 +69,7 @@ Du kan spara inkommande e-postmeddelanden och blobar i en [Azure-lagringscontain
 
    Välj den här inställningen på fliken **Avancerat** :
 
-   | Inställningen | Värde | Beskrivning |
+   | Inställning | Värde | Beskrivning |
    |---------|-------|-------------|
    | **Säker överföring krävs** | Inaktiverad | Den här inställningen anger den säkerhet som krävs för begäranden från anslutningar. Se [Kräv säker överföring](../storage/common/storage-require-secure-transfer.md). |
    ||||
@@ -82,7 +82,7 @@ Du kan spara inkommande e-postmeddelanden och blobar i en [Azure-lagringscontain
 
    1. I lagringskontomenyn navigerar du till **Inställningar** och väljer **Åtkomstnycklar**.
 
-   1. Kopiera ditt lagrings konto namn och **KEY1**och spara dessa värden någon annan stans.
+   1. Kopiera ditt lagrings konto namn och **KEY1** och spara dessa värden någon annan stans.
 
       ![Kopiera och spara lagringskontots namn och nyckel](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
@@ -96,7 +96,7 @@ Du kan spara inkommande e-postmeddelanden och blobar i en [Azure-lagringscontain
 
    1. När sidan **Container** öppnas väljer du **Container**.
 
-   1. Under **ny behållare**anger `attachments` du som behållar namn. Under **offentlig åtkomst nivå**väljer du **behållare (anonym Läs åtkomst för behållare och blobbar)**  >  **OK**.
+   1. Under **ny behållare** anger `attachments` du som behållar namn. Under **offentlig åtkomst nivå** väljer du **behållare (anonym Läs åtkomst för behållare och blobbar)**  >  **OK**.
 
       När du är klar kan du hitta din lagringscontainer i lagringskontot här i Azure-portalen:
 
@@ -119,9 +119,9 @@ Anslut nu Storage Explorer till lagringskontot så du kan bekräfta att logikapp
    ![Storage Explorer – Anslut till lagringskonto](./media/tutorial-process-email-attachments-workflow/storage-explorer-choose-storage-account.png)
 
    > [!TIP]
-   > Om ingen prompt visas väljer du **Lägg till ett konto**i Storage Explorer verktygsfältet.
+   > Om ingen prompt visas väljer du **Lägg till ett konto** i Storage Explorer verktygsfältet.
 
-1. Under **visnings namn**anger du ett eget namn för anslutningen. Under **Kontonamn** anger du lagringskontonamnet. Under **konto nyckel**anger du den åtkomst nyckel som du sparade tidigare och väljer **sedan nästa**.
+1. Under **visnings namn** anger du ett eget namn för anslutningen. Under **Kontonamn** anger du lagringskontonamnet. Under **konto nyckel** anger du den åtkomst nyckel som du sparade tidigare och väljer **sedan nästa**.
 
 1. Bekräfta din anslutnings information och välj sedan **Anslut**.
 
@@ -139,7 +139,7 @@ Använd nu kodfragmentet som tillhandahålls via de här stegen för att skapa e
 
 1. Innan du kan skapa en funktion ska du [skapa en funktionsapp](../azure-functions/functions-create-function-app-portal.md) med dessa inställningar:
 
-   | Inställningen | Värde | Beskrivning |
+   | Inställning | Värde | Beskrivning |
    | ------- | ----- | ----------- |
    | **Appens namn** | <*funktion-App-Name*> | Appens funktions namn, som måste vara globalt unikt i Azure. I det här exemplet används redan "CleanTextFunctionApp", så ange ett annat namn, till exempel "MyCleanTextFunctionApp-<*ditt-name*>" |
    | **Prenumeration** | <*ditt-Azure-prenumerations namn*> | Samma Azure-prenumeration som du tidigare använt |
@@ -152,7 +152,7 @@ Använd nu kodfragmentet som tillhandahålls via de här stegen för att skapa e
    | **Application Insights** | Inaktivera | Aktiverar program övervakning med [Application Insights](../azure-monitor/app/app-insights-overview.md), men i den här självstudien väljer du **inaktivera**  >  **Använd**. |
    ||||
 
-   Om din funktions app inte öppnas automatiskt efter distributionen går du till sökrutan [Azure Portal](https://portal.azure.com) , söker efter och väljer **Funktionsapp**. Under **Funktionsapp**väljer du din Function-app.
+   Om din funktions app inte öppnas automatiskt efter distributionen går du till sökrutan [Azure Portal](https://portal.azure.com) , söker efter och väljer **Funktionsapp**. Under **Funktionsapp** väljer du din Function-app.
 
    ![Välj funktionsapp](./media/tutorial-process-email-attachments-workflow/select-function-app.png)
 
@@ -160,19 +160,19 @@ Använd nu kodfragmentet som tillhandahålls via de här stegen för att skapa e
 
    ![Skapad funktionsapp](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   Om du vill skapa en Function-app kan du också använda [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md)eller [PowerShell och Resource Manager-mallar](../azure-resource-manager/templates/deploy-powershell.md).
+   Om du vill skapa en Function-app kan du också använda [Azure CLI](../azure-functions/create-first-function-cli-csharp.md)eller [PowerShell och Resource Manager-mallar](../azure-resource-manager/templates/deploy-powershell.md).
 
 1. I listan **Function Apps** expanderar du din Function-app om den inte redan är expanderad. Under din Function-app väljer du **Functions**. I funktionsverktygsfältet väljer du **New function** (Ny funktion).
 
    ![Skapa ny funktion](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
-1. Under **Välj en mall nedan eller gå till snabb**starten väljer du mallen **http-utlösare** .
+1. Under **Välj en mall nedan eller gå till snabb** starten väljer du mallen **http-utlösare** .
 
    ![Välj mall för HTTP-utlösare](./media/tutorial-process-email-attachments-workflow/function-select-httptrigger-csharp-function-template.png)
 
    Azure skapar en funktion med hjälp av en språkspecifik mall för en HTTP-utlöst funktion.
 
-1. I fönstret **New Function** (Ny funktion) under **Name** (Namn) skriver du `RemoveHTMLFunction`. Se till att **behörighets nivån** är inställd på **funktion**och välj **skapa**.
+1. I fönstret **New Function** (Ny funktion) under **Name** (Namn) skriver du `RemoveHTMLFunction`. Se till att **behörighets nivån** är inställd på **funktion** och välj **skapa**.
 
    ![Namnge din funktion](./media/tutorial-process-email-attachments-workflow/function-provide-name.png)
 
@@ -236,7 +236,7 @@ Skapa din logikapp när du har kontrollerat att funktionen fungerar. Trots att d
 
    ![Ange information om din logikapp](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
-   | Inställningen | Värde | Beskrivning |
+   | Inställning | Värde | Beskrivning |
    | ------- | ----- | ----------- |
    | **Prenumeration** | <*ditt-Azure-prenumerations namn*> | Samma Azure-prenumeration som du tidigare använt |
    | **Resursgrupp** | LA-Tutorial-RG | Samma Azure-resursgrupp som du tidigare använt |
@@ -275,11 +275,11 @@ Lägg sedan till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-c
 
       ![Ange mapp, intervall och frekvens för att kontrollera e-postmeddelanden](./media/tutorial-process-email-attachments-workflow/set-up-email-trigger.png)
 
-      | Inställningen | Värde | Beskrivning |
+      | Inställning | Värde | Beskrivning |
       | ------- | ----- | ----------- |
       | **Mapp** | Inkorgen | E-postmappen som ska kontrolleras |
-      | **Has Attachment** (Innehåller bifogad fil) | Ja | Hämta endast e-postmeddelanden med bifogade filer. <p>**Obs!** Utlösaren tar inte bort e-post från ditt konto, kontrollerar endast nya meddelanden och bearbetar endast e-postmeddelanden som matchar filtrets ämne. |
-      | **Inkludera bifogade filer** | Ja | Hämta bilagorna som indata i arbetsflödet istället för att bara söka efter bilagor. |
+      | **Has Attachment** (Innehåller bifogad fil) | Yes | Hämta endast e-postmeddelanden med bifogade filer. <p>**Obs!** Utlösaren tar inte bort e-post från ditt konto, kontrollerar endast nya meddelanden och bearbetar endast e-postmeddelanden som matchar filtrets ämne. |
+      | **Inkludera bifogade filer** | Yes | Hämta bilagorna som indata i arbetsflödet istället för att bara söka efter bilagor. |
       | **Intervall** | 1 | Antalet intervaller som ska förflyta mellan kontrollerna |
       | **Frekvens** | Minut | Tidsenhet för varje intervall mellan kontroller |
       ||||
@@ -288,7 +288,7 @@ Lägg sedan till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-c
 
    1. När rutan **ämnes filter** visas i åtgärden anger du det ämne som visas här:
 
-      | Inställningen | Värde | Beskrivning |
+      | Inställning | Värde | Beskrivning |
       | ------- | ----- | ----------- |
       | **Ämnesfilter** | `Business Analyst 2 #423501` | Texten att söka efter i e-postämnet |
       ||||
@@ -309,7 +309,7 @@ Nu ska du lägga till ett villkor som väljer endast e-postmeddelanden med bifog
 
    !["Nytt steg"](./media/tutorial-process-email-attachments-workflow/add-condition-under-trigger.png)
 
-1. Under **Välj en åtgärd**i rutan Sök anger du `condition` . Välj den här åtgärden: **villkor**
+1. Under **Välj en åtgärd** i rutan Sök anger du `condition` . Välj den här åtgärden: **villkor**
 
    ![Välj "villkor"](./media/tutorial-process-email-attachments-workflow/select-condition.png)
 
@@ -369,7 +369,7 @@ Testa nu om villkoret fungerar som det ska:
 
    När e-postmeddelandet kommer letar logikappen efter bilagor och den angivna ämnestexten. Om villkoret uppfylls utlöser utlösaren Logic Apps-motorn och får den att skapa en logikappinstans och starta arbetsflödet.
 
-1. Kontrol lera att utlösaren har utlösts och att Logic-appen har körts genom att välja **Översikt**på menyn Logic app.
+1. Kontrol lera att utlösaren har utlösts och att Logic-appen har körts genom att välja **Översikt** på menyn Logic app.
 
    ![Kontrollera utlösare och körningshistorik](./media/tutorial-process-email-attachments-workflow/checkpoint-run-history.png)
 
@@ -437,23 +437,23 @@ Lägg sedan till en åtgärd som skapar en blob i lagringscontainern så att du 
 
    ![Skapa anslutning till lagringskontot](./media/tutorial-process-email-attachments-workflow/create-storage-account-connection-first.png)
 
-   | Inställningen | Värde | Beskrivning |
+   | Inställning | Värde | Beskrivning |
    | ------- | ----- | ----------- |
    | **Anslutnings namn** | AttachmentStorageConnection | Ett beskrivande namn för anslutningen |
    | **Lagrings konto** | attachmentstorageacct | Namnet på lagringskontot som du skapade tidigare för att spara bilagor |
    ||||
 
-1. Byt namn på åtgärden **Skapa blob**med den här beskrivningen: `Create blob for email body`
+1. Byt namn på åtgärden **Skapa blob** med den här beskrivningen: `Create blob for email body`
 
 1. I åtgärden **Skapa blob** anger du den här informationen och väljer fälten för att skapa bloben som visas och beskrivs:
 
    ![Ange blobinformation för postmeddelandets brödtext](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body.png)
 
-   | Inställningen | Värde | Beskrivning |
+   | Inställning | Värde | Beskrivning |
    | ------- | ----- | ----------- |
    | **Mappsökväg** | /attachments | Sökvägen till och namnet på containern som du skapade tidigare. I det här exemplet klickar du på mappikonen och väljer sedan containern "/attachments". |
    | **Blobnamn** | Fältet **Från** | I det här exemplet använder du avsändarens namn som blobnamn. Klicka i den här rutan så att den dynamiska innehållslistan visas. Välj sedan fältet **From** (Från) under åtgärden **When a new email arrives** (När ett nytt e-postmeddelande kommer). |
-   | **Blobinnehåll** | **Innehålls**fält | I det här exemplet använder du e-postmeddelandets HTML-fria brödtext som blobinnehåll. Klicka i den här rutan så att den dynamiska innehållslistan visas. Välj sedan **Body** (Brödtext) under åtgärden **Call RemoveHTMLFunction to clean email body** (Anropa RemoveHTMLFunction för att rensa e-postbrödtext). |
+   | **Blobinnehåll** | **Innehålls** fält | I det här exemplet använder du e-postmeddelandets HTML-fria brödtext som blobinnehåll. Klicka i den här rutan så att den dynamiska innehållslistan visas. Välj sedan **Body** (Brödtext) under åtgärden **Call RemoveHTMLFunction to clean email body** (Anropa RemoveHTMLFunction för att rensa e-postbrödtext). |
    ||||
 
    När du är klar ser villkoret ut som i det här exemplet:
@@ -502,7 +502,7 @@ För att bearbeta varje bilaga i e-postmeddelandet lägger du till en **For each
 
    ![Lägg till en "for each"-loop (för varje-loop)](./media/tutorial-process-email-attachments-workflow/add-for-each-loop.png)
 
-1. Under **Välj en åtgärd**går du till rutan Sök och anger `for each` som filter och väljer den här åtgärden: **för varje**
+1. Under **Välj en åtgärd** går du till rutan Sök och anger `for each` som filter och väljer den här åtgärden: **för varje**
 
    ![Välj "för varje"](./media/tutorial-process-email-attachments-workflow/select-for-each.png)
 
@@ -528,17 +528,17 @@ Lägg sedan till åtgärden som sparar varje bilaga som en blob i lagringscontai
 
    ![Lägga till åtgärd för att skapa blob](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
-1. Byt namn på åtgärden **Skapa blob 2**med den här beskrivningen: `Create blob for each email attachment`
+1. Byt namn på åtgärden **Skapa blob 2** med den här beskrivningen: `Create blob for each email attachment`
 
 1. I åtgärden **Create blob for each email attachment** (Skapa blob för varje e-postbilaga) anger du den här informationen och väljer egenskaperna för varje blob du vill skapa, som visas och beskrivs:
 
    ![Ange blob-information](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment.png)
 
-   | Inställningen | Värde | Beskrivning |
+   | Inställning | Värde | Beskrivning |
    | ------- | ----- | ----------- |
    | **Mappsökväg** | /attachments | Sökvägen till och namnet på containern som du skapade tidigare. I det här exemplet klickar du på mappikonen och väljer sedan containern "/attachments". |
    | **Blobnamn** | Fältet **Namn** | I det här exemplet använder du den bifogade filens namn som blobnamn. Klicka i den här rutan så att den dynamiska innehållslistan visas. Välj sedan fältet **Name** (Namn) under åtgärden **When a new email arrives** (När ett nytt e-postmeddelande kommer). |
-   | **Blobinnehåll** | **Innehålls**fält | I det här exemplet använder du fältet **Content** (Innehåll) som blobinnehåll. Klicka i den här rutan så att den dynamiska innehållslistan visas. Välj sedan fältet **Content** (Innehåll) under åtgärden **When a new email arrives** (När ett nytt e-postmeddelande kommer). |
+   | **Blobinnehåll** | **Innehålls** fält | I det här exemplet använder du fältet **Content** (Innehåll) som blobinnehåll. Klicka i den här rutan så att den dynamiska innehållslistan visas. Välj sedan fältet **Content** (Innehåll) under åtgärden **When a new email arrives** (När ett nytt e-postmeddelande kommer). |
    ||||
 
    När du är klar ser villkoret ut som i det här exemplet:
@@ -575,7 +575,7 @@ Lägg sedan till en åtgärd så att logikappen skickar e-post för att granska 
 
 ## <a name="send-email-notifications"></a>Skicka e-postmeddelanden
 
-1. Välj **Lägg till en åtgärd**i listan **om sant** under **för varje e-postbilagas** slinga.
+1. Välj **Lägg till en åtgärd** i listan **om sant** under **för varje e-postbilagas** slinga.
 
    ![Lägga till åtgärd under ”for each”-loop (för varje-loop)](./media/tutorial-process-email-attachments-workflow/add-action-send-email.png)
 
@@ -599,9 +599,9 @@ Lägg sedan till en åtgärd så att logikappen skickar e-post för att granska 
 
    Om du inte hittar ett förväntat fält i listan med dynamiskt innehåll väljer du **Visa fler** bredvid **när ett nytt e-postmeddelande kommer**.
 
-   | Inställningen | Värde | Obs! |
+   | Inställning | Värde | Obs! |
    | ------- | ----- | ----- |
-   | **Om du vill** | <*mottagare-e-postadress*> | I testsyfte kan du använda din egen e-postadress. |
+   | **Att** | <*mottagare-e-postadress*> | I testsyfte kan du använda din egen e-postadress. |
    | **Ämne**  | ```ASAP - Review applicant for position:``` **Ämne** | E-postämnet du vill ha. Klicka i den här rutan, ange exempeltexten och välj fältet **Subject** (Ämne) under **When a new email arrives** (När ett nytt e-postmeddelande kommer). |
    | **Brödtext** | ```Please review new applicant:``` <p>```Applicant name:```**Från** <p>```Application file location:``` **Sökväg** <p>```Application email content:``` **Brödtext** | E-postmeddelandets brödtext. Klicka i den här rutan, ange exempeltext och välj de här fälten på den dynamiska innehållslistan: <p>- Fältet **Från** under **När ett nytt e-postmeddelande kommer** </br>- Fältet **Sökväg** under **Skapa blob för e-postmeddelandets brödtext** </br>- Fältet **Brödtext** under **Call RemoveHTMLFunction to clean email body** (Anropa RemoveHTMLFunction för att rensa e-postmeddelandets brödtext) |
    ||||

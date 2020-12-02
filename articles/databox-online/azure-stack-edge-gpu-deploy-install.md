@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: ba903793844e44b26931a70183860c983adaf18a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52f0bcbb332b5d5e47440accff9d9895dcef7056
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743411"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449363"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Självstudie: installera Azure Stack Edge Pro med GPU
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Rackmontera enheten
 > * Kabelansluta enheten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 De nödvändiga komponenterna för att installera en fysisk enhet är följande:
 
@@ -86,7 +86,7 @@ Enheten måste installeras i ett 19-tums standardrack. Använd följande procedu
 > Azure Stack Edge Pro-enheter måste vara rack montering för att fungera korrekt.
 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Innan du börjar läser du säkerhets anvisningarna i broschyren om säkerhet, miljö och information. Broschyren levererades med enheten.
 - Börja installera räler på det tilldelade utrymmet som är närmast botten av rack inne slutningen.
@@ -228,7 +228,7 @@ Utför följande steg för att kabelansluta enheten för strömförsörjning och
 7. Anslut en eller flera av PORT 2, PORT 3, PORT 4, PORT 5 eller 6 PORT till datacenternätverket/Internet.
 
     - Om du ansluter PORT 2 använder du nätverks kabeln 1 – GbE RJ-45.
-    - För nätverks gränssnitten på 10/25-GbE använder du de SFP + koppar kablarna.
+    - För nätverks gränssnitten på 10/25-GbE använder du de SFP + koppar kablarna eller fibern. Om du använder fiber använder du ett optiskt till SFP-kort.
 
 ## <a name="next-steps"></a>Nästa steg
 

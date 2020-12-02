@@ -1,6 +1,6 @@
 ---
 title: 'Snabb start: Använd Server lös SQL-pool'
-description: I den här snabb starten får du se och lära dig hur enkelt det är att fråga olika typer av filer med hjälp av SQL-poolen utan server (för hands version).
+description: I den här snabb starten får du se och lära dig hur enkelt det är att fråga olika typer av filer med hjälp av SQL-poolen utan server.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,20 +9,20 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 270942392e028964c7e9b1c110e4d9f118bd4953
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: e75bab664bdd0d6a4ac898905226c9956f62b4ff
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682986"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450500"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>Snabb start: Använd Server lös SQL-pool
 
-Synapse server utan SQL-pool (för hands version) är en server lös Query-tjänst som gör att du kan köra SQL-frågor på filer som placerats i Azure Storage. I den här snabb starten får du lära dig hur du frågar olika typer av filer med hjälp av SQL-poolen utan server. Format som stöds visas i [OpenRowSet](sql/develop-openrowset.md).
+Synapse server utan SQL-pool är en server lös fråga som gör det möjligt att köra SQL-frågor på filer som placerats i Azure Storage. I den här snabb starten får du lära dig hur du frågar olika typer av filer med hjälp av SQL-poolen utan server. Format som stöds visas i [OpenRowSet](sql/develop-openrowset.md).
 
 Den här snabb starten visar frågor: CSV-, Apache Parquet-och JSON-filer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Välj en SQL-klient för att utfärda frågor:
 

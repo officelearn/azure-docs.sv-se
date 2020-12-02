@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: ceecaf88f87a94473011eb48e944db7a011b3acc
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 943f1361a2a9d6bf8d891f8b4f2137b8738f0836
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563791"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450763"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Analys av orderinstrumentpanelen på kommersiell marknadsplats
 
@@ -21,7 +21,7 @@ Den här artikeln innehåller information om instrument panelen för order i Par
 För att komma åt instrument panelen för order i Partner Center väljer du **[analysera](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** beställningar under **kommersiell marknads** plats  >  **Orders**.
 
 >[!NOTE]
-> Detaljerade definitioner av analys terminologi finns i terminologi för [kommersiella Marketplace-analyser och vanliga frågor](./partner-center-portal/faq-terminology.md).
+> Detaljerade definitioner av analys terminologi finns i terminologi för [kommersiella Marketplace-analyser och vanliga frågor](./analytics-faq.md).
 
 ## <a name="orders-dashboard"></a>Orderinstrumentpanel
 
@@ -70,8 +70,8 @@ Det finns två räknare för order: _aktiv_ och _avbruten_.
 SaaS-erbjudanden kan använda en av två pris modeller för varje plan: antingen fast Rate (plats-baserad) eller per användare (plats-baserad).
 
 - **Fast** pris: ge åtkomst till ditt erbjudande med ett enda månatligt eller årligt schablonmässigt pris. Detta kallas ibland för platsbaserade priser.
-- **Per användare** : ge åtkomst till ditt erbjudande med ett pris baserat på antalet användare som har åtkomst till erbjudandet eller har platser. Med den här användningen-baserade modellen kan du ange det lägsta och högsta antalet användare som stöds av planen. Du kan skapa flera planer för att konfigurera olika pris punkter baserat på antalet användare. Dessa fält är valfria. Om alternativet inte är markerat kommer antalet användare att tolkas som att de inte har en gräns (minst 1 och högst lika många som din tjänst kan stödja). De här fälten kan redige ras som en del av en uppdatering av planen.
-- **Avgiftsbelagd fakturering** : ovanpå fasta priser. Med den här pris sättnings modellen kan du välja att definiera Mät planer som använder API: et för avläsning av program vara för att debitera kunder för användning som inte omfattas av den fasta taxan.
+- **Per användare**: ge åtkomst till ditt erbjudande med ett pris baserat på antalet användare som har åtkomst till erbjudandet eller har platser. Med den här användningen-baserade modellen kan du ange det lägsta och högsta antalet användare som stöds av planen. Du kan skapa flera planer för att konfigurera olika pris punkter baserat på antalet användare. Dessa fält är valfria. Om alternativet inte är markerat kommer antalet användare att tolkas som att de inte har en gräns (minst 1 och högst lika många som din tjänst kan stödja). De här fälten kan redige ras som en del av en uppdatering av planen.
+- **Avgiftsbelagd fakturering**: ovanpå fasta priser. Med den här pris sättnings modellen kan du välja att definiera Mät planer som använder API: et för avläsning av program vara för att debitera kunder för användning som inte omfattas av den fasta taxan.
 
 Mer information om plats, plats och avgiftsbelagd fakturering finns i [så här planerar du ett SaaS-erbjudande för den kommersiella Marketplace](plan-saas-offer.md).
 
@@ -135,7 +135,7 @@ Tabellen Order information visar en numrerad lista över de 1 000 främsta order
 | Erbjudandets namn | Erbjudandets namn | Namnet på den kommersiella Marketplace-erbjudandet. |
 | Slutdatum för utvärdering | Slutdatum för utvärdering | Det datum då utvärderings perioden för den här ordern upphör eller har avslut ATS. |
 | Kund-ID | Kund-ID | Den unika identifierare som tilldelats till en kund. En kund kan ha noll eller flera prenumerationer på Azure Marketplace. |
-| ID för fakturerings konto | ID för fakturerings konto | Identifierare för det konto som faktureringen skapas på. Mappa _ *fakturerings konto-ID* * till **CustomerID** för att ansluta din rapport över utbetalnings transaktion till kund-, order-och användnings rapporter. |
+| ID för fakturerings konto | ID för fakturerings konto | Identifierare för det konto som faktureringen skapas på. Mappa _ *fakturerings konto-ID** till **CustomerID** för att ansluta din rapport över utbetalnings transaktion till kund-, order-och användnings rapporter. |
 | AssetCount | Antal till gångar | Antalet till gångar som är kopplade till order-ID: t. |
 ||||
 
@@ -154,4 +154,4 @@ Sidan **order** sid filter används på sid nivån order. Du kan välja ett elle
 - För virtuell dator (VM) erbjuder vi användnings-och mätnings mått i [användnings instrument panelen i den kommersiella Marketplace-analysen](./usage-dashboard.md).
 - En lista över dina nedladdnings begär Anden under de senaste 30 dagarna finns i [Hämta instrument panel i kommersiell Marketplace-analys](./partner-center-portal/downloads-dashboard.md).
 - Om du vill se en samlad vy över kundfeedback för erbjudanden på Azure Marketplace och AppSource, se [klassificeringar & recensioner Analytics-instrumentpanelen i Partner Center](./partner-center-portal/ratings-reviews.md).
-- Vanliga frågor och svar om affärs platser för marknads platser och en omfattande ord lista med data termer finns i [terminologi för kommersiella Marketplace-analyser och vanliga frågor](./partner-center-portal/faq-terminology.md).
+- Vanliga frågor och svar om affärs platser för marknads platser och en omfattande ord lista med data termer finns i [terminologi för kommersiella Marketplace-analyser och vanliga frågor](./analytics-faq.md).

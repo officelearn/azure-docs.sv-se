@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 491fa39bed9e73a41f5a29a9040df052b6945552
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 5f3861d43715ed68116d25206efe4347ea96805c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578033"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452139"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuera en maskin inlärnings modell till Azure App Service (för hands version)
 
@@ -29,7 +29,7 @@ Lär dig hur du distribuerar en modell från Azure Machine Learning som en webba
 Med Azure Machine Learning kan du skapa Docker-avbildningar från tränade maskin inlärnings modeller. Den här avbildningen innehåller en webb tjänst som tar emot data, skickar den till modellen och returnerar svaret. Azure App Service kan användas för att distribuera avbildningen och innehåller följande funktioner:
 
 * Avancerad [autentisering](../app-service/configure-authentication-provider-aad.md) för förbättrad säkerhet. Autentiseringsmetoder omfattar både Azure Active Directory och Multi-factor auth.
-* [Skala](../azure-monitor/platform/autoscale-get-started.md?toc=%252fazure%252fapp-service%252ftoc.json) utan att behöva distribuera igen.
+* [Skala](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json) utan att behöva distribuera igen.
 * [TLS-stöd](../app-service/configure-ssl-certificate-in-code.md) för säker kommunikation mellan klienter och tjänsten.
 
 Mer information om funktioner som tillhandahålls av Azure App Service finns i [Översikt över App Service](../app-service/overview.md).
@@ -70,7 +70,7 @@ Innan du distribuerar måste du definiera vad som behövs för att köra modelle
 
     Mer information om Entry-skript finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
-* **Beroenden** , till exempel hjälp skript eller python/Conda-paket som krävs för att köra registrerings skriptet eller modellen
+* **Beroenden**, till exempel hjälp skript eller python/Conda-paket som krävs för att köra registrerings skriptet eller modellen
 
 Dessa entiteter kapslas in i en konfiguration för en __härledning__. Inferenskonfigurationen refererar till startskriptet och andra beroenden.
 
@@ -115,7 +115,7 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-När `show_output=True` visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i formatet `<acrinstance>.azurecr.io/package@sha256:<imagename>` . Ett exempel är `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
+När `show_output=True` visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i formatet `<acrinstance>.azurecr.io/package@sha256:<imagename>` . Exempelvis `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
 
 > [!IMPORTANT]
 > Spara plats informationen som används när avbildningen distribueras.
@@ -247,7 +247,7 @@ Det här kommandot returnerar information som liknar följande hostname- `<app-n
 
 ## <a name="use-the-web-app"></a>Använda webbapp
 
-Webb tjänsten som skickar begär anden till modellen finns på `{baseurl}/score` . Ett exempel är `https://<app-name>.azurewebsites.net/score`. Följande python-kod visar hur du skickar data till URL: en och visar svaret:
+Webb tjänsten som skickar begär anden till modellen finns på `{baseurl}/score` . Exempelvis `https://<app-name>.azurewebsites.net/score`. Följande python-kod visar hur du skickar data till URL: en och visar svaret:
 
 ```python
 import requests
@@ -271,7 +271,7 @@ print(response.json())
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du konfigurerar din webbapp i [App Service i Linux](/azure/app-service/containers/) -dokumentationen.
-* Lär dig mer om skalning i [Kom igång med automatisk skalning i Azure](../azure-monitor/platform/autoscale-get-started.md?toc=%252fazure%252fapp-service%252ftoc.json).
+* Lär dig mer om skalning i [Kom igång med automatisk skalning i Azure](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json).
 * [Använd ett TLS/SSL-certifikat i din Azure App Service](../app-service/configure-ssl-certificate-in-code.md).
 * [Konfigurera App Service-appen så att den använder Azure Active Directory inloggning](../app-service/configure-authentication-provider-aad.md).
 * [Använda en ML-modell som distribueras som en webb tjänst](how-to-consume-web-service.md)

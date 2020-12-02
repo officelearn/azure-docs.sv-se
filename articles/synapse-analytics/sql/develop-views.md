@@ -1,6 +1,6 @@
 ---
 title: T-SQL-vyer med hjälp av SQL-pooler
-description: Tips för att använda T-SQL-vyer och utveckla lösningar med dedikerad SQL-pool och Server lös SQL-pool (för hands version) i Azure Synapse Analytics.
+description: Tips för att använda T-SQL-vyer och utveckla lösningar med dedikerad SQL-pool och Server lös SQL-pool i Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5097c35d97e33ef2d6fa0be12c796bf7e4e06950
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6fb75257a86e9e46d6c180a2a38193adecb2b36a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685740"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451677"
 ---
-# <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-preview--in-azure-synapse-analytics"></a>T-SQL-vyer med dedikerad SQL-pool och SQL-pool utan server (för hands version) i Azure Synapse Analytics
+# <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-in-azure-synapse-analytics"></a>T-SQL-vyer med dedikerad SQL-pool och Server lös SQL-pool i Azure Synapse Analytics
 
-I den här artikeln hittar du tips för att använda T-SQL-vyer och utveckla lösningar med dedikerad SQL-pool och SQL-pool utan server (för hands version) i Azure Synapse Analytics.
+I den här artikeln hittar du tips för att använda T-SQL-vyer och utveckla lösningar med dedikerad SQL-pool och Server lös SQL-pool i Azure Synapse Analytics.
 
 ## <a name="why-use-views"></a>Varför ska jag använda vyer
 

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 02772ff6279ee813b86f92984742ba8301bdf74e
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 78829ae52d74cf6ec58c12779c51bca9a98e0af1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357954"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450788"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Återskapa åtkomst nycklar för lagrings kontot
 
@@ -27,7 +27,7 @@ Av säkerhets synpunkt kan du behöva ändra åtkomst nycklarna för ett Azure S
 
 > [!IMPORTANT]
 
-> Autentiseringsuppgifterna som registrerats med data lager sparas i Azure Key Vault som är kopplade till arbets ytan. Om du har [mjuk borttagning](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) aktiverat för din Key Vault innehåller den här artikeln instruktioner för att uppdatera autentiseringsuppgifter. Om du avregistrerar data lagret och försöker registrera det igen med samma namn, kommer den här åtgärden att Miss Miss läge. Se [Aktivera mjuk borttagning för ett befintligt nyckel valv]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) för att aktivera mjuk borttagning i det här scenariot.
+> Autentiseringsuppgifterna som registrerats med data lager sparas i Azure Key Vault som är kopplade till arbets ytan. Om du har [mjuk borttagning](../key-vault/general/soft-delete-overview.md) aktiverat för din Key Vault innehåller den här artikeln instruktioner för att uppdatera autentiseringsuppgifter. Om du avregistrerar data lagret och försöker registrera det igen med samma namn, kommer den här åtgärden att Miss Miss läge. Se [Aktivera mjuk borttagning för ett befintligt nyckel valv]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) för att aktivera mjuk borttagning i det här scenariot.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

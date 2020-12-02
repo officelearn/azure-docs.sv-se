@@ -1,6 +1,6 @@
 ---
 title: Ansluta till Synapse SQL med SQLCMD
-description: Använd kommando rads verktyget sqlcmd för att ansluta till och fråga Server lös SQL-pool (för hands version) och dedikerad SQL-pool.
+description: Använd kommando rads verktyget sqlcmd för att ansluta till och fråga Server lös SQL-pool och dedikerad SQL-pool.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,23 +9,23 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43fae026f91e4430fbce0d01141a86a913db089d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 88ee95789bdc1c6ee9884a021067318caab203d4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686148"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451639"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>Ansluta till Synapse SQL med SQLCMD
 
 > [!div class="op_single_selector"]
-> * [Azure Data Studio (för hands version)](get-started-azure-data-studio.md)
+> * [Azure Data Studio)](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-> * [SQLCMD](../sql/get-started-connect-sqlcmd.md)
+> * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Du kan använda kommando rads verktyget [SQLCMD](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att ansluta till och fråga Server lös SQL-pool (för hands version) och dedikerad SQL-pool i Synapse SQL.  
+Du kan använda kommando rads verktyget [SQLCMD](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att ansluta till och fråga Server lös SQL-pool och dedikerad SQL-pool i Synapse SQL.  
 
 ## <a name="1-connect"></a>1. Anslut
 Kom igång med [SQLCMD](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)genom att öppna kommando tolken och ange **SQLCMD** följt av anslutnings STRÄNGEN för din Synapse SQL-databas. Anslutningssträngen kräver följande parametrar:
@@ -41,7 +41,7 @@ Om du vill använda SQL Server autentisering måste du lägga till parametrarna 
 
 Anslutnings strängen kan se ut som i följande exempel:
 
-**SQL-pool utan Server**
+**Serverlös SQL-pool**
 
 ```sql
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P Enter_Your_Password_Here -I
@@ -59,7 +59,7 @@ Om du vill använda Azure Active Directory-integrerad autentisering måste du l�
 
 Anslutnings strängen kan se ut som i följande exempel:
 
-**SQL-pool utan Server**
+**Serverlös SQL-pool**
 
 ```
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -G -I

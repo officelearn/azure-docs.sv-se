@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: b25bae460ff11c3dab84e80524acd2eaf878561c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: fb7672a0d7bdd14415a51f2296c281e92cf5542a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184696"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450652"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Snabb start: skapa en Synapse-arbetsyta
 I den här snabb starten beskrivs stegen för att skapa en Azure dataSynapses-arbetsyta med hjälp av Azure Portal.
@@ -22,7 +22,7 @@ I den här snabb starten beskrivs stegen för att skapa en Azure dataSynapses-ar
 ## <a name="create-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
 1. Öppna [Azure Portal](https://portal.azure.com)och högst upp i Sök efter **Synapse**.
-1. I Sök resultaten under **tjänster** väljer du **Azure Synapse Analytics (för hands versioner av arbets ytor)**.
+1. I Sök resultaten under **tjänster** väljer du **Azure Synapse Analytics**.
 1. Välj **Lägg till** för att skapa en arbets yta.
 1. På fliken **grundläggande** ger du arbets ytan ett unikt namn. Vi använder **mysworkspace** i det här dokumentet
 1. Du behöver ett ADLSGEN2-konto för att skapa en arbets yta. Det enklaste valet är att skapa ett nytt. Om du vill använda en befintlig konfiguration igen måste du utföra en del ytterligare konfiguration. 
@@ -34,7 +34,7 @@ I den här snabb starten beskrivs stegen för att skapa en Azure dataSynapses-ar
 1. Välj **Granska + skapa** > **Skapa**. Din arbets yta är klar på några minuter.
 
 > [!NOTE]
-> När du har skapat din Azure Synapse-arbetsyta kan du inte flytta arbets ytan till en annan Azure Active Directory-klient. Om du gör det via migrering av prenumerationer eller andra åtgärder kan du förlora åtkomsten till artefakterna i arbets ytan.  
+> När du har skapat din Azure Synapse-arbetsyta kan du inte flytta arbets ytan till en annan Azure Active Directory-klient. Om du gör det via migrering av prenumerationer eller andra åtgärder kan du förlora åtkomsten till artefakterna i arbetsytan.  
 
 ## <a name="open-synapse-studio"></a>Öppna Synapse Studio
 
@@ -43,7 +43,7 @@ När din Azure Synapse-arbetsyta har skapats kan du öppna Synapse Studio på tv
 * Öppna din Synapse-arbetsyta i [Azure Portal](https://portal.azure.com). Överst i **översikts** avsnittet väljer du **Starta Synapse Studio**.
 * Gå till `https://web.azuresynapse.net` och logga in på din arbets yta.
 
-## <a name="prepare-an-existing-storage-account-for-use-with-synapse-analytics"></a>Förbereda ett befintligt lagrings konto för användning med Synapse Analytics
+## <a name="prepare-an-existing-storage-account-for-use-with-azure-synapse-analytics"></a>Förbereda ett befintligt lagrings konto för användning med Azure Synapse Analytics
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
 1. Navigera till ett befintligt lagrings konto för ADLSGEN2

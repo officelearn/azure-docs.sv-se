@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 11/16/2020
 ms.author: alkohli
-ms.openlocfilehash: d0d02532f39d676772e5ee5d6414b802faffba7c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 93df80cd6fcd6f5553ea509a4778a155299bb057
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505945"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449049"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Distribuera virtuella datorer på din Azure Stack Edge Pro GPU-enhet via mallar
 
@@ -76,7 +76,7 @@ Konfigurera dessa krav för att skapa resurser som behövs för att skapa virtue
     
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). En resurs grupp är en logisk behållare där Azure-resurser, till exempel lagrings konto, disk, hanterad disk, distribueras och hanteras.
+Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup). En resurs grupp är en logisk behållare där Azure-resurser, till exempel lagrings konto, disk, hanterad disk, distribueras och hanteras.
 
 > [!IMPORTANT]
 > Alla resurser skapas på samma plats som enheten och platsen är inställd på **DBELocal**.
@@ -189,13 +189,13 @@ Kopiera eventuella disk avbildningar som ska användas i sid-blobar i det lokala
 
     ![Anslut till Azure Storage 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. I **Anslut med namn och nyckel** anger du **visnings namn** , **lagrings konto namn** Azure Storage **konto nyckel**. Välj en **annan** lagrings domän och ange sedan `<device name>.<DNS domain>` anslutnings strängen. Om du inte har installerat ett certifikat i Storage Explorer, kontrollerar du alternativet **Använd http** . Välj **Nästa**.
+6. I **Anslut med namn och nyckel** anger du **visnings namn**, **lagrings konto namn** Azure Storage **konto nyckel**. Välj en **annan** lagrings domän och ange sedan `<device name>.<DNS domain>` anslutnings strängen. Om du inte har installerat ett certifikat i Storage Explorer, kontrollerar du alternativet **Använd http** . Välj **Nästa**.
 
     ![Anslut med namn och nyckel](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
 7. Granska **anslutnings sammanfattningen** och välj **Anslut**.
 
-8. Lagrings kontot visas i den vänstra rutan. Välj och expandera lagrings kontot. Välj **BLOB-behållare** , högerklicka och välj **skapa BLOB-behållare**. Ange ett namn för din BLOB-behållare.
+8. Lagrings kontot visas i den vänstra rutan. Välj och expandera lagrings kontot. Välj **BLOB-behållare**, högerklicka och välj **skapa BLOB-behållare**. Ange ett namn för din BLOB-behållare.
 
 9. Välj den behållare som du nyss skapade och välj **Ladda upp > Ladda upp filer** i den högra rutan. 
 
@@ -249,7 +249,7 @@ Filen `CreateImageAndVnet.parameters.json` tar följande parametrar:
               "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
         },
         "imageName": {
-            "value": "<Name for the VM iamge>"
+            "value": "<Name for the VM image>"
         },
         "imageUri": {
               "value": "<Path to the VHD that you uploaded in the Storage account>"
@@ -441,7 +441,7 @@ Tilldela lämpliga parametrar i `CreateVM.parameters.json` för din Azure Stack 
 
 1. Ange ett unikt namn, ett namn på ett nätverks gränssnitt och ett namn för ipconfig. 
 1. Ange ett användar namn, lösen ord och en VM-storlek som stöds.
-1. Ge samma namn för **VnetName** , **subnetName** och **ImageName** som anges i parametrarna för `CreateImageAndVnet.parameters.json` . Om du till exempel har angett VnetName, subnetName och ImageName som **vnet1** , **subnet1** och **image1** behåller du samma värden för parametrarna i den här mallen också.
+1. Ge samma namn för **VnetName**, **subnetName** och **ImageName** som anges i parametrarna för `CreateImageAndVnet.parameters.json` . Om du till exempel har angett VnetName, subnetName och ImageName som **vnet1**, **subnet1** och **image1** behåller du samma värden för parametrarna i den här mallen också.
 1. Nu behöver du en statisk IP-adress för att tilldela den virtuella datorn som finns i det undernäts nätverk som anges ovan. Ersätt **PrivateIPAddress** med den här adressen i parameter filen. Lämna värdet tomt om du vill att den virtuella datorn ska få en IP-adress från din lokala DCHP-server `privateIPAddress` .  
     
     ```json
@@ -629,4 +629,4 @@ To verify if the environment variable for AzCopy was set correctly, take the fol
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Azure Resource Manager-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager-cmdletar](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)

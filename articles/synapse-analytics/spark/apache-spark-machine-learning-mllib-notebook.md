@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 595b3a57594401df6b61db1fcf8ee16be98ef364
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 50429696c4cbe10c4723f6d4bb9c9499d9b775c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95900437"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450414"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Självstudie: Bygg en Machine Learning-app med Apache Spark MLlib och Azure Synapse Analytics
 
@@ -71,7 +71,7 @@ I följande steg utvecklar du en modell för att förutsäga om en viss resa inn
 
 Eftersom rå data är i ett Parquet-format kan du använda Spark-kontexten för att hämta filen till minnet som en dataframe direkt. Medan koden nedan använder standard alternativen, är det möjligt att tvinga mappning av data typer och andra schemaattribut om det behövs.
 
-1. Kör följande rader för att skapa en spark-dataframe genom att klistra in koden i en ny cell. Detta hämtar data via det öppna data uppsättnings-API: et. Att hämta alla dessa data genererar cirka 1 500 000 000 rader. Beroende på storleken på den server lösa Apache Spark-poolen (för hands version) kan rå data vara för stora eller ta för lång tid att arbeta med. Du kan filtrera bort dessa data till något mindre. I följande kod exempel används start_date och end_date för att tillämpa ett filter som returnerar en enda månad med data.
+1. Kör följande rader för att skapa en spark-dataframe genom att klistra in koden i en ny cell. Detta hämtar data via det öppna data uppsättnings-API: et. Att hämta alla dessa data genererar cirka 1 500 000 000 rader. Beroende på storleken på den server lösa Apache Spark poolen kan rå data vara för stora eller ta för lång tid att arbeta med. Du kan filtrera bort dessa data till något mindre. I följande kod exempel används start_date och end_date för att tillämpa ett filter som returnerar en enda månad med data.
 
     ```python
     from azureml.opendatasets import NycTlcYellow

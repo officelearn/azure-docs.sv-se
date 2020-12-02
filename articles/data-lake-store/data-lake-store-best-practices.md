@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 291a5850540ea7d7d24a4a544c1eb65183df8ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a5c5f9a4033b70a664071d6077a69f38c905093
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667749"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452220"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Metod tips för att använda Azure Data Lake Storage Gen1
 
@@ -37,7 +37,7 @@ När en säkerhets grupp har tilldelats behörigheter behöver inte några uppda
 
 ### <a name="security-for-groups"></a>Säkerhet för grupper
 
-Som diskuteras, är det bäst att använda Azure Active Directory säkerhets grupper när användare behöver åtkomst till Data Lake Storage Gen1. Vissa rekommenderade grupper att starta med kan vara **ReadOnlyUsers**, **WriteAccessUsers**och **FullAccessUsers** för roten av kontot och även separera dem för nyckel undermappar. Om det finns andra förväntade grupper av användare som kan läggas till senare, men ännu inte har identifierats, kan du överväga att skapa dummy-säkerhetsgrupper som har åtkomst till vissa mappar. Med hjälp av säkerhets gruppen ser du till att du inte längre behöver en lång bearbetnings tid för att tilldela nya behörigheter till tusentals filer.
+Som diskuteras, är det bäst att använda Azure Active Directory säkerhets grupper när användare behöver åtkomst till Data Lake Storage Gen1. Vissa rekommenderade grupper att starta med kan vara **ReadOnlyUsers**, **WriteAccessUsers** och **FullAccessUsers** för roten av kontot och även separera dem för nyckel undermappar. Om det finns andra förväntade grupper av användare som kan läggas till senare, men ännu inte har identifierats, kan du överväga att skapa dummy-säkerhetsgrupper som har åtkomst till vissa mappar. Med hjälp av säkerhets gruppen ser du till att du inte längre behöver en lång bearbetnings tid för att tilldela nya behörigheter till tusentals filer.
 
 ### <a name="security-for-service-principals"></a>Säkerhet för tjänstens huvud namn
 
@@ -49,7 +49,7 @@ Data Lake Storage Gen1 stöder möjligheten att aktivera en brand vägg och begr
 
 ![Brand Väggs inställningar i Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Brand Väggs inställningar i Data Lake Storage Gen1")
 
-När brand väggen har Aktiver ATS har endast Azure-tjänster som HDInsight, Data Factory, Azure Synapse Analytics (tidigare SQL Data Warehouse) osv. åtkomst till Data Lake Storage Gen1. På grund av de interna Network Address Translation som används av Azure stöder Data Lake Storage Gen1 brand väggen inte begränsning av vissa tjänster av IP och är bara avsedd för begränsningar för slut punkter utanför Azure, till exempel lokalt.
+När brand väggen är aktive rad har endast Azure-tjänster som HDInsight, Data Factory, Azure Synapse Analytics, osv. åtkomst till Data Lake Storage Gen1. På grund av de interna Network Address Translation som används av Azure stöder Data Lake Storage Gen1 brand väggen inte begränsning av vissa tjänster av IP och är bara avsedd för begränsningar för slut punkter utanför Azure, till exempel lokalt.
 
 ## <a name="performance-and-scale-considerations"></a>Överväganden för prestanda och skalning
 
@@ -102,9 +102,9 @@ Nedan visas de tre vanligaste alternativen för att dirigera replikering mellan 
 |---------|---------|---------|---------|
 |**Skalnings gränser**     | Begränsas av arbetsnoder        | Begränsas av max enheter för data förflyttning i molnet        | Begränsas av Analytics-enheter        |
 |**Stöder kopiering av delta**     |   Ja      | Inga         | Inga         |
-|**Inbyggd dirigering**     |  Nej (Använd Oozie-flöde eller cron-jobb)       | Ja        | Nej (Använd Azure Automation-eller Windows-Schemaläggaren)         |
+|**Inbyggd dirigering**     |  Nej (Använd Oozie-flöde eller cron-jobb)       | Yes        | Nej (Använd Azure Automation-eller Windows-Schemaläggaren)         |
 |**Fil system som stöds**     | ADL, HDFS, WASB, S3, GS, CFS        |Flera, se [kopplingar](../data-factory/connector-azure-blob-storage.md).         | ADL till ADL, WASB till ADL (endast samma region)        |
-|**OS-stöd**     |Alla operativ system som kör Hadoop         | E.t.          | Windows 10         |
+|**OS-stöd**     |Alla operativ system som kör Hadoop         | Ej tillämpligt          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Använd Distcp för data förflyttning mellan två platser
 
@@ -114,7 +114,7 @@ Kopierings jobb kan utlösas av Apache Oozie-arbetsflöden med frekvens eller da
 
 ### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>Använd Azure Data Factory för att schemalägga kopierings jobb
 
-Azure Data Factory kan också användas för att schemalägga kopierings jobb med en **kopierings aktivitet**och kan till och med konfigureras på en frekvens via **guiden Kopiera**. Tänk på att Azure Data Factory har en gräns för moln data förflyttnings enheter (DMUs) och till och med till och med till och med för stora data arbets belastningar. Dessutom erbjuder Azure Data Factory för närvarande inte delta uppdateringar mellan Data Lake Storage Gen1-konton, så mappar som Hive-tabeller kräver en fullständig kopiering för att replikeras. Se [justerings guiden för kopierings aktivitet](../data-factory/copy-activity-performance.md) för mer information om hur du kopierar med Data Factory.
+Azure Data Factory kan också användas för att schemalägga kopierings jobb med en **kopierings aktivitet** och kan till och med konfigureras på en frekvens via **guiden Kopiera**. Tänk på att Azure Data Factory har en gräns för moln data förflyttnings enheter (DMUs) och till och med till och med till och med för stora data arbets belastningar. Dessutom erbjuder Azure Data Factory för närvarande inte delta uppdateringar mellan Data Lake Storage Gen1-konton, så mappar som Hive-tabeller kräver en fullständig kopiering för att replikeras. Se [justerings guiden för kopierings aktivitet](../data-factory/copy-activity-performance.md) för mer information om hur du kopierar med Data Factory.
 
 ### <a name="adlcopy"></a>AdlCopy
 

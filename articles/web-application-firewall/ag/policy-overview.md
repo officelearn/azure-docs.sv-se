@@ -7,21 +7,16 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: b546b043b856fd6ec69acd63fd69a01c48d0553b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 59ca0b85ba2aff29bdb2ad3379c1054041d2b4cb
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990133"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518744"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Översikt över principer för Azure Web Application-brandvägg (WAF)
 
 Brand Väggs principer för webb program innehåller alla WAF-inställningar och konfigurationer. Detta omfattar undantag, anpassade regler, hanterade regler och så vidare. Dessa principer associeras sedan till en Programgateway (global), en lyssnare (per plats) eller en Sök vägs baserad regel (per URI) för att de ska börja gälla.
-
-> [!NOTE]
-> Azure Web Application Firewall (WAF) per-URI-principer finns i offentlig för hands version.
-> 
-> Den allmänt tillgängliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Det finns ingen gräns för antalet principer som du kan skapa. När du skapar en princip måste den kopplas till en Programgateway för att börja gälla. Den kan kopplas till valfri kombination av programgatewayer, lyssnare och Sök vägs regler.
 

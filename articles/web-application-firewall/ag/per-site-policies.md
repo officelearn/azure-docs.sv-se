@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 3ac0540856d8cb8ccba6f1d176292d634d2dc80f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc15c8deb7aea3256cc0077fbdc3ce1a2492b1b2
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856610"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519033"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Konfigurera WAF-principer per webbplats med hjälp av Azure PowerShell
 
@@ -28,7 +28,7 @@ I den här artikeln kan du se hur du:
 * Konfigurera nätverket
 * Skapa en WAF-princip
 * Skapa en programgateway med WAF aktiverat
-* Tillämpa WAF-principen globalt, per webbplats och per-URI (för hands version)
+* Tillämpa WAF-principen globalt, per webbplats och per-URI 
 * Skapa en VM-skalningsuppsättning
 * Skapa ett lagringskonto och konfigurera diagnostik
 * Testa programgatewayen
@@ -249,7 +249,7 @@ $appgw = New-AzApplicationGateway `
   -FirewallPolicy $wafPolicyGlobal
 ```
 
-### <a name="apply-a-per-uri-policy-preview"></a>Tillämpa en per URI-princip (förhands granskning)
+### <a name="apply-a-per-uri-policy"></a>Tillämpa en per URI-princip
 
 Om du vill tillämpa en per URI-princip skapar du bara en ny princip och tillämpar den på Sök vägs regel konfigurationen. 
 

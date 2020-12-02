@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: b1ce076befc325fef7717c0404b31dadff952af6
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 909c8910a86734b0a34787f75c233975cd3503c3
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433299"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518251"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Åtkomsttoken för Microsoft Identity Platform
 
@@ -75,13 +75,13 @@ JWTs (JSON Web tokens) delas upp i tre delar:
 
 Varje del är avgränsat med en punkt ( `.` ) och en separat Base64-kodad.
 
-Anspråk finns bara om det finns ett värde för att fylla det. Appen bör inte ta ett beroende på ett anspråk som finns. Exempel `pwd_exp` är (alla klienter kräver att lösen ord upphör att gälla) och `family_name` ([klientautentiseringsuppgifter] (v2-OAuth2-client-creds-Grant-Flow.MD) flöden är för program som inte har några namn. Anspråk som används för verifiering av åtkomst-token är alltid tillgängliga.
+Anspråk finns bara om det finns ett värde för att fylla det. Appen bör inte ta ett beroende på ett anspråk som finns. Exemplen inkluderar `pwd_exp` (inte alla klienter kräver att lösen ord upphör att gälla) och `family_name` (flöden för[klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md) är för program som inte har namn). Anspråk som används för verifiering av åtkomst-token är alltid tillgängliga.
 
 Vissa anspråk används för att hjälpa Azure AD-säkra tokens i händelse av åter användning. Dessa markeras som icke-offentliga konsumtion i beskrivningen som "täckande". Dessa anspråk kan komma att visas i en token, och nya kan läggas till utan föregående meddelande.
 
 ### <a name="header-claims"></a>Huvud anspråk
 
-|Begär | Format | Description |
+|Begär | Format | Beskrivning |
 |--------|--------|-------------|
 | `typ` | Sträng-Always-JWT | Anger att token är en JWT.|
 | `nonce` | Sträng | En unik identifierare som används för att skydda mot repetitions attacker med token. Din resurs kan registrera det här värdet för att skydda mot uppspelningar. |
@@ -91,7 +91,7 @@ Vissa anspråk används för att hjälpa Azure AD-säkra tokens i händelse av �
 
 ### <a name="payload-claims"></a>Nytto Last anspråk
 
-| Begär | Format | Description |
+| Begär | Format | Beskrivning |
 |-----|--------|-------------|
 | `aud` | Sträng, app-ID-URI eller GUID | Identifierar den avsedda mottagaren för token – dess mål grupp.  Ditt API bör validera det här värdet och avvisa token om värdet inte matchar. I v 2.0-token är detta alltid klient-ID för API: et, men i v 1.0-token kan det vara klient-ID: t eller resurs-URI: n som används i begäran, beroende på hur klienten begärde token.|
 | `iss` | Sträng, en STS-URI | Identifierar säkerhetstokentjänst som konstruerar och returnerar token och Azure AD-klienten där användaren autentiserades. Om token som utfärdas är en v 2.0-token (se `ver` anspråket) avslutas URI: n `/v2.0` . GUID som anger att användaren är en konsument användare från en Microsoft-konto `9188040d-6c67-4c5b-b112-36a304b66dad` . Din app kan använda en GUID-del av anspråket för att begränsa den uppsättning innehavare som kan logga in på appen, om tillämpligt. |
@@ -149,7 +149,7 @@ Du kan använda den `BulkCreateGroups.ps1` som finns i mappen skript för att [S
 
 Följande anspråk kommer att ingå i v 1.0-token om det är tillämpligt, men inte ingår i v 2.0-token som standard. Om du använder v 2.0 och behöver någon av dessa anspråk kan du begära dem med [valfria anspråk](active-directory-optional-claims.md).
 
-| Begär | Format | Description |
+| Begär | Format | Beskrivning |
 |-----|--------|-------------|
 | `ipaddr`| Sträng | IP-adressen som användaren autentiseras från. |
 | `onprem_sid`| Sträng, i [sid-format](/windows/desktop/SecAuthZ/sid-components) | I de fall där användaren har en lokal autentisering, ger detta anspråk sitt SID. Du kan använda `onprem_sid` för auktorisering i äldre program.|

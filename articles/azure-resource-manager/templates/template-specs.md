@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: e919db24a70b0ed69aca6977865cc76c0c9c5845
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dd7616bdc07aee86ac56a2f2fe0ac282838c58b4
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182469"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518863"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specifikationer för Azure Resource Manager mall (för hands version)
 
@@ -21,7 +21,7 @@ En mall specifikation är en resurs typ för att lagra en Azure Resource Manager
 Om du vill distribuera en mall använder du standard Azure-verktyg som PowerShell, Azure CLI, Azure Portal, REST och andra SDK: er och klienter som stöds. Du använder samma kommandon som för mallen.
 
 > [!NOTE]
-> Mallens specifikationer är för närvarande en för hands version. Om du vill använda den måste du installera den senaste versionen av PowerShell eller Azure CLI. För Azure PowerShell använder du [version 5.0.0 eller senare](/powershell/azure/install-az-ps). För Azure CLI använder du [version 2.14.2 eller senare](/cli/azure/install-azure-cli).
+> Mallens specifikationer är för närvarande en för hands version. Om du vill använda den med Azure PowerShell måste du installera [version 5.0.0 eller senare](/powershell/azure/install-az-ps). Använd [version 2.14.2 eller senare](/cli/azure/install-azure-cli)för att använda den med Azure CLI.
 
 ## <a name="why-use-template-specs"></a>Varför ska jag använda mall-specifikationer?
 

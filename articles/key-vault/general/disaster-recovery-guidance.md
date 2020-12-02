@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: aea5f0428fe55c0dae3734e196008cbc26a974b9
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: d66fe736936963e601aad7cba7bdaa94f0c3ec3f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576232"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518455"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Tillgänglighet och redundans för Azure Key Vault
 
@@ -23,11 +23,13 @@ Azure Key Vault har flera lager av redundans för att se till att dina nycklar o
 > [!NOTE]
 > Den här guiden gäller för valv. Hanterade HSM-pooler använder en annan hög tillgänglighet och katastrof återställnings modell. Mer information finns i [Översikt över hanterad HSM-återställning](../managed-hsm/disaster-recovery-guide.md) .
 
-Innehållet i ditt nyckel valv replikeras i regionen och till en sekundär region minst 150 mil, men inom samma geografiska område för att upprätthålla hög hållbarhet för dina nycklar och hemligheter. Mer information om vissa region par finns i [Azure-kopplade regioner](../../best-practices-availability-paired-regions.md). Undantaget till de Parada regionerna är södra Brasilien, vilket innebär att endast möjligheten att förvara data som är bosatta i södra Brasilien. Södra Brasilien använder lokalt redundant lagring (LRS) för att replikera dina data tre gånger inom den enda platsen/regionen.   
+Innehållet i ditt nyckel valv replikeras i regionen och till en sekundär region minst 150 mil, men inom samma geografiska område för att upprätthålla hög hållbarhet för dina nycklar och hemligheter. Mer information om vissa region par finns i [Azure-kopplade regioner](../../best-practices-availability-paired-regions.md). Undantaget till de Parada regionerna är södra Brasilien, vilket innebär att endast möjligheten att förvara data som är bosatta i södra Brasilien. Södra Brasilien använder Zone redundant lagring (ZRS) för att replikera dina data tre gånger inom den enda platsen/regionen.   
 
 Om enskilda komponenter i Key Vault-tjänsten kraschar kan alternativa komponenter i regions steget i hantera din begäran för att se till att det inte finns någon försämring av funktionaliteten. Du behöver inte vidta några åtgärder för att starta den här processen, det sker automatiskt och blir transparent för dig.
 
-I sällsynta fall där en hel Azure-region inte är tillgänglig dirigeras de begär Anden som du skapar Azure Key Vault i den regionen automatiskt till en sekundär *failed over* region. När den primära regionen är tillgänglig igen dirigeras begär Anden tillbaka ( *växlas tillbaka* ) till den primära regionen. Du behöver inte vidta några åtgärder eftersom detta sker automatiskt.
+I sällsynta fall där en hel Azure-region inte är tillgänglig dirigeras de begär Anden som du skapar Azure Key Vault i den regionen automatiskt (*redundansväxlas*) till en sekundär region, förutom i den södra Brasilien regionen. När den primära regionen är tillgänglig igen dirigeras begär Anden tillbaka (*växlas tillbaka*) till den primära regionen. Du behöver inte vidta några åtgärder eftersom detta sker automatiskt.
+
+I regionen Södra Brasilien måste du planera för återställning av dina Azure Key Vault i ett regions haveri scenario. Om du vill säkerhetskopiera och återställa ditt Azure Key Vault till en region som du väljer, slutför du stegen som beskrivs i [Azure Key Vault säkerhets kopiering](backup.md). 
 
 Med den här designen för hög tillgänglighet behöver Azure Key Vault ingen stillestånds tid för underhålls aktiviteter.
 

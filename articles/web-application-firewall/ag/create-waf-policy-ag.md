@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 5705eedfb919c792c558384f6309325dcded4b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26078c3757e42c3e290a5f4122461b287582fb80
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86146609"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518829"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Skapa brand Väggs principer för webb program för Application Gateway
 
@@ -23,20 +23,18 @@ Du kan skapa så många principer du vill. När du har skapat en princip måste 
 Om din Application Gateway har en princip tillämpad och du tillämpar en annan princip för en lyssnare på den Application Gateway, kommer lyssnarens princip att gälla, men bara för de lyssnare som de är kopplade till. Den Application Gateway principen gäller fortfarande alla andra lyssnare som inte har tilldelats någon speciell princip. 
 
    > [!NOTE]
-   > WAF-principer per URI finns i offentlig för hands version. Det innebär att den här funktionen omfattas av Microsofts kompletterande användnings villkor. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-   > [!NOTE]
    > När en brand Väggs princip är kopplad till en WAF måste det alltid finnas en princip som är kopplad till den WAF. Du kan skriva över principen, men det finns inget stöd för att avassociera en princip från WAF. 
 
 Alla nya WAF-inställningar för webb program brand väggen (anpassade regler, hanterade rulset-konfigurationer, undantag osv.) i en WAF-princip. Om du har en befintlig WAF kan de här inställningarna fortfarande finnas i WAF-konfigurationen. Anvisningar om hur du flyttar till den nya WAF-principen finns i [migrera din WAF-konfiguration till WAF-princip](#migrate) senare i den här artikeln. 
 
-## <a name="create-a-policy"></a>Skapa en policy
+## <a name="create-a-policy"></a>Skapa en princip
 
 Börja med att skapa en grundläggande WAF-princip med en hanterad standard regel uppsättning (DRS) med hjälp av Azure Portal.
 
-1. Välj **skapa en resurs**på den övre vänstra sidan i portalen. Sök efter **WAF**, Välj **brand vägg för webbaserade program**och välj sedan **skapa**.
+1. Välj **skapa en resurs** på den övre vänstra sidan i portalen. Sök efter **WAF**, Välj **brand vägg för webbaserade program** och välj sedan **skapa**.
 2. På sidan **skapa en princip för WAF** , fliken **grundläggande** , ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **Granska + skapa**:
 
-   |Inställningen  |Värde  |
+   |Inställning  |Värde  |
    |---------|---------|
    |Princip för     |Regional WAF (Application Gateway)|
    |Prenumeration     |Välj ditt prenumerations namn|
@@ -44,7 +42,7 @@ Börja med att skapa en grundläggande WAF-princip med en hanterad standard rege
    |Principnamn     |Ange ett unikt namn för WAF-principen.|
 3. Ange någon av följande inställningar på fliken **Association** och välj sedan **Lägg till**:
 
-   |Inställningen  |Värde  |
+   |Inställning  |Värde  |
    |---------|---------|
    |Associera Application Gateway     |Välj ditt Application Gateway profil namn.|
    |Associera lyssnare     |Välj namnet på din Application Gateway lyssnare och välj sedan **Lägg till**.|

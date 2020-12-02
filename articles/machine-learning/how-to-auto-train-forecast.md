@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 8c6a27f0cfaafe7e6c1181651e672d0e828af855
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 605e8cd57ab5863c1011082f0f2dbd93d078980b
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444489"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518948"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 
@@ -33,7 +33,7 @@ En låg kod upplevelse finns i [självstudien: prognostisera efter frågan med a
 
 Till skillnad från klassiska Time Series-metoder i automatiserade ML, är tidigare tids serie värden "pivoterade" för att bli ytterligare dimensioner för modellerings regressor tillsammans med andra förutsägelser. Den här metoden omfattar flera sammanhangsbaserade variabler och deras relation till varandra under utbildningen. Eftersom flera faktorer kan påverka en prognos justeras den här metoden korrekt med verkliga prognos scenarier. Till exempel, när försäljnings prognoser används, interaktioner av historiska trender, växelkurs och pris gemensamt, kommer försäljnings resultatet gemensamt. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För den här artikeln behöver du 
 
@@ -128,7 +128,7 @@ Automatisk maskin inlärning försöker automatiskt med olika modeller och algor
 >[!Tip]
 > Traditionella Regressions modeller testas också som en del av rekommendations systemet för att förutse experiment. Se [tabellen modell som stöds](how-to-configure-auto-train.md#supported-models) för den fullständiga listan över modeller. 
 
-Modeller| Description | Fördelar
+Modeller| Beskrivning | Fördelar
 ----|----|---
 Prophet (för hands version)|Prophet fungerar bäst med tids serier som har starka säsongs effekter och flera säsonger av historiska data. Om du vill utnyttja den här modellen installerar du den lokalt med `pip install fbprophet` . | Korrekt & snabb, robust för att kunna avvika, saknade data och dramatiska ändringar i din tids serie.
 Auto-ARIMA (för hands version)|Autoregressiva Integrated glidande medelvärde (ARIMA) fungerar bäst när data är Station ära. Det innebär att dess statistiska egenskaper, t. ex. medelvärdet och var Ian sen är konstant över hela uppsättningen. Om du till exempel vänder en mynt är sannolikheten för att du får 50%, oavsett om du vänder idag, imorgon eller nästa år.| Perfekt för univariate-serien, eftersom de tidigare värdena används för att förutsäga framtida värden.
@@ -286,19 +286,19 @@ Visa en python code-exempel som använder den angivna [mål funktionen för män
 
 ### <a name="short-series-handling"></a>Hantering av korta serier
 
-Med automatisk ML betraktas en tids serie med en **kort serie** om det inte finns tillräckligt många data punkter för att driva tåg-och validerings faserna för modell utveckling. Antalet data punkter varierar för varje experiment, och beror på max_horizon, antalet delningar av kors validering och längden på modellens lookback, vilket är den maximala historik som krävs för att skapa funktioner i Time-serien. Den exakta beräkningen finns i [referens dokumentationen för short_series_handling_config](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration).
+Med automatisk ML betraktas en tids serie med en **kort serie** om det inte finns tillräckligt många data punkter för att driva tåg-och validerings faserna för modell utveckling. Antalet data punkter varierar för varje experiment, och beror på max_horizon, antalet delningar av kors validering och längden på modellens lookback, vilket är den maximala historik som krävs för att skapa funktioner i Time-serien. Den exakta beräkningen finns i [referens dokumentationen för short_series_handling_configuration](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration).
 
-Med automatisk ML får du en kort serie hantering som standard med- `short_series_handling_config` parametern i `ForecastingParameters` objektet. 
+Med automatisk ML får du en kort serie hantering som standard med- `short_series_handling_configuration` parametern i `ForecastingParameters` objektet. 
 
-Om du vill aktivera hantering av korta serier `freq` måste parametern också definieras. Om du vill ändra standard beteendet `short_series_handling_config = auto` uppdaterar du `short_series_handling_config` parametern i `ForecastingParameter` objektet.  
+Om du vill aktivera hantering av korta serier `freq` måste parametern också definieras. För att definiera en Tim frekvens kommer vi att ställas in `freq='H'` . Visa alternativ för frekvens sträng [här](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects). Om du vill ändra standard beteendet `short_series_handling_configuration = 'auto'` uppdaterar du `short_series_handling_configuration` parametern i `ForecastingParameter` objektet.  
 
 ```python
 from azureml.automl.core.forecasting_parameters import ForecastingParameters
 
 forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                             forecast_horizon=50,
-                                            short_series_handling_config='auto',
-                                            freq = '7',
+                                            short_series_handling_configuration='auto',
+                                            freq = 'H',
                                             target_lags='auto')
 ```
 I följande tabell sammanfattas de tillgängliga inställningarna för `short_series_handling_config` .
@@ -306,7 +306,7 @@ I följande tabell sammanfattas de tillgängliga inställningarna för `short_se
 |Inställning|Beskrivning
 |---|---
 |`auto`| Följande är standard beteendet för hantering av korta serier <li> *Om alla serier är korta* kan du fylla i data. <br> <li> *Om inte alla serier är korta* släpper du den korta serien. 
-|`pad`| Om du `short_series_handling_config = pad` sedan väljer automatiserad ml läggs dummy-värden till i varje kort serie. Nedan visas kolumn typerna och vad de fylls med: <li>Objekt kolumner med NaNs <li> Numeriska kolumner med 0 <li> Booleska/Logic-kolumner med falskt <li> Mål kolumnen fylls med slumpmässiga värden med medelvärdet noll och standard avvikelsen 1. 
+|`pad`| Om du `short_series_handling_config = pad` sedan väljer automatiserad ml läggs slumpmässiga värden till i varje kort serie. Nedan visas kolumn typerna och vad de fylls med: <li>Objekt kolumner med NaNs <li> Numeriska kolumner med 0 <li> Booleska/Logic-kolumner med falskt <li> Mål kolumnen fylls med slumpmässiga värden med medelvärdet noll och standard avvikelsen 1. 
 |`drop`| Om du `short_series_handling_config = drop` sedan väljer automatiserad ml tar den korta serien och används inte för utbildning eller förutsägelse. Förutsägelserna för dessa serier kommer att returnera NaN.
 |`None`| Ingen serie är utfylld eller utelämnad
 

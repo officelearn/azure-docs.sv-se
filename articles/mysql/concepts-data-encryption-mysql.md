@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 87dff3bbb4a7ff5e40a06d1b63bdc38987d727fe
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f9b9681b08f5864dc34bbf1c35dc6919129c24cb
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492700"
+ms.locfileid: "96518812"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Azure Database for MySQL data kryptering med en kundhanterad nyckel
 
@@ -61,7 +61,7 @@ När servern har kon figurer ATS för att använda den Kundhanterade nyckeln som
 Följande är krav för att konfigurera Key Vault:
 
 * Key Vault och Azure Database for MySQL måste tillhöra samma Azure Active Directory-klient (Azure AD). Key Vault mellan klienter och Server interaktioner stöds inte. Om du flyttar Key Vault resursen måste du konfigurera om data krypteringen.
-* Aktivera [mjuk borttagning] ((.. /Key-Vault/General/Soft-Delete-overview.MD) i nyckel valvet med kvarhållningsperioden inställt på **90 dagar** för att skydda mot data förlust om en oavsiktlig nyckel (eller Key Vault) tas bort. Mjuka, borttagna resurser bevaras i 90 dagar som standard, om inte kvarhållningsperioden uttryckligen anges till <= 90 dagar. Åtgärder för att återställa och rensa har sina egna behörigheter som är kopplade till en Key Vault åtkomst princip. Funktionen mjuk borttagning är inaktive rad som standard, men du kan aktivera den via PowerShell eller Azure CLI (Observera att du inte kan aktivera den via Azure Portal).
+* Aktivera funktionen för [mjuk borttagning](../key-vault/general/soft-delete-overview.md) i nyckel valvet med kvarhållningsperioden inställt på **90 dagar** för att skydda mot data förlust om en oavsiktlig nyckel (eller Key Vault) tas bort. Mjuka, borttagna resurser bevaras i 90 dagar som standard, om inte kvarhållningsperioden uttryckligen anges till <= 90 dagar. Åtgärder för att återställa och rensa har sina egna behörigheter som är kopplade till en Key Vault åtkomst princip. Funktionen mjuk borttagning är inaktive rad som standard, men du kan aktivera den via PowerShell eller Azure CLI (Observera att du inte kan aktivera den via Azure Portal).
 * Aktivera funktionen för att [ta bort skydd](../key-vault/general/soft-delete-overview.md#purge-protection) i nyckel valvet med kvarhållningsperioden inställt på **90 dagar**. Rensnings skydd kan bara aktive ras när mjuk borttagning har Aktiver ATS. Den kan aktive ras via Azure CLI eller PowerShell. När rensnings skyddet är på kan inte ett valv eller ett objekt i det borttagna läget rensas förrän kvarhållningsperioden har passerat. Borttagnings bara valv och objekt kan fortfarande återställas, vilket säkerställer att bevarande principen kommer att följas. 
 * Bevilja Azure Database for MySQL åtkomst till nyckel valvet med behörigheterna get, wrapKey och unwrapKey med hjälp av dess unika hanterade identitet. I Azure Portal skapas den unika tjänst identiteten automatiskt när data kryptering är aktiverat på MySQL. Se [Konfigurera data kryptering för MySQL](howto-data-encryption-portal.md) för detaljerade, stegvisa anvisningar när du använder Azure Portal.
 
@@ -70,8 +70,8 @@ Följande är krav för att konfigurera den Kundhanterade nyckeln:
 * Den Kundhanterade nyckeln som ska användas för att kryptera DEK kan bara vara asymmetrisk, RSA 2048.
 * Aktiverings datumet (om det är inställt) måste vara datum och tid tidigare. Förfallo datumet har inte angetts.
 * Nyckeln måste vara i *aktiverat* läge.
-* Nyckeln måste ha [mjuk borttagning](../key-vault/general/soft-delete-overview.md) med kvarhållningsperioden inställt på **90 dagar**.
-* [Rensnings skyddet](../key-vault/general/soft-delete-overview.md#purge-protection)måste vara aktiverat för Kay.
+* Nyckeln måste ha [mjuk borttagning](../key-vault/general/soft-delete-overview.md) med kvarhållningsperioden inställt på **90 dagar**. Detta anger implicit det obligatoriska nyckelattributet recoveryLevel: "återställnings Bart". Om kvarhållning har angetts till < 90 dagar, recoveryLevel: "CustomizedRecoverable", vilket inte krävs för att ställa in kvarhållningsperioden är inställt på **90 dagar**.
+* Nyckeln måste ha [rensnings skyddet aktiverat](../key-vault/general/soft-delete-overview.md#purge-protection).
 * Om du [importerar en befintlig nyckel](/rest/api/keyvault/ImportKey/ImportKey) till nyckel valvet ska du se till att tillhandahålla den i de fil format som stöds ( `.pfx` , `.byok` , `.backup` ).
 
 ## <a name="recommendations"></a>Rekommendationer

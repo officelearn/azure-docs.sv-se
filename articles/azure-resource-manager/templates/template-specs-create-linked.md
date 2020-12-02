@@ -3,23 +3,23 @@ title: Skapa en mall-specifikation med länkade mallar
 description: Lär dig hur du skapar en mall-specifikation med länkade mallar.
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: d86b46a88dde7ebffea81cdeb8dc184dd275c0da
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 038fb3e6bbb6086535b83a69de7a3fe49a8e60bb
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747442"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518897"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Självstudie: skapa en mall-specifikation med länkade mallar (förhands granskning)
 
 Lär dig hur du skapar en [mall-specifikation](template-specs.md) med en huvud-mall och en [länkad mall](linked-templates.md#linked-template). Du använder mall-specifikationer för att dela ARM-mallar med andra användare i din organisation. Den här artikeln visar hur du skapar en mall-specifikation för att paketera en huvud-mall och dess länkade mallar med hjälp av `relativePath` egenskapen för [distributions resursen](/azure/templates/microsoft.resources/deployments).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Mallens specifikationer är för närvarande en för hands version. Om du vill använda den måste du installera den senaste versionen av PowerShell eller Azure CLI. För Azure PowerShell använder du [version 5.0.0 eller senare](/powershell/azure/install-az-ps). För Azure CLI använder du [version 2.14.2 eller senare](/cli/azure/install-azure-cli).
+> Mallens specifikationer är för närvarande en för hands version. Om du vill använda den med Azure PowerShell måste du installera [version 5.0.0 eller senare](/powershell/azure/install-az-ps). Använd [version 2.14.2 eller senare](/cli/azure/install-azure-cli)för att använda den med Azure CLI.
 
 ## <a name="create-linked-templates"></a>Skapa länkade mallar
 

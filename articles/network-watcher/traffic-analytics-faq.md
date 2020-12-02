@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 25f4ae0dbfd7827a36dede6a889c342ea490e273
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f27f2a6319bf2648546a62c2566d938db657738f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948484"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518472"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga frågor och svar om Trafikanalys
 
@@ -401,3 +401,6 @@ Sidan topologier för virtuella under nätverk innehåller två huvud avsnitt:
 - Om du vill flytta till andra markerade noder i vyn topologi använder du `Shift+Right arrow` nyckeln för Forward transport. 
 - På markerade noder flyttar fokus till **rutan informations verktyg** för noden. Fokus flyttar som standard till knappen **Mer information** i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare, använder `Right arrow` `Left arrow` du och nycklar för att flytta framåt respektive bakåt. Att trycka på `Enter` har samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
 - Vid val av sådana noder kan du gå till alla dess anslutningar, en i taget, genom att trycka på `Shift+Left arrow` nyckel. Fokus flyttas till **rutan informations verktyg** i anslutningen. I någon punkt kan fokus flyttas tillbaka till noden genom att trycka på `Shift+Right arrow` igen.
+
+## <a name="are-classic-nsgs-supported"></a>Stöds klassiska NSG: er?
+Nej, Trafikanalys stöder inte klassisk NSG. Vi rekommenderar att du migrerar IaaS-resurser från klassisk till Azure Resource Manager eftersom de klassiska resurserna är [inaktuella](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation). Läs den här artikeln för att förstå [hur du migrerar](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6107ffea4fe4d615a42973ab1b231ca9f6b5241f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7132eae073f3d53a104536076ae801ec9ff93e5f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674959"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518676"
 ---
 # <a name="msix-app-attach-glossary"></a>Ord lista för MSIX-appen
 
@@ -108,7 +108,19 @@ Destaging meddelar det operativ system att ett MSIX-paket eller program som för
 
 ## <a name="cim"></a>OBJEKTHANTERAREN
 
-. CIM är ett nytt fil namns tillägg som är associerat med sammansatta avbildningsfiler system (CimFS). Det går snabbare att montera och demontera CIM-filer på en VHD-fil. CIM förbrukar också mindre processor och minne än VHD.
+. CIM är ett nytt fil namns tillägg som är associerat med CimFS (Composite Image File System). Det går snabbare att montera och demontera CIM-filer på en VHD-fil. CIM förbrukar också mindre processor och minne än VHD.
+
+En CIM-fil är en fil med en. CIM-tillägg som innehåller metadata och minst sex ytterligare filer som innehåller faktiska data. Filerna i CIM-filen har inte tillägg. Följande tabell är en lista över exempel-filer som du hittar i en CIM:
+
+| Filnamn | Filnamnstillägg | Storlek |
+|-----------|-----------|------|
+| VSC | OBJEKTHANTERAREN | 1 kB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_0 | NA | 27 KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_1 | NA | 20 KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_2 | NA | 42 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_0 | NA | 428 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_1 | NA | 217 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_2 | NA | 264 132 KB |
 
 Följande tabell är en prestanda jämförelse mellan VHD-och CimFS. De här talen är resultatet av ett test som kör med 500 300 MB filer i varje format som körs på en DSv4 dator.
 

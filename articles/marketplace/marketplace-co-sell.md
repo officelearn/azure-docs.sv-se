@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/20/2020
-ms.openlocfilehash: 9d6970331024ea0cd08e890cc62507d9eb230678
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/2/2020
+ms.openlocfilehash: 99b5e7bee93ffee14585f048506104ec313b9bff
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016341"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518543"
 ---
 # <a name="co-sell-partner-engagement"></a>Deltagande i partnersäljsamarbete
 
@@ -24,7 +24,7 @@ Programmet för samförsäljning är tillgängligt för **program vara som skapa
 
     ![Diagram över hur samförsäljning sker när Sälj leads delas, godkänns och tas emot mot Microsoft-hanterade kunder.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
 
-- **Co-Sälj motiverade** IP-lösningar kan få incitament för Microsofts fält säljare när de säljs i samarbete med Microsofts försäljnings team, utöver de Marketplace-förmåner som anges nedan.</li></ul>
+- **Co-Sälj motiverade** IP-erbjudanden kan tjäna på Microsofts fält säljare när de säljs i samarbete med Microsoft Sales Teams, utöver de Marketplace-förmåner som anges nedan.</li></ul>
 
 ## <a name="marketplace-benefits-for-incentivized-offers"></a>Marketplace-förmåner för motiverade-erbjudanden
 
@@ -67,7 +67,7 @@ Starta din co-försäljnings resa direkt i Partner Center genom att följa stege
 
     :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="I den här bilden visas List avsnittet på fliken Co-försäljning.":::  
 
-1. Ange information om ditt erbjudande och din överföring av säkerhet i avsnittet **dokument** . Microsoft-säljarna kommer att använda den här informationen för att rekommendera och sälja ditt erbjudande. (*Krävs: kundens ett-personsökare och en kund presentations kortlek.*)
+1. Ange information om ditt erbjudande och din överföring av säkerhet i avsnittet **dokument** . Microsoft-säljarna kommer att använda den här informationen för att rekommendera och sälja ditt erbjudande. *(Krävs: lösning/erbjud en lösning för att hitta en lösning/ett erbjudande/erbjudande. Krävs för att nå Azure IP Co-Sälj motiverade status: referens arkitektur diagram.)*
 
     :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="I den här bilden visas avsnittet dokument på fliken Co-försäljning.":::
 

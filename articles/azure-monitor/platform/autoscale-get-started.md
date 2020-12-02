@@ -4,12 +4,12 @@ description: Lär dig hur du skalar din resurs-webbapp, moln tjänst, virtuell d
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 5af60befeda9f0ed4ed76f7ab8449e94950352fb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dbfffd98cd05e3ab2efbbe33e05da208fdc05600
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186583"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518710"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Kom igång med autoskalning i Azure
 I den här artikeln beskrivs hur du konfigurerar inställningarna för autoskalning för resursen i Microsoft Azure-portalen.
@@ -136,7 +136,7 @@ När hälso kontroll Sök vägen anges skickar App Service pinga sökvägen på 
 > [!NOTE]
 > Kom ihåg att App Services planen måste skalas ut till 2 eller fler instanser för att undantaget för belastningsutjämnaren ska inträffa. Om du bara har en instans tas den inte bort från belastningsutjämnaren även om den inte är felfri. 
 
-De återstående felfria instanserna kan uppleva ökad belastning. För att undvika att de återstående instanserna blir överbelastade är inte fler än hälften av instanserna uteslutna. Till exempel, om en App Services plan skalas ut till 4 instanser och 3 av vilka inte är felfri, kommer den högst 2 att uteslutas från belastningsutjämnarens rotation. De andra 2 instanserna (1 felfri och 1 är inte felfria) fortsätter att ta emot begär Anden. I värsta fall där alla instanser är felaktiga kommer ingen att undantas. Om du vill åsidosätta detta beteende kan du ange `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` ett värde mellan och för appens inställning `0` `100` . Om du anger ett högre värde innebär det att fler skadade instanser tas bort (Standardvärdet är 50).
+De återstående felfria instanserna kan uppleva ökad belastning. För att undvika att de återstående instanserna blir överbelastade är inte fler än hälften av instanserna uteslutna. Till exempel, om en App Services plan skalas ut till 4 instanser och 3 av vilka inte är felfri, kommer den högst 2 att uteslutas från belastningsutjämnarens rotation. De andra 2 instanserna (1 felfri och 1 är inte felfria) fortsätter att ta emot begär Anden. I värsta fall där alla instanser är felaktiga kommer ingen att undantas. Om du vill åsidosätta detta beteende kan du ange `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` ett värde mellan och för appens inställning `0` `100` . Om du anger ett högre värde innebär det att fler skadade instanser tas bort (Standardvärdet är 50).
 
 Om en instans inte är felfri i en timme ersätts den med en ny instans. Högst en instans kommer att ersättas per timme, med högst tre instanser per dag per App Service plan.
 

@@ -2,34 +2,56 @@
 title: Skapa och distribuera mall-specifikation
 description: Lär dig hur du skapar en mall-specifikation från ARM-mallen. Distribuera sedan mallen till en resurs grupp i din prenumeration.
 author: tfitzmac
-ms.date: 11/17/2020
+ms.date: 12/01/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 8439b1de5a69b3e5bfc22e10f089938da921c1cb
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 03cf2013f1cec9722af5d7e72285d9f11d8a6bc1
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747510"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518965"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Snabb start: skapa och distribuera mall specifikation (för hands version)
 
 Den här snabb starten visar hur du paketerar en Azure Resource Manager-mall (ARM-mall) i en [mall-specifikation](template-specs.md) och sedan distribuerar mallen. Din Template-specifikation innehåller en ARM-mall som distribuerar ett lagrings konto.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Mallens specifikationer är för närvarande en för hands version. Om du vill använda den måste du installera den senaste versionen av PowerShell eller Azure CLI. För Azure PowerShell använder du [version 5.0.0 eller senare](/powershell/azure/install-az-ps). För Azure CLI använder du [version 2.14.2 eller senare](/cli/azure/install-azure-cli).
+> Mallens specifikationer är för närvarande en för hands version. Om du vill använda den med Azure PowerShell måste du installera [version 5.0.0 eller senare](/powershell/azure/install-az-ps). Använd [version 2.14.2 eller senare](/cli/azure/install-azure-cli)för att använda den med Azure CLI.
 
 ## <a name="create-template-spec"></a>Skapa mall-specifikation
 
-Mallens specifikation är en resurs typ med namnet **Microsoft. Resources/templateSpecs**. Om du vill skapa din mall specifikation kan du använda Azure PowerShell, Azure CLI eller en ARM-mall. I alla alternativ behöver du en ARM-mall som är paketerad i mallen specifikation.
+Mallens specifikation är en resurs typ med namnet **Microsoft. Resources/templateSpecs**. Om du vill skapa din mall specifikation kan du använda Azure Portal, Azure PowerShell, Azure CLI eller en ARM-mall. I alla alternativ behöver du en ARM-mall som är paketerad i mallen specifikation.
 
 Med PowerShell och CLI skickas ARM-mallen som en parameter till kommandot. Med ARM-mall är ARM-mallen som ska paketeras i specifikationen för mallen inbäddad i definitionen av mallen definition.
 
 Dessa alternativ visas nedan.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Längst upp på skärmen, i **Sök resurser, tjänster och dokument**, anger du **specifikationer för mallar** och väljer sedan **specifikationer för mallar**.
+1. Välj **Skapa mall-specifikation**.
+1. Välj eller ange följande värden:
+
+    - **Namn**: Ange ett namn för mall-specifikationen.  Till exempel **storageSpec**
+    - **Prenumeration**: Välj en Azure-prenumeration som används för att skapa mallen specifikation.
+    - **Resurs grupp**: Välj **Skapa ny** och ange sedan ett nytt resurs grupp namn.  Till exempel **templateSpecRG**.
+    - **Plats**: Välj en plats för resursgruppen. Till exempel  **USA, västra 2**.
+    - **Version**: Ange en version för mall-specifikationen. Till exempel **1,0** eller **v 1.0**.
+
+1. Välj **Nästa: Redigera mall**.
+1. Ersätt mal linne hållet med följande JSON:
+
+    :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
+
+    Detta är den mall som kommer att paketeras i specifikationen för mallen.
+1. Välj **Granska + skapa**.
+1. Välj **Skapa**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -203,7 +225,23 @@ Dessa alternativ visas nedan.
 
 ## <a name="deploy-template-spec"></a>Specifikation för att distribuera mall
 
-Nu kan du distribuera mallens specifikation. Att distribuera mallens specifikation är precis som att distribuera mallen den innehåller, förutom att du skickar in resurs-ID: t för mallens specifikation. Du använder samma distributions kommandon och skickar vid behov parameter värden för mallen specifikation.
+Nu kan du distribuera mallens specifikation. Att distribuera mallens specifikation är precis som att distribuera mallen den innehåller, förutom att du skickar in resurs-ID för mallens specifikation i Azure PowerShell eller Azure CLI. Du använder samma distributions kommandon och skickar vid behov parameter värden för mallen specifikation.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. Öppna resurs gruppen som du skapade i den senaste proceduren från Azure Portal.  Till exempel **templateSpecRG**.
+1. Välj den mall specifikation som du skapade. Till exempel **storageSpec**.
+1. Välj **Distribuera**.
+1. Välj eller ange följande värden:
+
+    - **Prenumeration**: Välj en Azure-prenumeration för att skapa resursen.
+    - **Resurs grupp**: Välj **Skapa ny** och ange sedan **storageRG**.
+    - **Typ av lagrings konto**: Välj **Standard_GRS**.
+
+    Du skapar en ny resurs grupp och distribuerar mallen i mallen specifikation till den nya resurs gruppen.
+
+1. Välj **Granska + skapa**.
+1. Välj **Skapa**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

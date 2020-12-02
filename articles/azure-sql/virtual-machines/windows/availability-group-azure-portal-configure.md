@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 9ecac482c138447a3a9dc99193fb131b688993e4
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 28bacb923578fa0c631aa7b5092e0d11f98b1dcf
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556615"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518421"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Använd Azure Portal för att konfigurera en tillgänglighets grupp (för hands version) för SQL Server på virtuell Azure-dator 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -32,7 +32,7 @@ Den här funktionen finns för närvarande som en förhandsversion.
 Den här artikeln använder Azure Portal för att konfigurera tillgänglighets grupps miljön, men det går också att göra detta med hjälp av [PowerShell eller Azure CLI](availability-group-az-commandline-configure.md), [Azure snabb starts-mallar](availability-group-quickstart-template-configure.md)eller [manuellt](availability-group-manually-configure-tutorial.md) . 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera en tillgänglighets grupp som alltid använder Azure Portal måste du ha följande krav: 
 
@@ -100,9 +100,6 @@ Det gör du på följande sätt:
 1. Granska inställningarna för klustret. 
 1. Välj **tillämpa** på publicera kluster och välj sedan **Ja** när du vill fortsätta.
 
-
-
-
 ## <a name="create-availability-group"></a>Skapa tillgänglighets grupp
 
 När klustret har skapats eller publicerats skapar du tillgänglighets gruppen med hjälp av Azure Portal. Det gör du på följande sätt:
@@ -146,7 +143,7 @@ Följ dessa steg om du vill lägga till databaser i tillgänglighets gruppen med
 1. Öppna SQL Server Management Studio (SSMS).
 1. Anslut till din SQL Server-instans. 
 1. Expandera **alltid med hög tillgänglighet** i **Object Explorer**.
-1. Expandera **tillgänglighets grupper** , högerklicka på din tillgänglighets grupp och välj att **lägga till databas..**..
+1. Expandera **tillgänglighets grupper**, högerklicka på din tillgänglighets grupp och välj att **lägga till databas..**..
 
    :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="Högerklicka på tillgänglighets gruppen i Object Explorer och välj att lägga till databas":::
 
@@ -171,7 +168,7 @@ Följ dessa steg om du vill lägga till fler SQL Server virtuella datorer i klus
 
 1. Expandera **autentiseringsuppgifter för Windows Server-redundanskluster** och ange i de konton som används för SQL Server tjänst, kluster operatör och start konton för kluster. 
 1. Välj de SQL Server virtuella datorer som du vill lägga till i klustret. 
-1. Välj **Tillämpa**. 
+1. Välj **Använd**. 
 
 Du kan kontrol lera statusen för din distribution i **aktivitets loggen** som är tillgänglig från klock ikonen i det övre navigerings fältet. 
 
@@ -207,7 +204,7 @@ Ta sedan bort de klustrade metadatana från SQL-IaaS agent-tillägg:
 # Remove the cluster from the SQL VM RP metadata
 # example: az sql vm group delete --name Cluster --resource-group SQLVM-RG
 
-az sql vm group delete --name <cluster name> Cluster --resource-group <resource group name>
+az sql vm group delete --name <cluster name> --resource-group <resource group name>
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -235,7 +232,7 @@ Ta sedan bort de klustrade metadatana från SQL-IaaS agent-tillägg:
 # Remove the cluster metadata
 # example: Remove-AzSqlVMGroup -ResourceGroupName "SQLVM-RG" -Name "Cluster"
 
-Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster name> "
+Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster name>"
 ```
 
 ---

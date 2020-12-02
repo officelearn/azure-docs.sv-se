@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 838276c47085a3c7ad0f7c0a35a2578b13eb5026
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 57948cf705d2a58b4f8e19e56121115ba33362ad
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511275"
+ms.locfileid: "96518642"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ I den här guiden hittar du de vanligaste frågorna om Azure Synapse Analytics.
 
 ## <a name="general"></a>Allmänt
 
-### <a name="q-what-rbac-roles-exist-and-how-do-i-use-them-to-secure-a-synapse-workspace"></a>F: vilka RBAC-roller finns och hur använder jag dem för att skydda en Synapse-arbetsyta?
+### <a name="q-how-can-i-use-rbac-roles-to-secure-my-workspace"></a>F: Hur kan jag använda RBAC-roller för att skydda min arbets yta?
 
 A: Azure Synapse introducerar ett antal roller och omfattningar för att tilldela dem för att förenkla säkerheten för din arbets yta.
 
@@ -36,16 +36,16 @@ Synapse RBAC-roller:
 * Synapse Compute-operator (förhands granskning)
 * Synapse Credential-användare (förhands granskning)
 
-Synapse RBAC-omfång:
-* Arbetsyta 
-* Spark-pool
-* Integration runtime
-* Länkad tjänst
-* Autentiseringsuppgift
+För att skydda din Synapse-arbetsyta tilldelar du RBAC-rollerna till följande RBAC-scope:
+* Arbetsytor
+* Spark-pooler
+* Integrerings körningar
+* Länkade tjänster
+* Autentiseringsuppgifter
 
 Med dedikerade SQL-pooler har du dessutom alla samma säkerhetsfunktioner som du känner till och älskar.
 
-### <a name="q-how-can-i-cost-control-for-the-capabilities-inside-a-synapse-workspace-such-as-dedicated-sql-pools-serverless-spark-pools-and-serverless-sql-pools"></a>F: Hur kan jag kostnads kontrol lera funktionerna i en Synapse-arbetsyta, till exempel dedikerade SQL-pooler, serverbaserade Spark-pooler och serverbaserade SQL-pooler?
+### <a name="q-how-do-i-control-cont-dedicated-sql-pools-serverless-sql-pools-and-serverless-spark-pools"></a>F: Hur gör jag för att kontrol lera arbetsinriktade SQL-pooler, Server lös SQL-pooler och Server lös Spark-pooler?
 
 A: som start punkt fungerar Azure Synapse med de inbyggda kostnads analys-och kostnads aviseringarna som finns på Azures prenumerations nivå.
 

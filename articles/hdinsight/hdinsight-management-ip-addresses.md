@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 35f2f82b4fe6862f0d023a70b32c964698b0c0eb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 682db0ef52e624a23d95aa18a007f05a78f39677
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547817"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518795"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>IP-adresser för HDInsight-hantering
 
@@ -32,7 +32,7 @@ I följande avsnitt beskrivs de olika IP-adresser som måste vara tillåtna.
 
 ## <a name="azure-dns-service"></a>Azure DNS tjänst
 
-Om du använder den Azure-angivna DNS-tjänsten ger du åtkomst från __168.63.129.16__ på port 53. Mer information finns i dokumentet [namn matchning för virtuella datorer och roll instanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) . Hoppa över det här steget om du använder anpassad DNS.
+Om du använder den Azure-angivna DNS-tjänsten ger du åtkomst till __168.63.129.16__ på port 53 för både TCP och UDP. Mer information finns i dokumentet [namn matchning för virtuella datorer och roll instanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) . Hoppa över det här steget om du använder anpassad DNS.
 
 ## <a name="health-and-management-services-all-regions"></a>Hälso-och hanterings tjänster: alla regioner
 

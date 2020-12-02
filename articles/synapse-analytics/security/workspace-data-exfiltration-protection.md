@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7af49b31aed3794d204b653f0ebfd66283c26cd4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 71210cdcc2b3758a59a1b41816e6468556e94808
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501638"
+ms.locfileid: "96518268"
 ---
 # <a name="data-exfiltration-protection-for-azure-synapse-analytics-workspaces"></a>Data exfiltrering Protection för Azure Synapse Analytics-arbetsytor
 Den här artikeln förklarar data exfiltrering Protection i Azure Synapse Analytics
@@ -25,7 +25,7 @@ Azure Synapse Analytics-arbetsytor stöder aktivering av data exfiltrering-skydd
 >Du kan inte ändra konfigurationen för arbets ytan för hanterat virtuellt nätverk och data exfiltrering-skydd när arbets ytan har skapats.
 
 ## <a name="managing-synapse-workspace-data-egress-to-approved-targets"></a>Hantera Synapse-arbetsytans data utgående till godkända mål
-När arbets ytan har skapats med data exfiltrering har Aktiver ATS kan ägarna till arbets ytans resurs hantera listan över godkända Azure AD-klienter för arbets ytan. Användare med [rätt behörigheter](./access-control.md) på arbets ytan kan använda Synapse Studio för att skapa hanterade anslutnings begär Anden för privata slut punkter till resurser i arbets ytans godkända Azure AD-klienter. Skapande av hanterad privat slut punkt blockeras om användaren försöker skapa en privat slut punkts anslutning till en resurs i en klient som inte är godkänd.
+När arbets ytan har skapats med data exfiltrering har Aktiver ATS kan ägarna till arbets ytans resurs hantera listan över godkända Azure AD-klienter för arbets ytan. Användare med [rätt behörigheter](./synapse-workspace-access-control-overview.md) på arbets ytan kan använda Synapse Studio för att skapa hanterade anslutnings begär Anden för privata slut punkter till resurser i arbets ytans godkända Azure AD-klienter. Skapande av hanterad privat slut punkt blockeras om användaren försöker skapa en privat slut punkts anslutning till en resurs i en klient som inte är godkänd.
 
 ## <a name="sample-workspace-with-data-exfiltration-protection-enabled"></a>Exempel arbets yta med data exfiltrering Protection aktiverat
 Låt oss använda ett exempel för att illustrera data exfiltrering Protection för Synapse-arbetsytor. Contoso har Azure-resurser i klient organisationen A och klient B och det finns behov av att dessa resurser ansluter säkert. En Synapse-arbetsyta har skapats i klient organisationen A med klient B tillagt som en godkänd Azure AD-klient. Diagrammet visar privata slut punkts anslutningar till Azure Storage konton i klient organisationen A och klient B som har godkänts av lagrings kontots ägare. Diagrammet visar också blockerad skapande av privat slut punkt. Skapandet av den här privata slut punkten blockerades eftersom det riktade sig mot ett Azure Storage konto i den Fabrikam Azure AD-klienten, som inte är en godkänd Azure AD-klient för Contosos arbets yta. 

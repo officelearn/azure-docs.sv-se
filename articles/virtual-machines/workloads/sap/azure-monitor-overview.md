@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 5bb40ec930731b58d457500d83b66c7a187b44d8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bcb912a24dfb2a5e78719cf9010fd23afe0df185
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957443"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484404"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Azure Monitor för SAP-lösningar (för hands version)
 
@@ -35,7 +35,7 @@ Databaser som stöds:
 - SAP HANA-databas
 - Microsoft SQL Server
 
-Azure Monitor for SAP-lösningar utnyttjar kraften hos befintliga [Azure Monitor](../../../azure-monitor/overview.md) funktioner som Log Analytics och [arbets böcker](../../../azure-monitor/platform/workbooks-overview.md) för att tillhandahålla ytterligare övervakningsfunktioner. Kunder kan skapa [anpassade visualiseringar](../../../azure-monitor/platform/workbooks-overview.md#getting-started) genom att redigera standard arbets böckerna som tillhandahålls av Azure Monitor för SAP-lösningar, skriva [anpassade frågor](../../../azure-monitor/log-query/get-started-portal.md) och skapa [anpassade aviseringar](../../../azure-monitor/learn/tutorial-response.md) med hjälp av Azure Log Analytics-arbetsytan, dra nytta av den [flexibla kvarhållningsperioden](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) och ansluta övervaknings data med sitt biljett system.
+Azure Monitor for SAP-lösningar utnyttjar kraften hos befintliga [Azure Monitor](../../../azure-monitor/overview.md) funktioner som Log Analytics och [arbets böcker](../../../azure-monitor/platform/workbooks-overview.md) för att tillhandahålla ytterligare övervakningsfunktioner. Kunder kan skapa [anpassade visualiseringar](../../../azure-monitor/platform/workbooks-overview.md#getting-started) genom att redigera standard arbets böckerna som tillhandahålls av Azure Monitor för SAP-lösningar, skriva [anpassade frågor](../../../azure-monitor/log-query/log-analytics-tutorial.md) och skapa [anpassade aviseringar](../../../azure-monitor/learn/tutorial-response.md) med hjälp av Azure Log Analytics-arbetsytan, dra nytta av den [flexibla kvarhållningsperioden](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) och ansluta övervaknings data med sitt biljett system.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>Vilka data Azure Monitor för att samla in SAP-lösningar?
 

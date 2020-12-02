@@ -3,18 +3,18 @@ title: introduktion till Azure Data Factory
 description: Lär dig mer om den molnbaserade dataintegreringstjänsten Azure Data Factory som samordnar och automatiserar förflyttning och omvandling av data.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 77420939c25401c170007d3971d63ca9c5b2d04c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d8b6a852ff0aeb287b12d63bfa689a38a56d418f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446210"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485067"
 ---
 # <a name="what-is-azure-data-factory"></a>Vad är Azure Data Factory?
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 2b474ae184374a2c91dcba15517048556686ec35
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8eaadc031039b22e209db1023c65da39e1e096b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782237"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483291"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Kundhanterade nycklar för Azure Storage kryptering
 
@@ -113,10 +113,10 @@ Om du vill återkalla åtkomsten till Kundhanterade nycklar använder du [PowerS
 
 ## <a name="customer-managed-keys-for-azure-managed-disks"></a>Kundhanterade nycklar för Azure Managed disks
 
-Kundhanterade nycklar är också tillgängliga för hantering av kryptering av Azure Managed disks. Kundhanterade nycklar fungerar annorlunda för hanterade diskar än för Azure Storage resurser. Mer information finns i [kryptering på Server sidan av Azure Managed disks](../../virtual-machines/windows/disk-encryption.md) for Windows eller [Server Side Encryption på Azure Managed disks](../../virtual-machines/linux/disk-encryption.md) for Linux.
+Kundhanterade nycklar är också tillgängliga för hantering av kryptering av Azure Managed disks. Kundhanterade nycklar fungerar annorlunda för hanterade diskar än för Azure Storage resurser. Mer information finns i [kryptering på Server sidan av Azure Managed disks](../../virtual-machines/disk-encryption.md) for Windows eller [Server Side Encryption på Azure Managed disks](../../virtual-machines/disk-encryption.md) for Linux.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Azure Storage-kryptering av vilande data](storage-service-encryption.md)
-- [Konfigurera kryptering med Kundhanterade nycklar som lagras i Azure Key Vault](customer-managed-keys-configure-key-vault.md)
+- [Konfigurera kryptering med kundhanterade nycklar som lagras i Azure Key Vault](customer-managed-keys-configure-key-vault.md)
 - [Konfigurera kryptering med Kundhanterade nycklar som lagras i Azure Key Vault hanterad HSM (förhands granskning)](customer-managed-keys-configure-key-vault-hsm.md)

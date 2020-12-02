@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 53967ab0bec9488691ff60cdabb8fedbb6b9730e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7466f037f0a39b67023b9ebcc27c2e19b27f42ab
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386715"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485271"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd mat ris för haveri beredskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -96,7 +96,7 @@ Accelererat nätverk | Inga | Inga
 
 **Storage** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
 --- | --- | --- 
-NFS | NA | Ej tillämpligt
+NFS | NA | NA
 SMB 3.0 | Ja | Ja
 SAN (ISCSI) | Ja | Ja
 Multipath (MPIO). Testat med:<br></br> Microsoft DSM, EMC PowerPath 5,7 SP4, EMC PowerPath DSM för CLARiiON | Ja | Ja
@@ -105,15 +105,15 @@ Multipath (MPIO). Testat med:<br></br> Microsoft DSM, EMC PowerPath 5,7 SP4, EMC
 
 **Storage** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
 --- | --- | ---
-VMDK | NA | Ej tillämpligt
+VMDK | NA | NA
 VHD/VHDX | Ja | Ja
 Generation 2 VM | Ja | Ja
 EFI/UEFI<br></br>Den migrerade virtuella datorn i Azure kommer automatiskt att konverteras till en virtuell dator med BIOS-start. Den virtuella datorn ska endast köra Windows Server 2012 och senare. OS-disken bör ha upp till fem partitioner eller färre och storleken på OS-disken måste vara mindre än 300 GB.| Ja | Ja
 Delad kluster disk | Inga | Inga
 Krypterad disk | Inga | Inga
-NFS | NA | Ej tillämpligt
+NFS | NA | NA
 SMB 3.0 | Inga | Inga
-RDM | NA | Ej tillämpligt
+RDM | NA | NA
 Disk >1 TB | Ja, upp till 4 095 GB | Ja, upp till 4 095 GB
 Disk: logisk och fysisk sektor i 4K | Stöds inte: gen 1/Gen 2 | Stöds inte: gen 1/Gen 2
 Disk: logisk och 512-byte fysisk sektor | Ja |  Ja
@@ -136,13 +136,13 @@ Frekvent lagring| Inga | Inga
 Blockblobar | Inga | Inga
 Kryptering i rest (SSE)| Ja | Ja
 Kryptering i vilo läge (CMK) <br></br> (Endast för redundans till Managed Disks)| Ja (via PowerShell AZ 3.3.0-modul och senare) | Ja (via PowerShell AZ 3.3.0-modul och senare)
-Dubbel kryptering i vila <br></br> (Endast för redundans till Managed Disks) <br></br> Läs mer om regioner som stöds för [Windows](../virtual-machines/windows/disk-encryption.md) och [Linux](../virtual-machines/linux/disk-encryption.md) | Ja (via PowerShell AZ 3.3.0-modul och senare) | Ja (via PowerShell AZ 3.3.0-modul och senare)
+Dubbel kryptering i vila <br></br> (Endast för redundans till Managed Disks) <br></br> Läs mer om regioner som stöds för [Windows](../virtual-machines/disk-encryption.md) och [Linux](../virtual-machines/disk-encryption.md) | Ja (via PowerShell AZ 3.3.0-modul och senare) | Ja (via PowerShell AZ 3.3.0-modul och senare)
 Premium Storage | Ja | Ja
 Standard Storage | Ja | Ja
 Import/export-tjänst | Inga | Inga
 Azure Storage konton med aktive rad brand vägg | Ja. För mål lagring och cache. | Ja. För mål lagring och cache.
-Ändra lagrings konto | Nej. Mål Azure Storages kontot kan inte ändras efter att replikeringen har Aktiver ATS. Ändra genom att inaktivera och sedan aktivera haveri beredskap igen. | Inga
-Alternativ för säker överföring | Ja
+Ändra lagrings konto | Nej. Mål Azure Storages kontot kan inte ändras efter att replikeringen har Aktiver ATS. Ändra genom att inaktivera och sedan aktivera haveri beredskap igen. | No
+Alternativ för säker överföring | Yes
 
 
 ## <a name="azure-compute-features"></a>Beräknings funktioner i Azure

@@ -7,18 +7,18 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: a544d0c5fafbdaf9d272fed552fb38eda613292f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c9866ac2c14e4deb29326ffdd1a93a7d8eae1ea3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522149"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484812"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>Självstudie: ansluta till ett Azure Cosmos-konto med en privat Azure-slutpunkt
 
 Den privata Azure-slutpunkten är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, till exempel virtuella datorer, att kommunicera med privata länk resurser privat.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett virtuellt nätverk och en skydds-värd.
@@ -248,7 +248,7 @@ I det här avsnittet ska du använda den virtuella datorn som du skapade i före
 
     En privat IP-adress för **10.1.0.5** returneras för Cosmos DB kontots namn.  Adressen finns i under nätet för det virtuella nätverk som du skapade tidigare.
 
-9. Installera [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%252fazure%252fstorage%252fblobs%252ftoc.json) på den virtuella datorn.
+9. Installera [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) på den virtuella datorn.
 
 10. Välj **Slutför** när **Microsoft Azure Storage Explorer** har installerats.  Låt rutan vara markerad om du vill öppna programmet.
 

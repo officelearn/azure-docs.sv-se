@@ -7,14 +7,14 @@ ms.service: data-factory
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
-ms.openlocfilehash: f1f81af715bc4b2248a24076f3b12a74d0ee73e3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+author: dcstwh
+ms.author: weetok
+ms.openlocfilehash: 9b28fb24439354e09e5262281a99cd9dc0153a04
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102083"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485254"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Iterativ utveckling och felsökning med Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,7 +27,7 @@ I en åtta minuters introduktion och demonstration av den här funktionen kan du
 
 ## <a name="debugging-a-pipeline"></a>Felsöka en pipeline
 
-När du skapar med hjälp av pipeline-arbetsytan kan du testa dina aktiviteter med hjälp av **fel söknings** funktionen. När du utför test körningar behöver du inte publicera dina ändringar i data fabriken innan du väljer **Felsök** . Den här funktionen är användbar i scenarier där du vill se till att ändringarna fungerar som förväntat innan du uppdaterar data Factory-arbetsflödet.
+När du skapar med hjälp av pipeline-arbetsytan kan du testa dina aktiviteter med hjälp av **fel söknings** funktionen. När du utför test körningar behöver du inte publicera dina ändringar i data fabriken innan du väljer **Felsök**. Den här funktionen är användbar i scenarier där du vill se till att ändringarna fungerar som förväntat innan du uppdaterar data Factory-arbetsflödet.
 
 ![Fel söknings funktion på pipeline-arbetsytan](media/iterative-development-debugging/iterative-development-1.png)
 
@@ -44,7 +44,7 @@ När en testkörning lyckas lägger du till fler aktiviteter i din pipeline och 
 
 ### <a name="setting-breakpoints"></a>Ställa in Bryt punkter
 
-Med Azure Data Factory kan du Felsöka en pipeline tills du når en viss aktivitet på pipeline-arbetsytan. Placera en Bryt punkt för aktiviteten tills du vill testa och välj **Felsök** . Data Factory säkerställer att testet bara körs tills Bryt punkts aktiviteten på pipeline-arbetsytan. Den här *fel sökningen tills* funktionen är användbar när du inte vill testa hela pipelinen, men endast en delmängd av aktiviteter i pipelinen.
+Med Azure Data Factory kan du Felsöka en pipeline tills du når en viss aktivitet på pipeline-arbetsytan. Placera en Bryt punkt för aktiviteten tills du vill testa och välj **Felsök**. Data Factory säkerställer att testet bara körs tills Bryt punkts aktiviteten på pipeline-arbetsytan. Den här *fel sökningen tills* funktionen är användbar när du inte vill testa hela pipelinen, men endast en delmängd av aktiviteter i pipelinen.
 
 ![Bryt punkter på pipeline-arbetsytan](media/iterative-development-debugging/iterative-development-3.png)
 

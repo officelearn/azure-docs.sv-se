@@ -4,12 +4,12 @@ description: Sammanfattar stöd för haveri beredskap för virtuella Azure-dator
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 64e8d4d00efa52b10d4543d36af7874f61dc3455
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: f0aebd09c06677aeba7cddda246e3e37992e0d9e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317545"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485288"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Supportmatris för haveriberedskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -234,7 +234,7 @@ Kylning och frekvent lagring | Stöds inte | VM-diskar stöds inte på låg frek
 Lagringsutrymmen | Stöds |
 Kryptering i rest (SSE) | Stöds | SSE är standardinställningen på lagrings konton.
 Kryptering i vilo läge (CMK) | Stöds | Både program-och HSM-nycklar stöds för hanterade diskar
-Dubbel kryptering i vila | Stöds | Läs mer om regioner som stöds för [Windows](../virtual-machines/windows/disk-encryption.md) och [Linux](../virtual-machines/linux/disk-encryption.md)
+Dubbel kryptering i vila | Stöds | Läs mer om regioner som stöds för [Windows](../virtual-machines/disk-encryption.md) och [Linux](../virtual-machines/disk-encryption.md)
 Azure Disk Encryption (ADE) för Windows OS | Stöds för virtuella datorer med hanterade diskar. | Virtuella datorer med ohanterade diskar stöds inte. <br/><br/> HSM-skyddade nycklar stöds inte. <br/><br/> Kryptering av enskilda volymer på en enskild disk stöds inte. |
 Azure Disk Encryption (ADE) för Linux OS | Stöds för virtuella datorer med hanterade diskar. | Virtuella datorer med ohanterade diskar stöds inte. <br/><br/> HSM-skyddade nycklar stöds inte. <br/><br/> Kryptering av enskilda volymer på en enskild disk stöds inte. <br><br> Känt problem med att aktivera replikering. [Läs mer.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 Nyckel rotation för SAS | Stöds inte | Om SAS-nyckeln för lagrings konton roteras måste kunden inaktivera och återaktivera replikering. |

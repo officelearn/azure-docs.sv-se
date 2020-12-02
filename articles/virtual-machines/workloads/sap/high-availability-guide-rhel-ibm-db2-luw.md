@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: juergent
-ms.openlocfilehash: be455de2a1f8aebc7327af4741e0652a4be76665
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: fcc247e9e3122515ebe9230f58860df8c6dd3948
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956440"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484336"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Hög tillgänglighet för IBM Db2 LUW på virtuella Azure-datorer på Red Hat Enterprise Linux Server
 
@@ -34,7 +34,7 @@ De IBM DB2-versioner som stöds är 10,5 och senare, enligt beskrivningen i SAP 
 
 Innan du påbörjar en installation kan du läsa följande SAP-anteckningar och dokumentation:
 
-| SAP-anteckning | Beskrivning |
+| SAP-anteckning | Description |
 | --- | --- |
 | [1928533] | SAP-program på Azure: produkter och typer av virtuella Azure-datorer som stöds |
 | [2015553] | SAP på Azure: support krav |
@@ -405,7 +405,7 @@ Om du vill konfigurera Azure Load Balancer rekommenderar vi att du använder [Az
 > Standard Load Balancer SKU: n har begränsningar med åtkomst till offentliga IP-adresser från noderna under Load Balancer. I artikeln [offentlig slut punkts anslutning för Virtual Machines med Azure standard Load Balancer i SAP-scenarier med hög tillgänglighet](./high-availability-guide-standard-load-balancer-outbound-connections.md) beskrivs olika sätt att aktivera noderna för att få åtkomst till offentliga IP-adresser
 
 > [!IMPORTANT]
-> Flytande IP stöds inte på en sekundär NIC-IP-konfiguration i belastnings Utjämnings scenarier. Mer information finns i [begränsningar för Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Om du behöver ytterligare IP-adress för den virtuella datorn distribuerar du ett andra nätverkskort.  
+> Flytande IP stöds inte på en sekundär NIC-IP-konfiguration i belastnings Utjämnings scenarier. Mer information finns i [begränsningar för Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Om du behöver ytterligare IP-adress för den virtuella datorn distribuerar du ett andra nätverkskort.  
 
 
 1. Skapa en IP-adresspool på klient sidan:

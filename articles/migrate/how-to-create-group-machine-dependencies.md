@@ -3,12 +3,12 @@ title: Konfigurera agentbaserade beroende analyser i Azure Migrate Server utvär
 description: I den här artikeln beskrivs hur du konfigurerar en agent-baserad beroende analys i Azure Migrate Server bedömning.
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 58c1aeea00ae033def0f45d220c12d13cc28b4b2
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 1ab5d639d68b5ce2298f907ef8346488e16b4020
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302844"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483478"
 ---
 # <a name="set-up-dependency-visualization"></a>Konfigurera beroende visualisering
 
@@ -21,7 +21,7 @@ I den här artikeln beskrivs hur du konfigurerar en agent beroende analys i Azur
     - [Fysiska servrar](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
     - [Virtuella Hyper-V-datorer](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
 - Kontrol lera att du:
-    - Ha ett Azure Migrate-projekt. Om du inte gör det [skapar](how-to-add-tool-first-time.md) du en nu.
+    - Ha ett Azure Migrate-projekt. Om du inte gör det [skapar](./create-manage-projects.md) du en nu.
     - Kontrol lera att du har [lagt](how-to-assess.md) till verktyget Azure Migrate: Server utvärderings verktyg i projektet.
     - Konfigurera en [Azure Migrate-apparat](migrate-appliance.md) för att identifiera lokala datorer. Enheten identifierar lokala datorer och skickar metadata-och prestanda data till Azure Migrate: Server utvärdering. Konfigurera en installation för:
         - [VMware](how-to-set-up-appliance-vmware.md) VMS.
@@ -147,7 +147,7 @@ När du har skapat gruppen rekommenderar vi att du installerar agenter på alla 
 Du kan fråga beroende data som har registrerats av Tjänstkarta i arbets ytan Log Analytics som är associerad med Azure Migrate projektet. Log Analytics används för att skriva och köra Azure Monitor logg frågor.
 
 - [Lär dig hur du](../azure-monitor/insights/service-map.md#log-analytics-records) söker efter tjänstkarta data i Log Analytics.
-- [Få en översikt](../azure-monitor/log-query/get-started-queries.md)  över att skriva logg frågor i [Log Analytics](../azure-monitor/log-query/get-started-portal.md).
+- [Få en översikt](../azure-monitor/log-query/get-started-queries.md)  över att skriva logg frågor i [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Kör en fråga för beroende data på följande sätt:
 

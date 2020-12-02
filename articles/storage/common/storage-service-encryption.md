@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: bc0a556841c3c6ee91ae472087aaaf7c74009b67
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: da1acc6316d7af87ffe35b9560919c324373591a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785790"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484608"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage-kryptering av vilande data
 
@@ -32,7 +32,7 @@ Varje Block-Blob, Lägg till BLOB eller sid-blob som skrevs till Azure Storage e
 
 Mer information om de kryptografiska modulerna underliggande Azure Storage kryptering finns i [Cryptography-API: nästa generation](/windows/desktop/seccng/cng-portal).
 
-Information om kryptering och nyckel hantering för Azure Managed disks finns i [kryptering på Server sidan av Azure Managed disks](../../virtual-machines/windows/disk-encryption.md) för virtuella Windows-datorer eller [kryptering på Server sidan av Azure Managed disks](../../virtual-machines/linux/disk-encryption.md) för virtuella Linux-datorer.
+Information om kryptering och nyckel hantering för Azure Managed disks finns i [kryptering på Server sidan av Azure Managed disks](../../virtual-machines/disk-encryption.md) för virtuella Windows-datorer eller [kryptering på Server sidan av Azure Managed disks](../../virtual-machines/disk-encryption.md) för virtuella Linux-datorer.
 
 ## <a name="about-encryption-key-management"></a>Om hantering av krypterings nyckel
 

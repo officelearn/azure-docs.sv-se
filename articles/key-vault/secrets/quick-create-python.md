@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 7fe5b8da0b6dfa69d04a5ad152aa34a8686d854f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 68c58769302bbefd29b483a8fda225201d242dd9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786113"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483652"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Snabb start: Azure Key Vault hemligt klient bibliotek för python
 
@@ -54,7 +54,7 @@ Den här snabb starten använder Azure Identity Library med Azure CLI för att a
 1. Installera Azure Active Directory identitets bibliotek:
 
     ```terminal
-    pip install azure.identity
+    pip install azure-identity
     ```
 
 
@@ -136,7 +136,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Kör koden
 
-Kontrol lera att koden i föregående avsnitt finns i en fil med namnet *kv_secrets. py* . Kör sedan koden med följande kommando:
+Kontrol lera att koden i föregående avsnitt finns i en fil med namnet *kv_secrets. py*. Kör sedan koden med följande kommando:
 
 ```terminal
 python kv_secrets.py

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9ff05f2cf9f29ef86a6db9955e7d28c9035e1bf4
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 26905b746efb0bfcc877e0fa8fad797672bb6447
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376969"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483224"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Virtuella Windows-datorer i Azure
 
@@ -69,7 +69,7 @@ Azure debiterar ett [Tim pris](https://azure.microsoft.com/pricing/details/virtu
 Prenumerationen har [standardkvotgränser](../../azure-resource-manager/management/azure-subscription-service-limits.md) som kan påverka ditt projekt om många virtuella datorer distribueras. Den aktuella gränsen på basis av per prenumeration är 20 virtuella datorer per region. Begränsningen kan ökas om du [anmäler ett supportärende och begär en ökning](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
 
 ### <a name="operating-system-disks-and-images"></a>Operativsystemsdiskar och avbildningar
-Virtuella datorer använder [virtuella hård diskar (VHD: er)](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) för att lagra sitt operativ system (OS) och data. VHD:ar används också för de avbildningar du kan välja mellan för att installera ett operativsystem. 
+Virtuella datorer använder [virtuella hård diskar (VHD: er)](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för att lagra sitt operativ system (OS) och data. VHD:ar används också för de avbildningar du kan välja mellan för att installera ett operativsystem. 
 
 Azure tillhandahåller många [Marketplace-avbildningar](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images%3Bwindows&page=1) som kan användas med olika versioner och typer av Windows Server-operativsystem. Marketplace-avbildningar identifieras av avbildningens utgivare, erbjudande, sku och version (vanligtvis anges versionen som den senaste). Endast 64-bitars operativsystem stöds. Mer information om kompatibla gästoperativsystem, roller och funktioner finns i [Microsoft serverprogramvarusupport för Microsoft virtuella Azure-datorer](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 

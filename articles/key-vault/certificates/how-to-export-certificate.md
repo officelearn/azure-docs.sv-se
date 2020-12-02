@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: e7ea3ef16b60e53450436bda66ce3dde091c81c2
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4339e8217702e9f25877bc8c250b5363e2c59a42
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289562"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483703"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Exportera certifikat från Azure Key Vault
 
@@ -33,8 +33,8 @@ När ett Key Vault certifikat skapas skapas en adresserad *nyckel* och en *hemli
 
 När ett Key Vault-certifikat har skapats kan du hämta det från den adresser bara hemligheten med den privata nyckeln. Hämta certifikatet i PFX-eller PEM-format.
 
-- Kan **exporteras** : den princip som används för att skapa certifikatet anger att nyckeln kan exporteras.
-- Kan **inte exporteras** : den princip som används för att skapa certifikatet anger att nyckeln inte kan exporteras. I det här fallet är den privata nyckeln inte en del av värdet när den hämtas som en hemlighet.
+- Kan **exporteras**: den princip som används för att skapa certifikatet anger att nyckeln kan exporteras.
+- Kan **inte exporteras**: den princip som används för att skapa certifikatet anger att nyckeln inte kan exporteras. I det här fallet är den privata nyckeln inte en del av värdet när den hämtas som en hemlighet.
 
 Typer som stöds: RSA, RSA-HSM, EC, EC-HSM, okt (listade [här](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) kan exporteras endast med RSA, ec. HSM-nycklar kan inte exporteras.
 
@@ -83,7 +83,7 @@ Använd det här kommandot i Azure PowerShell för att hämta certifikatet med n
 
 ```azurepowershell
 $cert = Get-AzKeyVaultCertificate -VaultName "ContosoKV01" -Name "TestCert01"
-$secret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $cert.Name
+$secret = Get-AzKeyVaultSecret -VaultName "ContosoKV01" -Name $cert.Name
 $secretValueText = '';
 $ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
 try {

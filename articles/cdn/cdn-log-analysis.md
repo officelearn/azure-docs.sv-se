@@ -9,14 +9,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/22/2020
+ms.date: 11/30/2020
 ms.author: allensu
-ms.openlocfilehash: 169889dbb87d00fdde44ff72c0d2004c331604ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c593cda7761ce1defa6bdb31e0dbb528b9e5eca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073041"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483996"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analysera användningsmönster för Azure CDN
 
@@ -31,7 +31,7 @@ Med en vanlig Microsoft-profil kan du aktivera obehandlade loggar och välja att
 
 Med Azure Log Analytics kan du Visa övervaknings mått och konfigurera aviseringar. 
 
-Mer information finns i [Azure CDN http RAW-loggar](enable-raw-logs.md).
+Mer information finns i [Azure CDN http RAW-loggar](monitoring-and-access-log.md).
 
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Core Analytics via Azure Diagnostic-loggar
@@ -50,7 +50,7 @@ I anpassade rapporter visas antalet träffar eller data som överförts för var
 
 ## <a name="azure-cdn-premium-from-verizon-reports"></a>Azure CDN Premium från Verizon-rapporter
 
-Med **Azure CDN Premium från Verizon**kan du också komma åt följande rapporter:
+Med **Azure CDN Premium från Verizon** kan du också komma åt följande rapporter:
    * [Avancerade HTTP-rapporter](cdn-advanced-http-reports.md)
    * [Realtidsstatistik](cdn-real-time-stats.md)
    * [Prestanda för Azure CDN Edge-nod](cdn-edge-performance.md)
@@ -61,6 +61,4 @@ I den här artikeln har du lärt dig om de olika alternativen för analys rappor
 Mer information om Azure CDN och de andra Azure-tjänsterna som nämns i den här artikeln finns i:
 
 * [Vad är Azure CDN?](cdn-overview.md)
-* [Azure CDN HTTP RAW-loggar](enable-raw-logs.md)
-
-
+* [Azure CDN HTTP RAW-loggar](monitoring-and-access-log.md)

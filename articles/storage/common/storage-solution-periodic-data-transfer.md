@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a0efc6f6f6d4ae6355fbb42fbc7e13ad7c078cf3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 19a4645e2bde4cf6b9f9a78123b334c290581ac4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792896"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484540"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Lösningar för periodisk dataöverföring
  
@@ -23,26 +23,26 @@ Om du vill veta en översikt över alla tillgängliga alternativ för data över
 
 ## <a name="recommended-options"></a>Rekommenderade alternativ
 
-De rekommenderade alternativen för regelbunden data överföring delas in i två kategorier beroende på om överföringen är återkommande eller kontinuerlig.
+De rekommenderade alternativen för periodisk dataöverföring är indelade i två kategorier beroende på om överföringen är återkommande eller löpande.
 
-- **Skriptbaserade/programbaserade verktyg** – för data överföring som sker med jämna mellanrum använder du skript-och programmerings verktyg som AzCopy och Azure Storage REST-API: er. Dessa verktyg är riktade mot IT-proffs och utvecklare.
+- **Skriptbaserade/programbaserade verktyg** – för data överföring som sker med jämna mellanrum använder du skript-och programmerings verktyg som AzCopy och Azure Storage REST-API: er. De här verktygen är avsedda för IT-proffs och utvecklare.
 
-    - **AzCopy** – Använd det här kommando rads verktyget för att enkelt kopiera data till och från Azure-blobbar, filer och tabell lagring med optimala prestanda. AzCopy stöder samtidighet och parallellitet och möjligheten att återuppta kopierings åtgärder när de avbryts.
+    - **AzCopy** – Använd det här kommando rads verktyget för att enkelt kopiera data till och från Azure-blobbar, filer och tabell lagring med optimala prestanda. AzCopy har stöd för samtidighet och parallellism, och du kan återuppta avbrutna kopieringsåtgärder.
     - **Azure Storage REST-API: er/SDK:** er – när du skapar ett program kan du utveckla programmet mot Azure Storage REST API: er och använda de Azure-SDK: er som erbjuds på flera språk. REST-API: er kan också utnyttja Azure Storage data flytt bibliotek som är särskilt utformade för att kopiera data till och från Azure.
 
-- **Verktyg för kontinuerlig data inmatning** – för kontinuerlig, kontinuerlig data inmatning kan du välja en av data Box-enhet enhet för överföring online eller Azure Data Factory. Dessa verktyg konfigureras av IT-proffs och kan automatiskt automatisera data överföringen.
+- **Verktyg för kontinuerlig data inmatning** – för kontinuerlig, kontinuerlig data inmatning kan du välja en av data Box-enhet enhet för överföring online eller Azure Data Factory. De här verktygen konfigureras av IT-proffs och kan automatisera dataöverföringen med god insyn.
 
-    - **Azure Data Factory** – Data Factory ska användas för att skala ut en överförings åtgärd och om det behövs för att dirigera och övervaka funktioner i företags klass. Använd Azure Data Factory för att konfigurera en moln pipeline som regelbundet överför filer mellan flera Azure-tjänster, lokalt eller en kombination av de två. Med Azure Data Factory kan du dirigera data drivna arbets flöden som matar in data från olika data lager och automatiserar data förflyttning och data omvandling.
-    - **Azure Data Box-serien för online-överföringar** – Data Box Edge och data Box Gateway är online nätverks enheter som kan flytta data till och från Azure. Data Box Edge använder artificiell intelligens (AI)-aktive rad Edge-beräkning för att Förbearbeta data före uppladdning. Data Box Gateway är en virtuell version av enheten med samma funktioner för data överföring.
+    - **Azure Data Factory** – Data Factory ska användas för att skala ut en överförings åtgärd och om det behövs för att dirigera och övervaka funktioner i företags klass. Använd Data Factory till att konfigurera en molnbaserad pipeline för att regelbundet överföra filer mellan olika Azure-tjänster, lokala miljöer eller en kombination. Med Data Factory kan du orkestrera datadrivna arbetsflöden som matar in data från olika datalager och automatisera både flytt och dataomvandling.
+    - **Azure Data Box-serien för online-överföringar** – Data Box Edge och data Box Gateway är online nätverks enheter som kan flytta data till och från Azure. I Data Box Edge används AI-aktiverade Edge-beräkningar till att förbearbeta data innan uppladdningen. Data Box Gateway är en virtuell version av enheten med samma funktioner för dataöverföring.
 
 
 ## <a name="comparison-of-key-capabilities"></a>Jämförelse av viktiga funktioner
 
-I följande tabell sammanfattas skillnaderna mellan viktiga funktioner.
+I den här tabellen sammanfattas skillnaderna mellan de viktigaste funktionerna.
 
 ### <a name="scriptedprogrammatic-network-data-transfer"></a>Skriptad/programmatisk nätverks data överföring
 
-| Funktion                  | AzCopy                                 | Azure Storage REST-API: er       |
+| Kapacitet                  | AzCopy                                 | REST-API:er för Azure Storage       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Form faktor                 | Kommando rads verktyg från Microsoft       | Kunderna utvecklar mot lagring <br> REST API: er med Azures klient bibliotek |
 | Inledande eng ång slöin ställning     | Minimal                                | Måttlig, varierande utvecklings ansträngning    |
@@ -55,17 +55,17 @@ I följande tabell sammanfattas skillnaderna mellan viktiga funktioner.
 | Funktion                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Form faktor                                   | Virtuell enhet             | Fysisk enhet          | Tjänst i Azure Portal, agent lokalt                                                            |
-| Maskinvara                                      | Din hypervisor            | Tillhandahålls av Microsoft    | Ej tillämpligt                                                            |
+| Maskinvara                                      | Din hypervisor            | Tillhandahålls av Microsoft    | NA                                                            |
 | Första installations ansträngning                          | Låg (<30 minuter.)            | Måttlig (~ paret timmar) | Stor (~ dagar)                                                 |
 | Data format                                   | Azure-blobbar, Azure Files   | Azure-blobbar, Azure Files | [Stöd för 70 + data anslutningar för data lager och format](../../data-factory/copy-activity-overview.md#supported-data-stores-and-formats)|
-| För bearbetning av data                           | Nej                         | Ja, via Edge Compute    | Ja                                                           |
-| Lokal cache<br>(för att lagra lokala data)    | Ja                        | Ja                      | Nej                                                            |
-| Överföring från andra moln                    | Nej                         | Nej                       | Ja                                                           |
+| För bearbetning av data                           | No                         | Ja, via Edge Compute    | Yes                                                           |
+| Lokal cache<br>(för att lagra lokala data)    | Ja                        | Ja                      | Inga                                                            |
+| Överföring från andra moln                    | Inga                         | Inga                       | Ja                                                           |
 | Prissättning                                       | [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Prissättning](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Överför data med AZCopy](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ftables%252ftoc.json).
+- [Överför data med AZCopy](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
 - [Mer information om data överföring med Storage REST-API: er](/dotnet/api/overview/azure/storage).
 - Förstå hur du:
     - [Överför data med data Box Gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: how-to
 ms.date: 11/13/2020
 ms.author: juliako
-ms.openlocfilehash: 7d5108d2c155c7e21f2f94f532bd1aa0a96c5b3f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: b955c0f494b757fd29c400194ef8b11314a89a03
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "96020552"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483618"
 ---
 # <a name="things-to-consider-when-using-video-indexer-at-scale"></a>Saker att tänka på när du använder Video Indexer i stor skala
 
@@ -50,7 +50,7 @@ När du laddar upp videor med URL behöver du bara ange en sökväg till platsen
 > [!TIP]
 > Använd den `videoUrl` valfria parametern för video-API: t upload.
 
-Om du vill se ett exempel på hur du överför videor med URL kan du läsa [det här exemplet](upload-index-videos.md#code-sample). Du kan också använda [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) för ett snabbt och tillförlitligt sätt för att hämta ditt innehåll till ett lagrings konto från vilket du kan skicka det till video Indexer med [SAS-URL: en](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
+Om du vill se ett exempel på hur du överför videor med URL kan du läsa [det här exemplet](upload-index-videos.md#code-sample). Du kan också använda [AzCopy](../../storage/common/storage-use-azcopy-v10.md) för ett snabbt och tillförlitligt sätt för att hämta ditt innehåll till ett lagrings konto från vilket du kan skicka det till video Indexer med [SAS-URL: en](../../storage/common/storage-sas-overview.md).
 
 ## <a name="increase-media-reserved-units-if-needed"></a>Öka enhetens reserverade enheter om det behövs
 

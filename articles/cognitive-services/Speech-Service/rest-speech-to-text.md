@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 89e5fa180b011cbedebc25a5e5d555a2190805f8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: dff7ff0afd6c236645731dc7edd936b0b808716b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015366"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483928"
 ---
 # <a name="speech-to-text-rest-api"></a>REST API för tal-till-text
 
@@ -58,7 +58,7 @@ Dessa parametrar kan ingå i frågesträngen för REST-begäran.
 | `language` | Identifierar det talade språk som identifieras. Se [vilka språk som stöds](language-support.md#speech-to-text). | Obligatorisk |
 | `format` | Anger resultat formatet. Godkända värden är `simple` och `detailed` . Enkla resultat inkluderar `RecognitionStatus` , `DisplayText` , `Offset` och `Duration` . Detaljerade svar innehåller fyra olika representationer av visnings text. Standardinställningen är `simple`. | Valfritt |
 | `profanity` | Anger hur du hanterar svordomar i igenkännings resultat. Godkända värden är `masked` , som ersätter svordomar med asterisker, `removed` som tar bort alla svordomar från resultatet, eller `raw` som innehåller svordomarna i resultatet. Standardinställningen är `masked`. | Valfritt |
-| `cid` | När du använder [Custom Speech Portal](how-to-custom-speech.md) för att skapa anpassade modeller kan du använda anpassade modeller via deras **slut punkts-ID** som finns på **distributions** sidan. Använd **slut punkts-ID** som argument för `cid` parametern frågesträng. | Valfritt |
+| `cid` | När du använder [Custom Speech Portal](./custom-speech-overview.md) för att skapa anpassade modeller kan du använda anpassade modeller via deras **slut punkts-ID** som finns på **distributions** sidan. Använd **slut punkts-ID** som argument för `cid` parametern frågesträng. | Valfritt |
 
 ## <a name="request-headers"></a>Begärandehuvuden
 

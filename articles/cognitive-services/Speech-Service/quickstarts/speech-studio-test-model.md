@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 9101944a567df5000d3584ed48eff24e4c5e0057
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 572b3b3459e1d837130f3c987d45ee45629f37ad
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89565811"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485084"
 ---
 # <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Testa en modell med hjälp av en ljudfil i tal Studio
 
@@ -23,14 +23,14 @@ I den här instruktionen använder du tal Studio för att konvertera tal från e
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du använder tal portalen [följer du de här anvisningarna för att skapa ett Azure-konto och prenumerera på tal tjänsten](../how-to-custom-speech.md#set-up-your-azure-account). Den här enhetliga prenumerationen ger dig åtkomst till tal översättning av tal till text, text till tal, tal översättning och Custom Speech-portalen.
+Innan du använder tal portalen [följer du de här anvisningarna för att skapa ett Azure-konto och prenumerera på tal tjänsten](../custom-speech-overview.md#set-up-your-azure-account). Den här enhetliga prenumerationen ger dig åtkomst till tal översättning av tal till text, text till tal, tal översättning och Custom Speech-portalen.
 
 ## <a name="download-an-audio-file"></a>Ladda ned en ljudfil
 
 Följ de här stegen för att ladda ned en ljudfil som innehåller tal och paketera den i en zip-fil.
 
 1. Hämta **[exempel filen WAV från den här länken](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav)** genom att högerklicka på länken och välja **Spara länk som**. Klicka på **Spara** för att ladda ned `whatstheweatherlike.wav` filen.
-2. Skapa en zip-fil med ett zip-verktyg `whatstheweatherlike.zip` som innehåller den fil som du har hämtat genom att använda en Utforskaren eller ett terminalfönster med ett zip-verktyg `whatstheweatherlike.wav` . I Windows kan du öppna Utforskaren, navigera till `Downloads` mappen, högerklicka `whatstheweatherliike.wav` , klicka på **Skicka till**, klicka på **komprimerad (zippad) mapp**och trycka på RETUR för att acceptera standard fil namnet.
+2. Skapa en zip-fil med ett zip-verktyg `whatstheweatherlike.zip` som innehåller den fil som du har hämtat genom att använda en Utforskaren eller ett terminalfönster med ett zip-verktyg `whatstheweatherlike.wav` . I Windows kan du öppna Utforskaren, navigera till `Downloads` mappen, högerklicka `whatstheweatherliike.wav` , klicka på **Skicka till**, klicka på **komprimerad (zippad) mapp** och trycka på RETUR för att acceptera standard fil namnet.
 
 ## <a name="create-a-project-in-the-custom-speech-portal"></a>Skapa ett projekt i Custom Speech Portal
 
@@ -59,7 +59,7 @@ När tal Studio bearbetar innehållet i din zip-fil kan du spela upp käll ljude
 Du kan hämta filer som beskriver avskrifter i mycket större detalj. Filerna innehåller en lexikalisk form av tal i ljudfilerna och JSON-filer som innehåller information om förskjutning, varaktighet och avskrifts säkerhet för varje ord. Följ dessa steg om du vill se de här filerna.
 
 1. Klicka på **Hämta**.
-2. I dialog rutan Ladda ned avmarkerar du **ljud**och klickar på **Ladda ned**.
+2. I dialog rutan Ladda ned avmarkerar du **ljud** och klickar på **Ladda ned**.
 3. Zippa upp den hämtade ZIP-filen och granska de extraherade filerna.
 
 ## <a name="next-steps"></a>Nästa steg

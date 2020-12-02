@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
-ms.author: duau
-ms.openlocfilehash: d533b8fed47b1790cc35429613179f440f1fac51
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/23/2020
+ms.author: yuajia
+ms.openlocfilehash: cd99be40700ab1c34176f2bf7497e4debf5cd424
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961756"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483805"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Övervaka mått och loggar i Azures front dörr
 
@@ -29,16 +29,16 @@ Genom att använda Azures front dörr kan du övervaka resurser på följande s�
 
 Mått är en funktion för vissa Azure-resurser som gör att du kan visa prestanda räknare i portalen. Följande är tillgängliga mått på front dörren:
 
-| Mått | Mått visnings namn | Enhet | Dimensioner | Beskrivning |
+| Mått | Mått visnings namn | Enhet | Dimensioner | Description |
 | --- | --- | --- | --- | --- |
-| RequestCount | Antal begäranden | Count | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antalet klient förfrågningar som hanteras av frontend-dörren.  |
+| RequestCount | Antal begäranden | Antal | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antalet klient förfrågningar som hanteras av frontend-dörren.  |
 | RequestSize | Begär ande storlek | Byte | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antalet byte som har skickats som begär Anden från klienter till front dörren. |
 | ResponseSize | Svars storlek | Byte | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antalet byte som har skickats som svar från Front dörren till klienter. |
 | TotalLatency | Total svars tid | Millisekunder | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Den totala tiden från klient förfrågan som mottagits av front dörren tills de sista svars byte som skickades från AFD till klienten. |
-| BackendRequestCount | Antal Server dels begär Anden | Count | HttpStatus</br>HttpStatusGroup</br>Serverdel | Antalet förfrågningar som skickats från Front dörren till Server delar. |
+| BackendRequestCount | Antal Server dels begär Anden | Antal | HttpStatus</br>HttpStatusGroup</br>Serverdel | Antalet förfrågningar som skickats från Front dörren till Server delar. |
 | BackendRequestLatency | Svars tid för Server del | Millisekunder | Serverdel | Tiden räknat från när begäran skickades av frontend till Server delen tills front dörren fick den senaste svars byten från Server delen. |
 | BackendHealthPercentage | Server delens hälso procent | Procent | Serverdel</br>BackendPool | Procent andelen lyckade hälso avsökningar från Front dörren till Server delar. |
-| WebApplicationFirewallRequestCount | Antal begär Anden om webb programs brand vägg | Count | PolicyName</br>RuleName</br>Åtgärd | Antalet klient begär Anden som bearbetats av program nivå säkerheten för front dörren. |
+| WebApplicationFirewallRequestCount | Antal begär Anden om webb programs brand vägg | Antal | PolicyName</br>RuleName</br>Åtgärd | Antalet klient begär Anden som bearbetats av program nivå säkerheten för front dörren. |
 
 ## <a name="activity-logs"></a><a name="activity-log"></a>Aktivitets loggar
 
@@ -52,7 +52,7 @@ Få åtkomst till aktivitets loggar i din front dörr eller alla loggar för din
 1. Välj din instans av frontend-dörren.
 2. Välj **aktivitets logg**.
 
-    :::image type="content" source="./media/front-door-diagnostics/activity-log.png" alt-text="Aktivitets logg":::
+    :::image type="content" source="./media/front-door-diagnostics/activity-log.png" alt-text="Aktivitetslogg":::
 
 3. Välj en filtrerings omfattning och välj sedan **Använd**.
 
@@ -61,7 +61,7 @@ Diagnostikloggar ger omfattande information om åtgärder och fel som är viktig
 
 Aktivitets loggar ger insikter om de åtgärder som utförs på Azure-resurser. Diagnostikloggar ger insikter om åtgärder som din resurs har utfört. Mer information finns i [Azure Monitor diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md).
 
-:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Aktivitets logg":::
+:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Diagnostikloggar":::
 
 Så här konfigurerar du diagnostikloggar för din frontend-dörr:
 
@@ -91,10 +91,11 @@ Front dörren innehåller för närvarande diagnostikloggar (batch-varje timme).
 | RulesEngineMatchNames | Namnen på de regler som begäran matchade. |
 | SecurityProtocol | TLS/SSL-protokollets version som används av begäran eller null om ingen kryptering. |
 | SentToOriginShield </br> (inaktuell) * **se kommentarer om utfasning i följande avsnitt.**| Om värdet är true innebär det att begäran besvarades från ursprungs sköldens cacheminne i stället för Edge-pop. Ursprungs sköld är ett överordnat cacheminne som används för att förbättra förhållandet mellan cacheträffar. |
-| isReceivedFromClient | Om värdet är true innebär det att begäran kom från klienten. Om det här värdet är falskt, är begäran en brist i kanten (underordnad POP) och är besvarad från ursprungs skölden (överordnad POP). 
+| isReceivedFromClient | Om värdet är true innebär det att begäran kom från klienten. Om det här värdet är falskt, är begäran en brist i kanten (underordnad POP) och är besvarad från ursprungs skölden (överordnad POP). |
 | TimeTaken | Tiden från första byte av begäran till front dörren till sista mottagna byte, i sekunder. |
 | TrackingReference | Den unika referens strängen som identifierar en begäran som betjänas av en front dörr, som också skickas som X-Azure-ref-huvud till klienten. Krävs för att söka efter information i åtkomst loggarna för en speciell begäran. |
 | UserAgent | Webbläsarens typ som används av klienten. |
+| Mängden | Det här fältet innehåller den speciella typen av fel för ytterligare fel sökning. </br> Möjliga värden är: </br> **Noerror**: indikerar att inget fel hittades. </br> **CertificateError**: allmänt SSL-certifikat fel.</br> **CertificateNameCheckFailed**: värd namnet i SSL-certifikatet är ogiltigt eller matchar inte. </br> **ClientDisconnected**: det gick inte att utföra begäran på grund av klient nätverks anslutning. </br> **UnspecifiedClientError**: allmänt klient fel. </br> **InvalidRequest**: ogiltig begäran. Det kan bero på en felaktig rubrik, brödtext och URL. </br> **DNSFailure**: DNS-haveri. </br> **DNSNameNotResolved**: det gick inte att matcha Server namnet eller adressen. </br> **OriginConnectionAborted**: anslutningen med ursprunget stoppades plötsligt. </br> **OriginConnectionError**: fel i allmän ursprungs anslutning. </br> **OriginConnectionRefused**: det gick inte att upprätta anslutningen till ursprunget. </br> **OriginError**: allmänt ursprungs fel. </br> **OriginInvalidResponse**: ursprung returnerade ett ogiltigt eller okänt svar. </br> **OriginTimeout**: tids gränsen för ursprungs förfrågan har gått ut. </br> **ResponseHeaderTooBig**: ursprunget returnerade för stort av ett svars huvud. </br> **RestrictedIP**: begäran blockerades på grund av en begränsad IP-adress. </br> **SSLHandshakeError**: det gick inte att upprätta en anslutning till sitt ursprung på grund av ett SYNKRONISERINGSFEL vid SSL-skakning. </br> **UnspecifiedError**: ett fel inträffade som inte fick plats i något av felen i tabellen. |
 
 ### <a name="sent-to-origin-shield-deprecation"></a>Skickas till ursprungs sköldens utfasning
 Den råa logg egenskapen **isSentToOriginShield** har ersatts och ersatts av ett nytt fält **isReceivedFromClient**. Använd det nya fältet om du redan använder det inaktuella fältet. 
@@ -122,10 +123,10 @@ Om värdet är false innebär det att begäran besvaras från ursprungs sköld t
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Routningsregler utan cachelagring aktiverat | 1 | Kant-POP-kod | Backend där begäran vidarebefordrades | Sant | CONFIG_NOCACHE |
 | Routningsregler med cachelagring aktiverat. Cacheträff i Edge-popup | 1 | Kant-POP-kod | Tom | Sant | TRÄFFA |
-| Routningsregler med cachelagring aktiverat. Cache missar i Edge POP, men cache träff vid överordnat cache-fönster | 2 | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. POP-värdnamn för överordnad cache</br>2. Tom | 1. True</br>2. false | 1. SAKNAT</br>2. TRÄFF |
-| Routningsregler med cachelagring aktiverat. Cache missar i Edge-POP men delvis cache träff i överordnat cache-fönster | 2 | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. POP-värdnamn för överordnad cache</br>2. Server del som hjälper till att fylla i cache | 1. True</br>2. false | 1. SAKNAT</br>2. PARTIAL_HIT |
+| Routningsregler med cachelagring aktiverat. Missar i cacheminnet på Edge-POP, men cache träff vid överordnat cache-fönster | 2 | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. POP-värdnamn för överordnad cache</br>2. Tom | 1. True</br>2. false | 1. SAKNAT</br>2. TRÄFF |
+| Routningsregler med cachelagring aktiverat. Cacheminnet missar i Edge-POP, men delvis cache träff i överordnat cache-fönster | 2 | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. POP-värdnamn för överordnad cache</br>2. Server del som hjälper till att fylla i cache | 1. True</br>2. false | 1. SAKNAT</br>2. PARTIAL_HIT |
 | Routningsregler med cachelagring aktiverat. Cachelagra PARTIAL_HIT i Edge-POP, men cache träff på överordnad cache-POP | 2 | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. True</br>2. false | 1. PARTIAL_HIT</br>2. TRÄFF |
-| Routningsregler med cachelagring aktiverat. Missar i cacheminnet för både Edge och överordnad cache | 2 | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. True</br>2. false | 1. SAKNAT</br>2. SAKNAT |
+| Routningsregler med cachelagring aktiverat. Missar i cacheminnet på både Edge och överordnad cache | 2 | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. True</br>2. false | 1. SAKNAT</br>2. SAKNAT |
 
 > [!NOTE]
 > För cache-scenarier är värdet för cache-status partial_hit när några av bytena för en begäran erhålls från den främre dörr kanten eller ursprungs skärms-cacheminnet, medan några av de byte som hämtas från ursprunget för stora objekt.

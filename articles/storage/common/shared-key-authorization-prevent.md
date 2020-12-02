@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 49a89228afd3b46f38afafb8ff16bc63a40dd35b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: ce0ea938cac4afa043b8770a4d6a98f08ec145ec
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635219"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484897"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Förhindra auktorisering av delad nyckel för ett Azure Storage konto (förhands granskning)
 
@@ -77,7 +77,7 @@ Azure Storage loggar fångar information om begär Anden som gjorts mot lagrings
 
 Om du vill logga förfrågningar till ditt Azure Storage-konto för att utvärdera hur de är auktoriserade kan du använda Azure Storage inloggning Azure Monitor (för hands version). Mer information finns i [övervaka Azure Storage](../blobs/monitor-blob-storage.md).
 
-Azure Storage loggning i Azure Monitor har stöd för att använda logg frågor för att analysera loggdata. Om du vill söka i loggar kan du använda en Azure Log Analytics-arbetsyta. Mer information om logg frågor finns i [Självstudier: komma igång med Log Analytics frågor](../../azure-monitor/log-query/get-started-portal.md).
+Azure Storage loggning i Azure Monitor har stöd för att använda logg frågor för att analysera loggdata. Om du vill söka i loggar kan du använda en Azure Log Analytics-arbetsyta. Mer information om logg frågor finns i [Självstudier: komma igång med Log Analytics frågor](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Skapa en diagnostisk inställning i Azure Portal
 
@@ -88,9 +88,9 @@ Om du vill logga Azure Storage data med Azure Monitor och analysera dem med Azur
 1. Navigera till ditt lagringskonto i Azure-portalen.
 1. I avsnittet övervakning väljer du **diagnostikinställningar (för hands version)**.
 1. Välj den Azure Storage tjänst som du vill logga förfrågningar för. Välj till exempel **BLOB** för att logga förfrågningar till Blob Storage.
-1. Välj **Lägg till diagnostisk inställning**.
+1. Välj **Lägg till diagnostikinställning**.
 1. Ange ett namn för den diagnostiska inställningen.
-1. Under **kategori information** i avsnittet **logg** väljer du **StorageRead** , **StorageWrite** och **StorageDelete** för att logga alla data begär anden till den valda tjänsten.
+1. Under **kategori information** i avsnittet **logg** väljer du **StorageRead**, **StorageWrite** och **StorageDelete** för att logga alla data begär anden till den valda tjänsten.
 1. Under **mål information** väljer **du skicka till Log Analytics**. Välj din prenumeration och Log Analytics arbets ytan som du skapade tidigare, som du ser i följande bild.
 
     :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Skärm bild som visar hur du skapar en diagnostisk inställning för loggnings begär Anden":::
@@ -215,9 +215,9 @@ Vissa Azure-verktyg ger dig möjlighet att använda Azure AD-auktorisering för 
 |-|-|
 | Azure Portal | Stöds. Information om hur du auktoriserar med ditt Azure AD-konto från Azure Portal finns i [Välj hur du godkänner åtkomst till BLOB-data i Azure Portal](../blobs/authorize-data-operations-portal.md). |
 | AzCopy | Stöds för Blob Storage. Information om hur du auktoriserar AzCopy-åtgärder finns i [Välj hur du ska ange autentiseringsuppgifter för auktorisering](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) i AzCopy-dokumentationen. |
-| Azure Storage Explorer | Stöds endast för Blob Storage och Azure Data Lake Storage Gen2. Azure AD-åtkomst till Queue Storage stöds inte. Se till att välja rätt Azure AD-klient. Mer information finns i [Kom igång med Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
+| Azure Lagringsutforskaren | Stöds endast för Blob Storage och Azure Data Lake Storage Gen2. Azure AD-åtkomst till Queue Storage stöds inte. Se till att välja rätt Azure AD-klient. Mer information finns i [Kom igång med Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Stöds. Information om hur du auktoriserar PowerShell-kommandon för BLOB-eller Queue-åtgärder med Azure AD finns i [köra PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-data](../blobs/authorize-data-operations-powershell.md) eller [köra PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att komma åt köa data](../queues/authorize-data-operations-powershell.md) |
-| Azure CLI | Stöds. Information om hur du auktoriserar Azure CLI-kommandon med Azure AD för åtkomst till blob-och Queue-data finns i [köra Azure CLI-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data](authorize-data-operations-cli.md). |
+| Azure CLI | Stöds. Information om hur du auktoriserar Azure CLI-kommandon med Azure AD för åtkomst till blob-och Queue-data finns i [köra Azure CLI-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data](../blobs/authorize-data-operations-cli.md). |
 | Azure IoT Hub | Stöds. Mer information finns i [IoT Hub stöd för virtuella nätverk](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell är ett integrerat gränssnitt i Azure Portal. Azure Cloud Shell Hosts-filer för persistence i en Azure-filresurs i ett lagrings konto. De här filerna blir otillgängliga om inte auktorisering av den delade nyckeln är tillåtet för det lagrings kontot. Mer information finns i [Anslut lagringen för Microsoft Azure filer](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Om du vill köra kommandon i Azure Cloud Shell för att hantera lagrings konton för vilka åtkomst till delad nyckel inte tillåts, kontrollerar du först att du har beviljats de behörigheter som krävs för dessa konton via rollbaserad åtkomst kontroll i Azure (Azure RBAC). Mer information finns i [Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?](../../role-based-access-control/overview.md). |
 

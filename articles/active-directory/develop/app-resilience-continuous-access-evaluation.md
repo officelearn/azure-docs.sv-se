@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: cf5a7a5902484536d0cf2a1844be469f29e15f4b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 86c379316737b7718b62165a6feb93ca3a0e9954
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348474"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484047"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>Så här använder du utvärderings aktiverade API: er för kontinuerlig åtkomst i dina program
 
@@ -27,9 +27,9 @@ Den här artikeln visar hur du använder CAE-aktiverade API: er i dina program.
 
 ## <a name="implementation-considerations"></a>Att tänka på vid implementering
 
-Om du vill använda utvärdering av kontinuerlig åtkomst måste både appen och det resurs-API som den har åtkomst till vara CAE-aktiverat. Att förbereda din kod för att använda en CAE-aktiverad resurs förhindrar dock inte att du använder API: er som inte är CAE-aktiverade. 
+Om du vill använda utvärdering av kontinuerlig åtkomst måste både appen och det resurs-API som den har åtkomst till vara CAE-aktiverat. Att förbereda din kod för att använda en CAE-aktiverad resurs förhindrar dock inte att du använder API: er som inte är CAE-aktiverade.
 
-Om ett resurs-API implementerar CAE och ditt program deklarerar att det kan hantera CAE, får appen CAE-token för resursen. Av den anledningen måste ditt program hantera appen CAE-anspråk för alla resurs-API: er som accepterar Microsoft Identity Access-token om du deklarerar appen CAE Ready. Om du inte hanterar CAE-svar i dessa API-anrop kan din app få ett nytt försök att köra ett API-anrop i en loop med en token som fortfarande finns i den returnerade livs längd för token men som har återkallats på grund av CAE. 
+Om ett resurs-API implementerar CAE och ditt program deklarerar att det kan hantera CAE, får appen CAE-token för resursen. Av den anledningen måste ditt program hantera appen CAE-anspråk för alla resurs-API: er som accepterar Microsoft Identity Access-token om du deklarerar appen CAE Ready. Om du inte hanterar CAE-svar i dessa API-anrop kan din app få ett nytt försök att köra ett API-anrop i en loop med en token som fortfarande finns i den returnerade livs längd för token men som har återkallats på grund av CAE.
 
 ## <a name="the-code"></a>Koden
 
@@ -116,4 +116,4 @@ Du kan testa ditt program genom att logga in en användare till programmet och s
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer i utvärderingen av [kontinuerlig åtkomst](/conditional-access/concept-continuous-access-evaluation.md).
+Läs mer i utvärderingen av [kontinuerlig åtkomst](../conditional-access/concept-continuous-access-evaluation.md).

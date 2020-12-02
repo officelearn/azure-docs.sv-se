@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/26/2019
+ms.date: 12/01/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: bccdb830fba4d55266dc9eff8f06c5ac4e3f2a34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e37065e6fa61f3784d1a6165bd88c515bdfc29f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706191"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484115"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till i Azure AD
 
@@ -105,7 +105,7 @@ Program som du lägger till själv (representeras som **app (dina)** i diagramme
   * Mappningar av attribut (användar etablering)
 * Mer detaljerad information om tjänstens huvud namn och program objekt finns i referens dokumentationen för Microsoft Graph API:
   * [Program](/graph/api/resources/application?view=graph-rest-1.0)
-  * [Tjänstens huvudnamn](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
+  * [Tjänstens huvud namn](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Varför integreras program med Azure AD?
 
@@ -118,6 +118,7 @@ Program läggs till i Azure AD för att utnyttja en eller flera av de tjänster 
 * Rollbaserad åtkomst kontroll – Använd katalogen för att definiera program roller för att utföra rollbaserade verifierings kontroller i ett program
 * OAuth-Authorization Services – används av Microsoft 365 och andra Microsoft-program för att ge åtkomst till API: er/resurser
 * Program publicering och proxy – publicera ett program från ett privat nätverk till Internet
+* Attribut för katalog schema tillägg – [utöka schemat för tjänstens huvud namn och användar objekt](active-directory-schema-extensions.md) för att lagra ytterligare data i Azure AD 
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Vem har behörighet att lägga till program till min Azure AD-instans?
 

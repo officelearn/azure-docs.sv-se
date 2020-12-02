@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 8c037d35c2df4572800d2519347aa113a86cde36
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 7258b37c9d92f25227eac678dde77963e644e64b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434846"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483325"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>Självstudie: skapa ett affärs klart program för Azure Remote rendering
 
@@ -38,7 +38,7 @@ En bred översikt över metod tips för System-Wide-arkitektur finns på:
 * [Azure Architecture Center](/azure/architecture/)
 * [Kom igång-guide för Azure-utvecklare](../../../../guides/developer/azure-developer-guide.md)
 
-## <a name="analytics"></a>Analys
+## <a name="analytics"></a>Analytics
 
 Integrering av analys verktyg kan hjälpa dig att hantera, spåra och förbättra din lösning.
 
@@ -54,7 +54,7 @@ För att uppnå detta erbjuder Azure en tjänst som kallas resurs märkning, som
 
 För mer information om resurs namn och taggning är en bra plats att starta:
 
-* [Guide för resurs namn givning och Taggnings beslut](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
+* [Guide för resurs namn givning och Taggnings beslut](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 ### <a name="diagnostics"></a>Diagnostik
 

@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8d70a45b89142f6f9c6990fdbb4b79751c82275f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 312c57c103bf733bc72c5de1d22ab3239d5b5e96
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237484"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484715"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Snabb start: Mass inläsning med Synapse SQL
 
-Det har aldrig varit enklare att läsa in data när du använder guiden för Mass inläsning i Synapse Studio. I den här guiden får du hjälp med att skapa ett T-SQL-skript med [copy-instruktionen](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) för Mass inläsning av data. 
+Det är enkelt att läsa in data med guiden för Mass inläsning i Synapse Studio. Guiden för Mass inläsning vägleder dig genom att skapa ett T-SQL-skript med [copy-instruktionen](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) för Mass inläsning av data. 
 
 ## <a name="entry-points-to-the-bulk-load-wizard"></a>Start punkter i guiden för Mass inläsning
 
-Du kan nu enkelt samla in data med hjälp av dedikerade SQL-pooler med enkel högerklickning på följande områden i Synapse Studio:
+Du kan enkelt Mass inläsning av data med hjälp av dedikerade SQL-pooler med enkel högerklickning på följande områden i Synapse Studio:
 
 - En fil eller mapp från ett Azure Storage-konto som är kopplat till din arbets yta genom ![ att högerklicka på en fil eller mapp från ett lagrings konto](./sql/media/bulk-load/bulk-load-entry-point-0.png)
 

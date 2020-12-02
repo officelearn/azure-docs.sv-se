@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: 5c4f02eff06c08f1829f9f1c74d1dcb09ee57905
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a562c28235608d4a2425455b5543a76c99374f80
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024797"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483822"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Speech service: Nyheter i dokument
 
@@ -32,7 +32,7 @@ Om du vill veta mer om uppdateringar av tal tjänsten, tal SDK, tal enheter SDK,
 
 ### <a name="new-articles"></a>Nya artiklar
 
-* [Förbättra en modell för Custom Speech](how-to-custom-speech-improve-accuracy.md)
+* [Förbättra en modell för Custom Speech](./how-to-custom-speech-evaluate-data.md)
 
 ### <a name="updated-articles"></a>Uppdaterade artiklar
 
@@ -44,7 +44,7 @@ Om du vill veta mer om uppdateringar av tal tjänsten, tal SDK, tal enheter SDK,
 * [Snabb start: asynkron syntes för lång Forms ljud i python (för hands version)](./long-audio-api.md) – uppdaterad med stöd för offentliga neurala-röster och tillhör ande parametrar.
 * [Snabb start: identifiera tal från en ljudfil](./get-started-speech-to-text.md) – har lagt till JavaScript-instruktioner i dokumentationen.
 * [Snabb start: identifiera tal från en mikrofon](./get-started-speech-to-text.md) som har lagts till i instruktioner till dokumentationen.
-* [Snabb start: identifiera tal som lagras i Blob Storage](quickstarts/from-blob.md) – nya JavaScript-instruktioner till dokumentationen.
+* [Snabb start: identifiera tal som lagras i Blob Storage](./batch-transcription.md) – nya JavaScript-instruktioner till dokumentationen.
 * [Snabb start: identifiera tal, avsikter och entiteter med Language Understanding (LUIS)](quickstarts/intent-recognition.md)
 * [Snabb start: Konfigurera utvecklings miljö](quickstarts/setup-platform.md) – har lagt till JavaScript-instruktioner i dokumentationen.
 * [Snabb start: syntetisera tal i en ljudfil](./get-started-text-to-speech.md) som har lagt till JavaScript-instruktioner till dokumentationen.
@@ -58,7 +58,7 @@ De här problemen har öppnats i maj. Den här tabellen innehåller en lista öv
 
 Den här tabellen uppdateras varje månad och visar bara problem som har öppnats i maj.  
 
-|ID|Användare|Description|Inleddes|Tillstånd|Typ|
+|ID|Användare|Description|Inleddes|Stat|Typ|
 | :--- | :--- | :--- | :--- | :--- | :--- |
 |[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|Aktiviteten släpptes eftersom robotens slut punkt saknas|2020-05-31|Stängd|Problem|
 |[56038](https://github.com/MicrosoftDocs/azure-docs/issues/56038)|rhalaly|Fel när du publicerar bot-steg|2020-05-31|Öppna|Problem|

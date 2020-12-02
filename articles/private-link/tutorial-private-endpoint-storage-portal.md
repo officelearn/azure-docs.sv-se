@@ -7,18 +7,18 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 97795b2a693b68d1bd73a00f7b3e5ee3d4679545
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: eefef0eb61df9aa0597206b537f3d58e8b8b3213
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522132"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484829"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>Självstudie: Anslut till ett lagrings konto med hjälp av en privat Azure-slutpunkt
 
 Den privata Azure-slutpunkten är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, till exempel virtuella datorer, att kommunicera med privata länk resurser privat.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett virtuellt nätverk och en skydds-värd.
@@ -222,7 +222,7 @@ I det här avsnittet ska du använda den virtuella datorn som du skapade i före
 
     En privat IP-adress för **10.1.0.5** returneras för lagrings kontots namn.  Adressen finns i under nätet för det virtuella nätverk som du skapade tidigare.
 
-9. Installera [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%252fazure%252fstorage%252fblobs%252ftoc.json) på den virtuella datorn.
+9. Installera [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) på den virtuella datorn.
 
 10. Välj **Slutför** när **Microsoft Azure Storage Explorer** har installerats.  Låt rutan vara markerad om du vill öppna programmet.
 

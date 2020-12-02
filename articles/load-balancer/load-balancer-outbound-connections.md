@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 5a2d7f9f60253916eae808a7f65bc4b4b289bd67
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3f4791c5cbcf731e118bac4bf692adcad7e9ff44
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694788"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483597"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Använda SNAT för utgående anslutningar
 
@@ -66,7 +66,7 @@ När du har konfigurerat [Scenario 2](#scenario2) nedan, kommer värden för var
  | Offentlig belastningsutjämnare eller fristående | [SNAT (käll nätverks adress översättning)](#snat) </br> används inte. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Encapsulating Security Payload) |
 
 
- #### <a name="description"></a>Beskrivning
+ #### <a name="description"></a>Description
 
 
  Azure använder den offentliga IP-adress som tilldelats IP-konfigurationen av instansens nätverkskort för alla utgående flöden. Instansen har alla tillfälliga portar tillgängliga. Det spelar ingen roll om den virtuella datorn är belastningsutjämnad eller inte. Det här scenariot prioriteras framför de andra. 
@@ -83,7 +83,7 @@ När du har konfigurerat [Scenario 2](#scenario2) nedan, kommer värden för var
  | Offentlig lastbalanserare | Användning av IP-adresser för belastningsutjämnare för [SNAT](#snat).| TCP </br> UDP |
 
 
- #### <a name="description"></a>Beskrivning
+ #### <a name="description"></a>Description
 
 
  Belastnings Utjämnings resursen har kon figurer ATS med en utgående regel eller en regel för belastnings utjämning som aktiverar standard SNAT. Den här regeln används för att skapa en länk mellan den offentliga IP-klient delen med backend-poolen. 
@@ -109,9 +109,9 @@ När du har konfigurerat [Scenario 2](#scenario2) nedan, kommer värden för var
 
  | Typer | Metod | IP-protokoll |
  | ------------ | ------ | ------------ |
- |Inga </br> Basic Load Balancer | [SNAT](#snat) med dynamisk IP-adress på instans nivå| TCP </br> UDP | 
+ |Inget </br> Basic Load Balancer | [SNAT](#snat) med dynamisk IP-adress på instans nivå| TCP </br> UDP | 
 
- #### <a name="description"></a>Beskrivning
+ #### <a name="description"></a>Description
 
 
  När den virtuella datorn skapar ett utgående flöde översätter Azure käll-IP-adressen till en dynamiskt allokerad offentlig käll-IP-adress. Den här offentliga IP-adressen kan **inte konfigureras** och kan inte reserveras. Den här adressen räknas inte mot prenumerationens offentliga IP-adressresurs. 
@@ -182,8 +182,6 @@ Mer information om Azure Virtual Network NAT finns i [Vad är azure Virtual Netw
 
 ## <a name="constraints"></a>Villkor
 
-*   Portar frigörs efter 15 sekunder om en **TCP** -per-och e-sekund tas emot eller skickas
-*   Portar frigörs efter 240 sekunder om en **FINACK** tas emot eller skickas
 *   När en anslutning är inaktiv utan att några nya paket skickas, frigörs portarna efter 4 – 120 minuter.
   * Det här tröskelvärdet kan konfigureras via utgående regler.
 *   Varje IP-adress ger 64 000 portar som kan användas för SNAT.

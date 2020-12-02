@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 2/1/2019
 ms.author: ripohane
 ms.reviewer: dineshm
-ms.openlocfilehash: 0de8d8d5ff0f14d0268dbcca743f4d06ed877903
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 331ceb6124463604989116ce84bc73acd8cfb22f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544402"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483257"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Montera Blob Storage som ett fil system med blobfuse
 
@@ -30,7 +30,7 @@ Den här guiden visar hur du använder blobfuse och monterar en Blob Storage-beh
 ## <a name="install-blobfuse-on-linux"></a>Installera blobfuse på Linux
 Blobfuse-binärfiler finns tillgängliga i [Microsofts program varu databaser för Linux](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) för Ubuntu-och RHEL-distributioner. Om du vill installera blobfuse på dessa distributioner konfigurerar du en av databaserna från listan. Du kan också bygga binärfilerna från käll koden efter [Azure Storage installations steg](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) om det inte finns några binärfiler tillgängliga för din distribution.
 
-Blobfuse stöder installation på Ubuntu 14,04, 16,04 och 18,04. Kör det här kommandot för att kontrol lera att du har någon av dessa versioner distribuerade:
+Blobfuse stöder installation på Ubuntu 14,04, 16,04, 18,04 och 20,04. Kör det här kommandot för att kontrol lera att du har någon av dessa versioner distribuerade:
 ```
 lsb_release -a
 ```

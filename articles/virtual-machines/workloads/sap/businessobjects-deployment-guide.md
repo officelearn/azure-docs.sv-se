@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: ee7cc1c81bd35bf2b51c712c3a60a046435ee700
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0c2deb1ae1d41f8daaed8856f97c4b458930c616
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951292"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484387"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Planerings- och implementeringsguide för SAP BusinessObjects BI-plattform i Azure
 
@@ -184,7 +184,7 @@ Azure SQL Database erbjuder följande tre inköps modeller:
 
 Azure Database for MySQL levereras med tre olika pris nivåer. De skiljer sig åt från beräknings mängden i virtuella kärnor, minne per vCore och lagrings teknik som används för att lagra datumet. Följande är en övergripande detalj information om alternativen och för mer information om olika attribut, se [pris nivån](../../../mysql/concepts-pricing-tiers.md) för Azure Database for MySQL.
 
-- Grundläggande
+- Basic
 
   Den används för de mål arbets belastningar som kräver ljus beräkning och I/O-prestanda.
 
@@ -267,4 +267,4 @@ För databas-som-tjänst erbjudande har alla nyligen skapade databaser (Azure SQ
 - [SAP BusinessObjects BI Platform-distribution på Linux](businessobjects-deployment-guide-linux.md)
 - [Azure Virtual Machines planera och implementera SAP](planning-guide.md)
 - [Azure Virtual Machines distribution för SAP](deployment-guide.md)
-- [Azure Virtual Machines DBMS-distribution för SAP](dbms-guide.md)
+- [Azure Virtual Machines DBMS-distribution för SAP](./dbms_guide_general.md)

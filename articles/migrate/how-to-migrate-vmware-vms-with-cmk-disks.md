@@ -7,12 +7,12 @@ ms.manager: carmonm
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
-ms.openlocfilehash: 01f30305529e7f142be0ca6ddffa0f5a12a235bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89b795011460ee2803d07d14b9c2abe9c8ffca55
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260012"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483359"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrera virtuella VMware-datorer till virtuella Azure-datorer med kryptering på Server sidan och Kundhanterade nycklar
 
@@ -22,12 +22,12 @@ Med den Azure Migrate serverns Migreringsverktyg kan du [migrera virtuella VMwar
 
 I exemplen i den här artikeln används [Azure PowerShell](/powershell/azure/new-azureps-module-az) för att utföra de uppgifter som behövs för att skapa och distribuera Resource Manager-mallen.
 
-[Lär dig mer](../virtual-machines/windows/disk-encryption.md) om Server Side Encryption (SSE) med Kundhanterade nycklar (CMK) för hanterade diskar.
+[Lär dig mer](../virtual-machines/disk-encryption.md) om Server Side Encryption (SSE) med Kundhanterade nycklar (CMK) för hanterade diskar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Gå igenom självstudien](tutorial-migrate-vmware.md) om migrering av virtuella VMware-datorer till Azure med agent lös replikering för att förstå verktygs kraven.
-- [Följ de här anvisningarna](how-to-add-tool-first-time.md) för att skapa ett Azure Migrate-projekt och lägga till **Azure Migrate: Migreringsverktyg för Server** i projektet.
+- [Följ de här anvisningarna](./create-manage-projects.md) för att skapa ett Azure Migrate-projekt och lägga till **Azure Migrate: Migreringsverktyg för Server** i projektet.
 - [Följ dessa anvisningar](how-to-set-up-appliance-vmware.md) för att konfigurera Azure Migrate-installationen för VMware i din lokala miljö och fullständig identifiering.
 
 ## <a name="prepare-for-replication"></a>Förbered för replikering

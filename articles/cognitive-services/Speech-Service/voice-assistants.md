@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: aa885b1dcff59ec1b89d9a0bcf4ac5578cb5e8ea
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 09859be61029242e987603e01b5c3fba8dffb2ca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024916"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483894"
 ---
 # <a name="what-is-a-voice-assistant"></a>Vad är röstassistent?
 
@@ -72,7 +72,7 @@ Exempel kod för att skapa en röst assistent finns på GitHub. Dessa exempel av
 
 Röst assistenter som skapats med Azure Speech Services kan använda alla anpassnings alternativ.
 
-* [Custom Speech](how-to-custom-speech.md)
+* [Custom Speech](./custom-speech-overview.md)
 * [Anpassad röst](how-to-custom-voice.md)
 * [Anpassade nyckelord](custom-keyword-overview.md)
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: rajosh
-ms.openlocfilehash: 834fd32d17c4a5ff112dd11a331a59336d7cbcb7
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f9fdff54cbd795c6aeda1708dcae8d00022a6a43
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315261"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483512"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Skapa en Azure VMware-lösning (AVS)-utvärdering
 
@@ -21,7 +21,7 @@ Den här artikeln beskriver hur du skapar en Azure VMware-lösning (AVS)-utvärd
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-- Se till att du har [skapat](how-to-add-tool-first-time.md) ett Azure Migrate-projekt.
+- Se till att du har [skapat](./create-manage-projects.md) ett Azure Migrate-projekt.
 - Om du redan har skapat ett projekt kontrollerar du att du har [lagt till](how-to-assess.md) Azure Migrate: Server utvärderings verktyget.
 - Om du vill skapa en utvärdering måste du konfigurera en Azure Migrate-enhet för [VMware](how-to-set-up-appliance-vmware.md), som identifierar lokala datorer och skickar metadata-och prestanda data till Azure Migrate: Server utvärdering. [Läs mer](migrate-appliance.md).
 - Du kan också [Importera serverns metadata](./tutorial-discover-import.md) i CSV-format (kommaavgränsade värden).
@@ -54,11 +54,11 @@ Kör en Azure VMware-lösning (AVS)-utvärdering enligt följande:
 
 1. Granska [metodtipsen](best-practices-assessment.md) för att skapa utvärderingar.
 
-2. Klicka på **utvärdera**i panelen **Azure Migrate: Server bedömning** på fliken **servrar** .
+2. Klicka på **utvärdera** i panelen **Azure Migrate: Server bedömning** på fliken **servrar** .
 
     ![Skärm bild som visar Azure Migrate servrar med utvärdering valt under utvärderings verktyg.](./media/how-to-create-assessment/assess.png)
 
-3. I **utvärdera servrar**väljer du bedömnings typ som "Azure VMware-lösning (AVS)", väljer identifierings källa och anger namnet på utvärderingen.
+3. I **utvärdera servrar** väljer du bedömnings typ som "Azure VMware-lösning (AVS)", väljer identifierings källa och anger namnet på utvärderingen.
 
     ![Grunder i utvärderingar](./media/how-to-create-avs-assessment/assess-servers-avs.png)
 
@@ -68,7 +68,7 @@ Kör en Azure VMware-lösning (AVS)-utvärdering enligt följande:
 
 5. Klicka på **Nästa** och **Välj datorer att utvärdera**. I **Välj eller skapa en grupp** väljer du **Skapa ny** och anger ett gruppnamn. En grupp samlar en eller flera virtuella datorer för utvärdering.
 
-6. I **Lägg till datorer i gruppen**väljer du de virtuella datorer som ska läggas till i gruppen.
+6. I **Lägg till datorer i gruppen** väljer du de virtuella datorer som ska läggas till i gruppen.
 
 7. Klicka på **Nästa** för att **Granska och skapa utvärdering** och granska utvärderingsinformationen.
 
@@ -93,15 +93,15 @@ En Azure VMware Solution (AVS)-utvärdering beskriver:
 
 ### <a name="view-an-assessment"></a>Visa en utvärdering
 
-1. I **mål**  >   **Server**för migrering klickar du på **utvärderingar** i **Azure Migrate: Server bedömning**.
+1. I **mål**  >   **Server** för migrering klickar du på **utvärderingar** i **Azure Migrate: Server bedömning**.
 
-2. I **bedömningar**klickar du på en utvärdering för att öppna den.
+2. I **bedömningar** klickar du på en utvärdering för att öppna den.
 
     ![Sammanfattning av AVS-utvärdering](./media/how-to-create-avs-assessment/avs-assessment-summary.png)
 
 ### <a name="review-azure-vmware-solution-avs-readiness"></a>Granska beredskap för Azure VMware-lösningen (AVS)
 
-1. I **Azure-beredskap**kontrollerar du om de virtuella datorerna är klara för migrering till AVS.
+1. I **Azure-beredskap** kontrollerar du om de virtuella datorerna är klara för migrering till AVS.
 
 2. Granska VM-statusen:
     - **Redo för AVS**: datorn kan migreras som i Azure (AVS) utan några ändringar. Den kommer att starta i AVS med fullständig AVS-support.

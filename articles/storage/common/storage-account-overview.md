@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fc44b7a49785a24460ea11f07e5248b266f5dfad
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7008cfcdeb4615b42839f92a6df71357f9acf911
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793015"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484999"
 ---
 # <a name="storage-account-overview"></a>Översikt över lagringskonto
 
@@ -108,7 +108,7 @@ Tillgängliga åtkomst nivåer är:
 
 - Frekvent **åtkomst nivå** . Den här nivån är optimerad för frekvent åtkomst av objekt i lagrings kontot. Att komma åt data på frekvent nivå är mest kostnads effektivt, medan lagrings kostnaderna är högre. Nya lagrings konton skapas som standard på frekvent nivå.
 - Låg **frekvent åtkomst nivå** . Den här nivån är optimerad för att lagra stora mängder data som används sällan och som lagras i minst 30 dagar. Att lagra data i den låg frekventa nivån är mer kostnads effektivt, men att komma åt dessa data kan vara dyrare än att komma åt data på frekvent nivå.
-- Nivån **Arkiv** . Den här nivån är endast tillgänglig för enskilda block blobbar. Arkiv nivån är optimerad för data som kan tolerera flera timmars svars tid för hämtning och som kommer att finnas kvar på Arkiv nivån i minst 180 dagar. Arkiv lag rings nivån är det mest kostnads effektiva alternativet för att lagra data. Att komma åt dessa data är dock dyrare än att komma åt data på frekventa eller låg frekventa nivåer.
+- Nivån **Arkiv**. Den här nivån är endast tillgänglig för enskilda block blobbar. Arkiv nivån är optimerad för data som kan tolerera flera timmars svars tid för hämtning och som kommer att finnas kvar på Arkiv nivån i minst 180 dagar. Arkiv lag rings nivån är det mest kostnads effektiva alternativet för att lagra data. Att komma åt dessa data är dock dyrare än att komma åt data på frekventa eller låg frekventa nivåer.
 
 Om det finns en ändring i användnings mönstret för dina data kan du när som helst växla mellan dessa åtkomst nivåer. Mer information om åtkomst nivåer finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](../blobs/storage-blob-storage-tiers.md)lag rings nivåer.
 
@@ -127,7 +127,7 @@ Alla data i ditt lagrings konto krypteras på tjänst sidan. Mer information om 
 
 På ett lagringskonto finns ett unikt namnområde i Azure för dina data. Alla objekt som du lagrar i Azure Storage har en adress som innehåller ditt unika kontonamn. Kombinationen av kontonamnet och Azure Storage-tjänstens slutpunkt bildar slutpunkterna för ditt lagringskonto.
 
-Om ditt allmänna lagrings konto till exempel heter *mystorageaccount* , är standard slut punkterna för det kontot:
+Om ditt allmänna lagrings konto till exempel heter *mystorageaccount*, är standard slut punkterna för det kontot:
 
 - Blob-lagring: `https://*mystorageaccount*.blob.core.windows.net`
 - Tabell lagring: `https://*mystorageaccount*.table.core.windows.net`
@@ -138,7 +138,7 @@ Om ditt allmänna lagrings konto till exempel heter *mystorageaccount* , är sta
 > [!NOTE]
 > Block-Blob-och Blob Storage-konton exponerar endast Blob Service-slutpunkten.
 
-Skapa URL: en för att komma åt ett objekt i ett lagrings konto genom att lägga till objektets plats i lagrings kontot till slut punkten. En blobbadress kan till exempel ha följande format: http:// *mittlagringskonto* .blob.core.windows.net/ *mincontainer*/*minblobb* .
+Skapa URL: en för att komma åt ett objekt i ett lagrings konto genom att lägga till objektets plats i lagrings kontot till slut punkten. En blobbadress kan till exempel ha följande format: http://*mittlagringskonto*.blob.core.windows.net/*mincontainer*/*minblobb*.
 
 Du kan också konfigurera ditt lagrings konto så att det använder en anpassad domän för blobbar. Mer information finns i [Konfigurera ett anpassat domän namn för ditt Azure Storage-konto](../blobs/storage-custom-domain-name.md).  
 
@@ -167,7 +167,7 @@ När du uppgraderar till ett allmänt-syfte v2-konto från ett allmänt v1-eller
 
 ### <a name="azcopy"></a>AzCopy
 
-AzCopy är ett Windows-kommandoradsverktyg för högpresterande kopiering av data till och från Azure Storage. Du kan använda AzCopy för att kopiera data till ett Blob Storage-konto från ett befintligt allmänt lagrings konto, eller för att ladda upp data från lokala lagrings enheter. Mer information finns i [Överföra data med kommandoradsverktyget AzCopy](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
+AzCopy är ett Windows-kommandoradsverktyg för högpresterande kopiering av data till och från Azure Storage. Du kan använda AzCopy för att kopiera data till ett Blob Storage-konto från ett befintligt allmänt lagrings konto, eller för att ladda upp data från lokala lagrings enheter. Mer information finns i [Överföra data med kommandoradsverktyget AzCopy](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="data-movement-library"></a>Bibliotek för flytt av data
 

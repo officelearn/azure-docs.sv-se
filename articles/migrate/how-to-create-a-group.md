@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: 867124a08bbad88b7dac5386ee6bc1c9c4d99c12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 420259929afc50b2884bf075212402d80b6b52f4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85549918"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483546"
 ---
 # <a name="create-a-group-for-assessment"></a>Skapa en grupp för utvärdering
 
@@ -35,14 +35,14 @@ Du kan skapa en grupp på samma tidpunkt som du [skapar en utvärdering](how-to-
 
 Om du vill skapa en grupp manuellt utanför skapandet av en utvärdering gör du följande:
 
-1. Klicka på **utvärdera och migrera servrar**i > **Översikt**för Azure Migrate projekt. I **Azure Migrate: Server utvärdering**klickar du på **grupper**
+1. Klicka på **utvärdera och migrera servrar** i > **Översikt** för Azure Migrate projekt. I **Azure Migrate: Server utvärdering** klickar du på **grupper**
     - Om du ännu inte har lagt till Azure Migrate: Server utvärderings verktyget, klickar du på för att lägga till det. [Läs mer](how-to-assess.md).
-    - Om du ännu inte har skapat ett Azure Migrate-projekt kan du [läsa mer](how-to-add-tool-first-time.md).
+    - Om du ännu inte har skapat ett Azure Migrate-projekt kan du [läsa mer](./create-manage-projects.md).
 
     ![Välj grupper](./media/how-to-create-a-group/select-groups.png)
 
 2. Klicka på **grupp** ikonen.
-3. I **Skapa grupp**anger du ett grupp namn och i **namn**väljer du den Azure Migrate-enhet som du använder för dator identifiering.
+3. I **Skapa grupp** anger du ett grupp namn och i **namn** väljer du den Azure Migrate-enhet som du använder för dator identifiering.
 4. I listan dator väljer du de datorer som du vill lägga till i gruppen > **skapa**.
 
     ![Skapa grupp](./media/how-to-create-a-group/create-group.png)
@@ -60,13 +60,13 @@ Om du redan har [konfigurerat beroende mappning](how-to-create-group-machine-dep
 
 1. På fliken **servrar** , i panelen **Azure Migrate: Server bedömning** , klickar du på **grupper**.
 2. Klicka på den grupp som du vill förfina.
-    - Om du ännu inte har konfigurerat beroende mappning, visar kolumnen **beroenden** att installations status **krävs** . Klicka på **kräver installation**för varje virtuell dator som du vill visualisera beroenden för. Installera några agenter på varje virtuell dator innan du kan mappa dator beroenden. [Läs mer](how-to-create-group-machine-dependencies.md).
+    - Om du ännu inte har konfigurerat beroende mappning, visar kolumnen **beroenden** att installations status **krävs** . Klicka på **kräver installation** för varje virtuell dator som du vill visualisera beroenden för. Installera några agenter på varje virtuell dator innan du kan mappa dator beroenden. [Läs mer](how-to-create-group-machine-dependencies.md).
 
         ![Lägg till beroende mappning](./media/how-to-create-a-group/add-dependency-mapping.png)
 
     - Om du redan har konfigurerat beroende mappning klickar du på **Visa beroenden** på sidan grupp för att öppna grupp beroende kartan.
 
-3. När du klickar på **Visa beroenden**visar grupp beroende kartan följande:
+3. När du klickar på **Visa beroenden** visar grupp beroende kartan följande:
 
     - Inkommande (klienter) och utgående (servrar) TCP-anslutningar till och från alla datorer i gruppen som har beroende agenter installerade.
     - Beroende datorer som inte har beroende agenter installerade grupperas efter port nummer.
@@ -89,4 +89,3 @@ Om du redan har [konfigurerat beroende mappning](how-to-create-group-machine-dep
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du konfigurerar och använder [beroende mappning](how-to-create-group-machine-dependencies.md) för att skapa grupper med hög exakthet.
-

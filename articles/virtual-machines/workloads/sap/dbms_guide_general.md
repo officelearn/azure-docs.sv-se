@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 38f6cf039de2404c7b3eeecc74ee33233f4a2058
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5638b60b60f3952ab40fa000e457082f4748ac35
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965297"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484353"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -160,8 +160,8 @@ Om ditt IOPS-krav överstiger vad en enskild virtuell hård disk kan ge, balanse
 >
 > Endast MDADM och Logical Volume Manager (LVM) stöds för att bygga en programvaru-RAID i Linux. Mer information finns i:
 >
-> - [Konfigurera programvaru-RAID på Linux](../../linux/configure-raid.md) med MDADM
-> - [Konfigurera LVM på en virtuell Linux-dator i Azure](../../linux/configure-lvm.md) med LVM
+> - [Konfigurera programvaru-RAID på Linux](/previous-versions/azure/virtual-machines/linux/configure-raid) med MDADM
+> - [Konfigurera LVM på en virtuell Linux-dator i Azure](/previous-versions/azure/virtual-machines/linux/configure-lvm) med LVM
 >
 >
 

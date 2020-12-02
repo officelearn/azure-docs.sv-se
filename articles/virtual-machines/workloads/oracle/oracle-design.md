@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 6b7c280d9ff5f4d8a3c35eb11e080bf2f9f287c0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5e9ddecd694a9051e746d07cbc1bee4d98bf5829
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959177"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484438"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Utforma och implementera en Oracle-databas i Azure
 
@@ -138,7 +138,7 @@ Utifrån dina krav på nätverks bandbredd finns det olika typer av gatewayer so
 - Nätverks fördröjningen är högre jämfört med en lokal distribution. Att minska antalet nätverks fördröjningar kan förbättra prestanda avsevärt.
 - För att minska antalet turer kan du konsolidera program som har höga transaktioner eller "chatty"-appar på samma virtuella dator.
 - Använd Virtual Machines med [accelererat nätverk](../../../virtual-network/create-vm-accelerated-networking-cli.md) för bättre nätverks prestanda.
-- För vissa Linux-distributioner kan du överväga att aktivera [stöd för trimning/avmappning](../../linux/configure-lvm.md#trimunmap-support).
+- För vissa Linux-distributioner kan du överväga att aktivera [stöd för trimning/avmappning](/previous-versions/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Installera [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) på en separat virtuell dator.
 - Enorma sidor är inte aktiverade på Linux som standard. Överväg att aktivera enorma sidor och ange `use_large_pages = ONLY` Oracle dB. Detta kan hjälpa till att öka prestandan. Mer information hittar du [här](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 

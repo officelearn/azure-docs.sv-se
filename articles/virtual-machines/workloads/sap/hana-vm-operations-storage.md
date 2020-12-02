@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b8b8d100eb2ff16e8f8b7a734ad493ed4faddd33
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: 8c4aa608e892867daaf954284a9dfce997a9ae1f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299538"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484285"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA
 
@@ -112,7 +112,7 @@ Ackumulerar ett antal Azure-VHD: er under en stripe-uppsättning, är accumulati
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Azure burst-funktioner för Premium Storage
-För Azure Premium Storage-diskar som är mindre än eller lika med 512 GiB erbjuds burst-funktionerna. Exakt hur disk-burst fungerar beskrivs i artikeln [disk bursting](../../linux/disk-bursting.md). När du läser artikeln förstår du konceptet med att Periodisera IOPS och data flöde när din I/O-arbetsbelastning är lägre än den nominella IOPS och data flödet för diskarna (mer information om det nominella data flödet finns i [priser för hanterad disk](https://azure.microsoft.com/pricing/details/managed-disks/)). Du kommer att Periodisera delta i IOPS och data flöde mellan den aktuella användningen och de nominella värdena för disken. Burst-överföringarna är begränsade till högst 30 minuter.
+För Azure Premium Storage-diskar som är mindre än eller lika med 512 GiB erbjuds burst-funktionerna. Exakt hur disk-burst fungerar beskrivs i artikeln [disk bursting](../../disk-bursting.md). När du läser artikeln förstår du konceptet med att Periodisera IOPS och data flöde när din I/O-arbetsbelastning är lägre än den nominella IOPS och data flödet för diskarna (mer information om det nominella data flödet finns i [priser för hanterad disk](https://azure.microsoft.com/pricing/details/managed-disks/)). Du kommer att Periodisera delta i IOPS och data flöde mellan den aktuella användningen och de nominella värdena för disken. Burst-överföringarna är begränsade till högst 30 minuter.
 
 De idealiska fall där denna Burst-funktion kan planeras i kommer förmodligen att vara de volymer eller diskar som innehåller datafiler för olika DBMS. I/O-arbetsbelastningen förväntas mot dessa volymer, särskilt med små till mellan intervall system förväntas se ut så här:
 
@@ -134,7 +134,7 @@ Särskilt i mindre DBMS-system där din arbets belastning hanterar några hundra
 > SAP HANA-certifiering för Azure M-seriens virtuella datorer är exklusivt med Azure Skrivningsaccelerator för **/Hana/log** -volymen. Därför förväntas produktions scenariot SAP HANA distributioner på virtuella datorer i Azure M-serien att konfigureras med Azure Skrivningsaccelerator för **/Hana/log** -volymen.  
 
 > [!NOTE]
-> I scenarier som omfattar Azure Premium Storage implementerar vi burst-funktioner i konfigurationen. När du använder lagrings test verktyg för vilken form eller vilket formulär som används, bör du tänka på hur [disk burst i Azure Premium fungerar](../../linux/disk-bursting.md) . Genom att köra de lagrings test som levereras via verktyget SAP HWCCT eller HCMT, förväntar vi dig inte att alla tester ska klara villkoren, eftersom vissa av testerna kommer att överskrida de burst-krediter som du kan samla. Särskilt när alla tester körs sekventiellt utan avbrott.
+> I scenarier som omfattar Azure Premium Storage implementerar vi burst-funktioner i konfigurationen. När du använder lagrings test verktyg för vilken form eller vilket formulär som används, bör du tänka på hur [disk burst i Azure Premium fungerar](../../disk-bursting.md) . Genom att köra de lagrings test som levereras via verktyget SAP HWCCT eller HCMT, förväntar vi dig inte att alla tester ska klara villkoren, eftersom vissa av testerna kommer att överskrida de burst-krediter som du kan samla. Särskilt när alla tester körs sekventiellt utan avbrott.
 
 
 > [!NOTE]

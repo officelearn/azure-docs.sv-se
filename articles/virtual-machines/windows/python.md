@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: devx-track-python
-ms.openlocfilehash: 402a61b4b5335c19d75cd1182243783453a0e7fa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a7117d30eb1774753f21e82ad5f812a7309d8386
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974863"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483104"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Skapa och hantera virtuella Windows-datorer i Azure med hjälp av python
 
@@ -38,7 +38,7 @@ Det tar ungefär 20 minuter att utföra dessa steg.
 
 ## <a name="install-packages"></a>Installera paket
 
-1. I Solution Explorer, under *myPythonProject*, högerklickar du på **python-miljöer**och väljer sedan **Lägg till virtuell miljö**.
+1. I Solution Explorer, under *myPythonProject*, högerklickar du på **python-miljöer** och väljer sedan **Lägg till virtuell miljö**.
 2. På skärmen Lägg till virtuell miljö godkänner du standard namnet på *Kuvert*, kontrollerar att *Python 3,6 (64-bit)* har valts för bas tolken och klickar sedan på **skapa**.
 3. Högerklicka *på den miljö* miljö som du har skapat, klicka på **Installera python-paket**, ange *Azure* i rutan Sök och tryck sedan på RETUR.
 
@@ -88,7 +88,7 @@ Innan du startar det här steget ska du kontrol lera att du har ett [Active Dire
         return credentials
     ```
 
-    Ersätt **program-ID**, **autentiserings nyckel**och **klient-ID** med de värden som du tidigare har samlat in när du skapade ditt Azure Active Directory tjänst huvud namn.
+    Ersätt **program-ID**, **autentiserings nyckel** och **klient-ID** med de värden som du tidigare har samlat in när du skapade ditt Azure Active Directory tjänst huvud namn.
 
 5. Om du vill anropa funktionen som du tidigare lade till lägger du till den här koden under instruktionen **IF** i slutet av. py-filen:
 
@@ -492,7 +492,7 @@ Många aspekter av distributionen bör övervägas när du bestämmer dig för e
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Lägga till en datadisk i en virtuell dator
 
-Virtuella datorer kan ha en eller flera [data diskar](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) som lagras som virtuella hård diskar.
+Virtuella datorer kan ha en eller flera [data diskar](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) som lagras som virtuella hård diskar.
 
 1. Lägg till den här funktionen efter variablerna i. py-filen om du vill lägga till en datadisk till den virtuella datorn: 
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2020
-ms.openlocfilehash: 1e71d3883b8dacefa9b501ee3a9a0533d5c7d515
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 12/02/2020
+ms.openlocfilehash: 57b4b6f3f49e9b82ada4b37c8e2de0697781e063
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592676"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510598"
 ---
 # <a name="execute-r-script-module"></a>Kör R-skript-modul
 
@@ -78,25 +78,27 @@ azureml_main <- function(dataframe1, dataframe2){
  > [!NOTE]
  > Innan du installerar ett paket kontrollerar du om det redan finns så att du inte upprepar en installation. Upprepade installationer kan orsaka timeout för webb tjänst begär Anden.     
 
+## <a name="access-to-registered-dataset"></a>Åtkomst till registrerad data uppsättning
+
+Du kan referera till följande exempel kod för att få åtkomst till [registrerade data uppsättningar](../how-to-create-register-datasets.md) på din arbets yta:
+
+```R
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## <a name="uploading-files"></a>Laddar upp filer
 Kör R-skript-modulen stöder överföring av filer med hjälp av Azure Machine Learning R SDK.
 
 Följande exempel visar hur du överför en bildfil i kör R-skript:
 ```R
-
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main,
-# which is the entry point for this module.
-
-# Note that functions dependent on the X11 library,
-# such as "View," are not supported because the X11 library
-# is not preinstalled.
-
-# The entry point function MUST have two input arguments.
-# If the input port is not connected, the corresponding
-# dataframe argument will be null.
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
 
@@ -119,22 +121,6 @@ När pipeline-körningen är färdig kan du förhandsgranska bilden i den högra
 > [!div class="mx-imgBorder"]
 > ![Förhands granskning av Uppladdad bild](media/module/upload-image-in-r-script.png)
 
-## <a name="access-to-registered-dataset"></a>Åtkomst till registrerad data uppsättning
-
-Du kan referera till följande exempel kod för att få åtkomst till [registrerade data uppsättningar](../how-to-create-register-datasets.md) på din arbets yta:
-
-```R
-    azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
-  run = get_current_run()
-  ws = run$experiment$workspace
-  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
-  dataframe2 <- dataset$to_pandas_dataframe()
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
-
 ## <a name="how-to-configure-execute-r-script"></a>Så här konfigurerar du kör R-skript
 
 EXECUTE R-skript-modulen innehåller exempel kod som utgångs punkt.
@@ -147,11 +133,11 @@ Data uppsättningar som lagras i designern konverteras automatiskt till en R dat
 
 1. Anslut alla indata som skriptet behöver. Indata är valfria och kan innehålla data och ytterligare R-kod.
 
-    * **Dataset1** : referera till första inmataren som `dataframe1` . Data uppsättningen för indata måste formateras som en CSV-, TSV-eller ARFF-fil. Eller så kan du ansluta en Azure Machine Learning data uppsättning.
+    * **Dataset1**: referera till första inmataren som `dataframe1` . Data uppsättningen för indata måste formateras som en CSV-, TSV-eller ARFF-fil. Eller så kan du ansluta en Azure Machine Learning data uppsättning.
 
-    * **Dataset2** : referera till den andra indatamängden som `dataframe2` . Den här data uppsättningen måste också formateras som en CSV-, TSV-eller ARFF-fil eller som en Azure Machine Learning data uppsättning.
+    * **Dataset2**: referera till den andra indatamängden som `dataframe2` . Den här data uppsättningen måste också formateras som en CSV-, TSV-eller ARFF-fil eller som en Azure Machine Learning data uppsättning.
 
-    * **Skript paket** : den tredje indatamängden accepterar. zip-filer. En zippad fil kan innehålla flera filer och flera filtyper.
+    * **Skript paket**: den tredje indatamängden accepterar. zip-filer. En zippad fil kan innehålla flera filer och flera filtyper.
 
 1. I text rutan **R-skript** skriver eller klistrar du in giltigt R-skript.
 

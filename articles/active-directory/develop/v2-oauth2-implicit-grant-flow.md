@@ -8,62 +8,30 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 11/30/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: fbe74b62352babf7a1fdd93bf19a6e1475e3f032
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b5465cc5c1c3447af5303a5c0bfe82874705362
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85553574"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511206"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft Identity Platform och implicit beviljande flöde
 
-Med Microsoft Identity Platform-slutpunkten kan du logga användare i appar med en sida med både personliga konton och arbets-eller skol konton från Microsoft. En enkel sida och andra JavaScript-appar som körs främst i en webbläsare och har några intressanta utmaningar när de kommer till autentisering:
+Microsoft Identity Platform stöder OAuth-flödet för implicit beviljande av OAuth 2,0 enligt beskrivningen i [OAuth 2,0-specifikationen](https://tools.ietf.org/html/rfc6749#section-4.2). Den implicita tilldelningens definitions egenskaper är att tokens (ID-token eller åtkomsttoken) returneras direkt från/Authorize-slutpunkten i stället för/token-slutpunkten. Detta används ofta som en del av [koden för auktoriseringskod](v2-oauth2-auth-code-flow.md), i det här kallas "hybrid Flow" – hämtning av ID-token på/Authorize-begäran tillsammans med en auktoriseringskod.
 
-* Säkerhetsegenskaperna för dessa appar skiljer sig avsevärt från traditionella serverbaserade webb program.
-* Många auktoriseringsregler och identitets leverantörer stöder inte CORS-begäranden.
-* Full sid webbläsare omdirigeras bort från appen, vilket är särskilt invasivt i användar upplevelsen.
+[!INCLUDE [suggest-msal-from-protocols](includes/suggest-msal-from-protocols.md)]
 
-För dessa program (vinkel, Ember.js, React.js och så vidare) stöder Microsoft Identity Platform ett flöde med implicit beviljande av OAuth 2,0. Det implicita flödet beskrivs i [OAuth 2,0-specifikationen](https://tools.ietf.org/html/rfc6749#section-4.2). Den främsta fördelen är att den tillåter att appen hämtar token från Microsoft Identity Platform utan att utföra ett utbyte av autentiseringsuppgifter för backend-servern. Detta gör att appen kan logga in användaren, underhålla sessionen och hämta token till andra webb-API: er i klientens JavaScript-kod. Det finns några viktiga säkerhets aspekter att ta med i beräkningen när du använder det implicita flödet specifikt kring [klient](https://tools.ietf.org/html/rfc6749#section-10.3) -och [användarautentisering](https://tools.ietf.org/html/rfc6749#section-10.3).
+## <a name="prefer-the-auth-code-flow"></a>Föredra flödet för auth Code
 
-Den här artikeln beskriver hur du programmerar direkt mot protokollet i ditt program.  När det är möjligt rekommenderar vi att du använder MSAL (Microsoft Authentication Libraries) i stället för att [Hämta tokens och anropa säkra webb-API: er](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Ta också en titt på de [exempel appar som använder MSAL](sample-v2-code.md).
-
-Om du däremot hellre inte vill använda ett bibliotek i en app med en enda sida och skicka protokoll meddelanden själv, följer du de allmänna stegen nedan.
+Med planer för [cookies från tredje part som ska tas bort från webbläsare](reference-third-party-cookies-spas.md) **är det implicita tilldelnings flödet inte längre en lämplig autentiseringsmetod**.  De [tysta SSO-funktionerna](#getting-access-tokens-silently-in-the-background) i det implicita flödet fungerar inte utan cookies från tredje part, vilket gör att programmen bryts när de försöker hämta en ny token. Vi rekommenderar starkt att alla nya program använder det [flöde för auktoriseringskod](v2-oauth2-auth-code-flow.md) som nu har stöd för appar med en sida i stället för det implicita flödet och att [befintliga appar för en sida börjar migrera till Authorization Code Flow](migrate-spa-implicit-to-auth-code.md) .
 
 ## <a name="suitable-scenarios-for-the-oauth2-implicit-grant"></a>Lämpliga scenarier för OAuth2 implicita bidrag
 
-OAuth2-specifikationen deklarerar att den implicita beviljandet har gjorts för att aktivera användar agent program – det vill säga, JavaScript-program som körs i en webbläsare. Att definiera egenskaper för sådana program är att JavaScript-kod används för att få åtkomst till server resurser (vanligt vis ett webb-API) och för att uppdatera program användar upplevelsen i enlighet med detta. Tänk på program som Gmail eller Outlook Web Access: när du väljer ett meddelande från din inkorg ändras endast panelen för meddelande visualisering så att den nya markeringen visas, medan resten av sidan förblir oförändrad. Den här egenskapen är i motsats till traditionella omdirigerade webbappar, där varje användar interaktion resulterar i ett full sid återanslående och en full sid åter givning av det nya server svaret.
-
-Program som tar den JavaScript-baserade metoden till dess extrema kallas för program med en sida eller SPAs. Idén är att dessa program endast har en första HTML-sida och tillhör ande Java Script, och att alla efterföljande interaktioner drivs av webb-API-anrop som utförs via Java Script. Hybrid metoder, där programmet huvudsakligen är återanslående, men som utför tillfälliga JS-anrop, är inte ovanliga – diskussionen om implicit flödes användning är också relevant för dem.
-
-Omdirigerade program säkrar vanligt vis förfrågningar via cookies, men den metoden fungerar inte även för JavaScript-program. Cookies fungerar endast mot den domän de har genererats för, medan JavaScript-anrop kan dirigeras till andra domäner. I själva verket är det ofta fallet: Tänk på att program som anropar Microsoft Graph API, Office API, Azure API – alla finns utanför domänen där programmet hanteras. En växande trend för JavaScript-program är att inte ha någon server del, som förlitar sig på 100% på webb-API: er från tredje part för att implementera sin affärs funktion.
-
-För närvarande är det bästa sättet att skydda anrop till ett webb-API att använda metoden OAuth2 Bearer-token, där varje anrop åtföljs av en OAuth2-åtkomsttoken. Webb-API: et undersöker inkommande åtkomsttoken och, om den hittar en nödvändig omfattning, beviljar åtkomst till den begärda åtgärden. Det implicita flödet ger en bekväm mekanism för JavaScript-program för att få åtkomst-token för ett webb-API, vilket ger flera fördelar avseende cookies:
-
-* Token kan erhållas på ett tillförlitligt sätt utan behov av cross origin-anrop – obligatorisk registrering av omdirigerings-URI: n som token är retur garantier till att token inte har avplacerats
-* JavaScript-program kan hämta så många åtkomsttoken som de behöver, för så många webb-API: er som de är riktade till – utan begränsning för domäner
-* HTML5-funktioner som session eller lokal lagring ger fullständig kontroll över cachelagring av token och livs längd hantering, medan cookies-hanteringen är ogenomskinlig för appen
-* Åtkomst-token är inte mottagliga för CSRF-attacker (Cross-Site request förfalskning)
-
-Det implicita tilldelnings flödet utfärdar inte uppdaterade token, av säkerhets skäl. En uppdateringstoken är inte lika begränsad som åtkomst-token, vilket ger mycket mer energi inflictingt mycket mer skada om den läcker ut. I det implicita flödet levereras token i URL: en, och därför är risken för avlyssning högre än i tillåtndet av auktoriseringskod.
-
-Ett JavaScript-program har dock en annan mekanism för att förnya åtkomsttoken utan att efter fråga användaren om autentiseringsuppgifter. Programmet kan använda en dold iframe för att utföra nya Tokenbegäran mot behörighets slut punkten för Azure AD: så länge webbläsaren fortfarande har en aktiv session (läsa: har en sessions-cookie) mot Azure AD-domänen kan autentiseringsbegäran utföras utan att användaren behöver vidta några åtgärder.
-
-Den här modellen ger JavaScript-programmet möjlighet att oberoende förnya åtkomsttoken och till och med hämta nya för ett nytt API (förutsatt att användaren tidigare har meddelats för dem). På så sätt undviker du den extra bördan för att förvärva, underhålla och skydda en hög värdes artefakt, till exempel en Refresh-token. Artefakten som gör den tysta förnyelsen möjlig, Azure AD-sessionens cookie, hanteras utanför programmet. En annan fördel med den här metoden är att en användare kan logga ut från Azure AD med hjälp av något av de program som loggats in i Azure AD, som körs i någon av flikarna i webbläsaren. Detta resulterar i att du tar bort Azure AD-sessionens cookie och att JavaScript-programmet automatiskt förlorar möjligheten att förnya token för den inloggade användaren.
-
-## <a name="is-the-implicit-grant-suitable-for-my-app"></a>Är den implicita beviljandet lämplig för min app?
-
-Den implicita tilldelningen ger fler risker än andra bidrag och de områden som du behöver tänka på är väl dokumenterade (till exempel [missbruk av åtkomsttoken för att personifiera resurs ägaren i implicit flöde][OAuth2-Spec-Implicit-Misuse] och [OAuth 2,0 hot modell och säkerhets aspekter][OAuth2-Threat-Model-And-Security-Implications]). Den högre risk profilen är dock stor på grund av det faktum att den är avsedd att aktivera program som kör aktiv kod och som hanteras av en fjär resurs till en webbläsare. Om du planerar en SPA-arkitektur, inte har några Server dels komponenter eller tänker anropa ett webb-API via Java Script, rekommenderas användningen av det implicita flödet för hämtning av token.
-
-Om ditt program är en intern klient är det implicita flödet inte en bra anpassning. Frånvaron av Azure AD-sessionens cookie i kontexten för en intern klient berövar ditt program från att underhålla en lång livs längd session. Det innebär att ditt program kommer att upprepade gånger uppmana användaren att hämta åtkomsttoken för nya resurser.
-
-Om du utvecklar ett webb program som innehåller en server del och använder ett API från sin backend-kod, är det implicita flödet inte heller en bra anpassning. Andra bidrag ger dig mycket mer kraft. Till exempel ger OAuth2-klientens autentiseringsuppgifter möjlighet att hämta token som återspeglar de behörigheter som tilldelats själva programmet, i stället för användar delegeringar. Det innebär att klienten har möjlighet att underhålla program mässig åtkomst till resurser även om en användare inte aktive ras aktivt i en session och så vidare. Inte bara det, men sådana bidrag ger högre säkerhets garantier. Till exempel går det inte att komma åt token via användarens webbläsare, de riskerar inte att sparas i webb läsar historiken och så vidare. Klient programmet kan också utföra stark autentisering när du begär en token.
-
-[OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
-[OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819
+Den implicita beviljandet är bara tillförlitligt för den första interaktiva delen av ditt inloggnings flöde, där det inte går att använda [cookies från tredje part](reference-third-party-cookies-spas.md) för att påverka ditt program. Den här begränsningen innebär att du bör använda den exklusivt som en del av hybrid flödet, där programmet begär en kod och en token från slut punkten för auktorisering. Detta säkerställer att ditt program får en kod som kan lösas in för en uppdateringstoken, vilket säkerställer att appens inloggnings session förblir giltig över tid.
 
 ## <a name="protocol-diagram"></a>Protokoll diagram
 
@@ -99,15 +67,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | --- | --- | --- |
 | `tenant` | krävs |`{tenant}`Värdet i sökvägen till begäran kan användas för att styra vem som kan logga in på programmet. De tillåtna värdena är `common` , `organizations` , `consumers` och klient-ID: n. Mer information finns i [grunderna om protokoll](active-directory-v2-protocols.md#endpoints). |
 | `client_id` | krävs | Det program (klient)-ID som den [Azure Portal-Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |
-| `response_type` | krävs |Måste inkludera `id_token` för OpenID Connect-inloggning. Den kan även innehålla response_type `token` . Om `token` du använder detta kan din app ta emot en åtkomsttoken omedelbart från den auktoriserade slut punkten utan att behöva göra en andra begäran till behörighets slut punkten. Om du använder `token` response_type `scope` måste parametern innehålla ett omfång som anger vilken resurs som ska utfärda token för (till exempel User. read på Microsoft Graph).  |
+| `response_type` | krävs |Måste inkludera `id_token` för OpenID Connect-inloggning. Den kan även innehålla response_type `token` . Om `token` du använder detta kan din app ta emot en åtkomsttoken omedelbart från den auktoriserade slut punkten utan att behöva göra en andra begäran till behörighets slut punkten. Om du använder `token` response_type `scope` måste parametern innehålla ett omfång som anger vilken resurs som ska utfärda token för (till exempel User. read på Microsoft Graph). Det kan också finnas `code` i stället för `token` att tillhandahålla en auktoriseringskod för användning i [Authorization Code Flow](v2-oauth2-auth-code-flow.md). Det här id_token + kod svaret kallas ibland hybrid flöde.  |
 | `redirect_uri` | rekommenderas |Appens redirect_uri, där autentiserings svar kan skickas och tas emot av din app. Det måste exakt matcha ett av de redirect_uris som du registrerade i portalen, förutom att det måste vara URL-kodat. |
 | `scope` | krävs |En blankstegsavgränsad lista över [omfång](v2-permissions-and-consent.md). För OpenID Connect (id_tokens) måste den innehålla omfånget `openid` , som översätts till behörigheten "logga in dig" i medgivande gränssnittet. Om du vill kan du även inkludera- `email` och- `profile` omfattningarna för att få åtkomst till ytterligare användar data. Du kan också inkludera andra omfattningar i denna begäran om att begära medgivande till olika resurser, om en åtkomsttoken begärs. |
 | `response_mode` | valfri |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Standardvärdet söker efter en åtkomsttoken, men fragment om begäran innehåller en id_token. |
 | `state` | rekommenderas |Ett värde som ingår i begäran som också kommer att returneras i svaret från token. Det kan vara en sträng med innehåll som du vill. Ett slumpmässigt genererat unikt värde används vanligt vis för [att förhindra förfalsknings attacker på begäran](https://tools.ietf.org/html/rfc6749#section-10.12)från en annan plats. Statusen används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
 | `nonce` | krävs |Ett värde som ingår i begäran, som genereras av appen, som kommer att ingå i den resulterande id_token som ett anspråk. Appen kan sedan verifiera det här värdet för att minimera omuppspelning av token. Värdet är vanligt vis en slumpmässig, unik sträng som kan användas för att identifiera ursprunget för begäran. Krävs endast när en id_token begärs. |
 | `prompt` | valfri |Anger vilken typ av användar interaktion som krävs. De enda giltiga värdena för tillfället är ' inloggning "', ' none ', ' select_account ' och ' medgivande '. `prompt=login` tvingar användaren att ange sina autentiseringsuppgifter för den begäran och negera enkel inloggning. `prompt=none` är motsatt – det ser till att användaren inte visas med interaktiva prompter. Om begäran inte kan slutföras i bakgrunden via enkel inloggning, returnerar slut punkten för Microsoft Identity Platform ett fel. `prompt=select_account` skickar användaren till en konto väljare där alla konton som lagras i sessionen kommer att visas. `prompt=consent` utlöser dialog rutan OAuth-medgivande när användaren loggar in och ber användaren att bevilja behörighet till appen. |
-| `login_hint`  |valfri |Kan användas för att fylla i fältet användar namn/e-postadress på inloggnings sidan för användaren, om du känner till användar namnet i förväg. Appar kommer ofta att använda den här parametern under omautentiseringen och har redan extraherat användar namnet från en tidigare inloggning med hjälp av `preferred_username` anspråket.|
-| `domain_hint` | valfri |Om den är inkluderad hoppar den e-postbaserad identifierings processen som användaren går igenom på inloggnings sidan, vilket leder till en något mer strömlinjeformad användar upplevelse. Detta används ofta för branschspecifika appar som fungerar i en enda klient, där de kommer att tillhandahålla ett domän namn inom en viss klient.  Detta vidarebefordrar användaren till Federations leverantören för den klienten.  Observera att detta hindrar gästerna från att logga in på det här programmet.  |
+| `login_hint`  |valfri |Kan användas för att fylla i fältet användar namn/e-postadress på inloggnings sidan för användaren, om du känner till användar namnet i förväg. Appar kommer ofta att använda den här parametern under omautentiseringen och har redan extraherat användar namnet från en tidigare inloggning med `preferred_username` anspråket.|
+| `domain_hint` | valfri |Om den är inkluderad hoppar den e-postbaserad identifierings processen som användaren går igenom på inloggnings sidan, vilket leder till en något mer strömlinjeformad användar upplevelse. Den här parametern används ofta för branschspecifika appar som fungerar i en enda klient, där de kommer att tillhandahålla ett domän namn inom en viss klient, och vidarebefordra användaren till Federations leverantören för den klienten.  Observera att det här tipset förhindrar att gäster loggar in i det här programmet och begränsar användningen av autentiseringsuppgifter för moln som FIDO.  |
 
 Användaren uppmanas att ange sina autentiseringsuppgifter och slutföra autentiseringen. Slut punkten för Microsoft Identity Platform ser också till att användaren har samtyckt till de behörigheter som anges i `scope` Frågeparametern. Om användaren har samtyckt till **ingen** av dessa behörigheter uppmanas användaren att godkänna de behörigheter som krävs. Mer information finns i [behörigheter, medgivande och appar för flera klient organisationer](v2-permissions-and-consent.md).
 
@@ -115,23 +83,23 @@ När användaren autentiserar och godkänner godkännandet, returnerar Microsoft
 
 #### <a name="successful-response"></a>Lyckat svar
 
-Ett lyckat svar med `response_mode=fragment` och `response_type=id_token+token` ser ut ungefär så här (med rad brytningar för läsbarhet):
+Ett lyckat svar med `response_mode=fragment` och `response_type=id_token+code` ser ut ungefär så här (med rad brytningar för läsbarhet):
 
 ```HTTP
 GET https://localhost/myapp/#
-&token_type=Bearer
-&expires_in=3599
+code=0.AgAAktYV-sfpYESnQynylW_UKZmH-C9y_G1A
 &id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=12345
 ```
 
 | Parameter | Beskrivning |
 | --- | --- |
+| `code` | Ingår om `response_type` innehåller `code` . Det här är en auktoriseringskod som är lämplig för användning i [Authorization Code Flow](v2-oauth2-auth-code-flow.md).  |
 | `access_token` |Ingår om `response_type` innehåller `token` . Den åtkomsttoken som appen begärde. Åtkomsttoken bör inte avkodas eller på annat sätt kontrol leras. den bör behandlas som en ogenomskinlig sträng. |
 | `token_type` |Ingår om `response_type` innehåller `token` . Är alltid `Bearer` . |
 | `expires_in`|Ingår om `response_type` innehåller `token` . Anger antalet sekunder som token är giltig för cachelagring. |
 | `scope` |Ingår om `response_type` innehåller `token` . Anger omfånget som access_token ska gälla för. Får inte innehålla alla begärda omfattningar, om de inte gällde för användaren (endast för Azure AD-scope som begärs när ett personligt konto används för att logga in). |
-| `id_token` | En signerad JSON Web Token (JWT). Appen kan avkoda segmenten i denna token för att begära information om den användare som har loggat in. Appen kan cachelagra värdena och visa dem, men de bör inte förlita sig på några begränsningar för auktorisering eller säkerhet. Mer information om id_tokens finns i [`id_token reference`](id-tokens.md) . <br> **Obs:** Anges endast om `openid` omfattning begärdes. |
+| `id_token` | En signerad JSON Web Token (JWT). Appen kan avkoda segmenten i denna token för att begära information om den användare som har loggat in. Appen kan cachelagra värdena och visa dem, men de bör inte förlita sig på några begränsningar för auktorisering eller säkerhet. Mer information om id_tokens finns i [`id_token reference`](id-tokens.md) . <br> **Obs:** Anges endast om `openid` omfång begärdes och `response_type` inkluderades `id_tokens` . |
 | `state` |Om en tillstånds parameter ingår i begäran ska samma värde visas i svaret. Appen bör kontrol lera att tillstånds värden i begäran och svaret är identiska. |
 
 #### <a name="error-response"></a>Fel svar
@@ -151,9 +119,12 @@ error=access_denied
 
 ## <a name="getting-access-tokens-silently-in-the-background"></a>Hämta åtkomsttoken tyst i bakgrunden
 
+> [!Important]
+> Den här delen av det implicita flödet är sannolikt inte att fungera för ditt program eftersom det används i olika webbläsare på grund av [borttagning av cookies från tredje part som standard](reference-third-party-cookies-spas.md).  Även om det fortfarande arbetar i Krombaserade webbläsare som inte finns i Incognito bör utvecklare överväga att använda den här delen av flödet. I webbläsare som inte stöder cookies från tredje part får du ett fel meddelande som anger att inga användare är inloggade, eftersom inloggnings sidans sessionscookies togs bort av webbläsaren. 
+
 Nu när du har loggat in användaren i en app med en enda sida kan du hämta åtkomsttoken för att anropa webb-API: er som skyddas av Microsoft Identity Platform, t. ex. [Microsoft Graph](https://developer.microsoft.com/graph). Även om du redan har tagit emot en token med hjälp av `token` response_type kan du använda den här metoden för att hämta tokens till ytterligare resurser utan att behöva omdirigera användaren för att logga in igen.
 
-I det normala OpenID Connect/OAuth-flödet gör du detta genom att göra en begäran till Microsoft Identity Platform- `/token` slutpunkten. Slut punkten för Microsoft Identity Platform stöder dock inte CORS-begäranden, så gör AJAX-anrop för att hämta och uppdatera token utanför frågan. I stället kan du använda det implicita flödet i en dold iframe för att hämta nya token för andra webb-API: er:
+I det normala OpenID Connect/OAuth-flödet gör du detta genom att göra en begäran till Microsoft Identity Platform- `/token` slutpunkten. Du kan göra en begäran i en dold iframe för att hämta nya token för andra webb-API: er:
 
 ```
 // Line breaks for legibility only
@@ -177,8 +148,9 @@ Information om frågeparametrar i URL: en finns i [Skicka inloggnings förfråga
 >
 >`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&login_hint={your-username}`
 >
+> Observera att detta fungerar även i webbläsare utan stöd för cookies från tredje part, eftersom du anger det direkt i ett webb läsar fält i stället för att öppna det i en iframe. 
 
-Tack vare `prompt=none` parametern kommer den här begäran antingen att lyckas eller Miss lyckas omedelbart och återgå till ditt program. Ett lyckat svar skickas till din app med den angivna `redirect_uri` metoden i `response_mode` parametern.
+Tack vare `prompt=none` parametern kommer den här begäran antingen att lyckas eller Miss lyckas omedelbart och återgå till ditt program. Svaret skickas till din app `redirect_uri` med den angivna metoden i `response_mode` parametern.
 
 #### <a name="successful-response"></a>Lyckat svar
 
@@ -223,6 +195,8 @@ Om du får det här felet i iframe-begäran måste användaren interaktivt logga
 
 Den implicita beviljandet tillhandahåller inte uppdaterade tokens. Både `id_token` och s `access_token` upphör att gälla efter en kort tids period, så din app måste vara för beredd för att uppdatera dessa token regelbundet. Om du vill uppdatera någon av typerna av token kan du utföra samma dolda iframe-begäran från ovan med `prompt=none` parametern för att styra identitets plattformens beteende. Om du vill ta emot en ny `id_token` måste du använda `id_token` i `response_type` och `scope=openid` , samt en `nonce` parameter.
 
+I webbläsare som inte stöder cookies från tredje part leder detta till ett fel som anger att ingen användare är inloggad. 
+
 ## <a name="send-a-sign-out-request"></a>Skicka en begäran om utloggning
 
 OpenID Connect `end_session_endpoint` gör att din app kan skicka en begäran till Microsoft Identity Platform-slutpunkten för att avsluta en användares session och Rensa cookies som anges av Microsoft Identity Platform-slutpunkten. För att fullständigt signera en användare från ett webb program bör din app avsluta sin egen session med användaren (vanligt vis genom att rensa en token-cache eller släppa cookies) och sedan omdirigera webbläsaren till:
@@ -239,6 +213,4 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 ## <a name="next-steps"></a>Nästa steg
 
 * Gå över [MSAL JS-exemplen](sample-v2-code.md) för att komma igång med kodning.
-
-[OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
-[OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819
+* Granska [koden för auktoriseringskod](v2-oauth2-auth-code-flow.md) som ett nyare, bättre alternativ till den implicita tilldelningen. 

@@ -5,14 +5,14 @@ services: virtual-wan
 author: skishen525
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 12/01/2020
 ms.author: sukishen
-ms.openlocfilehash: 6b2595eaf1e373c3a15014d0bc684d6e3914a665
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a92dafe6237d0f061f837f07c5dcf2686b1a8a7e
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566647"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510751"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Samman koppling med Kina med Azure Virtual WAN och säker hubb
 
@@ -22,7 +22,7 @@ I de flesta fall är kunderna kämpar med hög latens, låg bandbredd, instabil 
 
 En orsak till de här problemen är den "fantastiska brand väggen i Kina", som skyddar den kinesiska delen av Internet och filtrerar trafik till Kina. Nästan all trafik som körs från Kina till utanför Kina, förutom de särskilda administrations zonerna, t. ex. Hongkong och Macao, klarar den fantastiska brand väggen. Trafiken som körs via Hong Kong och Macao når inte den fantastiska brand väggen i full kraft, den hanteras av en del av den fantastiska brand väggen.
 
-![Provider-sammanlänkning](./media/interconnect-china/provider.png)
+:::image type="content" source="./media/interconnect-china/provider.png" alt-text="Diagrammet visar Provider-Interconnect.":::
 
 Med hjälp av Virtual WAN kan en kund upprätta en mer genomförd och stabil anslutning till Microsoft Cloud tjänster och en anslutning till företagets nätverk utan att behöva dela den kinesiska cybersäkerhet lagen.
 
@@ -71,11 +71,17 @@ I följande lista visas möjliga Internet-byten i Hong Kong:
 
 När du använder den här anslutningen måste ditt nästa BGP-hopp för Microsoft-tjänster vara Microsoft autonomt system nummer (AS #) 8075. Om du använder en enda plats eller SDWAN-lösning kan det vara valet av anslutning.
 
+Med de aktuella ändringarna avseende samanslutningar mellan Kina och Hongkong, bygger de flesta av dessa nätverksprovider på en MPLS-brygga mellan fast landet och Hongkong.
+
+Du kan se att plats-till-plats-VPN-anslutningar i Kina tillåts och är mest stabila. Samma gäller för plats-till-plats-anslutningar mellan grenar i resten av världen. Leverantörer skapar nu en VPN/SDWAN-aggregering på både sidor och Bridge via MPLS mellan dem.
+
+:::image type="content" source="./media/interconnect-china/china-mpls-bridge.png" alt-text="Diagram visar Kinas MPLS-brygga.":::
+
 Oavsett hur vi rekommenderar rekommenderar vi fortfarande att du har en andra och regelbundna Internet-grupp i det kinesiska fast landet. Detta är att dela upp trafiken mellan företags trafik till moln tjänster som Microsoft 365 och Azure och enligt-Law reglerad Internet trafik.
 
 En kompatibel nätverks arkitektur i Kina kan se ut som i följande exempel:
 
-![Flera grenar](./media/interconnect-china/multi-branch.png)
+:::image type="content" source="./media/interconnect-china/multi-branch.png" alt-text="Diagrammet visar flera grenar.":::
 
 I det här exemplet, med en samman koppling med Microsoft Global Nätverk – inkommande Hongkong, kan du nu börja utnyttja [Azures globala globala WAN-arkitektur](virtual-wan-global-transit-network-architecture.md) och ytterligare tjänster, till exempel Azures säkra virtuella WAN Hub, för att förbruka tjänster och sammanställa till dina grenar och data Center utanför Kina.
 
@@ -85,7 +91,7 @@ I det här avsnittet använder vi virtuell WAN Hub-till-hubb-kommunikation till 
 
 En exempel arkitektur kan se ut som i följande exempel:
 
-![Exempel på WAN](./media/interconnect-china/sample.png)
+:::image type="content" source="./media/interconnect-china/sample.png" alt-text="Diagrammet visar exempel på WAN.":::
 
 I det här exemplet ansluter Kina-grenarna till Azure Cloud Kina och varandra genom att använda VPN-eller MPLS-anslutningar. Grenar som måste vara anslutna till globala tjänster använder MPLS eller Internetbaserade tjänster som är anslutna direkt till Hong Kong. Om du vill använda ExpressRoute i Hong Kong och i den andra regionen måste du konfigurera [ExpressRoute-Global Reach](../expressroute/expressroute-global-reach.md) för att koppla samman båda ExpressRoute-kretsarna.
 
@@ -93,7 +99,7 @@ ExpressRoute-Global Reach är inte tillgänglig i vissa regioner. Om du behöver
 
 I bilden nedan visas båda exemplen för det här scenariot.
 
-![Global Reach](./media/interconnect-china/global.png)
+:::image type="content" source="./media/interconnect-china/global.png" alt-text="Diagrammet visar Global Reach.":::
 
 ## <a name="secure-internet-breakout-for-microsoft-365"></a><a name="secure"></a>Säker Internet-grupp för Microsoft 365
 
@@ -103,7 +109,7 @@ För båda scenarierna med Virtual WAN utnyttjar du den [virtuella WAN-hubben i 
 
 Följande bild visar ett exempel på det här scenariot:
 
-![Internet-grupp för trafik på webben och Microsoft-tjänster](./media/interconnect-china/internet.png)
+:::image type="content" source="./media/interconnect-china/internet.png" alt-text="Diagram visar Internet-grupp för trafik på webben och Microsoft-tjänster.":::
 
 ## <a name="architecture-and-traffic-flows"></a><a name="traffic"></a>Arkitektur och trafikflöden
 
@@ -117,7 +123,7 @@ När du använder Azure Virtual WAN tillsammans med Internet anslutningar kan va
 
 I det här avsnittet beskrivs en design som använder SDWAN eller VPN för Hong Kong och andra grenar. Det här alternativet visar användnings-och trafikflödet när du använder en ren Internet-anslutning på båda platserna av det virtuella WAN-stamnätet. I det här fallet kommer anslutningen till Hong Kong med hjälp av dedikerad Internet åtkomst eller en SDWAN-lösning för ICP-Provider. Andra grenar använder rent Internet-eller SDWAN-lösningar också.
 
-![Kina till Hong Kong-trafik](./media/interconnect-china/china-traffic.png)
+:::image type="content" source="./media/interconnect-china/china-traffic.png" alt-text="Diagram visar Kina för Hongkong trafik.":::
 
 I den här arkitekturen är alla platser anslutna till Microsofts globala nätverk med hjälp av VPN och Azure Virtual WAN. Trafiken mellan platserna och Hong Kong överförs via Microsoft Network och använder endast vanlig Internet anslutning vid den senaste omkostnaden.
 
@@ -125,7 +131,7 @@ I den här arkitekturen är alla platser anslutna till Microsofts globala nätve
 
 I det här avsnittet beskrivs en design som använder ExpressRoute i Hong Kong och andra grenar med VPN/SDWAN-grenar. Med det här alternativet visas användningen av och ExpressRoute avbruten i Hong Kong och andra grenar som är anslutna via SDWAN eller VPN. ExpressRoute i Hong Kong är för närvarande begränsad till en kort lista med leverantörer, som du hittar i listan över [Express Route-partner](../expressroute/expressroute-locations-providers.md#global-commercial-azure).
 
-![ExpressRoute för Kina till Hong Kong trafik](./media/interconnect-china/expressroute.png)
+:::image type="content" source="./media/interconnect-china/expressroute.png" alt-text="Diagram visar Kina till Hong Kong Traffic-ExpressRoute.":::
 
 Det finns också alternativ för att säga upp ExpressRoute från Kina, till exempel i Sydkorea eller Japan. Dock är Hong Kong för närvarande det bästa valet.
 
@@ -135,7 +141,7 @@ I det här avsnittet beskrivs en design där ExpressRoute används för Hong Kon
 
 Trafiken som går till de sammankopplade grenarna eller från dem till platserna i Kina kommer att följa en annan metod i arkitekturen. För närvarande stöder Virtual WAN inte ExpressRoute till ExpressRoute-överföring. Trafiken utnyttjar ExpressRoute Global Reach eller från tredje parts sammanlänkning utan att skicka den virtuella WAN-hubben. Den flödar direkt från ett Microsoft Enterprise Edge (MSEE: N) till ett annat.
 
-![ExpressRoute Global Reach](./media/interconnect-china/expressroute-virtual.png)
+:::image type="content" source="./media/interconnect-china/expressroute-virtual.png" alt-text="Diagrammet visar ExpressRoute Global Reach.":::
 
 För närvarande är ExpressRoute Global Reach inte tillgängligt i varje land/region, men du kan konfigurera en lösning med Azure Virtual WAN.
 

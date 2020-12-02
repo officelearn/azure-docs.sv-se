@@ -3,15 +3,15 @@ title: Konfigurera Kundhanterade nycklar för att kryptera data i vila i ISEs
 description: Skapa och hantera dina egna krypterings nycklar för att skydda data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, rarayudu, logicappspm
+ms.reviewer: mijos, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: 30b09d43cbe510318ac4f48e0655d5483491c215
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.date: 11/20/2020
+ms.openlocfilehash: 59c60c876058f8664b38411b562e57c2d5cdc2a8
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682782"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510632"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Konfigurera Kundhanterade nycklar för att kryptera data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps
 
@@ -27,11 +27,15 @@ Det här avsnittet visar hur du konfigurerar och anger din egen krypterings nyck
 
 * Du kan bara ange en kundhanterad nyckel *när du skapar din ISE*, inte senare. Du kan inte inaktivera den här nyckeln när du har skapat din ISE. För närvarande finns det inget stöd för att rotera en kundhanterad nyckel för en ISE.
 
-* För att stödja Kundhanterade nycklar kräver din ISE att den [systemtilldelade hanterade identiteten](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) är aktive rad. Med den här identiteten kan ISE autentisera åtkomst till resurser i andra Azure Active Directory (Azure AD)-klient organisationer så att du inte behöver logga in med dina autentiseringsuppgifter.
+* För att stödja Kundhanterade nycklar kräver din ISE att du aktiverar antingen [systemtilldelad eller användardefinierad hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). Med den här identiteten kan du autentisera åtkomst till skyddade resurser, till exempel virtuella datorer och andra system eller tjänster, som finns i eller är anslutna till ett virtuellt Azure-nätverk. På så sätt behöver du inte logga in med dina autentiseringsuppgifter.
 
-* För närvarande måste du anropa Logic Apps REST API genom att använda en HTTPS-begäran om du vill skapa en ISE som stöder Kundhanterade nycklar och har den systemtilldelade identiteten aktive rad.
+* För närvarande måste du anropa Logic Apps REST API genom att använda en HTTPS-begäran för att skapa en ISE som stöder Kundhanterade nycklar och har antingen hanterad identitets typ aktive rad.
 
-* Inom *30 minuter* efter att du skickat https-begäran som skapar din ISE måste du [ge nyckel valv åtkomst till din ISES systemtilldelade identitet](#identity-access-to-key-vault). Annars Miss lyckas ISE-skapande och genererar ett behörighets fel.
+* Du måste [ge nyckel valvet åtkomst till din ISES hanterade identitet](#identity-access-to-key-vault), men tiden är beroende av vilken hanterad identitet du använder.
+
+  * **Systemtilldelad hanterad identitet**: inom *30 minuter efter* att du skickat https-begäran som skapar din ISE måste du [ge nyckel valv åtkomst till din ISES hanterade identitet](#identity-access-to-key-vault). Annars Miss lyckas ISE-skapande och du får ett behörighets fel.
+
+  * **Användardefinierad hanterad identitet**: innan du skickar en https-begäran som skapar din ISE ger du [nyckel valv åtkomst till din ISES hanterade identitet](#identity-access-to-key-vault).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -56,7 +60,7 @@ Det här avsnittet visar hur du konfigurerar och anger din egen krypterings nyck
 
 * Ett verktyg som du kan använda för att skapa din ISE genom att anropa Logic Apps REST API med en begäran om HTTPS-begäran. Du kan till exempel använda [Postman](https://www.getpostman.com/downloads/), eller så kan du bygga en logisk app som utför den här uppgiften.
 
-<a name="enable-support-key-system-identity"></a>
+<a name="enable-support-key-managed-identity"></a>
 
 ## <a name="create-ise-with-key-vault-and-managed-identity-support"></a>Skapa ISE med Key Vault och stöd för hanterad identitet
 
@@ -65,7 +69,7 @@ Om du vill skapa din ISE genom att anropa Logic Apps REST API, gör du denna HTT
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
 
 > [!IMPORTANT]
-> Logic Apps REST API 2019-05-01-versionen kräver att du gör en egen HTTP-begäran för ISE-anslutningar.
+> Logic Apps REST API 2019-05-01-versionen kräver att du gör en egen HTTPS-begäran för ISE-anslutningar.
 
 Distributionen tar vanligt vis inom två timmar att slutföra. Ibland kan distributionen ta upp till fyra timmar. Om du vill kontrol lera distributions statusen i [Azure Portal](https://portal.azure.com)går du till Azure-verktygsfältet och väljer aviserings ikonen, som öppnar fönstret meddelanden.
 
@@ -88,7 +92,7 @@ I begär ande huvudet inkluderar du följande egenskaper:
 
 I begär ande texten aktiverar du stöd för dessa ytterligare objekt genom att ange informationen i din ISE-definition:
 
-* Den systemtilldelade hanterade identitet som din ISE använder för att få åtkomst till ditt nyckel valv
+* Den hanterade identitet som din ISE använder för att få åtkomst till ditt nyckel valv
 * Ditt nyckel valv och den Kundhanterade nyckel som du vill använda
 
 #### <a name="request-body-syntax"></a>Syntax för begär ande text
@@ -106,7 +110,14 @@ Här är syntaxen för begär ande texten, som beskriver de egenskaper som ska a
       "capacity": 1
    },
    "identity": {
-      "type": "SystemAssigned"
+      "type": <"SystemAssigned" | "UserAssigned">,
+      // When type is "UserAssigned", include the following "userAssignedIdentities" object:
+      "userAssignedIdentities": {
+         "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-assigned-managed-identity-object-ID}": {
+            "principalId": "{principal-ID}",
+            "clientId": "{client-ID}"
+         }
+      }
    },
    "properties": {
       "networkConfiguration": {
@@ -153,7 +164,13 @@ Den här exempel texten visar exempel värden:
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "WestUS2",
    "identity": {
-      "type": "SystemAssigned"
+      "type": "UserAssigned",
+      "userAssignedIdentities": {
+         "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/*********************************": {
+            "principalId": "*********************************",
+            "clientId": "*********************************"
+         }
+      }
    },
    "sku": {
       "name": "Premium",
@@ -197,7 +214,11 @@ Den här exempel texten visar exempel värden:
 
 ## <a name="grant-access-to-your-key-vault"></a>Bevilja åtkomst till ditt nyckel valv
 
-Inom *30 minuter* efter att du skickat http-begäran för att skapa din ISE måste du lägga till en åtkomst princip i nyckel valvet för din ISE: s systemtilldelade identitet. Annars Miss lyckas skapande av ISE och du får ett behörighets fel. 
+Även om tids inställningen skiljer sig utifrån den hanterade identitet som du använder, måste du [ge nyckel valvet åtkomst till din ISES hanterade identitet](#identity-access-to-key-vault).
+
+* **Systemtilldelad hanterad identitet**: inom *30 minuter efter* att du har skickat https-begäran som skapar din ISE måste du lägga till en åtkomst princip i nyckel VALVEt för din ISE: s systemtilldelade identitet. Annars Miss lyckas skapande av ISE och du får ett behörighets fel.
+
+* **Användardefinierad hanterad identitet**: innan du skickar en https-begäran som skapar din ISE lägger du till en åtkomst princip i nyckel valvet för din ISE användares tilldelade hanterade identitet.
 
 För den här uppgiften kan du använda antingen kommandot Azure PowerShell [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) , eller så kan du följa de här stegen i Azure Portal:
 
@@ -211,7 +232,7 @@ För den här uppgiften kan du använda antingen kommandot Azure PowerShell [set
 
    1. Välj följande alternativ:
 
-      | Inställningen | Värden |
+      | Inställning | Värden |
       |---------|--------|
       | **Konfigurera från mall (valfritt) lista** | Nyckel hantering |
       | **Nyckel behörigheter** | - **Nyckel hanterings åtgärder**: Hämta, lista <p><p>- **Kryptografiska åtgärder**: unwrap Key, wrap Key |

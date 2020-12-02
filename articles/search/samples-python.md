@@ -8,30 +8,30 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 244408cc512a51683ecb3c062113170b1c7f4781
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6e0f3d318cc462b03151d5a4935ae318df46e2c5
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499568"
+ms.locfileid: "96510564"
 ---
 # <a name="python-code-samples-for-azure-cognitive-search"></a>Python-kod exempel för Azure Kognitiv sökning
 
 Lär dig mer om python-kod exemplen som demonstrerar funktionerna i Azure Kognitiv sökning. De primära databaserna är följande:
 
-| Lagringsplats | Description |
+| Lagringsplats | Beskrivning |
 |------------|-------------|
 | [Azure-SDK – för python/tree/master/SDK/search/Azure-Search-Documents/samples/](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/samples) | Exempel som producerats av Azure SDK-teamet som levereras med Azure.Search.Documents-klient biblioteket i SDK: n. Du kan också granska [enhets testerna](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/tests) för klient biblioteket för att se hur olika API: er anropas. |
 | [Azure-samples/Azure-Search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples) | Kod exempel som följer med instruktions artiklar, inklusive [snabb start: skapa ett Sök index i python](search-get-started-python.md).|
 
 > [!Tip]
-> Prova [exempel webbläsaren](/samples/browse/?languages=csharp&products=azure-cognitive-search) för att söka efter Microsofts kod exempel i GitHub, filtrerat efter produkt, tjänst och språk.
+> Prova [exempel webbläsaren](/samples/browse/?languages=python&products=azure-cognitive-search) för att söka efter Microsofts kod exempel i GitHub, filtrerat efter produkt, tjänst och språk.
 
 ## <a name="python-sdk-samples"></a>Python SDK-exempel
 
 Azure SDK för python innehåller flera exempel och en [komma igång-sida](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/samples) som innehåller nödvändiga komponenter och paket installationer. Sidan innehåller också länkar till följande exempel, som visas här för din bekvämlighet.
 
-| Exempel | Description |
+| Exempel | Beskrivning |
 |---------|-------------|
 | [Autentisera](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_authentication.py) | Visar hur du konfigurerar en klient och autentiserar till tjänsten. | 
 | [Index Create-Read-Update-Delete-åtgärder](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py) | Visar hur du skapar, uppdaterar, hämtar, visar och tar bort [Sök index](search-what-is-an-index.md). |
@@ -47,7 +47,7 @@ Azure SDK för python innehåller flera exempel och en [komma igång-sida](https
 
 Följande exempel har en associerad artikel i [Azure kognitiv sökning-dokumentationen](./index.yml).
 
-| Exempel | Description | 
+| Exempel | Beskrivning | 
 |---------|-------------|
 | [Start](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart) | Källkod för [snabb start: skapa ett Sök index i python](search-get-started-python.md).  |
 | [självstudie – AI – berikning](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment)  | Källkod för [Självstudier: Använd python och AI för att generera sökbart innehåll från Azure-blobbar](cognitive-search-tutorial-blob-python.md).  |

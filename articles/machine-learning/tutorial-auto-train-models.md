@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 4f6e194f04789fbcaf24d69965dfa8ac61b20a38
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: e1a5370501fe73fb783db9a039d9f060acdb0a35
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886336"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511040"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Självstudie: Använda automatiserad maskininlärning till att beräkna taxikostnader
 
@@ -34,7 +34,7 @@ I den här självstudien får du lära dig följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen](https://aka.ms/AMLFree) av Azure Machine Learning idag.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slutför [installations självstudien](tutorial-1st-experiment-sdk-setup.md) om du inte redan har en Azure Machine Learning arbets yta eller en virtuell dator.
 * När du har slutfört installations guiden öppnar du *självstudierna/regression-automl-NYC-taxi-data/regression-Automated-ml. ipynb* Notebook med samma Notebook-Server.
@@ -210,7 +210,7 @@ Definiera experiment parametern och modell inställningarna för träning. Visa 
 
 |Egenskap| Värde i den här självstudien |Beskrivning|
 |----|----|---|
-|**iteration_timeout_minutes**|2|Tidsgräns i minuter för varje iteration. Minska det här värdet om du vill minska den totala körningstiden.|
+|**iteration_timeout_minutes**|10|Tidsgräns i minuter för varje iteration. Öka värdet för större data uppsättningar som behöver mer tid för varje iteration.|
 |**experiment_timeout_hours**|0.3|Maximal tid i timmar som alla iterationer kombineras kan ta innan experimentet avslutas.|
 |**enable_early_stopping**|Sant|Flagga för att aktivera tidig uppsägning om poängen inte förbättras på kort sikt.|
 |**primary_metric**| spearman_correlation | Mått som du vill optimera. Den modell som passar bäst väljs utifrån det här måttet.|
@@ -222,7 +222,7 @@ Definiera experiment parametern och modell inställningarna för träning. Visa 
 import logging
 
 automl_settings = {
-    "iteration_timeout_minutes": 2,
+    "iteration_timeout_minutes": 10,
     "experiment_timeout_hours": 0.3,
     "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',

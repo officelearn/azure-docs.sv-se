@@ -5,13 +5,13 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 10/23/2020
-ms.openlocfilehash: 74000322372652b90e0d0db07d687f8e57c4f88e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 12/01/2020
+ms.openlocfilehash: e2df34b7897ee2543d967d147317859ab26971e9
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518253"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510496"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Självstudie: skapa och hantera en VPN-gateway med Azure Portal
 
@@ -30,7 +30,7 @@ Följande diagram visar det virtuella nätverket och den VPN-gateway som skapats
 
 :::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram över VNet-och VPN-gateway":::
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ett Azure-konto med en aktiv prenumeration. Om du inte har ett kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -74,7 +74,7 @@ Skapa en virtuell nätverksgateway med följande värden:
 
 Du kan visa den offentliga Gateway-IP-adressen på **översikts** sidan för din gateway.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Diagram över VNet-och VPN-gateway":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Översikts sida":::
 
 Om du vill se mer information om objektet offentlig IP-adress klickar du på länken namn/IP-adress bredvid **offentlig IP-adress**.
 

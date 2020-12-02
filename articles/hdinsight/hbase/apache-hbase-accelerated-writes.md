@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a2373f0cf7005e465c2d3bd42817b3394a84de
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654862"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510288"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Azure HDInsight-accelererade skrivningar för Apache HBase
 
@@ -20,7 +20,7 @@ Den här artikeln innehåller en bakgrund för den **accelererade skrivningar** 
 
 ## <a name="overview-of-hbase-architecture"></a>Översikt över HBase-arkitekturen
 
-I HBase består en **rad** av en eller flera **kolumner** och identifieras av en **rad nyckel**. Flera rader utgör en **tabell**. Kolumner innehåller **celler**, som är tidsstämplade versioner av värdet i den kolumnen. Kolumner grupperas i **kolumn serier**och alla kolumner i en kolumn serie lagras tillsammans i lagringsfiler som kallas **HFiles**.
+I HBase består en **rad** av en eller flera **kolumner** och identifieras av en **rad nyckel**. Flera rader utgör en **tabell**. Kolumner innehåller **celler**, som är tidsstämplade versioner av värdet i den kolumnen. Kolumner grupperas i **kolumn serier** och alla kolumner i en kolumn serie lagras tillsammans i lagringsfiler som kallas **HFiles**.
 
 **Regioner** i HBase används för att balansera belastningen på data bearbetningen. HBase lagrar först raderna i en tabell i en enda region. Raderna sprids över flera regioner när mängden data i tabellen ökar. **Region servrar** kan hantera begär Anden för flera regioner.
 
@@ -28,7 +28,7 @@ I HBase består en **rad** av en eller flera **kolumner** och identifieras av en
 
 HBase skriver först data uppdateringar till en typ av inchecknings logg som kallas för Skriv logg (WAL). När uppdateringen har lagrats i WAL skrivs den till InMemory- **memstores**. När data i minnet når sin maximala kapacitet, skrivs de till disk som en **HFile**.
 
-Om en **RegionServer** kraschar eller blir otillgänglig innan memstores töms, kan Skriv loggen användas för att spela upp uppdateringar igen. Utan WAL, om en **RegionServer** kraschar innan uppdateringar av en **HFile**rensas, går alla dessa uppdateringar förlorade.
+Om en **RegionServer** kraschar eller blir otillgänglig innan memstores töms, kan Skriv loggen användas för att spela upp uppdateringar igen. Utan WAL, om en **RegionServer** kraschar innan uppdateringar av en **HFile** rensas, går alla dessa uppdateringar förlorade.
 
 ## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Accelererade skrivningar i Azure HDInsight för Apache HBase
 
@@ -36,9 +36,9 @@ Funktionen accelererade skrivningar löser problemet med högre Skriv-fördröjn
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Så här aktiverar du påskyndade skrivningar för HBase i HDInsight
 
-Om du vill skapa ett nytt HBase-kluster med funktionen för accelererade skrivningar följer du stegen i [Konfigurera kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) tills du når **steg 3, lagring**. Under **Inställningar för metaarkiv**markerar du kryss rutan bredvid **Aktivera HBase-accelererade skrivningar**. Fortsätt sedan med de återstående stegen för att skapa kluster.
+Om du vill skapa ett nytt HBase-kluster med funktionen för accelererade skrivningar följer du stegen i [Konfigurera kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) tills du når **steg 3, lagring**. Under **Inställningar för metaarkiv** markerar du kryss rutan bredvid **Aktivera HBase-accelererade skrivningar**. Fortsätt sedan med de återstående stegen för att skapa kluster.
 
-![Aktivera alternativ för påskyndad skrivning för HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-cluster-storage-hbase.png)
+![Aktivera alternativ för påskyndad skrivning för HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-create-hbase-wals.png)
 
 ## <a name="other-considerations"></a>Ytterligare överväganden
 

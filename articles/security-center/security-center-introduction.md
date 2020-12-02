@@ -1,6 +1,6 @@
 ---
 title: Vad är Azure Security Center?| Microsoft Docs
-description: Den här sidan beskriver Security Center viktiga fördelar med att identifiera ditt säkerhets tillstånd och förbättra den med täckning av moln-och lokal resurser.
+description: Den här sidan beskriver Security Center viktiga fördelar med att identifiera ditt säkerhets tillstånd och förbättra den med täckning av moln resurser och lokala resurser.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: d62ed31a68d9469a1bd1fc66e479b0f91db2f916
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 0a1cac0fe61ea13a18224ea5992b5c7c1ba69d8a
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372276"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510343"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
@@ -33,15 +33,15 @@ Azure Security Center kan hantera de tre mest brådskande säkerhetsriskerna:
 
 -   **Allt mer sofistikerade attacker** – Oavsett var du kör dina arbetsbelastningar blir attackerna ständigt alltmer avancerade. Du måste skydda dina arbetsbelastningar i det offentliga molnet. Det här är i praktiken arbetsbelastningar som är öppna mot internet och som kan gör dig ännu mer sårbar om du inte följer rekommenderade säkerhetsmetoder.
 
--   **Kompetens inom säkerhetsområdet är en bristvara** – Antalet säkerhetsaviseringar och aviseringssystem överträffar vida antalet administratörer med den nödvändiga bakgrund och erfarenhet som krävs för att se till att dina miljöer är skyddade. Att hålla sig informerad om de senaste attackerna är en konstant utmaning, och det är omöjligt att alltid vara på rätt plats eftersom kampen mot säkerhetshoten sker längs en ständigt föränderlig stridslinje.
+-   **Kompetens inom säkerhetsområdet är en bristvara**– Antalet säkerhetsaviseringar och aviseringssystem överträffar vida antalet administratörer med den nödvändiga bakgrund och erfarenhet som krävs för att se till att dina miljöer är skyddade. Att hålla sig informerad om de senaste attackerna är en konstant utmaning, och det är omöjligt att alltid vara på rätt plats eftersom kampen mot säkerhetshoten sker längs en ständigt föränderlig stridslinje.
 
 Security Center har verktyg som kan hjälpa dig med de här utmaningarna.
 
--   **Förstärk säkerhets position** : Security Center utvärderar din miljö och gör det möjligt att förstå statusen för dina resurser och om de är säkra.
+-   **Förstärk säkerhets position**: Security Center utvärderar din miljö och gör det möjligt att förstå statusen för dina resurser och om de är säkra.
 
--   **Skydda mot hot** : Security Center utvärderar dina arbets belastningar och aktiverar rekommendationer för skydd mot hot och säkerhets aviseringar.
+-   **Skydda mot hot**: Security Center utvärderar dina arbets belastningar och aktiverar rekommendationer för skydd mot hot och säkerhets aviseringar.
 
--   **Bli säker snabbare** : Allt sker med molnhastighet i Security Center. Eftersom Security Center är inbyggt sker distributionen snabbt och enkelt, och du får automatisk etablering och skydd för Azure-tjänster.
+-   **Bli säker snabbare**: Allt sker med molnhastighet i Security Center. Eftersom Security Center är inbyggt sker distributionen snabbt och enkelt, och du får automatisk etablering och skydd för Azure-tjänster.
 
 > [!NOTE]
 > Den här tjänsten har stöd för [Azure-Lighthouse](../lighthouse/overview.md), som låter tjänst leverantörer logga in på sin egen klient för att hantera prenumerationer och resurs grupper som kunder har delegerat. För Azure Security Center scenarier måste en prenumeration delegeras i stället för enskilda resurs grupper.

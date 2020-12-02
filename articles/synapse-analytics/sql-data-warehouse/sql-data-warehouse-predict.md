@@ -11,16 +11,16 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7b35997e763434d7ae4d849c33d358d1593d7e33
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ce77a169e28e21aa37be2a49997a58ee42c93807
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460530"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510836"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Score Machine Learning-modeller med PREDICT
 
-Dedikerad SQL-pool ger dig möjlighet att Poäng modeller för maskin inlärning med det välkända T-SQL-språket. Med T-SQL [predict](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)kan du se till att dina befintliga Machine Learning-modeller tränas med historiska data och att de hamnar inom data lagrets säkra gränser. Funktionen PREDICT tar en [ONNX-modell (Open neurala Network Exchange)](https://onnx.ai/) och data som indata. Den här funktionen eliminerar steget för att flytta värdefull data utanför data lagret för poängsättning. Det syftar till att göra det möjligt för data experter att enkelt distribuera maskin inlärnings modeller med det välkända T-SQL-gränssnittet och samar beta smidigt med data experter som arbetar med rätt ramverk för deras uppgift.
+Dedikerad SQL-pool ger dig möjlighet att Poäng modeller för maskin inlärning med det välkända T-SQL-språket. Med T-SQL [predict](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)kan du se till att dina befintliga Machine Learning-modeller tränas med historiska data och att de hamnar inom data lagrets säkra gränser. Funktionen PREDICT tar en [ONNX-modell (Open neurala Network Exchange)](https://onnx.ai/) och data som indata. Den här funktionen eliminerar steget för att flytta värdefull data utanför data lagret för poängsättning. Det syftar till att göra det möjligt för data experter att enkelt distribuera maskin inlärnings modeller med det välkända T-SQL-gränssnittet och samar beta smidigt med data experter som arbetar med rätt ramverk för deras uppgift.
 
 > [!NOTE]
 > Den här funktionen stöds för närvarande inte i SQL-poolen utan server.
@@ -66,7 +66,7 @@ GO
 
 ```
 
-När modellen har konverterats till en hexadecimal sträng och den angivna tabell definitionen använder du [kommandot Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) eller PolyBase för att läsa in modellen i den DEDIKERADe SQL-adresspoolen. I följande kod exempel används kommandot Copy för att läsa in modellen.
+När modellen har konverterats till en hexadecimal sträng och den angivna tabell definitionen använder du [kommandot Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) eller PolyBase för att läsa in modellen i den DEDIKERADe SQL-adresspoolen. I följande kod exempel används kommandot Copy för att läsa in modellen.
 
 ```sql
 -- Copy command to load hexadecimal string of the model from Azure Data Lake storage location
@@ -80,17 +80,17 @@ WITH (
 
 ## <a name="scoring-the-model"></a>Bedömnings modellen
 
-När modellen och data har lästs in i data lagret använder du funktionen **T-SQL predict** för att beräkna modellen. Se till att de nya indata har samma format som de utbildnings data som används för att skapa modellen. T-SQL PREDICT tar två indata: modell och nya straff indata och genererar nya kolumner för utdata. Modellen kan anges som en variabel, en literal eller en skalär sub_query. Använd [med common_table_expression](https://docs.microsoft.com/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-ver15) för att ange en namngiven resultat uppsättning för data parametern.
+När modellen och data har lästs in i data lagret använder du funktionen **T-SQL predict** för att beräkna modellen. Se till att de nya indata har samma format som de utbildnings data som används för att skapa modellen. T-SQL PREDICT tar två indata: modell och nya straff indata och genererar nya kolumner för utdata. Modellen kan anges som en variabel, en literal eller en skalär sub_query. Använd [med common_table_expression](https://docs.microsoft.com/sql/t-sql/queries/with-common-table-expression-transact-sql?view=azure-sqldw-latest&preserve-view=true) för att ange en namngiven resultat uppsättning för data parametern.
 
-Exemplet nedan visar en exempel fråga med hjälp av funktionen förutsägelse. En ytterligare kolumn med namn *poängen* och data typen *float* skapas som innehåller förutsägelse resultatet. Alla kolumner för indata och utdatakolumner är tillgängliga för visning med SELECT-instruktionen. Mer information finns i [predict (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
+Exemplet nedan visar en exempel fråga med hjälp av funktionen förutsägelse. En ytterligare kolumn med namn *poängen* och data typen *float* skapas som innehåller förutsägelse resultatet. Alla kolumner för indata och utdatakolumner är tillgängliga för visning med SELECT-instruktionen. Mer information finns i [predict (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
 -- Query for ML predictions
 SELECT d.*, p.Score
 FROM PREDICT(MODEL = (SELECT Model FROM Models WHERE Id = 1),
-DATA = dbo.mytable AS d) WITH (Score float) AS p;
+DATA = dbo.mytable AS d, RUNTIME = ONNX) WITH (Score float) AS p;
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om PREDICT-funktionen finns i [predict (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
+Mer information om PREDICT-funktionen finns i [predict (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).

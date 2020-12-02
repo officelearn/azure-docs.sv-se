@@ -1,14 +1,14 @@
 ---
 title: Felsöka vanliga fel
 description: 'Lär dig hur du felsöker problem med att skapa princip definitioner, de olika SDK: n och tillägget för Kubernetes.'
-ms.date: 10/30/2020
+ms.date: 12/01/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 74b622dd41fb28e845a35780e5d06588189ec029
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f3667988d527100507d308887338278e1200d454
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146287"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511006"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Felsöka fel med hjälp av Azure Policy
 
@@ -56,7 +56,7 @@ Börja med att vänta på rätt tids period för att en utvärdering ska slutfö
 
 #### <a name="issue"></a>Problem
 
-En resurs är inte i utvärderings tillstånd, antingen _kompatibel_ eller _inte kompatibel_ , som förväntas för resursen.
+En resurs är inte i utvärderings tillstånd, antingen _kompatibel_ eller _inte kompatibel_, som förväntas för resursen.
 
 #### <a name="cause"></a>Orsak
 
@@ -88,14 +88,14 @@ En resurs som förväntas bli påverkad av Azure Policy är inte och det finns i
 
 #### <a name="cause"></a>Orsak
 
-Princip tilldelningen har kon figurer ATS [enforcementMode](../concepts/assignment-structure.md#enforcement-mode) för EnforcementMode _inaktive rad_ . Även om tvingande läge är inaktiverat tillämpas inte princip påverkan och det finns ingen post i aktivitets loggen.
+Princip tilldelningen har kon figurer ATS [enforcementMode](../concepts/assignment-structure.md#enforcement-mode) för EnforcementMode _inaktive rad_. Även om tvingande läge är inaktiverat tillämpas inte princip påverkan och det finns ingen post i aktivitets loggen.
 
 #### <a name="resolution"></a>Lösning
 
 Följ de här stegen för att felsöka din princip tilldelnings genomförande:
 
 1. Börja med att vänta på rätt tids period för att en utvärdering ska slutföras och efterföljande resultat ska bli tillgängliga i Azure Portal eller SDK. Om du vill starta en ny utvärderings sökning med Azure PowerShell eller REST API, se [utvärderings genomsökning på begäran](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
-1. Kontrol lera att tilldelnings parametrarna och tilldelnings omfånget är rätt inställda och att **enforcementMode** har _Aktiver ATS_ . 
+1. Kontrol lera att tilldelnings parametrarna och tilldelnings omfånget är rätt inställda och att **enforcementMode** har _Aktiver ATS_.
 1. Kontrollera [principdefinitionsläget](../concepts/definition-structure.md#mode):
    - Mode all för alla resurs typer.
    - Läget Indexerad om princip definitionen söker efter taggar eller plats.
@@ -190,24 +190,6 @@ En detaljerad beskrivning finns i följande blogg inlägg:
 
 ## <a name="add-on-for-kubernetes-general-errors"></a>Tillägg för Kubernetes allmänna fel
 
-### <a name="scenario-add-on-doesnt-work-with-aks-clusters-on-version-119-preview"></a>Scenario: tillägget fungerar inte med AKS-kluster i version 1,19 (för hands version)
-
-#### <a name="issue"></a>Problem
-
-Version 1,19-kluster returnerar det här felet via Gatekeeper Controller och policy webhook poddar:
-
-```
-2020/09/22 20:06:55 http: TLS handshake error from 10.244.1.14:44282: remote error: tls: bad certificate
-```
-
-#### <a name="cause"></a>Orsak
-
-AKS clusers på version 1,19 (förhands granskning) är ännu inte kompatibel med Azure Policy-tillägget.
-
-#### <a name="resolution"></a>Lösning
-
-Undvik att använda Kubernetes 1,19 (för hands version) med Azure Policy-tillägget. Tillägget kan användas med alla allmänt tillgängliga versioner som stöds, till exempel 1,16, 1,17 eller 1,18.
-
 ### <a name="scenario-add-on-is-unable-to-reach-the-azure-policy-service-endpoint-due-to-egress-restrictions"></a>Scenario: det går inte att ansluta till Azure Policy tjänstens slut punkt på grund av utgående begränsningar
 
 #### <a name="issue"></a>Problem
@@ -239,9 +221,9 @@ Tillägget kan inte komma åt Azure Policy tjänstens slut punkt och returnerar 
 
 #### <a name="cause"></a>Orsak
 
-Det här felet uppstår när _Add-Pod-Identity_ installeras i klustret och _Kube-system_ poddar inte ingår i _AAD-Pod-Identity_ .
+Det här felet uppstår när _Add-Pod-Identity_ installeras i klustret och _Kube-system_ poddar inte ingår i _AAD-Pod-Identity_.
 
-_AAD-Pod-Identity_ -nodens hanterade identitet (NMI) poddar ändra noderna program varan iptables för att avlyssna anrop till Azure instance metadata-slutpunkten. Den här inställningen innebär att alla begär Anden som görs till metadata-slutpunkten fångas upp av NMI även om Pod inte använder _AAD-Pod-Identity_ .
+_AAD-Pod-Identity_ -nodens hanterade identitet (NMI) poddar ändra noderna program varan iptables för att avlyssna anrop till Azure instance metadata-slutpunkten. Den här inställningen innebär att alla begär Anden som görs till metadata-slutpunkten fångas upp av NMI även om Pod inte använder _AAD-Pod-Identity_.
 **AzurePodIdentityException** CRD kan konfigureras för att informera _AAD-Pod-identiteten_ att förfrågningar till metadata-slutpunkten från en pod som matchar etiketter som definierats i CRD ska vara proxy utan bearbetning i NMI.
 
 #### <a name="resolution"></a>Lösning
@@ -277,10 +259,19 @@ spec:
 
 #### <a name="issue"></a>Problem
 
-Tillägget kan komma åt Azure Policy tjänstens slut punkt, men ser följande fel:
+Tillägget kan komma åt Azure Policy tjänstens slut punkt, men ser något av följande fel i tilläggs loggar:
 
 ```
-The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See https://aka.ms/policy-register-subscription for how to register subscriptions.
+The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See
+https://aka.ms/policy-register-subscription for how to register subscriptions.
+```
+
+eller
+
+```
+policyinsightsdataplane.BaseClient#CheckDataPolicyCompliance: Failure responding to request:
+StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
+Code="InternalServerError" Message="Encountered an internal server error."
 ```
 
 #### <a name="cause"></a>Orsak
@@ -289,9 +280,9 @@ The resource provider 'Microsoft.PolicyInsights' is not registered in subscripti
 
 #### <a name="resolution"></a>Lösning
 
-Registrera `Microsoft.PolicyInsights` resurs leverantören. Anvisningar finns i [Registrera en resurs leverantör](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+Registrera `Microsoft.PolicyInsights` resurs leverantören i kluster prenumerationen. Anvisningar finns i [Registrera en resurs leverantör](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
-### <a name="scenario-the-subscript-is-disabled"></a>Scenario: under skriptet har inaktiverats
+### <a name="scenario-the-subscription-is-disabled"></a>Scenario: prenumerationen är inaktive rad
 
 #### <a name="issue"></a>Problem
 
@@ -307,7 +298,7 @@ Det här felet innebär att prenumerationen har bedömts vara problematisk och f
 
 #### <a name="resolution"></a>Lösning
 
-Kontakta funktions teamet `azuredg@microsoft.com` för att undersöka och lösa problemet. 
+Kontakta funktions teamet `azuredg@microsoft.com` för att undersöka och lösa problemet.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -315,4 +306,4 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 - Få svar från experter via [Microsoft Q&A](/answers/topics/azure-policy.html).
 - Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
-- Om du behöver mer hjälp kan du skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support** .
+- Om du behöver mer hjälp kan du skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.

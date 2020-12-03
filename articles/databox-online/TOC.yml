@@ -49,7 +49,105 @@
               href: azure-stack-edge-gpu-technical-specifications-compliance.md
             - name: Specifikationer för strömsladd
               href: azure-stack-edge-technical-specifications-power-cords-regional.md
-        - name: Förstå Kubernetes (förhandsversion)
+- name: Azure Stack Edge Pro R
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är Azure Stack Edge Pro R?
+          href: azure-stack-edge-j-series-overview.md
+    - name: Begrepp
+      items:
+        - name: Säkerhetsinställningar
+          href: azure-stack-edge-pro-r-safety.md
+        - name: Granska krav
+          href: azure-stack-edge-pro-r-system-requirements.md
+        - name: Förstå begränsningar
+          href: azure-stack-edge-pro-r-limits.md
+        - name: Säkerhetsöversikt
+          href: azure-stack-edge-pro-r-security.md
+        - name: Läs specifikationer
+          href: azure-stack-edge-pro-r-technical-specifications-compliance.md
+    - name: Självstudier
+      items:
+        - name: 0 – Hämta checklista
+          href: azure-stack-edge-pro-r-deploy-checklist.md
+        - name: '1 – Beställa, förbereda'
+          href: azure-stack-edge-pro-r-deploy-prep.md
+        - name: 2 – Installera
+          href: azure-stack-edge-pro-r-deploy-install.md
+        - name: 3 – Anslut
+          href: azure-stack-edge-pro-r-deploy-connect.md
+        - name: 4 – Konfigurera nätverk
+          href: azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy.md
+        - name: 5 – Konfigurera enhet
+          href: azure-stack-edge-pro-r-deploy-set-up-device-update-time.md
+        - name: 6 – Konfigurera säkerhet
+          href: azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md
+        - name: 7 – Aktivera
+          href: azure-stack-edge-pro-r-deploy-activate.md
+        - name: 8 – Konfigurera beräkning
+          href: azure-stack-edge-gpu-deploy-configure-compute.md
+    - name: Gör så här för att
+      items:
+        - name: Konfigurera VPN (förhandsversion)
+          items:
+            - name: Konfigurera via Azure PowerShell
+              href: azure-stack-edge-mini-r-configure-vpn-powershell.md
+            - name: Konfigurera för BCDR
+              href: azure-stack-edge-pro-r-configure-vpn-bcdr.md
+- name: Azure Stack Edge Mini R
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är Azure Stack Edge Mini R?
+          href: azure-stack-edge-k-series-overview.md
+    - name: Begrepp
+      items:
+        - name: Säkerhetsinställningar
+          href: azure-stack-edge-mini-r-safety.md
+        - name: Granska krav
+          href: azure-stack-edge-mini-r-system-requirements.md
+        - name: Förstå begränsningar
+          href: azure-stack-edge-mini-r-limits.md
+        - name: Säkerhetsöversikt
+          href: azure-stack-edge-pro-r-security.md
+        - name: Läs specifikationer
+          href: azure-stack-edge-mini-r-technical-specifications-compliance.md
+    - name: Självstudier
+      items:
+        - name: 0 – Hämta checklista
+          href: azure-stack-edge-mini-r-deploy-checklist.md
+        - name: '1 – Beställa, förbereda'
+          href: azure-stack-edge-mini-r-deploy-prep.md
+        - name: 2 – Installera
+          href: azure-stack-edge-mini-r-deploy-install.md
+        - name: 3 – Anslut
+          href: azure-stack-edge-mini-r-deploy-connect.md
+        - name: 4 – Konfigurera nätverk
+          href: azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy.md
+        - name: 5 – Konfigurera enhet
+          href: azure-stack-edge-mini-r-deploy-set-up-device-update-time.md
+        - name: 6 – Konfigurera säkerhet
+          href: azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption.md
+        - name: 7 – Aktivera
+          href: azure-stack-edge-mini-r-deploy-activate.md
+        - name: 8 – Konfigurera beräkning
+          href: azure-stack-edge-gpu-deploy-configure-compute.md
+    - name: Gör så här för att
+      items:
+        - name: Konfigurera VPN (förhandsversion)
+          items:
+            - name: Konfigurera via Azure PowerShell
+              href: azure-stack-edge-mini-r-configure-vpn-powershell.md
+            - name: Konfigurera för BCDR
+              href: azure-stack-edge-pro-r-configure-vpn-bcdr.md
+        - name: Hantera Wi-Fi
+          href: azure-stack-edge-mini-r-manage-wifi.md
+- name: 'Delad Pro GPU, Pro R, Mini R'
+  items:
+    - name: Delade koncept
+      items:
+        - name: Förstå Kubernetes
           items:
             - name: Vad är Kubernetes?
               href: azure-stack-edge-gpu-kubernetes-overview.md
@@ -63,7 +161,9 @@
               href: azure-stack-edge-gpu-kubernetes-workload-management.md
         - name: Visa Key Vault-integrering
           href: azure-stack-edge-gpu-activation-key-vault.md
-    - name: Gör så här för att
+        - name: Aktivera proaktiv loggning
+          href: azure-stack-edge-gpu-proactive-log-collection.md
+    - name: Delade instruktioner
       items:
         - name: Distribuera IoT Edge-exempel
           items:
@@ -73,12 +173,14 @@
               href: azure-stack-edge-gpu-deploy-sample-module.md
             - name: GPU-modul via Marketplace
               href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
-        - name: Distribuera Kubernetes-arbetsbelastningar (förhandsversion)
+        - name: Distribuera Kubernetes-arbetsbelastningar
           items:
             - name: Via kubectl
               items:
                 - name: Åtkomst till Kubernetes-kluster
                   href: azure-stack-edge-gpu-create-kubernetes-cluster.md
+                - name: Beräkningsacceleration
+                  href: azure-stack-edge-gpu-deploy-compute-acceleration.md
                 - name: Tillståndslös app
                   href: azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md
                 - name: Statiskt etablerad tillståndskänslig app
@@ -107,6 +209,8 @@
               href: azure-stack-edge-j-series-configure-tls-settings.md
         - name: Distribuera virtuella datorer (förhandsversion)
           items:
+            - name: Distribuera virtuella datorer – Azure-portalen
+              href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
             - name: Distribuera virtuella datorer – mallar
               href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
             - name: Distribuera virtuella datorer – Azure PowerShell-cmdletar
@@ -129,6 +233,8 @@
               href: azure-stack-edge-j-series-certificate-troubleshooting.md
         - name: Hantera databehandling på gränsenheter
           href: azure-stack-edge-j-series-manage-compute.md
+        - name: Hantera Edge-containerregister
+          href: azure-stack-edge-gpu-edge-container-registry.md
         - name: Hantera lagringsgateway
           items:
             - name: Lägga till och ansluta till resurs
@@ -165,6 +271,8 @@
               href: azure-stack-edge-monitor.md
             - name: Använda Kubernetes-instrumentpanelen
               href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md
+            - name: Använda Azure Monitor
+              href: azure-stack-edge-gpu-enable-azure-monitor.md
         - name: Felsöka
           items:
             - name: Enhetsproblem
@@ -175,13 +283,15 @@
               href: azure-stack-edge-gpu-troubleshoot-activation.md
             - name: Kontakta Microsoft Support
               href: azure-stack-edge-contact-microsoft-support.md
-    - name: Viktig information
+    - name: Delad viktig information
       items:
-        - name: 2009 – allmän tillgänglighet
+        - name: 2011 – Aktuell
+          href: azure-stack-edge-gpu-2011-release-notes.md
+        - name: 2010
           href: azure-stack-edge-gpu-2009-release-notes.md
-        - name: 2008 – förhandsversion
+        - name: 2008
           href: azure-stack-edge-gpu-2008-release-notes.md
-    - name: Referens
+    - name: Delad referens
       items:
         - name: 'IoT Edge-roll via API, SDK, PowerShell'
           href: azure-stack-edge-gpu-iot-edge-api-update.md
@@ -279,18 +389,6 @@
           href: /rest/api/databoxedgegateway
         - name: .NET SDK
           href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet
-- name: Azure Stack Edge Pro R
-  items:
-    - name: Översikt
-      items:
-        - name: Vad är Azure Stack Edge Pro R?
-          href: azure-stack-edge-j-series-overview.md
-- name: Azure Stack Edge Mini R
-  items:
-    - name: Översikt
-      items:
-        - name: Vad är Azure Stack Edge Mini R?
-          href: azure-stack-edge-k-series-overview.md
 - name: Data Box Gateway
   items:
     - name: Översikt

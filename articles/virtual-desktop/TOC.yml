@@ -106,6 +106,8 @@
       href: azure-advisor.md
     - name: Omvandla rekommendationer
       href: azure-advisor-recommendations.md
+    - name: Använda Azure Monitor för Windows Virtual Desktop
+      href: azure-monitor.md
     - name: Konfigurera en haveriberedskapsplan
       href: disaster-recovery.md
 - name: Begrepp
@@ -150,6 +152,8 @@
           href: app-attach-glossary.md
         - name: VANLIGA FRÅGOR OCH SVAR
           href: app-attach-faq.md
+    - name: Ordlista för Azure Monitor
+      href: azure-monitor-glossary.md
     - name: Dataplatser
       href: data-locations.md
 - name: Felsöka
@@ -170,6 +174,8 @@
       href: troubleshoot-powershell.md
     - name: Diagnostisera problem med grafikprestanda
       href: remotefx-graphics-performance-counters.md
+    - name: Azure Monitor
+      href: troubleshoot-azure-monitor.md
 - name: Referens
   items:
     - name: Metodtips för säkerhet

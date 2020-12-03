@@ -20,11 +20,11 @@
       href: tutorial-track-usage.md
 - name: Begrepp
   items:
-    - name: Översikt över klassrumslabb
+    - name: Labböversikt
       href: classroom-labs-overview.md
-    - name: Classroom Labs-begrepp
+    - name: Labbkoncept
       href: classroom-labs-concepts.md
-    - name: Classroom Labs-arkitekturens grunder
+    - name: Grundläggande labbarkitektur
       href: classroom-labs-fundamentals.md
     - name: Kapacitetsbegränsningar
       href: capacity-limits.md
@@ -36,7 +36,7 @@
           href: classroom-labs-scenarios.md
         - name: Använda labbtjänster för hackathon
           href: hackathon-labs.md
-        - name: Klassrumslabb – klasstyper
+        - name: labb – klasstyper
           items:
             - name: Översikt över klasstyper
               href: class-types.md
@@ -112,9 +112,9 @@
           href: lab-account-owner-support-information.md
         - name: Ladda upp en anpassad bild till Shared Image Gallery
           href: upload-custom-image-shared-image-gallery.md
-    - name: Skapa och konfigurera klassrumslabb (lärare)
+    - name: Skapa och konfigurera labb (lärare)
       items:
-        - name: Skapa och hantera klassrumslabb
+        - name: Skapa och hantera labb
           href: how-to-manage-classroom-labs.md
         - name: Använda instrumentpanel
           href: use-dashboard.md
@@ -150,9 +150,9 @@
           href: lab-creator-support-information.md
         - name: Få åtkomst till elevers virtuella datorer från lärarvyn
           href: instructor-access-virtual-machines.md
-    - name: Ansluta till virtuella datorer i klassrumslabb (elev)
+    - name: Ansluta till virtuella datorer i labb (student)
       items:
-        - name: Åtkomst till klassrumslabb
+        - name: Komma åt labb
           href: how-to-use-classroom-lab.md
         - name: Anslut till virtuella Linux-datorer
           href: how-to-use-remote-desktop-linux-student.md

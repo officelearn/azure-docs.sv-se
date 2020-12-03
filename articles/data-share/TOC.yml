@@ -45,7 +45,7 @@
       items:
         - name: Dela från Azure Storage
           href: how-to-share-from-storage.md
-        - name: Dela från Azure SQL Database eller Synapse Analytics
+        - name: Dela från Azure SQL Database eller Azure Synapse Analytics
           href: how-to-share-from-sql.md
         - name: Dela från Azure Data Explorer
           href: /azure/data-explorer/data-share

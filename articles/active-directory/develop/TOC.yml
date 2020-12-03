@@ -1,30 +1,26 @@
 - name: Dokumentation om Microsofts identitetsplattform
   href: index.yml
 - name: Översikt
+  expanded: true
   items:
     - name: Vad är Microsofts identitetsplattform?
       href: v2-overview.md
     - name: Nyheter i Docs
       href: whats-new-docs.md
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: Konfigurera en klient
-      href: quickstart-create-new-tenant.md
-    - name: Konfigurera ett program
+    - name: Förbereda för utveckling
       items:
-        - name: Registrera en app
+        - name: Hämta en Azure AD-klient
+          href: quickstart-create-new-tenant.md
+        - name: Registrera app- eller webb-API
           href: quickstart-register-app.md
-        - name: Konfigurera en app för att göra ett webb-API tillgänglig
+        - name: Exponera omfång i webb-API-registrering
           href: quickstart-configure-app-expose-web-apis.md
-        - name: Konfigurera en app för att komma åt ett webb-API
+        - name: Bevilja begränsad behörighet till webb-API
+          displayName: 'permissions, scp, scp claims'
           href: quickstart-configure-app-access-web-apis.md
-        - name: Ändra konton som stöds av en app
-          href: quickstart-modify-supported-accounts.md
-        - name: Ta bort en objekt
-          href: quickstart-remove-app.md
-    - name: Enkelsidiga appar
-      displayName: SPA
+    - name: Ensidesapplikation (SPA)
       items:
         - name: Angular
           href: quickstart-v2-angular.md
@@ -32,7 +28,7 @@
           href: quickstart-v2-javascript-auth-code.md
         - name: Java Script – implicit flöde
           href: quickstart-v2-javascript.md
-    - name: Webbappar
+    - name: Webbapp
       items:
         - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
@@ -41,19 +37,18 @@
         - name: Node.js – MSAL | Förhandsversion
           href: quickstart-v2-nodejs-webapp-msal.md
         - name: Node.js – Passport.js
-          href: quickstart-v2-nodejs-webapp.md
           displayName: OIDC
         - name: Java
           href: quickstart-v2-java-webapp.md
         - name: Python
           href: quickstart-v2-python-webapp.md
-    - name: 'Webb-API:er'
+    - name: Webb-API
       items:
         - name: ASP.NET
           href: quickstart-v2-dotnet-native-aspnet.md
         - name: ASP.NET Core
           href: quickstart-v2-aspnet-core-web-api.md
-    - name: Mobilappar och skrivbordsappar
+    - name: Mobilt och stationärt
       items:
         - name: Android
           href: quickstart-v2-android.md
@@ -64,7 +59,7 @@
           href: quickstart-v2-uwp.md
         - name: .NET för Windows-skrivbordet
           href: quickstart-v2-windows-desktop.md
-    - name: Daemon-appar
+    - name: Daemon eller backend-tjänst
       items:
         - name: .NET Core-konsolen (daemon)
           href: quickstart-v2-netcore-daemon.md
@@ -72,8 +67,7 @@
           href: quickstart-v2-python-daemon.md
 - name: Självstudier
   items:
-    - name: Enkelsidiga appar
-      displayName: SPA
+    - name: Ensidesapplikation (SPA)
       items:
         - name: Angular
           href: tutorial-v2-angular.md
@@ -83,13 +77,13 @@
           href: tutorial-v2-javascript-auth-code.md
         - name: Java Script – implicit flöde
           href: tutorial-v2-javascript-spa.md
-    - name: Webbappar
+    - name: Webbapp
       items:
         - name: ASP.NET
           href: tutorial-v2-asp-webapp.md
         - name: Blazor Server
           href: tutorial-blazor-server.md
-    - name: Mobilappar och skrivbordsappar
+    - name: Mobilt och stationärt
       items:
         - name: Android
           href: tutorial-v2-android.md
@@ -102,7 +96,7 @@
           href: tutorial-v2-windows-desktop.md
         - name: Använda läge för delad enhet i Android-appen
           href: tutorial-v2-shared-device-mode.md
-    - name: Daemon-appar
+    - name: Daemon eller backend-tjänst
       items:
         - name: ASP.NET-daemon-webbapp
           href: tutorial-v2-aspnet-daemon-web-app.md
@@ -120,21 +114,37 @@
           href: security-tokens.md
         - name: Programmodell
           href: application-model.md
-        - name: Inloggningsflöde för app
-          href: app-sign-in-flow.md
-    - name: Autentiseringsflöden och appscenarier
+    - name: Autentiseringsbibliotek
+      displayName: 'msal, microsoft.identity.web'
+      items:
+        - name: Microsoft Authentication Library (MSAL)
+          href: msal-overview.md
+        - name: Webbibliotek för Microsoft-identitet
+          href: microsoft-identity-web.md
+          displayName: 'auth, library, .NET Core, msal'
+    - name: Appscenarier och autentiseringsflöden
       displayName: Auth flows
       href: authentication-flows-app-scenarios.md
+    - name: Program och tjänsternas huvudnamn
+      href: app-objects-and-service-principals.md
     - name: Metodtips för identitetsplattform
       href: identity-platform-integration-checklist.md
-    - name: Mobil enkel inloggning (SSO)
-      href: mobile-sso-support-overview.md
-      displayName: 'android, ios'
-    - name: Programscenarier
+    - name: Behörigheter och samtycke
+      displayName: Scopes
+      href: v2-permissions-and-consent.md
+    - name: Villkorlig åtkomst
+      href: v2-conditional-access-dev-guide.md
+    - name: Automatisk användaretablering (SCIM)
+      href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+- name: Så här gör du
+  items:
+    - name: Integrera ditt appscenario
       displayName: App scenarios
       items:
         - name: Logga in målgrupp
           href: v2-supported-account-types.md
+        - name: Inloggningsflöde för app
+          href: app-sign-in-flow.md
         - name: Ensidesapp
           displayName: SPA
           items:
@@ -267,11 +277,33 @@
               href: scenario-mobile-call-api.md
             - name: Flytta till produktion
               href: scenario-mobile-production.md
-    - name: Microsoft Authentication Library (MSAL)
+    - name: Arbeta med Microsoft Authentication Library
+      displayName: MSAL
       items:
-        - name: Översikt
-          href: msal-overview.md
-        - name: .NET
+        - Name: Alla plattformar
+          items:
+            - name: Autentiseringsflöden som stöds
+              href: msal-authentication-flows.md
+            - name: Hämta och cachelagra token
+              href: msal-acquire-cache-tokens.md
+            - name: Offentliga och konfidentiella klientappar
+              href: msal-client-applications.md
+            - name: Tillämpningskonfiguration
+              href: msal-client-application-configuration.md
+            - name: Delade enheter
+              href: msal-shared-devices.md
+              displayName: 'shared device mode, firstline worker, frontline worker, flw'
+            - name: Hantera SameSite-cookieändringar i webbläsaren Chrome
+              href: howto-handle-samesite-cookie-changes-chrome-browser.md
+            - name: Omfång för webb-API som accepterar v1.0-token
+              href: msal-v1-app-scopes.md
+            - name: Migrera appar från ADAL till MSAL
+              href: msal-migration.md
+              displayName: migration
+            - name: Nationella moln och MSAL
+              href: msal-national-cloud.md
+              displayName: 'china, germany, gov, 21vianet'
+        - name: MSAL.NET
           displayName: 'xamarin, ASP.NET Core'
           items:
             - name: Initiera program
@@ -294,7 +326,103 @@
               href: msal-handling-exceptions.md?tabs=dotnet
             - name: Loggning
               href: msal-logging.md?tabs=dotnet
-        - name: Android
+            - name: Hämta en token från cache
+              href: msal-net-acquire-token-silently.md
+            - name: Serialisering för tokencache
+              href: msal-net-token-cache-serialization.md
+            - name: Rensa tokencache
+              href: msal-net-clear-token-cache.md
+            - name: Skapa en instans av en offentlig klientapp
+              href: msal-net-instantiate-public-client-config-options.md
+            - name: Skapa en instans av en konfidentiell klient med alternativ
+              href: msal-net-instantiate-confidential-client-config-options.md
+            - name: Få medgivande för flera resurser
+              href: msal-net-user-gets-consent-for-multiple-resources.md
+            - name: Ange din egen HttpClient
+              href: msal-net-provide-httpclient.md
+        - name: MSAL.js (JavaScript och Node.js)
+          items:
+            - name: Undvika siduppdateringar
+              href: msal-js-avoid-page-reloads.md
+            - name: Skicka anpassat tillstånd i autentiseringsbegäranden
+              href: msal-js-pass-custom-state-authentication-request.md
+            - name: Beteende vid fråga
+              href: msal-js-prompt-behavior.md
+            - name: Migrera SPA från implicit till auth-kodflöde
+              href: migrate-spa-implicit-to-auth-code.md
+              displayName: 'authorization, single-page app, 2.0'
+            - name: Initiera program – JavaScript
+              href: msal-js-initializing-client-applications.md
+            - name: Integrera med Azure AD B2C
+              href: msal-b2c-overview.md
+            - name: Migrera till MSAL.js
+              href: msal-compare-msal-js-and-adal-js.md
+            - name: Enkel inloggning med MSAL.js
+              href: msal-js-sso.md
+            - name: Överväganden – IE
+              href: msal-js-use-ie-browser.md
+            - name: Kända problem –IE och Microsoft Edge
+              href: msal-js-known-issues-ie-edge-browsers.md
+            - name: Hantera fel och undantag
+              href: msal-handling-exceptions.md?tabs=javascript
+            - name: Loggning
+              href: msal-logging.md?tabs=javascript
+        - name: MSAL för iOS och macOS
+          items:
+            - name: MSAL för skillnader mellan iOS och macOS
+              href: msal-differences-ios-macos.md
+            - name: Konfigurera nyckelring
+              href: howto-v2-keychain-objc.md
+            - name: Anpassa webbläsare och webbvyer
+              href: customize-webviews.md
+            - name: Begära anpassade anspråk
+              href: request-custom-claims.md
+            - name: Konfiguration av omdirigerings-URI
+              href: redirect-uris-ios.md
+            - name: Integrera med Azure AD B2C
+              href: config-authority.md#b2c
+            - name: Migrera till MSAL.iOS/macOS
+              href: migrate-objc-adal-msal.md
+            - name: Läge för delad enhet för iOS-enheter
+              href: msal-ios-shared-devices.md
+              displayName: 'firstline worker, frontline worker, flw'
+            - name: Enkel inloggning mellan MSAL-appar
+              href: single-sign-on-macos-ios.md
+            - name: Enkel inloggning mellan ADAL- och MSAL-appar
+              href: sso-between-adal-msal-apps-macos-ios.md
+            - name: Felsöka SSL-problem (MSAL iOS/macOS)
+              href: ssl-issues.md
+            - name: Hantera fel och undantag
+              href: msal-handling-exceptions.md?tabs=iosmacos
+            - name: Loggning
+              href: msal-logging.md?tabs=swift
+        - name: MSAL för Python
+          items:
+            - name: Anpassad serialisering för tokencache
+              href: msal-python-token-cache-serialization.md
+            - name: Migrera till MSAL Python
+              href: migrate-python-adal-msal.md
+            - name: ADFS-stöd i MSAL för Python
+              href: msal-python-adfs-support.md
+            - name: Hantera fel och undantag
+              href: msal-handling-exceptions.md?tabs=python
+            - name: Loggning
+              href: msal-logging.md?tabs=python
+        - name: MSAL för Java
+          items:
+            - name: Anpassad serialisering för tokencache
+              href: msal-java-token-cache-serialization.md
+            - name: Hämta och ta bort konton från tokencachen
+              href: msal-java-get-remove-accounts-token-cache.md
+            - name: Migrera till MSAL för Java
+              href: migrate-adal-msal-java.md
+            - name: ADFS-stöd i MSAL för Java
+              href: msal-java-adfs-support.md
+            - name: Hantera fel och undantag
+              href: msal-handling-exceptions.md?tabs=java
+            - name: Loggning
+              href: msal-logging.md?tabs=java
+        - name: MSAL för Android
           items:
             - name: Konton och klientorganisationsprofiler
               href: accounts-overview.md
@@ -314,92 +442,107 @@
               displayName: 'android, mobile'
             - name: Loggning
               href: msal-logging.md?tabs=android
-        - name: iOS och macOS
+    - name: Anpassa token och anspråk
+      items:
+        - name: Konfigurera rollanspråk
+          href: active-directory-enterprise-app-role-management.md
+        - name: Anpassa anspråk med hjälp av Azure-portalen
+          href: active-directory-saml-claims-customization.md
+        - name: Anpassa anspråk med hjälp av PowerShell
+          href: active-directory-claims-mapping.md
+        - name: Konfigurera valfria anspråk
+          href: active-directory-optional-claims.md
+        - name: Använda attribut för katalogschematillägg i anspråk
+          href: active-directory-schema-extensions.md
+        - name: Konfigurera livslängd för token
+          href: configure-token-lifetimes.md
+        - name: 'Använda API:er för kontinuerlig tillgänglighetskontroll'
+          href: app-resilience-continuous-access-evaluation.md
+          displayName: cae
+    - name: Hantera cookiebegränsningar för webbläsare
+      items:
+        - name: Hantera ITP i Safari
+          href: reference-third-party-cookies-spas.md
+        - name: Hantera cookieändringar för SameSite i Chrome
+          href: howto-handle-samesite-cookie-changes-chrome-browser.md
+    - name: Autentisera appar och tjänster
+      items:
+        - name: Skapa ett huvudnamn för tjänsten med hjälp av Azure PowerShell
+          href: howto-authenticate-service-principal-powershell.md
+        - name: Skapa ett huvudnamn för tjänsten med hjälp av Azure-portalen
+          href: howto-create-service-principal-portal.md
+    - name: Acceptera inloggningar från flera klientorganisationer
+      items:
+        - name: Ändra konton som stöds av en app
+          href: quickstart-modify-supported-accounts.md
+        - name: Aktivera inloggningar från flera klientorganisationer
+          href: howto-convert-app-to-be-multi-tenant.md
+        - name: Konfigurera utgivardomänen
+          displayName: 'verified domain, verified publisher domain'
+          href: howto-configure-publisher-domain.md
+    - name: Ge åtkomst till appar och resurser
+      items:
+        - name: Begränsa din app till en uppsättning användare
+          href: howto-restrict-your-app-to-a-set-of-users.md
+        - name: Lägg till roller i ditt program
+          href: howto-add-app-roles-in-azure-ad-apps.md
+    - name: Använda Microsoft Graph API
+      href: microsoft-graph-intro.md
+    - name: Publicera en app på marknaden
+      items:
+        - name: Följ riktlinjerna för varumärken
+          displayName: Add branding
+          href: howto-add-branding-in-azure-ad-apps.md
+        - name: Konfigurera användningsvillkor och sekretesspolicy
+          href: howto-add-terms-of-service-privacy-statement.md
+        - name: Konfigurera verifiering av utgivare för din app
           items:
-            - name: Integrera med Azure AD B2C
-              href: config-authority.md#b2c
-            - name: Migrera till MSAL.iOS/macOS
-              href: migrate-objc-adal-msal.md
-            - name: Läge för delad enhet för iOS-enheter
-              href: msal-ios-shared-devices.md
-              displayName: 'firstline worker, frontline worker, flw'
-            - name: Enkel inloggning mellan MSAL-appar
-              href: single-sign-on-macos-ios.md
-            - name: Enkel inloggning mellan ADAL- och MSAL-appar
-              href: sso-between-adal-msal-apps-macos-ios.md
-            - name: Felsöka SSL-problem (MSAL iOS/macOS)
-              href: ssl-issues.md
-            - name: Hantera fel och undantag
-              href: msal-handling-exceptions.md?tabs=iosmacos
-            - name: Loggning
-              href: msal-logging.md?tabs=swift
-        - name: Java
-          items:
-            - name: Migrera till MSAL för Java
-              href: migrate-adal-msal-java.md
-            - name: ADFS-stöd i MSAL för Java
-              href: msal-java-adfs-support.md
-            - name: Hantera fel och undantag
-              href: msal-handling-exceptions.md?tabs=java
-            - name: Loggning
-              href: msal-logging.md?tabs=java
-        - name: JavaScript och Node.js
-          items:
-            - name: Initiera program – JavaScript
-              href: msal-js-initializing-client-applications.md
-            - name: Integrera med Azure AD B2C
-              href: msal-b2c-overview.md
-            - name: Migrera till MSAL.js
-              href: msal-compare-msal-js-and-adal-js.md
-            - name: Enkel inloggning med MSAL.js
-              href: msal-js-sso.md
-            - name: Överväganden – IE
-              href: msal-js-use-ie-browser.md
-            - name: Kända problem –IE och Microsoft Edge
-              href: msal-js-known-issues-ie-edge-browsers.md
-            - name: Hantera fel och undantag
-              href: msal-handling-exceptions.md?tabs=javascript
-            - name: Loggning
-              href: msal-logging.md?tabs=javascript
-        - name: Python
-          items:
-            - name: Migrera till MSAL Python
-              href: migrate-python-adal-msal.md
-            - name: ADFS-stöd i MSAL för Python
-              href: msal-python-adfs-support.md
-            - name: Hantera fel och undantag
-              href: msal-handling-exceptions.md?tabs=python
-            - name: Loggning
-              href: msal-logging.md?tabs=python
-        - Name: Alla plattformar
-          items:
-            - name: Autentiseringsflöden som stöds
-              href: msal-authentication-flows.md
-            - name: Hämta och cachelagra token
-              href: msal-acquire-cache-tokens.md
-            - name: Offentliga och konfidentiella klientappar
-              href: msal-client-applications.md
-            - name: Tillämpningskonfiguration
-              href: msal-client-application-configuration.md
-            - name: Delade enheter
-              href: msal-shared-devices.md
-              displayName: 'shared device mode, firstline worker, frontline worker, flw'
-            - name: Hantera SameSite-cookieändringar i webbläsaren Chrome
-              href: howto-handle-samesite-cookie-changes-chrome-browser.md
-            - name: Omfång för webb-API som accepterar v1.0-token
-              href: msal-v1-app-scopes.md
-            - name: Migrera appar från ADAL till MSAL
-              href: msal-migration.md
-              displayName: migration
-    - name: Webbibliotek för Microsoft-identitet
-      href: microsoft-identity-web.md
-      displayName: 'auth, library, .NET Core'
+            - name: Markera din app som verifierad av utgivare
+              href: mark-app-as-publisher-verified.md
+            - name: Felsöka verifiering av utgivare
+              href: troubleshoot-publisher-verification.md
+        - name: Publicera i App Source
+          href: v2-howto-get-appsource-certified.md
+        - name: Publicera i Azure AD-appgalleri
+          href: v2-howto-app-gallery-listing.md
+        - name: Publicera i Office 365-instrumentpanel för försäljning
+          href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
+    - name: Arbeta med Visual Studio
+      items:
+        - name: Använda den Active Directory-anslutna tjänsten
+          href: vs-active-directory-add-connected-service.md
+        - name: Komma igång med .NET MVC-projekt
+          href: vs-active-directory-dotnet-getting-started.md
+        - name: Vad hände med mitt .NET MVC-projekt?
+          href: vs-active-directory-dotnet-what-happened.md
+        - name: Komma igång med WebAPI-projekt
+          href: vs-active-directory-webapi-getting-started.md
+        - name: Vad hände med mitt WebAPI-projekt?
+          href: vs-active-directory-webapi-what-happened.md
+        - name: Diagnostisera fel under autentisering
+          href: vs-active-directory-error.md
+    - name: Ta bort en appregistrering
+      href: quickstart-remove-app.md
+- name: Referens
+  items:
+    - name: Ordlista
+      href: developer-glossary.md
+    - name: Tillämpningskonfiguration
+      displayName: App configuration
+      items:
+        - name: Hur och varför program läggs till i Azure AD
+          href: active-directory-how-applications-are-added.md
+        - name: Restriktioner och begränsningar för omdirigerings-URI/svars-URL
+          href: reply-url.md
+        - name: Verifieringsskillnader av kontotyper som stöds
+          href: supported-accounts-validation.md
+        - name: Appar för enskild klient eller flera klienter
+          href: single-and-multi-tenant-apps.md
+        - name: Verifiering av utgivare
+          href: publisher-verification-overview.md
     - name: Autentiseringsprotokoll
       displayName: Auth protocol
       items:
-        - name: Programtyper och OAuth 2.0
-          displayName: 'App types, OAuth'
-          href: v2-app-types.md
         - name: OAuth 2.0- och OpenID Connect-protokoll
           items:
             - name: OAuth 2.0 och OpenID Connect
@@ -445,27 +588,30 @@
               href: active-directory-saml-protocol-reference.md
             - name: SAML-token
               href: reference-saml-tokens.md
-    - name: Tillämpningskonfiguration
-      displayName: App configuration
-      items:
-        - name: Program och tjänsternas huvudnamn
-          displayName: 'Apps, service principals'
-          href: app-objects-and-service-principals.md
-        - name: Hur och varför program läggs till i Azure AD
-          href: active-directory-how-applications-are-added.md
-        - name: Restriktioner och begränsningar för omdirigerings-URI/svars-URL
-          href: reply-url.md
-        - name: Verifieringsskillnader av kontotyper som stöds
-          href: supported-accounts-validation.md
-        - name: Appar för enskild klient eller flera klienter
-          href: single-and-multi-tenant-apps.md
-        - name: Verifiering av utgivare
-          href: publisher-verification-overview.md
+    - name: Programtyper och OAuth 2.0
+      displayName: 'App types, OAuth'
+      href: v2-app-types.md
+    - name: Programmanifest
+      href: reference-app-manifest.md
+      displayName: app manifest
+    - name: Android MSAL-konfigurationsfil
+      href: msal-configuration.md
+    - name: Autentiseringsbibliotek
+      displayName: 'MSAL, auth library, SDK'
+      href: reference-v2-libraries.md
+    - name: 'API:er för identitet och åtkomst i Microsoft Graph'
+      href: /graph/api/resources/azure-ad-overview
+    - name: Autentisering och felkoder vid autentisering
+      displayName: AADSTS
+      href: reference-aadsts-error-codes.md
+    - name: Icke-bakåtkompatibla ändringar
+      href: reference-breaking-changes.md
+    - name: Mobil enkel inloggning (SSO)
+      href: mobile-sso-support-overview.md
+      displayName: 'android, ios'
     - name: Behörigheter och samtycke
       displayName: Scopes
       items:
-        - name: Olika typer av behörigheter och samtycke
-          href: v2-permissions-and-consent.md
         - name: Ramverk för medgivande
           href: consent-framework.md
         - name: Administratörsmedgivande
@@ -473,24 +619,23 @@
         - name: Upplevelse för programmedgivande
           displayName: App consent experiences
           href: application-consent-experience.md
-    - name: Villkorlig åtkomst
-      href: v2-conditional-access-dev-guide.md
-    - name: Nationella moln
-      items:
-        - name: Översikt
-          href: authentication-national-cloud.md
-        - name: Autentisering
-          href: msal-national-cloud.md
+    - name: Slutpunkter för autentisering i nationella moln
+      href: authentication-national-cloud.md
+      displayName: 'china, germany, gov, 21vianet'
     - name: Automatisk användaretablering (SCIM)
       items:
-        - name: Vad är automatisk användaretablering?
-          href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Utveckla och integrera en SCIM-slutpunkt
           href: ../app-provisioning/use-scim-to-provision-users-and-groups.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Vanliga etableringsscenarier
           href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Automatisera konfiguration med MS Graph
-          href: /graph/application-provisioning-configure-api?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
+          href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+- name: Resurser
+  items:
+    - name: Videoklipp
+      href: identity-videos.md
+    - name: Utvecklarblogg om Microsofts identitetsplattform
+      href: 'https://developer.microsoft.com/en-us/identity/blogs/'
     - name: Hjälpartiklar för Azure-portalen
       items:
         - name: Standardvärden för tokenlivstid för ett egenutvecklat program
@@ -519,158 +664,6 @@
           href: active-directory-how-to-integrate.md
         - name: Konfigurera enkel inloggning för ett program
           href: registration-config-sso-how-to.md
-- name: Anvisningar
-  items:
-    - name: Autentisering
-      items:
-        - name: Konfigurera rollanspråk
-          href: active-directory-enterprise-app-role-management.md
-        - name: Anpassa anspråk – Portal
-          href: active-directory-saml-claims-customization.md
-        - name: Anpassa anspråk – PowerShell
-          href: active-directory-claims-mapping.md
-        - name: Konfigurera valfria anspråk
-          href: active-directory-optional-claims.md
-        - name: Använda attribut för katalogschematillägg i anspråk
-          href: active-directory-schema-extensions.md
-        - name: Konfigurera livslängd för token
-          href: configure-token-lifetimes.md
-        - name: Hantera SameSite-cookieändringar i webbläsaren Chrome
-          href: howto-handle-samesite-cookie-changes-chrome-browser.md
-        - name: Hantera ITP i Safari
-          href: reference-third-party-cookies-spas.md
-        - name: 'Använda API:er för kontinuerlig tillgänglighetskontroll'
-          href: app-resilience-continuous-access-evaluation.md
-    - name: Tillämpningskonfiguration
-      displayName: App configuration
-      items:
-        - name: Konvertera en app för en enda klient till en app för flera klienter
-          href: howto-convert-app-to-be-multi-tenant.md
-        - name: Skapa ett huvudnamn för tjänsten
-          items:
-            - name: Använda Azure PowerShell
-              href: howto-authenticate-service-principal-powershell.md
-            - name: Använda Azure Portal
-              href: howto-create-service-principal-portal.md
-        - name: Begränsa din app till en uppsättning användare
-          href: howto-restrict-your-app-to-a-set-of-users.md
-        - name: Lägg till roller i ditt program
-          href: howto-add-app-roles-in-azure-ad-apps.md
-        - name: Följ riktlinjerna för varumärken
-          displayName: Add branding
-          href: howto-add-branding-in-azure-ad-apps.md
-        - name: Konfigurera publisher-domän
-          href: howto-configure-publisher-domain.md
-          displayName: 'verified domain, verified publisher domain'
-        - name: Konfigurera användningsvillkor och sekretesspolicy
-          href: howto-add-terms-of-service-privacy-statement.md
-        - name: Konfigurera verifiering av utgivare för din app
-          items:
-            - name: Markera din app som verifierad av utgivare
-              href: mark-app-as-publisher-verified.md
-            - name: Felsöka verifiering av utgivare
-              href: troubleshoot-publisher-verification.md
-    - name: Arbeta med Microsoft Authentication Library
-      displayName: MSAL
-      items:
-        - name: MSAL.NET
-          items:
-            - name: Hämta en token från cache
-              href: msal-net-acquire-token-silently.md
-            - name: Serialisering för tokencache
-              href: msal-net-token-cache-serialization.md
-            - name: Rensa tokencache
-              href: msal-net-clear-token-cache.md
-            - name: Skapa en instans av en offentlig klientapp
-              href: msal-net-instantiate-public-client-config-options.md
-            - name: Skapa en instans av en konfidentiell klient med alternativ
-              href: msal-net-instantiate-confidential-client-config-options.md
-            - name: Få medgivande för flera resurser
-              href: msal-net-user-gets-consent-for-multiple-resources.md
-            - name: Ange din egen HttpClient
-              href: msal-net-provide-httpclient.md
-        - name: MSAL.js
-          items:
-            - name: Undvika siduppdateringar
-              href: msal-js-avoid-page-reloads.md
-            - name: Skicka anpassat tillstånd i autentiseringsbegäranden
-              href: msal-js-pass-custom-state-authentication-request.md
-            - name: Beteende vid fråga
-              href: msal-js-prompt-behavior.md
-            - name: Migrera SPA från implicit till auth-kodflöde
-              href: migrate-spa-implicit-to-auth-code.md
-              displayName: 'authorization, single-page app, 2.0'
-        - name: MSAL för iOS och macOS
-          items:
-            - name: MSAL för skillnader mellan iOS och macOS
-              href: msal-differences-ios-macos.md
-            - name: Konfigurera nyckelring
-              href: howto-v2-keychain-objc.md
-            - name: Anpassa webbläsare och webbvyer
-              href: customize-webviews.md
-            - name: Begära anpassade anspråk
-              href: request-custom-claims.md
-            - name: Konfiguration av omdirigerings-URI
-              href: redirect-uris-ios.md
-        - name: MSAL för Python
-          items:
-            - name: Anpassad serialisering för tokencache
-              href: msal-python-token-cache-serialization.md
-        - name: MSAL för Java
-          items:
-            - name: Anpassad serialisering för tokencache
-              href: msal-java-token-cache-serialization.md
-            - name: Hämta och ta bort konton från tokencachen
-              href: msal-java-get-remove-accounts-token-cache.md
-    - name: Använda Microsoft Graph API
-      href: microsoft-graph-intro.md
-    - name: Arbeta med Visual Studio
-      items:
-        - name: Använda den Active Directory-anslutna tjänsten
-          href: vs-active-directory-add-connected-service.md
-        - name: Komma igång med .NET MVC-projekt
-          href: vs-active-directory-dotnet-getting-started.md
-        - name: Vad hände med mitt .NET MVC-projekt?
-          href: vs-active-directory-dotnet-what-happened.md
-        - name: Komma igång med WebAPI-projekt
-          href: vs-active-directory-webapi-getting-started.md
-        - name: Vad hände med mitt WebAPI-projekt?
-          href: vs-active-directory-webapi-what-happened.md
-        - name: Diagnostisera fel under autentisering
-          href: vs-active-directory-error.md
-    - name: Publicera en app på marknaden
-      items:
-        - name: Publicera i App Source
-          href: v2-howto-get-appsource-certified.md
-        - name: Publicera i Azure AD-appgalleri
-          href: v2-howto-app-gallery-listing.md
-        - name: Publicera i Office 365-instrumentpanel för försäljning
-          href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
-- name: Referens
-  items:
-    - name: Programmanifest
-      href: reference-app-manifest.md
-      displayName: app manifest
-    - name: Android MSAL-konfigurationsfil
-      href: msal-configuration.md
-    - name: Autentiseringsbibliotek
-      displayName: 'MSAL, auth library, SDK'
-      href: reference-v2-libraries.md
-    - name: 'API:er för identitet och åtkomst i Microsoft Graph'
-      href: /graph/api/resources/azure-ad-overview
-    - name: Autentisering och felkoder vid autentisering
-      displayName: AADSTS
-      href: reference-aadsts-error-codes.md
-    - name: Icke-bakåtkompatibla ändringar
-      href: reference-breaking-changes.md
-- name: Resurser
-  items:
-    - name: Ordlista
-      href: developer-glossary.md
-    - name: Videoklipp
-      href: identity-videos.md
-    - name: Utvecklarblogg om Microsofts identitetsplattform
-      href: 'https://developer.microsoft.com/en-us/identity/blogs/'
     - name: Azure AD-blogg
       href: 'https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory'
     - name: Azure-översikt

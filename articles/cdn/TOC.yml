@@ -111,8 +111,8 @@
     - name: Analysera
       href: cdn-log-analysis.md
       items:
-        - name: HTTP-rådataloggar
-          href: enable-raw-logs.md
+        - name: 'Övervakning, mått och åtkomstloggar'
+          href: monitoring-and-access-log.md
         - name: Azure Diagnostics-loggar
           href: cdn-azure-diagnostic-logs.md
         - name: Analysverktyg för Azure CDN från Verizon

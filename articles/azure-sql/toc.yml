@@ -617,7 +617,7 @@
                           items:
                             - name: Med SQL Database
                               href: database/saas-tenancy-tenant-analytics.md
-                            - name: Med Azure Synapse Analytics (tidigare SQL Data Warehouse)
+                            - name: Med Azure Synapse Analytics
                               href: database/saas-tenancy-tenant-analytics-adf.md
                     - name: Haveriberedskap med hjälp av geo-återställning
                       href: database/saas-dbpertenant-dr-geo-restore.md

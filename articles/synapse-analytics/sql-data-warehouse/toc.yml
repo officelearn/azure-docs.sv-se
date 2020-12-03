@@ -1,12 +1,12 @@
-- name: Azure Synapse (tidigare SQL DW)
-  href: index.yml
-- name: Växla till Azure Synapse (förhandsversion av arbetsytor)
+- name: Dedikerad SQL-pool (tidigare SQL DW)
+  href: sql-data-warehouse-overview-what-is.md
+- name: Byta till Azure Synapse
   href: ../overview-what-is.md
 - name: Översikt
   items:
-    - name: Vad är Azure Synapse Analytics?
+    - name: Vad är en dedikerad SQL-pool?
       href: sql-data-warehouse-overview-what-is.md
-    - name: Azure Synapse Analytics-arkitektur
+    - name: Arkitektur för dedikerad SQL-pool
       href: massively-parallel-processing-mpp-architecture.md
     - name: Informationslagerenheter
       href: what-is-a-data-warehouse-unit-dwu-cdwu.md
@@ -74,6 +74,12 @@
           href: pause-and-resume-compute-powershell.md
 - name: Begrepp
   items:
+    - name: Synapse-arbetsytans miljö
+      items:
+        - name: Översikt
+          href: workspace-connected-experience.md
+        - name: Regioner som stöds
+          href: workspace-connected-regions.md
     - name: Säkerhet
       items:
         - name: Översikt
@@ -272,6 +278,10 @@
           href: sql-data-warehouse-overview-integrate.md
 - name: Anvisningar
   items:
+    - name: Synapse-arbetsytans miljö
+      items:
+        - name: Skapa en Synapse-arbetsyta
+          href: workspace-connected-create.md
     - name: Skydda
       items:
         - name: Konfigurera Azure AD-autentisering
@@ -384,9 +394,9 @@
       items:
         - name: Fullständig referens
           href: /sql/t-sql/language-reference?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-        - name: Språkelement för Azure Synapse Analytics TSQL
+        - name: Språkelement för T-SQL
           href: sql-data-warehouse-reference-tsql-language-elements.md
-        - name: Instruktioner för Azure Synapse Analytics TSQL
+        - name: Instruktioner för T-SQL
           href: sql-data-warehouse-reference-tsql-statements.md
     - name: Systemvyer
       href: sql-data-warehouse-reference-tsql-system-views.md
@@ -394,6 +404,9 @@
       href: sql-data-warehouse-reference-powershell-cmdlets.md
     - name: 'REST API:er'
       href: sql-data-warehouse-manage-compute-rest-api.md
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ../policy-reference.md
 - name: Resurser
   items:
     - name: Azure-översikt

@@ -2,8 +2,10 @@
   href: index.yml
 - name: Översikt
   items:
-    - name: Azure AD-roller
+    - name: Vad är Azure AD RBAC?
       href: custom-overview.md
+    - name: Förstå Azure AD-roller
+      href: concept-understand-roles.md
 - name: Snabbstarter
   items:
     - name: Skapa obegränsade appregistreringar
@@ -50,8 +52,6 @@
     - name: Anpassade roller
       expanded: true
       items:
-        - name: Översikt över anpassade roller
-          href: custom-overview.md
         - name: Skapa en anpassad roll
           href: custom-create.md
         - name: Visa anpassade rolltilldelningar

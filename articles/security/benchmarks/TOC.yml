@@ -129,6 +129,8 @@
       href: ../../load-balancer/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Machine Learning
       href: ../../machine-learning/security-baseline.md
+    - name: Säkerhetsbaslinje för Azure Managed Applications
+      href: ../../azure-resource-manager/managed-applications/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Monitor
       href: ../../azure-monitor/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Migrate Learning
@@ -201,7 +203,7 @@
       href: ../../site-recovery/security-baseline.md
     - name: Baslinje för Stream Analytics
       href: ../../stream-analytics/security-baseline.md
-    - name: Synapse Analytics-säkerhetsbaslinje
+    - name: Säkerhetsbaslinje för Synapse Analytics
       href: ../../synapse-analytics/security-baseline.md
     - name: Säkerhetsbaslinje för Traffic Manager
       href: ../../traffic-manager/security-baseline.md

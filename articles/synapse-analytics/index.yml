@@ -1,0 +1,113 @@
+### YamlMime:Landing
+title: Azure Synapse Analytics
+summary: Azure Synapse är en obegränsad analystjänst som sammanför informationslager i företagsklass och stordataanalys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala.
+metadata:
+  title: Azure Synapse Analytics
+  description: Azure Synapse är en obegränsad analystjänst som sammanför informationslager i företagsklass och stordataanalys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala.
+  services: synapse-analytics
+  ms.service: synapse-analytics
+  ms.subservice: overview
+  ms.topic: landing-page
+  ms.collection: collection
+  author: julieMSFT
+  ms.author: jrasnick
+  ms.date: 12/01/2020
+  ms.openlocfilehash: 6de11d0830c332d19a133592b060caca1382b667
+  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96463362"
+landingContent:
+- title: Om Azure Synapse Analytics
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Synapse?
+      url: overview-what-is.md
+    - text: Tips och regelverk
+      url: overview-cheat-sheet.md
+    - text: VANLIGA FRÅGOR OCH SVAR
+      url: overview-faq.md
+- title: Synapse SQL
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Synapse SQL-arkitektur
+      url: ./sql/overview-architecture.md
+  - linkListType: quickstart
+    links:
+    - text: Använda en serverlös SQL-pool
+      url: quickstart-sql-on-demand.md
+    - text: Skapa en dedikerad SQL-pool med Synapse Studio
+      url: quickstart-create-sql-pool-studio.md
+- title: Komma igång med Azure Synapse Analytics
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Stegvisa instruktioner för att komma igång
+      url: get-started.md
+    - text: Steg 1 – Skapa och konfigurera en Synapse-arbetsyta
+      url: get-started-create-workspace.md
+    - text: Steg 2 – Analysera med hjälp av en dedikerad SQL-pool
+      url: get-started-analyze-sql-pool.md
+    - text: Steg 3 – Analysera med hjälp av Apache Spark
+      url: get-started-analyze-spark.md
+    - text: Steg 4 – Analysera med hjälp av en serverlös SQL-pool
+      url: get-started-analyze-sql-on-demand.md
+    - text: Steg 5 – Analysera data i ett lagringskonto
+      url: get-started-analyze-storage.md
+    - text: Steg 6 – Orkestrera med pipelines
+      url: get-started-pipelines.md
+    - text: Steg 7 – Visualisera data med Power BI
+      url: get-started-visualize-power-bi.md
+    - text: Steg 8 – Övervaka aktiviteter
+      url: get-started-monitor.md
+    - text: Steg 9 – Utforska kunskapscentret
+      url: get-started-knowledge-center.md
+- title: Apache Spark
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Apache Spark i Azure Synapse Analytics
+      url: ./spark/apache-spark-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Skapa en serverlös Apache Spark-pool med hjälp av Synapse Studio
+      url: quickstart-create-apache-spark-pool-studio.md
+- title: Synapse Link
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Synapse Link för Azure Cosmos DB
+      url: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+  - linkListType: quickstart
+    links:
+    - text: Ansluta till Azure Synapse Link för Azure Cosmos DB
+      url: quickstart-connect-synapse-link-cosmos-db.md
+- title: Machine Learning
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Maskininlärning i Azure Synapse
+      url: ./machine-learning/what-is-machine-learning.md
+  - linkListType: quickstart
+    links:
+    - text: Skapa en ny länkad tjänst för Azure Machine Learning
+      url: ./machine-learning/quickstart-integrate-azure-machine-learning.md
+  - linkListType: tutorial
+    links:
+    - text: Guide till modellbedömning för SQL-pooler
+      url: ./machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+- title: Pipeline och dataflöde
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Pipeline och aktiviteter
+      url: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+  - linkListType: quickstart
+    links:
+    - text: Omvandla data
+      url: quickstart-data-flow.md
+    - text: Läsa in data till SQL-pool
+      url: quickstart-copy-activity-load-sql-pool.md

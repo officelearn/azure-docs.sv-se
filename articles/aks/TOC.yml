@@ -9,7 +9,7 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa ett AKS-kluster
+    - name: Distribuera ett AKS-kluster
       expanded: true
       items:
         - name: Använda Azure CLI
@@ -252,6 +252,8 @@
           href: kubernetes-service-principal.md
         - name: Använda hanterade identiteter
           href: use-managed-identity.md
+        - name: Använda AAD-poddidentitet (förhandsversion)
+          href: use-azure-ad-pod-identity.md
         - name: Begränsa åtkomsten till klusterkonfigurationsfiler
           href: control-kubeconfig-access.md
         - name: Skydda podtrafik med nätverksprinciper

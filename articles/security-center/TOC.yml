@@ -151,9 +151,9 @@
           href: security-center-network-recommendations.md
         - name: Skydda identitet och åtkomst
           href: security-center-identity-access.md
-    - name: Azure Defender-aviseringar
+    - name: Lär dig mer om säkerhetsaviseringar
       items:
-        - name: Översikt över Azure Defender-aviseringar
+        - name: Översikt över säkerhetsaviseringar
           href: security-center-alerts-overview.md
         - name: Referenslista över aviseringar
           href: alerts-reference.md
@@ -244,7 +244,7 @@
           href: continuous-export.md
         - name: Ladda ned en CSV-rapport med alla aviseringar
           href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
-    - name: Hantera Azure Defender-aviseringar
+    - name: Hantera säkerhetsaviseringar
       items:
         - name: Hantera säkerhetsaviseringar
           href: security-center-managing-and-responding-alerts.md

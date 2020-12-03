@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 55a1255ffa82aec8ea7b9e1ec2bbc6746b9b0636
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: bae214fb8eff9747bf3f79323d8eb9ce1cb6cdb7
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523629"
+ms.locfileid: "96531606"
 ---
 # <a name="synapse-rbac-roles"></a>Synapse RBAC-roller
 
@@ -28,12 +28,11 @@ För användare som är bekanta med de Synapse RBAC-roller som anges under för 
 - **Nya omfång på lägre nivåer** införs för flera roller.  Med dessa omfång kan roller begränsas till vissa resurser eller objekt.
 
 >[!Note]
->- De nya rollerna och de lågnivå definitionerna är för närvarande i för hands version.  
->- Rollerna Apache Spark administratör och SQL-administratör kommer att bli inaktuella i en framtida version till förmån för de nya Synapse RBAC-rollerna.  Du uppmanas att anta de nya förhands gransknings rollerna, som stöds fullt ut och ge feedback om hur de används.
+>- De **nya rollerna och de lågnivå definitionerna är för närvarande i för hands version**.  Du uppmanas att använda de här nya rollerna och omfattningarna, som stöds helt och ger feedback om användningen.
 
 ## <a name="built-in-synapse-rbac-roles-and-scopes"></a>Inbyggda RBAC-roller och omfång för Synapse
 
-I följande tabell beskrivs de olika inbyggda rollerna och omfattningarna där dessa roller kan användas.
+I följande tabell beskrivs de inbyggda rollerna och de omfång där de kan användas.
 
 >[!Note]
 > Användare med valfri Synapse RBAC-roll i valfri omfattning har automatiskt Synapse användar rollen vid arbets ytans omfång. 

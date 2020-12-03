@@ -4,12 +4,12 @@ description: Lär dig hur du uppgraderar ett Azure Kubernetes service-kluster (A
 services: container-service
 ms.topic: article
 ms.date: 11/17/2020
-ms.openlocfilehash: 262905c9f840850795ba9555912e81eca61369d1
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 30ad80727c238ae7e415039adf3e4eb75dbbc1b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683241"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531351"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uppgradera ett AKS-kluster (Azure Kubernetes Service)
 
@@ -121,6 +121,64 @@ Name          Location    ResourceGroup    KubernetesVersion    ProvisioningStat
 myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
+## <a name="set-auto-upgrade-channel-preview"></a>Ange kanal för automatisk uppgradering (förhands granskning)
+
+Förutom att uppgradera ett kluster manuellt kan du ange en kanal för automatisk uppgradering i klustret. Följande uppgraderings kanaler är tillgängliga:
+
+* *ingen*, som inaktiverar automatiska uppgraderingar och behåller klustret med den aktuella versionen av Kubernetes. Detta är standardinställningen och används om inget alternativ anges.
+* *korrigering*, som automatiskt uppgraderar klustret till den senaste korrigerings versionen som stöds när den blir tillgänglig samtidigt som den lägre versionen är samma. Om exempelvis ett kluster kör version *1.17.7* och versions *1.17.9*, *1.18.4*, *1.18.6* och *1.19.1* är tillgängliga, uppgraderas klustret till *1.17.9*.
+* *stabilt*, vilket automatiskt kommer att uppgradera klustret till den senaste korrigerings versionen som stöds på del version *n-1*, där *N* är den senaste lägre versionen som stöds. Om exempelvis ett kluster kör version *1.17.7* och versions *1.17.9*, *1.18.4*, *1.18.6* och *1.19.1* är tillgängliga, uppgraderas klustret till *1.18.6*.
+* *snabb*, vilket automatiskt uppgraderar klustret till den senaste versionen som stöds på den senaste lägre versionen som stöds. I de fall där klustret finns i en version av Kubernetes som är en del av en *n-2-* lägre version där *n* är den senaste lägre versionen som stöds, uppgraderas först klustret till den senaste korrigerings versionen som stöds på en lägre version av *n-1* . Om ett kluster till exempel kör version *1.17.7* och versioner *1.17.9*, *1.18.4*, *1.18.6* och *1.19.1* är tillgängliga, uppgraderas klustret först till *1.18.6* och uppgraderas sedan till *1.19.1*.
+
+> [!NOTE]
+> Klustrets automatiska uppgradering endast uppdateringar till GA-versioner av Kubernetes och kommer inte att uppdateras till för hands versioner.
+
+Automatiskt uppgradera ett kluster följer samma process som att uppgradera ett kluster manuellt. Mer information finns i [uppgradera ett AKS-kluster][upgrade-cluster].
+
+Automatisk kluster uppgradering för AKS-kluster är en förhands gransknings funktion.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+Registrera `AutoUpgradePreview` funktions flaggan med hjälp av kommandot [AZ Feature register][az-feature-register] , som du ser i följande exempel:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
+```
+
+Det tar några minuter för statusen att visa *registrerad*. Verifiera registrerings statusen med hjälp av kommandot [AZ feature list][az-feature-list] :
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"
+```
+
+När du är klar uppdaterar du registreringen av resurs leverantören *Microsoft. container service* med hjälp av kommandot [AZ Provider register][az-provider-register] :
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+Använd kommandot [AZ-tillägg Lägg][az-extension-add] till för att installera *AKS-Preview-* tillägget och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+Om du vill ställa in kanalen för automatisk uppgradering när du skapar ett kluster använder du parametern *Auto-Upgrade-Channel* , som liknar följande exempel.
+
+```azurecli-interactive
+az aks create --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable --generate-ssh-keys
+```
+
+Om du vill ställa in kanalen för automatisk uppgradering på ett befintligt kluster uppdaterar du parametern *Auto-Upgrade-Channel* , som liknar följande exempel.
+
+```azurecli-interactive
+az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
 Den här artikeln visar hur du uppgraderar ett befintligt AKS-kluster. Mer information om hur du distribuerar och hanterar AKS-kluster finns i självstudierna.
@@ -137,6 +195,10 @@ Den här artikeln visar hur du uppgraderar ett befintligt AKS-kluster. Mer infor
 [az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
 [az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [az-aks-show]: /cli/azure/aks#az-aks-show
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[upgrade-cluster]:  #upgrade-an-aks-cluster

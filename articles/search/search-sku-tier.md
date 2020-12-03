@@ -7,19 +7,43 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 0acd0d1d463280cddc8c1f4bb389a056d474ea38
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 12/01/2020
+ms.openlocfilehash: 1b23d6c7952e60ee693bb481fec04d358654632c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101281"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530501"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Välj en pris nivå för Azure Kognitiv sökning
 
-När du skapar en Azure Kognitiv sökning-tjänst [skapas en resurs](search-create-service-portal.md) på en pris nivå som är fast för tjänstens livs längd. Nivåerna är kostnads fria, Basic, standard och Storage-optimerade. Standard-och lagrings optimering är tillgänglig med flera konfigurationer och kapaciteter.
+När du [skapar en Sök tjänst](search-create-service-portal.md)väljer du en pris nivå som har åtgärd ATS för tjänstens livs längd. Nivån som du väljer avgör:
 
-De flesta kunder börjar med den kostnads fria nivån så att de kan utvärdera tjänsten. Efter utvärdering är det vanligt att skapa en andra tjänst på en av de högre nivåerna för utveckling och produktions distributioner.
++ Antal index och andra objekt (max gränser)
++ Storlek och hastighet för partitioner (fysisk lagring)
++ Fakturerbart pris, en fast kostnad som också är flexibel med antalet partitioner och repliker som används
+
+Dessutom finns det några [Premium funktioner](#premium-features) med nivå krav.
+
+## <a name="tier-descriptions"></a>Nivå beskrivningar
+
+Nivåerna är **kostnads fria**, **Basic**, **standard** och **Storage-optimerade**. Standard-och lagrings optimering är tillgänglig med flera konfigurationer och kapaciteter.
+
+Följande skärm bild från Azure Portal visar tillgängliga nivåer, minus priser (som du hittar i portalen och på [prissättnings sidan](https://azure.microsoft.com/pricing/details/search/). 
+
+![Pris nivåer för Azure Kognitiv sökning](media/search-sku-tier/tiers.png "Pris nivåer för Azure Kognitiv sökning")
+
+**Kostnads fri** skapar en begränsad Sök tjänst för mindre projekt, som att köra självstudier och kod exempel. Internt delas repliker och partitioner mellan flera prenumeranter. Du kan inte skala en kostnads fri tjänst eller köra betydande arbets belastningar.
+
+**Basic** och **standard** är de vanligaste fakturerbara nivåerna, med **standard standarden** . Med dedikerade resurser under kontrollen kan du distribuera större projekt, optimera prestanda och öka kapaciteten.
+
+Vissa nivåer är optimerade för vissa typer av arbete. Till exempel är **standard 3 hög densitet (S3 HD)** ett *värd läge* för S3, där den underliggande maskin varan är optimerad för ett stort antal mindre index och är avsedd för flera organisationers scenarier. S3 HD har samma kostnad per enhet som S3, men maskin varan är optimerad för snabba fil läsningar på ett stort antal mindre index.
+
+**Lagrings optimerings** nivåer ger större lagrings kapacitet till ett lägre pris per TB än standard nivåerna. Den främsta kompromissen är högre svars tid för frågor, som du bör validera för dina specifika program krav. Mer information om prestanda överväganden för den här nivån finns i [överväganden för prestanda och optimering](search-performance-optimization.md).
+
+Du hittar mer information om olika nivåer på [sidan prissättning](https://azure.microsoft.com/pricing/details/search/)i avsnittet [begränsningar för tjänsten i Azure kognitiv sökning](search-limits-quotas-capacity.md) -artikeln och på Portal sidan när du skapar en tjänst.
+
+<a name="premium-features"></a>
 
 ## <a name="feature-availability-by-tier"></a>Funktions tillgänglighet per nivå
 
@@ -35,34 +59,13 @@ I följande tabell beskrivs nivå-relaterade funktions begränsningar.
 
 De flesta funktioner är tillgängliga på alla nivåer, inklusive kostnads fria, men resurs intensiva funktioner kanske inte fungerar bra om du inte ger den tillräckligt med kapacitet. [AI-anrikning](cognitive-search-concept-intro.md) har till exempel långvariga färdigheter som tar slut på en kostnads fri tjänst, om inte data uppsättningen är liten.
 
-## <a name="tiers"></a>Nivåer
-
-Nivåerna särskiljs av:
-
-+ Antal index och indexerare (max gränser)
-+ Storlek och hastighet för partitioner (fysisk lagring)
-
-Nivån som du väljer avgör fakturerings priset. Följande skärm bild från Azure Portal visar tillgängliga nivåer, minus priser (som du hittar i portalen och på [prissättnings sidan](https://azure.microsoft.com/pricing/details/search/). **Kostnads fri**, **Basic**och **standard** är de vanligaste nivåerna.
-
-**Kostnads fri** skapar en begränsad Sök tjänst för mindre projekt, inklusive snabb starter och självstudier. Internt delas repliker och partitioner mellan flera prenumeranter. Du kan inte skala en kostnads fri tjänst eller köra betydande arbets belastningar.
-
-**Basic** och **standard** är de vanligaste fakturerbara nivåerna, med **standard standarden** . Med dedikerade resurser under kontrollen kan du distribuera större projekt, optimera prestanda och ange kapaciteten.
-
-![Pris nivåer för Azure Kognitiv sökning](media/search-sku-tier/tiers.png "Pris nivåer för Azure Kognitiv sökning")
-
-Vissa nivåer är optimerade för vissa typer av arbete. Till exempel är **standard 3 hög densitet (S3 HD)** ett *värd läge* för S3, där den underliggande maskin varan är optimerad för ett stort antal mindre index och är avsedd för flera organisationers scenarier. S3 HD har samma kostnad per enhet som S3, men maskin varan är optimerad för snabba fil läsningar på ett stort antal mindre index.
-
-**Lagrings optimerings** nivåer ger större lagrings kapacitet till ett lägre pris per TB än standard nivåerna. Den främsta kompromissen är högre svars tid för frågor, som du bör validera för dina specifika program krav.  Mer information om prestanda överväganden för den här nivån finns i [överväganden för prestanda och optimering](search-performance-optimization.md).
-
-Du hittar mer information om olika nivåer på [sidan prissättning](https://azure.microsoft.com/pricing/details/search/)i avsnittet [begränsningar för tjänsten i Azure kognitiv sökning](search-limits-quotas-capacity.md) -artikeln och på Portal sidan när du skapar en tjänst.
-
 ## <a name="billable-events"></a>Fakturerbara händelser
 
 En lösning som bygger på Azure Kognitiv sökning kan ådra sig kostnaderna på följande sätt:
 
-+ Kostnaden för själva tjänsten, som körs dygnet runt, med minsta konfiguration (en partition och replik)
++ [Kostnaden för själva tjänsten](#service-costs) , som körs dygnet runt, med minsta konfiguration (en partition och replik), enligt bas priset
 
-+ Lägga till kapacitet (repliker eller partitioner)
++ Lägga till kapacitet (repliker eller partitioner), där kostnader ökar vid ökningar av fakturerings takten
 
 + Bandbredds avgifter (utgående data överföring)
 
@@ -149,7 +152,7 @@ I Azure Kognitiv sökning struktureras kapaciteten som *repliker* och *partition
 
 ### <a name="evaluating-capacity"></a>Utvärderar kapacitet
 
-Kapacitet och kostnaderna för att köra tjänsten finns i handen. Nivåerna begränsar gränserna på två nivåer: lagring och resurser. Du bör tänka på båda eftersom den gräns du uppnår först är den effektiva gränsen.
+Kapacitet och kostnaderna för att köra tjänsten finns i handen. Nivåerna begränsar gränserna på två nivåer: lagring och innehåll (antal index, till exempel). Du bör tänka på båda eftersom den gräns du uppnår först är den effektiva gränsen.
 
 Företags krav avgör vanligt vis hur många index du behöver. Du kan till exempel behöva ett globalt index för en stor lagrings plats för dokument. Eller så kanske du behöver flera index baserade på region, program eller affärs nischmarknader.
 

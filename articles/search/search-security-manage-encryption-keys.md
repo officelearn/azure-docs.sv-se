@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4fb20b221858c4717d67e0777afbe5c067c00a69
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8295e619cfda0d4b83a7356d5fd21d4b80f83849
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499619"
+ms.locfileid: "96530892"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Konfigurera Kundhanterade nycklar för data kryptering i Azure Kognitiv sökning
 
-Azure Kognitiv sökning krypterar automatiskt indexerat innehåll i vila med [tjänst hanterade nycklar](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). Om du behöver mer skydd kan du komplettera standard kryptering med ytterligare ett krypterings lager med hjälp av nycklar som du skapar och hanterar i Azure Key Vault. Den här artikeln vägleder dig genom stegen för att konfigurera CMK-kryptering.
+Azure Kognitiv sökning krypterar automatiskt indexerat innehåll i vila med [tjänst hanterade nycklar](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). Om du behöver mer skydd kan du komplettera standard kryptering med ytterligare ett krypterings lager med hjälp av nycklar som du skapar och hanterar i Azure Key Vault. Den här artikeln vägleder dig genom stegen för att konfigurera kundhanterad nyckel kryptering.
 
-CMK-kryptering är beroende av [Azure Key Vault](../key-vault/general/overview.md). Du kan skapa egna krypterings nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault s API: er för att generera krypterings nycklar. Med Azure Key Vault kan du också granska nyckel användningen om du [aktiverar loggning](../key-vault/general/logging.md).  
+Kundhanterad nyckel kryptering är beroende av [Azure Key Vault](../key-vault/general/overview.md). Du kan skapa egna krypterings nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault s API: er för att generera krypterings nycklar. Med Azure Key Vault kan du också granska nyckel användningen om du [aktiverar loggning](../key-vault/general/logging.md).  
 
 Kryptering med Kundhanterade nycklar tillämpas på enskilda index eller synonyma mappningar när objekten skapas och anges inte på själva Sök tjänst nivån. Endast nya objekt kan krypteras. Det går inte att kryptera innehåll som redan finns.
 
@@ -31,7 +31,7 @@ Nycklar behöver inte vara i samma nyckel valv. En enskild Sök tjänst kan vara
 
 ## <a name="double-encryption"></a>Dubbel kryptering
 
-För tjänster som skapats efter 1 augusti 2020 och i vissa regioner, innehåller omfånget för CMK-kryptering temporära diskar, vilket ger [fullständig dubbel kryptering](search-security-overview.md#double-encryption), som för närvarande är tillgängligt i följande regioner: 
+För tjänster som skapats efter 1 augusti 2020 och i vissa regioner innehåller omfattningen av kundhanterad nyckel kryptering temporära diskar, vilket ger [fullständig dubbel kryptering](search-security-overview.md#double-encryption), för närvarande tillgängliga i dessa regioner: 
 
 + USA, västra 2
 + East US
@@ -39,13 +39,13 @@ För tjänster som skapats efter 1 augusti 2020 och i vissa regioner, innehålle
 + US Gov, Virginia
 + US Gov, Arizona
 
-Om du använder en annan region eller en tjänst som skapats före den 1 augusti, är din CMK-kryptering begränsad till enbart data disken, förutom de temporära diskar som används av tjänsten.
+Om du använder en annan region eller en tjänst som skapats före den 1 augusti, begränsas hanterad nyckel kryptering enbart till data disken, exklusive de temporära diskar som används av tjänsten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande verktyg och tjänster används i det här scenariot.
 
-+ [Azure kognitiv sökning](search-create-service-portal.md) på en [fakturerbar nivå](search-sku-tier.md#tiers) (Basic eller högre) i vilken region som helst.
++ [Azure kognitiv sökning](search-create-service-portal.md) på en [fakturerbar nivå](search-sku-tier.md#tier-descriptions) (Basic eller högre) i vilken region som helst.
 + [Azure Key Vault](../key-vault/general/overview.md)kan du skapa nyckel valv med [Azure Portal](../key-vault//general/quick-create-portal.md), [Azure CLI](../key-vault//general/quick-create-cli.md)eller [Azure PowerShell](../key-vault//general/quick-create-powershell.md). i samma prenumeration som Azure Kognitiv sökning. Nyckel valvet måste ha aktiverat **skydd mot** **borttagning** och rensning.
 + [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). Om du inte har ett kan du [Konfigurera en ny klient](../active-directory/develop/quickstart-create-new-tenant.md).
 
@@ -56,7 +56,7 @@ Du bör ha ett Sök program som kan skapa det krypterade objektet. I den här ko
 
 ## <a name="1---enable-key-recovery"></a>1 – aktivera nyckel återställning
 
-På grund av krypterings typen med Kundhanterade nycklar kan ingen hämta dina data om din Azure Key Vault-nyckel tas bort. För att förhindra data förlust som orsakas av oavsiktliga Key Vault nyckel borttagningar måste du aktivera mjuk borttagning och rensnings skydd i nyckel valvet. Mjuk borttagning är aktiverat som standard, så du kommer bara att stöta på problem om du har inaktiverat det. Rensnings skydd är inte aktiverat som standard, men det krävs för Azure Kognitiv sökning CMK-kryptering. Mer information finns i [mjuk borttagning](../key-vault/general/soft-delete-overview.md) och rensning av [skydds](../key-vault/general/soft-delete-overview.md#purge-protection) översikter.
+På grund av krypterings typen med Kundhanterade nycklar kan ingen hämta dina data om din Azure Key Vault-nyckel tas bort. För att förhindra data förlust som orsakas av oavsiktliga Key Vault nyckel borttagningar måste du aktivera mjuk borttagning och rensnings skydd i nyckel valvet. Mjuk borttagning är aktiverat som standard, så du kommer bara att stöta på problem om du har inaktiverat det. Rensnings skydd är inte aktiverat som standard, men det krävs för kundhanterad nyckel kryptering i Kognitiv sökning. Mer information finns i [mjuk borttagning](../key-vault/general/soft-delete-overview.md) och rensning av [skydds](../key-vault/general/soft-delete-overview.md#purge-protection) översikter.
 
 Du kan ange båda egenskaperna med hjälp av kommandona Portal, PowerShell eller Azure CLI.
 
@@ -377,7 +377,7 @@ Villkor som hindrar dig från att införa den här förenklade metoden är:
 
 ## <a name="work-with-encrypted-content"></a>Arbeta med krypterat innehåll
 
-Med CMK-kryptering kommer du att märka svars tider för både indexering och frågor på grund av det extra krypterings-/dekrypterings arbetet. Azure Kognitiv sökning loggar inte krypterings aktivitet, men du kan övervaka nyckel åtkomst via loggning av nyckel valv. Vi rekommenderar att du [aktiverar loggning](../key-vault/general/logging.md) som en del av Key Vault-konfigurationen.
+Med kundhanterad nyckel kryptering kommer du att märka svars tider för både indexering och frågor på grund av det extra krypterings-/dekrypterings arbetet. Azure Kognitiv sökning loggar inte krypterings aktivitet, men du kan övervaka nyckel åtkomst via loggning av nyckel valv. Vi rekommenderar att du [aktiverar loggning](../key-vault/general/logging.md) som en del av Key Vault-konfigurationen.
 
 Nyckel rotation förväntas ske över tid. När du roterar nycklar är det viktigt att följa den här ordningen:
 

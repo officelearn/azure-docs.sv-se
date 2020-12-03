@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 12/02/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 6374164bb5049742d63a669b4c1e552c93967977
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 396d6f69673f8758d8d1302f8d10b8a92e5f50b4
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173387"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530769"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicera din app i Azure AD App-galleriet
 
@@ -69,7 +69,7 @@ Stegen för att publicera din app i Azure AD App-galleriet är:
 - Ömsesidiga kunder får en steg-för-steg-konfigurations guide.
 - Kunder som använder systemet för[scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(Cross-Domain Identity Management) kan använda etablering för samma app.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver ett permanent konto för testning med minst två användare registrerade.
 
@@ -168,14 +168,25 @@ Mer information om WS-Fed i ASP.NET Core finns [i autentisera användare med WS-
 
 Skapa ett webb program som har en HTML-inloggnings sida. Kontrol lera att ditt program stöder formulärautentisering så att lösen ords valvet kan göras för att få enkel inloggning att fungera som förväntat.
 
+## <a name="step-3---implement-scim-user-provisioning-in-your-app"></a>Steg 3 – implementera SCIM användar etablering i din app
+Stöd för [scim](https://aka.ms/scimoverview) -etablering är ett valfritt, men ett starkt rekommenderat steg i att skapa ditt program. Att stödja SCIM-standarden är enkelt att göra och gör det möjligt för kunder att automatiskt skapa och uppdatera användar konton i din app, utan att behöva använda manuella processer som att ladda upp CSV-filer. Dessutom kan kunderna automatisera borttagningen av användare och hålla grupp medlemskap synkroniserade, som inte kan utföras med en lösning som SAML JIT. 
 
-## <a name="step-3---create-your-azure-tenant-and-test-your-app"></a>Steg 3 – skapa din Azure-klient och testa din app
+### <a name="learn-about-scim"></a>Lär dig mer om SCIM
+Mer information om SCIM-standarder och-förmåner för dina kunder finns i [etableringen with scim-kom igång](https://aka.ms/scimoverview).
+
+### <a name="understand-the-azure-ad-scim-implementation"></a>Förstå Azure AD SCIM-implementeringen
+Mer information om Azure AD SCIM-implementeringen finns i [bygga en scim-slutpunkt och konfigurera användar etablering med Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
+
+### <a name="implement-scim"></a>Implementera SCIM
+Azure AD innehåller en [referens kod](https://aka.ms/scimoverview) som hjälper dig att bygga en scim-slutpunkt. Det finns också många bibliotek/referenser från tredje part som du hittar på GitHub.  
+
+## <a name="step-4---create-your-azure-tenant-and-test-your-app"></a>Steg 4 – Skapa din Azure-klient och testa din app
 
 Du behöver en Azure AD-klient för att testa appen. Information om hur du konfigurerar din utvecklings miljö finns i [snabb start: Konfigurera en klient](quickstart-create-new-tenant.md).
 
 En Azure AD-klient levereras med varje Microsoft 365 prenumeration. Information om hur du konfigurerar en kostnads fri Microsoft 365 utvecklings miljö finns i [delta i Microsoft 365 Developer-programmet](/office/developer-program/microsoft-365-developer-program).
 
-När du har en klient måste du aktivera och testa åtkomst med enkel inloggning. 
+När du har en klient måste du testa enkel inloggning och [etablering](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
 
 [Registrera ditt program](quickstart-register-app.md) som ett program med flera innehavare **för OIDC-eller Oath-program**. Välj kontona i valfri organisations katalog och alternativet personliga Microsoft-konton i de konto typer som stöds.
 
@@ -184,7 +195,7 @@ När du har en klient måste du aktivera och testa åtkomst med enkel inloggning
 Du kan också [konvertera ett program med en enda klient till flera klienter](howto-convert-app-to-be-multi-tenant.md) om det behövs.
 
 
-## <a name="step-4---create-and-publish-documentation"></a>Steg 4 – Skapa och publicera dokumentation
+## <a name="step-5---create-and-publish-documentation"></a>Steg 5 – skapa och publicera dokumentation
 
 ### <a name="documentation-on-your-site"></a>Dokumentation på din webbplats
 
@@ -206,13 +217,14 @@ Vi rekommenderar att dokumentationen på din webbplats minst omfattar följande 
 * Test steg för pilot användare
 * Fel söknings information, inklusive felkoder och meddelanden
 * Support metoder för kunder
+* Information om din SCIM-slutpunkt, inklusive de resurser och attribut som stöds
 
 ### <a name="documentation-on-the-microsoft-site"></a>Dokumentation på Microsofts webbplats
 
 När du visar ditt program med Azure Active Directory program galleriet, som även publicerar ditt program på Azure Marketplace, kommer Microsoft att generera dokumentation för våra ömsesidiga kunder som förklarar steg för steg-processen. Du kan se ett exempel [här](../saas-apps/tutorial-list.md). Den här dokumentationen skapas baserat på ditt bidrag till galleriet och du kan enkelt uppdatera det om du gör ändringar i programmet med ditt GitHub-konto.
 
 
-## <a name="step-5---submit-your-app"></a>Steg 5 – skicka in din app
+## <a name="step-6---submit-your-app"></a>Steg 6 – skicka in din app
 
 När du har testat att program integrationen fungerar med Azure AD skickar du din programbegäran i [Microsoft-programmets nätverks Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
@@ -262,7 +274,7 @@ Om du vill lägga till ditt program i listan i galleriet med hjälp av lösen or
 
 ![Visar en lista med ett SSO-program i galleriet](./media/howto-app-gallery-listing/passwordsso.png)
 
-Om du implementerar en [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2,0-slutpunkt för användar etablering väljer du alternativet som visas. 
+Om du implementerar en [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2,0-slutpunkt för användar etablering väljer du alternativet som visas. När du tillhandahåller schemat i onboarding-begäran kan du följa anvisningarna [här](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration) för att ladda ned ditt schema. Vi kommer att använda det schema som du konfigurerade när du testar program som inte är Galleri för att bygga Galleri programmet. 
 
    ![Begäran om användar etablering](./media/howto-app-gallery-listing/user-provisioning.png)
 
@@ -301,7 +313,7 @@ Tids linjen för processen med att ange ett OpenID Connect-program i galleriet �
 För alla eskaleringar skickar du e-post till [Azure AD SSO integration-teamet](mailto:SaaSApplicationIntegrations@service.microsoft.com)och vi svarar så snart som möjligt.
 
 
-## <a name="step-6---join-the-microsoft-partner-network"></a>Steg 6 – Anslut till Microsoft Partner Network
+## <a name="step-7---join-the-microsoft-partner-network"></a>Steg 7 – gå med i Microsoft Partner Network
 Microsoft Partner Network ger direkt åtkomst till exklusiva resurser, program, verktyg och anslutningar. Information om hur du ansluter till nätverket och skapar din marknads plan finns i [Kontakta kommersiella kunder](https://partner.microsoft.com/explore/commercial#gtm).
 
 

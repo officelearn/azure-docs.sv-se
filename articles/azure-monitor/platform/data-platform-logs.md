@@ -6,15 +6,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 3c3a20d8401affc519e118c7f2295339990e7dee
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dd4586128bf2ce657352c0a1d4608637ecf9dba9
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186515"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531232"
 ---
 # <a name="azure-monitor-logs-overview"></a>Översikt över Azure Monitor-loggar
-Azure Monitor loggar är en funktion i Azure Monitor som samlar in och ordnar logg-och prestanda data från [övervakade resurser](../monitor-reference.md). Data från olika källor, t. ex. [plattforms loggar](platform-logs-overview.md) från Azure-tjänster, logg-och prestanda data från [virtuella datorer agenter](agents-overview.md)och användnings-och prestanda data från [program](../app/app-insights-overview.md) kan konsol IDE ras till en enda arbets yta så att de kan analyseras tillsammans med ett avancerat frågespråk som kan snabbt analysera miljon tals poster. Du kan utföra en enkel fråga som bara hämtar en bestämd uppsättning poster eller utföra avancerad data analys för att identifiera kritiska mönster i dina övervaknings data. Arbeta med logg frågor och deras resultat interaktivt med Log Analytics, Använd dem i en varnings regel för att användaren ska kunna se ett proaktivt meddelande om problem eller visualisera resultatet i en arbets bok eller instrument panel.
+Azure Monitor loggar är en funktion i Azure Monitor som samlar in och ordnar logg-och prestanda data från [övervakade resurser](../monitor-reference.md). Data från olika källor, t. ex. [plattforms loggar](platform-logs-overview.md) från Azure-tjänster, logg-och prestanda data från [virtuella datorer agenter](agents-overview.md)och användnings-och prestanda data från [program](../app/app-insights-overview.md) kan konsol IDE ras till en enda arbets yta så att de kan analyseras tillsammans med ett avancerat frågespråk som kan snabbt analysera miljon tals poster. Du kan utföra en enkel fråga som bara hämtar en bestämd uppsättning poster eller utföra avancerad data analys för att identifiera kritiska mönster i dina övervaknings data. Arbeta med logg frågor och deras resultat interaktivt med Log Analytics, Använd dem i en varnings regel för att proaktivt informera om problem eller visualisera resultaten i en arbets bok eller instrument panel.
 
 > [!NOTE]
 > Azure Monitor loggar är en hälft av data plattformen som stöder Azure Monitor. Den andra är [Azure Monitor Mät värden](data-platform-metrics.md) som lagrar numeriska data i en tids serie databas. Detta gör dessa data mer lätta än data i Azure Monitor loggar och stöder nästan real tids scenarier som gör dem särskilt användbara för aviseringar och snabb identifiering av problem. Mått kan bara lagra numeriska data i en viss struktur, medan loggar kan lagra olika typer av data med sin egen struktur. Du kan också utföra komplex analys på loggar data med hjälp av logg frågor som inte kan användas för analys av mät data.

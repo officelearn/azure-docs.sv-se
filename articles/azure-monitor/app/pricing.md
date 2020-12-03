@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: b695205c08f9039fbf91eaeddb7622b784d81d12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69ac1e82c267dee521143c4ed5f6c2be4d32e2ea
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400595"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531334"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -74,7 +74,7 @@ Application Insights avgifter läggs till på din Azure-faktura. Du kan se infor
 ### <a name="using-data-volume-metrics"></a>Använda data volym mått
 <a id="understanding-ingested-data-volume"></a>
 
-Om du vill veta mer om dina data volymer väljer du **mått** för din Application Insights resurs, lägger till ett nytt diagram. För diagram måttet under **loggbaserade mått**väljer du **data punkts volym**. Klicka på **tillämpa delning**och välj gruppera efter ** `Telemetryitem` typ**.
+Om du vill veta mer om dina data volymer väljer du **mått** för din Application Insights resurs, lägger till ett nytt diagram. För diagram måttet under **loggbaserade mått** väljer du **data punkts volym**. Klicka på **tillämpa delning** och välj gruppera efter **`Telemetryitem` typ**.
 
 ![Använd mått för att titta på data volym](./media/pricing/10-billing.png)
 
@@ -148,7 +148,7 @@ union (AppAvailabilityResults),
       (AppRequests),
       (AppSystemEvents),
       (AppTraces)
-| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
 | render areachart
 ```
@@ -167,7 +167,7 @@ union (AppAvailabilityResults),
       (AppRequests),
       (AppSystemEvents),
       (AppTraces)
-| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | where _ResourceId contains "<myAppInsightsResourceName>"
 | summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
 | render areachart
@@ -198,7 +198,7 @@ Mängden data som du skickar kan hanteras med hjälp av följande tekniker:
     
     Varnings meddelanden om den dagliga gränsen skickas till konton som är medlemmar i dessa roller för din Application Insights-resurs: "ServiceAdmin", "AccountAdmin", "innehavaradministratör", "ägare".
 
-    Var försiktig när du anger den dagliga gränsen. Avsikten bör vara att *aldrig träffa den dagliga*gränsen. Om du når den dagliga gränsen går data för resten av dagen förlorade och du kan inte övervaka ditt program. Om du vill ändra den dagliga begränsningen använder du alternativet för **daglig volym begränsning** . Du kan komma åt det här alternativet i fönstret **användning och uppskattade kostnader** (detta beskrivs mer detaljerat längre fram i artikeln).
+    Var försiktig när du anger den dagliga gränsen. Avsikten bör vara att *aldrig träffa den dagliga* gränsen. Om du når den dagliga gränsen går data för resten av dagen förlorade och du kan inte övervaka ditt program. Om du vill ändra den dagliga begränsningen använder du alternativet för **daglig volym begränsning** . Du kan komma åt det här alternativet i fönstret **användning och uppskattade kostnader** (detta beskrivs mer detaljerat längre fram i artikeln).
     
     Vi har tagit bort begränsningen för vissa prenumerations typer som har kredit som inte kan användas för Application Insights. Om prenumerationen har en utgifts gräns har den dagliga Cap-dialog rutan instruktioner för att ta bort utgifts gränsen och göra det möjligt att öka den dagliga gränsen för mer än 32,3 MB/dag.
     
@@ -280,7 +280,7 @@ Att skicka data till Application Insights kan medföra avgifter för data bandbr
 
 ## <a name="disable-daily-cap-e-mails"></a>Inaktivera dagliga Cap-e-postmeddelanden
 
-Om du vill inaktivera de dagliga e-postmeddelandena för volym tak går du till avsnittet **Konfigurera** i Application Insights-resursen och väljer **dagligt tak**i fönstret **användning och uppskattade kostnader** . Det finns inställningar för att skicka e-post när taket har nåtts, samt när en justerbar varnings nivå har uppnåtts. Avmarkera båda rutorna om du vill inaktivera alla dagliga e-postrelaterade volym meddelanden.
+Om du vill inaktivera de dagliga e-postmeddelandena för volym tak går du till avsnittet **Konfigurera** i Application Insights-resursen och väljer **dagligt tak** i fönstret **användning och uppskattade kostnader** . Det finns inställningar för att skicka e-post när taket har nåtts, samt när en justerbar varnings nivå har uppnåtts. Avmarkera båda rutorna om du vill inaktivera alla dagliga e-postrelaterade volym meddelanden.
 
 ## <a name="legacy-enterprise-per-node-pricing-tier"></a>Pris nivå för Legacy Enterprise (per nod)
 

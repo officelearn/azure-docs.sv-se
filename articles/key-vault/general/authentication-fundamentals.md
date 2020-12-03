@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 30c26fcc48b1051944c181c0d24ae9e3c89ce477
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 6de0fc52ae265a47ca7f52d46e5f44b74c1277aa
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565831"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530926"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Grundläggande om Key Vault-autentisering
 
@@ -116,8 +116,6 @@ Key Vault roll tilldelningar är en uppsättning inbyggda roll tilldelningar i A
 * Azure RBAC-behörigheter kan hanteras i stor skala genom att låta användare ha de här rollerna tilldelade till en prenumeration, resurs grupp eller enskild nyckel valv nivå. En användare får data planet behörighet till alla nyckel valv inom ramen för Azure RBAC-tilldelningen. Detta eliminerar behovet av att tilldela enskilda åtkomst princip behörigheter per användare/program per nyckel valv.
 
 * Azure RBAC-behörigheter är kompatibla med Privileged Identity Management eller PIM. På så sätt kan du konfigurera just-in-Time-åtkomst-kontroller för privilegierade roller som Key Vault administratör. Detta är en bästa säkerhets rutin och följer huvud kontot för minsta behörighet genom att ta bort den ständiga åtkomsten till dina nyckel valv.
-
-* Azure RBAC-behörigheter är kompatibla med behörigheten per objekt, så du kan begränsa en användare från att bara utföra åtgärder på några av dina Key Vault-objekt. Detta gör att flera program kan dela ett enda nyckel valv samtidigt som du isolerar åtkomst mellan program.
 
 Mer information om Azure RBAC för Key Vault finns i följande dokument:
 

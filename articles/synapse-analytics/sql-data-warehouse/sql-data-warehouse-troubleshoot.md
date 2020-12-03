@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6da80ec4c9c3c4e6c95eb1c9001596ffe3dd5711
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c69df88828a179cf1dce7bd35ac19c518b07903d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447846"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530722"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Felsöka dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics
 
@@ -45,6 +45,7 @@ Den här artikeln innehåller vanliga fel söknings problem i dedikerad SQL-pool
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Om du exporterar tomma strängar med CETAS skapas NULLVÄRDEN i Parquet-och ORC-filer. Obs! Om du exporterar tomma strängar från kolumner med NOT NULL-begränsningar kommer CETAS att leda till nekade poster och exporten kan Miss lyckas. | Ta bort tomma strängar eller den felaktiga kolumnen i SELECT-instruktionen för din CETAS. |
+| Det finns inte stöd för att läsa in ett värde utanför intervallet 0-127 i en tinyint-kolumn för fil formatet Parquet och ORC. | Ange en större datatyp för mål kolumnen.           |
 
 ## <a name="performance"></a>Prestanda
 

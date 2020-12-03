@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b8883d7040ad5c73a376838f7cb1aaa1b558bfbd
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 71dc5b84deda04c02b6d1722b11abf6631e9aa03
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340844"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546377"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>System funktioner (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Cosmos DB innehåller många inbyggda SQL-funktioner. Kategorierna med inbyggda funktioner visas nedan.  
   
-|Funktionsgrupp|Beskrivning|Operations|  
+|Funktionsgrupp|Beskrivning|Åtgärder|  
 |--------------|-----------------|-----------------| 
 |[Matrisfunktioner](sql-query-array-functions.md)|Mat ris funktionerna utför en åtgärd på ett värde för mat ris värden och returnerar numeriska värden, booleska värden eller mat ris värden. | [ARRAY_CONCAT](sql-query-array-concat.md), [ARRAY_CONTAINS](sql-query-array-contains.md), [ARRAY_LENGTH](sql-query-array-length.md), [ARRAY_SLICE](sql-query-array-slice.md) |
 |[Datum-och tids funktioner](sql-query-date-time-functions.md)|Med funktionerna för datum och tid kan du hämta aktuellt UTC-datum och tid i två formulär; en numerisk tidstämpel vars värde är UNIX-epoken i millisekunder eller som en sträng som följer ISO 8601-formatet. | [GetCurrentDateTime](sql-query-getcurrentdatetime.md), [GetCurrentTimestamp](sql-query-getcurrenttimestamp.md) |
@@ -47,4 +47,4 @@ Den största skillnaden mellan Cosmos DB Functions och ANSI SQL Functions är at
 - [Strängfunktioner](sql-query-string-functions.md)
 - [Funktioner för typkontroll](sql-query-type-checking-functions.md)
 - [Användardefinierade funktioner](sql-query-udfs.md)
-- [Aggregeringar](sql-query-aggregates.md)
+- [Aggregeringar](sql-query-aggregate-functions.md)

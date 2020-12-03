@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperfq2
-ms.openlocfilehash: 1f57e14893e6f43b98b0e45cc2bd2d49e31271d0
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: bfbf764aaf1061808d128d16e8a96b08e75fcfe6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350355"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545578"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Prestanda tips för Azure Cosmos DB asynkron Java SDK v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "96350355"
 
 
 > [!IMPORTANT]  
-> Detta är *inte* den senaste Java SDK: n för Azure Cosmos DB! Du bör uppgradera projektet till [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) och sedan läsa guiden Azure Cosmos DB Java SDK v4- [prestanda tips](performance-tips-java-sdk-v4-sql.md). Följ anvisningarna i guiden [migrera till Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) -guide och [reaktor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) för att uppgradera. 
+> Detta är *inte* den senaste Java SDK: n för Azure Cosmos DB! Du bör uppgradera projektet till [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) och sedan läsa guiden Azure Cosmos DB Java SDK v4- [prestanda tips](performance-tips-java-sdk-v4-sql.md). Följ anvisningarna i guiden [migrera till Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) -guide och [reaktor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) för att uppgradera. 
 > 
 > Prestanda tipsen i den här artikeln är endast för Azure Cosmos DB asynkron Java SDK v2. Mer information finns i [viktig](sql-api-sdk-async-java.md)information om Azure Cosmos DB ASYNC Java SDK v2, [maven-lagringsplatsen](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)och Azure Cosmos DB asynkron Java SDK v2- [felsöknings guide](troubleshoot-java-async-sdk.md) .
 >
@@ -99,7 +99,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
     Om du använder Azure Cosmos DB som en referens databas (det vill säga databasen används för många punkt läsnings åtgärder och få Skriv åtgärder) kan det vara acceptabelt att ange _idleEndpointTimeout * till 0 (det vill säga ingen tids gräns).
 
 
-    | Konfigurations alternativ       | Standardvärde    |
+    | Konfigurations alternativ       | Standard    |
     | :------------------:       | :-----:    |
     | bufferPageSize             | 8192       |
     | connectionTimeout          | "PT1M"     |

@@ -3,12 +3,12 @@ title: Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 description: Beskriver hur du säkerhetskopierar och återställer krypterade virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: c4760a54d0200e48b2d6a38c963e9fc23925f7ff
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ee7fedffd58ffb9e98f8c412833d151eb1a95530
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324932"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547159"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 
@@ -22,7 +22,11 @@ Som standard krypteras alla diskar i de virtuella datorerna automatiskt i vila m
 
 ## <a name="encryption-using-customer-managed-keys"></a>Kryptering med kundhanterade nycklar
 
-När du krypterar diskar med anpassade hanterade nycklar (CMK) lagras nyckeln som används för att kryptera diskarna i Azure Key Vault och hanteras av dig. Kryptering för lagringstjänst (SSE) med CMK skiljer sig från Azure Disk Encryption-kryptering (ADE). ADE använder krypterings verktygen i operativ systemet. SSE krypterar data i lagrings tjänsten, så att du kan använda alla operativ system eller avbildningar för dina virtuella datorer. Mer information om kryptering av hanterade diskar med Kundhanterade nycklar finns i [den här artikeln](../virtual-machines/disk-encryption.md#customer-managed-keys).
+När du krypterar diskar med Kundhanterade nycklar (CMK) lagras nyckeln som används för att kryptera diskarna i Azure Key Vault och hanteras av dig. Kryptering för lagringstjänst (SSE) med CMK skiljer sig från Azure Disk Encryption-kryptering (ADE). ADE använder krypterings verktygen i operativ systemet. SSE krypterar data i lagrings tjänsten, så att du kan använda alla operativ system eller avbildningar för dina virtuella datorer.
+
+Du behöver inte utföra några uttryckliga åtgärder för säkerhets kopiering eller återställning av virtuella datorer som använder Kundhanterade nycklar för att kryptera diskarna. Säkerhetskopierade data för de här virtuella datorerna som lagras i valvet krypteras med samma metoder som [krypteringen som används i valvet](encryption-at-rest-with-cmk.md).
+
+Mer information om kryptering av hanterade diskar med Kundhanterade nycklar finns i [den här artikeln](../virtual-machines/disk-encryption.md#customer-managed-keys).
 
 ## <a name="encryption-support-using-ade"></a>Krypterings stöd med ADE
 

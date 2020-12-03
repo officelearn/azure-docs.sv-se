@@ -10,16 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bead348e64fcee4cc5b790f975c9da5200ee796b
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: acc19d9a04909dcf0e79c93e0c8a3fb8225ee1b4
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422407"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546921"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Lär dig grunderna i tal-CLI
 
-I den här artikeln får du lära dig de grundläggande användnings mönstren för tal-CLI, ett kommando rads verktyg för att använda tal tjänsten utan att skriva kod. Du kan snabbt testa huvud funktionerna i tal tjänsten, utan att skapa utvecklings miljöer eller skriva kod, för att se om dina användnings fall kan uppfyllas korrekt. Dessutom är tal CLI produktions klart och kan användas för att automatisera enkla arbets flöden i tal tjänsten med hjälp av `.bat` eller Shell-skript.
+I den här artikeln får du lära dig de grundläggande användnings mönstren för tal-CLI, ett kommando rads verktyg för att använda tal tjänsten utan att skriva kod. Du kan snabbt testa huvud funktionerna i tal tjänsten, utan att skapa utvecklings miljöer eller skriva kod, för att se om dina användnings fall kan uppfyllas korrekt. Tal CLI är produktions klart och kan användas för att automatisera enkla arbets flöden i tal tjänsten med hjälp av `.bat` eller Shell-skript.
+
+Den här artikeln förutsätter att du har kunskaper om kommando tolken, Terminal eller PowerShell.
 
 [!INCLUDE [](includes/spx-setup.md)]
 
@@ -45,11 +47,24 @@ Ange följande kommando för att se alternativen för kommandot recognize:
 spx help recognize
 ```
 
-Använd nu tal tjänsten för att utföra en del tal igenkänning med hjälp av standard mikrofonen genom att köra följande kommando.
+Nu ska vi använda tal CLI för att utföra tal igenkänning med systemets standard-mikrofon. 
+
+>[!WARNING]
+> Om du använder en Docker-behållare fungerar inte det här kommandot.
+
+Kör följande kommando:
 
 ```shell
 spx recognize --microphone
 ```
+
+Med tal CLI kan du också känna igen tal från en ljudfil.
+
+```shell
+spx recognize --file /path/to/file.wav
+```
+> [!TIP]
+> Om du känner igen tal från en ljudfil i en Docker-behållare ser du till att ljud filen finns i den katalog som du monterade i föregående steg.
 
 När du har angett kommandot börjar SPX att lyssna efter ljud på den aktuella aktiva inmatnings enheten och stoppa efter att du har klickat på `ENTER` . Det inspelade talet identifieras och konverteras sedan till text i konsolens utdata. Text till tal-syntes är också enkelt att göra med hjälp av tal CLI. 
 
@@ -65,7 +80,7 @@ Förutom tal igenkänning och syntes kan du också göra tal översättning med 
 spx translate --microphone --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
 ```
 
-I det här kommandot anger du både källan (språk att översätta **från** ) och målet (språk att översätta **till** ). Genom att använda `--microphone` argumentet lyssnar du på ljud på den aktuella aktiva Indataporten och slutar när du har klickat på `ENTER` . Utdata är en text översättning till mål språket som skrivs till en textfil.
+I det här kommandot anger du både källan (språk att översätta **från**) och målet (språk att översätta **till**). Genom att använda `--microphone` argumentet lyssnar du på ljud på den aktuella aktiva Indataporten och slutar när du har klickat på `ENTER` . Utdata är en text översättning till mål språket som skrivs till en textfil.
 
 > [!NOTE]
 > I [artikeln språk och nationella inställningar](language-support.md) finns en lista över alla språk som stöds med motsvarande språk koder.

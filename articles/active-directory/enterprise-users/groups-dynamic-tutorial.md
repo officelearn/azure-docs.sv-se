@@ -6,25 +6,26 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74e8311002b8769ee816d8abb37eca70cad8c221
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: bc891a7b07305fc0ef55376d7b6fbb262d740bb5
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95490824"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547499"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Självstudier: Lägga till eller ta bort gruppmedlemmar automatiskt
 
 I Azure Active Directory (Azure AD) kan du automatiskt lägga till eller ta bort användare i säkerhets grupper eller Microsoft 365 grupper, så du behöver inte alltid göra det manuellt. När alla egenskaper för en användare eller enhet ändras, utvärderar Azure AD alla dynamiska grupp regler i din Azure AD-organisation för att se om ändringen ska lägga till eller ta bort medlemmar.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Skapa en automatiskt ifylld grupp av gäst användare från ett partner företag
 > * Tilldela licenser till gruppen för partnerspecifika funktioner för gästanvändare för åtkomst
@@ -32,7 +33,7 @@ I de här självstudierna får du lära dig att
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här funktionen kräver en Azure AD Premium licens för dig som organisationens globala administratör. Om du inte har någon, i Azure AD, väljer du **licenser**  >  **produkter**  >  **försök/köp**.
 

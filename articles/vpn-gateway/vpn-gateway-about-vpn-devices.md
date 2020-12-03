@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/01/2020
+ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 92f589e6a587febc10a4b407fe3616aca42d27d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae498b39a421db19f0d4e0a8daca58730321b58c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318955"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546819"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Om VPN-enheter och IPSec-/IKE-parametrar för anslutningar för VPN Gateway från plats till plats
 
@@ -59,7 +59,7 @@ Information om hur du konfigurerar VPN-enheten finns i länkarna som motsvarar l
 | Juniper |SSG |ScreenOS 6.2 |Stöds |[Konfigurations skript](vpn-gateway-download-vpndevicescript.md) |
 | Juniper |MX |JunOS 12. x|Stöds |[Konfigurations skript](vpn-gateway-download-vpndevicescript.md) |
 | Microsoft |Routning och fjärråtkomst |Windows Server 2012 |Inte kompatibel |Stöds |
-| Open Systems AG |Mission Control Security Gateway |E.t. |[Konfigurations guide](https://open-systems.com/wp-content/uploads/2019/12/OpenSystems-AzureVPNSetup-Installation-Guide.pdf) |Inte kompatibel |
+| Open Systems AG |Mission Control Security Gateway |Saknas |[Konfigurations guide](https://open-systems.com/wp-content/uploads/2019/12/OpenSystems-AzureVPNSetup-Installation-Guide.pdf) |Inte kompatibel |
 | Palo Alto Networks |Alla enheter som kör PAN-OS |PAN-OS<br>Principbaserad: 6.1.5 eller senare<br>Routningsbaserad: 7.1.4 |Stöds |[Konfigurations guide](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
 | Sentrium (utvecklare) | VyOS | VyOS 1.2.2 | (inte testat) | [Konfigurations guide ](https://vyos.readthedocs.io/en/latest/appendix/examples/azure-vpn-bgp.html)|
 | ShareTech | Nästa datagenerations UTM (Nu-serien) | 9.0.1.3 | Inte kompatibel | [Konfigurations guide](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
@@ -112,13 +112,11 @@ När du har hämtat den angivna VPN-enhetens konfigurationsexempel, måste du by
 | &lt;SP_AzureGatewayIpAddress&gt; |Den här informationen är specifik för ditt virtuella nätverk och finns i hanteringsportalen som **IP-adress för gateway**. |
 | &lt;SP_PresharedKey&gt; |Den här informationen är specifik för ditt virtuella nätverk och finns i hanteringsportalen som Hantera nyckel. |
 
-## <a name="ipsecike-parameters"></a><a name="ipsec"></a>IPsec-/IKE-parametrar
+## <a name="default-ipsecike-parameters"></a><a name="ipsec"></a>Standard-IPsec/IKE-parametrar
 
-> [!IMPORTANT]
-> 1. Tabellerna nedan innehåller de kombinationer av algoritmer och parametrar som används av Azure VPN-gatewayer med standardkonfigurationen. För routningsbaserade VPN-gatewayer som skapats med Azure Resource Management-distributionsmodellen kan du ange en anpassad princip för varje enskild anslutning. Detaljerade anvisningar finns i avsnittet [Configure IPsec/IKE policy](vpn-gateway-ipsecikepolicy-rm-powershell.md) (Konfigurera IPsec-/IKE-princip).
->
-> 2. Du måste dessutom foga ihop TCP **MSS** vid **1350**. Om dina VPN-enheter inte stöder MSS-ihopfogning kan du i stället ange **MTU** i tunnelgränssnittet till **1400** byte.
->
+Tabellerna nedan innehåller kombinationer av algoritmer och parametrar som Azure VPN-gatewayer använder i standard konfiguration (**standard principer**). För routningsbaserade VPN-gatewayer som skapats med Azure Resource Management-distributionsmodellen kan du ange en anpassad princip för varje enskild anslutning. Detaljerade anvisningar finns i avsnittet [Configure IPsec/IKE policy](vpn-gateway-ipsecikepolicy-rm-powershell.md) (Konfigurera IPsec-/IKE-princip).
+
+Dessutom måste du dessutom foga ihop TCP **MSS** på **1350**. Om dina VPN-enheter inte stöder MSS-ihopfogning kan du i stället ange **MTU** i tunnelgränssnittet till **1400** byte.
 
 I följande tabeller:
 
@@ -144,7 +142,7 @@ I följande tabeller:
 | Krypterings- och hash-algoritmer |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA-erbjudanden](#RouteBasedOffers) |
 | SA-livstid (tid)            |3 600 sekunder  |27 000 sekunder                               |
 | SA-livstid (byte)           |102 400 000 kB |102 400 000 kB                               |
-| PFS (Perfect Forward Secrecy) |Inga             |[RouteBased QM SA-erbjudanden](#RouteBasedOffers) |
+| PFS (Perfect Forward Secrecy) |Nej             |[RouteBased QM SA-erbjudanden](#RouteBasedOffers) |
 | Utebliven peer-identifiering (DPD)     |Stöds inte  |Stöds                                    |
 
 

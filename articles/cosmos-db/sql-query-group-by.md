@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: tisande
-ms.openlocfilehash: 71314e6999031f52ebbfc582b43684ab5a17a261
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d9cafc100ddd4b553577c447e82334e6ee7d1b6d
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93338826"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545459"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>GROUP BY-sats i Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,7 +41,7 @@ GROUP BY-satsen delar in frågans resultat enligt värdena för en eller flera a
 
 ## <a name="remarks"></a>Kommentarer
   
-  När en fråga använder en GROUP BY-sats kan SELECT-satsen bara innehålla del mängden av de egenskaper och system funktioner som ingår i GROUP BY-satsen. Ett undantag är [agg regerings system funktioner](sql-query-aggregates.md)som kan visas i SELECT-satsen utan att ingå i Group by-satsen. Du kan också alltid inkludera litterala värden i SELECT-satsen.
+  När en fråga använder en GROUP BY-sats kan SELECT-satsen bara innehålla del mängden av de egenskaper och system funktioner som ingår i GROUP BY-satsen. Ett undantag är [mängd funktioner](sql-query-aggregate-functions.md)som kan visas i SELECT-satsen utan att ingå i Group by-satsen. Du kan också alltid inkludera litterala värden i SELECT-satsen.
 
   GROUP BY-satsen måste vara efter SELECT-, FROM-och WHERE-satsen och före OFFSET LIMIT-satsen. Du kan för närvarande inte använda GROUP BY med en ORDER BY-sats men detta är planerat.
 
@@ -191,5 +191,5 @@ Resultatet är:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Komma igång](sql-query-getting-started.md)
-- [SELECT-satsen](sql-query-select.md)
-- [Mängd funktioner](sql-query-aggregates.md)
+- [SELECT-sats](sql-query-select.md)
+- [Mängd funktioner](sql-query-aggregate-functions.md)

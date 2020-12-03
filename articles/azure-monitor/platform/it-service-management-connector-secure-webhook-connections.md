@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 4d12a7ec76f3390aabc7b45aeb0cd8cedcc6febd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3f6342fcb658611c754a16399ec05f5fa76c79b8
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186481"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546122"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Ansluta Azure till ITSM-verktyg med säker export
 
@@ -108,7 +108,7 @@ Konfigurationen innehåller två steg:
 
 Följande avsnitt innehåller information om hur du ansluter din ServiceNow-produkt och säker export i Azure.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Se till att du uppfyller följande krav:
 
@@ -122,12 +122,13 @@ Se till att du uppfyller följande krav:
 2. Följ instruktionerna enligt versionen:
    * [Paris](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [Orlando](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
+   * [New York](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
 
 ### <a name="connect-bmc-helix-to-azure-monitor"></a>Ansluta BMC-Helix till Azure Monitor
 
 Följande avsnitt innehåller information om hur du ansluter din BMC Helix-produkt och säker export i Azure.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Se till att du uppfyller följande krav:
 

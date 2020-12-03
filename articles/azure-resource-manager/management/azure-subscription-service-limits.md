@@ -3,12 +3,12 @@ title: Begränsningar och kvoter för Azure-prenumeration
 description: Innehåller en lista över vanliga gränser, kvoter och begränsningar för Azure-prenumerationer och tjänster. Den här artikeln innehåller information om hur du ökar gränserna tillsammans med högsta värden.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 810d503f1abdc14ad2d255a89aebe7c10954a889
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4d56c5c3fd33d1cda05e23d5bc53e7540428671b
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186209"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547856"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar
 
@@ -311,6 +311,10 @@ Följande tabell gäller v1, v2, standard och WAF SKU: er om inget annat anges.
 ### <a name="private-link-limits"></a>Private Link-gränser
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
+
+## <a name="purview-limits"></a>Avdelningens kontroll-gränser
+
+De senaste värdena för Azure avdelningens kontroll-kvoter finns på [kvot sidan för Azure avdelningens kontroll](../../purview/how-to-manage-quotas.md)
 
 ### <a name="traffic-manager-limits"></a>Traffic Manager gränser
 

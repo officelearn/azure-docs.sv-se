@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 6f80d41001d11c52a00454ea2a593f3f1fce32db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: da88b8554d6c3214da9a386613538c237a318f73
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026649"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546917"
 ---
 ## <a name="download-and-install"></a>Hämta och installera
 
@@ -53,15 +53,19 @@ Följ de här stegen för att installera Speech CLI på Linux på en x64-process
 
 Skriv `spx` för att se hjälp för tal-cli.
 
-#### <a name="docker-install"></a>[Docker-installation](#tab/dockerinstall)
-
-> [!NOTE]
-> <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop för din plattform <span class="docon docon-navigate-external x-hidden-focus"></span> </a> måste vara installerat.
+#### <a name="docker-install-windows-linux-macos"></a>[Docker-installation (Windows, Linux, macOS)](#tab/dockerinstall)
 
 Följ de här stegen för att installera tal-CLI i en Docker-behållare:
 
-1. Skriv följande kommando i en ny kommando tolk eller Terminal:  `docker pull msftspeech/spx`
-2. Skriv det här kommandot. Du bör se hjälp information för tal-CLI: `docker run -it --rm msftspeech/spx help`
+1. <a href="https://www.docker.com/get-started" target="_blank">Installera Docker Desktop <span class="docon docon-navigate-external x-hidden-focus"></span> </a> för din plattform om den inte redan är installerad.
+2. Skriv följande kommando i en ny kommando tolk eller Terminal:
+   ```shell   
+   docker pull msftspeech/spx
+   ```
+3. Skriv det här kommandot. Du bör se hjälp information för tal-CLI:
+   ```shell 
+   docker run -it --rm msftspeech/spx help
+   ```
 
 ### <a name="mount-a-directory-in-the-container"></a>Montera en katalog i behållaren
 
@@ -72,7 +76,7 @@ I Windows skriver du det här kommandot för att skapa en lokal katalog tal CLI 
 
 `mkdir c:\spx-data`
 
-Eller på Linux eller Mac skriver du det här kommandot i en Terminal för att skapa en katalog och se dess absoluta sökväg:
+Eller på Linux eller macOS skriver du det här kommandot i en Terminal för att skapa en katalog och se dess absoluta sökväg:
 
 ```bash
 mkdir ~/spx-data
@@ -86,13 +90,17 @@ Du kommer att använda den absoluta sökvägen när du anropar tal-CLI.
 
 Den här dokumentationen visar det tal CLI- `spx` kommando som används i installationer som inte är Docker.
 När du anropar `spx` kommandot i en Docker-behållare måste du montera en katalog i behållaren till ditt fil system där tal-CLI kan lagra och hitta konfigurations värden och läsa och skriva filer.
+
 I Windows kommer dina kommandon att starta så här:
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx`
+```shell
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx
+```
 
-På Linux eller Mac kommer dina kommandon att starta ungefär så här:
-
-`sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`
+På Linux eller macOS kommer dina kommandon att starta ungefär så här:
+```shell   
+sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+```
 
 > [!NOTE]
 > Ersätt `/ABSOLUTE_PATH` med den absoluta sökvägen som visas `pwd` i kommandot i avsnittet ovan.
@@ -100,12 +108,43 @@ På Linux eller Mac kommer dina kommandon att starta ungefär så här:
 Om du vill använda `spx` kommandot som är installerat i en behållare, anger du alltid det fullständiga kommandot som visas ovan, följt av parametrarna för din begäran.
 I Windows anger det här kommandot till exempel din nyckel:
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY`
+```shell
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+```
 
-> [!NOTE]
-> Du kan inte använda datorns mikrofon eller högtalare när du kör tal-CLI i en Docker-behållare.
-> Om du vill använda dessa enheter skickar du ljudfiler till och från tal-CLI för inspelning/uppspelning utanför Docker-behållaren.
-> Tal CLI-verktyget kan komma åt den lokala katalogen som du ställer in i stegen ovan.
+> [!WARNING]
+> Du kan inte använda datorns mikrofon när du kör tal-CLI i en Docker-behållare. Du kan dock läsa från och spara ljudfiler i din lokala monterade katalog. 
+
+### <a name="optional-create-a-command-line-shortcut"></a>Valfritt: skapa en kommando rads genväg
+
+Om du kör tal-CLI från en Docker-behållare på Linux eller macOS kan du skapa en genväg. 
+
+Följ dessa instruktioner för att skapa en genväg:
+1. Öppna `.bash_profile` med din favorit text redigerare. Exempel:
+   ```shell
+   nano ~/.bash_profile
+   ```
+2. Lägg sedan till den här funktionen i din `.bash_profile` . Se till att du uppdaterar den här funktionen med rätt sökväg till den monterade katalogen:
+   ```shell   
+   spx(){
+       sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+   }
+   ```
+3. Källa din profil:
+   ```shell
+   source ~/.bash_profile
+   ```
+4. Nu `sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx` kan du bara skriva `spx` följt av argument i stället för att köra. Exempel: 
+   ```shell
+   // Get some help
+   spx help recognize
+
+   // Recognize speech from an audio file 
+   spx recognize --file /mounted/directory/file.wav
+   ```
+
+> [!WARNING]
+> Om du ändrar den monterade katalog som Docker är referens till måste du uppdatera funktionen i `.bash_profile` .
 
 ***
 

@@ -5,31 +5,32 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 11/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b87881ad5533724f08de3b2f348d1487f763ab04
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0f9ea8b1c1346deee9fed591493607270f18ad5b
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442175"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547771"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Metod tips för Azure Active Directory B2B
 Den här artikeln innehåller rekommendationer och metod tips för samarbete mellan företag (B2B) i Azure Active Directory (Azure AD).
 
    > [!IMPORTANT]
-   > Från och med den **31 mars 2021**kommer Microsoft inte längre att stödja inlösen av inbjudningar genom att skapa ohanterade Azure AD-konton och klienter för B2B-samarbets scenarier. Vi rekommenderar att kunderna väljer [autentisering med e-post med eng ång slö sen ord](one-time-passcode.md). Vi välkomnar din feedback om den här offentliga för hands versionen och är glada att skapa ännu fler sätt att samar beta.
+   > **Från och med mars 2021** kommer Microsoft inte längre att stödja inlösen av inbjudningar genom att skapa ohanterade ("virus" eller "just-in-Time") Azure AD-konton och-klienter för B2B-samarbets scenarier. Vid detta tillfälle aktive ras e-postfunktionen för eng ång slö sen ord för alla befintliga klienter och aktive ras som standard för nya klienter. Vi aktiverar e-postfunktionen för eng ång slö sen ord eftersom den ger en sömlös reserv metod för gäst användare. Men du kan inaktivera den här funktionen om du väljer att inte använda den. Mer information finns i [e-mail Authentication eng ång slö sen ord](one-time-passcode.md)
+
 
 ## <a name="b2b-recommendations"></a>B2B-rekommendationer
 | Rekommendation | Kommentarer |
 | --- | --- |
 | För en optimal inloggnings upplevelse kan du federera med identitets leverantörer | När det är möjligt kan du federera direkt med identitets leverantörer så att inbjudna användare kan logga in på dina delade appar och resurser utan att behöva skapa Microsoft-konton (MSA: er) eller Azure AD-konton. Du kan använda [Google Federation-funktionen](google-federation.md) för att tillåta B2B-gäst användare att logga in med sina Google-konton. Du kan också använda [funktionen direkt Federation (förhands granskning)](direct-federation.md) för att konfigurera direkt Federation med en organisation vars identitetsprovider (IdP) stöder SAML 2,0 eller WS-Fed-protokollet. |
-| Använd funktionen email eng ång slö sen ord (för hands version) för B2B-gäster som inte kan autentisera på annat sätt | Funktionen [email eng ång slö sen ord (för hands version)](one-time-passcode.md) autentiserar B2B-gäst användare när de inte kan autentiseras via andra sätt som Azure AD, en Microsoft-konto (MSA) eller Google Federation. När gäst användaren löser in en inbjudan eller får åtkomst till en delad resurs, kan de begära en tillfällig kod som skickas till deras e-postadress. Sedan anger de den här koden för att fortsätta logga in. |
+| Använd funktionen för eng ång slö sen ord för B2B-gäster som inte kan autentisera på annat sätt | Med funktionen för [eng ång slö sen ord](one-time-passcode.md) autentiseras B2B-gäst användare när de inte kan autentiseras via andra sätt som Azure AD, en Microsoft-konto (MSA) eller Google Federation. När gäst användaren löser in en inbjudan eller får åtkomst till en delad resurs, kan de begära en tillfällig kod som skickas till deras e-postadress. Sedan anger de den här koden för att fortsätta logga in. |
 | Lägg till företagsanpassning på inloggningssidan | Du kan anpassa inloggnings sidan så att det blir mer intuitivt för dina B2B-gäst användare. Se så här [lägger du till företags anpassning för inloggnings-och åtkomst panel sidor](../fundamentals/customize-branding.md). |
 | Lägg till din sekretess policy till den B2B-gäst användaren inlösnings upplevelse | Du kan lägga till URL: en för din organisations sekretess policy till den första gången inlösnings processen för inbjudan så att en inbjuden användare måste godkänna dina sekretess villkor för att kunna fortsätta. Se [anvisningar: Lägg till din organisations sekretess information i Azure Active Directory](../fundamentals/active-directory-properties-area.md). |
 | Använd funktionen för Mass inbjudan (för hands version) för att bjuda in flera B2B-gäst användare på samma tid | Bjud in flera gäst användare till din organisation samtidigt med hjälp av funktionen för förhands granskning av Mass inbjudan i Azure Portal. Med den här funktionen kan du ladda upp en CSV-fil för att skapa B2B-gäst användare och skicka inbjudningar i bulk. Mer information finns i [självstudier för Mass inbjudan B2B-användare](tutorial-bulk-invite.md). |

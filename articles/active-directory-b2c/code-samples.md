@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b52bfc14906d8e47c804ae15ee898f6ca00784af
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8642f4284770df54704a4e7066054d3bb4640486
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503852"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545881"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C-kodexempel
 
@@ -68,15 +68,25 @@ Följande tabeller innehåller länkar till kod exempel för att använda webb-A
 | [Node.js](https://github.com/Azure-Samples/active-directory-nodejs-external-identities-api-connector-azure-function-validate)   | Det här Node.js Azure Function-exemplet visar hur du begränsar registreringen till vissa e-postdomäner och validerar information från användaren.  |
 | [Python](https://github.com/Azure-Samples/active-directory-python-external-identities-api-connector-azure-function-validate)    | Det här python Azure Function-exemplet visar hur du begränsar registreringen till vissa e-postdomäner och verifierar information från användaren.    |
 
-### <a name="identity-verification-with-api-connectors"></a>Identitets verifiering med API-kopplingar
+
+### <a name="automated-fraud-protection-services--captcha"></a>Automatiserat skydds tjänster för bedrägeri & CAPTCHA
+| Exempel                                                                                                            | Beskrivning                                                                                                                          |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| [Arkose Labs bedrägeri-och missbruks skydd](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose) | Det här exemplet visar hur du skyddar dina användar inloggningar med hjälp av Arkose Labs bedrägerier och missbruks skydds tjänst. |
+| [reCAPTCHA](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-captcha) | Det här exemplet visar hur du skyddar dina användar inloggningar med hjälp av en reCAPTCHA-utmaning för att förhindra automatiserat missbruk. |
+
+
+### <a name="identity-verification"></a>Identitets verifiering
 
 | Exempel                                                                                                            | Beskrivning                                                                                                                          |
 | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| [IDology](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-idology-identity-verification) | Det här exemplet visar hur du verifierar en användar identitet som en del av din självbetjänings registrering genom att använda en API-anslutning för att integrera med IDology. |
-| [Experian](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-experian-identity-verification) | Det här exemplet visar hur du verifierar en användar identitet som en del av din självbetjänings registrering genom att använda en API-anslutning för att integrera med Experian:. |
+| [IDology](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-idology-identity-verification) | Det här exemplet visar hur du verifierar en användar identitet som en del av dina registrerings flöden genom att använda en API-anslutning för att integrera med IDology. |
+| [Experian](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-experian-identity-verification) | Det här exemplet visar hur du verifierar en användar identitet som en del av dina registrerings flöden genom att använda en API-anslutning för att integrera med Experian:. |
 
-### <a name="community-samples"></a>Community-exempel
+
+### <a name="other"></a>Övrigt
 
 | Exempel                                                                                                            | Beskrivning                                                                                                                          |
 | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| [Inbjudnings kod](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-invitation-code) | Det här exemplet visar hur du begränsar registreringen till vissa mål grupper genom att använda Inbjudnings koder.|
 | [Community-exempel för API-anslutning](https://github.com/azure-ad-b2c/api-connector-samples) | Den här lagrings platsen innehåller Community-exempel för scenarier som har Aktiver ATS av API-kopplingar|

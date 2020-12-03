@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 11/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5a983931bd372931eacff2f7b21f3358f536046
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8a249102de6a5bff7354e339e604b7d2efebd4fb
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362934"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546225"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Aktivera externt B2B-samarbete och hantera vilka som kan bjuda in gäster
 
@@ -44,16 +44,19 @@ Som standard kan alla användare, inklusive gäster, bjuda in gäst användare.
 3. Välj **externa identiteter**  >  **externa samarbets inställningar**.
 
 4. Under **åtkomst begränsningar för gäst användare (för hands version)** väljer du den åtkomst nivå som du vill att gäst användare ska ha:
+  
+    ![Inställningar för åtkomst begränsningar för gäst användare](./media/delegate-invitations/guest-user-access.png)
 
    - **Gäst användare har samma åtkomst som medlemmar (oftast)**: det här alternativet ger gästerna samma åtkomst till Azure AD-resurser och katalog data som medlems användare.
 
    - **Gäst användare har begränsad åtkomst till egenskaper och medlemskap i katalog objekt**: (standard) den här inställningen blockerar gäster från vissa katalog aktiviteter, t. ex. att räkna upp användare, grupper eller andra katalog resurser. Gäster kan se medlemskap i alla grupper som inte är dolda.
 
    - **Åtkomst till gäst användare är begränsad till egenskaper och medlemskap i sina egna katalog objekt (mest restriktiva)**: med den här inställningen kan gästerna bara komma åt sina egna profiler. Gäster får inte Visa andra användares profiler, grupper eller grupp medlemskap.
-  
-    ![Inställningar för åtkomst begränsningar för gäst användare](./media/delegate-invitations/guest-user-access.png)
 
-5. Under **Inställningar för gäst inbjudan**väljer du lämpliga inställningar:
+
+5. Under **Inställningar för gäst inbjudan** väljer du lämpliga inställningar:
+
+    ![Inställningar för gäst inbjudning](./media/delegate-invitations/guest-invite-settings.png)
 
    - **Administratörer och användare i rollen gäst deltagare kan bjuda in**: om du vill tillåta administratörer och användare i rollen "gäst inbjudare" att bjuda in gäster, ställer du in den här principen på **Ja**.
 
@@ -61,17 +64,31 @@ Som standard kan alla användare, inklusive gäster, bjuda in gäst användare.
 
    - **Gäster kan bjuda in**: om du vill tillåta gäster att bjuda in andra gäster ställer du in den här principen på **Ja**.
 
-   - **Aktivera e-One-Time lösen ord för gäster (för hands version)**: Mer information om funktionen för eng ång slö sen ord finns i [e-mail Authentication eng ång slö sen ord (för hands version)](one-time-passcode.md).
-
-   - Aktivera självbetjäning för **gäst registrering via användar flöden (för hands version)**: Mer information om den här inställningen finns i [lägga till ett självbetjänings registrerings användar flöde i en app (för hands version)](self-service-sign-up-user-flow.md).
-
    > [!NOTE]
    > Om **medlemmar kan bjuda** in till **Nej** och **Administratörer och användare i rollen gäst deltagare kan bjuda** in till **Ja**, användare i **gäst Inbjudnings** rollen kommer fortfarande att kunna bjuda in gäster.
 
-    ![Inställningar för gäst inbjudning](./media/delegate-invitations/guest-invite-settings.png)
+6. Under **email eng ång slö sen ord för gäster** väljer du lämpliga inställningar (mer information finns i [e-postautentisering med eng ång slö sen ord](one-time-passcode.md)):
 
-6. Under **samarbets begränsningar**väljer du om du vill tillåta eller neka inbjudningar till de domäner som du anger. Mer information finns i [tillåta eller blockera inbjudningar till B2B-användare från vissa organisationer](allow-deny-list.md).
+   ![E-postinställningar för eng ång slö sen ord](./media/delegate-invitations/email-otp-settings.png)
 
+   - **Aktivera automatiskt e-postlösenord för gäster i mars 2021**. Objekt Om e-postfunktionen för eng ång slö sen ord inte redan är aktive rad för din klient, aktive ras den automatiskt den 1 mars 2021. Ingen ytterligare åtgärd krävs om du vill att funktionen ska vara aktive rad vid den tiden. Om du redan har aktiverat eller inaktiverat funktionen kommer det här alternativet att vara otillgängligt.
+
+   - **Aktivera e-post med eng ång slö sen ord för gäster gällande nu**. Aktiverar funktionen email eng ång slö sen ord för din klient.
+
+   - **Inaktivera e-post med eng ång slö sen ord för gäster**. Inaktiverar funktionen för eng ång slö sen ord för din klient och förhindrar att funktionen aktive ras i mars 2021.
+
+   > [!NOTE]
+   > I stället för alternativen ovan ser du följande växling om du har aktiverat eller inaktiverat den här funktionen eller om du tidigare har valt att förhandsgranska:
+   >
+   >![Aktivera e-post för eng ång slö sen ord](media/delegate-invitations/enable-email-otp-opted-in.png)
+
+7. Under **Aktivera självbetjäning för gäst registrering via användar flöden (förhands granskning)** väljer du **Ja** om du vill kunna skapa användar flöden som gör det möjligt för användarna att registrera sig för appar. Mer information om den här inställningen finns i [lägga till ett självbetjänings registrerings användar flöde i en app (för hands version)](self-service-sign-up-user-flow.md).
+
+    ![Inställning för självbetjänings registrering via användar flöden](./media/delegate-invitations/self-service-sign-up-setting.png)
+
+7. Under **samarbets begränsningar** väljer du om du vill tillåta eller neka inbjudningar till de domäner som du anger. Mer information finns i [tillåta eller blockera inbjudningar till B2B-användare från vissa organisationer](allow-deny-list.md).
+
+    ![Inställningar för samarbets begränsningar](./media/delegate-invitations/collaboration-restrictions.png)
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Tilldela rollen för rollen gäst deltagare till en användare
 
 Med rollen gäst deltagare kan du ge enskilda användare möjlighet att bjuda in gäster utan att tilldela dem en global administratör eller någon annan administratörs roll. Tilldela rollen för rollen gäst deltagare till enskilda användare. Kontrol lera sedan att du anger **Administratörer och användare i rollen gäst deltagare kan bjuda in** till **Ja**.

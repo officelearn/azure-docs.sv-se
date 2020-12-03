@@ -12,20 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 12/01/2020
 ms.author: barclayn
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f899a6c1b4f359f7e8d6e1e05389aa697b4f1bd7
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 247b3c1b4341eff11069a6af324fff5cf1fba62c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359705"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546598"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Självstudier: Använda en användartilldelad hanterad identitet på en virtuell Linux-dator för att få åtkomst till Azure Resource Manager
-
-[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Den här självstudien beskriver hur du skapar en användartilldelad hanterad identitet, hur du tilldelar den till en virtuell Linux-dator (VM) och hur du sedan använder identiteten för att få åtkomst till Azure Resource Manager-API:et. Hanterade identiteter för Azure-resurser hanteras automatiskt av Azure. Det gör det möjligt att autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver bädda in autentiseringsuppgifter i din kod. 
 
@@ -37,7 +35,7 @@ I den här guiden får du lära dig att:
 > * Ge den användartilldelade hanterade identiteten åtkomst till en resursgrupp i Azure Resource Manager 
 > * Hämta en åtkomsttoken med hjälp av den användartilldelade hanterade identiteten och använd den för att anropa Azure Resource Manager 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Förståelse för hanterade identiteter. Om du inte känner till funktionen för hanterade identiteter för Azure-resurser kan du läsa igenom den här [översikten](overview.md). 
 - Ett Azure-konto kan du [Registrera dig för ett kostnads fritt konto](https://azure.microsoft.com/free/).

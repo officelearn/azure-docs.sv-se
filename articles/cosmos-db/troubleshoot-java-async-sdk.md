@@ -10,12 +10,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 4ec2deaf3149e174cce201d0bbad8a55d156d30f
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: b39a74bd06f942cf21d201c8cef48bc6dfc57d46
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95998351"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548094"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Felsöka problem när du använder Azure Cosmos DB asynkron Java SDK v2 med SQL API-konton
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "95998351"
 > 
 
 > [!IMPORTANT]
-> Detta är *inte* den senaste Java SDK: n för Azure Cosmos DB! Du bör uppgradera projektet till [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) och sedan läsa [fel söknings guiden](troubleshoot-java-sdk-v4-sql.md)för Azure Cosmos DB Java SDK v4. Följ anvisningarna i guiden [migrera till Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) -guide och [reaktor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) för att uppgradera. 
+> Detta är *inte* den senaste Java SDK: n för Azure Cosmos DB! Du bör uppgradera projektet till [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) och sedan läsa [fel söknings guiden](troubleshoot-java-sdk-v4-sql.md)för Azure Cosmos DB Java SDK v4. Följ anvisningarna i guiden [migrera till Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) -guide och [reaktor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) för att uppgradera. 
 >
 > Den här artikeln beskriver fel sökning för Azure Cosmos DB asynkron Java SDK v2. Mer information finns i avsnittet Azure Cosmos DB async Java SDK v2, [versions anmärkningar](sql-api-sdk-async-java.md), [maven-lagringsplats](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) och [prestanda tips](performance-tips-async-java.md) .
 >

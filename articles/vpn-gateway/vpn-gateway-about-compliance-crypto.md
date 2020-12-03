@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: a77ee3c4301d278f98b571402514663dcfc9ca52
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 47d14c5ee7f6c4816bf15351e9cb28a2aaa72b4c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657932"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546853"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Om kryptografiska krav och Azure VPN-gatewayer
 
@@ -29,6 +29,8 @@ När IKEv1-och IKEv2-anslutningar används på samma VPN-gateway, är överföri
 ## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Om IPsec-och IKE-principinställningar för Azure VPN-gatewayer
 
 IPsec-och IKE-protokoll standarden stöder en mängd olika krypteringsalgoritmer i olika kombinationer. Om du inte begär en speciell kombination av krypteringsalgoritmer och parametrar, använder Azure VPN-gatewayer en uppsättning standard förslag. Standard princip uppsättningarna valdes för att maximera samverkan med en mängd olika VPN-enheter från tredje part i standardkonfigurationerna. Därför kan principerna och antalet förslag inte avse alla möjliga kombinationer av tillgängliga krypteringsalgoritmer och viktiga styrkor.
+
+### <a name="default-policy"></a>Standard princip
 
 Standard principen som har angetts för Azure VPN-gatewayen visas i artikeln: [om VPN-enheter och IPSec/IKE-parametrar för plats-till-plats-VPN gateway-anslutningar](vpn-gateway-about-vpn-devices.md).
 

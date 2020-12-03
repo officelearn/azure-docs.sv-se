@@ -4,48 +4,44 @@ description: Felsök webbtester i Azure Application insikter. Få aviseringar om
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 04/28/2020
+ms.date: 11/19/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 0ac8dd189bee1c1d4f5a7a4d0f7de68b085fbc56
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 368c45433247c441631bdf79bfc9caa28a41f1b4
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015340"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546764"
 ---
 # <a name="troubleshooting"></a>Felsökning
 
 Den här artikeln hjälper dig att felsöka vanliga problem som kan uppstå när du använder tillgänglighets övervakning.
 
-## <a name="ssltls-errors"></a>SSL/TLS-fel
+## <a name="troubleshooting-report-steps-for-ping-tests"></a>Felsöka rapport steg för ping-test
 
-|Symtom/fel meddelande| Möjliga orsaker|
-|--------|------|
-|Det gick inte att skapa säker kanal för SSL/TLS  | SSL-version. Endast TLS 1,0, 1,1 och 1,2 stöds. **SSLv3 stöds inte.**
-|TLSv 1.2-post lager: varning (nivå: allvarligt, beskrivning: felaktig post MAC)| [Mer information](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake)finns i stackexchange-tråden.
-|URL: en som inte fungerar är till ett CDN (Content Delivery Network) | Detta kan bero på en felaktig konfiguration i CDN |  
+Med fel söknings rapporten kan du enkelt diagnostisera vanliga problem som gör att **ping-testerna** inte fungerar.
 
-### <a name="possible-workaround"></a>Möjlig lösning
+![Animering av navigering från fliken tillgänglighet genom att välja ett fel i transaktions information från slut punkt till slut punkt för att visa fel söknings rapporten](./media/troubleshoot-availability/availability-to-troubleshooter.gif)
 
-* Om de webb adresser som upplever problemet alltid är beroende av resurser, rekommenderar vi att du inaktiverar **parsa beroende begär Anden** för webb testet.
-
-## <a name="test-fails-only-from-certain-locations"></a>Testet Miss lyckas endast från vissa platser
-
-|Symtom/fel meddelande| Möjliga orsaker|
-|----|---------|
-|Ett anslutnings försök misslyckades på grund av att den anslutna parten inte svarade korrekt efter en tids period  | Test agenter på vissa platser blockeras av en brand vägg.|
-|    |Omdirigering av vissa IP-adresser sker via (belastnings utjämning, geo Traffic Manager, Azure Express Route.) 
-|    |Om du använder Azure ExpressRoute finns det scenarier där paket kan släppas i fall där [asymmetrisk routning sker](../../expressroute/expressroute-asymmetric-routing.md).|
-
-## <a name="test-failure-with-a-protocol-violation-error"></a>Test fel med ett protokoll fel
-
-|Symtom/fel meddelande| Möjliga orsaker| Möjliga lösningar |
-|----|---------|-----|
-|Servern genomförde ett protokoll fel. Section = ResponseHeader detail = CR måste följas av LF | Detta inträffar när felaktiga rubriker identifieras. Mer specifikt kanske vissa huvuden inte använder CRLF för att ange slutet på raden, vilket strider mot HTTP-specifikationen. Application Insights tillämpar den här HTTP-specifikationen och Miss lyckas svar med felaktiga huvuden.| a. Kontakta värd leverantören för webbplatsen/CDN-providern för att åtgärda de felande servrarna. <br> b. Om de misslyckade förfrågningarna är resurser (t. ex. formatfiler, bilder, skript) kan du överväga att inaktivera parsningen av beroende begär Anden. Tänk på att om du gör detta kommer du att förlora möjligheten att övervaka tillgängligheten för dessa filer.
+1. På fliken tillgänglighet i Application Insights resurs väljer du övergripande eller ett av tillgänglighets testen.
+2. Välj antingen **misslyckades** sedan ett test under "öka i" till vänster eller Välj en av punkterna i spridnings området.
+3. På sidan transaktions information från slut punkt till slut punkt väljer du en händelse. under "fel sökning rapport Sammanfattning" väljer **du [gå till steg]** för att se fel söknings rapporten.
 
 > [!NOTE]
-> URL: en kan inte Miss lyckas i webbläsare som har en avslappnad verifiering av HTTP-huvuden. I det här blogginlägget finns en detaljerad förklaring av felet: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+>  Om det här steget återanvändas måste du använda DNS-matchning, anslutnings etablering och TLS-transport.
 
+|Steg | Felmeddelande | Möjlig orsak |
+|-----|---------------|----------------|
+| Återanvända anslutningar | saknas | Detta är vanligt vis beroende av en tidigare upprättad anslutning, vilket innebär att webb test steget är beroende av. Därför krävs ingen DNS-, anslutnings-eller SSL-åtgärd. |
+| DNS-upplösning | Fjärrnamnet kunde inte matchas: "din URL" | DNS-matchnings processen misslyckades, förmodligen på grund av felkonfigurerade DNS-poster eller temporära DNS-serverfel. |
+| Anslutnings etablering | Ett anslutnings försök misslyckades på grund av att den anslutna parten inte svarade korrekt efter en viss tids period. | I allmänhet innebär det att servern inte svarar på HTTP-begäran. En vanlig orsak är att våra test agenter blockeras av en brand vägg på servern. Om du vill testa i ett Azure-Virtual Network bör du lägga till taggen tillgänglighets tjänst i din miljö.|
+| TLS-transport  | Klienten och servern kan inte kommunicera eftersom de inte har någon gemensam algoritm.| Endast TLS 1,0, 1,1 och 1,2 stöds. SSL stöds inte. Det här steget validerar inte SSL-certifikat och upprättar bara en säker anslutning. Detta steg visas bara när ett fel uppstår. |
+| Tar emot svars huvud | Det gick inte att läsa data från transport anslutningen. Anslutningen stängdes. | Servern allokerade ett protokoll fel i svars huvudet. Till exempel är anslutningen stängd av servern när svaret inte är fullständigt. |
+| Tar emot svars text | Det gick inte att läsa data från transport anslutningen: anslutningen stängdes. | Servern allokerade ett protokoll fel i svars texten. Till exempel om anslutningen stängs av servern när svaret inte är fullständigt läst eller om segment storleken är fel i segmentets svars text. |
+| Verifiering av begränsning av omdirigering | Den här webb sidan har för många omdirigeringar. Den här slingan avbryts här eftersom begäran överskred gränsen för automatisk omdirigering. | Det finns en gräns på 10 omdirigeringar per test. |
+| Verifiering av status kod | `200 - OK` matchar inte den förväntade statusen `400 - BadRequest` . | Den returnerade status koden som räknas som lyckad. 200 är koden som anger att en normal webbsida har returnerats. |
+| Innehålls validering | Den obligatoriska texten Hello visades inte i svaret. | Strängen är inte en exakt Skift läges känslig matchning i svaret, till exempel strängen "Välkommen!". Det måste vara en vanlig sträng, utan jokertecken (till exempel en asterisk). Om du ändrar sid innehållet kan du behöva uppdatera strängen. Endast engelska tecken stöds med innehålls matchning. |
+  
 ## <a name="common-troubleshooting-questions"></a>Vanliga fel söknings frågor
 
 ### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>Webbplatsen ser bra ut men testet är felaktigt? Varför är Application Insights Avisera mig?
@@ -54,7 +50,7 @@ Den här artikeln hjälper dig att felsöka vanliga problem som kan uppstå när
 
    * För att minska strider av brus från tillfälliga nätverks signaler osv. kontrol lera att aktivera återförsök för konfiguration av test Miss lyckas. Du kan också testa från fler platser och hantera tröskelvärdet för varnings regeln för att förhindra att platsspecifika problem orsakar onödiga aviseringar.
 
-   * Klicka på någon av de röda punkterna från tillgänglighets upplevelsen eller eventuella tillgänglighets problem från Sök Utforskaren för att se information om varför vi rapporterade problemet. Test resultatet, tillsammans med den korrelerade Telemetrin på Server sidan (om det är aktiverat) bör hjälpa till att förstå varför testet misslyckades. Vanliga orsaker till tillfälliga problem är nätverks-eller anslutnings problem.
+   * Klicka på någon av de röda punkterna i upplevelsen för tillgänglighets punkts ritningen eller eventuella tillgänglighets problem från Sök Utforskaren för att se information om varför vi rapporterade problemet. Test resultatet, tillsammans med den korrelerade Telemetrin på Server sidan (om det är aktiverat) bör hjälpa till att förstå varför testet misslyckades. Vanliga orsaker till tillfälliga problem är nätverks-eller anslutnings problem.
 
    * Gjorde tids gränsen för testet? Vi avbryter tester efter 2 minuter. Om ditt ping-eller multi-Step-Test tar längre tid än två minuter rapporterar vi det som ett haveri. Överväg att bryta testet till flera som kan slutföras inom kortare varaktighet.
 
@@ -134,4 +130,3 @@ Använd aviseringarna nya aviseringar/nästan-real tid om du behöver meddela an
 
 * [Webb testning med flera steg](availability-multistep.md)
 * [Ping-test för URL](monitor-web-app-availability.md)
-

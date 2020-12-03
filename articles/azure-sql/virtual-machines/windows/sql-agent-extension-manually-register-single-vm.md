@@ -14,12 +14,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c82ea3328938b42a26df03c7e83776e1a1a69b20
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 48c996b6c7d0024b256908565c57032fe3e18514
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557802"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545646"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Registrera SQL Server VM med SQL IaaS agent-tillägg
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +40,7 @@ Om du vill använda SQL IaaS agent-tillägget måste du först [Registrera din p
 > [!IMPORTANT]
 > SQL IaaS agent-tillägget samlar in data i Express syfte att ge kunderna valfria förmåner när de använder SQL Server i Azure Virtual Machines. Microsoft kommer inte att använda dessa data för licens granskningar utan kundens medgivande. Se [SQL Server sekretess tillägg](/sql/sql-server/sql-server-privacy#non-personal-data) för mer information.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill registrera SQL Server VM med tillägget måste du: 
 
@@ -53,13 +53,13 @@ Om du vill registrera SQL Server VM med tillägget måste du:
 
 Om du vill registrera SQL Server VM med agent tillägget för SQL-IaaS måste du först registrera din prenumeration med **Microsoft. SqlVirtualMachine** -providern. Detta ger SQL IaaS agent-tillägget möjlighet att skapa resurser i din prenumeration.  Du kan göra detta med hjälp av Azure Portal, Azure CLI eller Azure PowerShell.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 1. Öppna Azure Portal och gå till **alla tjänster**. 
 1. Gå till **prenumerationer** och välj en prenumeration på intresse.  
 1. På sidan **prenumerationer** går du till **tillägg**. 
 1. Ange **SQL** i filtret för att ta fram de SQL-relaterade tilläggen. 
-1. Välj **Registrera** , **Registrera** om eller **avregistrera** för  **Microsoft. SqlVirtualMachine** -providern, beroende på vilken åtgärd du önskar. 
+1. Välj **Registrera**, **Registrera** om eller **avregistrera** för  **Microsoft. SqlVirtualMachine** -providern, beroende på vilken åtgärd du önskar. 
 
    ![Ändra providern](./media/sql-agent-extension-manually-register-single-vm/select-resource-provider-sql.png)
 
@@ -104,7 +104,7 @@ Registrera en SQL Server VM i lättviktigt läge med Azure CLI:
 
   ```azurecli-interactive
   # Register Enterprise or Standard self-installed VM in Lightweight mode
-  az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type PAYG 
+  az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type <license_type> 
   ```
 
 
@@ -119,7 +119,7 @@ Registrera en SQL Server VM i Lightweight-läge med Azure PowerShell:
           
   # Register SQL VM with 'Lightweight' SQL IaaS agent
   New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-    -LicenseType PAYG -SqlManagementType LightWeight  
+    -LicenseType <license_type>  -SqlManagementType LightWeight  
   ```
 
 ---
@@ -140,7 +140,7 @@ Om du vill registrera din SQL Server VM direkt i fullständigt läge (och eventu
 
 ### <a name="noagent-management-mode"></a>Hanterings läge för noagent 
 
-SQL Server 2008 och 2008 R2 som är installerade på Windows Server 2008 ( _inte R2_ ) kan registreras med SQL IaaS agent-tillägget i [läget noagent](sql-server-iaas-agent-extension-automate-management.md#management-modes). Det här alternativet säkerställer efterlevnad och tillåter att SQL Server VM övervakas i Azure Portal med begränsad funktionalitet.
+SQL Server 2008 och 2008 R2 som är installerade på Windows Server 2008 (_inte R2_) kan registreras med SQL IaaS agent-tillägget i [läget noagent](sql-server-iaas-agent-extension-automate-management.md#management-modes). Det här alternativet säkerställer efterlevnad och tillåter att SQL Server VM övervakas i Azure Portal med begränsad funktionalitet.
 
 
 För **licens typen** anger du antingen: `AHUB` , `PAYG` eller `DR` . För **avbildnings erbjudandet** anger du antingen `SQL2008-WS2008` eller `SQL2008R2-WS2008`
@@ -189,7 +189,7 @@ $sqlvm.SqlManagementType
 SQL Server virtuella datorer som har registrerat tillägget i *lättviktigt* läge kan uppgradera till _full_ användning med Azure Portal, Azure CLI eller Azure PowerShell. SQL Server virtuella datorer i _Noagent_ -läge kan uppgraderas till _full_ efter att operativ systemet har uppgraderats till Windows 2008 R2 och senare. Det går inte att nedgradera – om du vill göra det måste du [avregistrera](#unregister-from-extension) SQL Server VM från SQL IaaS agent-tillägget. Om du gör det tas den **virtuella SQL-datorns** _resurs_ bort, men den faktiska virtuella datorn tas inte bort. 
 
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Följ dessa steg om du vill uppgradera tillägget till fullständigt läge med Azure Portal: 
 
@@ -232,7 +232,7 @@ Om du vill uppgradera tillägget till fullständigt läge kör du följande Azur
 ## <a name="verify-registration-status"></a>Verifiera registrerings status
 Du kan kontrol lera om din SQL Server VM redan har registrerats med tillägget för SQL IaaS-agenten med hjälp av Azure Portal, Azure CLI eller Azure PowerShell. 
 
-### <a name="azure-portal"></a>Azure-portalen 
+### <a name="azure-portal"></a>Azure Portal 
 
 Följ dessa steg om du vill kontrol lera registrerings statusen med hjälp av Azure Portal: 
 
@@ -274,7 +274,7 @@ Om du vill avregistrera SQL Server VM med agent tillägget för SQL IaaS tar du 
 
 Att avregistrera den virtuella SQL-datorn med agent tillägget för SQL IaaS krävs för att nedgradera hanterings läget från full. 
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Följ dessa steg om du vill avregistrera SQL Server VM från tillägget med hjälp av Azure Portal:
 
@@ -294,7 +294,7 @@ Följ dessa steg om du vill avregistrera SQL Server VM från tillägget med hjä
    >[!WARNING]
    > Om du inte avmarkerar kryss rutan bredvid namnet på den virtuella datorn tas den virtuella datorn *bort* helt. Avmarkera kryss rutan för att avregistrera SQL Server VM från tillägget, men *Ta inte bort den faktiska virtuella datorn*. 
 
-1. Välj **ta bort** för att bekräfta borttagningen av den virtuella SQL-datorns *resurs* , inte SQL Server VM. 
+1. Välj **ta bort** för att bekräfta borttagningen av den virtuella SQL-datorns *resurs*, inte SQL Server VM. 
 
 ### <a name="command-line"></a>Kommandorad
 

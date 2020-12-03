@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b33524acd09cbf565127dc81ef2b5bfa16b4504d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 6bbf87689b577eda7de491744156e63eaa3b440c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339775"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546887"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migrera ditt program till att använda Azure Cosmos DB Java SDK v4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -46,9 +46,9 @@ Följande är viktiga implementerings skillnader mellan olika SDK: er:
 
 ### <a name="rxjava-is-replaced-with-reactor-in-azure-cosmos-db-java-sdk-versions-3xx-and-40"></a>RxJava ersätts med reaktor i Azure Cosmos DB Java SDK-versioner 3. x och 4,0
 
-Om du inte känner till asynkron programmering eller reaktiv programmering kan du läsa mer i [reaktor mönster guiden](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) för att få en introduktion till asynkron programmering och projekt reaktorer. Den här guiden kan vara användbar om du har använt Azure Cosmos DB Sync Java SDK 2. x eller Azure Cosmos DB Java SDK 3. x. x Sync API tidigare.
+Om du inte känner till asynkron programmering eller reaktiv programmering kan du läsa mer i [reaktor mönster guiden](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md) för att få en introduktion till asynkron programmering och projekt reaktorer. Den här guiden kan vara användbar om du har använt Azure Cosmos DB Sync Java SDK 2. x eller Azure Cosmos DB Java SDK 3. x. x Sync API tidigare.
 
-Om du har använt Azure Cosmos DB async Java SDK 2. x, och du planerar att migrera till 4,0 SDK, kan du läsa mer i [reaktor vs RxJava-guiden](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) för att få hjälp med att konvertera RxJava-kod till reaktor.
+Om du har använt Azure Cosmos DB async Java SDK 2. x, och du planerar att migrera till 4,0 SDK, kan du läsa mer i [reaktor vs RxJava-guiden](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) för att få hjälp med att konvertera RxJava-kod till reaktor.
 
 ### <a name="azure-cosmos-db-java-sdk-v4-has-direct-connectivity-mode-in-both-async-and-sync-apis"></a>Azure Cosmos DB Java SDK v4 har direkt anslutnings läge i både asynkrona och synkroniserade API: er
 
@@ -66,9 +66,9 @@ Följande är API-nivå ändringar i Azure Cosmos DB Java SDK 4. x. x jämfört 
 
   * **Java SDK 4,0** : alla klasser tillhör Sync-API om inte klass namnet läggs till med `Async` efter `Cosmos` .
 
-  * **Java SDK 3. x** : alla klasser tillhör det asynkrona API: et om inte klass namnet läggs till med `Async` efter `Cosmos` .
+  * **Java SDK 3. x**: alla klasser tillhör det asynkrona API: et om inte klass namnet läggs till med `Async` efter `Cosmos` .
 
-  * **Asynkron Java SDK 2. x** : klass namn liknar synkronisering Java SDK 2. x. x, men namnet börjar med *async*.
+  * **Asynkron Java SDK 2. x**: klass namn liknar synkronisering Java SDK 2. x. x, men namnet börjar med *async*.
 
 ### <a name="hierarchical-api-structure"></a>Hierarkisk API-struktur
 
@@ -376,5 +376,5 @@ SalesOrder salesOrder = new SalesOrder(
 ## <a name="next-steps"></a>Nästa steg
 
 * [Bygg en Java-app](create-sql-api-java.md) för att hantera Azure Cosmos DB SQL API-data med v4 SDK
-* Lär dig mer om de [reaktorbaserade Java SDK: erna](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md)
-* Lär dig mer om att konvertera RxJava async Code till reaktor asynkron kod med [reaktor vs RxJava-guiden](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md)
+* Lär dig mer om de [reaktorbaserade Java SDK: erna](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md)
+* Lär dig mer om att konvertera RxJava async Code till reaktor asynkron kod med [reaktor vs RxJava-guiden](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md)

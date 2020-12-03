@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6e50fe1f5b1658458a2d561f8157f04d1cbceb41
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 6cf0e77657175449b126eeca02a12c164478e568
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341256"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548077"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Mass import av data till Azure Cosmos DB SQL API-konto med hjälp av .NET SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,7 +30,7 @@ Den här självstudiekursen omfattar:
 > * Ansluta till ett Azure Cosmos-konto med Mass stöd aktiverat
 > * Utföra en data import via samtidiga skapande åtgärder
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Se till att du har följande resurser innan du följer anvisningarna i den här artikeln:
 
@@ -84,7 +84,7 @@ När du fortfarande är i program katalogen installerar du Azure Cosmos DB klien
 
 Exempel programmet måste autentisera till ditt Azure Cosmos-konto. För att autentisera bör du skicka autentiseringsuppgifter för Azure Cosmos-kontot till programmet. Hämta dina autentiseringsuppgifter för Azure Cosmos-kontot genom att följa dessa steg:
 
-1.  Logga in i [Azure-portalen](https://portal.azure.com/).
+1.  Logga in på [Azure-portalen](https://portal.azure.com/).
 1.  Navigera till ditt Azure Cosmos-konto.
 1.  Öppna rutan **nycklar** och kopiera **URI: n** och **primär nyckeln** för ditt konto.
 
@@ -175,7 +175,7 @@ För att kunna köra exemplet kan du göra det helt enkelt med `dotnet` kommando
 
 Om du inte har tid att slutföra stegen i den här självstudien eller bara vill ladda ned kodexemplen kan du hämta den från [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer).
 
-När du har klonat projektet, se till att uppdatera önskade autentiseringsuppgifter i [program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/master/src/Program.cs#L25).
+När du har klonat projektet, se till att uppdatera önskade autentiseringsuppgifter i [program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/main/src/Program.cs#L25).
 
 Exemplet kan köras genom att byta till databas katalogen och använda `dotnet` :
 

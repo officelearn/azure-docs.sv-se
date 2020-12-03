@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: c67d4dbb68048d273b1f9acd83a8460447e5abe4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2920aad07ac54a19962f552debb8cfa809e17294
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748911"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558359"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Skapa en app med flera containrar (förhandsversion) med hjälp av en Docker Compose-konfiguration
 
@@ -21,13 +21,13 @@ ms.locfileid: "92748911"
 
 Med [Web App for Containers](overview.md#app-service-on-linux) får du ett flexibelt sätt att använda Docker-avbildningar. Den här snabb starten visar hur du distribuerar en app med flera behållare (för hands version) till Web App for Containers i [Cloud Shell](../cloud-shell/overview.md) med hjälp av en Docker-konfiguration.
 
-Du genomför den här snabbstarten i Cloud Shell, men du kan även köra de här kommandona lokalt med [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 eller senare). 
-
 ![Exempelapp med flera behållare i Web App for Containers][1]
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+Den här artikeln kräver version 2.0.32 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="download-the-sample"></a>Ladda ned exemplet
 
@@ -55,7 +55,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-I Cloud Shell skapar du en resurs grupp med [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) kommandot. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *South Central US* (USA, södra centrala). Om du vill se alla platser som stöds för App Service på Linux på **Standard** -nivån kör du kommandot [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
+I Cloud Shell skapar du en resurs grupp med [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) kommandot. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *South Central US* (USA, södra centrala). Om du vill se alla platser som stöds för App Service på Linux på **Standard**-nivån kör du kommandot [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"

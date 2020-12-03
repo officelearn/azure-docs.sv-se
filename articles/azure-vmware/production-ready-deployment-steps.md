@@ -3,12 +3,12 @@ title: Planera distributionen av Azure VMware-lösningen
 description: Den här artikeln beskriver ett arbets flöde för distribution av Azure VMware-lösningar.  Det slutliga resultatet är en miljö som är redo för generering och migrering av virtuella datorer (VM).
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 1ef83a568e41fe99f1e8e385a599de9c5ab7c0ca
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1d1deebd56717c63a745500198eb8df9e3687b49
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95529741"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558699"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planera distributionen av Azure VMware-lösningen
 
@@ -25,7 +25,7 @@ Processerna för den här snabb starten leder till en produktions klar miljö f�
 Identifiera den prenumeration som du planerar att använda för att distribuera Azure VMware-lösningen.  Du kan antingen skapa en ny prenumeration eller återanvända en befintlig.
 
 >[!NOTE]
->Prenumerationen måste vara kopplad till en Microsoft Enterprise-avtal.
+>Prenumerationen måste vara kopplad till en Microsoft Enterprise-avtal eller en Azure-leverantör av moln lösnings leverantörer. Mer information finns i [så här aktiverar du Azure VMware-lösnings resurser](enable-azure-vmware-solution.md).
 
 ## <a name="resource-group"></a>Resursgrupp
 

@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: Azure App Service, webbapp, Linux, Windows, Docker, container
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: b5682275a9e5f3993de715ab5f23a708d5df47ae
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 68fe49ff201ead89d846a0676e81dda9fc9b75b9
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130127"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558614"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrera anpassad program vara till Azure App Service med en anpassad behållare
 
@@ -22,7 +22,7 @@ ms.locfileid: "93130127"
 
 ![Visar den webbapp som körs i en Windows-behållare.](media/tutorial-custom-container/app-running.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -30,8 +30,8 @@ För att slutföra den här kursen behöver du:
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Installera Docker för Windows</a>.
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Växla Docker för att köra Windows-containrar</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Installera Visual Studio 2019</a> med arbets belastningarna **ASP.net och webb utveckling** och **Azure Development** . Om du redan har installerat Visual Studio 2019:
-    - Installera de senaste uppdateringarna i Visual Studio genom att klicka på **Hjälp**  >  **söka efter uppdateringar** .
-    - Lägg till arbets belastningarna i Visual Studio genom att klicka på **verktyg**  >  **Hämta verktyg och funktioner** .
+    - Installera de senaste uppdateringarna i Visual Studio genom att klicka på **Hjälp**  >  **söka efter uppdateringar**.
+    - Lägg till arbets belastningarna i Visual Studio genom att klicka på **verktyg**  >  **Hämta verktyg och funktioner**.
 
 ## <a name="set-up-the-app-locally"></a>Konfigurera appen lokalt
 
@@ -40,13 +40,13 @@ För att slutföra den här kursen behöver du:
 I det här steget konfigurerar du det lokala .NET-projektet.
 
 - [Ladda ned exempelprojektet](https://github.com/Azure-Samples/custom-font-win-container/archive/master.zip).
-- Extrahera (packa upp) filen *custom-font-win-container.zip* .
+- Extrahera (packa upp) filen *custom-font-win-container.zip*.
 
 Exempelprojektet innehåller ett enkelt ASP.NET-program som använder ett anpassat teckensnitt som installeras i Windows-teckensnittsbiblioteket. Det är inte nödvändigt att installera teckensnitt, men det är ett exempel på en app som är integrerad med det underliggande operativsystemet. För att migrera den här typen av app till App Service måste du antingen omorganisera din kod för att ta bort integrationen eller migrera den som den är i en anpassad Windows-container.
 
 ### <a name="install-the-font"></a>Installera teckensnittet
 
-I Utforskaren navigerar du till _custom-font-win-container-master/CustomFontSample_ , högerklickar på _FrederickatheGreat-Regular.ttf_ och väljer **Installera** .
+I Utforskaren navigerar du till _custom-font-win-container-master/CustomFontSample_, högerklickar på _FrederickatheGreat-Regular.ttf_ och väljer **Installera**.
 
 Det här teckensnittet är offentligt tillgängligt från [Google Fonts](https://fonts.google.com/specimen/Fredericka+the+Great).
 
@@ -64,13 +64,13 @@ Eftersom den använder ett installerat teckensnitt kan inte appen köras i sandb
 
 I Solution Explorer högerklickar du på projektet **CustomFontSample** och väljer **Lägg till** > **Container Orchestration Support** (Stöd för containerorkestrering).
 
-:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Skärm bild som visar appen som visas i standard webbläsaren.":::
+:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Skärm bild av fönstret Solution Explorer som visar CustomFontSample-projekt, Lägg till och behållare Orchestrator-support meny alternativ som valts.":::
 
-Välj **Docker Skriv**  >  **OK** .
+Välj **Docker Skriv**  >  **OK**.
 
-Nu har projektet konfigurerats för att köra i en Windows-container. En _Dockerfile_ läggs till i **CustomFontSample** -projektet och ett **docker-compose** -projekt läggs till i lösningen. 
+Nu har projektet konfigurerats för att köra i en Windows-container. En _Dockerfile_ läggs till i **CustomFontSample**-projektet och ett **docker-compose**-projekt läggs till i lösningen. 
 
-Från Solution Explorer öppnar du **Dockerfile** .
+Från Solution Explorer öppnar du **Dockerfile**.
 
 Du måste använda en [överordnad avbildning som stöds](configure-custom-container.md#supported-parent-images). Ändra den överordnade avbildningen genom att ersätta raden `FROM` med följande kod:
 
@@ -84,7 +84,7 @@ Lägg till följande rad i slutet av filen och spara filen:
 RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 ```
 
-Du hittar _InstallFont.ps1_ i projektet **CustomFontSample** . Det är ett enkelt skript som installerar teckensnittet. Du hittar en mer komplex version av skriptet i [Skriptcenter](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133).
+Du hittar _InstallFont.ps1_ i projektet **CustomFontSample**. Det är ett enkelt skript som installerar teckensnittet. Du hittar en mer komplex version av skriptet i [Skriptcenter](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133).
 
 > [!NOTE]
 > För att testa Windows-behållaren lokalt, se till att Docker är igång på den lokala datorn.
@@ -96,15 +96,15 @@ Du hittar _InstallFont.ps1_ i projektet **CustomFontSample** . Det är ett enkel
 
 ### <a name="open-publish-wizard"></a>Öppna publiceringsguiden
 
-I Solution Explorer högerklickar du på projektet **CustomFontSample** och väljer **Publicera** .
+I Solution Explorer högerklickar du på projektet **CustomFontSample** och väljer **Publicera**.
 
-:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Skärm bild som visar appen som visas i standard webbläsaren.":::
+:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Skärm bild av Solution Explorer som visar CustomFontSample-projektet och publicera valt.":::
 
 ### <a name="create-registry-and-publish"></a>Skapa register och publicera
 
-I guiden publicera väljer du **container Registry**  >  **Skapa ny Azure Container Registry**  >  **publicera** .
+I guiden publicera väljer du **container Registry**  >  **Skapa ny Azure Container Registry**  >  **publicera**.
 
-:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Skärm bild som visar appen som visas i standard webbläsaren.":::
+:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Skärm bild av publicerings guiden som visar Container Registry, skapar nya Azure Container Registry och knappen publicera har valts.":::
 
 ### <a name="sign-in-with-azure-account"></a>Logga in med Azure-konto
 
@@ -119,8 +119,8 @@ Konfigurera det nya containerregistret baserat på de föreslagna värdena i tab
 | Inställning  | Föreslaget värde | Mer information |
 | ----------------- | ------------ | ----|
 |**DNS-prefix**| Behåll det genererade registernamnet eller ändra det till ett annat unikt namn. |  |
-|**Resursgrupp**| Klicka på **Nytt** , skriv **myResourceGroup** och klicka på **OK** . |  |
-|**SKU**| Basic | [Prisnivåer](https://azure.microsoft.com/pricing/details/container-registry/)|
+|**Resursgrupp**| Klicka på **Nytt**, skriv **myResourceGroup** och klicka på **OK**. |  |
+|**SKU**| Grundläggande | [Prisnivåer](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Registerplats**| Europa, västra | |
 
 ![Konfigurera Azure-containerregister](./media/tutorial-custom-container/configure-registry.png)
@@ -133,21 +133,21 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
 
-På den vänstra menyn väljer du **skapa en resurs**  >  **webb**  >  **Web App for containers** .
+På den vänstra menyn väljer du **skapa en resurs**  >  **webb**  >  **Web App for containers**.
 
 ### <a name="configure-app-basics"></a>Konfigurera grundläggande program
 
-På fliken **grundläggande** inställningar konfigurerar du inställningarna enligt följande tabell och klickar sedan på **Nästa: Docker** .
+På fliken **grundläggande** inställningar konfigurerar du inställningarna enligt följande tabell och klickar sedan på **Nästa: Docker**.
 
 | Inställning  | Föreslaget värde | Mer information |
 | ----------------- | ------------ | ----|
 |**Prenumeration**| Kontrol lera att rätt prenumeration har valts. |  |
-|**Resursgrupp**| Välj **Skapa ny** , Skriv **myResourceGroup** och klicka på **OK** . |  |
+|**Resursgrupp**| Välj **Skapa ny**, Skriv **myResourceGroup** och klicka på **OK**. |  |
 |**Namn**| Skriv ett unikt namn. | Webbadressen till webbappen är `http://<app-name>.azurewebsites.net`, där `<app-name>` är appens namn. |
 |**Publicera**| Docker-behållare | |
 |**Operativsystem**| Windows | |
 |**Region**| Europa, västra | |
-|**Windows-plan**| Välj **Skapa ny** , Skriv **myAppServicePlan** och klicka på **OK** . | |
+|**Windows-plan**| Välj **Skapa ny**, Skriv **myAppServicePlan** och klicka på **OK**. | |
 
 Fliken **grundläggande** bör se ut så här:
 
@@ -155,13 +155,13 @@ Fliken **grundläggande** bör se ut så här:
 
 ### <a name="configure-windows-container"></a>Konfigurera Windows-containern
 
-På fliken **Docker** konfigurerar du din anpassade Windows-behållare så som visas i följande tabell och väljer **Granska + skapa** .
+På fliken **Docker** konfigurerar du din anpassade Windows-behållare så som visas i följande tabell och väljer **Granska + skapa**.
 
 | Inställning  | Föreslaget värde |
 | ----------------- | ------------ |
 |**Bildkälla**| Azure Container register |
 |**Register**| Välj [registret som du skapade tidigare](#publish-to-azure-container-registry). |
-|**Avbildning**| customfontsample |
+|**Bild**| customfontsample |
 |**Tag**| senaste |
 
 ### <a name="complete-app-creation"></a>Slutför appgenereringen
@@ -174,9 +174,9 @@ När Azure-åtgärden är klar visas ett meddelande.
 
 ![Visar att Azure-åtgärden har slutförts.](media/tutorial-custom-container/portal-create-finished.png)
 
-1. Klicka på **Gå till resurs** .
+1. Klicka på **Gå till resurs**.
 
-2. På appsidan klickar du på länken under **URL** .
+2. På appsidan klickar du på länken under **URL**.
 
 En ny webbläsarsida öppnas på följande sida:
 
@@ -213,7 +213,7 @@ De strömmade loggarna ser ut så här:
 
 Azure App Service använder Docker-behållar tekniken för att vara värd för både inbyggda avbildningar och anpassade avbildningar. Om du vill se en lista över inbyggda avbildningar kör du Azure CLI-kommandot, ["AZ webapp List-Runtimes--Linux"](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az-webapp-list-runtimes). Om dessa bilder inte uppfyller dina behov kan du bygga och distribuera en anpassad avbildning.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en anpassad avbildning om ingen inbyggd avbildning uppfyller dina behov
@@ -228,31 +228,16 @@ Genom att slutföra den här självstudien får du en liten avgift på ditt Azur
 
 ## <a name="set-up-your-initial-environment"></a>Konfigurera din inledande miljö
 
-* Ha ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* Installera [Docker](https://docs.docker.com/get-started/#setup), som du använder för att bygga Docker-avbildningar. Om du installerar Docker kan det krävas en omstart av datorn.
-* Installera <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> -2.0.80 eller högre, med vilken du kör kommandon i alla gränssnitt för att etablera och konfigurera Azure-resurser.
+- Ha ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Installera [Docker](https://docs.docker.com/get-started/#setup), som du använder för att bygga Docker-avbildningar. Om du installerar Docker kan det krävas en omstart av datorn.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+- I den här självstudien krävs version 2.0.80 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
-När du har installerat Docker och Azure CLI öppnar du ett terminalfönster och kontrollerar att Docker är installerat:
+När du har installerat Docker eller kört Azure Cloud Shell öppnar du ett terminalfönster och kontrollerar att Docker är installerat:
 
 ```bash
 docker --version
 ```
-
-Kontrol lera också att din Azure CLI-version är 2.0.80 eller högre:
-
-```azurecli
-az --version
-```
-
-Logga sedan in på Azure via CLI:
-
-```azurecli
-az login
-```
-
-`az login`Kommandot öppnar en webbläsare för att samla in dina autentiseringsuppgifter. När kommandot har slutförts visas JSON-utdata som innehåller information om dina prenumerationer.
-
-När du har loggat in kan du köra Azure-kommandon med Azure CLI för att arbeta med resurser i din prenumeration.
 
 ## <a name="clone-or-download-the-sample-app"></a>Klona eller hämta exempel appen
 
@@ -276,9 +261,9 @@ cd docker-django-webapp-linux
 
 ### <a name="download-from-github"></a>Ladda ned från GitHub
 
-I stället för att använda Git-kloning kan du besöka [https://github.com/Azure-Samples/docker-django-webapp-linux](https://github.com/Azure-Samples/docker-django-webapp-linux) , välja **klona** och sedan välja **Hämta zip** . 
+I stället för att använda Git-kloning kan du besöka [https://github.com/Azure-Samples/docker-django-webapp-linux](https://github.com/Azure-Samples/docker-django-webapp-linux) , välja **klona** och sedan välja **Hämta zip**. 
 
-Packa upp ZIP-filen i en mapp med namnet *Docker-django-webapp-Linux* . 
+Packa upp ZIP-filen i en mapp med namnet *Docker-django-webapp-Linux*. 
 
 Öppna sedan ett terminalfönster i den *Docker-django-webapp-Linux-* mappen.
 
@@ -320,7 +305,7 @@ ENTRYPOINT ["init.sh"]
 ## <a name="build-and-test-the-image-locally"></a>Bygg och testa avbildningen lokalt
 
 > [!NOTE]
-> Docker Hub har [kvoter för antalet anonyma hämtningar per IP och antalet autentiserade hämtningar per kostnads fri användare (se **data överföring** )](https://www.docker.com/pricing). Om du märker att dina hämtningar från Docker Hub begränsas, kan `docker login` du prova om du inte redan är inloggad.
+> Docker Hub har [kvoter för antalet anonyma hämtningar per IP och antalet autentiserade hämtningar per kostnads fri användare (se **data överföring**)](https://www.docker.com/pricing). Om du märker att dina hämtningar från Docker Hub begränsas, kan `docker login` du prova om du inte redan är inloggad.
 > 
 
 1. Kör följande kommando för att skapa avbildningen:
@@ -338,13 +323,11 @@ ENTRYPOINT ["init.sh"]
     Det här [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) kommandot anger porten med `-p` argumentet följt av namnet på avbildningen. 
     
     > [!TIP]
-    > Om du kör på Windows och ser felet *standard_init_linux. go: 211: exec-användar processen orsakade "ingen sådan fil eller katalog"* , *init.sh* -filen innehåller CR-LF-raden i stället för förväntad LF-ändelse. Det här felet uppstår om du använde git för att klona exempel lagrings platsen men utelämnade `--config core.autocrlf=input` parametern. I det här fallet klonar du lagrings platsen igen med argumentet--config. Du kan också se felet om du har redigerat *init.sh* och sparat det med CRLF-slut. I det här fallet sparar du filen igen med endast LF-ändelsen.
+    > Om du kör på Windows och ser felet *standard_init_linux. go: 211: exec-användar processen orsakade "ingen sådan fil eller katalog"*, *init.sh* -filen innehåller CR-LF-raden i stället för förväntad LF-ändelse. Det här felet uppstår om du använde git för att klona exempel lagrings platsen men utelämnade `--config core.autocrlf=input` parametern. I det här fallet klonar du lagrings platsen igen med argumentet--config. Du kan också se felet om du har redigerat *init.sh* och sparat det med CRLF-slut. I det här fallet sparar du filen igen med endast LF-ändelsen.
 
 1. Bläddra till `http://localhost:8000` för att kontrol lera att webbappen och behållaren fungerar som de ska.
 
     ![Testa webbappen lokalt](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
-
-[!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -501,7 +484,7 @@ Du kan utföra de här stegen när avbildningen har överförts till behållar r
 
 I det här avsnittet ska du göra en ändring i webb program koden, återskapa behållaren och sedan skicka behållaren till registret. App Service hämtar sedan den uppdaterade avbildningen automatiskt från registret för att uppdatera den webbapp som körs.
 
-1. I din lokala *Docker-django-webapp-Linux-* mapp öppnar du filen *app/templates/app/index.html* .
+1. I din lokala *Docker-django-webapp-Linux-* mapp öppnar du filen *app/templates/app/index.html*.
 
 1. Ändra det första HTML-elementet så att det matchar följande kod.
 
@@ -565,7 +548,7 @@ I det här avsnittet ska du göra en ändring i webb program koden, återskapa b
 
     Du kan även granska loggfilerna från din webbläsare via `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 
-1. Om du vill stoppa logg strömningen när som helst, skriver du **CTRL** + **C** .
+1. Om du vill stoppa logg strömningen när som helst, skriver du **CTRL** + **C**.
 
 ## <a name="connect-to-the-container-using-ssh"></a>Anslut till containern med SSH
 
@@ -573,7 +556,7 @@ SSH möjliggör säker kommunikation mellan en container och en klient. Din anpa
 
 ### <a name="configure-the-container-for-ssh"></a>Konfigurera behållaren för SSH
 
-Exempel programmet som används i den här självstudien har redan den konfiguration som krävs i *Dockerfile* , som installerar SSH-servern och anger även inloggnings uppgifterna. Det här avsnittet är endast information. Om du vill ansluta till behållaren går du vidare till nästa avsnitt
+Exempel programmet som används i den här självstudien har redan den konfiguration som krävs i *Dockerfile*, som installerar SSH-servern och anger även inloggnings uppgifterna. Det här avsnittet är endast information. Om du vill ansluta till behållaren går du vidare till nästa avsnitt
 
 ```Dockerfile
 ENV SSH_PASSWD "root:Docker!"
@@ -599,7 +582,7 @@ EXPOSE 8000 2222
 
 Port 2222 är en intern port som endast är tillgänglig för behållare i ett privat virtuellt nätverks bro nätverk. 
 
-Slutligen börjar Entry-skriptet, *init.sh* , SSH-servern.
+Slutligen börjar Entry-skriptet, *init.sh*, SSH-servern.
 
 ```bash
 #!/bin/bash

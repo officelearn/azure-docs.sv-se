@@ -3,12 +3,12 @@ title: Aktivera hanterad identitet i behållar gruppen
 description: Lär dig hur du aktiverar en hanterad identitet i Azure Container Instances som kan autentiseras med andra Azure-tjänster
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 23f2347593137a4846c8fd22e3b90f22db39bda3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67ef17b77a9db92e539dd860a3083760fe1160db
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259633"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558954"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Använda hanterade identiteter med Azure Container Instances
 
@@ -45,9 +45,9 @@ Om du vill använda en hanterad identitet måste identiteten beviljas åtkomst t
 * För närvarande kan du inte använda en hanterad identitet i en behållar grupp som distribuerats till ett virtuellt nätverk.
 * Du kan inte använda en hanterad identitet för att hämta en avbildning från Azure Container Registry när du skapar en behållar grupp. Identiteten är endast tillgänglig i en behållare som körs.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI-version 2.0.49 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+- Den här artikeln kräver version 2.0.49 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="create-an-azure-key-vault"></a>Skapa ett Azure Key Vault
 

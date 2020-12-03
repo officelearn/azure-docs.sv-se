@@ -1,20 +1,20 @@
 ---
-title: Hantera autentiseringsuppgifter i Azure Automation
+title: hantera autentiseringsuppgifter i Azure Automation
 description: Den här artikeln beskriver hur du skapar inloggnings till gångar och använder dem i en Runbook-eller DSC-konfiguration.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4fbcf74c2c70d3dffd86728132d58430472271b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec35653f67c46a7032e834020d8e2ca4ab3125c8
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004672"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558851"
 ---
-# <a name="manage-credentials-in-azure-automation"></a>Hantera autentiseringsuppgifter i Azure Automation
+# <a name="manage-credentials-in-azure-automation"></a>hantera autentiseringsuppgifter i Azure Automation
 
-En inloggnings till gång innehåller ett objekt som innehåller autentiseringsuppgifter, till exempel ett användar namn och ett lösen ord. Runbooks och DSC-konfigurationer använder cmdletar som accepterar ett [PSCredential](/dotnet/api/system.management.automation.pscredential) -objekt för autentisering. De kan också extrahera användar namn och lösen ord för `PSCredential` objektet för att tillhandahålla ett program eller en tjänst som kräver autentisering. 
+En inloggnings till gång innehåller ett objekt som innehåller autentiseringsuppgifter, till exempel ett användar namn och ett lösen ord. Runbooks och DSC-konfigurationer använder cmdletar som accepterar ett [PSCredential](/dotnet/api/system.management.automation.pscredential) -objekt för autentisering. De kan också extrahera användar namn och lösen ord för `PSCredential` objektet för att tillhandahålla ett program eller en tjänst som kräver autentisering.
 
 >[!NOTE]
 >Säkra till gångar i Azure Automation inkluderar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa till gångar krypteras och lagras i Azure Automation att använda en unik nyckel som genereras för varje Automation-konto. Azure Automation lagrar nyckeln i systemhanterade Key Vault. Innan du lagrar en säker till gång läser Automation in nyckeln från Key Vault och använder den för att kryptera till gången. 
@@ -44,7 +44,7 @@ Cmdletarna i följande tabell används för att komma åt autentiseringsuppgifte
 
 Om du vill hämta `PSCredential` objekt i din kod måste du importera `Orchestrator.AssetManagement.Cmdlets` modulen. Mer information finns i [Hantera moduler i Azure Automation](modules.md).
 
-```azurepowershell
+```powershell
 Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
 ```
 
@@ -68,16 +68,16 @@ Du kan skapa en ny inloggnings till gång med hjälp av Azure Portal eller med h
 
 ### <a name="create-a-new-credential-asset-with-the-azure-portal"></a>Skapa en ny inloggnings till gång med Azure Portal
 
-1. Från ditt Automation-konto väljer du **autentiseringsuppgifter** under **delade resurser**i den vänstra rutan.
-1. På sidan **autentiseringsuppgifter** väljer du **Lägg till en autentiseringsuppgift**.
-2. I fönstret ny autentiseringsuppgift anger du ett lämpligt namn på autentiseringsuppgiften enligt dina namngivnings standarder.
-3. Skriv ditt åtkomst-ID i fältet **användar namn** .
-4. I båda fälten för lösen ord anger du din hemliga åtkomst nyckel.
+1. Från ditt Automation-konto väljer du **autentiseringsuppgifter** under **delade resurser** i den vänstra rutan.
+2. På sidan **autentiseringsuppgifter** väljer du **Lägg till en autentiseringsuppgift**.
+3. I fönstret ny autentiseringsuppgift anger du ett lämpligt namn på autentiseringsuppgiften enligt dina namngivnings standarder.
+4. Skriv ditt åtkomst-ID i fältet **användar namn** .
+5. I båda fälten för lösen ord anger du din hemliga åtkomst nyckel.
 
     ![Skapa ny autentiseringsuppgift](../media/credentials/credential-create.png)
 
-5. Avmarkera kryss rutan Multi-Factor Authentication om du är markerad.
-6. Klicka på **skapa** för att spara den nya inloggnings till gången.
+6. Avmarkera kryss rutan Multi-Factor Authentication om du är markerad.
+7. Klicka på **skapa** för att spara den nya inloggnings till gången.
 
 > [!NOTE]
 > Azure Automation stöder inte användar konton som använder Multi-Factor Authentication.
@@ -106,8 +106,7 @@ Du kan också använda metoden [GetNetworkCredential](/dotnet/api/system.managem
 
 I följande exempel visas hur du använder en PowerShell-autentiseringsuppgift i en Runbook. Den hämtar autentiseringsuppgiften och tilldelar dess användar namn och lösen ord till variabler.
 
-
-```azurepowershell
+```powershell
 $myCredential = Get-AutomationPSCredential -Name 'MyCredential'
 $userName = $myCredential.UserName
 $securePassword = $myCredential.Password
@@ -116,14 +115,13 @@ $password = $myCredential.GetNetworkCredential().Password
 
 Du kan också använda autentiseringsuppgifter för att autentisera till Azure med [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). I de flesta fall bör du använda ett [Kör som-konto](../manage-runas-account.md) och hämta anslutningen med [Get-AzAutomationConnection](../automation-connections.md).
 
-
-```azurepowershell
+```powershell
 $myCred = Get-AutomationPSCredential -Name 'MyCredential'
 $userName = $myCred.UserName
 $securePassword = $myCred.Password
 $password = $myCred.GetNetworkCredential().Password
 
-$myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$password)
+$myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$securePassword)
 
 Connect-AzAccount -Credential $myPsCred
 ```
@@ -145,7 +143,6 @@ Följande bild visar ett exempel på hur du använder en autentiseringsuppgift i
 ## <a name="use-credentials-in-a-python-2-runbook"></a>Använd autentiseringsuppgifter i en python 2-Runbook
 
 I följande exempel visas ett exempel på hur du kommer åt autentiseringsuppgifter i python 2-Runbooks.
-
 
 ```python
 import automationassets

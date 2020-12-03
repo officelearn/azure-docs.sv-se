@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 9a6faec2542337eedbe4aafb69f1061582f92cc7
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 8e7ccacce732da4a0194af959abe94438451028a
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531589"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559056"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Självstudie: Konfigurera tillgänglighets grupper för SQL Server på virtuella RHEL-datorer i Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,9 +37,9 @@ I den här självstudien används Azure CLI för att distribuera resurser i Azur
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du föredrar att installera och använda CLI lokalt kräver den här självstudien Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+- Den här artikeln kräver version 2.0.30 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

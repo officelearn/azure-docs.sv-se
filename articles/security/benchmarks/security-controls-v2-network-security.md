@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b6aaad9cce330d755fb69f8be48737f9a8f6c4a7
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 38ab16fbadee245810a4486170dd54922c0c38f9
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487753"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558920"
 ---
 # <a name="security-control-v2-network-security"></a>Säkerhets kontroll v2: nätverks säkerhet
 
@@ -54,7 +54,7 @@ Använd Azure Sentinel för att identifiera användningen av äldre oskyddade pr
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| NS-2 | Ej tillämpligt | CA-3, AC-17, MA-4 |
+| NS-2 | Saknas | CA-3, AC-17, MA-4 |
 
 Använd Azure ExpressRoute eller Azure Virtual Private Network (VPN) för att skapa privata anslutningar mellan Azure-datacenter och lokal infrastruktur i en miljö med en valfri plats. ExpressRoute-anslutningar går inte via det offentliga Internet och de ger högre tillförlitlighet, snabbare hastigheter och lägre fördröjning än vanliga Internet anslutningar. För punkt-till-plats-VPN och plats-till-plats-VPN kan du ansluta lokala enheter eller nätverk till ett virtuellt nätverk med valfri kombination av de här VPN-alternativen och Azure-ExpressRoute.
 
@@ -126,7 +126,11 @@ Skydda Azure-resurser mot attacker från externa nätverk, inklusive DDoS-attack
 
 **Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-Inget
+- [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
+
+- [Statushantering](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+
+- [Program säkerhet och DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 ## <a name="ns-5-deploy-intrusion-detectionintrusion-prevention-systems-idsips"></a>NS-5: Distribuera intrångs identifiering/intrångs skydd system (ID/IP-adresser)
 
@@ -184,7 +188,7 @@ Du kan också använda program säkerhets grupper för att förenkla komplex sä
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| NS-7 | Ej tillämpligt | SC-20, SC – 21 |
+| NS-7 | Saknas | SC-20, SC – 21 |
 
 Följ metod tipsen för DNS-säkerhet för att undvika vanliga attacker som Dangling DNS, DNS-utlösnings attacker, DNS-förgiftning och förfalskning osv. 
 

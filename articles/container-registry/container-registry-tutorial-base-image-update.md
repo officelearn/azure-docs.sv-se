@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du konfigurerar en A
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 32b4dbe2563731664030dbc32c2b570ccc3e1d12
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 342f7fc37edb3a1623b72c57e8766b1a484d0e8d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030653"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559158"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Självstudie: automatisera behållar avbildningar skapar när en bas avbildning uppdateras i ett Azure Container Registry 
 
@@ -26,16 +26,16 @@ I de här självstudierna har du
 > * Visa den utlösta uppgiften
 > * Kontrollera den uppdaterade programavbildningen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="complete-the-previous-tutorials"></a>Slutför de tidigare självstudierna
 
 Den här självstudien förutsätter att du redan har konfigurerat din miljö och slutfört stegen i de första två självstudierna i serien, där du:
 
-* Skapa Azure Container Registry
-* Förgrena en exempellagringsplats
-* Klona en exempellagringsplats
-* Skapa en personlig åtkomsttoken för GitHub
+- Skapa Azure Container Registry
+- Förgrena en exempellagringsplats
+- Klona en exempellagringsplats
+- Skapa en personlig åtkomsttoken för GitHub
 
 Om du inte redan har gjort det, slutför du följande självstudier innan du fortsätter:
 
@@ -44,6 +44,9 @@ Om du inte redan har gjort det, slutför du följande självstudier innan du for
 [Automatisera containeravbildningar med Azure Container Registry-uppgifter](container-registry-tutorial-build-task.md)
 
 ### <a name="configure-the-environment"></a>Konfigurera miljön
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+- Den här artikeln kräver version 2.0.46 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 Fyll i de här gränssnittsmiljövariablerna med värden som är lämpliga för din miljö. Det här steget är inte obligatoriskt, men det gör det lite enklare att köra de flerradiga Azure CLI-kommandona i den här självstudien. Om du inte fyller i de här miljövariablerna måste du ersätta varje värde manuellt var det visas i exempel kommandona.
 

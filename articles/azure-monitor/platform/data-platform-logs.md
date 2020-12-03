@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: dd4586128bf2ce657352c0a1d4608637ecf9dba9
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 69fda41249ced8518e430af8305c0cb10822b214
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531232"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559073"
 ---
 # <a name="azure-monitor-logs-overview"></a>Översikt över Azure Monitor-loggar
 Azure Monitor loggar är en funktion i Azure Monitor som samlar in och ordnar logg-och prestanda data från [övervakade resurser](../monitor-reference.md). Data från olika källor, t. ex. [plattforms loggar](platform-logs-overview.md) från Azure-tjänster, logg-och prestanda data från [virtuella datorer agenter](agents-overview.md)och användnings-och prestanda data från [program](../app/app-insights-overview.md) kan konsol IDE ras till en enda arbets yta så att de kan analyseras tillsammans med ett avancerat frågespråk som kan snabbt analysera miljon tals poster. Du kan utföra en enkel fråga som bara hämtar en bestämd uppsättning poster eller utföra avancerad data analys för att identifiera kritiska mönster i dina övervaknings data. Arbeta med logg frågor och deras resultat interaktivt med Log Analytics, Använd dem i en varnings regel för att proaktivt informera om problem eller visualisera resultaten i en arbets bok eller instrument panel.
@@ -42,7 +42,7 @@ När du skapar en arbets yta för Log Analytics måste du konfigurera olika käl
 
 
 ## <a name="log-analytics-workspaces"></a>Log Analytics-arbetsytor
-Data som samlas in av Azure Monitor loggar lagras i en [Log Analytics arbets ytor](./design-logs-deployment.md). Arbets ytan definierar den geografiska platsen för data, åtkomst behörighet som definierar vilka användare som har åtkomst till data och konfigurations inställningar som pris nivå och datakvarhållning.  
+Data som samlas in av Azure Monitor loggar lagras i en eller flera [Log Analytics arbets ytor](./design-logs-deployment.md). Arbets ytan definierar den geografiska platsen för data, åtkomst behörighet som definierar vilka användare som har åtkomst till data och konfigurations inställningar som pris nivå och datakvarhållning.  
 
 Du måste skapa minst en arbets yta för att kunna använda Azure Monitor loggar. En enskild arbets yta kan vara tillräcklig för alla dina övervaknings data, eller så kan du välja att skapa flera arbets ytor, beroende på dina behov. Du kan till exempel ha en arbets yta för dina produktions data och en annan för testning. 
 

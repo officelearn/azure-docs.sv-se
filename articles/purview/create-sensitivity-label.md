@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/22/2020
-ms.openlocfilehash: b286533da90565429f96c5701aaa72dab0fb21d0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 12/03/2020
+ms.openlocfilehash: 195ddfcc3c781c1866a7751f989c9460463edbb9
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555198"
+ms.locfileid: "96558172"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Etikettera data automatiskt i Azure avdelningens kontroll
 
@@ -36,13 +36,7 @@ Avdelningens kontroll använder samma klassificeringar, även kallade känsliga 
 > Medan klassificeringar matchas direkt (en social security number har en klassificering av **person nummer**) används känslighets etiketter när en eller flera klassificeringar och scenarier hittas tillsammans. 
 > 
 
-Känslighets etiketter i Azure avdelningens kontroll kan användas för att:
-
-- **Använd etiketter** för filer och databas kolumner automatiskt
-
-- **Kontrol lera** vem som kan och inte kan komma åt dina data
-
-- **Tillämpa skydds inställningar**, till exempel kryptering, på märkta data
+Känslighets etiketter i Azure avdelningens kontroll kan användas för att automatiskt tillämpa etiketter på filer och databas kolumner.
 
 Mer information finns i:
 

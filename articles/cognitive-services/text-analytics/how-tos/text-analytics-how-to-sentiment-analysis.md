@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 11/11/2020
+ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 2c592a959dfb9d4e93f97488a9ac1b1f6683c23e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0437704709e863cdbc62321c8a4b79015564e362
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968279"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558767"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Gör så här: sentiment analys och avyttrande
 
-API för textanalysens Attitydanalys-funktion erbjuder två sätt att identifiera positiva och negativa sentiment. Om du skickar en Attitydanalys-begäran kommer API: et att returnera sentiment-etiketter (till exempel "negativa", "neutral" och "positiv") och säkerhets resultat på meningen och dokument nivå. Du kan också skicka avyttranden om utgångs punkt med Attitydanalys slut punkten, som innehåller detaljerad information om de åsikter som rör aspekter (till exempel attributen för produkter eller tjänster) i text.
+API för textanalysens Attitydanalys-funktion erbjuder två sätt att identifiera positiva och negativa sentiment. Om du skickar en Attitydanalys-begäran kommer API: et att returnera sentiment-etiketter (till exempel "negativa", "neutral" och "positiv") och säkerhets resultat på meningen och dokument nivå. Du kan också skicka avyttranden om utgångs punkt med Attitydanalys slut punkten, som innehåller detaljerad information om de åsikter som rör aspekter (till exempel attributen för produkter eller tjänster) i text. 
 
 AI-modellerna som används av API: et tillhandahålls av tjänsten. du behöver bara skicka innehåll för analys.
 
@@ -51,13 +51,14 @@ Förtroendet sträcker sig från 1 till 0. Resultat närmare 1 anger en högre e
 
 ## <a name="opinion-mining"></a>Åsikts utvinning
 
-Åsikts utvinning är en funktion i Attitydanalys, från och med version 3,1 – för hands version. 1. Den här funktionen är även känd som Aspect-baserad Attitydanalys i naturlig språk bearbetning (NLP) och ger mer detaljerad information om de åsikter som rör aspekter (till exempel attributen för produkter eller tjänster) i text.
+Åsikts utvinning är en funktion i Attitydanalys, från och med version 3,1 – för hands version. 1. Den här funktionen är även känd som Aspect-baserad Attitydanalys i naturlig språk bearbetning (NLP) och ger mer detaljerad information om de åsikter som rör aspekter (till exempel attributen för produkter eller tjänster) i text. 
 
 Om en kund till exempel lämnar feedback om ett hotell, till exempel "rummet var fantastiskt, men personalen var friendd.", skall yttrandet för att hitta aspekter i texten och deras associerade åsikter och sentiment. Attitydanalys kan bara rapportera ett negativt sentiment.
 
 :::image type="content" source="../media/how-tos/opinion-mining.png" alt-text="Ett diagram över utvinnings exemplet för yttrandet" lightbox="../media/how-tos/opinion-mining.png":::
 
-För att få fram en utgångs utvinning i resultatet måste du inkludera `opinionMining=true` flaggan i en begäran om sentiment-analys. Utsvars resultatet kommer att tas med i sentiment analys svar.
+För att få fram en utgångs utvinning i resultatet måste du inkludera `opinionMining=true` flaggan i en begäran om sentiment-analys. Utsvars resultatet kommer att tas med i sentiment analys svar. Yttrandet är en utökning av Attitydanalys och ingår i den aktuella [pris nivån](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
 
 ## <a name="sending-a-rest-api-request"></a>Skicka en REST API-begäran 
 

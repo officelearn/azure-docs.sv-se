@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 450d471beebbcc554a6d534fb2d5361778f158bc
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 74e9224b30ccee274eaf52ba47a0ec05573c2e9d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992326"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558733"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett projekt med data etiketter och exportera etiketter 
 
@@ -39,7 +39,7 @@ I den här artikeln får du lära dig att:
 > * Exportera etiketterna
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * De data som du vill märka, antingen i lokala filer eller i Azure Blob Storage.
 * Den uppsättning etiketter som du vill använda.
@@ -109,7 +109,7 @@ Om du planerar att lägga till nya avbildningar i data uppsättningen använder 
 
 Om du vill lägga till fler avbildningar i projektet använder [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att ladda upp till lämplig mapp i blob-lagringen. 
 
-Markera kryss rutan om du vill **Aktivera stegvis uppdatering** när du vill att projektet ska övervakas kontinuerligt för nya data i data lagret.
+Markera kryss rutan om du vill **Aktivera stegvis uppdatering** när du vill att projektet ska övervakas kontinuerligt för nya data i data lagret. Den här informationen kommer att hämtas till projektet en gång om dagen när den är aktive rad.
 
 Avmarkera den här kryss rutan om du inte vill att nya avbildningar som visas i data lagret ska läggas till i projektet.
 

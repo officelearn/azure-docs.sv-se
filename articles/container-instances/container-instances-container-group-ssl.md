@@ -3,12 +3,12 @@ title: Aktivera TLS med sidvagn container
 description: Skapa en SSL-eller TLS-slutpunkt för en behållar grupp som körs i Azure Container Instances genom att köra nginx i en sidvagn-behållare
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: f7f5d8e8136f4357067888f5a39fa0c3635122d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6587a84e7cbe655c509f74e9e39e93010e7058be
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86169858"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558087"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Aktivera en TLS-slutpunkt i en sidvagn-behållare
 
@@ -22,9 +22,9 @@ I det här exemplet exponerar behållar gruppen bara port 443 för nginx med des
 
 Se [Nästa steg](#next-steps) för andra metoder för att aktivera TLS i en behållar grupp.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra den här artikeln. Om du vill använda det lokalt rekommenderar vi version 2.0.55 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+- Den här artikeln kräver version 2.0.55 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
 

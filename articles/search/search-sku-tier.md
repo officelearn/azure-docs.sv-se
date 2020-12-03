@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 1b23d6c7952e60ee693bb481fec04d358654632c
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 3f2cbd7afe206866ae4d5b7c0925c8f3be9ab785
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530501"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558818"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Välj en pris nivå för Azure Kognitiv sökning
 
@@ -21,7 +21,7 @@ När du [skapar en Sök tjänst](search-create-service-portal.md)väljer du en p
 
 + Antal index och andra objekt (max gränser)
 + Storlek och hastighet för partitioner (fysisk lagring)
-+ Fakturerbart pris, en fast kostnad som också är flexibel med antalet partitioner och repliker som används
++ Fakturerbart pris, en fast månads kostnad, men även en stegvis kostnad om du lägger till partitioner eller repliker
 
 Dessutom finns det några [Premium funktioner](#premium-features) med nivå krav.
 

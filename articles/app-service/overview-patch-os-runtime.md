@@ -4,12 +4,12 @@ description: Lär dig hur Azure App Service uppdaterar operativ systemet och kö
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 31b2d39f5d0d125d2bf23ac72718d9b386b48923
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8b52223aea0f0bdfecf58906ac192e893da3b47d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833494"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558495"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Uppdatering av operativ system och körning i Azure App Service
 
@@ -51,7 +51,7 @@ Körnings uppdateringar och utfasningar meddelas här:
 
 ### <a name="new-patch-updates"></a>Nya uppdaterings uppdateringar
 
-Uppdaterings uppdateringar av .NET, PHP, Java SDK eller Tomcat/Jetty-versionen tillämpas automatiskt genom att den befintliga installationen skrivs över med den nya versionen. Node.js korrigerings uppdateringar installeras sida vid sida med befintliga versioner (liknar de högre och lägre versionerna i nästa avsnitt). Nya python-korrigeringsfiler kan installeras manuellt via [webbplats tillägg](https://azure.microsoft.com/blog/azure-web-sites-extensions/), sida vid sida med inbyggda python-installationer.
+Uppdaterings uppdateringar av .NET, PHP, Java SDK eller Tomcat-versionen tillämpas automatiskt genom att den befintliga installationen skrivs över med den senaste versionen. Node.js korrigerings uppdateringar installeras sida vid sida med befintliga versioner (liknar de högre och lägre versionerna i nästa avsnitt). Nya python-korrigeringsfiler kan installeras manuellt via [webbplats tillägg](https://azure.microsoft.com/blog/azure-web-sites-extensions/), sida vid sida med inbyggda python-installationer.
 
 ### <a name="new-major-and-minor-versions"></a>Nya högre och lägre versioner
 

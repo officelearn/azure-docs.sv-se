@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 03b112466ef094a578d47586a44ab383a5da1a9b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8dd3c60c3d1b714ab75b496a94ba4bd5aec4e43d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744890"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558478"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service-autentisering
 
@@ -32,7 +32,7 @@ Koden för de här självstudierna är tillgänglig för nedladdning på [GitHub
 
 ![OAuth finns i Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Registrera en ny OAuth-app med ditt GitHub-konto
@@ -41,30 +41,30 @@ I de här självstudierna får du lära dig att
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här självstudien behöver du följande:
 
-* Ett konto som skapades på [GitHub](https://github.com/)
-* [Git](https://git-scm.com/)
-* [.NET Core SDK](https://www.microsoft.com/net/download/windows)
-* [Azure Cloud Shell konfigurerat](../cloud-shell/quickstart.md)
-* Ladda ned eller klona GitHub-lagringsplatsen [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples).
+- Ett konto som skapades på [GitHub](https://github.com/)
+- [Git](https://git-scm.com/)
+- [.NET Core SDK](https://www.microsoft.com/net/download/windows)
+- [Azure Cloud Shell](/azure/cloud-shell/quickstart) konfigurerad för bash-miljön.
+- Ladda ned eller klona GitHub-lagringsplatsen [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples).
 
 ## <a name="create-an-oauth-app"></a>Skapa en OAuth-app
 
 1. Öppna en webbläsare och gå till `https://github.com` och logga in på ditt konto.
 
-2. För ditt konto går du till **Inställningar inställningar** för  >  **utvecklare** och klickar på **Registrera ett nytt program** eller **ny OAuth-app** under *OAuth-appar* .
+2. För ditt konto går du till **Inställningar inställningar** för  >  **utvecklare** och klickar på **Registrera ett nytt program** eller **ny OAuth-app** under *OAuth-appar*.
 
-3. Använd följande inställningar för den nya OAuth-appen och klicka sedan på **Registrera program** :
+3. Använd följande inställningar för den nya OAuth-appen och klicka sedan på **Registrera program**:
 
     | Inställningsnamn | Föreslaget värde | Beskrivning |
     | ------------ | --------------- | ----------- |
     | Programnamn | *Azure SignalR-chatt* | GitHub-användaren ska kunna känna igen och lita på den app som används för att autentisera.   |
     | Hemsides-URL | `http://localhost:5000/home` | |
     | Programbeskrivning | *Ett chattrumsexempel med Azure SignalR Service med GitHub-autentisering* | En praktisk beskrivning av programmet som hjälper dina programanvändare att förstå kontexten för autentiseringen som används. |
-    | URL-adress för återanrop av auktorisering | `http://localhost:5000/signin-github` | Den här inställningen är den viktigaste inställningen för OAuth-programmet. Det är motringnings-URL:en som GitHub returnerar användaren till efter en lyckad autentisering. I den här självstudien måste du använda standard-motringnings-URL:en för *AspNet.Security.OAuth.GitHub* -paketet, */signin-github* .  |
+    | URL-adress för återanrop av auktorisering | `http://localhost:5000/signin-github` | Den här inställningen är den viktigaste inställningen för OAuth-programmet. Det är motringnings-URL:en som GitHub returnerar användaren till efter en lyckad autentisering. I den här självstudien måste du använda standard-motringnings-URL:en för *AspNet.Security.OAuth.GitHub*-paketet, */signin-github*.  |
 
 4. När den nya OAuth-appregistreringen är klar lägger du till *klient-ID* och *klienthemlighet* till Secret Manager med följande kommandon. Ersätt *Your_GitHub_Client_Id* och *Your_GitHub_Client_Secret* med OAuth-appens värden.
 
@@ -77,7 +77,7 @@ För att kunna slutföra den här självstudien behöver du följande:
 
 ### <a name="update-the-startup-class-to-support-github-authentication"></a>Uppdatera startklassen för att stödja GitHub-autentiseringen
 
-1. Lägg till en referens till de senaste *Microsoft.AspNetCore.Authentication.Cookies* - och *AspNet.Security.OAuth.GitHub* -paketen och återställ alla paket.
+1. Lägg till en referens till de senaste *Microsoft.AspNetCore.Authentication.Cookies*- och *AspNet.Security.OAuth.GitHub*-paketen och återställ alla paket.
 
     ```dotnetcli
     dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
@@ -155,9 +155,9 @@ För att kunna slutföra den här självstudien behöver du följande:
 
 I det här avsnittet implementerar du en `Login` API som autentiserar klienter med GitHub OAuth-appen. När autentiseringen är klar lägger API:t till en cookie till webbklientsvaret innan klienten dirigeras om chattappen igen. Denna cookie används sedan för att identifiera klienten.
 
-1. Lägg till en ny kontrollkodfil i katalogen *chattest\Controllers* . Ge filen namnet *AuthController.cs* .
+1. Lägg till en ny kontrollkodfil i katalogen *chattest\Controllers*. Ge filen namnet *AuthController.cs*.
 
-2. Lägg till följande kod för autentiseringskontrollen. Se till att uppdatera namnrymnden om din projektkatalog inte var *chattest* :
+2. Lägg till följande kod för autentiseringskontrollen. Se till att uppdatera namnrymnden om din projektkatalog inte var *chattest*:
 
     ```csharp
     using AspNet.Security.OAuth.GitHub;
@@ -232,7 +232,7 @@ I det här avsnittet aktiverar du riktig autentisering genom att lägga till att
 
 1. Öppna *wwwroot\index.html* och ersätt koden som ber om användarnamnet med kod för att använda den cookie som returneras av autentiseringskontrollanten.
 
-    Ta bort följande kod från *index.html* :
+    Ta bort följande kod från *index.html*:
 
     ```javascript
     // Get the user name and store it to prepend to messages.
@@ -374,7 +374,7 @@ I det här avsnittet aktiverar du riktig autentisering genom att lägga till att
 
     ![OAuth finns i Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-    Du uppmanas att godkänna chattappens åtkomst till ditt GitHub-konto. Klicka på knappen **Auktorisera** .
+    Du uppmanas att godkänna chattappens åtkomst till ditt GitHub-konto. Klicka på knappen **Auktorisera**.
 
     ![Auktorisera OAuth-app](media/signalr-concept-authenticate-oauth/signalr-authorize-oauth-app.png)
 
@@ -384,19 +384,15 @@ I det här avsnittet aktiverar du riktig autentisering genom att lägga till att
 
     Nu när chattappen utför autentisering med GitHub och lagrar autentiseringsinformationen som cookies ska du distribuera den till Azure så att andra användare kan autentisera med sina konton och kommunicera från andra arbetsstationer.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="deploy-the-app-to-azure"></a>distribuera appen till Azure
 
-I det här avsnittet ska du använda Azures kommando rads gränssnitt (CLI) från Azure Cloud Shell för att skapa en ny webbapp i [Azure App Service](../app-service/index.yml) som är värd för ditt ASP.NET-program i Azure. Webbappen konfigureras för att använda lokal Git-distribution. Webbappen ska också konfigureras med anslutningssträngen för SignalR, GitHub OAuth-apphemligheter och en distributionsanvändare.
+Förbered din miljö för Azure CLI:
 
-I stegen i det här avsnittet används tillägget *signalr* för Azure CLI. Utför följande kommando för att installera *signalr* -tillägget för Azure CLI:
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-```azurecli-interactive
-az extension add -n signalr
-```
+I det här avsnittet ska du använda Azures kommando rads gränssnitt (CLI) för att skapa en ny webbapp i [Azure App Service](../app-service/index.yml) att vara värd för ditt ASP.NET-program i Azure. Webbappen konfigureras för att använda lokal Git-distribution. Webbappen ska också konfigureras med anslutningssträngen för SignalR, GitHub OAuth-apphemligheter och en distributionsanvändare.
 
-När du skapar följande resurser ska du se till att använda samma resursgrupp som SignalR Service-resursen finns i. Den här metoden gör rensningen mycket enklare senare när du vill ta bort alla resurser. I exemplen förutsätts att du använde gruppnamnet som rekommenderades i tidigare självstudier, *SignalRTestResources* .
+När du skapar följande resurser ska du se till att använda samma resursgrupp som SignalR Service-resursen finns i. Den här metoden gör rensningen mycket enklare senare när du vill ta bort alla resurser. I exemplen förutsätts att du använde gruppnamnet som rekommenderades i tidigare självstudier, *SignalRTestResources*.
 
 ### <a name="create-the-web-app-and-plan"></a>Skapa webbappen och planen
 
@@ -541,7 +537,7 @@ För att distribuera din kod utför du följande kommandon i ett Git-gränssnitt
 4. Distribuera din kod till Azure-webbappen.
 
     ```bash
-    git push Azure master
+    git push Azure main
     ```
 
     Du blir uppmanad att autentisera för att distribuera koden till Azure. Ange användarnamnet och lösenordet för distributionsanvändaren du skapade ovan.
@@ -550,7 +546,7 @@ För att distribuera din kod utför du följande kommandon i ett Git-gränssnitt
 
 Det sista du behöver göra är att uppdatera **webbsidans URL** och **URL-adressen för återanrop av auktorisering** för GitHub OAuth-appen för att peka på den nya värdbaserade appen.
 
-1. Öppna [https://github.com](https://github.com) i en webbläsare och gå till ditt kontos **Inställningar inställningar** för  >  **utvecklare**  >  **OAuth Apps** .
+1. Öppna [https://github.com](https://github.com) i en webbläsare och gå till ditt kontos **Inställningar inställningar** för  >  **utvecklare**  >  **OAuth Apps**.
 
 2. Klicka på autentiseringsappen och uppdatera **webbsidans URL** och **URL-adressen för återanrop av auktorisering** som det visas nedan:
 
@@ -572,13 +568,13 @@ Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna 
 > [!IMPORTANT]
 > Det går inte att ångra borttagningen av en resursgrupp och att resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
 
-Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper** .
+Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
 
-Skriv namnet på din resursgrupp i textrutan **Filter by name...** (Filtrera efter namn...). Anvisningarna för den här artikeln använde en resursgrupp med namnet *SignalRTestResources* . På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp** .
+Skriv namnet på din resursgrupp i textrutan **Filter by name...** (Filtrera efter namn...). Anvisningarna för den här artikeln använde en resursgrupp med namnet *SignalRTestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
 
 ![Ta bort](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 
-Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp för att bekräfta och klicka på **Ta bort** .
+Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp för att bekräfta och klicka på **Ta bort**.
 
 Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 

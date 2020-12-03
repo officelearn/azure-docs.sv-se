@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/29/2020
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 8620d6bc403882cb308405e8ffb4412917d0c6f1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8c3fca6cf7782c3aaac91388a8f8395e288f5ea5
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993488"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558750"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service
 
@@ -51,12 +51,13 @@ Du kan följa stegen i den här självstudien i macOS, Linux och Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
-* <a href="https://git-scm.com/" target="_blank">Installera Git</a>
-* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Installera den senaste .NET Core 3,1 SDK</a>
+- <a href="https://git-scm.com/" target="_blank">Installera Git</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Installera den senaste .NET Core 3,1 SDK</a>
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-local-net-core-app"></a>Skapa en lokal .NET Core-app
 
@@ -77,8 +78,6 @@ dotnet run
 ![ASP.NET Core-API som körs lokalt](./media/tutorial-auth-aad/local-run.png)
 
 Du kan när som helst stoppa ASP.NET Core genom att trycka på `Ctrl+C` i terminalen.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-apps-to-azure"></a>Distribuera appar till Azure
 

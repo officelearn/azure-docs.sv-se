@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 90a4da2aadbbdf07d851e4407d2d417fc76d32af
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 5985c30973f703b897fa2eedc2be3b939d97900b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512332"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559005"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Så här anropar du Textanalys REST API
 
@@ -52,9 +52,9 @@ Se tabellen nedan för att se vilka funktioner som kan användas asynkront. Obse
 
 
 > [!NOTE]
-> Du behöver en Textanalys-resurs som använder en standard [pris nivå](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) (S) om du vill använda- `/analyze` eller- `/health` slut punkterna.
+> * Du behöver en Textanalys-resurs som använder en standard [pris nivå](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) (S) om du vill använda- `/analyze` eller- `/health` slut punkterna.
 
-1.  Börja med att gå till [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) och skapa en ny textanalys resurs, om du inte redan har en. Välj **pris nivån standard (S)** om du vill använda-eller- `/analyze` `/health` slut punkterna.
+1.  Börja med att gå till [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) och skapa en ny textanalys resurs, om du inte redan har en. Välj **pris nivån standard (S)** om du vill använda-eller- `/analyze` `/health` slut punkterna. `/analyze`Slut punkten ingår i [pris nivån](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
 2.  Välj den region som du vill använda för slut punkten.  Observera att `/analyze` och `/health` slut punkterna endast är tillgängliga i följande regioner: västra USA 2, östra USA 2, centrala USA, norra Europa och Västeuropa.
 

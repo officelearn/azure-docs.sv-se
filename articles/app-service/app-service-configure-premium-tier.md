@@ -6,18 +6,18 @@ ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e6b8c7d54cf24d810a1f32082d816c908966f63c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 204e087908ff978880966332b4619935dc6f0458
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739688"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559124"
 ---
 # <a name="configure-premiumv3-tier-for-azure-app-service"></a>Konfigurera PremiumV3-nivån för Azure App Service
 
 Den nya pris nivån för **PremiumV3** ger dig snabbare processorer, SSD-lagring och fyrdubbla förhållandet mellan förhållandet mellan minne och kärna för de befintliga pris nivåerna (dubbla **PremiumV2** -nivån). Med prestanda fördelen kan du spara pengar genom att köra dina appar på färre instanser. I den här artikeln får du lära dig hur du skapar en app i **PremiumV3** -nivån eller skalar upp en app till **PremiumV3** -nivån.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill skala upp en app till **PremiumV3** måste du ha en Azure App Service-app som körs på en pris nivå som är lägre än **PremiumV3** och appen måste köras i en app service-distribution som stöder PremiumV3.
 
@@ -42,14 +42,14 @@ az appservice list-locations --sku P1V3
 
 Pris nivån för en App Service-app definieras i [App Service plan](overview-hosting-plans.md) som den körs på. Du kan skapa en App Service plan separat eller som en del av att skapa appar.
 
-När du konfigurerar App Service plan i <a href="https://portal.azure.com" target="_blank">Azure Portal</a>väljer du **pris nivå** . 
+När du konfigurerar App Service plan i <a href="https://portal.azure.com" target="_blank">Azure Portal</a>väljer du **pris nivå**. 
 
-Välj **produktion** , välj sedan **P1V3** , **P2V3** eller **P3V3** och klicka sedan på **Verkställ** .
+Välj **produktion**, välj sedan **P1V3**, **P2V3** eller **P3V3** och klicka sedan på **Verkställ**.
 
 ![Skärm bild som visar de rekommenderade pris nivåerna för din app.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
-> Om du inte ser alternativen **P1V3** , **P2V3** och **P3V3** som alternativ, eller om alternativen är nedtonade, är **PremiumV3** troligen inte tillgängligt i den underliggande app service distribution som innehåller App Service plan. Se [skala upp från en resurs grupp och en region kombination som inte stöds](#unsupported) för mer information.
+> Om du inte ser alternativen **P1V3**, **P2V3** och **P3V3** som alternativ, eller om alternativen är nedtonade, är **PremiumV3** troligen inte tillgängligt i den underliggande app service distribution som innehåller App Service plan. Se [skala upp från en resurs grupp och en region kombination som inte stöds](#unsupported) för mer information.
 
 ## <a name="scale-up-an-existing-app-to-premiumv3-tier"></a>Skala upp en befintlig app till PremiumV3-nivån
 
@@ -59,11 +59,11 @@ Beroende på din värd miljö kan det krävas ytterligare steg vid skalningen.
 
 Öppna din App Service app-sida i <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
-I det vänstra navigerings fönstret på App Service app-sidan väljer du **skala upp (App Service plan)** .
+I det vänstra navigerings fönstret på App Service app-sidan väljer du **skala upp (App Service plan)**.
 
 ![Skärm bild som visar hur du skalar upp din app service-plan.](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
-Välj **produktion** , välj sedan **P1V3** , **P2V3** eller **P3V3** och klicka sedan på **Verkställ** .
+Välj **produktion**, välj sedan **P1V3**, **P2V3** eller **P3V3** och klicka sedan på **Verkställ**.
 
 ![Skärm bild som visar de rekommenderade pris nivåerna för din app.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
@@ -79,10 +79,10 @@ Vissa App Services planer kan inte skala upp till PremiumV3-nivån om den underl
 
 ## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>Skala upp från en kombination av resurs grupp och region som inte stöds
 
-Om din app körs i en App Service distribution där **PremiumV3** inte är tillgänglig, eller om din app körs i en region som för närvarande inte stöder **PremiumV3** , måste du distribuera om appen för att kunna dra nytta av **PremiumV3** .  Du kan välja mellan två alternativ:
+Om din app körs i en App Service distribution där **PremiumV3** inte är tillgänglig, eller om din app körs i en region som för närvarande inte stöder **PremiumV3**, måste du distribuera om appen för att kunna dra nytta av **PremiumV3**.  Du kan välja mellan två alternativ:
 
-- Skapa en app i en ny resurs grupp och med en ny App Service plan. När du skapar App Service plan väljer du en **PremiumV3** -nivå. Det här steget säkerställer att App Service plan distribueras till en distributions enhet som stöder **PremiumV3** . Distribuera sedan program koden till den nya appen. Även om du skalar App Service plan ned till en lägre nivå för att spara kostnader kan du alltid skala upp till **PremiumV3** eftersom distributions enheten stöder det.
-- Om din app redan körs på en befintlig **Premium** -nivå kan du klona din app med alla appinställningar, anslutnings strängar och distributions konfiguration till en ny app service-plan som använder **PremiumV3** .
+- Skapa en app i en ny resurs grupp och med en ny App Service plan. När du skapar App Service plan väljer du en **PremiumV3** -nivå. Det här steget säkerställer att App Service plan distribueras till en distributions enhet som stöder **PremiumV3**. Distribuera sedan program koden till den nya appen. Även om du skalar App Service plan ned till en lägre nivå för att spara kostnader kan du alltid skala upp till **PremiumV3** eftersom distributions enheten stöder det.
+- Om din app redan körs på en befintlig **Premium** -nivå kan du klona din app med alla appinställningar, anslutnings strängar och distributions konfiguration till en ny app service-plan som använder **PremiumV3**.
 
     ![Skärm bild som visar hur du klonar din app.](media/app-service-configure-premium-tier/clone-app.png)
 
@@ -90,7 +90,7 @@ Om din app körs i en App Service distribution där **PremiumV3** inte är tillg
 
 ## <a name="moving-from-premium-container-to-premium-v3-sku"></a>Flytta från Premium container till Premium v3 SKU
 
-Om du har en app som använder SKU: n för för hands version och vill flytta till den nya Premium v3-SKU: n, måste du distribuera om appen för att kunna dra nytta av **PremiumV3** . För att göra detta, se det första alternativet i [skala upp från en resurs grupp och en region kombination som inte stöds](#scale-up-from-an-unsupported-resource-group-and-region-combination)
+Om du har en app som använder SKU: n för för hands version och vill flytta till den nya Premium v3-SKU: n, måste du distribuera om appen för att kunna dra nytta av **PremiumV3**. För att göra detta, se det första alternativet i [skala upp från en resurs grupp och en region kombination som inte stöds](#scale-up-from-an-unsupported-resource-group-and-region-combination)
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 
@@ -98,7 +98,7 @@ Du kan automatisera skapandet av appar i **PremiumV3** -nivån med skript med hj
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Följande kommando skapar en App Service plan i _P1V2_ . Du kan köra den i Cloud Shell. Alternativen för `--sku` är P1V3, _P2V3_ och _P3V3_ .
+Följande kommando skapar en App Service plan i _P1V3_. Du kan köra den i Cloud Shell. Alternativen för `--sku` är P1V3, _P2V3_ och _P3V3_.
 
 ```azurecli-interactive
 az appservice plan create \
@@ -111,7 +111,7 @@ az appservice plan create \
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Följande kommando skapar en App Service plan i _P1V3_ . Alternativen för `-WorkerSize` är _små_ , _medel stora_ och _stora_ .
+Följande kommando skapar en App Service plan i _P1V3_. Alternativen för `-WorkerSize` är _små_, _medel stora_ och _stora_.
 
 ```powershell
 New-AzAppServicePlan -ResourceGroupName <resource_group_name> `

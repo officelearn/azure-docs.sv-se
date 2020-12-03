@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 90e3464ac9ddf1e839c3a731f79ac2c0771c37ea
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a6aa4ad009d037e6ea0d1ade3cc9735351bd634a
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532714"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558869"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Självstudie: Konfigurera 8x8 för automatisk användar etablering
 
-I den här självstudien beskrivs de steg du behöver utföra i både 8x8 Configuration Manager och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD konfigureras, etablerar och avetablerar Azure AD automatiskt användare och grupper i [8x8](https://www.8x8.com) med hjälp av Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md). 
+I den här självstudien beskrivs de steg du behöver utföra i både 8x8-administratörskonsolen och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD konfigureras, etablerar och avetablerar Azure AD automatiskt användare och grupper i [8x8](https://www.8x8.com) med hjälp av Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 ## <a name="capabilities-supported"></a>Funktioner som stöds
 > [!div class="checklist"]
@@ -36,7 +36,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 * [En Azure AD-klient](../develop/quickstart-create-new-tenant.md) 
 * Ett användarkonto i Azure AD med [behörighet](../roles/permissions-reference.md) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör).
 * En prenumeration på 8x8 X-serien på alla nivåer.
-* Ett 8x8-användarkonto med administratörs behörighet i [Configuration Manager](https://vo-cm.8x8.com).
+* Ett 8x8-användarkonto med administratörs behörighet i [Administratörs konsolen](https://vo-cm.8x8.com).
 * [Enskilda Sign-On med Azure AD](./8x8virtualoffice-tutorial.md) har redan kon figurer ATS.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablering av distributionen
@@ -48,7 +48,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 Det här avsnittet vägleder dig genom stegen för att konfigurera 8x8 för att ge stöd för etablering med Azure AD.
 
-### <a name="to-configure-a-user-provisioning-access-token-in-8x8-configuration-manager"></a>Så här konfigurerar du en åtkomsttoken för användar etablering i 8x8 Configuration Manager:
+### <a name="to-configure-a-user-provisioning-access-token-in-8x8-admin-console"></a>Så här konfigurerar du en åtkomsttoken för användar etablering i 8x8-administratörs konsolen:
 
 1. Logga in på [Administratörs konsolen](https://admin.8x8.com). Välj **identitets hantering**.
 
@@ -102,7 +102,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Skärm bild av list rutan etablerings läge med det automatiska alternativet inringat.](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** , kopierar du **8x8-URL: en** från Configuration Manager till **klient-URL: en**. Kopiera **8x8-API-token** från Configuration Manager till **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till 8x8. Om anslutningen Miss lyckas kontrollerar du att 8x8-kontot har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** , kopierar du **8x8-URL: en** från administratörs konsolen till **klient-URL: en**. Kopiera **8x8-API-token** från administratörs konsolen till en **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till 8x8. Om anslutningen Miss lyckas kontrollerar du att 8x8-kontot har administratörs behörighet och försöker igen.
 
     ![Skärm bild som visar dialog rutan admin-autentiseringsuppgifter där du kan ange din klient U R L och hemlig token.](./media/8x8-provisioning-tutorial/provisioning.png)
 

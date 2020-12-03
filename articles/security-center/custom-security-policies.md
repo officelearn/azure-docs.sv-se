@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/22/2020
+ms.date: 12/03/2020
 ms.author: memildin
-ms.openlocfilehash: ab9be4b14ca51b56ec0a52147b409a56f87cf302
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8d2b43ab57ea7a3b1dc1d13bcdea9932ccecb9dc
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341897"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559039"
 ---
 # <a name="using-custom-security-policies"></a>Använda anpassade säkerhetsprinciper
 
@@ -36,7 +36,7 @@ Som beskrivs i [Azure policy-dokumentationen](../governance/policy/concepts/defi
     >
     > När du lägger till en anpassad standard tilldelar den ett *initiativ* till det omfånget. Vi rekommenderar därför att du väljer det bredaste definitions område som krävs för tilldelningen.
 
-1. Klicka på **Lägg till ett anpassat initiativ**under dina egna initiativ på sidan säkerhets princip.
+1. Klicka på **Lägg till ett anpassat initiativ** under dina egna initiativ på sidan säkerhets princip.
 
     [![Klicka på Lägg till ett anpassat initiativ](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
 
@@ -84,7 +84,7 @@ Metadata ska läggas till i princip definitionen för en princip som är en del 
  "metadata": {
     "securityCenter": {
         "RemediationDescription": "Custom description goes here",
-        "Severity": "High",
+        "Severity": "High"
     },
 ```
 
@@ -99,8 +99,8 @@ Nedan visas ett exempel på en anpassad princip, inklusive metadata/securityCent
     "description": "Audit required resource groups lock",
     "metadata": {
         "securityCenter": {
-            "remediationDescription": "Resource Group locks can be set via Azure Portal -> Resource Group -> Locks",
-            "severity": "High"
+            "RemediationDescription": "Resource Group locks can be set via Azure Portal -> Resource Group -> Locks",
+            "Severity": "High"
         }
     },
     "parameters": {

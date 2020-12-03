@@ -4,12 +4,12 @@ description: Lär dig hur du konfigurerar en anpassad behållare i Azure App Ser
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 9f71efbf7cc606efd598880e90ade3a549402245
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2aece0550d7b78ac4312e71b2671de4a64e4b86b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787065"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557934"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Konfigurera en anpassad container för Azure App Service
 
@@ -139,7 +139,17 @@ Du kan använda *C:\home* -katalogen i appens fil system för att spara filer me
 
 När beständigt lagrings utrymme är inaktiverat `C:\home` behålls inte skrivningar till katalogen. [Docker-värd loggar och behållar loggar](#access-diagnostic-logs) sparas i en standard beständig delad lagring som inte är kopplad till behållaren. När beständig lagring har Aktiver ATS sparas alla skrivningar till `C:\home` katalogen och de kan nås av alla instanser av en utskalad app och loggen är tillgänglig i `C:\home\LogFiles` .
 
-Beständig lagring är som standard *inaktive rad* och inställningen visas inte i program inställningarna. Om du vill aktivera det anger du `WEBSITES_ENABLE_APP_SERVICE_STORAGE` appens inställning via [Cloud Shell](https://shell.azure.com). I bash:
+::: zone-end
+
+::: zone pivot="container-linux"
+
+Du kan använda */Home* -katalogen i appens fil system för att spara filer mellan omstarter och dela dem över instanser. `/home`I din app kan du använda behållar appen för att få åtkomst till beständig lagring.
+
+När beständig lagring är inaktive rad `/home` behålls inte skrivningar till katalogen i appens omstarter eller över flera instanser. Det enda undantaget är `/home/LogFiles` katalogen som används för att lagra Docker-och container-loggar. När beständig lagring är aktive rad är alla skrivningar till `/home` katalogen bestående och kan nås av alla instanser av en utskalad app.
+
+::: zone-end
+
+Beständig lagring är som standard inaktive rad och inställningen exponeras inte i appens inställningar. Om du vill aktivera det anger du `WEBSITES_ENABLE_APP_SERVICE_STORAGE` appens inställning via [Cloud Shell](https://shell.azure.com). I bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
@@ -150,28 +160,6 @@ I PowerShell:
 ```azurepowershell-interactive
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=true}
 ```
-
-::: zone-end
-
-::: zone pivot="container-linux"
-
-Du kan använda */Home* -katalogen i appens fil system för att spara filer mellan omstarter och dela dem över instanser. `/home`I din app kan du använda behållar appen för att få åtkomst till beständig lagring.
-
-När beständig lagring är inaktive rad `/home` behålls inte skrivningar till katalogen i appens omstarter eller över flera instanser. Det enda undantaget är `/home/LogFiles` katalogen som används för att lagra Docker-och container-loggar. När beständig lagring är aktive rad är alla skrivningar till `/home` katalogen bestående och kan nås av alla instanser av en utskalad app.
-
-Beständig lagring är *aktive rad* som standard och inställningen visas inte i program inställningarna. Om du vill inaktivera den anger du `WEBSITES_ENABLE_APP_SERVICE_STORAGE` appens inställning via [Cloud Shell](https://shell.azure.com). I bash:
-
-```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
-```
-
-I PowerShell:
-
-```azurepowershell-interactive
-Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=false}
-```
-
-::: zone-end
 
 > [!NOTE]
 > Du kan också [Konfigurera en egen beständig lagring](configure-connect-to-azure-storage.md).
@@ -212,7 +200,7 @@ Det finns flera sätt att komma åt Docker-loggar:
 
 ### <a name="in-azure-portal"></a>I Azure Portal
 
-Docker-loggar visas i portalen på sidan **behållar inställningar** i din app. Loggarna trunkeras, men du kan ladda ned alla loggar genom att klicka på **Hämta** . 
+Docker-loggar visas i portalen på sidan **behållar inställningar** i din app. Loggarna trunkeras, men du kan ladda ned alla loggar genom att klicka på **Hämta**. 
 
 ### <a name="from-the-kudu-console"></a>Från kudu-konsolen
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: ef06faa17739153b2a04e777498e1de6e97c0646
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 804d739efa5ac96c0b2d7228573f031f324e590e
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957103"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558988"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Använda namngiven enhets igenkänning i Textanalys
 
@@ -31,7 +31,7 @@ Med namngiven enhets igenkänning (NER) kan du identifiera olika entiteter i tex
 
 ## <a name="personally-identifiable-information-pii"></a>Personligt identifierbar information (PII)
 
-Funktionen PII är en del av NER och kan identifiera och redigera känsliga entiteter i text som är associerade med en enskild person, till exempel: telefonnummer, e-postadress, e-postadress, Passport-nummer.  
+Funktionen PII är en del av NER och kan identifiera och redigera känsliga entiteter i text som är associerade med en enskild person, till exempel: telefonnummer, e-postadress, e-postadress, Passport-nummer.
 
 ## <a name="named-entity-recognition-features-and-versions"></a>Funktioner och versioner för namngiven enhets igenkänning
 

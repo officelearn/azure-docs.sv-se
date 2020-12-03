@@ -2,14 +2,14 @@
 title: Tagga resurser, resurs grupper och prenumerationer för logisk organisation
 description: Visar hur du använder taggar för att organisera Azure-resurser för fakturering och hantering.
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 12/03/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e9ef96a712e5ac2ba483170fb8ef9c89115b4f8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e47d3acf15ce5e4f5cb70444419b76beb21ae98b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95972576"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558155"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Använd taggar för att ordna dina Azure-resurser och-hanterings hierarki
 
@@ -26,9 +26,11 @@ Rekommendationer för hur du implementerar en taggnings strategi finns i avsnitt
 
 ## <a name="required-access"></a>Nödvändig åtkomst
 
-Om du vill lägga till taggar till en resurs måste du ha Skriv behörighet till resurs typen **Microsoft. Resources/Tagss** . Med rollen [tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) kan du tillämpa taggar på en entitet utan att ha åtkomst till själva entiteten. För närvarande kan inte rollen tag Contributor använda taggar för resurser eller resurs grupper via portalen. Den kan använda taggar för prenumerationer via portalen. Den har stöd för alla åtgärder för Taggar via PowerShell och REST API.  
+Det finns två sätt att hämta nödvändig åtkomst till tagga resurser.
 
-[Deltagar](../../role-based-access-control/built-in-roles.md#contributor) rollen beviljar även den behörighet som krävs för att tillämpa taggar på alla entiteter. Använd deltagar rollen för den resursen om du bara vill använda taggar för en resurs typ. Om du till exempel vill använda taggar för virtuella datorer använder du den [virtuella dator deltagaren](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+- Du kan ha Skriv behörighet till resurs typen **Microsoft. Resources/Tags** . Med den här åtkomsten kan du tagga alla resurser, även om du inte har åtkomst till resursen. Rollen för [tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) ger denna åtkomst. För närvarande kan inte rollen tag Contributor använda taggar för resurser eller resurs grupper via portalen. Den kan använda taggar för prenumerationer via portalen. Den har stöd för alla åtgärder för Taggar via PowerShell och REST API.  
+
+- Du kan ha Skriv behörighet till själva resursen. [Deltagar](../../role-based-access-control/built-in-roles.md#contributor) rollen ger den nödvändiga åtkomsten för att tillämpa taggar på alla entiteter. Använd deltagar rollen för den resursen om du bara vill använda taggar för en resurs typ. Om du till exempel vill använda taggar för virtuella datorer använder du den [virtuella dator deltagaren](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -277,7 +279,7 @@ az tag create --resource-id $resource --tags Team=Compliance Environment=Product
 },
 ```
 
-Om du vill lägga till taggar till en resurs som redan har taggar, använder du **AZ tag Update**. Ange parametern **--operation** som ska **slås samman**.
+Använd om du vill lägga till taggar till en resurs som redan har Taggar `az tag update` . Ange `--operation` parametern till `Merge` .
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
@@ -313,7 +315,7 @@ az tag update --resource-id $resource --operation Merge --tags Status=Green
 },
 ```
 
-När du anger parametern **--operation** **som ska ersättas ersätts** de befintliga taggarna med den nya uppsättningen taggar.
+När du anger `--operation` parametern till `Replace` ersätts de befintliga taggarna med den nya uppsättningen taggar.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
@@ -406,7 +408,7 @@ az group list --tag Dept=Finance
 
 ### <a name="remove-tags"></a>Ta bort taggar
 
-Om du vill ta bort vissa Taggar använder du **AZ tag-uppdatering** och anger **åtgärd** att **ta bort**. Skicka in de taggar som du vill ta bort.
+Om du vill ta bort vissa Taggar använder `az tag update` du och anger `--operation` som `Delete` . Skicka in de taggar som du vill ta bort.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web

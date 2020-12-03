@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med GitHub | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och GitHub.
+title: 'Självstudie: Azure Active Directory integration med en GitHub företags moln organisation | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och en GitHub företags moln organisation.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: cb5ef751a3fc2241924eaee1c5da9507006389cc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 67a17aaa647d9aa6943b37d54fc0e3308ad8955f
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92449281"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558546"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med GitHub
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-a-github-enterprise-cloud-organization"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med en GitHub företags moln organisation
 
-I den här självstudien får du lära dig hur du integrerar GitHub med Azure Active Directory (Azure AD). När du integrerar GitHub med Azure AD kan du:
+I den här självstudien får du lära dig hur du integrerar en GitHub företags moln **organisation** med Azure Active Directory (Azure AD). När du integrerar en GitHub företags moln organisation med Azure AD kan du:
 
 * Kontroll i Azure AD som har åtkomst till din GitHub företags moln organisation.
 * Hantera åtkomst till din GitHub företags moln organisation på en central plats – Azure Portal.
@@ -29,7 +29,7 @@ Mer information om SaaS app integration med Azure AD finns i [Vad är program å
 
 ## <a name="prerequisites"></a>Krav
 
-För att konfigurera Azure AD-integrering med GitHub behöver du följande:
+Om du vill konfigurera Azure AD-integrering med en GitHub företags moln organisation behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * En GitHub-organisation som har skapats i [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) och kräver [GitHub Enterprise-faktureringsplanen](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
@@ -50,9 +50,9 @@ För att konfigurera integreringen av GitHub till Azure AD behöver du lägga ti
 1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
 1. Navigera till **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. Välj **nytt program** om du vill lägga till ett nytt program.
 1. I avsnittet **Lägg till från galleriet** , skriver du **GitHub** i sökrutan.
-1. Välj **GitHub** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. Välj **GitHub Enterprise Cloud-Organization** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-github"></a>Konfigurera och testa enkel inloggning med Azure AD för GitHub
 
@@ -111,11 +111,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare** och väljer sedan **alla användare**.
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -123,13 +123,13 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till GitHub.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I Azure Portal väljer du **företags program** och väljer sedan **alla program**.
 1. I programlistan väljer du **GitHub**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+1. Välj **Lägg till användare** och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 

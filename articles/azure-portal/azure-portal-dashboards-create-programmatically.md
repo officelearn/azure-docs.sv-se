@@ -3,21 +3,21 @@ title: Skapa Azure-instrumentpaneler program mässigt
 description: Använd en instrument panel i Azure Portal som en mall för att program mässigt skapa Azure-instrumentpaneler. Inkluderar JSON-referens.
 services: azure-portal
 documentationcenter: ''
-author: adamabmsft
+author: mgblythe
 manager: mtillman
 ms.service: azure-portal
 ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 03/23/2020
+ms.date: 12/4/2020
 ms.author: mblythe
-ms.openlocfilehash: 7f52bd94a0286ea50d09ab7c77dce339e8a3ebf3
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7e6819b01af3fc9357417a838fefce7f2c73dcce
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089374"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558224"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Skapa Azure-instrumentpaneler program mässigt
 
@@ -658,3 +658,49 @@ I det här exemplet distribueras en instrument panel av sig själv, men med hjä
 ```
 
 Nu när du har sett ett exempel på att använda en parametriserad mall för att distribuera en instrument panel kan du prova att distribuera mallen med hjälp av [Azure Resource Manager REST-API: er](/rest/api/), [Azure CLI](/cli/azure)eller [Azure PowerShell kommandon](/powershell/azure/get-started-azureps).
+
+## <a name="programmatically-create-a-dashboard-by-using-azure-cli"></a>Skapa en instrument panel program mässigt med hjälp av Azure CLI
+
+Förbered din miljö för Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- I de här exemplen används följande instrument panel: [portal-dashboard-template-testvm.jspå](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Ersätt innehåll i vinkelparenteser med dina värden.
+
+Kör kommandot [AZ Portal Dashboard Create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) för att skapa en instrument panel:
+
+```azurecli
+az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+   --input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+Du kan uppdatera en instrument panel med hjälp av [AZ-portalens instrument panels uppdaterings](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) kommando:
+
+```azurecli
+az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+--input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+Se information om en instrument panel genom att köra kommandot [AZ Portal Dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) :
+
+```azurecli
+az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
+```
+
+Om du vill se alla instrument paneler för den aktuella prenumerationen använder du [AZ Portal Dashboard List](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+
+```azurecli
+az portal dashboard list
+```
+
+Du kan också se alla instrument paneler för en resurs grupp:
+
+```azurecli
+az portal dashboard list --resource-group myResourceGroup
+```
+
+## <a name="next-steps"></a>Nästa steg
+
+Mer information om Station ära datorer finns i [hantera Azure Portal inställningar och inställningar](set-preferences.md).
+
+Mer information om Azure CLI-stöd för instrument paneler finns i [instrument panelen för AZ-portalen](/cli/azure/ext/portal/portal/dashboard).

@@ -8,19 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/02/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 8743e765a050bfc4a2ba93a1b3e0344a960edb76
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 157bef31b375db54f294284ca0a5d97cd7035b17
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966895"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558971"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Vad är nytt i API:et för textanalys?
 
 API för textanalys uppdateras regelbundet. Den här artikeln innehåller information om nya versioner och funktioner för att hålla dig uppdaterad med den senaste utvecklingen.
+
+## <a name="december-2020"></a>December 2020
+
+* [Uppdaterad pris](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) information för API för textanalys
 
 ## <a name="november-2020"></a>November 2020
 
@@ -238,6 +242,6 @@ Det stöder engelska ( `en` ), japanska ( `ja` ), kinesiska (förenklad) `zh-Han
 * [Vad är API för textanalys?](overview.md)  
 * [Exempel på användarscenarier](text-analytics-user-scenarios.md)
 * [Sentiment-analys](how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Språk identifiering](how-tos/text-analytics-how-to-language-detection.md)
+* [Språkidentifiering](how-tos/text-analytics-how-to-language-detection.md)
 * [Igenkänning av enhet](how-tos/text-analytics-how-to-entity-linking.md)
-* [Extrahering av nyckel fraser](how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Extrahering av nyckelfraser](how-tos/text-analytics-how-to-keyword-extraction.md)

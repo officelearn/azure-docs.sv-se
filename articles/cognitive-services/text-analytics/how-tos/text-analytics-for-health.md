@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/02/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: e7f017c1f3dc189af2b0fc053912decca3459478
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 27af0ffdeb254dbb671a0618d0e9973336a7f529
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952768"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559022"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Gör så här: använda Textanalys för hälsa (för hands version)
 
@@ -28,6 +28,8 @@ Textanalys för hälsan är en funktion i API för textanalyss tjänsten som ext
 
 * Det webbaserade API: t (asynkront) 
 * En Docker-behållare (synkron)   
+
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
 ## <a name="features"></a>Funktioner
 

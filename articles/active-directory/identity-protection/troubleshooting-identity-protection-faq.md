@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba22745923f1b157c477dce0b5704c7e278e748e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6eb63a4a0b7b7fdefd636d3460b182f8d907dd36
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96176009"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558937"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Vanliga frågor om identitets skydd i Azure Active Directory
 
@@ -82,9 +82,11 @@ Alla risk identifieringar dokumenteras i artikeln [Vad är en risk](concept-iden
 
 - När du får den här feedbacken flyttar vi inloggnings läget (inte användarens) risk tillstånd till **bekräftat säkert** och risk nivån till **-** .
 
-- Dessutom tillhandahåller vi informationen till våra Machine Learning-system för framtida förbättringar av riskbedömning.
+- Dessutom tillhandahåller vi informationen till våra Machine Learning-system för framtida förbättringar av riskbedömning. 
 
     > [!NOTE]
+    >I dag kan du välja bekräfta säker vid inloggningen för att förhindra att framtida inloggningar med samma egenskaper flaggas som riskfyllda. Det bästa sättet att träna systemet att lära sig en användares egenskaper är att använda den riskfyllda inloggnings principen med MFA. När ett riskfylldt inloggnings program uppmanas att MFA och användaren svarar på begäran kan inloggningen lyckas och hjälpa till att träna systemet på den legitima användarens beteende.
+    >
     > Om du tror att användaren inte har komprometterats kan du använda **Ignorera användar risk** på användar nivå i stället för att använda **bekräftad säkerhet** på inloggnings nivå. En avstängnings **risk** på användar nivå stänger användar risken och alla tidigare riskfyllda inloggningar och risk identifieringar.
 
 ### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-detections-are-shown-in-identity-protection"></a>Varför ser jag en användare med låg (eller högre) risk poäng, även om inga riskfyllda inloggningar eller risk identifieringar visas i Identity Protection?

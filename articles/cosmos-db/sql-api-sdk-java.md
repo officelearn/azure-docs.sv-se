@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 87ff11c33c909c7398ebced54ec81907dab2d991
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0b48b8d954b132caab96e5978c90687899ea04c2
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080540"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549233"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL API: viktig information och resurser
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "93080540"
 Det här är den ursprungliga Azure Cosmos DB synkronisera Java SDK v2 för SQL API som stöder synkrona åtgärder.
 
 > [!IMPORTANT]  
-> Detta är *inte* den senaste Java SDK: n för Azure Cosmos DB! Överväg att använda [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) för ditt projekt. Om du vill uppgradera följer du anvisningarna i guiden [migrera till Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) och [reaktor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) . 
+> Detta är *inte* den senaste Java SDK: n för Azure Cosmos DB! Överväg att använda [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) för ditt projekt. Om du vill uppgradera följer du anvisningarna i guiden [migrera till Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) och [reaktor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) . 
 >
 
 | |  |
@@ -175,7 +175,7 @@ Det här är den ursprungliga Azure Cosmos DB synkronisera Java SDK v2 för SQL 
 * Korrigerade några buggar i sessions-behållaren som kan orsaka att det inte går att hitta en "ägare resurs"-undantag för förfrågningar direkt efter att samlingen har skapats.
 
 ### <a name="195"></a><a name="1.9.5"></a>1.9.5
-* Stöd har lagts till för agg regerings frågor (antal, MIN, MAX, SUM och AVG). Se [agg regerings stöd](sql-query-aggregates.md).
+* Stöd har lagts till för agg regerings frågor (antal, MIN, MAX, SUM och AVG). Se [agg regerings stöd](sql-query-aggregate-functions.md).
 * Stöd har lagts till för ändrings flöde.
 * Stöd har lagts till för samlings kvot information via RequestOptions. setPopulateQuotaInfo.
 * Stöd för skript loggning för lagrad procedur har lagts till via RequestOptions. setScriptLoggingEnabled.

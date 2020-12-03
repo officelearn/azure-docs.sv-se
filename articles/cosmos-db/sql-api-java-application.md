@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 774c829b3f9c36cef33f8f334825440b92582f4e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b3cb6bf56820da84d17f0b981f461a545bbe5ab6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097319"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549267"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Självstudie: bygga ett Java-webbprogram med Azure Cosmos DB och SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -66,19 +66,19 @@ Vi ska börja med att skapa ett Azure Cosmos DB-konto. Om du redan har ett konto
 
 Så här skapar du JSP-appen:
 
-1. Först börjar vi med att skapa ett Java-projekt. Starta Eclipse och klicka på **Arkiv** , **Nytt** och slutligen **Dynamiskt webbprojekt** . Om du inte ser **dynamiskt webb projekt** som visas som ett tillgängligt projekt gör du följande: Klicka på **Arkiv** , klicka på **nytt** , klicka på **projekt** ..., expandera **webb** , klicka på **dynamiskt webb projekt** och klicka på **Nästa** .
+1. Först börjar vi med att skapa ett Java-projekt. Starta Eclipse och klicka på **Arkiv**, **Nytt** och slutligen **Dynamiskt webbprojekt**. Om du inte ser **dynamiskt webb projekt** som visas som ett tillgängligt projekt gör du följande: Klicka på **Arkiv**, klicka på **nytt**, klicka på **projekt**..., expandera **webb**, klicka på **dynamiskt webb projekt** och klicka på **Nästa**.
    
-    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="Java-app med att göra-lista":::
+    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="JSP Java-apputveckling":::
 
-1. Ange ett projektnamn i rutan **Projektnamn** och välj eventuellt ett värde (t.ex. Apache Tomcat v7.0) i rullgardinsmenyn **Körningsmål** och klicka sedan på **Slutför** . När du väljer ett mål för körning kan du köra projektet lokalt genom Eclipse.
+1. Ange ett projektnamn i rutan **Projektnamn** och välj eventuellt ett värde (t.ex. Apache Tomcat v7.0) i rullgardinsmenyn **Körningsmål** och klicka sedan på **Slutför**. När du väljer ett mål för körning kan du köra projektet lokalt genom Eclipse.
 
-1. Expandera projektet i Eclipse i vyn Projektutforskaren. Högerklicka på **Webbinnehåll** , klicka på **Ny** och sedan på **JSP-fil** .
+1. Expandera projektet i Eclipse i vyn Projektutforskaren. Högerklicka på **Webbinnehåll**, klicka på **Ny** och sedan på **JSP-fil**.
 
-1. I dialogrutan **Ny JSP-fil** namnger du filen **index.jsp** . Behåll den överordnade mappen som **Webbinnehåll** , så som visas i nedanstående bild, och klicka sedan på **Nästa** .
+1. I dialogrutan **Ny JSP-fil** namnger du filen **index.jsp**. Behåll den överordnade mappen som **Webbinnehåll**, så som visas i nedanstående bild, och klicka sedan på **Nästa**.
    
-    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Java-app med att göra-lista":::
+    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Skapa en ny JSP-fil – självstudie om Java-webbapp":::
 
-1. I dialogrutan **Välj JSP-mall** väljer du i den här självstudien **Ny JSP-fil (html)** och klickar sedan på **Slutför** .
+1. I dialogrutan **Välj JSP-mall** väljer du i den här självstudien **Ny JSP-fil (html)** och klickar sedan på **Slutför**.
 
 1. När *index.jsp* -filen öppnas i Sol förmörkelse lägger du till text att visa **Hello World!** i det befintliga `<body>`-elementet när index.jsp-filen öppnas i Eclipse. Det uppdaterade `<body>`-innehållet bör likna följande kod:
 
@@ -92,19 +92,19 @@ Så här skapar du JSP-appen:
 
 1. Om du anger ett mål för körning i steg 2 kan du klicka på **Projekt** och **Kör** för att köra JSP-appen lokalt:
 
-   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Java-app med att göra-lista":::
+   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Hello World – självstudie om Java-app":::
 
 ## <a name="install-the-sql-java-sdk"></a><a id="InstallSDK"></a>Installera SQL Java SDK
 
 Det enklaste sättet att hämta SQL Java SDK och dess beroenden är via [Apache Maven](https://maven.apache.org/). För att göra detta måste du konvertera projektet till ett Maven-projekt med hjälp av följande steg:
 
-1. Högerklicka på ditt projekt i Projektutforskaren, klicka på **Konfigurera** och sedan på **Konvertera till Maven-projekt** .
+1. Högerklicka på ditt projekt i Projektutforskaren, klicka på **Konfigurera** och sedan på **Konvertera till Maven-projekt**.
 
-1. I fönstret **Skapa ny Pom** accepterar du standardvärdena och klickar på **Slutför** .
+1. I fönstret **Skapa ny Pom** accepterar du standardvärdena och klickar på **Slutför**.
 
-1. Öppna filen pom.xml i **Projektutforskaren** .
+1. Öppna filen pom.xml i **Projektutforskaren**.
 
-1. På fliken **Beroenden** i panelen **Beroenden** klickar du på **Lägg till** .
+1. På fliken **Beroenden** i panelen **Beroenden** klickar du på **Lägg till**.
 
 1. I fönstret **Välj beroende** gör du följande:
    
@@ -130,7 +130,7 @@ Nu ska vi lägga till modeller, vyer och kontrollanter i ditt webb program.
 
 ### <a name="add-a-model"></a> Lägga till en modell
 
-Först ska vi definiera en modell i en ny fil *TodoItem. java* . `TodoItem`Klassen definierar schemat för ett objekt tillsammans med get-och set-metoderna:
+Först ska vi definiera en modell i en ny fil *TodoItem. java*. `TodoItem`Klassen definierar schemat för ett objekt tillsammans med get-och set-metoderna:
 
 :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/model/TodoItem.java":::
 
@@ -184,19 +184,19 @@ Nu när vi har slutfört de roliga bitarna är allt det som återstår att bygga
 
    :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/WebContent/assets/todo.js":::
 
-1. Nu återstår bara att testa appen. Kör appen lokalt och lägg till några Todo-objekt genom att fylla i namn och kategori och klicka på **Lägg till aktivitet** . När objektet visas kan du uppdatera om det är slutfört genom att växla till kryss rutan och klicka på **Uppdatera aktiviteter** .
+1. Nu återstår bara att testa appen. Kör appen lokalt och lägg till några Todo-objekt genom att fylla i namn och kategori och klicka på **Lägg till aktivitet**. När objektet visas kan du uppdatera om det är slutfört genom att växla till kryss rutan och klicka på **Uppdatera aktiviteter**.
 
 ## <a name="deploy-your-java-application-to-azure-web-sites"></a><a id="Deploy"></a>Distribuera Java-programmet till Azure Web Sites
 
 Med Azure Web Sites är det enkelt att distribuera Java-appar. Allt du behöver göra är att exportera appen som en WAR-fil och antingen ladda upp den via källkontrollen (t.ex. Git) eller FTP.
 
-1. Du exporterar appen som en WAR-fil genom att högerklicka på projektet i **Projektutforskaren** , klicka på **Exportera** och sedan på **WAR-fil** .
+1. Du exporterar appen som en WAR-fil genom att högerklicka på projektet i **Projektutforskaren**, klicka på **Exportera** och sedan på **WAR-fil**.
 
 1. I fönstret **WAR-export** gör du så här:
    
    * Ange azure-documentdb-java-sample i rutan Webbprojekt.
    * Välj en plats där WAR-filen ska sparas i rutan Destination.
-   * Klicka på **Finish** .
+   * Klicka på **Finish**.
 
 1. Nu när du har en WAR-fil laddar du bara upp den till katalogen **Webbappar** på Azure Web Sites. Anvisningar som beskriver hur du laddar upp filen finns i [Add a Java application to Azure App Service Web Apps](../app-service/quickstart-java.md) (Lägga till ett Java-program i Azure App Service Web Apps). När WAR-filen har överförts till webapps-katalogen, kommer körnings miljön att upptäcka att du har lagt till den och läser in den automatiskt.
 
@@ -210,41 +210,41 @@ Alla exempel i den här självstudien finns i projektet [Todo](https://github.co
 
 1. Om Eclipse är öppet startar du om det för att läsa in Lombok.
 
-1. I **Arkiv** -menyn i Eclipse klickar du på **Importera** .
+1. I **Arkiv**-menyn i Eclipse klickar du på **Importera**.
 
-1. I fönstret **Importera** klickar du på **Git** , **Projekt från Git** och **Nästa** .
+1. I fönstret **Importera** klickar du på **Git**, **Projekt från Git** och **Nästa**.
 
-1. På skärmen **Välj lagerkälla** klickar du på **Klona URI** .
+1. På skärmen **Välj lagerkälla** klickar du på **Klona URI**.
 
-1. Skriv https://github.com/Azure-Samples/documentdb-java-todo-app.git i rutan **URI** på skärmen **Source Git Repository** (Git-källagringsplats) och klicka på **Nästa** .
+1. Skriv https://github.com/Azure-Samples/documentdb-java-todo-app.git i rutan **URI** på skärmen **Source Git Repository** (Git-källagringsplats) och klicka på **Nästa**.
 
-1. På skärmen **Val av gren** kontrollerar du att **master** är markerat och klickar sedan på **Nästa** .
+1. På skärmen **Val av gren** kontrollerar du att **main** är markerat och klickar sedan på **Nästa**.
 
-1. På skärmen **Lokal destination** klickar du på **Bläddra** och väljer en mapp dit lagret kan kopieras och klickar sedan på **Nästa** .
+1. På skärmen **Lokal destination** klickar du på **Bläddra** och väljer en mapp dit lagret kan kopieras och klickar sedan på **Nästa**.
 
-1. På skärmen **Välj en guide för importprojekt** kontrollerar du att **Importera befintliga projekt** är markerat och klickar sedan på **Nästa** .
+1. På skärmen **Välj en guide för importprojekt** kontrollerar du att **Importera befintliga projekt** är markerat och klickar sedan på **Nästa**.
 
-1. På skärmen **Importera projekt** avmarkerar du projektet **DocumentDB** och klickar sedan på **Slutför** . Azure DocumentDB-projektet innehåller Azure Cosmos DB Java SDK, som vi ska lägga till som ett beroende i stället.
+1. På skärmen **Importera projekt** avmarkerar du projektet **DocumentDB** och klickar sedan på **Slutför**. Azure DocumentDB-projektet innehåller Azure Cosmos DB Java SDK, som vi ska lägga till som ett beroende i stället.
 
 1. Navigera till azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java i **Projektutforskaren** och ersätt värdena i HOST och MASTER_KEY med URI:n och primärnyckeln för ditt Azure Cosmos DB-konto och spara sedan filen. Mer information finns i [steg 1. Skapa ett Azure Cosmos Database-konto](#CreateDB).
 
-1. Högerklicka på **azure-documentdb-java-sample** i **Projektutforskaren** , klicka på **Build Path** (Byggsökväg) och sedan på **Configure Build Path** (Konfigurera byggsökväg).
+1. Högerklicka på **azure-documentdb-java-sample** i **Projektutforskaren**, klicka på **Build Path** (Byggsökväg) och sedan på **Configure Build Path** (Konfigurera byggsökväg).
 
-1. På skärmen **Java byggsökväg** , i den högra panelen, väljer du fliken **Bibliotek** och klickar sedan på **Lägg till externa JAR:er** . Navigera till platsen där filen lombok.jar finns. Klicka på **Öppna** och sedan på **OK** .
+1. På skärmen **Java byggsökväg**, i den högra panelen, väljer du fliken **Bibliotek** och klickar sedan på **Lägg till externa JAR:er**. Navigera till platsen där filen lombok.jar finns. Klicka på **Öppna** och sedan på **OK**.
 
 1. Öppna fönstret **Egenskaper** genom steg 12 och klicka sedan på **Körningsmål** i den vänstra panelen.
 
-1. På skärmen **Körningsmål** klickar du på **Nytt** , väljer **Apache Tomcat v7.0** och klickar sedan på **OK** .
+1. På skärmen **Körningsmål** klickar du på **Nytt**, väljer **Apache Tomcat v7.0** och klickar sedan på **OK**.
 
 1. Öppna fönstret **Egenskaper** som i steg 12 och klicka sedan på **Projektfasetter** i den vänstra panelen.
 
-1. På skärmen **Projektfasetter** väljer du **Dynamisk webbmodul** och **Java** , och klickar sedan på **OK** .
+1. På skärmen **Projektfasetter** väljer du **Dynamisk webbmodul** och **Java**, och klickar sedan på **OK**.
 
-1. På fliken **Servrar** längst ned på skärmen högerklickar du på **Tomcat v7.0-server på localhost** och klickar sedan på **Lägg till och ta bort** .
+1. På fliken **Servrar** längst ned på skärmen högerklickar du på **Tomcat v7.0-server på localhost** och klickar sedan på **Lägg till och ta bort**.
 
-1. I fönstret **Lägg till och ta bort** flyttar du **azure-documentdb-java-sample** till rutan **Konfigurerad** och klickar sedan på **Slutför** .
+1. I fönstret **Lägg till och ta bort** flyttar du **azure-documentdb-java-sample** till rutan **Konfigurerad** och klickar sedan på **Slutför**.
 
-1. Högerklicka på **Tomcat v7.0 Server at localhost** (Tomcat v7.0-server på localhost) på fliken **Server** och klicka sedan på **Starta om** .
+1. Högerklicka på **Tomcat v7.0 Server at localhost** (Tomcat v7.0-server på localhost) på fliken **Server** och klicka sedan på **Starta om**.
 
 1. Gå till `http://localhost:8080/azure-documentdb-java-sample/` i en webbläsare och börja lägga till aktiviteter. Om du har ändrat portarnas standardvärden ändrar du 8080 till värdet du har valt.
 

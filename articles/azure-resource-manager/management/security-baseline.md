@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 59d318b3e30b10d73e620a6b0793384dda80ef08
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d841d3b922a5edd0257934566207187ae031c1b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184067"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532184"
 ---
 # <a name="azure-security-baseline-for-azure-resource-manager"></a>Azures säkerhets bas linje för Azure Resource Manager
 
-Den här säkerhets bas linjen använder vägledning från [Azures säkerhets benchmark-version 1,0](../../security/benchmarks/overview-v1.md) för att Microsoft Azure Resource Manager. Benchmark för Azure-säkerhet innehåller rekommendationer för hur du kan skydda dina molnlösningar på Azure.
+Den här säkerhets bas linjen använder vägledning från [Azures säkerhets benchmark-version 1,0](../../security/benchmarks/overview-v1.md) för att Microsoft Azure Resource Manager. Azure Security Benchmark ger rekommendationer om hur du kan skydda dina molnlösningar i Azure.
 Innehållet grupperas efter de **säkerhets kontroller** som definieras av Azures säkerhets benchmark och relaterade rikt linjer som gäller för Azure Resource Manager. **Kontroller** som inte är tillämpliga på Azure Resource Manager har uteslutits.
 
  Om du vill se hur Azure Resource Manager helt mappar till Azures säkerhets mätning, se den [fullständiga Azure Resource Manager mappnings filen för säkerhets bas linjen](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
@@ -37,7 +37,7 @@ Innehållet grupperas efter de **säkerhets kontroller** som definieras av Azure
 
 - [Komma igång med Azure Monitor och SIEM-integrering från tredje part](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -49,7 +49,7 @@ Innehållet grupperas efter de **säkerhets kontroller** som definieras av Azure
 
 - [Förstå loggning och olika logg typer i Azure](../../azure-monitor/platform/platform-logs-overview.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -65,7 +65,7 @@ Du kan också aktivera och inaktivera data till Azure Sentinel eller en SIEM fr�
 
 - [Så här utför du anpassade frågor i Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Delad
 
@@ -79,7 +79,7 @@ Du kan också aktivera och inaktivera data till Azure Sentinel eller en SIEM fr�
 
 - [Avisering om Log Analytics loggdata](../../azure-monitor/learn/tutorial-response.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -91,9 +91,9 @@ Du kan också aktivera och inaktivera data till Azure Sentinel eller en SIEM fr�
 
 **Vägledning**: Azure rollbaserad åtkomst kontroll (RBAC) gör att du kan hantera åtkomst till Azure-resurser via roll tilldelningar. Du kan tilldela dessa roller till användare, grupper tjänstens huvud namn och hanterade identiteter. Det finns fördefinierade inbyggda roller för vissa resurser och dessa roller kan inventeras eller frågas via verktyg som Azure CLI, Azure PowerShell eller Azure Portal.
 
-- [Så här hämtar du en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
+- [Så här hämtar du en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Azure Security Center-övervakning**: Ja
 
@@ -125,7 +125,7 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 - [Förstå SSO med Azure AD](../../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -133,7 +133,7 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 **Vägledning**: aktivera Azure Active Directory Multi-Factor Authentication och följ rekommendationer för Azure Security Center identitets-och åtkomst hantering.
 
-- [Så här aktiverar du MFA i Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
+- [Aktivera MFA i Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 - [Övervaka identitet och åtkomst i Azure Security Center](../../security-center/security-center-identity-access.md)
 
@@ -149,7 +149,7 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 - [Så här aktiverar du Azure AD MFA](../../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -171,7 +171,7 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 - [Så här konfigurerar du Azure AD-namngivna platser](../../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -181,7 +181,7 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 - [Så här konfigurerar du Azure AD-namngivna platser](../../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -205,7 +205,7 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 - [Så här integrerar du Azure-aktivitets loggar med Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -219,7 +219,7 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 - [Publicera Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -233,7 +233,7 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 - [Skapa och använda Taggar](./tag-resources.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -243,7 +243,7 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 - [Så här konfigurerar du RBAC i Azure](../../role-based-access-control/role-assignments-portal.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -253,7 +253,7 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 - [Förstå data skydd i Azure Resource Manager](azure-resource-manager-security-controls.md#data-protection)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -279,11 +279,11 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 - [Så här skapar du frågor med Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-- [Så här visar du dina Azure-prenumerationer](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [Så här visar du dina Azure-prenumerationer](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Förstå Azure RBAC](../../role-based-access-control/overview.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -293,7 +293,7 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 - [Mer information om att tagga till gångar finns i avsnittet om namngivning av resurser och tagga besluts guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -314,7 +314,7 @@ Mer relaterad information finns nedan.
 
 - [Skapa och använda Taggar](./tag-resources.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -322,7 +322,7 @@ Mer relaterad information finns nedan.
 
 **Vägledning**: skapa en inventering av godkända Azure-resurser och godkänd program vara för beräknings resurser enligt organisationens behov.
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -330,13 +330,13 @@ Mer relaterad information finns nedan.
 
 **Vägledning**: Använd Azure policy för att ange begränsningar för den typ av resurser som kan skapas i dina prenumerationer.
 
-Använd Azure Resource Graph för att fråga efter och identifiera resurser i prenumerationerna.  Se till att alla Azure-resurser som finns i miljön är godkända.
+Använd Azure Resource Graph till att fråga efter och identifiera resurser i prenumerationerna.  Se till att alla Azure-resurser som finns i miljön är godkända.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Så här skapar du frågor med Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -349,11 +349,11 @@ Använd Azure Resource Graph för att fråga efter och identifiera resurser i pr
 
 Mer relaterad information finns nedan.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Så här nekar du en speciell resurs typ med Azure Policy](../../governance/policy/samples/built-in-policies.md#general)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -363,7 +363,7 @@ Mer relaterad information finns nedan.
 
 - [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azures resurs hanterare](../../role-based-access-control/conditional-access-azure-management.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -371,7 +371,7 @@ Mer relaterad information finns nedan.
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser.
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -387,7 +387,7 @@ Azure Resource Manager kan exportera mallen i JavaScript Object Notation (JSON),
 
 Du kan också använda rekommendationerna från Azure Security Center som en säker konfigurations bas linje för dina Azure-resurser.
 
-- [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Självstudie: skapa och hantera principer för att genomdriva efterlevnad](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -395,7 +395,7 @@ Du kan också använda rekommendationerna från Azure Security Center som en sä
 
 - [Säkerhetsrekommendationer – en referensguide](../../security-center/recommendations-reference.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -413,7 +413,7 @@ Som administratör kan du också behöva låsa en prenumeration, resurs grupp el
 
 - [Så här låser du resurser för att förhindra oväntade ändringar](lock-resources.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -421,11 +421,11 @@ Som administratör kan du också behöva låsa en prenumeration, resurs grupp el
 
 **Vägledning**: Använd Azure-DevOps för att lagra och hantera din kod på ett säkert sätt, t. ex. anpassade Azure policy definitioner, Azure Resource Manager mallar och önskade tillstånds konfigurations skript. För att få åtkomst till de resurser som du hanterar i Azure DevOps, kan du bevilja eller neka behörigheter till särskilda användare, inbyggda säkerhets grupper eller grupper som definierats i Azure Active Directory (Azure AD) om det är integrerat med Azure DevOps eller Active Directory om det är integrerat med TFS.
 
-- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
 - [Om behörigheter och grupper i Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -433,11 +433,11 @@ Som administratör kan du också behöva låsa en prenumeration, resurs grupp el
 
 **Vägledning**: definiera och implementera standardinställda säkerhetskonfigurationer för Azure-resurser med hjälp av Azure policy. Använd Azure Policy alias för att skapa anpassade principer för att granska eller tillämpa nätverks konfigurationen för dina Azure-resurser. Du kan också använda inbyggda princip definitioner som är relaterade till dina speciella resurser.  Du kan också använda Azure Automation för att distribuera konfigurations ändringar.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Använda alias](../../governance/policy/concepts/definition-structure.md#aliases)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -445,9 +445,9 @@ Som administratör kan du också behöva låsa en prenumeration, resurs grupp el
 
 **Vägledning**: använd inbyggda Azure policy definitioner och anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure Policy [audit], [neka] och [distribuera om det inte finns] för att automatiskt tillämpa konfigurationer för dina Azure-resurser.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -455,13 +455,13 @@ Som administratör kan du också behöva låsa en prenumeration, resurs grupp el
 
 **Vägledning**: Använd rekommenderade metoder när du skapar din arm-mall. dessa rekommendationer hjälper dig att undvika vanliga problem när du använder en arm-mall för att distribuera en lösning.
 
-Implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault. 
+Implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Credential Scanner uppmanar också till att flytta identifierade autentiseringsuppgifter till en säkrare plats som Azure Key Vault. 
 
 - [Implementera metod tips för mall säkerhet](../templates/template-best-practices.md)
 
 - [Konfigurera inloggnings skannern](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -475,7 +475,7 @@ Implementera autentiseringsuppgifterna för inloggning för att identifiera aute
 
 - [Distribuera resurser med ARM-mallar och Azure Portal](../templates/deploy-portal.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -483,11 +483,11 @@ Implementera autentiseringsuppgifterna för inloggning för att identifiera aute
 
 **Vägledning**: Använd Azure-DevOps för att lagra och hantera din kod på ett säkert sätt, t. ex. anpassade Azure policy definitioner, Azure Resource Manager mallar och önskade tillstånds konfigurations skript. För att få åtkomst till de resurser som du hanterar i Azure DevOps, kan du bevilja eller neka behörigheter till särskilda användare, inbyggda säkerhets grupper eller grupper som definierats i Azure Active Directory (Azure AD) om det är integrerat med Azure DevOps eller Active Directory om det är integrerat med TFS.
 
-- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
 - [Om behörigheter och grupper i Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -505,7 +505,7 @@ Implementera autentiseringsuppgifterna för inloggning för att identifiera aute
 
 - [Använd NIST hanterings guide för dator säkerhet för att hjälpa till med att skapa din egen incident svars plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -515,7 +515,7 @@ Implementera autentiseringsuppgifterna för inloggning för att identifiera aute
 
 - [NISTs publikation – guide för att testa, träna och träna program för IT-planer och-funktioner](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -527,7 +527,7 @@ Implementera autentiseringsuppgifterna för inloggning för att identifiera aute
 
 - [Så här strömmar du aviseringar till Azure Sentinel](../../sentinel/connect-azure-security-center.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -537,7 +537,7 @@ Implementera autentiseringsuppgifterna för inloggning för att identifiera aute
 
 - [Konfigurera automatisering av arbets flöden i Security Center](../../security-center/workflow-automation.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -547,13 +547,13 @@ Implementera autentiseringsuppgifterna för inloggning för att identifiera aute
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att åtgärda alla viktiga säkerhets brister
 
-**Vägledning**: Följ Microsoft Cloud inträngande test för att se till att dina inträngande tester inte strider mot Microsofts principer. Använd Microsofts strategi för och verkställande av Red Team-indelning och genomslagstester för live-webbplatser mot Microsoft-hanterad molninfrastruktur, tjänster och program.
+**Vägledning**: Följ Microsoft Cloud inträngande test för att se till att dina inträngande tester inte strider mot Microsofts principer. Använd Microsofts strategi och utförande av ”red team”-aktiviteter och intrångstester live mot molninfrastruktur, tjänster och appar som hanteras av Microsoft.
 
-- [Deltagarregler för genomslagstestning](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Regler för intrångstester](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Red Team-indelning i Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [”Red team”-aktiviteter i Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Delad
 

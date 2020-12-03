@@ -4,17 +4,17 @@ description: I den här snabb starten lär du dig hur du skapar en IoT Edge-enhe
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/30/2020
+ms.date: 12/02/2020
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 720a4d14a73350d98b3f9054f748b93d296be11b
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: ce8d014f7ec9ae0a915b69cff033e929f139acc0
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579325"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532099"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Linux-enhet
 
@@ -45,7 +45,7 @@ Lägg till Azure IoT-tillägget till Cloud Shell-instansen.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Molnresurser:
 
@@ -119,11 +119,11 @@ Använd följande CLI-kommando för att skapa din IoT Edge-enhet baserat på mal
    az deployment group create \
    --resource-group IoTEdgeResources \
    --template-uri "https://aka.ms/iotedge-vm-deploy" \
-   --parameters dnsLabelPrefix='my-edge-vm' \
+   --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' \
    --parameters adminUsername='azureUser' \
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name
    <REPLACE_WITH_HUB_NAME> -o tsv) \
-   --parameters authenticationType='password'
+   --parameters authenticationType='password' \
    --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
 
@@ -133,7 +133,7 @@ Använd följande CLI-kommando för att skapa din IoT Edge-enhet baserat på mal
    az deployment group create `
    --resource-group IoTEdgeResources `
    --template-uri "https://aka.ms/iotedge-vm-deploy" `
-   --parameters dnsLabelPrefix='my-edge-vm1' `
+   --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' `
    --parameters adminUsername='azureUser' `
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
    --parameters authenticationType='password' `
@@ -146,7 +146,7 @@ Den här mallen använder följande parametrar:
 | --------- | ----------- |
 | **resurs grupp** | Resurs gruppen som resurserna ska skapas i. Använd standard **IoTEdgeResources** som vi har använt i den här artikeln eller ange namnet på en befintlig resurs grupp i din prenumeration. |
 | **mall-URI** | En pekare till den Resource Manager-mall som vi använder. |
-| **dnsLabelPrefix** | En sträng som ska användas för att skapa den virtuella datorns värdnamn. Använd exempel **Min-Edge-VM** eller ange en ny sträng. |
+| **dnsLabelPrefix** | En sträng som ska användas för att skapa den virtuella datorns värdnamn. Ersätt platshållartexten med ett namn för den virtuella datorn. |
 | **adminUsername** | Ett användar namn för administratörs kontot för den virtuella datorn. Använd exemplet **azureUser** eller ange ett nytt användar namn. |
 | **deviceConnectionString** | Anslutnings strängen från enhets identiteten i IoT Hub, som används för att konfigurera IoT Edge runtime på den virtuella datorn. Kommandot CLI i den här parametern hämtar anslutnings strängen åt dig. Ersätt platshållartexten med ditt IoT Hub-namn. |
 | **authenticationType** | Autentiseringsmetoden för administratörs kontot. Den här snabb starten använder **lösenordsautentisering** , men du kan också ange parametern till **sshPublicKey**. |
@@ -183,7 +183,7 @@ När du är ansluten till den virtuella datorn kontrollerar du att körningen ha
    journalctl -u iotedge
    ```
 
-3. Visa alla moduler som körs på din IoT Edge-enhet. Eftersom det är första gången du startar tjänsten, bör du bara kunna se den **edgeAgent** -modul som körs. EdgeAgent-modulen körs som standard och hjälper till att installera och starta ytterligare moduler som du distribuerar till din enhet.
+3. Visa alla moduler som körs på din IoT Edge-enhet. Eftersom det är första gången du startar tjänsten, bör du bara kunna se den **edgeAgent**-modul som körs. EdgeAgent-modulen körs som standard och hjälper till att installera och starta ytterligare moduler som du distribuerar till din enhet.
 
    ```bash
    sudo iotedge list

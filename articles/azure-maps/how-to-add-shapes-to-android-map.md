@@ -1,44 +1,44 @@
 ---
-title: Lägga till former i Android Maps | Microsoft Azure Maps
-description: Lär dig hur du lägger till former i Maps. Se kod exempel som använder Azure Maps Android SDK för att lägga till en linje och en polygon till en karta.
+title: Lägga till en form till en karta med Azure Maps Android SDK
+description: Lär dig hur du lägger till former i Maps. Se kod exempel som använder Microsoft Azure mappar Android SDK för att lägga till en linje och en polygon till en karta.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/26/2019
+ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 04773ef279717c7728cf1b07761c6e4c0726a877
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 9ef6e1910803cc18f03347e08abc4f0d836b3c0a
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897134"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532779"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Lägga till en form till en karta med Azure Maps Android SDK
 
 Den här artikeln visar hur du återger former på en karta med Azure Maps Android SDK.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra processen i den här artikeln måste du installera [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) för att läsa in en karta.
-
+1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
+3. Hämta och installera [Azure Maps Android SDK](./how-to-use-android-map-control-library.md).
 
 ## <a name="add-a-line-to-the-map"></a>Lägg till en rad i kartan
 
-Du kan lägga till en linje i kartan med ett **linje lager** och följa stegen nedan för att lägga till en linje på kartan.
+Följ stegen nedan om du vill lägga till en linje på kartan med hjälp av **linje skiktet** .
 
-1. Redigera **> för res > activity_main.xml** så att det ser ut som på bilden nedan:
+1. Redigera `res > layout > activity_main.xml` för att se ut så här:
 
     ```XML
-    <?xml version="1.0" encoding="utf-8"?>
     <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-    
+
         <com.microsoft.azure.maps.mapcontrol.MapControl
             android:id="@+id/mapcontrol"
             android:layout_width="match_parent"
@@ -47,11 +47,13 @@ Du kan lägga till en linje i kartan med ett **linje lager** och följa stegen n
             app:mapcontrol_centerLng="-74.004420"
             app:mapcontrol_zoom="12"
             />
-    
     </FrameLayout>
     ```
 
-2. Kopiera följande kodfragment till **onCreate ()-** metoden för `MainActivity.java` klassen.
+2. Kopiera kodfragmentet nedan till **onCreate ()-** metoden för `MainActivity.java` klassen.
+
+    >[!WARNING]
+    >Android Studio kanske inte har importerat de obligatoriska klasserna.  Därför har koden vissa referenser som inte kan matchas. Om du vill importera de obligatoriska klasserna hovrar du bara över varje olöst referens och trycker på `Alt + Enter` (alternativ + retur på en Mac).
 
     ```Java
     mapControl.onReady(map -> {
@@ -59,7 +61,7 @@ Du kan lägga till en linje i kartan med ett **linje lager** och följa stegen n
         //Create a data source and add it to the map.
         DataSource dataSource = new DataSource();
         map.sources.add(dataSource);
-    
+
         //Create a list of points.
         List<Point> points = Arrays.asList(
             Point.fromLngLat(-73.972340, 40.743270),
@@ -75,11 +77,10 @@ Du kan lägga till en linje i kartan med ett **linje lager** och följa stegen n
     });
 
     ```
+    Kodfragmentet ovan hämtar först en Azure Maps kart kontroll instans i återanrops metoden **onReady ()** . Sedan skapas ett data käll objekt med hjälp av klassen **DataSource** och läggs till i kartan. Sedan skapas en lista med **punkt** objekt. En **lin Est ring** skapas i listan över punkter och läggs till i data källan. Ett **linje lager** återger linje objekt som är figursatta i en data källa på kartan. Ett linje lager skapas sedan och data källan läggs till i den.
     
-    Kodfragmentet ovan hämtar först en Azure Maps kart kontroll instans med återanrops metoden **onReady ()** . Sedan skapas ett data käll objekt med hjälp av klassen **DataSource** och läggs till i kartan. Sedan skapas en lista med **punkt** objekt. En **lin Est ring** skapas i listan över punkter och läggs till i data källan. Ett **linje lager** återger linje objekt som är figursatta i en data källa på kartan. Ett linje lager skapas sedan och data källan läggs till i den.
-
     När du har lagt till kodfragmentet ovan `MainActivity.java` bör det se ut som det som visas nedan:
-    
+
     ```Java
     package com.example.myapplication;
 
@@ -174,11 +175,9 @@ Du kan lägga till en linje i kartan med ett **linje lager** och följa stegen n
     }
     ```
 
-Om du kör programmet nu bör du se en linje på kartan som visas nedan:
+När du kör programmet bör du se en linje på kartan som visas nedan:
 
-<center>
-
-![En linje som återges på en Android-karta](./media/how-to-add-shapes-to-android-map/android-map-line.png)</center>
+![En linje som återges på en Android-karta](./media/how-to-add-shapes-to-android-map/android-map-line.png)</
 
 
 ## <a name="add-a-polygon-to-the-map"></a>Lägg till en polygon till kartan
@@ -237,9 +236,7 @@ Med **polygon-lagret** kan du återge ytan på polygonen till kartan. Följ steg
             strokeWidth(2f)));
     });
     ```
-
-    Kodfragmentet ovan hämtar först en Azure Maps kart kontroll instans med återanrops metoden **onReady ()** . Sedan skapas ett data käll objekt med hjälp av klassen **DataSource** och läggs till i kartan. Ett **polygon** -objekt skapas sedan från en lista med **punkt**  objekt och läggs till i data källan. Ett **polygon-lager** återger data som radbryts i data källan på kartan. Sedan skapas ett polygon-lager för att rendera polygonområdet och lägga till data källan till den. Ett **linje lager** återger linje objekt som har omslutits i en data källa. Den sista delen av kodfragmentet skapar ett linje lager som återger konturen på polygonen och lägger till data källan till den.
-
+    
     När du har lagt till kodfragmentet ovan `MainActivity.java` bör det se ut som det som visas nedan:
 
     ```Java
@@ -346,12 +343,9 @@ Med **polygon-lagret** kan du återge ytan på polygonen till kartan. Följ steg
     }
     ```
 
-Om du kör programmet nu bör du se en polygon på kartan som visas nedan:
+När du kör programmet bör du se en polygon på kartan som visas nedan:
 
-<center>
-
-![En polygon som återges på en Android-karta](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</center>
-
+![En polygon som återges på en Android-karta](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</
 
 ## <a name="next-steps"></a>Nästa steg
 

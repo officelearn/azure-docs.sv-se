@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 74211df6f925aaa09a4c87a518056e8ef3206b87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f7ddf94bbd077912cf0d7c2adef2eac548274ca
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078409"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532286"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Azure Monitor PowerShell-exempel
 Den här artikeln visar exempel på PowerShell-kommandon som hjälper dig att komma åt Azure Monitor-funktioner.
@@ -54,7 +54,7 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log"></a>Hämta aktivitets logg
-Använd cmdleten [Get-AzLog](/powershell/module/az.monitor/get-azlog) .  Här följer några vanliga exempel. Aktivitets loggen innehåller de senaste 90 dagarna av åtgärder. Om du använder datum före den här tiden resulterar det i ett fel meddelande.  
+Använd cmdleten [Get-AzLog](/powershell/module/az.monitor/get-azlog) .  Här följer några vanliga exempel. Aktivitetsloggen innehåller åtgärder från de senaste 90 dagarna. Om du använder datum före den här tiden resulterar det i ett fel meddelande.  
 
 Se vad aktuellt datum/tid är för att kontrol lera vilka tider som ska användas i kommandona nedan:
 ```powershell
@@ -94,13 +94,13 @@ Get-AzLog -Caller 'myname@company.com'
 Följande kommando hämtar de senaste 1000 händelserna från aktivitets loggen:
 
 ```powershell
-Get-AzLog -MaxRecord 10
+Get-AzLog -MaxRecord 1000
 ```
 
 `Get-AzLog` har stöd för många andra parametrar. `Get-AzLog`Mer information finns i referensen.
 
 > [!NOTE]
-> `Get-AzLog` innehåller endast 15 dagars historik. Med parametern **-maxRecords** kan du fråga de senaste N händelserna, efter 15 dagar. För att få åtkomst till händelser som är äldre än 15 dagar använder du REST API eller SDK (C#-exempel med hjälp av SDK). Om du inte inkluderar **StartTime**, är standardvärdet slut **tid** minus en timme. Om du **inte inkluderar slut tid är**standardvärdet aktuell tid. Alla tider är i UTC-tid.
+> `Get-AzLog` innehåller endast 15 dagars historik. Med parametern **-MaxRecords** kan du köra frågor mot de senaste N händelserna längre än 15 dagar. Om du vill komma åt händelser som är äldre än 15 dagar använder du REST-API:et eller SDK:t (C#-exempel med SDK:t). Om du inte anger ett värde för **StartTime** är standardvärdet **EndTime** minus en timme. Om du inte anger ett värde för **EndTime** är standardvärdet aktuell tidpunkt. Alla tider anges i UTC-tid.
 > 
 > 
 
@@ -151,7 +151,7 @@ I följande tabell beskrivs de parametrar och värden som används för att skap
 
 | parameter | värde |
 | --- | --- |
-| Name |simpletestdiskwrite |
+| Namn |simpletestdiskwrite |
 | Plats för den här aviserings regeln |East US |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |

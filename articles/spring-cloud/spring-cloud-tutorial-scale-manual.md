@@ -1,24 +1,24 @@
 ---
-title: 'Självstudie: skala ett program i Azure våren Cloud | Microsoft Docs'
+title: Skala ett program i Azure våren-molnet | Microsoft Docs
 description: Lär dig hur du skalar ett program med Azure våren Cloud i Azure Portal
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 33d25edafa9249300406365699930ded1c8ec75b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5632f9a6126615255306cc89425bd08a9ffa9753
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906852"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531810"
 ---
-# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Självstudie: skala ett program i Azure våren Cloud
+# <a name="scale-an-application-in-azure-spring-cloud"></a>Skala ett program i Azure våren Cloud
 
 **Den här artikeln gäller för:** ✔️ Java ✔️ C #
 
-Den här självstudien visar hur du skalar ett mikrotjänstprogram med hjälp av moln instrument panelen för Azure våren i Azure Portal.
+Den här dokumentationen visar hur du skalar ett mikrotjänstprogram med hjälp av moln instrument panelen för Azure våren i Azure Portal.
 
 Skala ditt program uppåt och nedåt genom att ändra antalet virtuella processorer (virtuella processorer) och mängden minne. Skala ditt program i och ut genom att ändra antalet program instanser.
 
@@ -67,7 +67,7 @@ Om du är på Basic-nivån och är begränsad av en eller flera av dessa [gräns
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du manuellt skalar ett Azure våren Cloud-program. Fortsätt till nästa självstudie om du vill lära dig hur du övervakar ett program genom att ställa in aviseringar.
+I det här exemplet förklaras hur du skalar ett Azure våren Cloud-program manuellt. Information om hur du övervakar ett program genom att konfigurera aviseringar finns i [Konfigurera autoskalning](spring-cloud-tutorial-setup-autoscale.md).
 
 > [!div class="nextstepaction"]
 > [Lär dig hur du konfigurerar aviseringar](spring-cloud-tutorial-alerts-action-groups.md)

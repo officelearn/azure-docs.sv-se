@@ -7,22 +7,22 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a885f027250a915347fea758c7c7978af0f45f49
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 79a99ad37c526103fc3068562d62ed40defc983b
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302516"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532388"
 ---
 # <a name="azure-security-baseline-for-azure-app-configuration"></a>Azures säkerhets bas linje för Azure App konfiguration
 
-Den här säkerhets bas linjen använder vägledning från [Azures säkerhets benchmark-version 2,0](../security/benchmarks/overview.md) för att Azure App konfiguration. Benchmark för Azure-säkerhet innehåller rekommendationer för hur du kan skydda dina molnlösningar på Azure. Innehållet grupperas efter de **säkerhets kontroller** som definieras av Azures säkerhets benchmark och relaterade rikt linjer för Azure App konfiguration. **Kontroller** som inte gäller för Azure App konfiguration har uteslutits.
+Den här säkerhets bas linjen använder vägledning från [Azures säkerhets benchmark-version 2,0](../security/benchmarks/overview.md) för att Azure App konfiguration. Azure Security Benchmark ger rekommendationer om hur du kan skydda dina molnlösningar i Azure. Innehållet grupperas efter de **säkerhets kontroller** som definieras av Azures säkerhets benchmark och relaterade rikt linjer för Azure App konfiguration. **Kontroller** som inte gäller för Azure App konfiguration har uteslutits.
 
 Om du vill se hur Azure App-konfigurationen är fullständigt mappad till Azures säkerhets benchmark, se den [fullständiga Azure App konfigurations filen för konfigurations säkerhets bas linje](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
-*Mer information finns i [säkerhets principen för Azure-säkerhet: nätverks säkerhet](../security/benchmarks/security-controls-v2-network-security.md).*
+*Mer information finns i [Azure Security Benchmark: Nätverkssäkerhet](../security/benchmarks/security-controls-v2-network-security.md).*
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: implementera säkerhet för intern trafik
 
@@ -34,7 +34,7 @@ Använd Azure Sentinel för att identifiera användningen av äldre oskyddade pr
 
 - [Arbets bok för Azure Sentinel-oskyddade protokoll](../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Delad
 
@@ -54,7 +54,7 @@ Om du vill ansluta två eller flera virtuella nätverk i Azure tillsammans anvä
 
 **Ansvar**: Kund
 
-### <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3: upprätta privat nätverks åtkomst till Azure-tjänster
+### <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3: Upprätta privat nätverksåtkomst till Azure-tjänster
 
 **Vägledning**: Använd Azures privata länk för att ge privat åtkomst till Azure App konfiguration från dina virtuella nätverk utan att passera Internet.
 
@@ -80,7 +80,7 @@ Azure App-konfigurationen är inte avsedd att köra webb program, men den inneh�
 
 - [Rekommendationer för Azure Security Center](../security-center/recommendations-reference.md#recs-network)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -96,7 +96,7 @@ Obs! Om du har en regel eller annat krav för ID/IP-adresser kan du se till att 
 
 - [Microsoft Defender ATP-EDR-kapacitet](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -106,21 +106,21 @@ Obs! Om du har en regel eller annat krav för ID/IP-adresser kan du se till att 
 
 - [Förstå och använda service märken](../virtual-network/service-tags-overview.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
 ## <a name="identity-management"></a>Identitetshantering
 
-*Mer information finns i [Benchmark för Azure-säkerhet: Identitetshantering](../security/benchmarks/security-controls-v2-identity-management.md).*
+*Mer information finns i [Azure Security Benchmark: Identitetshantering](../security/benchmarks/security-controls-v2-identity-management.md).*
 
-### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Standardisera Azure Active Directory som centralt identitets- och autentiseringssystem
+### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Standardisera Azure Active Directory som centralt system för identiteter och autentisering
 
 **Vägledning**: Azure App konfiguration är integrerad med Azure Active Directory (Azure AD) som är Azures standard tjänst för identitets-och åtkomst hantering. Du bör standardisera Azure AD för att styra organisationens identitets-och åtkomst hantering i:
 - Microsoft Cloud resurser, till exempel Azure Portal, Azure Storage, virtuell Azure-dator (Linux och Windows), Azure Key Vault, PaaS och SaaS program.
 - Organisationens resurser, till exempel program i Azure eller företagets nätverksresurser.
 
-Att skydda Azure AD bör vara en hög prioritet i din organisations rutiner för molnsäkerhet. Azure AD ger en identitets säker Poäng som hjälper dig att utvärdera position för identiteter i relation till Microsofts rekommendationer för bästa praxis. Använd poängen för att mäta hur nära konfigurationen matchar rekommendationerna för bästa praxis och för att göra förbättringar i din säkerhetsstatus.
+Skyddet av Azure AD bör ha hög prioritet i organisationens säkerhetspraxis för molnet. Azure AD ger dig en identitetsskyddspoäng som hjälper dig att utvärdera identiteternas säkerhet i relation till Microsofts rekommendationer kring regelverk. Använd poängen till att mäta hur nära konfigurationen matchar rekommendationerna kring regelverk och förbättra säkerhetsläget.
 
 Azure tillhandahåller följande inbyggda Azure-roller för att auktorisera åtkomst till konfigurations data för appar med hjälp av Azure AD och OAuth:
 
@@ -132,19 +132,19 @@ Azure tillhandahåller följande inbyggda Azure-roller för att auktorisera åtk
 
 - Läsare: Använd den här rollen för att ge Läs behörighet till appens konfigurations resurs. Detta ger inte åtkomst till resursens åtkomst nycklar eller data som är lagrade i app-konfigurationen.
 
-Mer information finns i följande resurser:
+Läs mer i följande referenser:
 
-- [Så skapar och konfigurerar du en Azure AD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Skapa och konfigurera en Azure AD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-- [Vad är säkerhets poängen för identiteter i Azure Active Directory](../active-directory/fundamentals/identity-secure-score.md)
+- [Vad är identitetsskyddspoängen i Azure Active Directory](../active-directory/fundamentals/identity-secure-score.md)
 
 - [Ge åtkomst till Azure App konfiguration med hjälp av Azure AD](concept-enable-rbac.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="im-2-manage-application-identities-securely-and-automatically"></a>IM-2: hantera program identiteter säkert och automatiskt
+### <a name="im-2-manage-application-identities-securely-and-automatically"></a>IM-2: Hantera appidentiteter säkert och automatiskt
 
 **Vägledning**: Använd Azure-hanterade identiteter för att få åtkomst till Azure App konfiguration från icke-mänskliga konton, till exempel andra Azure-tjänster. Vi rekommenderar att du använder Azure-hanterad identitets funktion i stället för att skapa ett mer kraftfullt humant konto för att få åtkomst till eller köra resurser för att begränsa behovet av att hantera ytterligare autentiseringsuppgifter. Azure App konfiguration kan också tilldelas en hanterad identitet i sig för att internt autentisera till andra Azure-tjänster/-resurser som stöder Azure AD-autentisering. Detta kan vara användbart för att ge enkel åtkomst från App-konfigurationen till Azure Key Vault när du hämtar hemligheter. När du använder hanterade identiteter hanteras identiteten av Azure-plattformen och du behöver inte tillhandahålla eller rotera några hemligheter.
 
@@ -168,39 +168,39 @@ När hanterade identiteter inte kan utnyttjas skapar du ett huvud namn för tjä
 
 - [Använd Azure Key Vault för registrering av säkerhets objekt](../key-vault/general/authentication.md#app-identity-and-security-principals)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="im-3-use-azure-ad-single-sign-on-sso-for-application-access"></a>IM-3: Använda enkel inloggning för Azure AD (SSO) för programåtkomst
+### <a name="im-3-use-azure-ad-single-sign-on-sso-for-application-access"></a>IM-3: Använd enkel inloggning i Azure AD (SSO) för åtkomst till appar
 
-**Vägledning**: Azure App konfiguration använder Azure Active Directory (Azure AD) för att tillhandahålla identitets-och åtkomst hantering för Azure-resurser, moln program och lokala program. Här ingår företagsidentiteter som anställda, samt externa identiteter som partner, säljare och leverantörer. Azure AD möjliggör enkel inloggning (SSO) för att hantera konfigurations tjänsten för appar via Azure Portal med hjälp av eventuella synkroniserade företags Active Directory identiteter. Anslut alla användare, program och enheter till Azure AD för sömlös, säker åtkomst och bättre synlighet och kontroll.
+**Vägledning**: Azure App konfiguration använder Azure Active Directory (Azure AD) för att tillhandahålla identitets-och åtkomst hantering för Azure-resurser, moln program och lokala program. I det här ingår företagsidentiteter som anställda samt externa identiteter som partner, och leverantörer. Azure AD möjliggör enkel inloggning (SSO) för att hantera konfigurations tjänsten för appar via Azure Portal med hjälp av eventuella synkroniserade företags Active Directory identiteter. Anslut alla användare, appar och enheter till Azure AD för en smidig och säker åtkomst samt bättre insyn och kontroll.
 
-- [Förstå enkel programinloggning (Application SSO) med Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
+- [Förstå SSO för appar i Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: Använda starka autentiseringskontroller för all Azure Active Directory-baserad åtkomst
+### <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: Använd kraftfulla verifieringskontroller för all Azure Active Directory-baserad åtkomst
 
 **Vägledning**: Azure App konfiguration använder Azure Active Directory som stöder starka verifierings kontroller med Multi-Factor Authentication (MFA) och starka metoder för lösen ords kryptering.
-- Multifaktorautentisering (MFA) – aktivera Azure AD MFA och följ Azure Security Centers rekommendationer för identitets- och åtkomsthantering för vissa rekommenderade metoder i din MFA-installation. MFA kan tillämpas på alla, på utvalda användare eller på per användare-nivå baserat på inloggningsvillkor och riskfaktorer.
-- Lösenordsfri autentisering – det finns tre alternativ för lösenordsfri autentisering: Windows Hello for Business, Microsoft Authenticator-appen och lokala autentiseringsmetoder som smartkort.
+- Multifaktorautentisering – aktivera MFA i Azure AD och följ rekommendationerna kring hantering av identiteter och åtkomst i Azure Security Center så att du använder de bästa regelverken i din MFA-konfiguration. MFA kan tillämpas för alla användare, vissa användare eller på användarnivå baserat på inloggningsförhållanden och riskfaktorer.
+- Autentisering utan lösenord – det finns tre alternativ för autentisering utan lösenord: Windows Hello för företag, appen Microsoft Authenticator app och lokala autentiseringsmetoder som smartkort.
 
 För administratörer och privilegierade användare ser du till att den högsta nivån av stark autentiseringsmetod används, följt av lämplig princip för stark autentisering för andra användare.
 
 Obs! MFA kan tillämpas på de användar konton som har åtkomst till och hanterar konfiguration av appar, men inte på programmatiska tjänst konton. Använd lösenordsskyddad autentisering, till exempel hanterade identiteter där det är möjligt, och Använd MFA på alla användar konton.
 
-- [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Aktivera MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [Introduktion till alternativ för lösenordsfri autentisering för Azure Active Directory](../active-directory/authentication/concept-authentication-passwordless.md)
+- [Introduktion till autentisering utan lösenord i Azure Active Directory](../active-directory/authentication/concept-authentication-passwordless.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="im-5-monitor-and-alert-on-account-anomalies"></a>IM-5: Övervaka och varna vid kontoavvikelser
+### <a name="im-5-monitor-and-alert-on-account-anomalies"></a>IM-5: Övervaka och skicka aviseringar vid kontoavvikelser
 
 **Vägledning**: Azure App konfiguration är integrerad med Azure Active Directory i som tillhandahåller följande data Källor:
 
@@ -234,47 +234,47 @@ Azure Advanced Threat Protection (ATP) är en säkerhetslösning som kan använd
 
 - [Azure Advanced Threat Protection](/azure-advanced-threat-protection/what-is-atp)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: begränsa åtkomsten till Azure-resursen baserat på villkor
+### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: Begränsa åtkomsten till Azure-resurser baserat på villkor
 
-**Vägledning**: Azure App konfiguration stöder Azure Active Directory (Azure AD) villkorlig åtkomst för en mer detaljerad åtkomst kontroll baserat på användardefinierade villkor, t. ex. användar inloggningar från vissa IP-intervall måste använda MFA för inloggning. Detaljerad hanterings princip för autentisering kan också användas för olika användnings fall. Dessa principer för villkorlig åtkomst gäller endast för användar konton som autentiserar till Azure AD för att få åtkomst till och hantera konfigurations tjänsten för appar, men de gäller inte för tjänstens huvud namn eller anslutnings strängar som ansluter till konfigurations resursen.
+**Vägledning**: Azure App konfiguration stöder Azure Active Directory (Azure AD) villkorlig åtkomst för en mer detaljerad åtkomst kontroll baserat på användardefinierade villkor, t. ex. användar inloggningar från vissa IP-intervall måste använda MFA för inloggning. Du kan även använda detaljerade policyer för hantering av sessionsautentisering för olika användningsfall. Dessa principer för villkorlig åtkomst gäller endast för användar konton som autentiserar till Azure AD för att få åtkomst till och hantera konfigurations tjänsten för appar, men de gäller inte för tjänstens huvud namn eller anslutnings strängar som ansluter till konfigurations resursen.
 
-- [Översikt över villkorlig Azure-åtkomst](../active-directory/conditional-access/overview.md)
+- [Översikt över villkorsstyrd åtkomst i Azure](../active-directory/conditional-access/overview.md)
 
-- [Vanliga principer för villkorlig åtkomst](../active-directory/conditional-access/concept-conditional-access-policy-common.md)
+- [Vanliga policyer för villkorsstyrd åtkomst](../active-directory/conditional-access/concept-conditional-access-policy-common.md)
 
-- [Konfigurera hantering av autentisering med villkorlig åtkomst](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
+- [Konfigurera hantering av sessionsautentisering med villkorsstyrd åtkomst](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="im-7-eliminate-unintended-credential-exposure"></a>IM-7: eliminera oavsiktlig exponering för autentiseringsuppgifter
+### <a name="im-7-eliminate-unintended-credential-exposure"></a>IM-7: Eliminera oavsiktlig exponering av autentiseringsuppgifter
 
-**Vägledning**: med Azure App-konfiguration kan kunder lagra konfigurationer som potentiellt kan innehålla identiteter eller hemligheter. Vi rekommenderar att du implementerar autentiseringsuppgifterna för autentisering för att identifiera autentiseringsuppgifter i konfigurationer. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault.
+**Vägledning**: med Azure App-konfiguration kan kunder lagra konfigurationer som potentiellt kan innehålla identiteter eller hemligheter. Vi rekommenderar att du implementerar autentiseringsuppgifterna för autentisering för att identifiera autentiseringsuppgifter i konfigurationer. Credential Scanner uppmanar också till att flytta identifierade autentiseringsuppgifter till en säkrare plats som Azure Key Vault.
 
 Använd Azure App konfigurations tjänsten tillsammans med Azure Key Vault. Lagra autentiseringsuppgifter i Key Vault och länka sedan till dessa autentiseringsuppgifter genom att skapa en Key Vault referens i din app Configuration-resurs. När app-konfigurationen skapar dessa referenser lagrar den URI: erna för Key Vault värden i stället för själva värdena. Program kan ansluta till app-konfigurationen för att hämta autentiseringsuppgifter från Key Vault.
 
-För GitHub kan du använda intern hemlighet-genomsökning för att identifiera autentiseringsuppgifter eller annan form av hemligheter i koden.
+För GitHub kan du använda funktionen för identifiering av interna hemligheter till att identifiera autentiseringsuppgifter och andra hemligheter i koden.
 
 - [Självstudie för att använda Key Vault referenser i en ASP.NET Core-app](use-key-vault-references-dotnet-core.md)
 
 - [Konfigurera inloggnings skannern](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-- [GitHub Secret-genomsökning](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
+- [Identifiering av hemligheter i GitHub](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
 ## <a name="privileged-access"></a>Privilegierad åtkomst
 
-*Mer information finns i [Benchmark för Azure-säkerhet: Privilegierad åtkomst](../security/benchmarks/security-controls-v2-privileged-access.md).*
+*Mer information finns i [Azure Security Benchmark: Privilegierad åtkomst](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
-### <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Skydda och begränsa användare med höga privilegier
+### <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Skydda och begränsa privilegierade användare
 
 **Vägledning**: begränsa antalet privilegierade konton eller roller och skydda dessa konton på en utökad nivå eftersom användare med den här behörigheten kan direkt eller indirekt läsa och ändra alla resurser i din Azure-miljö.
 
@@ -291,11 +291,11 @@ Du kan aktivera just-in-time (JIT)-privilegierad åtkomst till Azure-resurser oc
 
 - [Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD](../active-directory/roles/security-planning.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: begränsa administrativ åtkomst till verksamhets kritiska system
+### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Begränsa administrativ åtkomst till affärskritiska system
 
 **Vägledning**: Azure App konfiguration använder Azure RBAC för att isolera åtkomst till affärs kritiska system genom att begränsa vilka konton som beviljas privilegie rad åtkomst. Azure RBAC stöds av app-konfigurationen på resurs nivån. För att säkert silo affärs kritiska konfigurationer lagrar du den här informationen i en egen app Configuration-resurs. I en resurs är detaljerad åtkomst också tillgänglig via skrivskyddade åtkomst konton eller nycklar, samt etiketter och taggning.
 
@@ -307,11 +307,11 @@ Alla typer av åtkomst kontroller bör justeras mot din strategi för företags 
 
 - [Integrera RBAC med Azure AD med app-konfiguration](concept-enable-rbac.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="pa-3-review-and-reconcile-user-access-regularly"></a>PA-3: Granska och stäm av användaråtkomsten regelbundet
+### <a name="pa-3-review-and-reconcile-user-access-regularly"></a>PA-3: Granska och stäm av användarnas åtkomst regelbundet
 
 **Vägledning**: Azure App konfiguration använder Azure Active Directory-konton (Azure AD) för att hantera sina resurser, granska användar konton och åtkomst tilldelningen regelbundet för att säkerställa att kontona och deras åtkomst är giltiga. 
 
@@ -331,19 +331,19 @@ Obs! hanterade identiteter föreslås där det är möjligt att autentisera till
 
 - [Ge åtkomst till Azure App konfiguration med hjälp av Azure AD](concept-enable-rbac.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="pa-4-set-up-emergency-access-in-azure-ad"></a>PA-4: Konfigurera nöd åtkomst i Azure AD
+### <a name="pa-4-set-up-emergency-access-in-azure-ad"></a>PA-4: Konfigurera nödåtkomst i Azure AD
 
-**Vägledning**: Azure App konfiguration är integrerad med Azure Active Directory för att hantera sina resurser. För att förhindra oavsiktligt låst av din Azure AD-organisation konfigurerar du ett konto för nöd åtkomst för åtkomst när normala administrativa konton inte kan användas. Konton för nöd åtkomst är ofta mycket privilegierade och de bör inte tilldelas vissa individer. Konton för nöd åtkomst är begränsade till nöd situationer eller "Break glas"-scenarier där normala administrativa konton inte kan användas.
+**Vägledning**: Azure App konfiguration är integrerad med Azure Active Directory för att hantera sina resurser. För att förhindra oavsiktligt låst av din Azure AD-organisation konfigurerar du ett konto för nöd åtkomst för åtkomst när normala administrativa konton inte kan användas. Konton för nödåtkomst har ofta hög behörighet och bör inte tilldelas till specifika individer. Konton för nödåtkomst är begränsade till nödsituationer där du inte kan använda normala administratörskonton.
 
-Du bör se till att autentiseringsuppgifterna (till exempel lösen ord, certifikat eller smartkort) för konton för nöd åtkomst hålls skyddade och endast kända för personer som har behörighet att använda dem endast i nödfall.
+Du bör se till att autentiseringsuppgifterna (som lösenord, certifikat eller smartkort) för nödåtkomstkonton är skyddade och bara kända av personer som har behörighet att använda dem i nödfall.
 
-- [Hantera konton för nöd åtkomst i Azure AD](../active-directory/roles/security-emergency-access.md)
+- [Hantera konton för nödåtkomst i Azure AD](../active-directory/roles/security-emergency-access.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -355,19 +355,19 @@ Du bör se till att autentiseringsuppgifterna (till exempel lösen ord, certifik
 
 - [Vad är hantering av Azure AD-berättigande](../active-directory/governance/entitlement-management-overview.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="pa-6-use-privileged-access-workstations"></a>PA-6: Använd arbets stationer med privilegie rad åtkomst
+### <a name="pa-6-use-privileged-access-workstations"></a>PA-6: Använd arbetsstationer med privilegierad åtkomst
 
-**Vägledning**: skyddade, isolerade arbets stationer är mycket viktiga för att skydda känsliga roller som administratörer, utvecklare och kritiska tjänst operatörer. Använd hög säkra användar arbets stationer och/eller Azure-skydds för administrativa uppgifter relaterade till app-konfigurationen. Använd Azure Active Directory, Microsoft Defender Avancerat skydd (ATP) och/eller Microsoft Intune för att distribuera en säker och hanterad användar arbets station för administrativa uppgifter. De skyddade arbets stationerna kan hanteras centralt för att upprätthålla säker konfiguration, inklusive stark autentisering, program vara och maskin varu bas linjer, begränsad logisk och nätverks åtkomst.
+**Vägledning**: Det är viktigt med säkra och isolerade arbetsstationer för att skydda känsliga roller som administratörer, utvecklare och operatörer av kritiska tjänster. Använd hög säkra användar arbets stationer och/eller Azure-skydds för administrativa uppgifter relaterade till app-konfigurationen. Använd Azure Active Directory, Microsoft Defender Avancerat skydd (ATP) och Microsoft Intune när du ska distribuera en säker och hanterad arbetsstation för administrativa uppgifter. Skyddade arbetsstationer kan hanteras centralt för att upprätthålla en säker konfiguration med kraftfulla baslinjer för autentisering, programvara och maskinvara samt begränsad logisk och nätverksbaserad åtkomst.
 
 - [Förstå arbets stationer med privilegie rad åtkomst](../active-directory/devices/concept-azure-managed-workstation.md) 
 
-- [Distribuera en privilegie rad åtkomst arbets Station](../active-directory/devices/howto-azure-managed-workstation.md)
+- [Distribuera en arbetsstation med privilegierad åtkomst](../active-directory/devices/howto-azure-managed-workstation.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -391,7 +391,7 @@ App-konfigurationen stöder lagring av konfiguration av flera program i en konfi
 
 - [Ge åtkomst till Azure App konfiguration med hjälp av Azure AD](concept-enable-rbac.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -399,13 +399,13 @@ App-konfigurationen stöder lagring av konfiguration av flera program i en konfi
 
 **Vägledning**: implementera en organisations godkännande process för support scenarier där Microsoft kan behöva åtkomst till dina program konfigurations data. Customer Lockbox är för närvarande inte tillgängligt för support scenarier för program konfiguration.
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
 ## <a name="data-protection"></a>Dataskydd
 
-*Mer information finns i [Benchmark för Azure-säkerhet: Dataskydd](../security/benchmarks/security-controls-v2-data-protection.md).*
+*Mer information finns i [Azure Security Benchmark: Dataskydd](../security/benchmarks/security-controls-v2-data-protection.md).*
 
 ### <a name="dp-1-discover-classify-and-label-sensitive-data"></a>DP-1: identifiera, klassificera och märk känsliga data
 
@@ -415,7 +415,7 @@ App-konfigurationen stöder lagring av konfiguration av flera program i en konfi
 
 - [Tagga data klassificeringar i Azure](/azure/cloud-adoption-framework/govern/policy-compliance/data-classification#tagging-data-classification-in-azure)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -433,7 +433,7 @@ Begränsa åtkomst med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RB
 
 - Strategin för företagssegmentering bör också informeras om platsen för känsliga eller affärskritiska data och system.
 
-Mer information finns i följande resurser:
+Läs mer i följande referenser:
 
 - [Ge åtkomst till Azure App konfiguration med Azure Active Directory](concept-enable-rbac.md)
 
@@ -447,17 +447,17 @@ Mer information finns i följande resurser:
 
 **Ansvar**: Delad
 
-### <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4: kryptera känslig information under överföring
+### <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4: Kryptera känslig information under överföring
 
 **Vägledning**: för att komplettera åtkomst kontroller bör data i överföring skyddas mot "out of band"-attacker med kryptering. Detta säkerställer att angripare inte enkelt kan läsa eller ändra data.
 
 Azure App konfiguration använder TLS-kryptering för alla HTTP-begäranden. Azure-infrastrukturen ger ett tillagt lager med kryptering på nätverks nivå för alla förfrågningar mellan Azure-datacenter. Se till att HTTP-trafik som alla klienter som ansluter till dina program konfigurations resurser kan förhandla TLS v 1.2 eller senare.
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Delad
 
-### <a name="dp-5-encrypt-sensitive-data-at-rest"></a>DP-5: Kryptera känsliga vilande data
+### <a name="dp-5-encrypt-sensitive-data-at-rest"></a>DP-5: Kryptera känsliga data i vila
 
 **Vägledning**: för att komplettera åtkomst kontroller bör data i vila skyddas mot "out of band"-attacker (till exempel åtkomst till underliggande lagring) med hjälp av kryptering. Detta säkerställer att angripare inte enkelt kan läsa eller ändra data.
 
@@ -477,7 +477,7 @@ Azure tillhandahåller data i rest-kryptering som standard. För mycket känslig
 
 ## <a name="asset-management"></a>Tillgångshantering
 
-*Mer information finns i [Benchmark för Azure-säkerhet: Tillgångshantering](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*Mer information finns i [Azure Security Benchmark: Tillgångshantering](/azure/security/benchmarks/security-controls-v2-asset-management).*
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: Se till att säkerhetsteamet har insyn i risker för tillgångar
 
@@ -497,35 +497,35 @@ Obs! Ytterligare behörigheter kan krävas för att få insyn i arbetsbelastning
 
 **Ansvar**: Kund
 
-### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: se till att säkerhets teamet har åtkomst till till gångs inventering och metadata
+### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: Se till att säkerhetsteamet har åtkomst till tillgångsinventering och metadata
 
-**Vägledning**: se till att säkerhets teamen har åtkomst till en kontinuerligt uppdaterad inventering av till gångar på Azure, till exempel Azure App konfiguration. Säkerhets teamen behöver ofta den här inventeringen för att utvärdera organisationens potentiella exponering för nya risker och som informerar om löpande säkerhets förbättringar. Skapa en Azure Active Directory grupp som ska innehålla organisationens auktoriserade säkerhets team och tilldela dem Läs behörighet till alla Azure App konfigurations resurser. Detta kan för enklas med en enda roll tilldelning på hög nivå i din prenumeration.
+**Vägledning**: se till att säkerhets teamen har åtkomst till en kontinuerligt uppdaterad inventering av till gångar på Azure, till exempel Azure App konfiguration. Säkerhetsteamet behöver den här inventeringen till att utvärdera organisationens potentiella exponering för nya risker samt som indata till löpande förbättringar av säkerheten. Skapa en Azure Active Directory grupp som ska innehålla organisationens auktoriserade säkerhets team och tilldela dem Läs behörighet till alla Azure App konfigurations resurser. Detta kan för enklas med en enda roll tilldelning på hög nivå i din prenumeration.
 
 Azure Security Center Inventory-funktionen och Azure Resource Graph kan fråga efter och identifiera alla resurser i dina prenumerationer, inklusive Azure-tjänster, program och nätverks resurser.
 
 Använd taggar för dina Azure-resurser, resurs grupper och prenumerationer för att logiskt organisera dem i en taxonomi. Varje tagg består av ett namn och ett värde-par. Du kan till exempel använda namnet ”Miljö” och värdet ”Produktion” för alla resurser i produktionsmiljön.
 
-- [Så här skapar du frågor med Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [Skapa frågor med Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
 - [Azure Security Center till gångs lager hantering](../security-center/asset-inventory.md)
 
 - [Mer information om att tagga till gångar finns i besluts guiden för resurs namn givning och taggning](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="am-3-use-only-approved-azure-services"></a>AM-3: Använd endast godkända Azure-tjänster
+### <a name="am-3-use-only-approved-azure-services"></a>AM-3: Använd bara godkända Azure-tjänster
 
-**Vägledning**: Azure App konfiguration stöder Azure Resource Manager baserade distributioner och konfigurations tvång med hjälp av Azure policy. Använd Azure Policy för att granska och begränsa vilka tjänster som användare kan etablera i din miljö. Använd Azure Resource Graph för att fråga efter och identifiera resurser i prenumerationerna. Du kan också använda Azure Monitor för att skapa regler för att utlösa aviseringar när en icke-godkänd tjänst upptäcks.
+**Vägledning**: Azure App konfiguration stöder Azure Resource Manager baserade distributioner och konfigurations tvång med hjälp av Azure policy. Använd Azure Policy till att granska och begränsa vilka tjänster användarna kan etablera i miljön. Använd Azure Resource Graph till att fråga efter och identifiera resurser i prenumerationerna. Du kan också använda Azure Monitor till att skapa regler för att utlösa aviseringar när en icke-godkänd tjänst upptäcks.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Så här nekar du en speciell resurs typ med Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
-- [Så här skapar du frågor med Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [Skapa frågor med Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -537,7 +537,7 @@ Ta bort Azure-resurser när de inte längre behövs. Se till att administratöre
 
 - [Rotera krypterings nycklar som används för program konfiguration](concept-customer-managed-keys.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -547,15 +547,15 @@ Ta bort Azure-resurser när de inte längre behövs. Se till att administratöre
 
 - [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azures resurs hanterare](../role-based-access-control/conditional-access-azure-management.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
 ## <a name="logging-and-threat-detection"></a>Loggning och hotidentifiering
 
-*Mer information finns i [Benchmark för Azure-säkerhet: Loggning och hotidentifiering](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
+*Mer information finns i [Azure Security Benchmark: Loggning och hotidentifiering](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
-### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Aktivera hotidentifiering för identitets- och åtkomsthantering i Azure
+### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Aktivera hotidentifiering i hanteringen av identiteter och åtkomst i Azure
 
 **Vägledning**: appens konfiguration integreras med Azure Active Directory (Azure AD). Detta ger följande användar loggar som kan visas i Azure AD-rapportering eller integreras med Azure Monitor, Azure Sentinel eller andra SIEM/övervaknings verktyg för mer avancerade övervaknings-och analys användnings fall:
 - Inloggningsaktiviteter – Rapporten för inloggningsaktiviteter ger information om användningen av hanterade program och användares inloggningsaktiviteter.
@@ -577,11 +577,11 @@ En annan metod för att få åtkomst till konfigurations resursen för din app-k
 
 - [Auktorisera åtkomst till Azure App konfiguration med hjälp av Azure AD](concept-enable-rbac.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Aktivera loggning för Azure nätverks aktiviteter
+### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Aktivera loggning av nätverksaktiviteter i Azure
 
 **Vägledning**: Azure App konfiguration distribuerar inte några resurser direkt till ett virtuellt nätverk. Med appens konfiguration kan du dock använda privata slut punkter för att ansluta säkert till Azure App konfiguration från ett virtuellt nätverk. Azure App-konfigurationen skapar eller bearbetar inte heller DNS-frågemeddelanden som behöver aktive ras.
 
@@ -590,11 +590,11 @@ Aktivera loggning på dina konfigurerade privata slut punkter för konfiguration
 - Data som bearbetas av tjänsten för privat länk (IN/ut)
 - Tillgänglighet för NAT-Port
 
-Mer information finns i följande resurser:
+Läs mer i följande referenser:
 
 - [Azures övervakning av privata länkar](../private-link/private-link-overview.md#logging-and-monitoring)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -606,11 +606,11 @@ Mer information finns i följande resurser:
 
 - [Förstå loggning och olika logg typer i Azure](../azure-monitor/platform/platform-logs-overview.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: centralisera hantering av säkerhets loggar och analys
+### <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: Central hantering och analys av säkerhetsloggar
 
 **Vägledning**: centralisera loggning av lagring och analys för att aktivera korrelation. För varje logg källa ser du till att du har tilldelat en data ägare, åtkomst vägledning, lagrings plats, vilka verktyg som används för att bearbeta och komma åt data samt krav för data lagring.
 
@@ -622,11 +622,11 @@ Du kan också aktivera och publicera data till Azure Sentinel eller en SIEM frå
 
 - [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="lt-6-configure-log-storage-retention"></a>LT-6: Konfigurera kvarhållning av logg lagring
+### <a name="lt-6-configure-log-storage-retention"></a>LT-6: Konfigurera kvarhållning av loggar
 
 **Vägledning**: kontrol lera att lagrings konton eller Log Analytics arbets ytor som används för att lagra konfigurations loggar för appar har den logg kvarhållningsperiod som anges enligt organisationens regler för efterlevnad. Använd Azure Storage-, Data Lake-eller Log Analytics arbets ytans konton för långsiktig lagring och arkivering.
 
@@ -636,29 +636,29 @@ I Azure Monitor kan du Log Analytics ange arbets ytans lagrings period enligt or
 
 - [Lagra resurs loggar i ett Azure Storage konto](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
 ## <a name="incident-response"></a>Incidenthantering
 
-*Mer information finns i [Benchmark för Azure-säkerhet: Incidenthantering](../security/benchmarks/security-controls-v2-incident-response.md).*
+*Mer information finns i [Azure Security Benchmark: Incidentsvar](../security/benchmarks/security-controls-v2-incident-response.md).*
 
-### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: Förberedelse – uppdatera incidenthanteringsprocessen för Azure
+### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: Förberedelse – uppdatera processen för svar på incidenter i Azure
 
-**Riktlinjer**: Se till att din organisation har processer för att hantera säkerhetsincidenter, har uppdaterat dessa processer för Azure och utnyttjar dem regelbundet för att säkerställa beredskap.
+**Vägledning**: Se till att organisationen har processer för svar på säkerhetsincidenter, att processerna är uppdaterade för Azure och att de tränas regelbundet för att säkerställa beredskapen.
 
-- [Implementera säkerhet i företagsmiljön](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [Implementera säkerhet i hela företagsmiljön](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-- [Referensguide för incidenthantering](/microsoft-365/downloads/IR-Reference-Guide.pdf)
+- [Referensguide för incidentsvar](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="ir-2-preparation--setup-incident-notification"></a>IR-2: Förberedelser – konfigurera incidentmeddelande
+### <a name="ir-2-preparation--setup-incident-notification"></a>IR-2: Förberedelse – konfigurera aviseringar vid incidenter
 
-**Riktlinjer**: Konfigurera kontaktinformation för säkerhetsincidenter i Azure Security Center. Microsoft använder kontaktinformationen för att kontakta dig om Microsoft Security Response Center (MRSC) upptäcker att en obehörig part har kommit åt dina data. Du har också alternativ för att anpassa incidentaviseringar och -meddelanden i olika Azure-tjänster baserat på dina behov av incidenthantering. 
+**Vägledning**: Konfigurera kontaktinformation vid säkerhetsincidenter i Azure Security Center. Microsoft använder de här kontaktuppgifterna till att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker obehörig åtkomst till dina data. Det finns även alternativ för att anpassa aviseringar och meddelanden vid incidenter i olika Azure-tjänster baserat på åtgärdsbehovet. 
 
 - [Så här ställer du in säkerhetskontakt i Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
@@ -666,11 +666,11 @@ I Azure Monitor kan du Log Analytics ange arbets ytans lagrings period enligt or
 
 **Ansvar**: Kund
 
-### <a name="ir-3-detection-and-analysis--create-incidents-based-on-high-quality-alerts"></a>IR-3: Identifiering och analys – skapa incidenter baserat på aviseringar med hög kvalitet
+### <a name="ir-3-detection-and-analysis--create-incidents-based-on-high-quality-alerts"></a>IR-3: Identifiering och analys – skapa incidenter baserat på aviseringar av hög kvalitet
 
-**Vägledning**: se till att du har en process för att skapa aviseringar med hög kvalitet och mäta kvaliteten på aviseringar. På så sätt kan du dra slutsatser från tidigare incidenter och prioritera aviseringar för analytiker, så att de inte slösar tid på falska positiva identifieringar. 
+**Vägledning**: Se till att du har en process för att skapa aviseringar av hög kvalitet och mäta aviseringskvaliteten. På så sätt kan du lära dig av tidigare incidenter och prioritera aviseringar till analytiker så att de inte slösar tid på falska positiva identifieringar. 
 
-Aviseringar med hög kvalitet kan byggas utifrån erfarenhet från tidigare incidenter, validerade community-källor och verktyg som utformats för att skapa och rensa aviseringar från fusing och korrelera olika signal källor. 
+Du kan basera aviseringar av hög kvalitet på erfarenheter från tidigare incidenter, validerade community-källor och verktyg som utformats för att skapa och rensa aviseringar genom att sammanfoga och korrelera olika signalkällor. 
 
 Azure Security Center ger aviseringar med hög kvalitet över flera Azure-tillgångar. Du kan använda anslutningsprogrammet för ASC-data för att strömma aviseringarna till Azure Sentinel. Med Azure Sentinel kan du skapa avancerade aviseringsregler för att generera incidenter automatiskt för en undersökning. 
 
@@ -730,9 +730,9 @@ Markera även resurser med taggar och skapa ett namngivningssystem för att iden
 
 **Ansvar**: Kund
 
-### <a name="ir-6-containment-eradication-and-recovery--automate-the-incident-handling"></a>IR-6: Inneslutning, utrotning och återställning – automatisera incidenthanteringen
+### <a name="ir-6-containment-eradication-and-recovery--automate-the-incident-handling"></a>IR-6: Inneslutning, utrotning och återställning – automatisera hanteringen av incidenter
 
-**Riktlinjer**: Automatisera manuella återkommande uppgifter för att förkorta svarstiden och minska belastningen på analytiker. Manuella uppgifter tar längre tid att köra, vilket saktar ned varje incident och minskar antalet incidenter som en analytiker kan hantera. Manuella uppgifter gör dessutom analytikern mer utmattad, vilket ökar risken för mänskliga fel som i sin tur orsakar fördröjningar, samt minskar analytikernas förmåga att fokusera på komplexa uppgifter på ett effektivt sätt. Använd automatiseringsfunktioner för arbetsflöde i Azure Security Center och Azure Sentinel för att automatiskt utlösa åtgärder eller köra en spelbok för att svara på inkommande säkerhetsaviseringar. Spelboken vidtar åtgärder som att skicka meddelanden, inaktivera konton och isolera problematiska nätverk. 
+**Vägledning**: Automatisera manuella återkommande uppgifter för att korta ned svarstiderna och underlätta för analytikerna. Det tar längre tid att köra uppgifter manuellt, så att varje incident tar längre tid att hantera och analytikerna hinner med färre incidenter. Manuella uppgifter gör dessutom analytikern mer utmattad, vilket ökar risken för mänskliga fel som i sin tur orsakar fördröjningar, samt minskar analytikernas förmåga att fokusera på komplexa uppgifter på ett effektivt sätt. Använd automatiseringsfunktioner för arbetsflöde i Azure Security Center och Azure Sentinel för att automatiskt utlösa åtgärder eller köra en spelbok för att svara på inkommande säkerhetsaviseringar. Spelboken vidtar åtgärder som att skicka meddelanden, inaktivera konton och isolera problematiska nätverk. 
 
 - [Konfigurera arbetsflödesautomation i Security Center](../security-center/workflow-automation.md)
 
@@ -744,11 +744,11 @@ Markera även resurser med taggar och skapa ett namngivningssystem för att iden
 
 **Ansvar**: Kund
 
-## <a name="posture-and-vulnerability-management"></a>Status- och sårbarhetshantering
+## <a name="posture-and-vulnerability-management"></a>Hantering av säkerhetsposition och säkerhetsrisker
 
-*Mer information finns i [Benchmark för Azure-säkerhet: Status- och sårbarhetshantering](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
+*Mer information finns i [Azure Security Benchmark: Hantering av säkerhetsposition och säkerhetsrisker](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
 
-### <a name="pv-1-establish-secure-configurations-for-azure-services"></a>PV-1: upprätta säkra konfigurationer för Azure-tjänster 
+### <a name="pv-1-establish-secure-configurations-for-azure-services"></a>PV-1: Upprätta säkra konfigurationer för Azure-tjänster 
 
 **Vägledning**: Azure App konfiguration stöder följande tjänstspecifika principer som är tillgängliga i Azure Security Center för att granska och tillämpa konfigurationer för dina Azure-resurser. Detta kan konfigureras i Azure Security Center eller Azure Policy initiativ.
 - App-konfigurationen bör använda en kundhanterad nyckel: Kundhanterade nycklar ger förbättrat data skydd genom att låta dig hantera dina krypterings nycklar. Detta krävs ofta för att uppfylla kraven för efterlevnad.
@@ -770,7 +770,7 @@ Du kan använda Azure-ritningar för att automatisera distribution och konfigura
 
 **Ansvar**: Delad
 
-### <a name="pv-2-sustain-secure-configurations-for-azure-services"></a>PV-2: upprätthålla säkra konfigurationer för Azure-tjänster
+### <a name="pv-2-sustain-secure-configurations-for-azure-services"></a>PV-2: Underhåll säkra konfigurationer för Azure-tjänster
 
 **Vägledning**: Använd Azure Security Center för att övervaka konfigurations bas linjen och tillämpa användningen av Azure policy. Azure Policy för konfiguration av appar innehåller: 
 - App-konfigurationen bör använda en kundhanterad nyckel: Kundhanterade nycklar ger förbättrat data skydd genom att låta dig hantera dina krypterings nycklar. Detta krävs ofta för att uppfylla kraven för efterlevnad.
@@ -784,216 +784,216 @@ Du kan använda Azure-ritningar för att automatisera distribution och konfigura
 
 **Ansvar**: Delad
 
-### <a name="pv-8-conduct-regular-attack-simulation"></a>PV-8: Genomför regelbunden attacksimulering
+### <a name="pv-8-conduct-regular-attack-simulation"></a>PV-8: Utför regelbundna angreppssimuleringar
 
-**Riktlinjer**: Genomför vid behov genomslagstestning eller Red Team-aktiviteter på dina Azure-resurser och se till att alla kritiska säkerhetsbrister åtgärdas.
-Följ Microsoft Clouds deltagarregler för genomslagstestning för att se till att genomslagstesterna inte strider mot Microsofts principer. Använd Microsofts strategi för och verkställande av Red Team-indelning och genomslagstester för live-webbplatser mot Microsoft-hanterad molninfrastruktur, tjänster och program.
+**Vägledning**: Utför intrångstester och ”red team”-aktiviteter för dina Azure-resurser och åtgärda alla kritiska säkerhetsbrister som upptäcks.
+Se till att följa reglerna för intrångstester i Microsoft Cloud så att dina tester inte strider mot Microsofts policyer. Använd Microsofts strategi och utförande av ”red team”-aktiviteter och intrångstester live mot molninfrastruktur, tjänster och appar som hanteras av Microsoft.
 
-- [Genomslagstestning i Azure](../security/fundamentals/pen-testing.md)
+- [Intrångstester i Azure](../security/fundamentals/pen-testing.md)
 
-- [Deltagarregler för genomslagstestning](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
+- [Regler för intrångstester](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
-- [Red Team-indelning i Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [”Red team”-aktiviteter i Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Delad
 
 ## <a name="backup-and-recovery"></a>Säkerhetskopiering och återställning
 
-*Mer information finns i [säkerhets benchmark för Azure: säkerhets kopiering och återställning](../security/benchmarks/security-controls-v2-backup-recovery.md).*
+*Mer information finns i [Azure Security Benchmark: Säkerhetskopiering och återställning](../security/benchmarks/security-controls-v2-backup-recovery.md).*
 
-### <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4: minska risken för förlorade nycklar
+### <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4: Minska risken för förlorade nycklar
 
-**Vägledning**: se till att du har mått på plats för att förhindra och återställa från förlust av nycklar. Aktivera mjuk borttagning och tömning av skydd i Azure Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
+**Vägledning**: se till att du har mått på plats för att förhindra och återställa från förlust av nycklar. Aktivera mjuk borttagning och rensningsskydd i Azure Key Vault som skydd mot oavsiktlig eller skadlig borttagning.
 
-- [Så här aktiverar du mjuk borttagning och tömning av skydd i Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [Aktivera mjuk borttagning och rensningsskydd i Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
 ## <a name="governance-and-strategy"></a>Styrning och strategi
 
-*Mer information finns i [Benchmark för Azure-säkerhet: Styrning och strategi](../security/benchmarks/security-controls-v2-governance-strategy.md).*
+*Mer information finns i [Azure Security Benchmark: Styrning och strategi](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
-### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: Definiera strategin för tillgångshantering och dataskydd 
+### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: Definiera en strategi för tillgångshantering och dataskydd 
 
-**Riktlinjer**: Se till att dokumentera och förmedla en tydlig strategi för kontinuerlig övervakning och skydd av system och data. Prioritera upptäckt, utvärdering, skydd och övervakning av affärskritiska data och system. 
+**Vägledning**: Se till att dokumentera och förmedla en tydlig strategi för kontinuerlig övervakning och skydd av system och data. Prioritera identifiering, utvärdering, skydd och övervakning av affärskritiska data och system. 
 
-Strategin bör omfatta dokumenterad vägledning, principer och standarder för följande element: 
+Strategin bör omfatta dokumenterad vägledning, policyer och standarder för följande element: 
 
--   Standard för klassificering av data i enlighet med affärsriskerna
+-   En standard för dataklassificering i enlighet med affärsrisker
 
--   Insyn för säkerhetsorganisationen i risker och tillgångsinventering 
+-   Säkerhetsorganisationens insyn i risker och tillgångsinventering 
 
--   Säkerhetsorganisations godkännande av Azure-tjänster att använda 
+-   Säkerhetsorganisationens godkännande av de Azure-tjänster som används 
 
--   Säkerhet för tillgångar via deras livscykel
+-   Tillgångars säkerhet genom hela livscykeln
 
--   Strategi för nödvändig åtkomstkontroll i enlighet med organisationens dataklassificering
+-   Nödvändig strategi för åtkomstkontroll i enlighet med organisationens dataklassificering
 
--   Användning av data skydds funktioner i Azure Native och tredje part
+-   Användning av dataskyddsfunktioner i Azure och från tredje part
 
--   Krypteringskrav för användningsfall med data under transport och i vila
+-   Krav på datakryptering både under överföring och i vila
 
 -   Lämpliga kryptografiska standarder
 
-Mer information finns i följande resurser:
-- [Rekommendation för Azure Security Architecture – lagring, data och kryptering](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
+Läs mer i följande referenser:
+- [Rekommendationer för en säkerhetsarkitektur i Azure – lagring, data och kryptering](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Grundläggande Azure-säkerhet – säkerhet, kryptering och lagring av data i Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework – bästa praxis för datasäkerhet och kryptering i Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
+- [Cloud Adoption Framework – regelverk kring datasäkerhet och kryptering i Azure](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Benchmark för Azure-säkerhet – tillgångshantering](/azure/security/benchmarks/security-controls-v2-asset-management)
+- [Azure Security Benchmark – hantering av tillgångar](/azure/security/benchmarks/security-controls-v2-asset-management)
 
-- [Benchmark för Azure-säkerhet – dataskydd](/azure/security/benchmarks/security-controls-v2-data-protection)
+- [Azure Security Benchmark – dataskydd](/azure/security/benchmarks/security-controls-v2-data-protection)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="gs-2-define-enterprise-segmentation-strategy"></a>GS-2: Definiera strategi för företagssegmentering 
+### <a name="gs-2-define-enterprise-segmentation-strategy"></a>GS-2: Definiera företagets segmenteringsstrategi 
 
-**Riktlinjer**: Upprätta en företagsomfattande strategi för att segmentera åtkomst till tillgångar med en kombination av identitet, nätverk, program, prenumeration, hanteringsgrupp och andra kontroller.
+**Vägledning**: Upprätta en strategi för hela företaget gällande att segmentera åtkomsten till tillgångar utifrån en kombination av identiteter, nätverk, program, prenumerationer, hanteringsgrupper och andra kontroller.
 
-Du bör noggrant balansera behovet av säkerhetsseparation med behovet av att möjliggöra daglig drift av de system som behöver kommunicera med varandra och komma åt data.
+Du måste noga avväga behovet av separationsskyddet med behovet att underlätta den dagliga driften av de system som måste kommunicera med varandra och komma åt data.
 
-Se till att segmenteringsstrategin implementeras konsekvent över olika kontrolltyper, inklusive nätverkssäkerhet, identitets- och åtkomstmodeller samt modeller för programbehörighet/-åtkomst och kontroller för mänskliga processer.
+Se till att segmenteringsstrategin implementeras konsekvent för olika kontrolltyper som nätverkssäkerhet, modeller för identiteter och åtkomst, modeller för appbehörighet och appåtkomst samt kontroller för mänskliga processer.
 
 - [Vägledning om segmenteringsstrategi i Azure (video)](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
 
 - [Vägledning om segmenteringsstrategi i Azure (dokument)](/security/compass/governance#enterprise-segmentation-strategy)
 
-- [Justera nätverkssegmentering med strategi för företagssegmentering](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
+- [Justera nätverkssegmenteringen efter företagets segmenteringsstrategi](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
-
-**Ansvar**: Kund
-
-### <a name="gs-3-define-security-posture-management-strategy"></a>GS-3: Definiera strategi för hantering av säkerhetsstatus
-
-**Riktlinjer**: Mät och minimera kontinuerligt risker för enskilda tillgångar och den miljö som de finns i. Prioritera tillgångar med högt värde och högexponerade attackytor, till exempel publicerade program, ingångs- och utgångspunkter för nätverk, slutpunkter för användare och administratörer osv.
-
-- [Benchmark för Azure-säkerhet – status- och sårbarhetshantering](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
-
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="gs-4-align-organization-roles-responsibilities-and-accountabilities"></a>GS-4: Justera roller, ansvarsområden och ansvar
+### <a name="gs-3-define-security-posture-management-strategy"></a>GS-3: Definiera en strategi för hantering av säkerhetspositionen
 
-**Riktlinjer**: Se till att dokumentera och förmedla en tydlig strategi för roller och ansvarsområden i din säkerhetsorganisation. Prioritera att presentera tydligt ansvar för säkerhetsbeslut, utbilda alla i den delade ansvarsmodellen och utbilda tekniska team om teknik för att skydda molnet.
+**Vägledning**: Mät och minimera risker gällande enskilda tillgångar och miljöerna där de finns regelbundet. Prioritera värdefulla tillgångar och attackytor med stor exponering, som publicerade appar, in- och utgångar i nätverket och slutpunkter för användare och administratörer.
 
-- [Bästa praxis för Azure-säkerhet 1 – personer: Utbilda team i resan mot molnsäkerhet](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
+- [Azure Security Benchmark – hantering av säkerhetspositionen och säkerhetsrisker](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
-- [Bästa praxis för Azure-säkerhet 2 – personer: Utbilda team i teknik för molnsäkerhet](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-- [Bästa praxis för Azure-säkerhet 3 – process: Tilldela ansvar för beslut kring molnsäkerhet](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+**Ansvar**: Kund
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+### <a name="gs-4-align-organization-roles-responsibilities-and-accountabilities"></a>GS-4: Justera organisationens roller och ansvarsområden
+
+**Vägledning**: Dokumentera och förmedla en tydlig strategi gällande säkerhetsorganisationens roller och ansvarsområden. Prioritera att delegera ett tydligt ansvar för olika säkerhetsbeslut och utbilda alla kring modellen med gemensamt ansvar, och ge de tekniska teamen den utbildning som behövs kring tekniken för att skydda molnet.
+
+- [Regelverk för Azure-säkerhet 1 – personal: utbilda teamen om molnsäkerhetsresan](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
+
+- [Regelverk för Azure-säkerhet 2 – personal: utbilda teamen om molnsäkerhetstekniken](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
+
+- [Regelverk för Azure-säkerhet 3 – personal: tilldela ansvar för molnsäkerhetsbeslut](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
 ### <a name="gs-5-define-network-security-strategy"></a>GS-5: Definiera en strategi för nätverkssäkerhet
 
-**Riktlinjer**: Upprätta en metod för Azure-nätverkssäkerhet som en del av din organisations övergripande strategi för säker åtkomstkontroll.  
+**Vägledning**: Upprätta en strategi för nätverkssäkerhet i Azure inom ramen för organisationens övergripande strategi för åtkomstkontroll.  
 
-Strategin bör omfatta dokumenterad vägledning, principer och standarder för följande element: 
+Strategin bör omfatta dokumenterad vägledning, policyer och standarder för följande element: 
 
--   Centraliserad nätverkshantering och säkerhetsansvar
+-   Centraliserade ansvarsområden kring nätverkshantering och säkerhet
 
--   Modell för virtuell nätverkssegmentering i linje med företagets segmenteringsstrategi
+-   Modell för segmentering av virtuella nätverk anpassad efter företagets segmenteringsstrategi
 
--   Åtgärdsstrategi i olika hot- och attackscenarier
+-   Åtgärdsstrategi för olika hot- och angreppsscenarier
 
--   Strategi för Internets kanter, in- och utgångspunkter
+-   Strategi för kantenheter på internet samt in- och utgångar
 
 -   Strategi för hybridmoln och lokala anslutningar
 
--   Aktuella artefakter för nätverkssäkerhet (t.ex. nätverksdiagram, arkitektur för referensnätverk)
+-   Aktuella nätverkssäkerhetsartefakter (som nätverksdiagram och referensnätverksarkitekturer)
 
-Mer information finns i följande resurser:
-- [Bästa praxis för Azure-säkerhet 11 – arkitektur. En enhetlig säkerhetsstrategi](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+Läs mer i följande referenser:
+- [Regelverk för Azure-säkerhet 11 – arkitektur. En enhetlig säkerhetsstrategi](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Benchmark för Azure-säkerhet – nätverkssäkerhet](/azure/security/benchmarks/security-controls-v2-network-security)
+- [Azure Security Benchmark – nätverkssäkerhet](/azure/security/benchmarks/security-controls-v2-network-security)
 
-- [Översikt över Azure-nätverkssäkerhet](../security/fundamentals/network-overview.md)
+- [Översikt över nätverkssäkerhet i Azure](../security/fundamentals/network-overview.md)
 
-- [Arkitekturstrategi för företagsnätverk](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
+- [En strategi för företagets nätverksarkitektur](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
-
-**Ansvar**: Kund
-
-### <a name="gs-6-define-identity-and-privileged-access-strategy"></a>GS-6: Definiera strategi för identiteter och privilegierad åtkomst
-
-**Riktlinjer**: Upprätta en metod för Azure-identitet och priviligierad åtkomst som en del av organisationens övergripande strategi för säker åtkomstkontroll.  
-
-Strategin bör omfatta dokumenterad vägledning, principer och standarder för följande element: 
-
--   Ett centraliserat identitets- och autentiseringssystem och dess anslutningar till andra interna och externa identitetssystem
-
--   Starka autentiseringsmetoder i olika användnings fall och förhållanden
-
--   Skydd av användare med höga privilegier
-
--   Övervakning och hantering av avvikande användaraktiviteter  
-
--   Process för granskning och avstämning av användaridentitet och -åtkomst
-
-Mer information finns i följande resurser:
-
-- [Benchmark för Azure-säkerhet – identitetshantering](/azure/security/benchmarks/security-controls-v2-identity-management)
-
-- [Benchmark för Azure-säkerhet – privilegierad åtkomst](/azure/security/benchmarks/security-controls-v2-privileged-access)
-
-- [Bästa praxis för Azure-säkerhet 11 – arkitektur. En enhetlig säkerhetsstrategi](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
-
-- [Säkerhetsöversikt för identitetshantering i Azure](../security/fundamentals/identity-management-overview.md)
-
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
-### <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: Definiera strategi för loggning och hothantering
+### <a name="gs-6-define-identity-and-privileged-access-strategy"></a>GS-6: Definiera en strategi för identiteter och privilegierad åtkomst
+
+**Vägledning**: Upprätta en strategi för identiteter och privilegierad åtkomst i Azure inom ramen för organisationens övergripande strategi för åtkomstkontroll.  
+
+Strategin bör omfatta dokumenterad vägledning, policyer och standarder för följande element: 
+
+-   Ett centraliserat system för identiteter och autentisering och dess anslutningar till andra interna och externa identitetssystem
+
+-   Starka autentiseringsmetoder i olika användningsfall och scenarier
+
+-   Skydda och användare med hög behörighet
+
+-   Övervaka och hantera avvikande användaraktiviteter  
+
+-   Process för att granska och stämma av identiteter och åtkomstbehörighet
+
+Läs mer i följande referenser:
+
+- [Azure Security Benchmark – hantering av identiteter](/azure/security/benchmarks/security-controls-v2-identity-management)
+
+- [Azure Security Benchmark – privilegierad åtkomst](/azure/security/benchmarks/security-controls-v2-privileged-access)
+
+- [Regelverk för Azure-säkerhet 11 – arkitektur. En enhetlig säkerhetsstrategi](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+
+- [Översikt över säker identitetshantering i Azure](../security/fundamentals/identity-management-overview.md)
+
+**Övervakning i Azure Security Center**: Ej tillämpligt
+
+**Ansvar**: Kund
+
+### <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: Definiera en strategi för loggning och hotåtgärder
 
 **Riktlinjer**: Upprätta en strategi för loggning och hothantering för att snabbt upptäcka och åtgärda hot och samtidigt uppfylla kraven för efterlevnad. Prioritera att ge analytiker högkvalitativa varningar och sömlösa upplevelser så att de kan fokusera på hot i stället för på integrering och manuella åtgärder. 
 
 Strategin bör omfatta dokumenterad vägledning, principer och standarder för följande element: 
 
--   SecOps-organisationens roll och ansvarsområden 
+-   Säkerhetsorganisationens roller och ansvarsområden 
 
--   En väldefinierad process för incidenthantering i linje med NIST eller annat branschramverk 
+-   En väldefinierad process för incidentsvar anpassad efter NIST eller något annat branschramverk 
 
--   Insamling och kvarhållning av loggar för att stödja hotidentifiering, incidentsvar och krav på efterlevnad
+-   Insamling och kvarhållning av loggar som stöd till hotidentifiering, incidentsvar och efterlevnadskrav
 
--   Centraliserad insyn i och korrelationsuppgifter om hot med hjälp av Säkerhetsinformation och händelsehantering, inbyggda Azure-funktioner och andra källor 
+-   Central insyn i och korrelerande information om olika hot med hjälp av SIEM, interna Azure-funktioner och andra källor 
 
--   Kommunikations- och aviseringsplan för dina kunder, leverantörer och offentliga intressenter
+-   Plan för kommunikation med kunder, leverantörer och offentliga intressenter
 
--   Användning av inbyggda Azure- och tredjeparts-plattformar för incidenthantering, till exempel loggning och hotidentifiering, analys och attackåtgärder och -utrotning
+-   Användning av plattformar för incidenthantering i Azure och från tredje part, till exempel för loggning och hotidentifiering, datautredning och motverkande åtgärder
 
--   Processer för hantering av incidenter och aktiviteter efter incidenter, till lärdomar och kvarhållning av bevis
+-   Processer för hantering av incidenter och efterföljande aktiviteter som hantering av lärdomar och bevis
 
-Mer information finns i följande resurser:
+Läs mer i följande referenser:
 
-- [Benchmark för Azure-säkerhet – loggning och hotidentifiering](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
+- [Azure Security Benchmark – loggning och hotidentifiering](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Benchmark för Azure-säkerhet – incidenthantering](/azure/security/benchmarks/security-controls-v2-incident-response)
+- [Azure Security Benchmark – svar på incidenter](/azure/security/benchmarks/security-controls-v2-incident-response)
 
-- [Bästa praxis för Azure-säkerhet 4 – process. Uppdatera incidenthanteringsprocesser för molnet](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [Regelverk för Azure-säkerhet 4 – process: uppdatera processer kring incidentsvar för molnet](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-- [Beslutsguide för ramverk för Azure-införande, loggning och rapportering](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
+- [Azure Adoption Framework, guide till beslut om loggning och rapporter](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
-- [Azure i företagsskala, hantering och övervakning](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
+- [Hantering och övervakning i företagsskala i Azure](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Översikt över Benchmark för Azure-säkerhet V2](../security/benchmarks/overview.md)
+- Läs mer i [Översikten över Azure Security Benchmark V2](../security/benchmarks/overview.md)
 - Läs mer om [säkerhetsbaslinjer för Azure](../security/benchmarks/security-baselines-overview.md)

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
-ms.openlocfilehash: ca8a36584c09d850ed1daab8cba301b244f76526
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a9bf03fd59e6088ce1c1b09a41b2bf55d1f45455
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447015"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532966"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurera autentisering för Azure Machine Learning-resurser och -arbetsflöden
 
@@ -27,12 +27,12 @@ Lär dig hur du konfigurerar autentisering till din Azure Machine Learning-arbet
 
 * __Tjänstens huvud namn__: du skapar ett tjänst huvud namns konto i Azure Active Directory och använder det för att autentisera eller hämta en token. Ett huvud namn för tjänsten används när du behöver en _automatiserad process för att autentisera_ till tjänsten utan att det krävs några åtgärder från användaren. Till exempel ett kontinuerligt integrerings-och distributions skript som tågen och testar en modell varje gång inlärnings koden ändras.
 
-* __Hanterad identitet__: när du använder Azure Machine Learning SDK _på en virtuell Azure-dator_ kan du hanterade identiteter för Azure. Det här arbets flödet gör att den virtuella datorn kan ansluta till arbets ytan med hjälp av den hanterade identiteten, utan att lagra autentiseringsuppgifter i python-kod eller fråga användaren om att autentisera. Azure Machine Learning beräknings kluster kan också konfigureras för att använda en hanterad identitet för att komma åt arbets ytan när du _tränar modeller_.
+* __Hanterad identitet__: när du använder Azure Machine Learning SDK _på en virtuell Azure-dator_ kan du använda en hanterad identitet för Azure. Det här arbets flödet gör att den virtuella datorn kan ansluta till arbets ytan med hjälp av den hanterade identiteten, utan att lagra autentiseringsuppgifter i python-kod eller fråga användaren om att autentisera. Azure Machine Learning beräknings kluster kan också konfigureras för att använda en hanterad identitet för att komma åt arbets ytan när du _tränar modeller_.
 
 > [!IMPORTANT]
 > Oavsett vilket arbets flöde för autentisering som används, används Azures rollbaserade åtkomst kontroll (Azure RBAC) för att begränsa den åtkomst nivå som tillåts för resurserna. En administratörs-eller Automation-process kan till exempel ha åtkomst för att skapa en beräknings instans, men inte använda den, medan en data expert kan använda den, men inte ta bort eller skapa den. Mer information finns i [Hantera åtkomst till Azure Machine Learning-arbetsyta](how-to-assign-roles.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Skapa en [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 * [Konfigurera utvecklings miljön](how-to-configure-environment.md) för att installera Azure Machine Learning SDK eller använd en [Azure Machine Learning beräknings instans](concept-azure-machine-learning-architecture.md#compute-instance) med SDK redan installerad.

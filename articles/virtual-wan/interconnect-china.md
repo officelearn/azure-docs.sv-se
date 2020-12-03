@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: sukishen
-ms.openlocfilehash: a92dafe6237d0f061f837f07c5dcf2686b1a8a7e
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 169477ffdf6fd593f1b6f01469c7303f8bd3a488
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510751"
+ms.locfileid: "96531850"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Samman koppling med Kina med Azure Virtual WAN och säker hubb
 
@@ -20,7 +20,7 @@ När du tittar på vanliga bil-, tillverknings-och logistik branscher eller andr
 
 I de flesta fall är kunderna kämpar med hög latens, låg bandbredd, instabil anslutning och höga kostnader som ansluter till utanför Kina (till exempel Europa eller USA).
 
-En orsak till de här problemen är den "fantastiska brand väggen i Kina", som skyddar den kinesiska delen av Internet och filtrerar trafik till Kina. Nästan all trafik som körs från Kina till utanför Kina, förutom de särskilda administrations zonerna, t. ex. Hongkong och Macao, klarar den fantastiska brand väggen. Trafiken som körs via Hong Kong och Macao når inte den fantastiska brand väggen i full kraft, den hanteras av en del av den fantastiska brand väggen.
+En orsak till de här problemen är den "fantastiska brand väggen i Kina", som skyddar den kinesiska delen av Internet och filtrerar trafik till Kina. Nästan all trafik som körs från Folkrepubliken Kina till utanför Kina, förutom de särskilda administrations zonerna, t. ex. Hongkong och Macao, klarar den fantastiska brand väggen. Trafiken som körs via Hong Kong och Macao når inte den fantastiska brand väggen i full kraft, den hanteras av en del av den fantastiska brand väggen.
 
 :::image type="content" source="./media/interconnect-china/provider.png" alt-text="Diagrammet visar Provider-Interconnect.":::
 
@@ -71,13 +71,13 @@ I följande lista visas möjliga Internet-byten i Hong Kong:
 
 När du använder den här anslutningen måste ditt nästa BGP-hopp för Microsoft-tjänster vara Microsoft autonomt system nummer (AS #) 8075. Om du använder en enda plats eller SDWAN-lösning kan det vara valet av anslutning.
 
-Med de aktuella ändringarna avseende samanslutningar mellan Kina och Hongkong, bygger de flesta av dessa nätverksprovider på en MPLS-brygga mellan fast landet och Hongkong.
+Med de aktuella ändringarna angående samanslutningar mellan Kina och Hongkong SAR, skapar de flesta av dessa nätverksproviders en MPLS-brygga mellan Kina och Hong Kong SAR.
 
 Du kan se att plats-till-plats-VPN-anslutningar i Kina tillåts och är mest stabila. Samma gäller för plats-till-plats-anslutningar mellan grenar i resten av världen. Leverantörer skapar nu en VPN/SDWAN-aggregering på både sidor och Bridge via MPLS mellan dem.
 
 :::image type="content" source="./media/interconnect-china/china-mpls-bridge.png" alt-text="Diagram visar Kinas MPLS-brygga.":::
 
-Oavsett hur vi rekommenderar rekommenderar vi fortfarande att du har en andra och regelbundna Internet-grupp i det kinesiska fast landet. Detta är att dela upp trafiken mellan företags trafik till moln tjänster som Microsoft 365 och Azure och enligt-Law reglerad Internet trafik.
+Oavsett hur vi rekommenderar rekommenderar vi fortfarande att du har en andra och regelbundna Internet-grupp i Kina. Detta är att dela upp trafiken mellan företags trafik till moln tjänster som Microsoft 365 och Azure och enligt-Law reglerad Internet trafik.
 
 En kompatibel nätverks arkitektur i Kina kan se ut som i följande exempel:
 

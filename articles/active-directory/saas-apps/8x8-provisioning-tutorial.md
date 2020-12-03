@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0ed56d200c2b5a472dbf93d45ad25156ea02a884
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 90e3464ac9ddf1e839c3a731f79ac2c0771c37ea
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181160"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532714"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Självstudie: Konfigurera 8x8 för automatisk användar etablering
 
@@ -29,7 +29,7 @@ I den här självstudien beskrivs de steg du behöver utföra i både 8x8 Config
 > * Behåll användarattribut synkroniserade mellan Azure AD och 8x8
 > * [Enkel inloggning](./8x8virtualoffice-tutorial.md) till 8x8 (rekommenderas)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -50,17 +50,17 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera 8x8 för att 
 
 ### <a name="to-configure-a-user-provisioning-access-token-in-8x8-configuration-manager"></a>Så här konfigurerar du en åtkomsttoken för användar etablering i 8x8 Configuration Manager:
 
-1. Logga in på [Configuration Manager](https://vo-cm.8x8.com). Välj **identitets hantering**.
+1. Logga in på [Administratörs konsolen](https://admin.8x8.com). Välj **identitets hantering**.
 
-   ![Identitetshantering](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
+   ![Admin](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
 
 2. Klicka på länken **Visa information om användar etablering** för att generera en token.
 
-   ![Visa användar etablering](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
+   ![Visa](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
 
 3. Kopiera **8X8 URL** -och **8X8 API-token** -värden. Dessa värden anges i fälten klient- **URL** och **hemlig token** på fliken etablering i 8x8-programmet i Azure Portal.
 
-   ![Kopiera URL och token](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
+   ![Token](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
 
 ## <a name="step-3-add-8x8-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till 8x8 från Azure AD-programgalleriet
 
@@ -116,7 +116,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 9. Granska de användarattribut som synkroniseras från Azure AD till 8x8 i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i 8x8 för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](../app-provisioning/customize-application-attributes.md)måste du se till att 8x8-API: et stöder filtrering av användare baserat på det attributet. Välj knappen **Spara** för att spara ändringarna.
 
-   |Attribut|Typ|Obs!|
+   |Attribut|Typ|Kommentarer|
    |---|---|---|
    |userName|Sträng|Anger både användar namn och Federations-ID|
    |externalId|Sträng||

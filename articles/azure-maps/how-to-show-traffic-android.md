@@ -3,25 +3,27 @@ title: Visa trafik data på Android-karta | Microsoft Azure Maps
 description: I den här artikeln lär du dig hur du visar trafik data på en karta med hjälp av Microsoft Azure Maps Android SDK.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 02/27/2020
+ms.date: 11/25/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bc37f2b3f603262f67a46746187df6e4b5a494b5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5f7e67d159c2b7dea3ebac7fd4d0856f508cb298
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895536"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532762"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Visa trafik data på kartan med Azure Maps Android SDK
 
 Flödes data och incident data är de två typer av trafik data som kan visas på kartan. Den här guiden visar hur du visar båda typerna av trafik data. Incident data består av punkt-och linjebaserade data för sådant som konstruktioner, väg stängningar och olyckor. Flow-data visar mått för trafik flödet på resan.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du kan visa trafik på kartan måste du [skapa ett Azure-konto](quick-demo-map-app.md#create-an-azure-maps-account)och [Skaffa en prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account). Sedan måste du installera [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) och läsa in en karta.
+1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
+3. Hämta och installera [Azure Maps Android SDK](./how-to-use-android-map-control-library.md).
 
 ## <a name="incidents-traffic-data"></a>Incident trafik data
 
@@ -73,7 +75,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Du kan använda koden nedan för att få incidenter för en speciell funktion. När du klickar på en funktion söker kod logiken efter incidenter och skapar ett meddelande om incidenten. Ett meddelande visas längst ned på skärmen med information.
 
-1. Först måste du redigera **> layout för resurs > activity_main.xml** , så att det ser ut som på samma sätt. Du kan ersätta `mapcontrol_centerLat` , `mapcontrol_centerLng` , och `mapcontrol_zoom` med önskade värden. Åter kallelse är zoomnings nivån ett värde mellan 0 och 22. På zoomnings nivå 0 passar hela världen på en enda panel.
+1. Först måste du redigera `res > layout > activity_main.xml` så att det ser ut som på samma sätt som den nedan. Du kan ersätta `mapcontrol_centerLat` , `mapcontrol_centerLng` , och `mapcontrol_zoom` med önskade värden. Åter kallelse är zoomnings nivån ett värde mellan 0 och 22. På zoomnings nivå 0 passar hela världen på en enda panel.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -223,11 +225,9 @@ Du kan använda koden nedan för att få incidenter för en speciell funktion. N
 
 3. När du har införlivat ovanstående kod i programmet kan du klicka på en funktion och se information om trafik incidenter. Beroende på latitud-, longitud-och zoomnings nivå värden som du använde i **activity_main.xml** -filen visas resultat som liknar följande bild:
 
-   <center>
 
-   ![Incident-trafik-på-kartan](./media/how-to-show-traffic-android/android-traffic.png)
+    ![Incident-trafik-på-kartan](./media/how-to-show-traffic-android/android-traffic.png)
 
-   </center>
 
 ## <a name="next-steps"></a>Nästa steg
 

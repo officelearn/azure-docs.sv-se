@@ -1,6 +1,6 @@
 ---
-title: Lägg till ett panel lager till Android Maps | Microsoft Azure Maps
-description: Lär dig hur du lägger till ett panel lager till en karta. Se ett exempel som använder Azure Maps Android SDK för att lägga till ett väderleks överlägg i en karta.
+title: Lägg till ett panel lager till en karta med Azure Maps Android SDK
+description: Lär dig hur du lägger till ett panel lager till en karta. Se ett exempel som använder Microsoft Azure mappar Android SDK för att lägga till ett väderleks överlägg i en karta.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: faa5e3e3177e18787a73c6b4c43aa04b6bc760b7
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 22618a28f1a87e68c19467aedf639e96ec2fb91e
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897100"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532684"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Lägg till ett panel lager till en karta med Azure Maps Android SDK
 
@@ -37,7 +37,7 @@ Panel-URL: en som skickas till ett panel lager måste vara en HTTP/HTTPS-URL til
 * `{bbox-epsg-3857}` – En sträng med avgränsnings rutor med formatet `{west},{south},{east},{north}` i EPSG 3857 rums referens system.
 * `{subdomain}` – En plats hållare för under domänens värden, om värdet under domän är angivet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra processen i den här artikeln måste du installera [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) för att läsa in en karta.
 

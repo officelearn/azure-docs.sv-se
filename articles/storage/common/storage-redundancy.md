@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 12/02/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: fbc24db21ee43e3c2aef3d0164e8510a79508fd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57cde2c5c0a1caf7ad5182cad8db72ab8aa7c908
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658576"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531791"
 ---
-# <a name="azure-storage-redundancy"></a>Azure Storage redundans
+# <a name="azure-storage-redundancy"></a>Redundans i Azure Storage
 
-Azure Storage lagrar alltid flera kopior av dina data så att de skyddas från planerade och oplanerade händelser, inklusive tillfälliga maskin varu haverier, nätverks-eller strömavbrott, och massiv natur katastrofer. Redundans garanterar att ditt lagrings konto uppfyller [service nivå avtalet (SLA) för Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/) även om det är i händelse av problem.
+Azure Storage lagrar alltid flera kopior av dina data så att de skyddas från planerade och oplanerade händelser, inklusive tillfälliga maskin varu haverier, nätverks-eller strömavbrott, och massiv natur katastrofer. Redundans garanterar att ditt lagrings konto uppfyller sina tillgänglighets-och hållbarhets mål även om de inte är i rätt tid.
 
-När du bestämmer vilket alternativ för redundans som passar bäst för ditt scenario bör du fundera över kompromisserna mellan lägre kostnader och högre tillgänglighet och hållbarhet. De faktorer som hjälper dig att avgöra vilket alternativ för redundans som du bör välja bland:  
+När du bestämmer vilket alternativ för redundans som passar bäst för ditt scenario bör du fundera över kompromisserna mellan lägre kostnader och högre tillgänglighet. De faktorer som hjälper dig att avgöra vilket alternativ för redundans som du bör välja bland:  
 
 - Hur dina data replikeras i den primära regionen
 - Om dina data replikeras till en andra region som är geografiskt avlägsen till den primära regionen, för att skydda mot regionala haverier
@@ -153,11 +153,9 @@ I följande tabell beskrivs viktiga parametrar för varje alternativ för redund
 
 | Parameter | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Procentuell hållbarhet för objekt under ett angivet år<sup>1</sup> | minst 99,999999999% (11 9) | minst 99,9999999999% (12 9-) | minst 99.99999999999999% (16 9) | minst 99.99999999999999% (16 9) |
-| Tillgänglighets-SLA för Läs begär Anden<sup>1</sup> | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GRS | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GZRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GZRS |
-| Tillgänglighets-SLA för Skriv begär Anden<sup>1</sup> | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) |
-
-<sup>1</sup> information om Azure Storage garantier för hållbarhet och tillgänglighet finns i [service avtalet för Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/).
+| Procentuellt hållbarhet för objekt under ett angivet år | minst 99,999999999% (11 9) | minst 99,9999999999% (12 9-) | minst 99.99999999999999% (16 9) | minst 99.99999999999999% (16 9) |
+| Tillgänglighet för Läs begär Anden | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GRS | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GZRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GZRS |
+| Tillgänglighet för Skriv förfrågningar | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) |
 
 ### <a name="durability-and-availability-by-outage-scenario"></a>Scenario för hållbarhet och tillgänglighet efter avbrott
 
@@ -166,9 +164,9 @@ Följande tabell visar om dina data är beständiga och tillgängliga i ett spec
 | Avbrott-scenario | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
 | En nod i ett Data Center blir otillgänglig | Ja | Ja | Ja | Ja |
-| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt | Inga | Ja | Ja<sup>1</sup> | Ja |
-| Ett områdes omfattande avbrott uppstår i den primära regionen | Inga | Inga | Ja<sup>1</sup> | Ja<sup>1</sup> |
-| Läs behörighet till den sekundära regionen är tillgängligt om den primära regionen blir otillgänglig | Inga | Inga | Ja (med RA-GRS) | Ja (med RA-GZRS) |
+| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt | Nej | Ja | Ja<sup>1</sup> | Ja |
+| Ett områdes omfattande avbrott uppstår i den primära regionen | Nej | Nej | Ja<sup>1</sup> | Ja<sup>1</sup> |
+| Läs behörighet till den sekundära regionen är tillgängligt om den primära regionen blir otillgänglig | Nej | Nej | Ja (med RA-GRS) | Ja (med RA-GZRS) |
 
 <sup>1</sup> växling vid fel krävs för att återställa Skriv tillgängligheten om den primära regionen blir otillgänglig. Mer information finns i [haveri beredskap och redundans för lagrings konton](storage-disaster-recovery-guidance.md).
 

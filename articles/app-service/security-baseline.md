@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 691bb538ea0f46e26c318a68e9f66a9a986eb5d4
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 94ab7e235f0796277d65aebb33d9011fc76b74ce
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301848"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532796"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Azures säkerhets bas linje för App Service
 
@@ -184,7 +184,7 @@ Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdatera
 
 - [Tjänst taggar för virtuellt nätverk](../virtual-network/service-tags-overview.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -201,13 +201,13 @@ Använd inbyggda princip definitioner för App Service, till exempel:
 
 Granska de refererade länkarna om du vill ha mer information.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Så här konfigurerar du end-to-end-TLS genom att använda Application Gateway med portalen](../application-gateway/end-to-end-ssl-portal.md)
 
 - [Skydda ASE enligt beskrivningen i låsa en App Service](/azure/app-service/environment/firewall-integration)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -223,7 +223,7 @@ Använd någon av de inbyggda Azure Policy definitionerna som är relaterade til
 
 - [Begränsningar för Azure App Service åtkomst](/azure/app-service/app-service-ip-restrictions)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -295,7 +295,7 @@ Dessutom tillhandahåller Azure Key Vault centraliserad hemlig hantering med åt
 **Vägledning**: i Azure Monitor anger du logg kvarhållningsperioden för de Log Analytics arbets ytor som är kopplade till dina App Service resurser enligt organisationens regler för efterlevnad.
 - [Ange parametrar för logg bevarande](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -317,7 +317,7 @@ Använd Azure Sentinel, en skalbar och Cloud-ursprunglig säkerhets informations
 
 - [Aktivera Azure-kontroll på kort](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -343,7 +343,7 @@ Använd Azure Sentinel, en skalbar och Cloud-ursprunglig säkerhets informations
 
 **Vägledning**: Azure Active Directory (Azure AD) har inbyggda roller som måste tilldelas explicit och kunna köras av frågor. Använd Azure AD PowerShell-modulen för att utföra ad hoc-frågor för att identifiera konton som är medlemmar i administrativa grupper.
 
-- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 - [Använda hanterade identiteter för App Service och Azure Functions](overview-managed-identity.md?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=dotnet)
 
@@ -365,7 +365,7 @@ Inaktivera anonym åtkomst om du inte behöver stöd för det.
 
 - [Autentisering och auktorisering i Azure App Service och Azure Functions](overview-authentication-authorization.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -412,7 +412,7 @@ När du aktiverar autentisering och auktorisering med någon av dessa leverantö
 
 - [Lär dig mer om autentisering och auktorisering i Azure App Service](overview-authentication-authorization.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -424,7 +424,7 @@ Implementera multifaktorautentisering för Azure AD. Administratörer måste se 
 
 - [MFA för Azure-säkerhet](/previous-versions/azure/security/develop/secure-aad-app)
 
-- [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Aktivera MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 - [Övervaka identitet och åtkomst i Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -438,9 +438,9 @@ Implementera multifaktorautentisering för Azure AD. Administratörer måste se 
 
 - [Lär dig mer om arbets stationer med privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Aktivera MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -468,7 +468,7 @@ Skydd mot hot i Security Center ger omfattande försvar för din miljö, som inn
 
 - [Så här konfigurerar du namngivna platser i Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -478,7 +478,7 @@ Skydd mot hot i Security Center ger omfattande försvar för din miljö, som inn
 
 - [Konfigurera dina Azure App Service-appar för att använda Azure AD-inloggning](configure-authentication-provider-aad.md)
 
-- [Så skapar och konfigurerar du en Azure AD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Skapa och konfigurera en Azure AD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center-övervakning**: Ja
 
@@ -534,7 +534,7 @@ Använd Azure AD Identity Protection för att konfigurera automatiserade svar p�
 
 - [Lista över Customer Lockbox tjänster som stöds](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -570,7 +570,7 @@ För App Service för flera innehavare (en app som inte finns på den isolerade 
 
 - [Så här skapar du en intern ASE](environment/create-ilb-ase.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -632,7 +632,7 @@ Observera att även om lokalt anslutna diskar kan användas av webbplatser som t
 
 - [Förstå Azure Storage kryptering i vila](../storage/common/storage-service-encryption.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -656,11 +656,11 @@ Observera att även om lokalt anslutna diskar kan användas av webbplatser som t
 
 Granska och följ rekommendationer från Security Center för att skydda dina App Service appar.
 
-- [Så här lägger du till kontinuerlig säkerhets validering till din CI/CD-pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?amp;preserve-view=true&view=azure-devops)
+- [Så här lägger du till kontinuerlig säkerhets validering till din CI/CD-pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?preserve-view=true&view=azure-devops)
 
 - [Så här implementerar du rekommendationer för Azure Security Center sårbarhets bedömning](../security-center/deploy-vulnerability-assessment-vm.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -670,7 +670,7 @@ Granska och följ rekommendationer från Security Center för att skydda dina Ap
 
 - [Referens guide för säkerhets rekommendationer](../security-center/recommendations-reference.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Delad
 
@@ -686,11 +686,11 @@ Granska och följ rekommendationer från Security Center för att skydda dina Ap
 
 - [Så här skapar du frågor med Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Så här visar du dina Azure-prenumerationer](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [Så här visar du dina Azure-prenumerationer](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Förstå Azure RBAC](../role-based-access-control/overview.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -700,7 +700,7 @@ Granska och följ rekommendationer från Security Center för att skydda dina Ap
 
 - [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -721,7 +721,7 @@ Granska de refererade länkarna om du vill ha mer information.
 
 - [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -729,7 +729,7 @@ Granska de refererade länkarna om du vill ha mer information.
 
 **Vägledning**: skapa en inventering av godkända Azure-resurser och godkänd program vara för beräknings resurser utifrån organisationens behov.
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -739,11 +739,11 @@ Granska de refererade länkarna om du vill ha mer information.
 
 Använd Azure Resource Graph för att fråga eller identifiera resurser i prenumerationerna.  Se till att alla Azure-resurser som finns i miljön är godkända. 
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
 - [Så här skapar du frågor med Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -759,7 +759,7 @@ Använd WebJobs i App Service för att övervaka ej godkända program som distri
 
 - [Snabb start – kör din första resurs diagram fråga med Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -773,7 +773,7 @@ Använd WebJobs i App Service för att övervaka ej godkända program som distri
 
 - [Snabb start – kör din första resurs diagram fråga med Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -787,7 +787,7 @@ Använd WebJobs i App Service för att övervaka ej godkända program som distri
 
 - [Snabb start – kör din första resurs diagram fråga med Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -805,13 +805,13 @@ Konfigurera Azure Policy för att ange begränsningar för den typ av resurser s
 
 Använd WebJobs i App Service för att övervaka att program som inte godkänts distribueras i dator resurser. Använd WebJobs för att köra ett program eller skript i samma instans som en webbapp, API-app eller mobilapp. Definiera webb jobbs konfiguration och övervakning med loggar. På sidan jobb körnings information väljer du växla utdata för att se texten i logg innehållet. Observera att WebJobs inte stöds ännu för App Service i Linux.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Så här nekar du en speciell resurs typ med Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 - [Kör bakgrunds aktiviteter med WebJobs i Azure App Service](webjobs-create.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -829,11 +829,11 @@ Konfigurera Azure Policy för att ange begränsningar för den typ av resurser s
 
 På samma sätt använder du WebJobs i App Service för att inventera program som inte har godkänts distribuerade i dator resurser. Definiera konfigurationen och övervakningen med loggar. På sidan jobb körnings information väljer du växla utdata för att se texten i logg innehållet. Observera att WebJobs inte stöds ännu för App Service i Linux.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Så här nekar du en speciell resurs typ med Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -843,7 +843,7 @@ På samma sätt använder du WebJobs i App Service för att inventera program so
 
 - [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -853,7 +853,7 @@ På samma sätt använder du WebJobs i App Service för att inventera program so
 
 - [Kör bakgrunds aktiviteter med WebJobs i Azure App Service](webjobs-create.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -869,7 +869,7 @@ Det finns två typer av program tjänst miljö, extern program tjänst miljö oc
 
 - [Skapa och Använd en intern Load Balancer App Service-miljön](environment/create-ilb-ase.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -891,11 +891,11 @@ Tillämpa inbyggda princip definitioner som:
 
 Vi rekommenderar att du dokumenterar processen för att tillämpa de inbyggda princip definitionerna för standardiserad användning.   
 
-- [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -903,11 +903,11 @@ Vi rekommenderar att du dokumenterar processen för att tillämpa de inbyggda pr
 
 **Vägledning**: Använd Azure policy [neka] och [distribuera om det inte finns]-effekter för att genomdriva säkra inställningar i dina Azure App Service appar.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Förstå Azure Policys effekter](../governance/policy/concepts/effects.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -917,11 +917,11 @@ Vi rekommenderar att du dokumenterar processen för att tillämpa de inbyggda pr
 
 Använd din befintliga-pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD) för att distribuera en känd säker konfiguration.
 
-- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Dokumentation om Azure databaser](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
+- [Dokumentation om Azure databaser](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -929,9 +929,9 @@ Använd din befintliga-pipeline för kontinuerlig integrering (CI) och kontinuer
 
 **Vägledning**: använd inbyggda Azure policy definitioner samt Azure policy alias i namn området "Microsoft. Web" för att skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Utveckla en process och pipeline för att hantera princip undantag.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -941,9 +941,9 @@ Använd din befintliga-pipeline för kontinuerlig integrering (CI) och kontinuer
 
 Använd Azure Policy [granskning], [neka] och [distribuera om det inte finns], effekterna för att automatiskt genomdriva konfigurationer för dina Azure-resurser.
 
-- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -975,11 +975,11 @@ Använd Azure Policy [granskning], [neka] och [distribuera om det inte finns], e
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminera oavsiktlig exponering för autentiseringsuppgifter
 
-**Vägledning**: implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault.
+**Vägledning**: implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Credential Scanner uppmanar också till att flytta identifierade autentiseringsuppgifter till en säkrare plats som Azure Key Vault.
 
 - [Konfigurera inloggnings skannern](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -1002,7 +1002,7 @@ Se till att regelbundna och automatiserade säkerhets kopieringar sker enligt en
 
 - [Kundhanterade nycklar för Azure Storage kryptering](../storage/common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -1027,7 +1027,7 @@ Mer information finns på de länkar som refereras till.
 
 - [Kryptering i vila med Kundhanterade nycklar](configure-encrypt-at-rest-using-cmk.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -1039,7 +1039,7 @@ Mer information finns på de länkar som refereras till.
 
 - [Så här återställer du en Azure App Service webbapp](web-sites-restore.md)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -1065,7 +1065,7 @@ Som standard krypteras data i ett lagrings konto med Microsoft-hanterade nycklar
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: skapa en incident svars guide
 
-**Vägledning**: Bygg ut en incident svars guide för din organisation. Se till att det finns skriftliga svars planer för incidenter som definierar alla personal roller och faser för incident hantering/hantering från identifiering till granskning efter incidenten.
+**Vägledning**: Skapa en guide till incidentsvar för organisationen. Se till att det finns skriftliga planer för incidentsvar som definierar alla personalroller och faser i incidenthanteringen, från identifiering till granskning efter incidenten.
 
 - [Konfigurera automatisering av arbets flöden i Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
@@ -1075,7 +1075,7 @@ Som standard krypteras data i ett lagrings konto med Microsoft-hanterade nycklar
 
 - [Kunden kan också utnyttja NISTs hanterings guide för dator säkerhet för att hjälpa till med att skapa egna incident svars planer](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -1091,11 +1091,11 @@ Dessutom kan du tydligt markera prenumerationer (till exempel produktion, icke-p
 
 ### <a name="103-test-security-response-procedures"></a>10,3: testa säkerhets svars procedurer
 
-**Vägledning**: utföra övningar för att testa systemets funktioner för incident svar på en vanlig takt. Identifiera svaga punkter och luckor och ändra planen efter behov.
+**Vägledning**: utföra övningar för att testa systemets funktioner för incident svar på en vanlig takt. Identifiera svaga punkter och luckor, och ändra planen efter behov.
 
 - [Läs NIST för att testa, träna och träna program för IT-planer och funktioner](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Kund
 
@@ -1141,9 +1141,9 @@ Dessutom kan du tydligt markera prenumerationer (till exempel produktion, icke-p
 
 Du hittar mer information om Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft-hanterad moln infrastruktur, tjänster och program.
 
-- [Red Team-indelning i Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [”Red team”-aktiviteter i Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Azure Security Center-övervakning**: Inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
 **Ansvar**: Delad
 

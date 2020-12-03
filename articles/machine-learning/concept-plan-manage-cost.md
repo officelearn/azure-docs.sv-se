@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: a0e0f61da52ce00fb2eb4b4a7d95ab74082f9472
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3eb9df0a0fde5d99bbeb3c2da182b5957fdea1e3
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541716"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532932"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planera och hantera kostnader för Azure Machine Learning
 
@@ -35,13 +35,13 @@ När du tränar dina Machine Learning-modeller använder du hanterade Azure Mach
 
 ## <a name="prerequisites"></a>Krav
 
-Kostnadsanalys stöder en mängd olika typer av Azure-konton. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](../cost-management-billing/costs/understand-cost-mgt-data.md). Om du vill visa kostnadsdata behöver du minst läsbehörighet för ditt Azure-konto. 
+Kostnadsanalys stöder en mängd olika typer av Azure-konton. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). Om du vill visa kostnadsdata behöver du minst läsbehörighet för ditt Azure-konto. 
 
-Mer information om hur du får åtkomst till Azure Cost Management finns i [Tilldela åtkomst till data](../cost-management-billing/costs/assign-access-acm-data.md).
+Mer information om hur du får åtkomst till Azure Cost Management finns i [Tilldela åtkomst till data](../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-## <a name="estimate-costs"></a>Uppskatta kostnader
+## <a name="estimate-costs-before-using-azure-machine-learning"></a>Beräkna kostnader innan du använder Azure Machine Learning
 
-Använd [pris Kalkylatorn för Azure](https://azure.microsoft.com/pricing/calculator/) för att beräkna kostnaderna innan du skapar resurserna i ett Azure Machine Learning konto. Välj **AI + Machine Learning** till vänster och välj sedan **Azure Machine Learning** för att börja.  
+Använd [pris Kalkylatorn för Azure](https://azure.microsoft.com/pricing/calculator?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) för att beräkna kostnaderna innan du skapar resurserna i ett Azure Machine Learning konto. Välj **AI + Machine Learning** till vänster och välj sedan **Azure Machine Learning** för att börja.  
 
 Följande skärm bild visar kostnads uppskattningen med hjälp av Kalkylatorn:
 
@@ -49,23 +49,58 @@ Följande skärm bild visar kostnads uppskattningen med hjälp av Kalkylatorn:
 
 När du lägger till nya resurser i din arbets yta går du tillbaka till den här kalkylatorn och lägger till samma resurs här för att uppdatera dina kostnads beräkningar.
 
-Mer information finns i [Azure Machine Learning prissättning](https://azure.microsoft.com/pricing/details/machine-learning/).
+Mer information finns i [Azure Machine Learning prissättning](https://azure.microsoft.com/pricing/details/machine-learning?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-## <a name="get-cost-alerts"></a>Hämta kostnads aviseringar
+## <a name="understand-the-full-billing-model-for-azure-machine-learning"></a>Förstå den fullständiga fakturerings modellen för Azure Machine Learning
 
-Skapa [budgetar](../cost-management-billing/costs/tutorial-acm-create-budgets.md) för att hantera kostnader och skapa [aviseringar](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) som automatiskt meddelar intressenter om utgifts avvikelser och överförbrukning av risker. Aviseringar baseras på utgifter jämfört med budget- och kostnadströsklar. Budgetar och aviseringar skapas för Azure-prenumerationer och resurs grupper, så de är användbara som en del av en övergripande kostnads övervaknings strategi. Budgetar och aviseringar kan dock ha begränsade funktioner för att hantera enskilda kostnader för Azure-tjänster eftersom de är utformade för att spåra kostnader på en högre nivå.
+Azure Machine Learning körs på Azure-infrastruktur som periodiserar kostnader tillsammans med Azure Machine Learning när du distribuerar den nya resursen. Det är viktigt att förstå att ytterligare infrastruktur kan periodisera kostnader. Du måste hantera den kostnaden när du gör ändringar i distribuerade resurser. 
 
-## <a name="monitor-costs"></a>Övervaka kostnader
+### <a name="costs-that-typically-accrue-with-azure-machine-learning"></a>Kostnader som vanligt vis påförs med Azure Machine Learning
 
-När du använder resurser med Azure Machine Learning debiteras du kostnader. Kostnaderna för Azure Resource Usage varierar beroende på tidsintervaller (sekunder, minuter, timmar och dagar) eller med användning av begär ande enhets användning. Så snart som användningen av Azure Machine Learning startar debiteras kostnaderna. Visa dessa kostnader i fönstret [kostnads analys](../cost-management-billing/costs/quick-acm-cost-analysis.md) i Azure Portal.
+När du skapar resurser för en Azure Machine Learning arbets yta skapas även resurser för andra Azure-tjänster. De är:
 
-Du kan visa kostnader i grafer och tabeller i olika tidsintervall. Du kan också Visa kostnader för budgetar och prognostiserade kostnader. Genom att växla till längre vyer över tid kan du identifiera utgifts trender och se var överförbrukningen kan ha inträffat. Om du har skapat budgetar, se var de överskreds.  
+* [Azure Container Registry](https://azure.microsoft.com/pricing/details/container-registry?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) Basic-konto
+* [Azure Block Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) (generell användning v1)
+* [Key Vault](https://azure.microsoft.com/pricing/details/key-vault?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* [Application Insights](https://azure.microsoft.com/en-us/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+ 
+### <a name="costs-might-accrue-after-resource-deletion"></a>Kostnader kan uppstå efter borttagning av resurs
 
-Du kan inte se ett separat tjänst utrymme för Machine Learning.  I stället ser du de olika resurser som du har lagt till i dina Machine Learning-arbetsytor. 
+När du tar bort en Azure Machine Learning-arbetsyta i Azure Portal eller med Azure CLI fortsätter följande resurser att existera. De fortsätter att Periodisera kostnader tills du tar bort dem.
 
-Observera att medan själva Machine Learning-arbetsytan inte har direkt kostnad debiteras du på hanterade beräknings resurser. Om du har lagt till taggar till arbets ytorna, eftersom det inte finns någon direkt kostnad för den, så återspeglar fönstret kostnads analys detta för arbets ytan. För korrekt kostnads hantering via Taggar måste du tagga de associerade beräknings resurserna.  
+* Azure Container Registry
+* Azure-Block Blob Storage
+* Key Vault
+* Application Insights
 
-## <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>Använda Azure Machine Learning Compute Cluster (AmlCompute)
+Om du vill ta bort arbets ytan tillsammans med dessa beroende resurser använder du SDK:
+
+```python
+ws.delete(delete_dependent_resources=True)
+```
+
+Om du skapar Azure Kubernetes service (AKS) på din arbets yta, eller om du kopplar några beräknings resurser till din arbets yta, måste du ta bort dem separat i [Azure Portal](https://portal.azure.com).
+
+### <a name="using-monetary-credit-with-azure-machine-learning"></a>Använda monetär kredit med Azure Machine Learning
+
+Du kan betala för Azure Machine Learning avgifter med din kredit för ditt EA-belopp. Du kan dock inte använda EA-krediter för att betala för avgifter för produkter och tjänster från tredje part, inklusive de som finns på Azure Marketplace.
+
+
+## <a name="create-budgets"></a>Skapa budgetar
+
+Du kan skapa [budgetar](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) för att hantera kostnader och skapa [aviseringar](https://docs.microsoft.com/azure/cost-management/cost-mgt-alerts-monitor-usage-spending?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) som automatiskt meddelar mottagarna om kostnadsavvikelser och risker för överförbrukning. Aviseringar baseras på utgifter jämfört med budget- och kostnadströsklar. Budgetar och aviseringar skapas för Azure-prenumerationer och resurs grupper, så de är användbara som en del av en övergripande kostnads övervaknings strategi. 
+
+Budgetar kan skapas med filter för vissa resurser eller tjänster i Azure om du vill ha mer detaljerad information i din övervakning. Filter hjälper till att se till att du inte av misstag skapar nya resurser som kostar dig ytterligare pengar. Mer information om filter alternativen när du skapar en budget finns i alternativ för [grupper och filter](https://docs.microsoft.com/azure/cost-management-billing/costs/group-filter?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+
+## <a name="export-cost-data"></a>Exportera kostnadsdata
+
+Du kan också [Exportera dina kostnads data](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) till ett lagrings konto. Detta är användbart när du behöver eller andra för att utföra ytterligare data analyser för kostnader. Ett ekonomi team kan till exempel analysera data med hjälp av Excel eller Power BI. Du kan exportera dina kostnader enligt ett dags-, vecko-eller månads schema och ange ett anpassat datum intervall. Att exportera kostnads data är det rekommenderade sättet att hämta kostnads data uppsättningar.
+
+## <a name="other-ways-to-manage-and-reduce-costs-for-azure-machine-learning"></a>Andra sätt att hantera och minska kostnaderna för Azure Machine Learning
+
+Använd de här tipsen för att få kostnader för beräknings resurserna för Machine Learning.
+
+### <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>Använda Azure Machine Learning Compute Cluster (AmlCompute)
 
 Med ständigt föränderliga data behöver du snabb och strömlinjeformad modell utbildning och omträning för att upprätthålla korrekta modeller. Kontinuerlig utbildning kommer dock till en kostnad, särskilt för djup inlärnings modeller på GPU: er. 
 
@@ -73,7 +108,7 @@ Azure Machine Learning användare kan använda det hanterade Azure Machine Learn
 
 Eftersom dessa Compute-pooler finns inuti Azures IaaS-infrastruktur kan du distribuera, skala och hantera din utbildning med samma krav på säkerhet och efterlevnad som resten av infrastrukturen.  Dessa distributioner sker i din prenumeration och följer dina styrnings regler. Läs mer om [Azure Machine Learning Compute](how-to-create-attach-compute-cluster.md).
 
-## <a name="configure-training-clusters-for-autoscaling"></a>Konfigurera utbildnings kluster för automatisk skalning
+### <a name="configure-training-clusters-for-autoscaling"></a>Konfigurera utbildnings kluster för automatisk skalning
 
 Automatisk skalning av kluster baserat på kraven i din arbets belastning hjälper dig att minska kostnaderna så att du bara använder det du behöver.
 
@@ -92,7 +127,7 @@ AmlCompute-kluster kan konfigureras för att ändra arbets belastnings kraven i 
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300
 ```
 
-## <a name="set-quotas-on-resources"></a>Ange kvoter för resurser
+### <a name="set-quotas-on-resources"></a>Ange kvoter för resurser
 
 AmlCompute levereras med en [kvot konfiguration (eller gräns)](how-to-manage-quotas.md#azure-machine-learning-compute). Den här kvoten är av VM-serien (till exempel Dv2-serien, NCv3-serien) och varierar beroende på region för varje prenumeration. Prenumerationer börjar med små standardvärden och hjälper dig att komma igång, men Använd den här inställningen för att kontrol lera hur mycket Amlcompute resurser som är tillgängliga för att kunna användas i din prenumeration. 
 
@@ -100,7 +135,7 @@ Konfigurera även [kvoten för arbets ytan med VM-serien](how-to-manage-quotas.m
 
 Om du vill ange kvoter på arbets ytans nivå börjar du med [Azure Portal](https://portal.azure.com).  Välj en arbets yta i din prenumeration och välj **användnings områden + kvoter** i det vänstra fönstret. Välj sedan fliken **Konfigurera kvoter** för att Visa kvoterna. Du måste ha behörighet för prenumerations omfånget för att kunna ange kvoten, eftersom det är en inställning som påverkar flera arbets ytor.
 
-## <a name="set-run-autotermination-policies"></a>Ange kör principer för autoavslutning 
+### <a name="set-run-autotermination-policies"></a>Ange kör principer för autoavslutning 
 
 I vissa fall bör du konfigurera dina utbildnings körningar för att begränsa deras varaktighet eller avsluta dem tidigt. Till exempel när du använder Azure Machine Learning den inbyggda inställningen för min parameter eller Automatisk maskin inlärning.
 
@@ -109,7 +144,7 @@ Här följer några alternativ som du har:
 * För [justering](how-to-tune-hyperparameters.md#early-termination)av den här inställningen definierar du en princip för tidig avslutning från en bandit-princip, en princip för att stoppa en median eller en princip för avtrunkering. Om du vill kontrol lera om det finns ytterligare kontroller av de flesta parametrar använder du parametrar som `max_total_runs` eller `max_duration_minutes` .
 * För [Automatisk maskin inlärning](how-to-configure-auto-train.md#exit)ställer du in liknande avslutnings principer med hjälp av  `enable_early_stopping` flaggan. Använd också egenskaper som `iteration_timeout_minutes` och `experiment_timeout_minutes` för att kontrol lera maximal varaktighet för en körning eller för hela experimentet.
 
-## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a> Använd virtuella datorer med låg prioritet
+### <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a> Använd virtuella datorer med låg prioritet
 
 Med Azure kan du använda överflödigt outnyttjad kapacitet som Low-Priority virtuella datorer i skalnings uppsättningar för virtuella datorer, batch och tjänsten Machine Learning. Dessa allokeringar är emptible men kommer till ett reducerat pris jämfört med dedikerade virtuella datorer. I allmänhet rekommenderar vi att du använder Low-Priority virtuella datorer för batch-arbetsbelastningar. Du bör också använda dem där avbrott kan återskapas antingen via omsändningar (för batch-Inferencing) eller genom omstarter (för djup inlärnings utbildning med kontroll punkt).
 
@@ -117,7 +152,7 @@ Low-Priority virtuella datorer har en enda kvot som är separat från det dedike
 
  Low-Priority virtuella datorer fungerar inte för beräknings instanser eftersom de behöver stöd för interaktiva Notebook-upplevelser.
 
-## <a name="use-reserved-instances"></a>Använda reserverade instanser
+### <a name="use-reserved-instances"></a>Använda reserverade instanser
 
 Ett annat sätt att spara pengar på beräknings resurser är Azure reserverad VM-instans. Med detta erbjudande genomför du ett år eller tre års villkor. Dessa rabatter är upp till 72% av priserna för betala per användning och tillämpas direkt på din månatliga Azure-faktura.
 
@@ -126,7 +161,7 @@ Azure Machine Learning Compute har stöd för reserverade instanser. Om du köpe
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om:
-* [Hantera och öka resurs kvoter](how-to-manage-quotas.md)
-* [Hantera kostnader med kostnads analys](../cost-management-billing/costs/quick-acm-cost-analysis.md).
-* Skapa Azure Machine Learning Compute med [SDK](how-to-create-attach-compute-cluster.md) eller i [Studio](how-to-create-attach-compute-studio.md#amlcompute).
+- Lär dig [hur du optimerar din moln investering med Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Lär dig mer om att hantera kostnader med [kostnads analys](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Lär dig mer om att [förhindra oväntade kostnader](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Ta den [Cost Management](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guidade utbildningen.

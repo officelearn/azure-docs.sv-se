@@ -12,17 +12,17 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 5442ddab5b4925e40250e63833a634006db7aead
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f8d352dac98f953f7f6d8033d0d9e1376c4da313
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781455"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532252"
 ---
 # <a name="dynamic-data-masking"></a>Dynamisk datamaskning 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics stöder dynamisk data maskning. Dynamisk data maskning begränsar känslig data exponering genom att maskera den till icke-privilegierade användare. 
+Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics stöder dynamisk data maskning. Med dynamisk datamaskering begränsas exponeringen av känsliga data genom att de maskeras för icke-privilegierade användare. 
 
 Dynamisk datamaskning förhindrar obehörig åtkomst till känsliga data genom att låta kunder ange hur mycket av känsliga data som avslöja med minimal påverkan på programnivån. Det är en principbaserad säkerhetsfunktion som fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad.
 
@@ -30,7 +30,7 @@ En tjänst representant i ett Call Center kan till exempel identifiera anropare 
 
 ## <a name="dynamic-data-masking-basics"></a>Grunder för dynamisk data maskering
 
-Du ställer in en princip för dynamisk data maskering i Azure Portal genom att välja bladet **dynamisk data maskning** under **säkerhet** i SQL Database konfigurations fönstret. Den här funktionen kan inte ställas in med Portal för Azure-Synapse (Använd PowerShell eller REST API) eller SQL-hanterad instans. Mer information finns i [dynamisk data maskning](/sql/relational-databases/security/dynamic-data-masking).
+Du ställer in en princip för dynamisk data maskering i Azure Portal genom att välja bladet **dynamisk data maskning** under **säkerhet** i SQL Database konfigurations fönstret. Den här funktionen kan inte ställas in med Portal för SQL-hanterad instans (Använd PowerShell eller REST API). Mer information finns i [dynamisk data maskning](/sql/relational-databases/security/dynamic-data-masking).
 
 ### <a name="dynamic-data-masking-permissions"></a>Behörigheter för dynamisk data maskering
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7deee88210acf700916961be7c4ccaf9477accf8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 100871ab2188aa638c4c9f2b058021706c7741bb
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353450"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531912"
 ---
 # <a name="azure-security-baseline-for-azure-cloud-services"></a>Azures säkerhets bas linje för Azure Cloud Services
 
@@ -36,7 +36,7 @@ Microsoft Azure Cloud Services (klassisk) kan inte placeras i Azure Resource Man
 
 - [Översikt över nätverks säkerhets grupp](../virtual-network/network-security-groups-overview.md)
 
-- [Peering för virtuella nätverk](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
+- [Peering för virtuella nätverk](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
 
 **Övervakning i Azure Security Center**: Ej tillämpligt
 
@@ -58,7 +58,7 @@ Aktivera flödes loggar för nätverks säkerhets grupper och skicka loggarna ti
 
 - [Cloud Services konfigurations fil](schema-cscfg-file.md)
 
-- [Lista över tjänster som stöds av Azure Policy](/cli/azure/azure-services-the-azure-cli-can-manage?amp;preserve-view=)
+- [Lista över tjänster som stöds av Azure Policy](/cli/azure/azure-services-the-azure-cli-can-manage?preserve-view=)
 
 **Övervakning i Azure Security Center**: Ej tillämpligt
 
@@ -89,9 +89,9 @@ Förhindra inkommande trafik till standard-URL: en eller namnet på din Cloud Se
 
 Konfigurera en neka-tillämpa regel för administratörs tilldelningar för klassiska prenumerationer. Som standard när en intern slut punkt har definierats kan kommunikationen flöda från vilken roll som helst till den interna slut punkten för en roll utan några begränsningar. Om du vill begränsa kommunikationen måste du lägga till ett NetworkTrafficRules-element i service definition-elementet i tjänst definitions filen.
 
-- [Hur kan jag blockera/inaktivera inkommande trafik till standard-URL: en för min moln tjänst](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
+- [Hur kan jag blockera/inaktivera inkommande trafik till standard-URL: en för min moln tjänst](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
 
-- [Azure DDOS-skydd](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
+- [Azure DDOS-skydd](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
 
 - [Blockera en speciell IP-adress](cloud-services-startup-tasks-common.md#block-a-specific-ip-address)
 
@@ -107,7 +107,7 @@ Konfigurera flödes loggning i en nätverks säkerhets grupp. Läs mer om hur du
 
 - [Konfigurera flödes loggning i en nätverks säkerhets grupp](../virtual-machines/extensions/network-watcher-linux.md)
 
-- [Mer information om hur du konfigurerar flödes loggar finns i](/cli/azure/azure-services-the-azure-cli-can-manage?amp;preserve-view=)
+- [Mer information om hur du konfigurerar flödes loggar finns i](/cli/azure/azure-services-the-azure-cli-can-manage?preserve-view=)
 
 **Övervakning i Azure Security Center**: Ej tillämpligt
 
@@ -231,13 +231,13 @@ Visa ändrings historiken för vissa händelser i aktivitets loggen i Azure Moni
 
 Azure Cloud Services kan övervakas av Application Insights för tillgänglighet, prestanda, haverier och användning. Du kan lägga till anpassade diagram i Application Insights så att du kan se de data som är mest viktiga. Roll instans data kan samlas in med hjälp av Application Insights SDK i Azure Cloud Services-projektet. 
 
-- [Aktivera diagnostik i Visual Studio innan du distribuerar](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?amp;preserve-view=#to-turn-on-diagnostics-in-visual-studio-before-deployment)
+- [Aktivera diagnostik i Visual Studio innan du distribuerar](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?preserve-view=true#to-turn-on-diagnostics-in-visual-studio-before-deployment)
 
 - [Visa ändrings historik](../azure-monitor/platform/activity-log.md#view-change-history)
 
 - [Application Insights för Azure Cloud Service (klassisk)](../azure-monitor/app/cloudservices.md)
 
-- [Konfigurera diagnostik för Azure Cloud Service (klassisk) och virtuella datorer](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?amp;preserve-view=true&toc=%2fazure%2fcloud-services%2ftoc.json)
+- [Konfigurera diagnostik för Azure Cloud Service (klassisk) och virtuella datorer](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?preserve-view=true&toc=%2fazure%2fcloud-services%2ftoc.json)
 
 **Azure Security Center-övervakning**: Ja
 
@@ -289,7 +289,7 @@ Azure Diagnostic-tillägget samlar in och lagrar data i ett Azure Storage-konto.
 
 **Vägledning**: Microsoft Antimalware för Azure, skyddar Azure Cloud Services och virtuella datorer. Du har möjlighet att distribuera säkerhetslösningar från tredje part, till exempel brand väggar för webb program, nätverks brand väggar, program mot skadlig kod, intrångs identifiering och skydds system (ID eller IP-adresser) med mera.
 
-- [Vilka är de funktioner och funktioner som Azure Basic IP-adresser och DDOS tillhandahåller](./cloud-services-configuration-and-management-faq.md?amp;preserve-view=#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
+- [Vilka är de funktioner och funktioner som Azure Basic IP-adresser och DDOS tillhandahåller](./cloud-services-configuration-and-management-faq.md?preserve-view=true#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 
 **Övervakning i Azure Security Center**: Ej tillämpligt
 
@@ -840,7 +840,7 @@ Aktivera tillägget för program mot skadlig kod med ett PowerShell-skript i Sta
 
 Välj funktionen adaptiva program kontroll i Azure Security Center, en intelligent, automatiserad lösning från slut punkt till slut punkt. Det hjälper dig att hindra dina datorer mot skadlig kod och gör att du kan blockera eller Varna vid försök att köra skadliga program, inklusive sådana som annars kan missas av lösningar mot skadlig kod.
 
-- [Hur kan jag lägga till ett tillägg för program mot skadlig kod för min Azure-Cloud Services på ett automatiserat sätt](./cloud-services-configuration-and-management-faq.md?amp;preserve-view=#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
+- [Hur kan jag lägga till ett tillägg för program mot skadlig kod för min Azure-Cloud Services på ett automatiserat sätt](./cloud-services-configuration-and-management-faq.md?preserve-view=true#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
 
 - [Distributions scenarier för program mot skadlig kod](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)
 

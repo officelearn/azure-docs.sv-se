@@ -7,48 +7,64 @@ ms.topic: overview
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 74ebdafb835aff75f282b9d6ac02d8ccf672a2be
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 041ef9950300129d54c9374939e13a2f99035bc1
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501098"
+ms.locfileid: "96532860"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Vad är Azure Spring Cloud?
 
-Azure våren Cloud gör det enkelt att distribuera våren Boot-baserade mikroservice-program till Azure utan kod ändringar.  Azure våren Cloud hanterar infrastrukturen i våren Cloud-program, så att utvecklare kan fokusera på sin kod.  Våren Cloud tillhandahåller livs cykel hantering med omfattande övervakning och diagnostik, konfigurations hantering, tjänst identifiering, CI/CD-integrering, blå-grön distributioner med mera.
+Azure våren Cloud gör det enkelt att distribuera våren Boot mikroservice-program till Azure utan några kod ändringar.  Tjänsten hanterar infrastrukturen hos våren Cloud-program så att utvecklare kan fokusera på sin kod.  Azure våren Cloud tillhandahåller livs cykel hantering med omfattande övervakning och diagnostik, konfigurations hantering, tjänst identifiering, CI/CD-integrering, blå-grön distributioner med mera.
 
-Azure våren Cloud stöder både Java [våren start](https://spring.io/projects/spring-boot) och ASP.net Core [Steeltoe](https://steeltoe.io/) -appar. Steeltoe-stöd erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan du experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Mer information finns i [vanliga frågor och svar](https://azure.microsoft.com/support/faq/) om fil [supportbegäran](../azure-portal/supportability/how-to-create-azure-support-request.md).
+## <a name="why-use-azure-spring-cloud"></a>Varför ska jag använda Azure våren Cloud?
 
-Som en del av Azures eko system gör Azure våren Cloud enkel bindning till andra Azure-tjänster, inklusive lagring, databaser, övervakning och mycket annat.
+Distribution av program till Azure våren Cloud har många fördelar.  Du kan:
+* Migrera effektivt befintliga våren-appar och hantera skalning och kostnader i molnet.
+* Modernisera appar med fjäder moln mönster för att förbättra flexibiliteten och hastigheten på leveransen.
+* Kör java i moln skala och öka användningen utan en komplicerad infrastruktur.
+* Utveckla och distribuera snabbt utan skapa behållare-beroenden.
+* Övervaka produktions arbets belastningar effektivt och smidigt.
 
-I den här introduktionen beskrivs följande funktioner i Azure våren-molnet:
+Azure våren Cloud stöder både Java [våren start](https://spring.io/projects/spring-boot) och ASP.net Core [Steeltoe](https://steeltoe.io/) -appar. Steeltoe-stöd erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan du experimentera med nya funktioner före den officiella versionen. Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion. Mer information finns i [vanliga frågor och svar](https://azure.microsoft.com/support/faq/) om fil [supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
-* Konfigurationsserver
-* Blå/gröna distributioner
-* Program skalning
-* Integrering med Azure DevOps
-* Programövervakning
+## <a name="service-overview"></a>Tjänstöversikt
 
-## <a name="spring-cloud-config-server"></a>Konfigurations Server för våren Cloud
+Som en del av Azures eko system gör Azure våren Cloud enkel bindning till andra Azure-tjänster, inklusive lagring, databaser, övervakning och mycket annat.  
 
-Azure våren Cloud config server tillhandahåller en storskalig konfiguration i ett distribuerat system med stöd för både server-och klient sidan.  Azure våren Cloud config server är en central plats för att hantera program egenskaper i alla miljöer. Mer information finns i [referens för vår moln konfigurations Server](https://spring.io/projects/spring-cloud-config). 
+  ![Översikt över Azure våren Cloud](media/spring-cloud-principles/azure-spring-cloud-overview.png)
 
-## <a name="bluegreen-deployments"></a>Blå/gröna distributioner
+* Azure våren Cloud är en fullständigt hanterad tjänst för våren Boot-appar som hjälper dig att fokusera på att skapa och köra appar utan att behöva hantera infrastrukturen.
 
-Azure våren Cloud stöder blå/gröna distributioner för att släppa och uppdatera kod i produktions miljöer.  Detta mönster för ändrings hantering gör det möjligt för utvecklare att implementera funktioner och kod ändringar med säkerheten för omedelbar återgång vid behov.  Utvecklare kan koncentrera sig på att skriva kod med flera produktions miljöer för att uppdatera eller återställa kod ändringar utan att avbryta programmet.  Mer information om mellanlagrings miljöer och blå/gröna distributioner finns i den här [instruktions artikeln](spring-cloud-howto-staging-environment.md).
+* Du behöver bara distribuera din jar v7 eller din kod, och Azure våren-molnet kommer automatiskt att ansluta dina appar till vår livs cykel för vår tjänst och inbyggd program livs cykel.
 
-## <a name="cicd-pipeline-automation"></a>Automatisering av CI/CD-pipeline
+* Övervakning är enkelt. Efter distributionen kan du övervaka app-prestanda, åtgärda fel och snabbt förbättra programmen. 
 
-Azure våren Cloud ger integrering med Azure DevOps med hjälp av Azure CLI.  Med Azure DevOps kan du automatisera kod integrering och distribution till ditt våren-program.  Mer information finns i den här [artikeln](spring-cloud-howto-cicd.md).
+* Fullständig integrering med Azures eko system och tjänster.
 
-## <a name="application-scaling"></a>Program skalning
+* Azure våren Cloud är företags klart med fullständigt hanterad infrastruktur, inbyggd livs cykel hantering och enkel övervakning.
 
-Med Azure våren Cloud kan du enkelt skala Micro-tjänsterna i moln instrument panelen för Azure våren.  Både antalet virtuella processorer och mängden minne som är tillgängligt för mikrotjänster kan skalas upp eller ned för att passa dina behov.  Skalningen börjar gälla om några sekunder och kräver inte kod ändringar eller omdistribution.  Om du vill veta mer kan du slutföra den här [självstudien](spring-cloud-tutorial-scale-manual.md).
+## <a name="documentation-overview"></a>Dokumentations översikt
+Den här dokumentationen innehåller avsnitt som förklarar hur du kommer igång och utnyttjar Azure våren Cloud Services.
 
-## <a name="application-monitoring"></a>Programövervakning
-
-Med Microsofts verktyg för distribuerad spårning kan utvecklare felsöka och övervaka komplexa sammanlänkningar mellan mikrotjänster i ett program.  Genom att integrera [våren Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) med azures [Application Insights](../azure-monitor/monitor-reference.md)tillhandahåller Azure kraftfull, distribuerad spårnings funktion direkt från Azure Portal.  Om du vill veta mer kan du slutföra den här [självstudien](spring-cloud-tutorial-distributed-tracing.md).
+* Kom igång
+    * [Lansera din första app](spring-cloud-quickstart.md)
+    * [Etablera en moln tjänst för Azure våren](spring-cloud-quickstart-provision-service-instance.md)
+    * [Konfigurera konfigurations servern]()
+    * [Skapa och distribuera appar](spring-cloud-quickstart-deploy-apps.md)
+    * [Använd loggar mått och spårning](spring-cloud-quickstart-logs-metrics-tracing.md)
+* Så här gör du
+    * [Utveckla](spring-cloud-tutorial-prepare-app-deployment.md): Förbered ett befintligt Java våren-program för distribution till Azure våren Cloud. När Azure våren Cloud har kon figurer ATS korrekt tillhandahåller robusta tjänster för att övervaka, skala och uppdatera Java våren Cloud-program.
+    * [Distribuera](spring-cloud-howto-staging-environment.md): så här konfigurerar du en mellanlagrings distribution med hjälp av ett blått-grönt distributions mönster i Azure våren Cloud. Blå/grön distribution är ett mönster för kontinuerlig leverans för Azure DevOps förlitar sig på att hålla en befintlig (blå) version live, medan en ny (grön) distribueras.
+    * [Konfigurera appar](spring-cloud-howto-start-stop-delete.md): starta, stoppa och ta bort dina Azure våren Cloud-program. Ändra programmets tillstånd i Azure våren-molnet med hjälp av antingen Azure Portal eller Azure CLI.
+    * [Skala](spring-cloud-tutorial-scale-manual.md): skala alla mikrotjänstprogram med hjälp av moln instrument panelen för Azure våren i Azure Portal eller genom att använda inställningar för autoskalning. Offentliga IP-adresser är tillgängliga för att kommunicera med externa resurser, till exempel databaser, lagring och nyckel valv.
+    * [Övervaka appar](spring-cloud-tutorial-distributed-tracing.md): distribuerade spårnings verktyg för att enkelt felsöka och övervaka komplexa problem. Azure våren Cloud integrerar våren Cloud Sleuth med Azures Application Insights. Den här integrationen ger kraftfull, distribuerad spårnings funktion från Azure Portal.
+    * [Säkra appar](spring-cloud-howto-enable-system-assigned-managed-identity.md): Azure-resurser ger en automatiskt hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering, utan att ha autentiseringsuppgifter i din kod.
+    * [Integrering med andra Azure-tjänster](spring-cloud-tutorial-bind-cosmos.md): i stället för att manuellt konfigurera dina våren Boot-program kan du automatiskt binda valda Azure-tjänster till dina program, till exempel att binda ditt program till en Azure Cosmos DB databas.
+    * [Automatisera](spring-cloud-howto-cicd.md): kontinuerlig integrering och kontinuerliga leverans verktyg gör att du snabbt kan distribuera uppdateringar till befintliga program med minimal ansträngning och risk. Azure DevOps hjälper dig att ordna och kontrol lera dessa viktiga uppgifter. 
+    * [Felsök](spring-cloud-howto-self-diagnose-solve.md): Azure våren Cloud Diagnostics ger en interaktiv upplevelse som hjälper dig att felsöka appar. Ingen konfiguration krävs. När du hittar problem identifierar Azure våren Cloud Diagnostics problem och vägleder dig till information som hjälper dig att felsöka och lösa problem.
+    * [Migrera](https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud): hur du migrerar ett befintligt moln program eller våren Boot-program som ska köras i Azure våren Cloud.
 
 ## <a name="next-steps"></a>Nästa steg
 

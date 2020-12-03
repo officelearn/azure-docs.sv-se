@@ -11,14 +11,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 3bd4d328c6b0b73a51f325adde988c8f0988ea8a
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: fcaf8f62dcdc43a48ff2ae7ff790ac14ab42e8b6
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873819"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532898"
 ---
-# <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Skydda en Azure Machine Learning-miljö för slutsatsdragning med virtuella nätverk
+# <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Skydda en Azure Machine Learning inferencing-miljö med virtuella nätverk
 
 I den här artikeln får du lära dig hur du skyddar inferencing-miljöer med ett virtuellt nätverk i Azure Machine Learning.
 
@@ -36,7 +36,7 @@ I den här artikeln får du lära dig att skydda följande inferencing-resurser 
 > - Azure Container Instances (ACI)
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Läs artikeln [Översikt över nätverks säkerhet](how-to-network-security-overview.md) för att förstå vanliga scenarier för virtuella nätverk och övergripande arkitektur för virtuella nätverk.
 
@@ -252,7 +252,9 @@ aks_target.wait_for_completion(show_output = True)
 Azure Container Instances skapas dynamiskt när du distribuerar en modell. Om du vill aktivera Azure Machine Learning att skapa ACI i det virtuella nätverket måste du aktivera __under näts delegering__ för under nätet som används av distributionen.
 
 > [!WARNING]
-> När du använder Azure Container Instances i ett virtuellt nätverk måste det virtuella nätverket finnas i samma resurs grupp som din Azure Machine Learning-arbetsyta.
+> När du använder Azure Container Instances i ett virtuellt nätverk måste det virtuella nätverket vara:
+> * I samma resurs grupp som din Azure Machine Learning-arbetsyta.
+> * Om din arbets yta har en __privat slut punkt__ måste det virtuella nätverket som används för Azure Container instances vara samma som det som används av den privata slut punkten för arbets ytan.
 >
 > När du använder Azure Container Instances inuti det virtuella nätverket kan Azure Container Registry (ACR) för din arbets yta också inte finnas i det virtuella nätverket.
 
@@ -265,7 +267,7 @@ Använd följande steg för att använda ACI i ett virtuellt nätverk på din ar
 
 2. Distribuera modellen med hjälp av [AciWebservice.deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), Använd `vnet_name` `subnet_name` parametrarna och. Ange de här parametrarna som namn på det virtuella nätverket och under nätet där du aktiverade delegering.
 
-## <a name="limit-outbound-connectivity-from-the-virtual-network"></a>Begränsa utgående anslutning från det virtuella nätverket
+## <a name="limit-outbound-connectivity-from-the-virtual-network"></a>Begränsa utgående anslutningar från det virtuella nätverket
 
 Om du inte vill använda de utgående standard reglerna och du vill begränsa den utgående åtkomsten för ditt virtuella nätverk måste du tillåta åtkomst till Azure Container Registry. Kontrol lera till exempel att dina nätverks säkerhets grupper (NSG) innehåller en regel som tillåter åtkomst till __AzureContainerRegistry. RegionName__ service tag där {RegionName} är namnet på en Azure-region.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 54e7a781ba9ed3cd4b53e1028c4a3bb79c256aed
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 533d4a83ea73b98e26a57febc077a607bcb25465
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012620"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532316"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Samla in prestanda data källor för Windows och Linux med Log Analytics agent
 Prestanda räknare i Windows och Linux ger inblick i prestanda för maskin varu komponenter, operativ system och program.  Azure Monitor kan samla in prestanda räknare från Log Analytics agenter med frekventa intervall för NRT-analys (nära real tid), förutom att aggregera prestanda data för analys och rapportering på längre sikt.
@@ -28,7 +28,7 @@ När du först konfigurerar Windows-eller Linux-prestandaräknare för en ny arb
 
 För prestanda räknare i Windows kan du välja en angiven instans för varje prestanda räknare. För prestanda räknare för Linux används instansen för varje räknare som du väljer för alla underordnade räknare för den överordnade räknaren. I följande tabell visas de vanliga instanser som är tillgängliga för prestanda räknare för både Linux och Windows.
 
-| Instansnamn | Description |
+| Instansnamn | Beskrivning |
 | --- | --- |
 | \_Totalt |Totalt antal instanser |
 | \* |Alla instanser |
@@ -50,15 +50,14 @@ Följ den här proceduren om du vill lägga till en ny Windows-prestandaräknare
 
 ### <a name="linux-performance-counters"></a>Linux-prestandaräknare
 
-![Konfigurera Linux-prestandaräknare](media/data-sources-performance-counters/configure-linux.png)
+![Konfigurera Linux-prestandaräknare](media/data-sources-performance-counters/configure-linux-1.png)
 
 Följ den här proceduren om du vill lägga till en ny Linux-prestandaräknare som ska samlas in.
 
-1. Som standard flyttas alla konfigurations ändringar automatiskt till alla agenter.  För Linux-agenter skickas en konfigurations fil till den insamlade data insamlaren.  Om du vill ändra den här filen manuellt på varje Linux-Agent avmarkerar du kryss rutan *Använd konfigurationen nedan för mina Linux-datorer* och följer anvisningarna nedan.
-2. Skriv namnet på räknaren i text rutan i *\counter (format objekt) (instans)*.  När du börjar skriva visas en matchande lista med vanliga räknare.  Du kan antingen välja en räknare från listan eller ange en egen.  
-3. Klicka **+** eller tryck på **RETUR** för att lägga till räknaren i listan över andra räknare för objektet.
-4. Alla räknare för ett objekt använder samma **samplings intervall**.  Standardvärdet är 10 sekunder.  Du ändrar detta till ett högre värde på upp till 1800 sekunder (30 minuter) om du vill minska lagrings kraven för insamlade prestanda data.
-5. När du är klar med att lägga till räknare klickar du på knappen **Spara** längst upp på skärmen för att spara konfigurationen.
+1. Skriv namnet på räknaren i text rutan i *\counter (format objekt) (instans)*.  När du börjar skriva visas en matchande lista med vanliga räknare.  Du kan antingen välja en räknare från listan eller ange en egen.  
+1. Klicka **+** eller tryck på **RETUR** för att lägga till räknaren i listan över andra räknare för objektet.
+1. Alla räknare för ett objekt använder samma **samplings intervall**.  Standardvärdet är 10 sekunder.  Du ändrar detta till ett högre värde på upp till 1800 sekunder (30 minuter) om du vill minska lagrings kraven för insamlade prestanda data.
+1. När du är klar med att lägga till räknare klickar du på knappen **Spara** längst upp på skärmen för att spara konfigurationen.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Konfigurera Linux-prestandaräknare i konfigurations filen
 I stället för att konfigurera Linux-prestandaräknare med hjälp av Azure Portal har du möjlighet att redigera konfigurationsfiler på Linux-agenten.  Prestanda mått som samlas in styrs av konfigurationen i **/etc/opt/Microsoft/omsagent/ \<workspace id\> /conf/omsagent.conf**.
@@ -78,7 +77,7 @@ Varje objekt eller kategori av prestanda mått som ska samlas in bör definieras
 
 Parametrarna i det här elementet beskrivs i följande tabell.
 
-| Parametrar | Description |
+| Parametrar | Beskrivning |
 |:--|:--|
 | objekt \_ namn | Objekt namn för samlingen. |
 | instans- \_ regex |  Ett *reguljärt uttryck* som definierar vilka instanser som ska samlas in. Värdet: `.*` anger alla instanser. Om du bara vill samla in processor mått för den \_ totala instansen kan du ange `_Total` . Om du bara vill samla in process mått för crond-eller sshd-instanser kan du ange: `(crond\|sshd)` . |
@@ -206,7 +205,7 @@ Prestanda poster har en typ av **prestanda** och har egenskaperna i följande ta
 ## <a name="log-queries-with-performance-records"></a>Logga frågor med prestanda poster
 Följande tabell innehåller olika exempel på logg frågor som hämtar prestanda poster.
 
-| Fråga | Description |
+| Söka i data | Beskrivning |
 |:--- |:--- |
 | Prest |Alla prestanda data |
 | Perf &#124; där dator = = "Min Dator" |Alla prestanda data från en viss dator |

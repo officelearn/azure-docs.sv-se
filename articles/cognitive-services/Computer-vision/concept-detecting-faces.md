@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6d85498b0e76997a1f0f989f4ea0f30acc0e8443
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3aa8f9057c3c9e3a141824a9d23e9be8d0bbe4b2
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95013726"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532643"
 ---
 # <a name="face-detection-with-computer-vision"></a>Ansikts igenkänning med Visuellt innehåll
 
@@ -115,5 +115,4 @@ Nästa exempel visar det JSON-svar som returneras för en bild som innehåller f
 
 Funktionen för ansikts igenkänning är en del av API: et [analys av avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . Du kan anropa API: et via en inbyggd SDK eller via REST-anrop. Inkludera `Faces` i **visualFeatures** -Frågeparametern. När du sedan får det fullständiga JSON-svaret ska du bara parsa strängen för innehållet i `"faces"` avsnittet.
 
-* [Snabb start: Visuellt innehåll .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [Snabb start: analysera en avbildning (REST API)](./quickstarts/csharp-analyze.md)
+* [Snabb start: Visuellt innehåll REST API-eller klient bibliotek](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)

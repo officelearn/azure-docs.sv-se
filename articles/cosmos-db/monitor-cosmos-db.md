@@ -5,15 +5,15 @@ author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 12/01/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 9410a38f7bc7a787fc439b5ad51f4a49f76771f8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f7cc9d4062ad9a49ff84db6ac035ff53934ae0a0
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488790"
+ms.locfileid: "96532065"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Övervaka Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -176,7 +176,7 @@ Azure Monitor aviseringar proaktivt meddela dig när viktiga villkor finns i din
 
 I följande tabell visas till exempel några aviserings regler för dina resurser. Du hittar en detaljerad lista över varnings regler från Azure Portal. Mer information finns i [så här konfigurerar du aviserings](create-alerts.md) artikeln.  
 
-| Aviseringstyp | Condition (Väderförhållanden) | Description  |
+| Aviseringstyp | Villkor | Beskrivning  |
 |:---|:---|:---|
 |Hastighets begränsning på enheter för programbegäran (mått varning) |Dimensions namn: StatusCode, operator: lika med, dimensions värden: 429  | Varningar om behållaren eller en databas har överskridit gränsen för allokerat data flöde. |
 |Regionen har redundansväxlats |Operator: större än, sammansättnings typ: antal, tröskel värde: 1 | När en enskild region har redundansväxlats. Den här aviseringen är användbar om du inte har aktiverat automatisk redundans. |

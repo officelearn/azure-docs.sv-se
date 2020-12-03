@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: rkarlin
-ms.openlocfilehash: 4189cb8628db58343c816535836af82825014b7e
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a8697094a3366e3b82ca65f1b962101243b22f84
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096325"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548927"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Azure Defender för IoT-arkitektur
 
@@ -69,7 +69,7 @@ Med hjälp av Machine Learning, varnar identifierings motorn användare om event
 Den industriella motorn för identifiering av skadlig kod identifierar beteenden som indikerar förekomst av känt skadlig kod, till exempel Conficker, svart energi, Havex, WannaCry, NotPetya och Triton. 
 
 #### <a name="anomaly-detection-engine"></a>Avvikelse identifierings motor
-Motorn för avvikelse identifiering identifierar onormal kommunikation mellan maskin-till-dator (M2M) och beteenden. Genom att modellera ICS-nätverk som deterministiska sekvenser av tillstånd och över gångar, kräver plattformen en kortare inlärnings period än allmänna matematiska metoder eller analyser som ursprungligen utvecklades för IT snarare än. Den identifierar även avvikelser snabbare, med minimala falska positiva identifieringar. Aviseringar för avvikelse identifierings motorn inkluderar överdriven SMB-inloggningsförsök och PLC-genomsökning upptäckte varningar.
+Motorn för avvikelse identifiering identifierar onormal kommunikation mellan maskin-till-dator (M2M) och beteenden. Genom att modellera ICS-nätverk som deterministiska sekvenser av tillstånd och över gångar, kräver plattformen en kortare inlärnings period än allmänna matematiska metoder eller analyser som ursprungligen utvecklades för IT snarare än. Den identifierar även avvikelser snabbare, med minimala falska positiva identifieringar. Aviseringar för avvikelse identifierings motorn innehåller omfattande SMB-inloggnings försök och PLC-genomsökning upptäckte varningar.
 
 #### <a name="operational-incident-detection"></a>Identifiering av drift incident
 Identifieringen av drifts incidenter identifierar drift problem, till exempel tillfällig anslutning som kan indikera tidig tecken på utrustnings fel. Till exempel är enheten misstänkt att frånkopplas (svarar inte) och Siemens S7 Stop PLC-kommandot skickade aviseringar.
@@ -79,7 +79,7 @@ Identifieringen av drifts incidenter identifierar drift problem, till exempel ti
 Hantering av Azure Defender för IoT i hybrid miljöer sker via två hanterings portaler: 
 - Sensor konsol
 - Den lokala hanterings konsolen
-- Azure-portalen
+- Azure Portal
 
 #### <a name="sensor-console"></a>Sensor konsol
 Sensor identifieringar visas i sensor konsolen där de kan visas, undersökas och analyseras i en nätverks karta, till gångs inventering och i många olika rapporter, till exempel riskhanterings rapporter, frågor om Data utvinning och angrepps vektorer. Du kan också använda-konsolen för att visa och hantera hot som upptäckts av sensor motorer, vidarebefordra information till tredje parts system, hantera användare med mera.

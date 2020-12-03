@@ -7,13 +7,13 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: troubleshooting
-ms.date: 11/27/2020
-ms.openlocfilehash: e0b4b31a1d732cbd5cbfaa9b6e5e021caa3adf01
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.date: 12/03/2020
+ms.openlocfilehash: d5cf39cf91b69574fc1423cfe0942b567cf9a278
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301968"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548217"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Felsök problem med CI-CD, Azure DevOps och GitHub i ADF 
 
@@ -58,7 +58,7 @@ CI/CD-pipelinen Miss lyckas med följande fel:
 
 #### <a name="recommendation"></a>Rekommendation
 
-Felet beror på att vi ofta tar bort en utlösare som är parameterstyrda, och därför är parametrarna inte tillgängliga i ARM-mallen (eftersom utlösaren inte finns längre). Eftersom parametern inte finns i ARM-mallen längre, måste vi uppdatera de åsidosatta parametrarna i DevOps-pipeline. Annars måste alla parametrar i ARM-mallen ändras, så att de uppdaterar åsidosatta parametrar i DevOps-pipeline (i distributions aktiviteten).
+Felet beror på att vi ofta tar bort en utlösare, som är parameterstyrda, och därför är parametrarna inte tillgängliga i ARM-mallen (eftersom utlösaren inte finns längre). Eftersom parametern inte finns i ARM-mallen längre, måste vi uppdatera de åsidosatta parametrarna i DevOps-pipeline. Annars måste alla parametrar i ARM-mallen ändras, så att de uppdaterar åsidosatta parametrar i DevOps-pipeline (i distributions aktiviteten).
 
 ### <a name="updating-property-type-is-not-supported"></a>Uppdatering av egenskaps typ stöds inte
 
@@ -107,7 +107,7 @@ När du försöker publicera ändringar till en Data Factory visas följande fel
 
 Du har frånkopplat git-konfigurationen och konfigurerat den igen med flaggan "Importera resurser" markerad, vilket anger Data Factory som "synkroniserat". Det innebär att inga ändringar har publicerats.
 
-**Lösning**
+#### <a name="resolution"></a>Lösning
 
 Koppla från git-konfigurationen och konfigurera den igen, och se till att du inte markerar kryss rutan importera befintliga resurser.
 

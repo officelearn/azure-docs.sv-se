@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8f46c402c8c25a144cd4c12137aeabfdfa31e096
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 50d0119b08d2c76a5f6111e485408ebcdace83c6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463138"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549029"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Hantera din faktura i ett IoT Central program
 
@@ -34,11 +34,11 @@ Följ dessa steg för att slutföra självbetjänings processen:
 
 1. Gå till sidan med **priser** i avsnittet **Administration** .
 
-    ![Utvärderings tillstånd](media/howto-view-bill/freetrialbilling.png)
+    :::image type="content" source="media/howto-view-bill/freetrialbilling.png" alt-text="Utvärderings tillstånd":::
 
 1. Välj **konvertera till en betald plan**.
 
-    ![Konvertera utvärderings version](media/howto-view-bill/convert.png)
+    :::image type="content" source="media/howto-view-bill/convert.png" alt-text="Konvertera utvärderings version":::
 
 1. Välj lämplig Azure Active Directory och sedan Azure-prenumerationen som ska användas för ditt program som använder en betald plan.
 
@@ -55,7 +55,7 @@ I avsnittet prissättning kan du när som helst uppgradera eller nedgradera din 
 
 1. Gå till sidan med **priser** i avsnittet **Administration** .
 
-    ![Uppgradera prcing-plan](media/howto-view-bill/pricing.png)
+    :::image type="content" source="media/howto-view-bill/pricing.png" alt-text="Pris plan för uppgradering":::
 
 1. Välj **planen** och välj sedan **Spara** för att uppgradera eller nedgradera.
 

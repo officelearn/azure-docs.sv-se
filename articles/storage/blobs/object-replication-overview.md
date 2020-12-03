@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 11/13/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4105698198e6fb7f4e3d3526ff9590ebca4898f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47a2aae39be93361e1e0e581efb56cc678b444cd
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612174"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549097"
 ---
 # <a name="object-replication-for-block-blobs"></a>Objekt replikering för block-blobar
 
@@ -43,14 +43,36 @@ Objekt replikering kräver att följande Azure Storage funktioner också är akt
 
 Att aktivera ändrings flöde och blob-versioner kan medföra ytterligare kostnader. Mer information finns på [sidan med Azure Storage priser](https://azure.microsoft.com/pricing/details/storage/).
 
+## <a name="how-object-replication-works"></a>Så här fungerar objekt replikering
+
+Med objekt replikering kopieras block blobbar asynkront i en behållare enligt de regler som du konfigurerar. Innehållet i blobben, alla versioner som är associerade med blobben och blobens metadata och egenskaper kopieras från käll behållaren till mål behållaren.
+
+> [!IMPORTANT]
+> Eftersom block BLOB-data replikeras asynkront synkroniseras inte käll kontot och mål kontot omedelbart. Det finns för närvarande inget service avtal för hur lång tid det tar att replikera data till mål kontot. Du kan kontrol lera replikeringsstatus på käll-bloben för att avgöra om replikeringen är klar. Mer information finns i [kontrol lera replikeringsstatus för en BLOB](object-replication-configure.md#check-the-replication-status-of-a-blob).
+
+### <a name="blob-versioning"></a>BLOB-versioner
+
+Objekt replikering kräver att BLOB-versioner aktive ras på både käll-och mål kontona. När en replikerad BLOB i käll kontot ändras, skapas en ny version av blobben i det käll konto som motsvarar det tidigare läget för blobben innan ändringen. Den aktuella versionen (eller bas-BLOB) i käll kontot återspeglar de senaste uppdateringarna. Både den uppdaterade aktuella versionen och den nya tidigare versionen replikeras till mål kontot. Mer information om hur Skriv åtgärder påverkar BLOB-versioner finns i [versions hantering för Skriv åtgärder](versioning-overview.md#versioning-on-write-operations).
+
+När en BLOB i käll kontot tas bort, fångas den aktuella versionen av blobben i en tidigare version och tas sedan bort. Alla tidigare versioner av blobben behålls även efter att den aktuella versionen har tagits bort. Det här läget replikeras till mål kontot. Mer information om hur borttagnings åtgärder påverkar BLOB-versioner finns i [versions hantering för borttagning](versioning-overview.md#versioning-on-delete-operations).
+
+### <a name="snapshots"></a>Ögonblicksbilder
+
+Objekt replikering har inte stöd för BLOB-ögonblicksbilder. Eventuella ögonblicks bilder på en BLOB i käll kontot replikeras inte till mål kontot.
+
+### <a name="blob-tiering"></a>BLOB-skiktning
+
+Objekt replikering stöds när käll-och mål kontona är på frekvent eller låg frekvent nivå. Käll-och mål kontona kan finnas på olika nivåer. Det går dock inte att replikera objekt om en BLOB i antingen käll-eller mål kontot har flyttats till Arkiv nivån. Mer information om BLOB-nivåer finns i [åtkomst nivåer för Azure Blob Storage – frekvent,](storage-blob-storage-tiers.md)låg frekvent och Arkiv lag ring.
+
+### <a name="immutable-blobs"></a>Blobar som inte kan ändras
+
+Objekt replikering stöder inte oföränderliga blobbar. Om en käll-eller mål behållare har en tidsbaserad bevarande princip eller ett juridiskt undantag, Miss lyckas objekt replikeringen. Mer information om oföränderliga blobbar finns i [lagra affärs kritiska BLOB-data med oföränderlig lagring](storage-blob-immutable-storage.md).
+
 ## <a name="object-replication-policies-and-rules"></a>Principer och regler för objekt replikering
 
 När du konfigurerar objekt replikering skapar du en replikeringsprincip som anger käll lagrings kontot och mål kontot. En replikeringsprincip innehåller en eller flera regler som anger en käll behållare och en mål behållare och anger vilka block-blobar som ska replikeras i käll behållaren.
 
 När du har konfigurerat objekt replikering kontrollerar Azure Storage ändrings flödet för käll kontot med jämna mellanrum och replikerar eventuellt Skriv-eller borttagnings åtgärder till mål kontot. Replikeringsfördröjning beror på storleken på den Block-Blob som replikeras.
-
-> [!IMPORTANT]
-> Eftersom block BLOB-data replikeras asynkront synkroniseras inte käll kontot och mål kontot omedelbart. Det finns för närvarande inget service avtal för hur lång tid det tar att replikera data till mål kontot.
 
 ### <a name="replication-policies"></a>Replikeringsprinciper
 

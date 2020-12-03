@@ -6,34 +6,28 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 12/01/2020
 ms.author: alkohli
-ms.openlocfilehash: f5bcb5c42661c375372d4d0b17571d784152dd5f
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 751ac870996fa1a2805bb018c991f85525fd797d
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337295"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548978"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Använd det lokala webb gränssnittet för att administrera Data Box-enhet och Data Box Heavy
 
 I den här artikeln beskrivs några konfigurations-och hanterings uppgifter som utförs på Data Box-enhet och Data Box Heavy enheter. Du kan hantera Data Box-enhet och Data Box Heavy enheter via Azure Portal användar gränssnittet och det lokala webb gränssnittet för enheten. Den här artikeln fokuserar på uppgifter som utförs med hjälp av det lokala webb gränssnittet.
 
-Det lokala webb gränssnittet för Data Box-enhet och för Data Box Heavy används för den inledande konfigurationen av enheten. Du kan också använda det lokala webb gränssnittet för att stänga av eller starta om enheten, köra diagnostiska tester, uppdatera program vara, Visa kopierings loggar och generera ett logg paket för Microsoft Support. På en Data Box Heavy enhet med två oberoende noder kan du komma åt två separata lokala webb-UIs som motsvarar varje nod i enheten.
-
-Den här artikeln innehåller följande självstudier:
-
-- Generera ett supportpaket
-- Stänga av eller starta om enheten
-- Ladda ned struktur lista (BOM) eller manifest fil
-- Visa tillgänglig kapacitet på enheten
-- Hoppa över validering av kontrollsummor
+Det lokala webb gränssnittet för Data Box-enhet och för Data Box Heavy används för den inledande konfigurationen av enheten. Du kan också använda det lokala webb gränssnittet för att stänga av eller starta om enheten, köra diagnostiska tester, uppdatera program vara, Visa kopierings loggar, radera lokala data från enheten och generera ett support paket för Microsoft Support. På en Data Box Heavy enhet med två oberoende noder kan du komma åt två separata lokala webb-UIs som motsvarar varje nod i enheten.
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>Generera supportpaket
 
-Om det uppstår enhetsproblem kan du skapa ett supportpaket från systemloggarna. Microsoft Support använder det här paketet för att felsöka problemet. Utför följande steg för att generera ett support paket:
+Om det uppstår enhetsproblem kan du skapa ett supportpaket från systemloggarna. Microsoft Support använder det här paketet för att felsöka problemet.
+
+Utför följande steg för att generera ett support paket:
 
 1. I det lokala webb gränssnittet går du till **kontakta support** och väljer **skapa support paket**.
 
@@ -51,9 +45,29 @@ Om det uppstår enhetsproblem kan du skapa ett supportpaket från systemloggarna
 
     ![Skapa supportpaket 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
 
+## <a name="erase-local-data-from-your-device"></a>Radera lokala data från din enhet
+
+Du kan använda det lokala webb gränssnittet för att radera lokala data från din enhet innan du återställer dem till Azure-datacentret.
+
+> [!IMPORTANT]
+> Det går inte att ångra data radering. Innan du tar bort lokala data från enheten måste du säkerhetskopiera filerna.
+
+Utför följande steg för att radera lokala data från enheten:
+
+1. Gå till **data radering** i det lokala webb gränssnittet.
+2. Ange enhetens lösen ord och välj **Radera data**.
+
+    ![Data borttagnings alternativ för en enhet](media/data-box-local-web-ui-admin/erase-local-data-1.png)
+
+3. I bekräftelse meddelandet väljer du **Ja** för att fortsätta. En data radering kan ta så lång tid som 50 minuter.
+
+   Se till att säkerhetskopiera dina lokala data innan du tar bort dem från enheten. Det går inte att ångra data radering.
+
+    ![Bekräftelse meddelande vid radering av data](media/data-box-local-web-ui-admin/erase-local-data-2.png)
+
 ## <a name="shut-down-or-restart-your-device"></a>Stänga av eller starta om enheten
 
-Du kan stänga av eller starta om enheten med hjälp av det lokala webb gränssnittet. Innan du startar om rekommenderar vi att du tar ned resurserna offline på värden och sedan enheten. Detta minimerar risken för skadade data. Se till att data kopieringen inte pågår när du stänger av enheten.
+Du kan stänga av eller starta om enheten med hjälp av det lokala webb gränssnittet. Vi rekommenderar att du tar resurserna offline på värden och sedan på enheten innan du startar om. Detta minimerar risken för skadade data. Se till att data kopieringen inte pågår när du stänger av enheten.
 
 Följ stegen nedan om du vill stänga av enheten.
 
@@ -153,7 +167,7 @@ Du använder den här listan för att bekräfta överföringen av filerna till A
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-Den här filen innehåller en lista över alla filer som kopierades i Data Box-enhet eller Data Box Heavy. I den här filen relaterar *crc64* -värdet till kontrollsumman som genererats för den motsvarande filen.
+Den här filen innehåller en lista över alla filer som kopierades i Data Box-enhet eller Data Box Heavy. I den här filen relaterar *crc64*-värdet till kontrollsumman som genererats för den motsvarande filen.
 
 ## <a name="view-available-capacity-of-the-device"></a>Visa tillgänglig kapacitet på enheten
 
@@ -168,7 +182,7 @@ Du kan använda enhetsinstrumentpanelen för att visa tillgänglig och använd k
 
 Kontrollsummor genereras för dina data som standard när du förbereder för att skicka. Beroende på datatyp (små filstorlekar) kan prestanda i vissa sällsynta fall vara långsamma. I sådana fall kan du hoppa över kontrollsumman.
 
-Beräkning av kontroll Summa under förberedelse till leverans görs bara för import order och inte för export order. 
+Beräkning av kontroll Summa under förberedelse till leverans görs bara för import order och inte för export order.
 
 Vi rekommenderar starkt att du inte inaktiverar kontrollsumman såvida inte prestanda påverkas allvarligt.
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
-ms.openlocfilehash: 89c13566c3710e56a4cd737d9aa03c6fb57edc93
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 73fea1e1928cf4e1bd5342aa0a4c885ccb5cf137
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542736"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548179"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Viktig information för Microsoft. ApplicationInsights. SnapshotCollector
 
@@ -22,6 +22,11 @@ För fel rapporter och feedback, öppna ett ärende på GitHub på https://githu
 
 ## <a name="release-notes"></a>Viktig information
 
+## <a name="1374"></a>[1.3.7.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.4)
+En punkt version som åtgärdar ett problem som upptäckts i testnings Azure App Service kundens kod för kod kopplings scenario.
+### <a name="changes"></a>Ändringar
+- Netcoreapp 3.0-målet är nu beroende av Microsoft. ApplicationInsights. AspNetCore >= 2.1.1 (tidigare >= 2.1.2).
+
 ## <a name="1373"></a>[1.3.7.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.3)
 En punkt version som åtgärdar ett par problem med hög påverkan.
 ### <a name="bug-fixes"></a>Felkorrigeringar
@@ -30,9 +35,9 @@ En punkt version som åtgärdar ett par problem med hög påverkan.
 
 ## <a name="137"></a>[1.3.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7)
 ### <a name="changes"></a>Ändringar
-Netcoreapp 2.0-målet för SnapshotCollector är beroende av Microsoft. ApplicationInsights. AspNetCore >= 2.1.1 (igen). Detta återställer beteendet till hur det var innan 1.3.5. Vi försökte uppgradera det i 1.3.6, men du kan inte frigöra några Azure App Service scenarier.
+- Netcoreapp 2.0-målet för SnapshotCollector är beroende av Microsoft. ApplicationInsights. AspNetCore >= 2.1.1 (igen). Detta återställer beteendet till hur det var innan 1.3.5. Vi försökte uppgradera det i 1.3.6, men du kan inte frigöra några Azure App Service scenarier.
 ### <a name="new-features"></a>Nya funktioner
-Snapshot Collector läser och tolkar ConnectionString från APPLICATIONINSIGHTS_CONNECTION_STRING-miljövariabeln eller från TelemetryConfiguration. I huvudsak används detta för att ange slut punkten för att ansluta till Snapshot-tjänsten. Mer information finns i dokumentationen för [anslutnings strängar](./sdk-connection-string.md).
+- Snapshot Collector läser och tolkar ConnectionString från APPLICATIONINSIGHTS_CONNECTION_STRING-miljövariabeln eller från TelemetryConfiguration. I huvudsak används detta för att ange slut punkten för att ansluta till Snapshot-tjänsten. Mer information finns i dokumentationen för [anslutnings strängar](./sdk-connection-string.md).
 ### <a name="bug-fixes"></a>Felkorrigeringar
 - Växlade till att använda HttpClient för alla mål utom Net45 eftersom webbegäran misslyckades i vissa miljöer på grund av en inkompatibel SecurityProtocol (kräver TLS 1,2).
 
@@ -60,20 +65,20 @@ Snapshot Collector läser och tolkar ConnectionString från APPLICATIONINSIGHTS_
 - Det blir enklare att lägga till ögonblicks bilds insamling med AddSnapshotCollector (). Mer information hittar du [här](./snapshot-debugger-appservice.md).
 - Använd FISMA MD5-inställningen för att verifiera blob-block. Detta förhindrar standardalgoritmen för .NET MD5-kryptografi, som inte är tillgänglig när operativ systemet är inställt på FIPS-kompatibelt läge.
 - Ignorera .NET Framework ramar när du deoptimerar funktions anrop. Detta beteende kan styras av konfigurations inställningen DeoptimizeIgnoredModules.
-- Lägg till `DeoptimizeMethodCount` konfigurations inställning som tillåter deoptimering av fler än ett funktions anrop. Mer information här
+- Lägg till `DeoptimizeMethodCount` konfigurations inställning som tillåter deoptimering av fler än ett funktions anrop. Mer information finns här
 
 ## <a name="134"></a>[1.3.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.4)
 - Tillåt strukturerade Instrumentation-nycklar.
 - Öka SnapshotUploader robusthet – Fortsätt start även om det inte går att flytta gamla överförings loggar.
 - Återaktiverad rapportering av ytterligare telemetri när SnapshotUploader.exe avslutas omedelbart (inaktiverades i 1.3.3).
 - Förenkla intern telemetri.
-- _Experimentell funktion_ : Snappoint samlings planer: Lägg till "snapshotOnFirstOccurence". Mer information finns [här](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
+- _Experimentell funktion_: Snappoint samlings planer: Lägg till "snapshotOnFirstOccurence". Mer information finns [här](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
 
 ## <a name="133"></a>[1.3.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.3)
 - Åtgärdat fel som gjorde att SnapshotUploader.exe slutade svara och inte överför ögonblicks bilder för .NET Core-appar.
 
 ## <a name="132"></a>[1.3.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.2)
-- _Experimentell funktion_ : Snappoint samlings planer. Mer information finns [här](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
+- _Experimentell funktion_: Snappoint samlings planer. Mer information finns [här](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
 - SnapshotUploader.exe avslutas när körningen tar bort den AppDomain som SnapshotCollector läses in från, i stället för att vänta på att processen avslutas. Detta förbättrar insamlarens tillförlitlighet när IIS körs.
 - Lägg till konfiguration för att tillåta flera SnapshotCollector-instanser som använder samma Instrumentation-nyckel för att dela samma SnapshotUploader-process: ShareUploaderProcess (standardvärdet `true` ).
 - Rapportera ytterligare telemetri när SnapshotUploader.exe avslutas direkt.

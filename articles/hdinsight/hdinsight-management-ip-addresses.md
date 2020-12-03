@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 682db0ef52e624a23d95aa18a007f05a78f39677
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 9fa38e045bbe29e5d45587adf0d277c1414fee4c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518795"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549046"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>IP-adresser för HDInsight-hantering
 
-Den här artikeln innehåller de IP-adresser som används av Azure HDInsight-tjänster för hälso tillstånd och hantering. Om du använder nätverks säkerhets grupper (NSG: er) eller användardefinierade vägar (UDR) kan du behöva lägga till några av de här IP-adresserna i listan över tillåtna för inkommande nätverks trafik.
+Den här artikeln innehåller de IP-adresser som används av Azure HDInsight-tjänster för hälso tillstånd och hantering. Om du använder nätverks säkerhets grupper (NSG: er) eller användardefinierade vägar (UDR) kan du behöva lägga till några av de här IP-adresserna i listan över tillåtna objekt för inkommande nätverks trafik.
 
 ## <a name="introduction"></a>Introduktion
  
@@ -27,6 +27,8 @@ Den här artikeln innehåller de IP-adresser som används av Azure HDInsight-tj�
 Om du använder nätverks säkerhets grupper (NSG: er) eller användardefinierade vägar (UDR) för att styra inkommande trafik till ditt HDInsight-kluster, måste du se till att klustret kan kommunicera med kritiska Azure-tjänster för hälso tillstånd och hantering.  Några av IP-adresserna för de här tjänsterna är landsspecifika och vissa av dem gäller för alla Azure-regioner. Du kan också behöva tillåta trafik från Azure DNS-tjänsten om du inte använder anpassad DNS.
 
 Om du behöver IP-adresser för en region som inte visas här kan du använda [API: et för identifiering av service tag](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) för att hitta IP-adresser för din region. Om du inte kan använda API: t kan du hämta [JSON-filen för service tag](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) och söka efter önskad region.
+
+HDInsight validerar de här reglerna med kluster skapande och skalning för att förhindra ytterligare fel. Om verifieringen inte är klar, går det inte att skapa och skala.
 
 I följande avsnitt beskrivs de olika IP-adresser som måste vara tillåtna.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 79ef46eef4da1beeea1c177ce39a09eea133f545
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9e0c5ae119b734f91e8cfa1e7afb11a96e13035c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089669"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549080"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -174,7 +174,7 @@ SQL-frågespråket som stöds av SQL API-konton är en förbättrad delmängd av
 
 ### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>Stöder SQL-API SQL agg regerings funktioner?
 
-SQL-API: et stöder låg latens agg regering i valfri skala via mängd funktioner,,, `COUNT` `MIN` `MAX` `AVG` och `SUM` via SQL-grammatik. Mer information finns i [mängd funktioner](sql-query-aggregates.md).
+SQL-API: et stöder låg latens agg regering i valfri skala via mängd funktioner,,, `COUNT` `MIN` `MAX` `AVG` och `SUM` via SQL-grammatik. Mer information finns i [mängd funktioner](sql-query-aggregate-functions.md).
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>Hur tillhandahåller SQL-API samtidighet?
 

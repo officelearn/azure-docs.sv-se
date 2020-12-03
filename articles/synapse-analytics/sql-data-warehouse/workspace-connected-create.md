@@ -10,21 +10,21 @@ ms.subservice: sql-dw
 ms.date: 11/25/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: b105c4c9ee0bd27af11fe09a0fd756467e30bb35
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a1fbc6eede6c82020b765185602c672c1162fdf8
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467713"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548196"
 ---
 # <a name="enabling-synapse-workspace-features-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Aktivera Synapse-arbetsytans funktioner för en dedikerad SQL-pool (tidigare SQL DW)
 
 Alla SQL Data Warehouse-användare kan nu komma åt och använda en befintlig dedikerad SQL-pool (tidigare SQL DW)-instans via Synapse Studio och arbets ytan. Användare kan använda Synapse Studio och arbets ytan utan att påverka automatisering, anslutningar eller verktyg. Den här artikeln förklarar hur en befintlig Azure Synapse Analytics-användare kan aktivera Synapse-arbetsytans funktioner för en befintlig dedikerad SQL-pool (tidigare SQL DW). Användaren kan utöka sin befintliga analys lösning genom att dra nytta av de nya funktionerna för funktioner som nu är tillgängliga via Synapse-arbetsytan och Studio.   
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Innan du aktiverar Synapse-arbetsytan på ditt data lager måste du kontrol lera att du har följande
 - Behörighet att skapa och hantera de SQL-resurser som finns på den logiska SQL-servern.
-- Behörighet att skapa Synapse-resurser.
+- Rättigheter för att skapa Azure Synapse-resurser.
 - En Azure Active Directory administratör som identifierats på den logiska servern
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal

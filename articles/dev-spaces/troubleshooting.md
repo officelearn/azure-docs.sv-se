@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Lär dig hur du felsöker och löser vanliga problem när du aktiverar och använder Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: a30ae2d78d682427cf53c8f98b0ca70b441d72e1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bf8c4d2040445fa3417fce02fb4b66216b21f3b5
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636817"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548876"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Fel sökning av Azure dev Spaces
 
@@ -28,7 +28,7 @@ För Visual Studio ställer du in `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` m
 
 I CLI kan du skriva ut mer information under kommando körningen med hjälp av `--verbose` växeln. Du kan också bläddra i mer detaljerade loggar i `%TEMP%\Azure Dev Spaces` . I en Mac kan du hitta *Temp* -katalogen genom att köra `echo $TMPDIR` från ett terminalfönster. På en Linux-dator är *Temp* -katalogen vanligt vis `/tmp` . Kontrol lera också att loggning är aktiverat i [konfigurations filen för Azure CLI](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
 
-Azure dev Spaces fungerar också bäst vid fel sökning av en enskild instans eller pod. `azds.yaml`Filen innehåller en inställning, *replicaCount* , som anger antalet poddar som Kubernetes körs för tjänsten. Om du ändrar *replicaCount* för att konfigurera programmet så att det kör flera poddar för en specifik tjänst, bifogas fel söknings programmet till de första pod, i alfabetisk ordning. Fel söknings programmet ansluts till en annan Pod när den ursprungliga Pod återanvänds, vilket kan resultera i ett oväntat beteende.
+Azure dev Spaces fungerar också bäst vid fel sökning av en enskild instans eller pod. `azds.yaml`Filen innehåller en inställning, *replicaCount*, som anger antalet poddar som Kubernetes körs för tjänsten. Om du ändrar *replicaCount* för att konfigurera programmet så att det kör flera poddar för en specifik tjänst, bifogas fel söknings programmet till de första pod, i alfabetisk ordning. Fel söknings programmet ansluts till en annan Pod när den ursprungliga Pod återanvänds, vilket kan resultera i ett oväntat beteende.
 
 ## <a name="common-issues-when-enabling-azure-dev-spaces"></a>Vanliga problem när du aktiverar Azure dev Spaces
 
@@ -138,7 +138,7 @@ Streaming build container logs for service 'mywebapi' failed with: Timed out aft
 Container image build failed
 ```
 
-Kommandot ovan visar att tjänstens Pod har tilldelats till *virtuell-Node-ACI-Linux* , som är en virtuell nod.
+Kommandot ovan visar att tjänstens Pod har tilldelats till *virtuell-Node-ACI-Linux*, som är en virtuell nod.
 
 Åtgärda problemet genom att uppdatera Helm-diagrammet för tjänsten för att ta bort avsöknings *-eller* *tolerera* värden som tillåter att tjänsten körs på en virtuell nod. De här värdena definieras vanligt vis i diagrammets `values.yaml` fil.
 
@@ -261,7 +261,7 @@ Det här felet beror på att Azure dev Spaces för närvarande inte stöder vers
 
 När du använder [Azure dev Spaces för att ansluta ditt AKS-kluster till din utvecklings dator](https://code.visualstudio.com/docs/containers/bridge-to-kubernetes)kan du stöta på ett problem där nätverks trafiken inte vidarebefordras mellan din utvecklings dator och ditt AKS-kluster.
 
-När du ansluter din utvecklings dator till ditt AKS-kluster vidarebefordrar Azure dev-utrymmen nätverks trafiken mellan ditt AKS-kluster och utvecklings datorn genom att ändra din utvecklings dators `hosts` fil. Azure dev Spaces skapar en post i `hosts` med adressen för Kubernetes-tjänsten som du ersätter som ett värdnamn. Den här posten används med vidarebefordran av portar för att dirigera nätverks trafik mellan utvecklings datorn och AKS-klustret. Om en tjänst på utvecklings datorn är i konflikt med den port i Kubernetes-tjänsten som du ersätter kan inte Azure dev-utrymmen vidarebefordra nätverks trafik för Kubernetes-tjänsten. *Windows BranchCache* -tjänsten är till exempel vanligt vis kopplad till *0.0.0.0:80* , vilket innebär att det uppstår en konflikt mellan port 80 och alla lokala IP-adresser.
+När du ansluter din utvecklings dator till ditt AKS-kluster vidarebefordrar Azure dev-utrymmen nätverks trafiken mellan ditt AKS-kluster och utvecklings datorn genom att ändra din utvecklings dators `hosts` fil. Azure dev Spaces skapar en post i `hosts` med adressen för Kubernetes-tjänsten som du ersätter som ett värdnamn. Den här posten används med vidarebefordran av portar för att dirigera nätverks trafik mellan utvecklings datorn och AKS-klustret. Om en tjänst på utvecklings datorn är i konflikt med den port i Kubernetes-tjänsten som du ersätter kan inte Azure dev-utrymmen vidarebefordra nätverks trafik för Kubernetes-tjänsten. *Windows BranchCache* -tjänsten är till exempel vanligt vis kopplad till *0.0.0.0:80*, vilket innebär att det uppstår en konflikt mellan port 80 och alla lokala IP-adresser.
 
 För att åtgärda det här problemet måste du stoppa alla tjänster eller processer som står i konflikt med porten i Kubernetes-tjänsten som du försöker ersätta. Du kan använda verktyg som *netstat* för att kontrol lera vilka tjänster eller processer på din utvecklings dator som är i konflikt.
 
@@ -378,6 +378,17 @@ spec:
     spec:
       [...]
 ```
+
+### <a name="error-cannot-get-connection-details-for-azure-dev-spaces-controller-abc-because-it-is-in-the-failed-state-something-wrong-might-have-happened-with-your-controller"></a>Fel "det går inte att hämta anslutnings information för Azure dev Spaces-styrenheten" ABC "eftersom den är i läget" misslyckades ". Ett fel kan ha hänt med din styrenhet. "
+
+Lös problemet genom att försöka ta bort Azure dev Spaces-styrenheten från klustret och installera om den:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
+```
+
+I takt med att Azure dev Spaces dras tillbaka, kan du även överväga att [migrera till brygga till Kubernetes](migrate-to-bridge-to-kubernetes.md) , vilket ger en bättre upplevelse.
 
 ## <a name="common-issues-using-visual-studio-and-visual-studio-code-with-azure-dev-spaces"></a>Vanliga problem med Visual Studio och Visual Studio Code med Azure dev Spaces
 
@@ -530,7 +541,7 @@ Så här åtgärdar du problemet:
 Du kanske ser det här felet när du försöker komma åt tjänsten. Till exempel när du går till tjänstens URL i en webbläsare. Det här felet innebär att container porten inte är tillgänglig. Detta kan bero på följande:
 
 * Behållaren håller fortfarande på att skapas och distribueras. Det här problemet kan uppstå om du kör `azds up` eller startar fel söknings programmet och sedan försöker komma åt behållaren innan den har distribuerats.
-* Port konfigurationen är inte konsekvent i _Dockerfile_ , Helm-diagrammet och alla Server koder som öppnar en port.
+* Port konfigurationen är inte konsekvent i _Dockerfile_, Helm-diagrammet och alla Server koder som öppnar en port.
 
 Så här åtgärdar du problemet:
 
@@ -594,7 +605,7 @@ Uppdatera brand väggen eller säkerhets konfigurationen för att tillåta nätv
 
 ### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Fel "Det gick inte att hitta klustret \<cluster\> i prenumerationen \<subscriptionId\> "
 
-Du kan se det här felet om din kubeconfig-fil är riktad mot ett annat kluster eller en annan prenumeration än du försöker använda med klients IDE-verktyget för Azure dev Spaces. Verktyget Azure dev Spaces på klient sidan replikerar beteendet för *kubectl* , som använder [en eller flera kubeconfig-filer](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) för att välja och kommunicera med klustret.
+Du kan se det här felet om din kubeconfig-fil är riktad mot ett annat kluster eller en annan prenumeration än du försöker använda med klients IDE-verktyget för Azure dev Spaces. Verktyget Azure dev Spaces på klient sidan replikerar beteendet för *kubectl*, som använder [en eller flera kubeconfig-filer](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) för att välja och kommunicera med klustret.
 
 Så här åtgärdar du problemet:
 

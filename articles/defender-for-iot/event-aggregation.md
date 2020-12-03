@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 12/03/2020
 ms.author: mlottner
-ms.openlocfilehash: aec750d246ce99fa65431e23ef68e70418db0017
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f7575697706363c082a4e6374b3df7a49e65cdf
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90942196"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548859"
 ---
 # <a name="defender-for-iot-event-aggregation"></a>Defender för IoT Event-sammansättning
 
-Defender för IoT-säkerhetsagenter samlar in data-och system händelser från den lokala enheten och skickar dessa data till Azure-molnet för bearbetning och analys. Säkerhets agenten samlar in många typer av enhets händelser, inklusive nya processer och nya anslutnings händelser. Både nya processer och nya anslutnings händelser kan på ett legitimt sätt ske ofta på en enhet inom en sekund, och även om det är viktigt för robust och omfattande säkerhet, tvingas det att skicka säkerhets agenter för meddelanden som snabbt når eller överskrider din IoT Hub kvot och dina kostnads gränser. Dessa händelser innehåller dock mycket värdefull säkerhets information som är viktig för att skydda enheten.
+Defender för IoT-säkerhetsagenter samlar in data-och system händelser från din lokala enhet och skickar dessa data till Azure-molnet för bearbetning och analys. Säkerhets agenten samlar in många typer av enhets händelser, inklusive nya processer och nya anslutnings händelser. Både nya processer och nya anslutnings händelser kan på ett legitimt sätt ske ofta på en enhet inom en sekund, och även om det är viktigt för robust och omfattande säkerhet, tvingas det att skicka säkerhets agenter för meddelanden som snabbt når eller överskrider din IoT Hub kvot och dina kostnads gränser. Dessa händelser innehåller dock mycket värdefull säkerhets information som är viktig för att skydda enheten.
 
 För att minska den ytterligare kvoten och kostnaderna samtidigt som dina enheter skyddas, aggregerar Defender för IoT-agenter dessa typer av händelser.
 
@@ -44,7 +44,7 @@ När agenten samlar in en identisk händelse till en som redan finns i minnet, �
 
 Händelser anses vara identiska endast när följande villkor uppfylls:
 
-* ProcessCreate-händelser – när **kommandorad**, **körbara filer**, **användar namn**och **UserID** är identiska
+* ProcessCreate-händelser – när **kommandorad**, **körbara filer**, **användar namn** och **UserID** är identiska
 * ConnectionCreate-händelser – när **kommando raden**, **userId**, **Direction**, **Local Address**, **Remote Address**, * * Protocol och **målport** är identiska
 * ProcessTerminate-händelser – när den **körbara filen** och **avslutnings statusen** är identiska
 
@@ -52,8 +52,8 @@ Händelser anses vara identiska endast när följande villkor uppfylls:
 
 Under agg regering ignoreras händelse egenskaper som inte aggregeras och visas i Log Analytics med värdet 0.
 
-* ProcessCreate-händelser – **ProcessID**och **parentProcessId** har angetts till 0
-* ConnectionCreate-händelser – **ProcessID**och **käll porten** har angetts till 0
+* ProcessCreate-händelser – **ProcessID** och **parentProcessId** har angetts till 0
+* ConnectionCreate-händelser – **ProcessID** och **käll porten** har angetts till 0
 
 ## <a name="event-aggregation-based-alerts"></a>Händelse agg regering baserade aviseringar
 

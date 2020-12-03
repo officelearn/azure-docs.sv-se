@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: a156150c2cd28964658fa8529181a70ef546b78f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a2d48a6f4e451e2a9b4140618c7c590293cb5ef5
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457318"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548536"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>Snabb start – skapa ett Azure IoT Central-program
 
@@ -29,7 +29,7 @@ Så här skapar du ett nytt Azure IoT Central-program från den **anpassade prog
 
 1. Gå till **Bygg** sidan:
 
-    ![Bygg din IoT-programsida](media/quick-deploy-iot-central/iotcentralcreate-new-application.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-new-application.png" alt-text="Bygg din IoT-programsida":::
 
 1. Välj **anpassade appar** och kontrol lera att mallen för **anpassat program** är markerad.
 
@@ -37,9 +37,9 @@ Så här skapar du ett nytt Azure IoT Central-program från den **anpassade prog
 
 1. Azure IoT Central genererar också ett unikt **program-URL** -prefix åt dig, baserat på program namnet. Du använder den här URL: en för att få åtkomst till ditt program. Ändra detta URL-prefix till något mer minnes värde om du vill.
 
-    ![Sidan skapa en program-Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate-custom.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-custom.png" alt-text="Sidan skapa en program-Azure IoT Central":::
 
-    ![Information om Azure IoT Central fakturering](media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png" alt-text="Information om Azure IoT Central fakturering":::
 
     > [!NOTE]
     > Om du väljer **anpassad app** på föregående sida visas en listruta för **Programmall** . List rutan kan visa andra mallar som har gjorts tillgängliga för dig av din organisation.
@@ -57,7 +57,7 @@ Så här skapar du ett nytt Azure IoT Central-program från den **anpassade prog
 
 1. Granska de allmänna villkoren och välj **skapa** längst ned på sidan. Efter några minuter kan du IoT Central programmet är redo att använda:
 
-    ![Azure IoT Central-program](media/quick-deploy-iot-central/iotcentral-application.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentral-application.png" alt-text="Azure IoT Central-program":::
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 5374871a51586a573e9ab41121f3f2dd95baf876
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: ead878daaab977c77b3ab36f42ccfe4d01d7bc03
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695256"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548638"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Steg 1: Distribuera logg vidarebefordraren
 
@@ -34,7 +34,7 @@ I det här steget ska du ange och konfigurera Linux-datorn som kommer att vidare
     - Lyssna efter syslog-meddelanden från dina säkerhets lösningar på TCP-port 514
     - vidarebefordra enbart de meddelanden som identifieras som CEF till Log Analytics agent på localhost med TCP-port 25226
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Du måste ha förhöjd behörighet (sudo) på den utsedda Linux-datorn.
 
@@ -57,6 +57,9 @@ I det här steget ska du ange och konfigurera Linux-datorn som kommer att vidare
 1. Kontrol lera att du inte får några fel eller varnings meddelanden medan skriptet körs.
     - Du kan få ett meddelande som uppmanar dig att köra ett kommando för att åtgärda ett problem med mappningen av fältet *dator* . Mer information finns i [förklaringen i distributions skriptet](#mapping-command) .
 
+1. Fortsätt till [steg 2: Konfigurera säkerhets lösningen för att vidarebefordra CEF-meddelanden](connect-cef-solution-config.md) .
+
+
 > [!NOTE]
 > **Använda samma dator för att vidarebefordra både vanliga syslog- *och* CEF-meddelanden**
 >
@@ -67,7 +70,16 @@ I det här steget ska du ange och konfigurera Linux-datorn som kommer att vidare
 > 1. Du måste köra följande kommando på de datorerna för att inaktivera synkroniseringen av agenten med syslog-konfigurationen i Azure Sentinel. Detta säkerställer att konfigurations ändringen du gjorde i föregående steg inte blir överskriven.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
-Fortsätt till [steg 2: Konfigurera säkerhets lösningen för att vidarebefordra CEF-meddelanden](connect-cef-solution-config.md) .
+> [!NOTE]
+> **Ändra källa för fältet TimeGenerated**
+>
+> - Som standard fyller Log Analytics-agenten i fältet *TimeGenerated* i schemat med den tidpunkt då agenten tog emot händelsen från syslog-daemonen. Därför registreras inte tiden då händelsen genererades på käll systemet i Azure Sentinel.
+>
+> - Du kan dock köra följande kommando för att ladda ned och köra `TimeGenerated.py` skriptet. Det här skriptet konfigurerar Log Analytics-agenten så att den fyller i fältet *TimeGenerated* med händelsens ursprungliga tid på käll systemet, i stället för den tid det tog emot av agenten.
+>
+>    ```bash
+>    wget -O TimeGenerated.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/TimeGenerated.py && python TimeGenerated.py {ws_id}
+>    ```
 
 ## <a name="deployment-script-explained"></a>Förklarat distributions skript
 

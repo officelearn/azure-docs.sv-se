@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d4983ecd1b8afe1ec6bd3cc31df8b711cebaddf1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 00b5d220cdbc511a309d55cfca2049508049fa30
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350270"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549012"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Viktig information om Azure HDInsight
 
@@ -46,8 +46,9 @@ HDInsight 3,6 ML-kluster typ upphör att fungera i december 31 2020. Kunder kan 
 ### <a name="disabled-vm-sizes"></a>Inaktiverade VM-storlekar
 Från och med november 16 2020 kommer HDInsight att blockera nya kunder som skapar kluster med hjälp av standand_A8, standand_A9 standand_A10 och standand_A11 VM-storlekar. Befintliga kunder som har använt de här VM-storlekarna under de senaste tre månaderna påverkas inte. Från och med den 9 2021 januari kommer HDInsight att blockera alla kunder som skapar kluster med hjälp av standand_A8, standand_A9 standand_A10 och standand_A11 VM-storlekar. Befintliga kluster kommer att köras som de är. Överväg att flytta till HDInsight 4,0 för att undvika eventuellt system-och support avbrott.
 
-### <a name="behavior-changes"></a>Beteende ändringar
-Ingen beteende ändring för den här versionen.
+## <a name="behavior-changes"></a>Beteende ändringar
+### <a name="add-nsg-rule-checking-before-scaling-operation"></a>Lägg till regel kontroll för NSG före skalning
+HDInsight lade till nätverks säkerhets grupper (NSG: er) och UDR-kontroll (User-Defined routing) med skalnings åtgärd. Samma verifiering görs för kluster skalning förutom att klustret skapas. Den här verifieringen förhindrar oförutsägbara fel. Om verifieringen inte godkänns Miss lyckas skalningen. Läs mer om hur du konfigurerar NSG: er och UDR korrekt, se [IP-adresser för HDInsight-hantering](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 
 ## <a name="upcoming-changes"></a>Kommande ändringar
 Följande ändringar sker i kommande versioner.

@@ -1,30 +1,30 @@
 ---
-title: Självstudie – konfigurera autoskalning för mikrotjänstprogram
+title: Konfigurera autoskalning för mikrotjänstprogram
 description: Den här artikeln beskriver hur du konfigurerar inställningar för autoskalning för dina program med hjälp av Microsoft Azure-portalen eller Azure CLI.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 6023d1ebd27ebaccacfce85ce0f49b7ef87e17ad
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d59d5de0d98380be215747c7daa33721fcebf33c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742663"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533833"
 ---
-# <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Självstudie: Konfigurera autoskalning för mikrotjänstprogram
+# <a name="set-up-autoscale-for-microservice-applications"></a>Konfigurera autoskalning för mikrotjänstprogram
 
 **Den här artikeln gäller för:** ✔️ Java ✔️ C #
 
 Autoskalning är en inbyggd funktion i Azure våren Cloud som hjälper mikrotjänstprogram att utföra sina bästa när efter frågan förändras. Detta inkluderar ändring av antalet virtuella processorer, minne och App-instanser. Den här artikeln beskriver hur du konfigurerar inställningar för autoskalning för dina program med hjälp av Microsoft Azure-portalen eller Azure CLI.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill följa de här procedurerna behöver du:
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * En distribuerad Azure våren Cloud Service-instans. Följ [snabb starten när du distribuerar en app via Azure CLI](./spring-cloud-quickstart.md) för att komma igång.
 * Minst ett program som redan har skapats i din tjänst instans.
 
@@ -34,7 +34,7 @@ Om du vill följa de här procedurerna behöver du:
 2. Gå till **översikts** sidan för Azure våren Cloud.
 3. Välj den resurs grupp som innehåller din tjänst.
 4. Välj fliken **appar** under **Inställningar** i menyn i det vänstra navigerings fönstret.
-5. Välj det program som du vill konfigurera autoskalning för. I det här exemplet väljer du programmet **demonstration** . Du bör sedan se programmets **översikts** sida.
+5. Välj det program som du vill konfigurera autoskalning för. I det här exemplet väljer du programmet **demonstration**. Du bör sedan se programmets **översikts** sida.
 6. Gå till fliken **skala ut** under **Inställningar** i menyn i det vänstra navigerings fönstret.
 7. Välj den distribution som du vill konfigurera autoskalning. Du bör se alternativ för autoskalning som visas i följande avsnitt.
 

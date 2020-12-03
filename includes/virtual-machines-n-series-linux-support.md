@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 86f687bd4fd8be93efbf77c883c723046c2c96d8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5bfe077a99a3e89efe5fe4257a646484fb3810da
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016145"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96536911"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distributioner och drivrutiner som stöds
 
@@ -31,9 +31,11 @@ Microsoft distribuerar NVIDIA GRID-drivrutiner installations program för virtue
 
 RUTNÄTs driv rutinerna som distribueras med Azure fungerar inte på virtuella datorer som inte är NV-serien, till exempel NC, NCv2, NCv3, ND och NDv2-seriens virtuella datorer.
 
-| Distribution | Drivrutinen |
+|Distribution|Drivrutinen|
 | --- | -- |
-|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7,6 till 7,8, 8,0, 8,1<br/><br/>CentOS-baserad 7,6, 7,7, 8,0, 8 (1911)<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA-rutnät 11,1, driv rutins gren [R450](https://go.microsoft.com/fwlink/?linkid=874272)(. exe)|
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7,6 till 7,8, 8,0, 8,1<br/><br/>CentOS-baserad 7,6, 7,7, 8,0, 8 (1911)<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA-rutnät 11,2, driv rutins gren [R450](https://go.microsoft.com/fwlink/?linkid=874272)(. exe)|
+
+Besök [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) för en fullständig lista över alla tidigare NVIDIA Grid-drivrutins länkar.
 
 > [!WARNING] 
 > Installation av tredjepartsprogramvara på Red Hat-produkter kan påverka supportvillkoren för Red Hat. Läs [Knowledgebase-artikeln om Red Hat](https://access.redhat.com/articles/1067).

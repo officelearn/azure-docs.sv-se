@@ -3,17 +3,17 @@ title: Vad är nytt i det virtuella Windows-skrivbordet? – Azure
 description: Nya funktioner och produkt uppdateringar för virtuella Windows-datorer.
 author: Heidilohr
 ms.topic: overview
-ms.date: 11/11/2020
+ms.date: 12/02/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: c82312b40955b392243bf616ee991c0108a13fb5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e267de136271991446444a47a470dd52789b3613
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537398"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533969"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Vad är nytt i det virtuella Windows-skrivbordet?
 
@@ -25,6 +25,31 @@ Uppdateringar av virtuella Windows-datorer regelbundet. I den här artikeln får
 - Felkorrigeringar
 
 Den här artikeln uppdateras varje månad. Se till att kontrol lera igen ofta för att hålla dig uppdaterad med nya uppdateringar.
+
+## <a name="november-2020"></a>November 2020
+
+### <a name="azure-portal-experience"></a>Azure Portal upplevelse
+
+Vi har åtgärdat två buggar i Azure Portal användar upplevelsen:
+
+- Det egna namnet på Desktop-programmet skrivs inte längre över till arbets flödet "Lägg till virtuell dator".
+- Fliken Session Host kommer nu att läsas in om sessions-värdar ingår i skalnings uppsättningar.
+
+### <a name="fslogix-client-version-2009"></a>FSLogix-klient, version 2009 
+
+Vi har lanserat en ny version av FSLogix-klienten med många korrigeringar och förbättringar. Läs mer i [vårt blogg inlägg](https://social.msdn.microsoft.com/Forums/en-US/defe5828-fba4-4715-a68c-0e4d83eefa6b/release-notes-for-fslogix-apps-release-2009-29762130127?forum=FSLogix).
+
+### <a name="rdp-shortpath-public-preview"></a>RDP-Shortpath offentlig för hands version
+
+RDP-Shortpath introducerar direkt anslutning till din Windows-värd för fjärrskrivbordssession med hjälp av punkt-till-plats-och plats-till-plats-VPN och ExpressRoute. Den introducerar också transport protokollet URCP. RDP-Shortpath har utformats för att minska svars tid och nätverks hopp för att förbättra användar upplevelsen. Läs mer på [RDP-Shortpath för Windows Virtual Desktop](shortpath.md).
+
+### <a name="azdesktopvirtualization-version-201"></a>AZ. DesktopVirtualization, version 2.0.1
+
+Vi har släppt version 2.0.1 av Windows-cmdletar för virtuella skriv bord. Den här uppdateringen innehåller cmdletar som gör att du kan hantera MSIX app Attach. Du kan hämta den nya versionen i [PowerShell-galleriet](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.0.1).
+
+### <a name="azure-advisor-updates"></a>Azure Advisor uppdateringar
+
+Azure Advisor har nu en ny rekommendation för närhets vägledning i det virtuella Windows-skrivbordet. Läs mer på [Azure-webbplatsen](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/).
 
 ## <a name="october-2020"></a>Oktober 2020
 
@@ -174,7 +199,6 @@ Den här ändringen gör du:
 - Övervakning av funktioner som används för att utföras via PowerShell eller diagnostik-webbappen har nu flyttats till Log Analytics i Azure Portal. Nu har du två alternativ för att visualisera dina rapporter. Du kan köra Kusto-frågor och använda arbets böcker för att skapa visuella rapporter.
 
 - Du behöver inte längre slutföra Azure Active Directory (Azure AD) medgivande för att använda Windows Virtual Desktop. I den här uppdateringen autentiserar Azure AD-klienten på din Azure-prenumeration användarna och tillhandahåller Azure RBAC-kontroller för dina administratörer.
-
 
 ### <a name="powershell-support"></a>Stöd för PowerShell
 

@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 18f8df90cd59a1fb32024ec93674fed7eb49519a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: baf2734c2f3c4de86b75a20239ecf7440c61a632
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451991"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534054"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Dedikerad SQL-pool (tidigare SQL DW) i versions information för Azure Synapse Analytics
 
@@ -39,6 +39,13 @@ För verktygs förbättringar kontrollerar du att rätt version är installerad 
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="dec-2020"></a>Dec 2020
+
+| Förbättringar av tjänsten | Information |
+| --- | --- |
+|**Lagrad procedur sp_rename för kolumner (förhands granskning)**|Att byta namn på en kolumn utan en [CTAs](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas) blev bara enklare. Azure Synapse SQL har nu lagt till stöd för den systemlagrade proceduren sp_rename (för hands version) för att byta namn på en kolumn utan distribution i en användar tabell. Den här funktionen är för närvarande en för hands version och kommer att stödjas i verktyg i GA. Mer information finns i [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?view=azure-sqldw-latest).|
+|**Ytterligare parameter för T-SQL predict**|Med den nya versionen läggs en nödvändig ytterligare parameter med namnet RUNTIME till för den befintliga T-SQL PREDICT-instruktionen. Information om hur du uppdaterar befintliga skript finns i exemplen i [T-SQL predict](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).|
 
 ## <a name="oct-2020"></a>Okt 2020
 

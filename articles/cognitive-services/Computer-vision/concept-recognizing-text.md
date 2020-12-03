@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 73887515eea344e920455e3c24f3eae3d5ad515a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 50cce15d14561bb1c8ebfdbbeeedd99dc8efcda1
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95013739"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533000"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optisk teckenläsning (OCR)
 
@@ -133,7 +133,7 @@ Se följande exempel på ett lyckat JSON-svar:
 ### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Läs 3,2 Preview lägger till text linje format (endast latinska språk)
 I [Read 3,2 Preview-API: et](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) visas ett **utseende** objekt som klassificerar om varje textrad är ett utskrifts-eller handstil, tillsammans med en förtroende poäng. Den här funktionen stöds bara för latinska språk.
 
-Kom igång med [visuellt innehåll Läs snabb](./quickstarts-sdk/client-library.md) starter för OCR SDK och [Läs REST API snabb](./QuickStarts/CSharp-hand-text.md) Starter för att börja integrera OCR-funktioner i dina program.
+Kom igång med [Visuellt innehåll REST API eller klient biblioteks snabb](./quickstarts-sdk/client-library.md) starter för att börja integrera OCR-funktioner i dina program.
 
 ## <a name="supported-languages-for-print-text"></a>Språk som stöds för utskrifts text
 [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) stöder extrahering av utskriven text på engelska, spanska, tyska, franska, italienska, portugisiska och nederländska språk.
@@ -197,7 +197,6 @@ Precis som med alla kognitiva tjänster bör utvecklare som använder Läs-/OCR-
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Kom igång med [visuellt innehåll Läs snabb starter för SDK](./quickstarts-sdk/client-library.md) i C#, Java, java script eller python.
-- Använd de [läs REST API snabb starterna](./QuickStarts/CSharp-hand-text.md) i C#, Java, java script eller python för att lära dig hur du använder REST-API: er.
+- Kom igång med [snabb starterna för Visuellt innehåll REST API eller klient biblioteket](./quickstarts-sdk/client-library.md).
 - Läs mer om [läsa REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
 - Läs mer om den [offentliga för hands versionen av läs 3,2 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) med stöd för förenklad kinesiska och japanska.

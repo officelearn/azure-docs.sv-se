@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/25/2020
+ms.date: 12/02/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: dcc84dc252001721a3848a008a3db80dcc7822d2
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: c90b7ce86e06669696a4b9f7e0b2f5287e9dd97e
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301266"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533204"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Felsöka Azure Data Factory-anslutningsprogram
 
@@ -205,7 +205,7 @@ Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure 
 - **Lösning**: kör kopierings aktiviteten igen om några minuter.
                   
 
-## <a name="azure-synapse-analytics-formerly-sql-data-warehouseazure-sql-databasesql-server"></a>Azure Synapse Analytics (tidigare SQL Data Warehouse)/Azure SQL Database/SQL Server
+## <a name="azure-synapse-analyticsazure-sql-databasesql-server"></a>Azure Synapse-analys/Azure SQL Database/SQL Server
 
 ### <a name="error-code--sqlfailedtoconnect"></a>Felkod: SqlFailedToConnect
 
@@ -488,7 +488,28 @@ Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure 
 
 - **Rekommendation**: kör pipelinen igen. Försök att minska parallellitet om du inte kan fortsätta. Kontakta Dynamics support om det fortfarande inte fungerar.
 
+## <a name="excel-format"></a>Excel-format
 
+### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Tids gräns eller dåliga prestanda vid parsning av stor Excel-fil
+
+- **Symptom**:
+
+    1. När du skapar Excel-datauppsättningen och importera schema från anslutning/butik, förhandsgranska data, lista eller uppdatera kalkyl blad, kan du trycka på timeout-fel om Excel-filen är stor i storlek.
+    2. När du använder kopierings aktivitet för att kopiera data från stor Excel-fil (>= 100 MB) till ett annat data lager, kan det uppstå problem med långsam prestanda eller OOM.
+
+- **Orsak**: 
+
+    1. För åtgärder som att importera schema, för hands Grans kar data och listade kalkyl blad på Excel-datauppsättningen, är tids gränsen 100 och statisk. För stor Excel-fil kan de här åtgärderna inte slutföras inom timeout-värdet.
+
+    2. ADF Copy-aktiviteten läser hela Excel-filen i minnet och letar sedan upp det angivna kalkyl bladet och cellerna för att läsa data. Detta beror på att de underliggande SDK: er för SDK används.
+
+- **Lösning**: 
+
+    1. När du importerar schema kan du generera en mindre exempel fil som är en del av original filen och välja importera schema från exempel fil i stället för "Importera schema från anslutning/butik".
+
+    2. För att Visa workseet, i list rutan kalkyl blad, kan du klicka på "redigera" och ange bladets namn/index i stället.
+
+    3. Om du vill kopiera en stor Excel-fil (>100 MB) till en annan lagrings plats kan du använda Excel-källan för data flöde som sport-direktuppspelning och fungerar bättre.
 
 ## <a name="json-format"></a>JSON-format
 

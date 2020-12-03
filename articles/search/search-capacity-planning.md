@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 76084a9ddd6842194bb4c6b25d62e62c2ed2d4a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92dcbfd360938724bb65b734d7c69ea61d7826b0
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89660307"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533051"
 ---
 # <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>Justera kapaciteten för en Azure Kognitiv sökning-tjänst
 
 Innan du [konfigurerar en Sök tjänst](search-create-service-portal.md) och låser en viss pris nivå kan du ta några minuter på att förstå hur kapaciteten fungerar och hur du kan justera repliker och partitioner för att hantera arbets belastnings variationer.
 
-Kapaciteten är en funktion för den [nivå du väljer](search-sku-tier.md) (nivåer bestämmer maskin varu egenskaper) och den kombination av replik och partition som krävs för projekt arbets belastningar. Du kan öka eller minska antalet repliker eller partitioner individuellt. Beroende på nivån och storleken på justeringen kan tillägg eller minskning av kapaciteten ta var som helst från 15 minuter till flera timmar.
+Kapaciteten är en funktion för den [nivå du väljer](search-sku-tier.md) (nivåer bestämmer maskin varu egenskaper) och den kombination av replik och partition som krävs för projekt arbets belastningar. När en tjänst har skapats kan du öka eller minska antalet repliker eller partitioner oberoende av varandra. Kostnaderna går till varje ytterligare fysisk resurs, men när stora arbets belastningar är klara kan du minska skalan för att sänka fakturan. Beroende på nivån och storleken på justeringen kan tillägg eller minskning av kapaciteten ta var som helst från 15 minuter till flera timmar.
 
 När du ändrar tilldelningen av repliker och partitioner rekommenderar vi att du använder Azure Portal. Portalen tillämpar gränser på tillåtna kombinationer som ligger under de maximala gränserna för en nivå. Men om du behöver en skript-eller kod baserad etablerings metod är [Azure PowerShell](search-manage-powershell.md) eller [hanterings REST API](/rest/api/searchmanagement/services) alternativa lösningar.
 
@@ -36,7 +36,7 @@ Kapaciteten uttrycks i *Sök enheter* som kan tilldelas i kombinationer av *part
 
 I följande diagram visas relationen mellan repliker, partitioner, Shards och Sök enheter. Det visar ett exempel på hur ett enskilt index sträcker sig över fyra Sök enheter i en tjänst med två repliker och två partitioner. Var och en av de fyra Sök enheterna lagrar bara hälften av Shards i indexet. Sök enheterna i den vänstra kolumnen lagrar den första halvan av Shards, som består av den första partitionen, medan de i den högra kolumnen lagrar den andra halvan av Shards, som omfattar den andra partitionen. Eftersom det finns två repliker finns det två kopior av varje index Shard. Sök enheterna i den översta raden lagrar en kopia, som består av den första repliken, medan de i den nedersta raden lagrar en annan kopia, som omfattar den andra repliken.
 
-:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Sök index är shardade över partitioner.&quot;:::
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Sök index är shardade över partitioner.":::
 
 Diagrammet ovan är bara ett exempel. Många kombinationer av partitioner och repliker är möjliga, upp till högst 36 totalt antal Sök enheter.
 
@@ -44,7 +44,7 @@ I Kognitiv sökning är hantering av Shard en implementerings information och ka
 
 + Rangordna avvikelser: Sök Resultat beräknas på Shard-nivå först och summeras sedan i en enda resultat uppsättning. Beroende på egenskaperna för Shard-innehållet kan matchningar från en Shard rangordnas högre än matchningarna i en annan. Om du märker att du inte har några intuitiva rangordningar i Sök resultaten beror det förmodligen på att effekterna av horisontell partitionering, särskilt om index är små. Du kan undvika dessa ranknings avvikelser genom att välja att [Beräkna resultat globalt över hela indexet](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), men detta medför en prestanda försämring.
 
-+ Avvikelser vid komplettering: Autoavsluta-frågor, där matchningar görs på de första flera tecknen i en delvis angiven term, Godkänn en Fuzzy-parameter som forgives små avvikelser i stavning. För automatisk komplettering är en partiell matchning begränsad till termer inom den aktuella Shard. Om till exempel en Shard innehåller &quot;Microsoft&quot; och en partiell term på &quot;micor&quot; anges, kommer sökmotorn att matcha &quot;Microsoft" i den Shard, men inte i andra Shards som innehåller de återstående delarna av indexet.
++ Avvikelser vid komplettering: Autoavsluta-frågor, där matchningar görs på de första flera tecknen i en delvis angiven term, Godkänn en Fuzzy-parameter som forgives små avvikelser i stavning. För automatisk komplettering är en partiell matchning begränsad till termer inom den aktuella Shard. Om till exempel en Shard innehåller "Microsoft" och en partiell term på "micor" anges, kommer sökmotorn att matcha "Microsoft" i den Shard, men inte i andra Shards som innehåller de återstående delarna av indexet.
 
 ## <a name="when-to-add-nodes"></a>När du ska lägga till noder
 
@@ -61,7 +61,7 @@ Som en allmän regel kräver Sök program att du behöver fler repliker än part
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) och välj Sök tjänsten.
 
-1. I **Inställningar**öppnar du sidan **skala** för att ändra repliker och partitioner. 
+1. I **Inställningar** öppnar du sidan **skala** för att ändra repliker och partitioner. 
 
    Följande skärm bild visar en standard tjänst som tillhandahålls med en replik och partition. Formeln längst ned anger hur många Sök enheter som används (1). Om enhets priset var $100 (inte ett verkligt pris) blir månads kostnaden för att köra tjänsten $100 i genomsnitt.
 
@@ -102,9 +102,9 @@ Alla standard-och Storage-optimerade Sök tjänster kan utgå från följande ko
 | **1 replik** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
 | **2 repliker** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
 | **3 repliker** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **4 repliker** |4 SU |8 SU |12 SU |16 SU |24 SU |E.t. |
-| **5 repliker** |5 SU |10 SU |15 SU |20 SU |30 SU |E.t. |
-| **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |E.t. |
+| **4 repliker** |4 SU |8 SU |12 SU |16 SU |24 SU |Saknas |
+| **5 repliker** |5 SU |10 SU |15 SU |20 SU |30 SU |Saknas |
+| **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |Saknas |
 | **12 repliker** |12 SU |24 SU |36 SU |Saknas |Saknas |Saknas |
 
 SUs, priser och kapacitet beskrivs i detalj på Azure-webbplatsen. Mer information finns i [pris information](https://azure.microsoft.com/pricing/details/search/).

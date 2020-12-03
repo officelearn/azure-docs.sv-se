@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 12/02/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90fc356929a9ea5713a8d359dfaa83286017b8f8
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 260df85f3e380e40d153fc17ce77bd56ca068982
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445446"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532830"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Uppgradera till Azure Kognitiv sökning .NET SDK version 11
 
-Den här artikeln hjälper dig att uppgradera till version 11 om du använder version 10,0 eller äldre av [.NET SDK](/dotnet/api/overview/azure/search).
+Om du använder version 10,0 eller äldre av [.NET SDK](/dotnet/api/overview/azure/search)hjälper den här artikeln dig att uppgradera till version 11 och **Azure.Search.Documents** -klient bibliotek.
 
 Version 11 är ett helt omdesignat klient bibliotek som släpps av Azure SDK Development-teamet (tidigare versioner genererades av Azure Kognitiv sökning Development Team). Biblioteket har gjorts om för bättre konsekvens med andra Azure-klient bibliotek, vilket tar ett beroende på [Azure. Core](/dotnet/api/azure.core) och [System.Text.Jspå](/dotnet/api/system.text.json)och implementerar välbekanta metoder för vanliga uppgifter.
 
@@ -49,7 +49,7 @@ I förekommande fall mappar följande tabell klient biblioteken mellan de två v
 |---------------------|------------------------------|------------------------------|
 | Klient som används för frågor och för att fylla ett index. | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) | [SearchClient](/dotnet/api/azure.search.documents.searchclient) |
 | Klient som används för index, analyser, synonym kartor | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) |
-| Klient som används för indexerare, data källor, färdighetsuppsättningar | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient ( **ny** )](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
+| Klient som används för indexerare, data källor, färdighetsuppsättningar | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**ny**)](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
 > [!Important]
 > `SearchIndexClient` finns i båda versionerna, men har stöd för olika saker. `SearchIndexClient`Skapa index och andra objekt i version 10. I version 11 `SearchIndexClient` fungerar med befintliga index. För att undvika förvirring vid uppdatering av kod ska du vara mindful i den ordning som klient referenserna uppdateras. Genom [att följa stegen i steg för uppgraderingen](#UpgradeSteps) bör du undvika eventuella sträng ersättnings problem.
@@ -141,7 +141,7 @@ Följande version 10-funktioner är ännu inte tillgängliga i version 11. Om du
 
 ## <a name="steps-to-upgrade"></a>Steg för att uppgradera
 
-Följande steg hjälper dig att komma igång med en kod migrering genom att gå igenom den första uppsättningen nödvändiga uppgifter, särskilt i avseende på klient referenser.
+Följande steg hjälper dig att komma igång med en kod migrering genom att gå igenom den första uppsättningen nödvändiga uppgifter, särskilt vad gäller klient referenser.
 
 1. Installera [Azure.Search.Documents-paketet](https://www.nuget.org/packages/Azure.Search.Documents/) genom att högerklicka på dina projekt referenser och välja "hantera NuGet-paket..." i Visual Studio.
 
@@ -170,7 +170,7 @@ Följande steg hjälper dig att komma igång med en kod migrering genom att gå 
 
 1. Lägg till nya klient referenser för indexerare-relaterade objekt. Om du använder indexerare, data källor eller färdighetsuppsättningar ändrar du klient referenserna till [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). Den här klienten är ny i version 11 och har ingen Antecedent.
 
-1. Besöker samlingar. I den nya SDK: n är alla listor skrivskyddade för att undvika underordnade problem om listan sker med null-värden. Kod ändringen är att lägga till objekt i en lista. I stället för att till exempel tilldela strängar till en SELECT-egenskap lägger du till dem på följande sätt:
+1. Ändra samlingar och listor. I den nya SDK: n är alla listor skrivskyddade för att undvika underordnade problem om listan sker med null-värden. Kod ändringen är att lägga till objekt i en lista. I stället för att till exempel tilldela strängar till en SELECT-egenskap lägger du till dem på följande sätt:
 
    ```csharp
    var options = new SearchOptions
@@ -188,11 +188,13 @@ Följande steg hjälper dig att komma igång med en kod migrering genom att gå 
     options.Select.Add("LastRenovationDate");
    ```
 
+   Select, Faces, SearchFields, SourceFields, ScoringParameters och OrderBy är alla listor som nu måste rekonstrueras.
+
 1. Uppdatera klient referenser för frågor och data import. Instanser av [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) ska ändras till [SearchClient](/dotnet/api/azure.search.documents.searchclient). Se till att du fångar alla instanser innan du fortsätter till nästa steg för att undvika namn förvirring.
 
-1. Uppdatera klient referenser för index, indexerare, synonym mappning och Analyzer-objekt. Instanser av [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) ska ändras till [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient). 
+1. Uppdatera klient referenser för index, synonym mappning och Analyzer-objekt. Instanser av [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) ska ändras till [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient). 
 
-1. Uppdatera klasser, metoder och egenskaper så mycket som möjligt för att använda API: erna för det nya biblioteket. Avsnittet [namngivnings skillnader](#naming-differences) är en plats för att starta, men du kan också granska [ändrings loggen](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md).
+1. För resten av koden, uppdatera klasser, metoder och egenskaper för att använda API: erna för det nya biblioteket. Avsnittet [namngivnings skillnader](#naming-differences) är en plats för att starta, men du kan också granska [ändrings loggen](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md).
 
    Om du har problem med att hitta motsvarande API: er, rekommenderar vi att du loggar in ett problem [https://github.com/MicrosoftDocs/azure-docs/issues](https://github.com/MicrosoftDocs/azure-docs/issues) så att vi kan förbättra dokumentationen eller undersöka problemet.
 

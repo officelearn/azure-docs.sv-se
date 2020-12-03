@@ -4,12 +4,12 @@ description: Skapa en Linux-behållare för att exponera ett program som körs p
 ms.topic: conceptual
 ms.date: 6/08/2018
 ms.author: pepogors
-ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3de97bc277195dff2daf5868c0eb9aec5d6e27c0
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75614425"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534037"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Skapa Service Fabric behållare som kör Apache Tomcat server på Linux
 Apache Tomcat är en populär implementering av Java-servlet och Java-serverns teknik med öppen källkod. Den här artikeln visar hur du skapar en behållare med Apache Tomcat och ett enkelt webb program, distribuerar behållaren till ett Service Fabric kluster som kör Linux och ansluter till webb programmet.  
@@ -52,9 +52,10 @@ Följ stegen i det här avsnittet för att skapa en Docker-avbildning baserad p�
    Mer information finns i [Dockerfile-referensen](https://docs.docker.com/engine/reference/builder/) .
 
 
-4. Kör `docker build` kommandot för att skapa avbildningen som kör ditt webb program:
+4. Logga in på Docker och kör `docker build` kommandot för att skapa avbildningen som kör ditt webb program:
 
    ```bash
+   docker login
    docker build . -t tomcattest
    ```
 
@@ -99,7 +100,7 @@ Följ stegen i det här avsnittet för att skapa en Docker-avbildning baserad p�
    ```
 
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>Push-överför Tomcat-avbildningen till behållar registret
-Nu när du har kontrollerat att Tomcat-avbildningen körs i en behållare på din utvecklings dator kan du skicka den till en lagrings plats i ett behållar register. Den här artikeln använder Azure Container Registry för att lagra avbildningen, men med vissa ändringar av stegen kan du använda valfritt behållar register som du väljer. I den här artikeln antas register namnet vara *registret* och det fullständiga register namnet är myregistry.azurecr.io. Ändra dessa på lämpligt sätt för ditt scenario. 
+Nu när du har kontrollerat att Tomcat-avbildningen körs i en behållare på din utvecklings dator, push-överför den till en lagrings plats i ett behållar register för att [minska risken](../container-registry/buffer-gate-public-content.md) för bild utveckling och distributions arbets flöden. Den här artikeln använder Azure Container Registry för att lagra avbildningen, men med vissa ändringar av stegen kan du använda valfritt behållar register som du väljer. I den här artikeln antas register namnet vara *registret* och det fullständiga register namnet är myregistry.azurecr.io. Ändra dessa på lämpligt sätt för ditt scenario. 
 
 1. Kör `docker login` för att logga in i behållar registret med dina [autentiseringsuppgifter för registret](../container-registry/container-registry-authentication.md).
 
@@ -204,7 +205,7 @@ Nu när du har skickat Tomcat-avbildningen till ett behållar register kan du by
    * I ett lokalt kluster använder `http://localhost:19080/Explorer` du (Ersätt *localhost* med den virtuella datorns privata IP om du använder Vagrant på Mac OS X).
    * Använd i ett säkert Azure-kluster `https://PublicIPorFQDN:19080/Explorer` . 
     
-   Expandera noden **program** och Observera att det nu finns en post för din program typ, **ServiceFabricTomcatType**och en annan för den första instansen av den typen. Det kan ta några minuter för programmet att distribueras fullständigt, så du måste ha tålamod.
+   Expandera noden **program** och Observera att det nu finns en post för din program typ, **ServiceFabricTomcatType** och en annan för den första instansen av den typen. Det kan ta några minuter för programmet att distribueras fullständigt, så du måste ha tålamod.
 
    ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
 

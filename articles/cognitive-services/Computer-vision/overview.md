@@ -14,12 +14,12 @@ ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: visuellt innehåll, program för visuellt innehåll, dator vision
-ms.openlocfilehash: 1b4768781c45733590639b4a382fecfdb02adf48
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 566424f9344d1eeff258a0391fa3635d5a12aae6
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95532298"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533120"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
@@ -114,4 +114,4 @@ Som med alla Cognitive Services bör utvecklare som använder tjänsten Visuellt
 
 Kom igång med Visuellt innehåll genom att följa snabb starts guiden på det föredragna utvecklings språket:
 
-- [Snabb start: Visuellt innehåll klient bibliotek](./quickstarts-sdk/client-library.md)
+- [Snabb start: Visuellt innehåll REST API-eller klient bibliotek](./quickstarts-sdk/client-library.md)

@@ -1,27 +1,27 @@
 ---
-title: Självstudie – etablera en Azure våren Cloud-instans med terraform
+title: Etablera en Azure Spring Cloud-instans med terraform
 description: Etablera en Azure våren Cloud-instans med terraform.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: ed66da991df4dbe89c327a9a28ee28527c3da87b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 060ef2d08b849706b47b24748142c608292971b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091652"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533799"
 ---
-# <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>Självstudie: etablera en Azure våren Cloud-instans med terraform
+# <a name="provision-an-azure-spring-cloud-instance-with-terraform"></a>Etablera en Azure våren Cloud-instans med terraform
 
 **Den här artikeln gäller för:** ✔️ Java ✔️ C #
 
-Den här självstudien skapar en Azure våren Cloud-instans med terraform. Procedurerna vägleder dig genom skapandet av följande resurser:
+I det här exemplet skapas en Azure våren Cloud-instans med terraform. Procedurerna vägleder dig genom skapandet av följande resurser:
 
 > [!div class="checklist"]
-> * Resource Group
+> * Resursgrupp
 > * Azure våren Cloud-instans
 > * Azure Storage för Log Analytics
 
@@ -31,7 +31,7 @@ Den här självstudien skapar en Azure våren Cloud-instans med terraform. Proce
 > * Frågor, use-Cases och användbara mönster: [avsnittet terraform i HashiCorp community portal](https://discuss.hashicorp.com/c/terraform-core)
 > * Provider-relaterade frågor: [terraform providers-avsnittet i HashiCorp community-portalen](https://discuss.hashicorp.com/c/terraform-providers)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
@@ -72,7 +72,7 @@ Den här självstudien skapar en Azure våren Cloud-instans med terraform. Proce
     }
     ```
 
-1. Spara filen (** &lt; CTRL>S**) och avsluta redigeraren (** &lt; CTRL>Q**).
+1. Spara filen (**&lt; CTRL>S**) och avsluta redigeraren (**&lt; CTRL>Q**).
 
 ## <a name="apply-the-configuration"></a>Tillämpa konfigurationen
 
@@ -143,7 +143,7 @@ Det här avsnittet visar hur du uppdaterar konfigurationen för att aktivera log
     }
     ```
 
-1. Spara filen (** &lt; CTRL>S**) och avsluta redigeraren (** &lt; CTRL>Q**).
+1. Spara filen (**&lt; CTRL>S**) och avsluta redigeraren (**&lt; CTRL>Q**).
 
 1. Som i föregående avsnitt kör du följande kommando för att göra ändringarna:
 
@@ -161,7 +161,7 @@ Det här avsnittet visar hur du uppdaterar konfigurationen för att aktivera log
 
 Ta bort de resurser som skapats i den här artikeln när de inte längre behövs.
 
-Kör kommandot [terraform förstör](https://www.terraform.io/docs/commands/destroy.html) för att ta bort de Azure-resurser som skapats i den här självstudien:
+Kör kommandot [terraform förstör](https://www.terraform.io/docs/commands/destroy.html) för att ta bort de Azure-resurser som skapats i den här övningen:
 
 ```bash
 terraform destroy -auto-approve

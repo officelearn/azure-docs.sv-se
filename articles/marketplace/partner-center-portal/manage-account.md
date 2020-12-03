@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/02/2020
-ms.openlocfilehash: 8b372cc0fc19c6bf163d9d4e61cde6ce74cb3f28
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: cc853285e193dd3ac4e348525b8bf0db9f8cb023
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95538394"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533952"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Hantera ditt kommersiella Marketplace-konto i Partner Center
 
@@ -113,7 +113,7 @@ När du har angett statusen för din utbetalnings spärr till **på**, kommer al
 > [!NOTE]
 > Ditt val av **utbetalnings status** gäller för **alla** intäkts källor som betalas via Microsoft Partner Center, inklusive Azure Marketplace, AppSource, Microsoft Store, annonsering osv.). Du kan inte välja olika spärr status för varje intäkts källa.
 
-### <a name="devices"></a>Egenskaper
+### <a name="devices"></a>Enheter
 
 Inställningarna för enhets hantering gäller endast för UWP-publicering. [Läs mer](/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info).
 
@@ -293,7 +293,7 @@ Om ditt Azure AD-program läser och skriver data i Microsoft Azure AD behöver d
 Ditt företags användare kan tilldelas följande roller och behörigheter för programmet för affärs marknads platser i Partner Center:
 
 - **Ägare**
-  - "Det här är den person som först skapade kontot och har fullständig åtkomst till det, inklusive möjligheten att skapa och redigera alla konto användare och ändra alla finansiella och konto inställningar. Ett konto har vanligt vis bara en ägare. "
+  - Detta är den person som först skapade kontot och har fullständig åtkomst till det, inklusive möjligheten att skapa och redigera alla konto användare och ändra alla finansiella och konto inställningar. Ett konto har vanligt vis bara en ägare.
 - **Ansvarig**
   - Kan komma åt alla Microsoft-konto funktioner utom skatte-och utbetalnings inställningar
   - Kan hantera användare, roller och arbets konton (klient organisationer)

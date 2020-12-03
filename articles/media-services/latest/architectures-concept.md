@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: inhenkel
-ms.openlocfilehash: e00079190371b3ae0e318aaadd8cf724d9d339d0
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: c14dbe4253696e01e99111a24319e455c1d551e9
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512728"
+ms.locfileid: "96534003"
 ---
 # <a name="media-services-architectures"></a>Media Services arkitekturer
 
@@ -30,12 +30,6 @@ Med en live streaming-lösning kan du samla in video i real tid och skicka den t
 Den här lösningen bygger på de Azure-hanterade tjänsterna: Media Services och Content Delivery Network. De här tjänsterna körs i en miljö med hög tillgänglighet, korrigeras och stöds, så att du kan fokusera på din lösning i stället för den miljö som de körs i.
 
 Se [direkt uppspelning av digitala media](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-media-live-stream) i Azure Architecture Center.
-
-## <a name="instant-broadcasting-on-serverless-architecture"></a>Omedelbar sändning på Server lös arkitektur
-
-Förenkla en-till-många real tids kommunikation och uppdateringar med hjälp av Server lös kod. Den här arkitekturen använder Azure Functions, SignalR-tjänsten, ett lagrings konto och en SQL-databas.
-
-Se [direkt sändning på Server lös arkitektur](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/instant-broadcasting-on-serverless-architecture) i Azure Architecture Center.
 
 ## <a name="video-on-demand-digital-media"></a>Video på begäran i digitala media
 

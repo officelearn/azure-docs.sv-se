@@ -4,12 +4,12 @@ description: Skapa din första Linux-containerapp på Azure Service Fabric. Skap
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: d085f8704850cdbb03e21b15b3cca7c8998b96fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0481cc2d36f7882bbd8eea9b984c3dc388de5dee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004236"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534088"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Skapa din första Service Fabric-containerapp i Linux
 > [!div class="op_single_selector"]
@@ -21,7 +21,7 @@ Du behöver inga göra några ändringar i din app för att köra en befintlig a
 > [!NOTE]
 > Den här artikeln gäller en Linux-utvecklings miljö.  Service Fabric kluster körning och Docker-körningsmiljön måste köras på samma OS.  Det går inte att köra Linux-behållare i ett Windows-kluster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * En utvecklingsdator som kör:
   * [Service Fabric SDK och verktyg](service-fabric-get-started-linux.md).
   * [Docker CE för Linux](https://docs.docker.com/engine/installation/#prior-releases). 
@@ -87,10 +87,17 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
-## <a name="build-the-image"></a>Skapa avbildningen
-Kör kommandot `docker build` för att skapa avbildningen som kör ditt webbprogram. Öppna ett PowerShell-fönster och gå till *c:\temp\helloworldapp*. Kör följande kommando:
+## <a name="login-to-docker-and-build-the-image"></a>Logga in på Docker och bygg avbildningen
 
-```bash
+Nu ska vi skapa den avbildning som kör ditt webb program. När du hämtar offentliga bilder från Docker (t. ex. `python:2.7-slim` i vårt Dockerfile), är det bäst att autentisera med ditt Docker Hub-konto i stället för att göra en anonym pull-begäran.
+
+> [!NOTE]
+> När du gör vanliga anonyma pull-begäranden kan du se Docker-fel som liknar `ERROR: toomanyrequests: Too Many Requests.` eller `You have reached your pull rate limit.` autentiseras för Docker Hub för att förhindra dessa fel. Mer information finns i [Hantera offentligt innehåll med Azure Container Registry](../container-registry/buffer-gate-public-content.md) .
+
+Öppna ett PowerShell-fönster och navigera till den katalog som innehåller din Dockerfile. Kör sedan följande kommandon:
+
+```
+docker login
 docker build -t helloworldapp .
 ```
 

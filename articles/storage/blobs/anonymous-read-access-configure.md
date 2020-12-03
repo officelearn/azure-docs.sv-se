@@ -10,12 +10,12 @@ ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: a808a6bb0d4dc75f02147bbfdd74d17b34e96f6e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: feac7b890c973b1541c5362f860432687082953f
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313973"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533884"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Konfigurera anonym offentlig Läs behörighet för behållare och blobbar
 
@@ -53,7 +53,7 @@ Att neka offentlig åtkomst för lagrings kontot förhindrar anonym åtkomst til
 
 Om du vill tillåta eller neka offentlig åtkomst till ett lagrings konto konfigurerar du kontots **AllowBlobPublicAccess** -egenskap. Den här egenskapen är tillgänglig för alla lagrings konton som skapas med Azure Resource Manager distributions modell. Mer information finns i [Översikt över lagrings konto](../common/storage-account-overview.md).
 
-Egenskapen **AllowBlobPublicAccess** har inte angetts som standard och returnerar inte något värde förrän du uttryckligen anger det. Lagrings kontot tillåter offentlig åtkomst när egenskap svärdet är antingen **Null** eller **Sant**.
+Egenskapen **AllowBlobPublicAccess** har inte angetts för ett lagrings konto som standard och returnerar inget värde förrän du uttryckligen anger det. Lagrings kontot tillåter offentlig åtkomst när egenskap svärdet är antingen **Null** eller **Sant**.
 
 # <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
@@ -133,7 +133,7 @@ Om du vill tillåta eller neka offentlig åtkomst för ett lagrings konto med en
 
 1. I Azure Portal väljer du **skapa en resurs**.
 1. I **Sök på Marketplace** skriver du **mall distribution** och trycker sedan på **RETUR**.
-1. Välj **malldistribution (distribuera med anpassade mallar) (för hands version)** , Välj **skapa** och välj sedan **skapa en egen mall i redigeraren**.
+1. Välj **malldistribution (distribuera med anpassade mallar) (för hands version)**, Välj **skapa** och välj sedan **skapa en egen mall i redigeraren**.
 1. I redigeraren för mallar klistrar du in följande JSON för att skapa ett nytt konto och anger egenskapen **AllowBlobPublicAccess** till **True** eller **false**. Kom ihåg att ersätta plats hållarna inom vinkelparenteser med dina egna värden.
 
     ```json

@@ -15,27 +15,30 @@ ms.custom:
 - devx-track-js
 - devx-track-csharp
 - cog-serv-seo-aug-2020
-zone_pivot_groups: programming-languages-set-one
+zone_pivot_groups: programming-languages-computer-vision
 keywords: dator vision, dator vision
-ms.openlocfilehash: c0ed1d534ce76f870b34c626b1b21f7745aa3247
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 20378eff09abed0eb4d7587211f576de6313ea1d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91309836"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533349"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Snabb start: Använd Visuellt innehåll klient bibliotek
 
-Kom igång med Visuellt innehåll klient biblioteket. Visuellt innehålls tjänsten innehåller AI-algoritmer för bearbetning av bilder och för att returnera information om deras visuella funktioner. Följ de här stegen för att installera ett paket i programmet och prova exempel koden för grundläggande uppgifter.
+Kom igång med Visuellt innehåll REST API-eller klient bibliotek. Visuellt innehålls tjänsten innehåller AI-algoritmer för bearbetning av bilder och för att returnera information om deras visuella funktioner. Följ de här stegen för att installera ett paket i programmet och prova exempel koden för grundläggande uppgifter.
 
-Använd Visuellt innehåll klient bibliotek för att:
 
-* Analysera en bild för taggar, text beskrivning, ansikten, vuxen innehåll med mera.
-* Skriv ut och handskriven text med Read API.
 
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# SDK quickstart](../includes/quickstarts-sdk/csharp-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [Python SDK quickstart](../includes/quickstarts-sdk/python-sdk.md)]
 
 ::: zone-end
 
@@ -51,14 +54,14 @@ Använd Visuellt innehåll klient bibliotek för att:
 
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python SDK quickstart](../includes/quickstarts-sdk/python-sdk.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-go"
 
 [!INCLUDE [Go SDK quickstart](../includes/quickstarts-sdk/go-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-rest-api"
+
+[!INCLUDE [REST API quickstart](../includes/curl-quickstart.md)]
 
 ::: zone-end

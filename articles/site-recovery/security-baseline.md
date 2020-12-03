@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f6d17b007fcccd87aed17a9ec3ca039b9559ab6d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 860bc9440547a4c62336ccc573859ec56b3400b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492241"
+ms.locfileid: "96533867"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Azures säkerhets bas linje för Site Recovery
 
@@ -164,9 +164,9 @@ Visualisera och fråga logg resultat och konfigurera aviseringar för att vidta 
 
 **Vägledning**: inga roller tilldelas som standard. De måste tilldelas explicit utifrån affärs behov. Roll tilldelningar kan kontrol leras med PowerShell CLI eller Azure Active Directory (Azure AD) för att identifiera konton som är medlemmar i administrativa grupper.
 
-- [Så här hämtar du en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
+- [Så här hämtar du en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Azure Security Center-övervakning**: Ja
 
@@ -224,7 +224,7 @@ Skapa en process för att spåra identitets-och åtkomst kontroll för administr
 
 - [Arbetsstationer för privilegierad åtkomst (PAW)](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Planera en molnbaserad Azure AD Multi-Factor Authentication-distribution](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planera en molnbaserad distribution av Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Övervakning i Azure Security Center**: Ej tillämpligt
 
@@ -431,7 +431,7 @@ Endast kunden har åtkomst till krypterings nyckeln när ett Recovery Services v
 
 - [Så här skapar du frågor med Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Så här visar du dina Azure-prenumerationer](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [Så här visar du dina Azure-prenumerationer](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Förstå Azure RBAC](../role-based-access-control/overview.md)
 
@@ -530,7 +530,7 @@ Det är viktigt att du förstår hur du skapar och hanterar principer i Azure f�
 **Vägledning**: definiera och implementera standardkonfigurationer för Recovery Services valvet med Azure policy. 
 
 Använd Azure Policy alias i namn området "Microsoft. RecoveryServices" om du vill skapa anpassade principer för granskning eller tillämpa konfigurationen av Recovery Services Vault-resurserna i Site Recovery-tjänsten.
-- [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Konfigurera och hantera Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -553,9 +553,9 @@ Använd Azure Policy alias i namn området "Microsoft. RecoveryServices" om du v
 
 **Vägledning**: Välj Azure-databaser för att lagra och hantera din kod på ett säkert sätt om du använder anpassade Azure policys definitioner för dina Recovery Services-valv och relaterade resurser.
 
-- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Dokumentation om Azure databaser](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
+- [Dokumentation om Azure databaser](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Övervakning i Azure Security Center**: Ej tillämpligt
 
@@ -656,7 +656,7 @@ Alla lagrings resurser som används av Site Recovery Services metadata med konfi
 
 Detta är utanför kundens omfattning och Site Recovery teamet tar hand om det internt. Kunden kan säkerhetskopiera Key Vault nycklar i Azure.
 
-- [Så här säkerhetskopierar du nyckel valv nycklar i Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [Så här säkerhetskopierar du nyckel valv nycklar i Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Övervakning i Azure Security Center**: Ej tillämpligt
 
@@ -666,7 +666,7 @@ Detta är utanför kundens omfattning och Site Recovery teamet tar hand om det i
 
 **Vägledning**: regelbundet testa att återställa Kundhanterade nycklar.
 
-- [Återställa Key Vault-nycklar i Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [Återställa Key Vault-nycklar i Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Övervakning i Azure Security Center**: Ej tillämpligt
 

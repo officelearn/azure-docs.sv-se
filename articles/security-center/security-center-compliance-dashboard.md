@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2020
 ms.author: memildin
-ms.openlocfilehash: 304604b649381daa887b4d313ffd0f773f015a0b
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: bbc36dbb2a17d379d31a9a235898500aea36247d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122223"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533918"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Självstudie: Förbättra regelefterlevnaden
 
@@ -34,7 +34,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 
 ## <a name="prerequisites"></a>Krav
 
-För att gå igenom de funktioner som beskrivs i den här självstudien måste [Azure Defender](azure-defender.md) vara aktiverat. Du kan prova Azure Defender kostnads fritt i 30 dagar.
+För att gå igenom de funktioner som beskrivs i den här självstudien:
+
+- [Azure Defender](azure-defender.md) måste vara aktiverat. Du kan prova Azure Defender kostnads fritt i 30 dagar.
+- Du måste vara inloggad med ett konto som har Läs behörighet till policyns efterlevnadsprinciper (**säkerhets läsaren** är inte tillräcklig). Rollen som **global läsare** för prenumerationen kommer att fungera. Du måste minst ha tilldelats rollerna **resurs princip deltagare** och **säkerhets administratör** .
 
 ##  <a name="assess-your-regulatory-compliance"></a>Utvärdera din regelefterlevnad
 

@@ -4,12 +4,12 @@ description: Skapa din första Windows-containerapp på Azure Service Fabric. By
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 96a9eda23268bc06029292c3c5f10502216e3658
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 197423670ffe05f15fdc5bfd351efdfba33b53cd
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087068"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533782"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-containerapp i Windows
 
@@ -25,7 +25,7 @@ Du behöver inga göra några ändringar i din app för att köra en befintlig a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En utvecklingsdator som kör:
   * Visual Studio 2015 eller Visual Studio 2019.
@@ -36,20 +36,15 @@ Du behöver inga göra några ändringar i din app för att köra en befintlig a
 
   I den här artikeln måste versionen (build) av Windows Server med behållare som körs på klusternoderna matcha den på din utvecklings dator. Detta beror på att du skapar Docker-avbildningen på utvecklings datorn och att det finns kompatibilitetsproblem mellan versioner av behållar-OS och det värd-OS som den har distribuerats på. Mer information finns i [Windows Server container OS och Host OS-kompatibilitet](#windows-server-container-os-and-host-os-compatibility). 
   
-Du kan ta reda på vilken version av Windows Server med behållare du behöver för klustret genom att köra `ver` kommandot från en Windows-kommandotolk på utvecklings datorn:
-
-* Om versionen innehåller *x. x. 14323. x* väljer du *Windows Server 2016-Data Center-with-containers* för operativ systemet när du [skapar ett kluster](service-fabric-cluster-creation-via-portal.md).
-  * Om versionen innehåller *x. x. 16299. x* väljer du *WindowsServerSemiAnnual Data Center-Core-1709-with-containers* för operativ systemet när du [skapar ett kluster](service-fabric-cluster-creation-via-portal.md).
+    Du kan ta reda på vilken version av Windows Server med behållare du behöver för klustret genom att köra `ver` kommandot från en Windows-kommandotolk på utvecklings datorn. Se [Windows Server container OS och Host OS-kompatibilitet](#windows-server-container-os-and-host-os-compatibility) innan du [skapar ett kluster](service-fabric-cluster-creation-via-portal.md).
 
 * Ett register i Azure Container Registry – [Skapa ett behållarregister](../container-registry/container-registry-get-started-portal.md) i din Azure-prenumeration.
 
 > [!NOTE]
 > Distribution av behållare till ett Service Fabric kluster som körs på Windows 10 stöds.  I [den här artikeln](service-fabric-how-to-debug-windows-containers.md) finns information om hur du konfigurerar Windows 10 för att köra Windows-behållare.
->   
 
 > [!NOTE]
-> Service Fabric versioner 6,2 och senare har stöd för distribution av behållare till kluster som körs på Windows Server version 1709.  
-> 
+> Service Fabric versioner 6,2 och senare har stöd för distribution av behållare till kluster som körs på Windows Server version 1709.
 
 ## <a name="define-the-docker-container"></a>Definiera Dockercontainer
 
@@ -109,10 +104,18 @@ if __name__ == "__main__":
 ```
 
 <a id="Build-Containers"></a>
-## <a name="build-the-image"></a>Skapa avbildningen
-Kör kommandot `docker build` för att skapa avbildningen som kör ditt webbprogram. Öppna ett PowerShell-fönster och navigera till den katalog som innehåller din Dockerfile. Kör följande kommando:
+
+## <a name="login-to-docker-and-build-the-image"></a>Logga in på Docker och bygg avbildningen
+
+Nu ska vi skapa den avbildning som kör ditt webb program. När du hämtar offentliga bilder från Docker (t. ex. `python:2.7-windowsservercore` i vårt Dockerfile), är det bäst att autentisera med ditt Docker Hub-konto i stället för att göra en anonym pull-begäran.
+
+> [!NOTE]
+> När du gör vanliga anonyma pull-begäranden kan du se Docker-fel som liknar `ERROR: toomanyrequests: Too Many Requests.` eller `You have reached your pull rate limit.` autentiseras för Docker Hub för att förhindra dessa fel. Mer information finns i [Hantera offentligt innehåll med Azure Container Registry](../container-registry/buffer-gate-public-content.md) .
+
+Öppna ett PowerShell-fönster och navigera till den katalog som innehåller din Dockerfile. Kör sedan följande kommandon:
 
 ```
+docker login
 docker build -t helloworldapp .
 ```
 
@@ -190,11 +193,11 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ## <a name="create-the-containerized-service-in-visual-studio"></a>Skapa containertjänsten i Visual Studio
 SDK:en och verktygen för Service Fabric innehåller en tjänstmall som hjälper dig att skapa ett containerprogram.
 
-1. Starta Visual Studio. Välj **Arkiv**  >  **nytt**  >  **projekt** .
-2. Välj **Service Fabric-programmet** , ge det namnet "MyFirstContainer" och klicka på **OK** .
-3. Välj **Container** i listan med **tjänstmallar** .
+1. Starta Visual Studio. Välj **Arkiv**  >  **nytt**  >  **projekt**.
+2. Välj **Service Fabric-programmet**, ge det namnet "MyFirstContainer" och klicka på **OK**.
+3. Välj **Container** i listan med **tjänstmallar**.
 4. I **Avbildningsnamn** skriver du "myregistry.azurecr.io/samples/helloworldapp" (den avbildning som du skickade till lagringsplatsen för containern).
-5. Namnge tjänsten och klicka på **OK** .
+5. Namnge tjänsten och klicka på **OK**.
 
 ## <a name="configure-communication"></a>Konfigurera kommunikation
 Containertjänsten behöver en slutpunkt för kommunikation. Lägg till ett `Endpoint`-element med protokollet, porten och typen i filen ServiceManifest.xml. I det här exemplet används en fast port, 8081. Om ingen port har angetts väljs en port slumpmässigt från portintervallet för programmet. 
@@ -284,7 +287,7 @@ Med [resursstyrning](service-fabric-resource-governance.md) begränsas resursern
 ```
 ## <a name="configure-docker-healthcheck"></a>Konfigurera Docker HEALTHCHECK 
 
-Från och med v6.1 integrerar Service Fabric händelser för [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) automatiskt i systemets hälsorapport. Det innebär att om containern har **HEALTHCHECK** aktiverad kommer Service Fabric att rapportera hälsa varje gång containerns hälsostatus förändras enligt rapporten från Docker. En hälsorapport som är **OK** visas i [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) när *health_status* är *healthy* och **WARNING** visas när *health_status* är *unhealthy* . 
+Från och med v6.1 integrerar Service Fabric händelser för [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) automatiskt i systemets hälsorapport. Det innebär att om containern har **HEALTHCHECK** aktiverad kommer Service Fabric att rapportera hälsa varje gång containerns hälsostatus förändras enligt rapporten från Docker. En hälsorapport som är **OK** visas i [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) när *health_status* är *healthy* och **WARNING** visas när *health_status* är *unhealthy*. 
 
 Från och med den senaste uppdaterings versionen av v 6.4 har du möjlighet att ange att HEALTHCHECK-utvärderingar i Docker ska rapporteras som ett fel. Om det här alternativet är aktiverat visas en hälso rapport för **OK** när *health_status* är *felfri* och **fel** visas när *health_status* *inte är felfritt.*
 
@@ -296,7 +299,7 @@ Från och med den senaste uppdaterings versionen av v 6.4 har du möjlighet att 
 
 ![HealthCheckUnhealthyDsp][5]
 
-Du kan konfigurera **HEALTHCHECK** -beteendet för varje behållare genom att ange alternativen för **HealthConfig** som en del av **ContainerHostPolicies** i ApplicationManifest.
+Du kan konfigurera **HEALTHCHECK**-beteendet för varje behållare genom att ange alternativen för **HealthConfig** som en del av **ContainerHostPolicies** i ApplicationManifest.
 
 ```xml
 <ServiceManifestImport>
@@ -310,20 +313,20 @@ Du kan konfigurera **HEALTHCHECK** -beteendet för varje behållare genom att an
     </Policies>
 </ServiceManifestImport>
 ```
-Som standard är *IncludeDockerHealthStatusInSystemHealthReport* inställt på **True** , *RestartContainerOnUnhealthyDockerHealthStatus* är inställt på **false** och *TreatContainerUnhealthyStatusAsError* har angetts till **false** . 
+Som standard är *IncludeDockerHealthStatusInSystemHealthReport* inställt på **True**, *RestartContainerOnUnhealthyDockerHealthStatus* är inställt på **false** och *TreatContainerUnhealthyStatusAsError* har angetts till **false**. 
 
 Om *RestartContainerOnUnhealthyDockerHealthStatus* är inställt på **true** kommer en behållare som upprepade gånger rapporteras som ej felfri att startas om (eventuellt på andra noder).
 
-Om *TreatContainerUnhealthyStatusAsError* är inställt på **Sant** visas **fel** hälso rapporter när behållarens *health_status* inte är *felfri* .
+Om *TreatContainerUnhealthyStatusAsError* är inställt på **Sant** visas **fel** hälso rapporter när behållarens *health_status* inte är *felfri*.
 
-Om du vill inaktivera integrering av **HEALTHCHECK** för hela Service Fabric-klustret måste du ställa in [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) på **false** .
+Om du vill inaktivera integrering av **HEALTHCHECK** för hela Service Fabric-klustret måste du ställa in [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) på **false**.
 
 ## <a name="deploy-the-container-application"></a>Distribuera containerappen
 Spara alla dina ändringar och skapa programmet. Om du vill publicera appen högerklickar du på **MyFirstContainer** i Solution Explorer och väljer **Publish** (Publicera).
 
-I **anslutningsslutpunkten** anger du hanteringsslutpunkten för klustret. Till exempel `containercluster.westus2.cloudapp.azure.com:19000`. Slutpunkten för klientanslutningen finns på översiktsfliken för ditt kluster i [Azure Portal](https://portal.azure.com).
+I **anslutningsslutpunkten** anger du hanteringsslutpunkten för klustret. Exempelvis `containercluster.westus2.cloudapp.azure.com:19000`. Slutpunkten för klientanslutningen finns på översiktsfliken för ditt kluster i [Azure Portal](https://portal.azure.com).
 
-Klicka på **Publicera** .
+Klicka på **Publicera**.
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) är ett webbaserat verktyg för att granska och hantera appar och noder i ett Service Fabric-kluster. Öppna en webbläsare och gå till `http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/` och följ appdistributionen. Appen distribueras men är i ett feltillstånd tills avbildningen har laddats ned på klusternoderna (vilket kan ta en stund beroende på avbildningens storlek): ![Fel][1]
 
@@ -369,7 +372,7 @@ Vi rekommenderar följande metoder för att se till att behållare distribueras 
  
 ## <a name="specify-os-build-specific-container-images"></a>Ange specifika containeravbildningar för operativsystemet 
 
-Windows Server-behållare kanske inte är kompatibla i olika versioner av operativ systemet. Till exempel fungerar inte Windows Server-behållare som skapats med Windows Server 2016 i Windows Server version 1709 i process isolerings läge. Om klusternoderna uppdateras till den senaste versionen kan det hända att behållar tjänster som skapats med tidigare versioner av operativ systemet Miss lyckas. För att kringgå detta med version 6,1 av körningen och senare, har Service Fabric stöd för att ange flera OS-avbildningar per behållare och tagga dem med build-versioner av operativ systemet i applikations manifestet. Du kan hämta build-versionen av operativ systemet genom att köra `winver` i kommando tolken i Windows. Uppdatera applikationsmanifesten och ange åsidosättningar av avbildning per operativsystemsversion innan du uppdaterar operativsystemet på noderna. Följande kodavsnitt visar hur du kan ange flera containeravbildningar i applikationsmanifestet, **ApplicationManifest.xml** :
+Windows Server-behållare kanske inte är kompatibla i olika versioner av operativ systemet. Till exempel fungerar inte Windows Server-behållare som skapats med Windows Server 2016 i Windows Server version 1709 i process isolerings läge. Om klusternoderna uppdateras till den senaste versionen kan det hända att behållar tjänster som skapats med tidigare versioner av operativ systemet Miss lyckas. För att kringgå detta med version 6,1 av körningen och senare, har Service Fabric stöd för att ange flera OS-avbildningar per behållare och tagga dem med build-versioner av operativ systemet i applikations manifestet. Du kan hämta build-versionen av operativ systemet genom att köra `winver` i kommando tolken i Windows. Uppdatera applikationsmanifesten och ange åsidosättningar av avbildning per operativsystemsversion innan du uppdaterar operativsystemet på noderna. Följande kodavsnitt visar hur du kan ange flera containeravbildningar i applikationsmanifestet, **ApplicationManifest.xml**:
 
 
 ```xml
@@ -568,7 +571,7 @@ Service Fabric-körningen tilldelar 20 minuter för att ladda ned och extrahera 
 
 ## <a name="set-container-retention-policy"></a>Ange bevarandeprincip för container
 
-Service Fabric (version 6.1 eller senare) har stöd för bevarande av containrar som har avslutats eller inte kunde starta, vilket underlättar diagnostisering av startfel. Den här principen kan anges i filen **ApplicationManifest.xml** , vilket visas i följande kodavsnitt:
+Service Fabric (version 6.1 eller senare) har stöd för bevarande av containrar som har avslutats eller inte kunde starta, vilket underlättar diagnostisering av startfel. Den här principen kan anges i filen **ApplicationManifest.xml**, vilket visas i följande kodavsnitt:
 
 ```xml
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 

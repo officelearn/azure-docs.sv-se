@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/11/2020
-ms.openlocfilehash: 3a08b73a74d30a99ba3c360f012d5917f1d0c8bf
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 12/2/2020
+ms.openlocfilehash: 2cfd391daa13a100a56bb10b79b27eda80902374
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129736"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533623"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Använda referens data för sökningar i Stream Analytics
 
@@ -37,7 +37,7 @@ Referens data modelleras som en sekvens av blobbar (definieras i inmatnings konf
 
 ### <a name="configure-blob-reference-data"></a>Konfigurera referens data för BLOB
 
-Om du vill konfigurera dina referens data måste du först skapa en indata som är av typen **referens data** . I tabellen nedan förklaras varje egenskap som du måste ange när du skapar referens data inmatningen med beskrivningen:
+Om du vill konfigurera dina referens data måste du först skapa en indata som är av typen **referens data**. I tabellen nedan förklaras varje egenskap som du måste ange när du skapar referens data inmatningen med beskrivningen:
 
 |**Egenskaps namn**  |**Beskrivning**  |
 |---------|---------|
@@ -111,13 +111,13 @@ Du kan använda en [hanterad Azure SQL-instans](../azure-sql/managed-instance/sq
 
 ## <a name="size-limitation"></a>Storleks begränsning
 
-Vi rekommenderar att du använder referens data uppsättningar som är mindre än 300 MB för bästa prestanda. Användning av referens data som är större än 300 MB stöds i jobb med 6 SUs eller mer. Den här funktionen är i för hands version och får inte användas i produktion. Om du använder en mycket stor referens data kan jobbets prestanda påverkas. När frågans komplexitet ökar för att inkludera tillstånds känslig bearbetning, till exempel fönster mängd, temporala kopplingar och temporala analys funktioner, förväntas det att den maximala storlek som stöds för referens data minskar. Om Azure Stream Analytics inte kan läsa in referens data och utföra komplexa åtgärder, kommer jobbet att ta slut på minne och Miss kan köras. I sådana fall når måttet SU% nyttjande 100%.    
+Vi rekommenderar att du använder referens data uppsättningar som är mindre än 300 MB för bästa prestanda. Referens data uppsättningar 5 GB eller lägre stöds i jobb med 6 SUs eller mer. Om du använder en mycket stor referens data kan det påverka svars tiden från slut punkt till slut punkt för jobbet. När frågans komplexitet ökar för att inkludera tillstånds känslig bearbetning, till exempel fönster mängd, temporala kopplingar och temporala analys funktioner, förväntas det att den maximala storlek som stöds för referens data minskar. Om Azure Stream Analytics inte kan läsa in referens data och utföra komplexa åtgärder, kommer jobbet att ta slut på minne och Miss kan köras. I sådana fall når måttet SU% nyttjande 100%.    
 
 |**Antal enheter för strömning**  |**Rekommenderad storlek**  |
 |---------|---------|
 |1   |50 MB eller lägre   |
 |3   |150 MB eller lägre   |
-|6 och senare   |300 MB eller lägre. Att använda referens data som är större än 300 MB stöds i för hands versionen och kan påverka jobbets prestanda.    |
+|6 och senare   |5 GB eller lägre.    |
 
 Det finns inte stöd för komprimering för referens data.
 

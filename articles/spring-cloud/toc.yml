@@ -25,10 +25,6 @@
           href: spring-cloud-quickstart-logs-metrics-tracing.md
 - name: Självstudier
   items:
-    - name: Skala en app manuellt
-      href: spring-cloud-tutorial-scale-manual.md
-    - name: Autoskala en app
-      href: spring-cloud-tutorial-setup-autoscale.md
     - name: Aviseringar och åtgärdsgrupper
       href: spring-cloud-tutorial-alerts-action-groups.md
     - name: Circuit Breaker Dashboard
@@ -83,6 +79,12 @@
           href: spring-cloud-howto-start-stop-delete.md
         - name: Använda beständig lagring
           href: spring-cloud-howto-persistent-storage.md
+    - name: Skala
+      items:
+        - name: Skala en app manuellt
+          href: spring-cloud-tutorial-scale-manual.md
+        - name: Autoskala en app
+          href: spring-cloud-tutorial-setup-autoscale.md
         - name: Identifiera utgående offentliga IP-adresser
           href: spring-cloud-howto-outbound-public-ip.md
     - name: Övervaka
@@ -132,7 +134,19 @@
         - name: Spring Boot
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
-          href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+          href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud'
+- name: DevOps-distribuering
+  items:
+    - name: CI/CD med Azure DevOps
+      href: spring-cloud-howto-cicd.md
+    - name: CI/CD med GitHub-åtgärder
+      href: spring-cloud-howto-github-actions.md
+    - name: Autentisering med Key Vault i GitHub Actions
+      href: spring-cloud-github-actions-key-vault.md
+- name: Felsöka
+  items:
+    - name: Felsökningsguide
+      href: spring-cloud-troubleshoot.md
 - name: Referens
   items:
     - name: Azure CLI-plugin

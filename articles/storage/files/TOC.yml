@@ -39,8 +39,6 @@
           href: storage-snapshots-files.md
         - name: Utveckling
           items:
-            - name: Hantera samtidighet
-              href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: Autentisering med delad nyckel
               href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
             - name: Signaturer för delad åtkomst (SAS)

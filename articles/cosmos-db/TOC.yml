@@ -1249,7 +1249,7 @@
       items:
         - name: VANLIGA FRÅGOR OCH SVAR
           href: table-api-faq.md
-    - name: Anvisningar
+    - name: Instruktionsguider
       items:
         - name: Skapa appar med tabell-API
           href: table-support.md
@@ -1305,7 +1305,7 @@
           href: tutorial-setup-ci-cd.md
         - name: Använda Azure Storage Explorer
           href: storage-explorer.md
-        - name: Använda Azure Cosmos Explorer
+        - name: Använda Azure Cosmos DB Explorer
           href: data-explorer.md
     - name: Analys och BI med Azure Synapse Link
       items:

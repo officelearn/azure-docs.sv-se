@@ -124,7 +124,7 @@
           href: shortpath.md
         - name: Implementera tjänstkvalitet (QoS)
           href: rdp-quality-of-service-qos.md
-        - name: Lista över säkra webbadresser
+        - name: Obligatorisk URL-lista
           href: safe-url-list.md
         - name: Att tänka på när det gäller bandbredden
           href: rdp-bandwidth.md

@@ -68,7 +68,7 @@
             - name: Grundläggande inställningar
               href: data-lake-analytics-u-sql-get-started.md
             - name: Språkreferens
-              href: /u-sql/
+              href: 'https://docs.microsoft.com/u-sql'
             - name: Katalog
               href: data-lake-analytics-u-sql-catalog.md
             - name: Användardefinierade operatörer
@@ -79,8 +79,6 @@
               href: data-lake-analytics-u-sql-r-extensions.md
             - name: Kognitiva tillägg
               href: data-lake-analytics-u-sql-cognitive.md
-            - name: Programmeringsguide
-              href: data-lake-analytics-u-sql-programmability-guide.md
         - name: Visual Studio
           items:
             - name: Installera
@@ -115,6 +113,28 @@
               href: data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md
             - name: Lokal körning och felsökning
               href: data-lake-tools-for-vscode-local-run-and-debug.md
+        - name: Programmeringsguide
+          items:
+            - name: Översikt över programmeringsguide
+              href: data-lake-analytics-u-sql-programmability-guide.md
+            - name: Programmeringsguide – UDT och UDAGG
+              href: data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md
+            - name: Programmeringsguide – UDO
+              items:
+                - name: Översikt över användardefinierade objekt
+                  href: data-lake-analytics-u-sql-programmability-guide-UDO.md
+                - name: Använda användardefinierad extraktor
+                  href: data-lake-analytics-u-sql-programmability-guide-extractor.md
+                - name: Använda användardefinierad utdatafunktion
+                  href: data-lake-analytics-u-sql-programmability-guide-outputter.md
+                - name: Använda användardefinierad processor
+                  href: data-lake-analytics-u-sql-programmability-guide-processor.md
+                - name: Använda användardefinierad tillämpare
+                  href: data-lake-analytics-u-sql-programmability-guide-applier.md
+                - name: Använda användardefinierad kombinerare
+                  href: data-lake-analytics-u-sql-programmability-guide-combiner.md
+                - name: Använda användardefinierad reducerare
+                  href: data-lake-analytics-u-sql-programmability-guide-reducer.md
     - name: Schemalägga U-SQL-jobb
       items:
         - name: Schemalägga jobb med SSIS

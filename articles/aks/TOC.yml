@@ -146,6 +146,8 @@
           href: reduce-latency-ppg.md
         - name: Uppgradera nodavbildningen
           href: node-image-upgrade.md
+        - name: Uppgradera nodavbildningen automatiskt med GitHub Actions
+          href: node-upgrade-github-actions.md
         - name: Bearbeta OS-noduppdateringar
           href: node-updates-kured.md
         - name: Konfigurera ett AKS-kluster

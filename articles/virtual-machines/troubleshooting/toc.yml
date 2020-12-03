@@ -39,6 +39,8 @@
       href: restart-resize-error-troubleshooting.md
     - name: 'Starta om, stänga av eller stoppa tjänster'
       href: boot-error-troubleshoot-windows.md
+    - name: Problem med en fullständig OS-disk på en virtuell Linux-dator
+      href: os-disk-full-linux.md
 - name: Oväntad omstart
   items:
     - name: Oväntade omstarter av virtuella datorer med anslutna virtuella hårddiskar

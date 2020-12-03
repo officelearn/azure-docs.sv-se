@@ -51,98 +51,6 @@
       href: tutorial-iis-sql.md
     - name: 16 – Säker webbserver med SSL
       href: tutorial-secure-web-server.md
-- name: Exempel
-  items:
-    - name: PowerShell-index
-      href: powershell-samples.md
-    - name: PowerShell
-      items:
-        - name: Skapa
-          items:
-            - name: Snabb
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md
-            - name: Fullständigt konfigurerad virtuell dator
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm.md
-            - name: Virtuell dator med hög tillgänglighet
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md
-            - name: Exempel på anpassat skript
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md
-            - name: Använda DSC
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc.md
-            - name: Virtuell dator från VHD-uppladdning
-              href: ./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md
-            - name: Ansluta en OS-disk
-              href: ./../scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md
-            - name: Virtuell dator från ögonblicksbild
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md
-        - name: Hantera lagring
-          items:
-            - name: Skapa en hanterad disk från en virtuell hårddisk
-              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
-            - name: Skapa en hanterad disk från en ögonblicksbild
-              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
-            - name: Kopiera en hanterad disk
-              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
-            - name: Exportera en ögonblicksbild som en virtuell hårddisk till ett lagringskonto
-              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
-            - name: Exportera den virtuella hårddisken för en hanterad disk till ett lagringskonto
-              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
-            - name: Skapa en ögonblicksbild från en virtuell hårddisk
-              href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
-            - name: Kopiera en ögonblicksbild
-              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
-        - name: Skydda
-          items:
-            - name: Kryptera en virtuell dator och dess datadiskar
-              href: ./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?
-        - name: Övervaka
-          items:
-            - name: Azure Monitor
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md
-            - name: Samla in information om alla virtuella datorer i en prenumeration
-              href: ../scripts/virtual-machines-powershell-sample-collect-vm-details.md
-    - name: Azure CLI-index
-      href: cli-samples.md
-    - name: CLI
-      items:
-        - name: Skapa
-          items:
-            - name: Snabb
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-quick-create.md
-            - name: Fullständigt konfigurerad virtuell dator
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm.md
-            - name: Virtuell dator med hög tillgänglighet
-              href: ./../scripts/virtual-machines-windows-cli-sample-nlb.md
-            - name: Exempel på anpassat skript
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-iis.md
-            - name: Använda DSC-konfiguration
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md
-        - name: Hantera lagring
-          items:
-            - name: Skapa en hanterad disk från en virtuell hårddisk
-              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md
-            - name: Skapa en hanterad disk från en ögonblicksbild
-              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md
-            - name: Kopiera en hanterad disk
-              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
-            - name: Exportera en ögonblicksbild som en virtuell hårddisk till ett lagringskonto
-              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
-            - name: Exportera den virtuella hårddisken för en hanterad disk till ett lagringskonto
-              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md
-            - name: Kopiera en ögonblicksbild
-              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md
-        - name: Nätverk
-          items:
-            - name: Skydda nätverkstrafik mellan virtuella datorer
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md
-        - name: Skydda
-          items:
-            - name: Kryptera en virtuell dator och datadiskar
-              href: ./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md
-        - name: Övervaka
-          items:
-            - name: Azure Monitor
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
 - name: Begrepp
   items:
     - name: Avbildningar
@@ -672,9 +580,6 @@
           href: change-drive-letter.md
         - name: Ändra tillgänglighetsuppsättning
           href: change-availability-set.md
-        - name: Exportera ARM-mall
-          displayName: Azure Resource Manager
-          href: download-template.md
         - name: Virtuell Azure-datoragent
           href: ../extensions/agent-windows.md
         - name: Minimera spekulativ körning
@@ -951,6 +856,8 @@
           href: find-unattached-disks.md
         - name: Hitta icke anslutna diskar – portalen
           href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Mappa Azure-diskar till gästdiskar
+          href: azure-to-guest-disk-mapping.md
         - name: Vanliga frågor och svar om diskar
           href: ../faq-for-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Hantera nätverk
@@ -960,7 +867,7 @@
           href: ../../virtual-network/quick-create-portal.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: Öppna portar till en virtuell dator
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: nsg-quickstart-portal.md
             - name: Azure PowerShell
               href: nsg-quickstart-powershell.md

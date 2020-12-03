@@ -109,6 +109,10 @@
                   displayname: vnet
                 - name: Hanterade privata slutpunkter för Synapse-arbetsyta
                   href: ./security/synapse-workspace-managed-private-endpoints.md
+                - name: Synapse-arbetsyta – dataexfiltreringsskydd
+                  href: ./security/workspace-data-exfiltration-protection.md
+                - name: Synapse-arbetsyta med privata länkhubbar
+                  href: ./security/synapse-private-link-hubs.md
             - name: Autentisering och vidarekoppling
               items:
                 - name: Azure Active Directory
@@ -121,11 +125,16 @@
             - name: Åtkomstkontroll
               items:
                 - name: Översikt
-                  href: ./security/access-control.md
-                  displayname: 'access, control'
+                  href: ./security/synapse-workspace-access-control-overview.md
+                - name: Synapse RBAC
+                  href: ./security/synapse-workspace-synapse-rbac.md
+                - name: Synapse RBAC-roller
+                  href: ./security/synapse-workspace-synapse-rbac-roles.md
+                - name: Förstå Synapse RBAC-roller
+                  href: ./security/synapse-workspace-understand-what-role-you-need.md
                 - name: Synapse-arbetsytehanterad identitet
                   href: ./security/synapse-workspace-managed-identity.md
-    - name: Anvisningar
+    - name: Instruktionsguider
       items:
         - name: Hantera och övervaka
           items:
@@ -135,11 +144,19 @@
           items:
             - name: Hantera åtkomstkontroll
               items:
+                - name: Konfigurera åtkomstkontroll
+                  href: ./security/how-to-set-up-access-control.md
+                - name: Granska Synapse-rolltilldelning
+                  href: ./security/how-to-review-synapse-rbac-role-assignments.md
+                - name: Hantera Synapse-rolltilldelningar
+                  href: ./security/how-to-manage-synapse-rbac-role-assignments.md
                 - name: Konfigurera behörigheter för Azure Synapse-arbetsytehanterad identitet
                   href: security/how-to-grant-workspace-managed-identity-permissions.md
                   displayname: grant
-                - name: Konfigurera åtkomstkontroll
-                  href: security/how-to-set-up-access-control.md
+            - name: Dataexfiltreringsskydd
+              items:
+                - name: Skapa och hantera en arbetsyta med dataexfiltreringsskydd
+                  href: security/how-to-create-a-workspace-with-data-exfiltration-protection.md
             - name: Hantera privata slutpunkter
               items:
                 - name: Konfigurera hanterade privata slutpunkter till datakällor

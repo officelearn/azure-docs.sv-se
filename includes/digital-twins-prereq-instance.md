@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/29/2020
 ms.author: baanders
 ms.openlocfilehash: 8ea371e25f149c52412153aa0b9c3b7475dc77fd
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2020
+ms.lasthandoff: 12/04/2020
 ms.locfileid: "96303564"
 ---
 Om du vill arbeta med digitala Azure-objekt i den här artikeln måste du först **Konfigurera en digital Azure-instans** och de behörigheter som krävs för att använda den. Om du redan har en Azure Digital-instans som har kon figurer ATS från föregående arbete kan du använda den instansen.

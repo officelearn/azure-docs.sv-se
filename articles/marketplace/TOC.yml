@@ -50,7 +50,7 @@
         - name: Deltagande i partnersäljsamarbete
           href: marketplace-co-sell.md
         - name: Alternativet för säljsamarbete i Partner Center
-          href: partner-center-portal/commercial-marketplace-co-sell.md
+          href: commercial-marketplace-co-sell.md
         - name: Sälja via CSP-partner
           href: cloud-solution-providers.md
         - name: Onboardingguiden Ansluta program
@@ -382,9 +382,9 @@
     - name: Länder och regioner som stöds
       href: sell-from-countries.md
     - name: Lands- och regionkoder för säljsamarbete
-      href: partner-center-portal/commercial-marketplace-co-sell-countries.md
+      href: commercial-marketplace-co-sell-countries.md
     - name: Kod för tillstånd för säljsamarbete
-      href: partner-center-portal/commercial-marketplace-co-sell-states.md
+      href: commercial-marketplace-co-sell-states.md
     - name: Kategorier och underkategorier
       href: categories.md
     - name: HTML-taggar som stöds

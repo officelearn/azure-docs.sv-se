@@ -10,14 +10,14 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: c1c6478948aaf207f0ca1adf367840ca3db34649
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: a64d26ad11911e2cb9dcdec027b3ab3e4d22984b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325308"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96584497"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) Aktiva LTS-och underhålls LTS-versioner (8.11.1 och 10.14.1 rekommenderas).
@@ -104,7 +104,7 @@ console.log(`\nCreated an identity with ID: ${identityResponse.communicationUser
 
 ## <a name="issue-access-tokens"></a>Utfärda åtkomsttoken
 
-Använd `issueToken` metoden för att utfärda en åtkomsttoken för redan befintlig kommunikations tjänst identitet. Parameter `scopes` definierar uppsättning primitiver som auktoriserar denna åtkomsttoken. Se [listan över åtgärder som stöds](../../concepts/authentication.md). En ny instans av parametern `communicationUser` kan konstrueras baserat på en sträng representation av Azure Communication Service-identiteten.
+Använd `issueToken` metoden för att utfärda en åtkomsttoken för en redan befintlig kommunikations tjänst identitet. Parameter `scopes` definierar uppsättning primitiver som auktoriserar denna åtkomsttoken. Se [listan över åtgärder som stöds](../../concepts/authentication.md). En ny instans av parametern `communicationUser` kan konstrueras baserat på en sträng representation av Azure Communication Service-identiteten.
 
 ```javascript
 // Issue an access token with the "voip" scope for an identity
@@ -119,12 +119,11 @@ console.log(token);
 
 ## <a name="refresh-access-tokens"></a>Uppdatera åtkomsttoken
 
-Om du vill uppdatera en åtkomsttoken använder du `CommunicationUser` objektet för att utfärda följande:
+Att uppdatera åtkomsttoken är lika enkelt som att anropa `issueToken` med samma identitet som användes för att utfärda token. Du måste också ange de `scopes` uppdaterade tokens. 
 
-```javascript  
-// Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-identityResponse = new CommunicationUser(existingIdentity);
-tokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
+```javascript
+// // Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
+let refreshedTokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
 ```
 
 

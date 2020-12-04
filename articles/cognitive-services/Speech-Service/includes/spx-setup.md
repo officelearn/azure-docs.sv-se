@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: da88b8554d6c3214da9a386613538c237a318f73
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6011bf90d5a97dcc027f8a9a0916c28226c5c354
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546917"
+ms.locfileid: "96584537"
 ---
 ## <a name="download-and-install"></a>Hämta och installera
 
@@ -97,13 +97,12 @@ I Windows kommer dina kommandon att starta så här:
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
-På Linux eller macOS kommer dina kommandon att starta ungefär så här:
-```shell   
-sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
-```
+På Linux eller macOS ser dina kommandon ut som exemplet nedan. Ersätt `ABSOLUTE_PATH` med den absoluta sökvägen för den monterade katalogen. Den här sökvägen returnerades av `pwd` kommandot i föregående avsnitt. 
 
-> [!NOTE]
-> Ersätt `/ABSOLUTE_PATH` med den absoluta sökvägen som visas `pwd` i kommandot i avsnittet ovan.
+Om du kör det här kommandot innan du ställer in din nyckel och region får du ett fel meddelande som anger att du ställer in din nyckel och region:
+```shell   
+sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
+```
 
 Om du vill använda `spx` kommandot som är installerat i en behållare, anger du alltid det fullständiga kommandot som visas ovan, följt av parametrarna för din begäran.
 I Windows anger det här kommandot till exempel din nyckel:
@@ -115,26 +114,28 @@ docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCR
 > [!WARNING]
 > Du kan inte använda datorns mikrofon när du kör tal-CLI i en Docker-behållare. Du kan dock läsa från och spara ljudfiler i din lokala monterade katalog. 
 
-### <a name="optional-create-a-command-line-shortcut"></a>Valfritt: skapa en kommando rads genväg
+<!-- Need to troubleshoot issues with docker pull image
 
-Om du kör tal-CLI från en Docker-behållare på Linux eller macOS kan du skapa en genväg. 
+### Optional: Create a command line shortcut
 
-Följ dessa instruktioner för att skapa en genväg:
-1. Öppna `.bash_profile` med din favorit text redigerare. Exempel:
+If you're running the the Speech CLI from a Docker container on Linux or macOS you can create a shortcut. 
+
+Follow these instructions to create a shortcut:
+1. Open `.bash_profile` with your favorite text editor. For example:
    ```shell
    nano ~/.bash_profile
    ```
-2. Lägg sedan till den här funktionen i din `.bash_profile` . Se till att du uppdaterar den här funktionen med rätt sökväg till den monterade katalogen:
+2. Next, add this function to your `.bash_profile`. Make sure you update this function with the correct path to your mounted directory:
    ```shell   
    spx(){
-       sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+       sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
    }
    ```
-3. Källa din profil:
+3. Source your profile:
    ```shell
    source ~/.bash_profile
    ```
-4. Nu `sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx` kan du bara skriva `spx` följt av argument i stället för att köra. Exempel: 
+4. Now instead of running `sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx`, you can just type `spx` followed by arguments. For example: 
    ```shell
    // Get some help
    spx help recognize
@@ -144,8 +145,8 @@ Följ dessa instruktioner för att skapa en genväg:
    ```
 
 > [!WARNING]
-> Om du ändrar den monterade katalog som Docker är referens till måste du uppdatera funktionen i `.bash_profile` .
-
+> If you change the mounted directory that Docker is referencing, you need to update the function in `.bash_profile`.
+--->
 ***
 
 ## <a name="create-subscription-config"></a>Skapa prenumerations konfiguration

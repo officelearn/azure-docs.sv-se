@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/01/2020
+ms.date: 12/03/2020
 ms.author: alkohli
-ms.openlocfilehash: 751ac870996fa1a2805bb018c991f85525fd797d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 90869af032a381cecd3e65f5d5b367156dd047c5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548978"
+ms.locfileid: "96576886"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Använd det lokala webb gränssnittet för att administrera Data Box-enhet och Data Box Heavy
 
@@ -29,21 +29,25 @@ Om det uppstår enhetsproblem kan du skapa ett supportpaket från systemloggarna
 
 Utför följande steg för att generera ett support paket:
 
-1. I det lokala webb gränssnittet går du till **kontakta support** och väljer **skapa support paket**.
+1. I det lokala webb gränssnittet går du till **kontakta support**. Du kan också välja **ta med minnesdump**. Välj sedan **skapa support paket**.
+
+    En minnesdump är innehållet i enhetens minne, som sparas efter ett systemfel.
+
+    Du bör inte välja alternativet **inkludera minnes dumpning** om det inte finns någon fråga. Det tar lång tid att samla in ett support paket som innehåller en minnesdump, och känsliga data ingår.
 
     ![Skapa supportpaket 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-2. Ett supportpaket samlas in. Den här åtgärden tar några minuter.
+    Ett supportpaket samlas in. Den här åtgärden tar några minuter om du bara inkluderar system loggar. Om du tar med en minnesdump tar det mycket längre tid.
 
     ![Skapa supportpaket 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. När du har skapat ett support paket väljer du **Hämta support paket**.
+2. När du har skapat ett support paket väljer du **Hämta support paket**.
+
+    ![Skapa support paket 3](media/data-box-local-web-ui-admin/create-support-package-3.png)
+
+3. Bläddra och välj nedladdningsplats. Öppna mappen för att visa innehållet.
 
     ![Skapa supportpaket 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
-
-4. Bläddra och välj nedladdningsplats. Öppna mappen för att visa innehållet.
-
-    ![Skapa supportpaket 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
 
 ## <a name="erase-local-data-from-your-device"></a>Radera lokala data från din enhet
 
@@ -72,6 +76,7 @@ Du kan stänga av eller starta om enheten med hjälp av det lokala webb gränssn
 Följ stegen nedan om du vill stänga av enheten.
 
 1. I det lokala webbgränssnittet går du till **Stäng av eller starta om**.
+
 2. Välj **Stäng av**.
 
     ![Stänga av dataruta 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
@@ -107,7 +112,7 @@ Innan du börjar ska du följa de här stegen för att ladda ned STRUKTURLISTE-e
 
     <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
-3. I Utforskaren ser du att separata listor över filer skapas beroende på vilket protokoll som används för att ansluta till enheten och vilken Azure Storage typ som används.
+3. I Utforskaren genereras separata listor över filer beroende på vilket protokoll som används för att ansluta till enheten och vilken Azure Storage typ som används.
 
     <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
     ![Filer för lagringstyp och anslutningsprotokoll](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
@@ -184,7 +189,7 @@ Kontrollsummor genereras för dina data som standard när du förbereder för at
 
 Beräkning av kontroll Summa under förberedelse till leverans görs bara för import order och inte för export order.
 
-Vi rekommenderar starkt att du inte inaktiverar kontrollsumman såvida inte prestanda påverkas allvarligt.
+Vi rekommenderar starkt att du inte inaktiverar kontroll summan, om inte prestandan påverkas allvarligt.
 
 1. I det övre högra hörnet av det lokala webb gränssnittet på enheten går du till **Inställningar**.
 
@@ -263,7 +268,7 @@ Så här aktiverar du överföring av ACL: er för Azure Files:
 
 Som standard använder Azure Data Box Transport Layer Security (TLS) 1,2 för kryptering eftersom det är säkrare än TLS 1,1. Men om du eller dina klienter använder en webbläsare för att komma åt data som inte stöder TLS 1,2, kan du Aktivera TLS 1,1.
 
-Mer information om TLS finns i [Azure Data Box Gateway säkerhet](../databox-online/data-box-gateway-security.md).
+Mer information om TLS finns i [Azure Data Box Gateway säkerhet](../databox-gateway/data-box-gateway-security.md).
 
 Så här aktiverar du TLS 1,1 i din Azure-enhet:
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: 9f7d81423c75c3e1a51f5b5d5f37c54307488eb3
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: f61d99a61cb50886d70489b586d948bfa751e196
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554057"
+ms.locfileid: "96576782"
 ---
 # <a name="glossary-insights-on-your-data-in-azure-purview"></a>Ord lista för dina data i Azure avdelningens kontroll
 
@@ -20,6 +20,7 @@ Den här instruktions guiden beskriver hur du kommer åt, visar och filtrerar av
 
 I den här instruktions guiden lär du dig att:
 
+> [!div class="checklist"]
 > - Gå till insikter från ditt avdelningens kontroll-konto
 > - Få en fågel ögon-vy över dina data
 

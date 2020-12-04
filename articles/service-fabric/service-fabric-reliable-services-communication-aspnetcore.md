@@ -1,17 +1,15 @@
 ---
 title: Tjänst kommunikation med ASP.NET Core
 description: Lär dig hur du använder ASP.NET Core i tillstånds lösa och tillstånds känsliga Azure-Service Fabric Reliable Services program.
-author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 69423e7545178fd74ad44f5cab7b37b6f24b3577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba5626d477bbd6aa07d89703cc37b157f4cfd4d5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022198"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576799"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core i Azure Service Fabric Reliable Services
 
@@ -471,7 +469,7 @@ Kestrel är den föreslagna webb servern för klient dels tjänster som exponera
  
 När de exponeras för Internet bör en tillstånds lös tjänst använda en välkänd och stabil slut punkt som kan kommas åt via en belastningsutjämnare. Du får den här URL: en till ditt programs användare. Vi rekommenderar följande konfiguration:
 
-| Typ | Rekommendation | Obs! |
+| Typ | Rekommendation | Kommentarer |
 | ---- | -------------- | ----- |
 | Webbserver | Kestrel | Kestrel är den önskade webb servern eftersom den stöds i Windows och Linux. |
 | Port konfiguration | statiskt | En välkänd statisk port bör konfigureras i `Endpoints` konfigurationen av ServiceManifest.xml, till exempel 80 för http eller 443 för https. |
@@ -496,7 +494,7 @@ Om flera externt exponerade tjänster delar samma uppsättning noder, kan du anv
 ### <a name="internal-only-stateless-aspnet-core-service"></a>Endast internt ASP.NET Core tjänst med tillstånds skydd
 Tillstånds lösa tjänster som bara anropas från i klustret bör använda unika URL: er och dynamiskt tilldelade portar för att säkerställa samarbetet mellan flera tjänster. Vi rekommenderar följande konfiguration:
 
-| Typ | Rekommendation | Obs! |
+| Typ | Rekommendation | Kommentarer |
 | ---- | -------------- | ----- |
 | Webbserver | Kestrel | Även om du kan använda HTTP.sys för interna tillstånds lösa tjänster är Kestrel den bästa servern för att tillåta flera tjänst instanser att dela en värd.  |
 | Port konfiguration | dynamiskt tilldelad | Flera repliker av en tillstånds känslig tjänst kan dela en värd process eller ett värd operativ system, vilket kräver att unika portar krävs. |
@@ -506,7 +504,7 @@ Tillstånds lösa tjänster som bara anropas från i klustret bör använda unik
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Endast internt tillstånds känslig ASP.NET Core-tjänst
 Tillstånds känsliga tjänster som bara anropas från i klustret bör använda dynamiskt tilldelade portar för att säkerställa samarbetet mellan flera tjänster. Vi rekommenderar följande konfiguration:
 
-| Typ | Rekommendation | Obs! |
+| Typ | Rekommendation | Kommentarer |
 | ---- | -------------- | ----- |
 | Webbserver | Kestrel | Är `HttpSysCommunicationListener` inte avsedd att användas av tillstånds känsliga tjänster där repliker delar en värd process. |
 | Port konfiguration | dynamiskt tilldelad | Flera repliker av en tillstånds känslig tjänst kan dela en värd process eller ett värd operativ system, vilket kräver att unika portar krävs. |

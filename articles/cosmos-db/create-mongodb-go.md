@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
-ms.openlocfilehash: 548deeec456537c64dc5d8ebe95ed1e4802e91c5
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 3f6ff0f81c1979297ed0144eca336cb252c2e787
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349222"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574368"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Snabb start: ansluta ett Go-program till Azure Cosmos DB s API för MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -31,13 +31,11 @@ Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt
 
 Exempel programmet är ett kommando rads baserat `todo` hanterings verktyg som skrivs i go. Azure Cosmos DBs API för MongoDB är [kompatibelt med MongoDB-Wire-protokollet](./mongodb-introduction.md#wire-protocol-compatibility), vilket gör det möjligt för alla MongoDB klient driv rutiner att ansluta till den. I det här programmet används [driv rutinen Go för MongoDB](https://github.com/mongodb/mongo-go-driver) på ett sätt som är transparent för programmet att data lagras i en Azure Cosmos DB databas.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration. Du kan också använda [Azure Cosmos DB emulatorn](https://aka.ms/cosmosdb-emulator) med anslutnings strängen `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true` .
 - [Go](https://golang.org/) installerat på datorn och en fungerande kunskap om go.
 - [Git](https://git-scm.com/downloads).
-- Om du inte vill använda Azure Cloud Shell kan du använda [Azure CLI 2.0 +](/cli/azure/install-azure-cli).
-
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
@@ -353,7 +351,7 @@ export MONGODB_COLLECTION=todos
 
 Du kan välja önskade värden för `MONGODB_DATABASE` och `MONGODB_COLLECTION` eller lämna dem som de är.
 
-## <a name="run-the-application"></a>Kör programmet
+## <a name="run-the-application"></a>Köra appen
 
 För att skapa en `todo`
 

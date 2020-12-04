@@ -1,17 +1,15 @@
 ---
 title: Konvertera Azure Cloud Services-appar till Service Fabric
 description: Den här guiden jämför Cloud Services Web-och Worker-roller och Service Fabric tillstånds lösa tjänster för att hjälpa till att migrera från Cloud Services till Service Fabric.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24a411403fc139a7e7fa6644690c57a3b2729bf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf593f793aabf2a0650684ed8d02fe02d756ec2b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89002291"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575745"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guide för att konvertera webb-och arbets roller till Service Fabric tillstånds lösa tjänster
 I den här artikeln beskrivs hur du migrerar Cloud Services Web-och Worker-roller till Service Fabric tillstånds lösa tjänster. Det här är den enklaste migreringen från Cloud Services till Service Fabric för program vars övergripande arkitektur kommer att stanna på samma sätt.
@@ -33,10 +31,10 @@ På samma sätt som arbets rollen representerar en webbroll även en tillstånds
 
 | **Program** | **Tillåtna** | **Sökväg för migrering** |
 | --- | --- | --- |
-| ASP.NET webb formulär |Inga |Konvertera till ASP.NET Core 1 MVC |
+| ASP.NET webb formulär |Nej |Konvertera till ASP.NET Core 1 MVC |
 | ASP.NET MVC |Med migrering |Uppgradera till ASP.NET Core 1 MVC |
 | ASP.NET Web API |Med migrering |Använd egen server eller ASP.NET Core 1 |
-| ASP.NET Core 1 |Ja |E.t. |
+| ASP.NET Core 1 |Ja |Saknas |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API för start punkt och livs cykel
 Arbets rollen och Service Fabric tjänst-API: er erbjuder liknande start punkter: 
@@ -44,9 +42,9 @@ Arbets rollen och Service Fabric tjänst-API: er erbjuder liknande start punkter
 | **Start punkt** | **Arbets roll** | **Service Fabric tjänst** |
 | --- | --- | --- |
 | Bearbetar |`Run()` |`RunAsync()` |
-| VM-start |`OnStart()` |E.t. |
-| Stoppa virtuell dator |`OnStop()` |E.t. |
-| Öppna lyssnare för klient begär Anden |E.t. |<ul><li> `CreateServiceInstanceListener()` för tillstånds lös</li><li>`CreateServiceReplicaListener()` för tillstånds känslig</li></ul> |
+| VM-start |`OnStart()` |Saknas |
+| Stoppa virtuell dator |`OnStop()` |Saknas |
+| Öppna lyssnare för klient begär Anden |Saknas |<ul><li> `CreateServiceInstanceListener()` för tillstånds lös</li><li>`CreateServiceReplicaListener()` för tillstånds känslig</li></ul> |
 
 ### <a name="worker-role"></a>Arbets roll
 ```csharp
@@ -115,8 +113,8 @@ API: et för Cloud Servicess miljön innehåller information och funktioner för
 | Konfigurations inställningar och ändrings meddelande |`RoleEnvironment` |`CodePackageActivationContext` |
 | Lokal lagring |`RoleEnvironment` |`CodePackageActivationContext` |
 | Slut punkts information |`RoleInstance` <ul><li>Aktuell instans: `RoleEnvironment.CurrentRoleInstance`</li><li>Andra roller och instanser: `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` för aktuell Node-adress</li><li>`FabricClient` och `ServicePartitionResolver` för tjänst slut punkts identifiering</li> |
-| Miljö emulering |`RoleEnvironment.IsEmulated` |E.t. |
-| Samtidig ändrings händelse |`RoleEnvironment` |E.t. |
+| Miljö emulering |`RoleEnvironment.IsEmulated` |Saknas |
+| Samtidig ändrings händelse |`RoleEnvironment` |Saknas |
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
 Konfigurations inställningar i Cloud Services anges för en virtuell dator roll och tillämpas på alla instanser av den virtuella dator rollen. De här inställningarna är nyckel/värde-par som anges i ServiceConfiguration. *. cscfg-filer och kan nås direkt via RoleEnvironment. I Service Fabric gäller inställningarna individuellt för varje tjänst och för varje program, i stället för till en virtuell dator, eftersom en virtuell dator kan vara värd för flera tjänster och program. En tjänst består av tre paket:

@@ -9,13 +9,12 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.topic: sample
 ms.date: 03/19/2018
-ms.custom: sfrev
-ms.openlocfilehash: 5cc72423d7e901f82cdf7e40f5de72bd54e9cec1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 750a2100d34e02cac7c613cc6b95160fc348b535
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076173"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576374"
 ---
 # <a name="update-the-rdp-port-range-values"></a>Uppdatera RDP-portintervallvärden
 
@@ -33,7 +32,7 @@ Installera Azure PowerShell, om så behövs, med hjälp av anvisningarna i [Azur
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Hämtar `Microsoft.Network/loadBalancers`-resursen. |
 |[Set-AzResource](/powershell/module/az.resources/set-azresource)|Uppdaterar `Microsoft.Network/loadBalancers`-resursen.|

@@ -1,17 +1,15 @@
 ---
 title: Översikt över Reliable Services kommunikation
 description: Översikt över Reliable Services kommunikations modellen, inklusive att öppna lyssnare på tjänster, lösa slut punkter och kommunicera mellan tjänster.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b45ceaed9f0d3d64a0fc6890549542acc6b1c21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7dc10055633c8e6dd2c645f28b774d5d5f3ac3f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018645"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574334"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Använda API: erna för Reliable Services kommunikation
 Azure Service Fabric som en plattform är helt oberoende om kommunikation mellan tjänster. Alla protokoll och stackar är acceptabla, från UDP till HTTP. Det är upp till tjänste utvecklaren att välja hur tjänsterna ska kommunicera. Reliable Services Application Framework innehåller inbyggda kommunikations stackar och API: er som du kan använda för att skapa anpassade kommunikations komponenter.

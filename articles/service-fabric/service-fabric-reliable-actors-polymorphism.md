@@ -1,17 +1,15 @@
 ---
 title: Polymorfism i Reliable Actors Framework
 description: Bygg hierarkier av .NET-gränssnitt och-typer i Reliable Actors Framework för att återanvända funktioner och API-definitioner.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7552609fc4c85cdd5033e67b1bab7fb58cb6ebf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 568e306979e862c325264a4e12a64d95e6d13c5f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016571"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576000"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Polymorfism i Reliable Actors Framework
 Med Reliable Actors Framework kan du skapa aktörer med många av de metoder som du kan använda i objektorienterad design. En av dessa tekniker är polymorfism, som gör att typer och gränssnitt kan ärvas från mer generaliserade föräldrar. Arv i Reliable Actors Framework följer i allmänhet .NET-modellen med några ytterligare begränsningar. I händelse av Java/Linux följer Java-modellen.

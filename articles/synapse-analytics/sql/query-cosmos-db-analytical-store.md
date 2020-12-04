@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 439337233e24dfcae2c8c911a9224fd3394d6846
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a7e9cdb18d109abeef7d7d7237444ac55f9e7da1
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462701"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576357"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Fråga Azure Cosmos DB data med en server lös SQL-pool i för hands versionen av Azure Synapse Link
 
@@ -33,6 +33,12 @@ I den här artikeln får du lära dig hur du skriver en fråga med en server lö
 
 ## <a name="overview"></a>Översikt
 
+Med Server lös SQL-pool kan du fråga Azure Cosmos DB analys lagring med hjälp av `OPENROWSET` funktion. 
+- `OPENROWSET` med infogad nyckel. Du kan använda den här syntaxen för att fråga Azure Cosmos DB samlingar utan att behöva förbereda autentiseringsuppgifter.
+- `OPENROWSET` den refererade autentiseringsuppgiften som innehåller Cosmos DB konto nyckeln. Du kan använda den här syntaxen för att skapa vyer för Azure Cosmos DB samlingar.
+
+### <a name="openrowset-with-key"></a>[OpenRowSet med nyckel](#tab/openrowset-key)
+
 För att stödja frågor och analys av data i ett Azure Cosmos DB analys lager, använder en server lös SQL-pool följande `OPENROWSET` syntax:
 
 ```sql
@@ -45,17 +51,39 @@ OPENROWSET(
 
 Anslutnings strängen Azure Cosmos DB anger Azure Cosmos DB konto namn, databas namn, huvud nyckel för databas konto och ett valfritt region namn till `OPENROWSET` funktionen.
 
-> [!IMPORTANT]
-> Kontrol lera att du använder en viss UTF-8-databas sortering, till exempel `Latin1_General_100_CI_AS_SC_UTF8` eftersom sträng värden i ett Azure Cosmos DB analys lager kodas som UTF-8-text.
-> Ett matchnings fel mellan text kodning i filen och sorteringen kan orsaka oväntade text konverterings fel.
-> Du kan enkelt ändra standard sorteringen för den aktuella databasen med hjälp av instruktionen T-SQL `alter database current collate Latin1_General_100_CI_AI_SC_UTF8` .
-
 Anslutnings strängen har följande format:
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
 ```
 
 Namnet på Azure Cosmos DB containern anges utan citat tecken i `OPENROWSET` syntaxen. Om behållar namnet innehåller specialtecken, till exempel ett bindestreck (-), ska namnet omslutas inom hakparenteser ( `[]` ) i `OPENROWSET` syntaxen.
+
+### <a name="openrowset-with-credential"></a>[OpenRowSet med autentiseringsuppgift](#tab/openrowset-credential)
+
+Du kan använda `OPENROWSET` syntax som refererar till autentiseringsuppgifter:
+
+```sql
+OPENROWSET( 
+       PROVIDER = 'CosmosDB',
+       CONNECTION = '<Azure Cosmos DB connection string without account key>',
+       OBJECT = '<Container name>',
+       [ CREDENTIAL | SERVER_CREDENTIAL ] = '<credential name>'
+    )  [ < with clause > ] AS alias
+```
+
+Den Azure Cosmos DB anslutnings strängen innehåller inte någon nyckel i det här fallet. Anslutnings strängen har följande format:
+```sql
+'account=<database account name>;database=<database name>;region=<region name>'
+```
+
+Huvud nyckeln för databas kontot placeras i autentiseringsuppgifter på server nivå eller databas omfattning. 
+
+---
+
+> [!IMPORTANT]
+> Kontrol lera att du använder en viss UTF-8-databas sortering, till exempel `Latin1_General_100_CI_AS_SC_UTF8` eftersom sträng värden i ett Azure Cosmos DB analys lager kodas som UTF-8-text.
+> Ett matchnings fel mellan text kodning i filen och sorteringen kan orsaka oväntade text konverterings fel.
+> Du kan enkelt ändra standard sorteringen för den aktuella databasen med hjälp av instruktionen T-SQL `alter database current collate Latin1_General_100_CI_AI_SC_UTF8` .
 
 > [!NOTE]
 > En server utan SQL-pool har inte stöd för att skicka frågor till en Azure Cosmos DB transaktions lagring.
@@ -76,6 +104,9 @@ Om du vill följa med i den här artikeln som demonstrerar hur du frågar Azure 
 
 Det enklaste sättet att utforska data i Azure Cosmos DB är att använda funktionen för automatiskt schema härledning. Genom att utelämna- `WITH` satsen från `OPENROWSET` -instruktionen kan du instruera den serverbaserade SQL-poolen att automatiskt identifiera (härleda) schemat för den Azure Cosmos DB behållarens analys arkiv.
 
+
+### <a name="openrowset-with-key"></a>[OpenRowSet med nyckel](#tab/openrowset-key)
+
 ```sql
 SELECT TOP 10 *
 FROM OPENROWSET( 
@@ -83,6 +114,25 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
+
+### <a name="openrowset-with-credential"></a>[OpenRowSet med autentiseringsuppgift](#tab/openrowset-credential)
+
+```sql
+/*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
+    CREATE CREDENTIAL MyCosmosDbAccountCredential
+    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+*/
+SELECT TOP 10 *
+FROM OPENROWSET(
+      PROVIDER = 'CosmosDB',
+      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
+      OBJECT = 'EcdcCases',
+      SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+```
+
+---
+
 I föregående exempel instruerade vi den serverbaserade SQL-poolen att ansluta till `covid` databasen i det Azure Cosmos DB konto `MyCosmosDbAccount` som autentiserats med hjälp av Azure Cosmos DBS nyckeln (provdocka i föregående exempel). Vi har sedan till gång till `EcdcCases` behållarens analys Arkiv i `West US 2` regionen. Eftersom det inte finns någon projektion av vissa egenskaper, `OPENROWSET` returnerar funktionen alla egenskaper från Azure Cosmos DB objekt.
 
 Förutsatt att objekten i Azure Cosmos DB-behållaren har `date_rep` , `cases` , och `geo_id` egenskaper, visas resultatet av den här frågan i följande tabell:
@@ -119,6 +169,7 @@ Anta att vi har importerat några data från [ECDC COVID-datauppsättningen](htt
 
 Dessa enkla JSON-dokument i Azure Cosmos DB kan representeras som en uppsättning rader och kolumner i Synapse SQL. Med `OPENROWSET` funktionen kan du ange en delmängd av de egenskaper som du vill läsa och de exakta kolumn typerna i- `WITH` satsen:
 
+### <a name="openrowset-with-key"></a>[OpenRowSet med nyckel](#tab/openrowset-key)
 ```sql
 SELECT TOP 10 *
 FROM OPENROWSET(
@@ -127,7 +178,21 @@ FROM OPENROWSET(
        EcdcCases
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
-
+### <a name="openrowset-with-credential"></a>[OpenRowSet med autentiseringsuppgift](#tab/openrowset-credential)
+```sql
+/*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
+    CREATE CREDENTIAL MyCosmosDbAccountCredential
+    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+*/
+SELECT TOP 10 *
+FROM OPENROWSET(
+      PROVIDER = 'CosmosDB',
+      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
+      OBJECT = 'EcdcCases',
+      SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+```
+---
 Resultatet av den här frågan kan se ut som i följande tabell:
 
 | date_rep | fall | geo_id |
@@ -137,6 +202,26 @@ Resultatet av den här frågan kan se ut som i följande tabell:
 | 2020-08-11 | 163 | RS |
 
 Mer information om de SQL-typer som ska användas för Azure Cosmos DB värden finns i [reglerna för SQL-typnamn](#azure-cosmos-db-to-sql-type-mappings) i slutet av artikeln.
+
+## <a name="create-view"></a>Skapa vy
+
+När du har identifierat schemat kan du förbereda en vy ovanpå dina Azure Cosmos DB data. Du bör placera din Azure Cosmos DB konto nyckel i en separat autentiseringsuppgift och referera till den här autentiseringsuppgiften från- `OPENROWSET` funktionen. Behåll inte din konto nyckel i vydefinitionen.
+
+```sql
+CREATE CREDENTIAL MyCosmosDbAccountCredential
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+GO
+CREATE OR ALTER VIEW EcdcCases
+AS SELECT *
+FROM OPENROWSET(
+      PROVIDER = 'CosmosDB',
+      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
+      OBJECT = 'EcdcCases',
+      SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+```
+
+Använd inte `OPENROWSET` utan explicit definierat schema eftersom det kan påverka prestandan. Se till att du använder de minsta möjliga storlekarna för dina kolumner (till exempel VARCHAR (100) i stället för standard-VARCHAR (8000)). Du bör använda en UTF-8-sortering som standard sortering i databasen eller ange den som explicit kolumn sortering för att undvika [UTF-8-konverterings problem](/troubleshoot/reading-utf8-text). Sortering `Latin1_General_100_BIN2_UTF8` ger bästa prestanda när Yu filtrerar data med hjälp av vissa sträng kolumner.
 
 ## <a name="query-nested-objects-and-arrays"></a>Fråga kapslade objekt och matriser
 

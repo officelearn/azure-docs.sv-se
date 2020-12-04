@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 27cf5fef027b1e4786c0ff77f9f673bafea15f98
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9ef585d83c0606bedaf4c0a05c6c87fd52423b9a
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487277"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575541"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -41,12 +41,14 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Arabiska (Bahrain), modern standard  |`ar-BH` | Språkmodell                                   |
 |Arabiska (Egypten)                     |`ar-EG` | Språkmodell                                   |
 |Arabiska (Irak)                      |`ar-IQ` | Språkmodell                                   |
+|Arabiska (Israel)                              |`ar-IL` | Språkmodell                                                   |
 |Arabiska (Jordanien)                    |`ar-JO` | Språkmodell                                   |
 |Arabiska (Kuwait)                    |`ar-KW` | Språkmodell                                   |
 |Arabiska (Libanon)                   |`ar-LB` | Språkmodell                                   |
 |Arabiska (Oman)                      |`ar-OM` | Språkmodell                                   |
 |Arabiska (Qatar)                     |`ar-QA` | Språkmodell                                   |
 |Arabiska (Saudiarabien)              |`ar-SA` | Språkmodell                                   |
+|Arabiska (tillstånd för Palestina)            |`ar-PS` | Språkmodell                                   |
 |Arabiska (Syrien)                     |`ar-SY` | Språkmodell                                   |
 |Arabiska (Förenade Arabemiraten)      |`ar-AE` | Språkmodell                                   |
 |Bulgariska (Bulgarien)               |`bg-BG` | Språkmodell                                   |
@@ -64,6 +66,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Engelska (Indien)                    |`en-IN` | Akustisk modell<br>Språkmodell                 |
 |Engelska (Irland)                  |`en-IE` | Språk modell                                   |
 |Engelska (Nya Zeeland)              |`en-NZ` | Akustisk modell<br>Språkmodell                 |
+|Engelska (Nigeria)                          |`en-NG` | Språk modell                                                     |
 |Engelska (Filippinerna)              |`en-PH` | Språk modell                                   |
 |Engelska (Singapore)                |`en-SG` | Språk modell                                   |
 |Engelska (Sydafrika)             |`en-ZA` | Språk modell                                   |
@@ -103,6 +106,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Spanska (Dominikanska republiken)       |`es-DO` | Språk modell                                   |
 |Spanska (Ecuador)                  |`es-EC` | Språk modell                                   |
 |Spanska (El Salvador)              |`es-SV` | Språk modell                                   |
+|Spanska (Ekvatorialguinea)            |`es-GQ` | Språk modell                                   |
 |Spanska (Guatemala)                |`es-GT` | Språk modell                                   |
 |Spanska (Honduras)                 |`es-HN` | Språk modell                                   |
 |Spanska (Mexiko)                   |`es-MX` | Akustisk modell<br>Språkmodell                 |

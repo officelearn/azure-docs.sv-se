@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 59b4a04231df3b93b093750cc6c9d70982a418a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 688cd7c2e54a6b4c6b5a11705e10c33604324f09
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665352"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576289"
 ---
 # <a name="azure-data-lake-storage-gen-1-output-from-azure-stream-analytics"></a>Azure Data Lake Storage gen 1-utdata från Azure Stream Analytics
 
@@ -35,8 +35,8 @@ I följande tabell visas egenskaps namn och beskrivningar för att konfigurera D
 | Händelseserialiseringsformat | Serialiserings formatet för utdata. JSON, CSV och Avro stöds.|
 | Kodning | Om du använder CSV eller JSON-format måste du ange en kodning. UTF-8 är det enda kodnings format som stöds just nu.|
 | Avgränsare | Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal vanliga avgränsare för serialisering av CSV-data. Värden som stöds är komma, semikolon, blank steg, TABB och lodrätt fält.|
-| Format | Gäller endast för JSON-serialisering. **Raden separerad** anger att utdata är formaterade genom att ha varje JSON-objekt avgränsat med en ny rad. Om du väljer **rad avgränsad**läses ett objekt i taget av JSON. Själva hela innehållet skulle inte vara en giltig JSON.  **Matris** anger att utdata är formaterad som en matris med JSON-objekt. Matrisen stängs bara när jobbet stoppas eller Stream Analytics har flyttats vidare till nästa tids period. I allmänhet är det bättre att använda line-separerad JSON, eftersom det inte kräver någon särskild hantering medan utdatafilen fortfarande skrivs till.|
-| Autentiseringsläge | Du kan ge åtkomst till ditt Data Lake Storage-konto med hjälp av [hanterad identitet](stream-analytics-managed-identities-adls.md) eller användartoken. När du har beviljat åtkomst kan du återkalla åtkomsten genom att ändra användar kontots lösen ord, ta bort Data Lake Storage utdata för jobbet eller ta bort Stream Analyticss jobbet. |
+| Format | Gäller endast för JSON-serialisering. **Raden separerad** anger att utdata är formaterade genom att ha varje JSON-objekt avgränsat med en ny rad. Om du väljer **rad avgränsad** läses ett objekt i taget av JSON. Själva hela innehållet skulle inte vara en giltig JSON.  **Matris** anger att utdata är formaterad som en matris med JSON-objekt. Matrisen stängs bara när jobbet stoppas eller Stream Analytics har flyttats vidare till nästa tids period. I allmänhet är det bättre att använda line-separerad JSON, eftersom det inte kräver någon särskild hantering medan utdatafilen fortfarande skrivs till.|
+| Autentiseringsläge | Du kan ge åtkomst till ditt Data Lake Storage-konto med hjälp av [hanterad identitet](stream-analytics-managed-identities-adls.md) (förhands granskning) eller användartoken. När du har beviljat åtkomst kan du återkalla åtkomsten genom att ändra användar kontots lösen ord, ta bort Data Lake Storage utdata för jobbet eller ta bort Stream Analyticss jobbet. |
 
 ## <a name="partitioning"></a>Partitionering
 

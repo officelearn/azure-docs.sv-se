@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 199da0586a061bccdf8a6ff8a1f53df2f703512f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2c7503cf51ab74dc486f83de8033bfe4850a8c68
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959449"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575065"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Självstudie: skapa och distribuera anpassade IoT Edge-moduler
 
@@ -804,6 +804,10 @@ Genom att logga in på den IoT Edge enheten (Linux VM i vårt fall) kan du få t
    ```bash
    sudo docker exec -it avroFileWriter bash
    ```
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Den här självstudien är en del av en uppsättning där varje artikel bygger på det arbete som utförts i föregående avsnitt. Vänta tills du är klar med att rensa alla resurser tills du är klar med den sista självstudien.
 
 ## <a name="next-steps"></a>Nästa steg
 

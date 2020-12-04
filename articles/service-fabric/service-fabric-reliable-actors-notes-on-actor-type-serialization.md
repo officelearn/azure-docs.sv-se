@@ -1,17 +1,15 @@
 ---
 title: Reliable Actors kommentarer om typ serialisering av aktör
 description: Beskriver grundläggande krav för att definiera serialiserbara klasser som kan användas för att definiera Service Fabric Reliable Actors tillstånd och gränssnitt
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 33a15b3c6f570d3b4d36a205f91bce7b042f3bb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a1118e394046b217a288663659a2c910098e992
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016588"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576017"
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Information om Service Fabric Reliable Actors typ serialisering
 Argumenten för alla metoder, resultat typer för de uppgifter som returneras av varje metod i ett aktörs gränssnitt och objekt som lagras i en aktörs tillstånds hanterare måste vara [serialiserbar för data kontrakt](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Detta gäller även argumenten för de metoder som definieras i [aktörens händelse gränssnitt](service-fabric-reliable-actors-events.md). (Aktörens händelse gränssnitts metoder returnerar alltid Void.)

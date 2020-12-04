@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: ea12bf8a8d93f14c5364864b97d1173fe8602765
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 00f72e1de230cdc68f86010b7b25d86debaa5eb5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554426"
+ms.locfileid: "96575796"
 ---
 # <a name="scan-insights-on-your-data-in-azure-purview"></a>Skanna insikter om dina data i Azure avdelningens kontroll
 
@@ -20,8 +20,9 @@ Den här instruktions guiden beskriver hur du kommer åt, visar och filtrerar in
 
 I den här instruktions guiden lär du dig att:
 
-* Visa insikter från ditt avdelningens kontroll-konto.
-* Få en fågel ögon-vy över dina genomsökningar.
+> [!div class="checklist"]
+> * Visa insikter från ditt avdelningens kontroll-konto.
+> * Få en fågel ögon-vy över dina genomsökningar.
 
 ## <a name="prerequisites"></a>Krav
 

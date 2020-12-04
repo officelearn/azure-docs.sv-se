@@ -1,15 +1,14 @@
 ---
 title: 'Program uppgradering: Dataserialisering'
 description: Metod tips för Dataserialisering och hur det påverkar rullande program uppgraderingar.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.openlocfilehash: d502e74139c543d4183a75faa6bea1948d9f3e56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9474a0bf8041ac541389f782f60bf1220d690cde
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247990"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575643"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Hur Dataserialisering påverkar en program uppgradering
 I en [uppgradering av rullande program](service-fabric-application-upgrade.md)tillämpas uppgraderingen på en delmängd noder, en uppgraderings domän i taget. Under den här processen finns vissa uppgraderings domäner i den nyare versionen av programmet och vissa uppgraderings domäner finns på den äldre versionen av programmet. Under distributionen måste den nya versionen av programmet kunna läsa den gamla versionen av dina data och den gamla versionen av programmet måste kunna läsa den nya versionen av dina data. Om data formatet inte vidarebefordras och är bakåtkompatibelt, kan uppgraderingen Miss lyckas eller vara sämre, data kan gå förlorade eller skadas. Den här artikeln beskriver vad som utgör ditt data format och ger bästa möjliga praxis för att se till att dina data är vanliga och bakåtkompatibla.

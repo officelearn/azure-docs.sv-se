@@ -1,17 +1,15 @@
 ---
 title: Felsöka ditt program i Visual Studio
 description: Förbättra tillförlitligheten och prestandan hos dina tjänster genom att utveckla och felsöka dem i Visual Studio på ett lokalt utvecklings kluster.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 35c4875ca9bf3165fff84164eb3bb7ebe44cf932
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0b7d08d610c883240abedc66c55abba64a74c8e3
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093403"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576323"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Felsöka ditt Service Fabric-program med Visual Studio
 > [!div class="op_single_selector"]
@@ -36,7 +34,7 @@ Du kan spara tid och pengar genom att distribuera och felsöka ditt Azure Servic
 4. Fönstret **Diagnostic Events** öppnas automatiskt så att du kan visa diagnostiska händelser i real tid.
    
     ![Visa diagnostiska händelser i real tid][diagnosticevents]
-5. Du kan också öppna fönstret **diagnostiska händelser** i Cloud Explorer.  Under **Service Fabric**högerklickar du på en nod och väljer **Visa strömmande spår**.
+5. Du kan också öppna fönstret **diagnostiska händelser** i Cloud Explorer.  Under **Service Fabric** högerklickar du på en nod och väljer **Visa strömmande spår**.
    
     ![Öppna fönstret diagnostiska händelser][viewdiagnosticevents]
    
@@ -77,7 +75,7 @@ Om dina Service Fabric-program körs på ett Service Fabric-kluster i Azure kan 
     ![Aktivera fjärrfelsökning][enableremotedebugging]
    
     Den här åtgärden startar processen att aktivera fjärrfelsöknings tillägget på klusternoderna och nödvändiga nätverkskonfigurationer.
-2. Högerklicka på noden kluster i **Cloud Explorer**och välj **koppla fel sökare**
+2. Högerklicka på noden kluster i **Cloud Explorer** och välj **koppla fel sökare**
    
     ![Bifoga fel sökare][attachdebugger]
 3. I dialog rutan **bifoga till process** väljer du den process som du vill felsöka och klickar på **Anslut**

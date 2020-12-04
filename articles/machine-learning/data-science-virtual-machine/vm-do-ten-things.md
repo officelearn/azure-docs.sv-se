@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 1e263886d0cc199bb30fd28877be32209ab32a22
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 09a4dc8467b9b3c11c8daeb5ca8c62a0e26e79de
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462395"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575014"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Data vetenskap med en Windows-Data Science Virtual Machine
 
@@ -40,7 +40,7 @@ I den här artikeln får du lära dig hur du använder din DSVM för att utföra
 > 
 > 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Du behöver en Azure-prenumeration. Du kan [Registrera dig för en kostnads fri utvärderings version](https://azure.microsoft.com/free/).
 * Instruktioner för hur du konfigurerar en Data Science Virtual Machine på Azure Portal finns i [skapa en virtuell dator](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
@@ -49,7 +49,7 @@ I den här artikeln får du lära dig hur du använder din DSVM för att utföra
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 
-## <a name="use-jupyter-notebooks"></a>Jupyter Notebook
+## <a name="use-jupyter-notebooks"></a>Använda Jupyter Notebooks
 Jupyter Notebook tillhandahåller en webbläsarbaserad IDE för data utforskning och modellering. Du kan använda python 2, python 3 eller R (både öppen källkod och Microsoft R Server) i en Jupyter Notebook.
 
 Om du vill starta Jupyter Notebook väljer du ikonen **Jupyter Notebook** på **Start** -menyn eller på Skriv bordet. I kommando tolken DSVM kan du också köra kommandot ```jupyter notebook``` från den katalog där du har befintliga antecknings böcker eller där du vill skapa nya antecknings böcker.  
@@ -156,7 +156,7 @@ Du hittar mer information om hur du använder Git för att arbeta med din GitHub
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 Azure Blob Storage är en tillförlitlig, ekonomisk moln lagrings tjänst för data som är stora och små. I det här avsnittet beskrivs hur du kan flytta data till Blob Storage och komma åt data som lagras i en Azure-blob.
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 * Skapa ditt Azure Blob Storage-konto från [Azure Portal](https://portal.azure.com).
 

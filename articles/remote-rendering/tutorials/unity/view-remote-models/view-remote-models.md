@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bcee951dc85d9c317bad481ebdb91ff6c761371c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 834df29597abaaadad98b232ce75b32a6431cfc2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653680"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574742"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Självstudie: Visa en fjärrrenderad modell
 
@@ -76,7 +76,7 @@ Du måste ändra filen som finns `Packages/manifest.json` i din Unity Project-ma
 
 När du har ändrat och sparat manifestet uppdateras Unity automatiskt. Bekräfta att paketen har lästs in i *projekt* fönstret:
 
-:::image type="content" source="./media/confirm-packages.png" alt-text="Nytt Unity-projekt":::
+:::image type="content" source="./media/confirm-packages.png" alt-text="bekräfta paket importer":::
 
 Om dina paket inte läses in kan du kontrol lera om det finns fel i enhets konsolen. Om du inte har några fel och fortfarande inte ser några paket under mappen **paket** kontrollerar du växlings knappen för paket synlighet. \
 ![Skärm bild med en pil som pekar på växlings knappen för paket synlighet.](./media/unity-package-visibility.png)
@@ -169,7 +169,7 @@ Det finns fyra grundläggande steg för att Visa fjärranslutna modeller som bes
 
 ![ARR-stack 0](./media/remote-render-stack-0.png)
 
-1. I fönstret *projekt* , under **till gångar**, skapar du en ny mapp med namnet *RemoteRenderingCore*. Skapa sedan en annan mapp med namnet *skript*i *RemoteRenderingCore*.
+1. I fönstret *projekt* , under **till gångar**, skapar du en ny mapp med namnet *RemoteRenderingCore*. Skapa sedan en annan mapp med namnet *skript* i *RemoteRenderingCore*.
 
 1. Skapa ett [nytt C#-skript](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) med namnet **RemoteRenderingCoordinator**.
 Projektet bör se ut så här:
@@ -220,7 +220,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     public static RemoteRenderingCoordinator instance;
 
     // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
-    // For most people '<region>' is either 'westus2' or 'westeurope'
+    // The list of regions is available at https://docs.microsoft.com/azure/remote-rendering/reference/regions
     [SerializeField]
     private string accountDomain = "westus2.mixedreality.azure.com";
     public string AccountDomain
@@ -669,7 +669,7 @@ Därefter måste programmet ansluta sin lokala körning till fjärrsessionen.
 
 ![ARR-stack 3](./media/remote-render-stack-3.png)
 
-Programmet måste också lyssna efter händelser om anslutningen mellan körningen och den aktuella sessionen. dessa tillstånds ändringar hanteras i **OnLocalRuntimeStatusChanged**. Den här koden förflyttar oss vårt tillstånd till **ConnectingToRuntime**. När den är ansluten i **OnLocalRuntimeStatusChanged**förflyttas statusen till **RuntimeConnected**. Anslutning till körnings miljön är det sista tillstånd som koordinatorn tar sig själv med, vilket innebär att programmet görs med all gemensam konfiguration och är redo att påbörja det sessionsbaserade arbetet med att läsa in och återge modeller.
+Programmet måste också lyssna efter händelser om anslutningen mellan körningen och den aktuella sessionen. dessa tillstånds ändringar hanteras i **OnLocalRuntimeStatusChanged**. Den här koden förflyttar oss vårt tillstånd till **ConnectingToRuntime**. När den är ansluten i **OnLocalRuntimeStatusChanged** förflyttas statusen till **RuntimeConnected**. Anslutning till körnings miljön är det sista tillstånd som koordinatorn tar sig själv med, vilket innebär att programmet görs med all gemensam konfiguration och är redo att påbörja det sessionsbaserade arbetet med att läsa in och återge modeller.
 
  1. Ersätt metoderna **ConnectRuntimeToRemoteSession ()** och **DisconnectRuntimeFromRemoteSession ()** med de slutförda versionerna nedan.
  1. Det är viktigt att anteckna enhets metoden **LateUpdate** och att den uppdaterar den aktuella aktiva sessionen. Detta gör att den aktuella sessionen kan skicka/ta emot meddelanden och uppdatera buffertens buffert med de ramar som tas emot från fjärrsessionen. Det är viktigt att ARR fungerar korrekt.

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: beaa231eddd57e29578a1d69ee30af05ce7c8d0f
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 74f4391fcd071ac510fc66b2f8bc36ec4549dc47
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554379"
+ms.locfileid: "96575762"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Känslighets etikett insikter om dina data i Azure avdelningens kontroll
 
@@ -75,6 +75,7 @@ Avdelningens kontroll använder samma klassificeringar, även kallade känsliga 
    |**Översta etiketter som används på tabeller**     | Visar de viktigaste känslighets etiketterna som används för databas tabeller i dina data. |   
    |  **Märk aktivitet**  |  Visar separata diagram för filer och tabeller, som var och en visar antalet filer eller tabeller som har etiketter ATS under den valda tids ramen. <br>**Standard**: 30 dagar<br>Välj **tids** filtret ovanför graferna för att välja en annan tidsram som ska visas.    |
    |    |    |
+
 ## <a name="sensitivity-labeling-insights-drilldown"></a>Specificering av känslighets etikett för insikter
 
 I något av följande känslighets diagram för att **märka insikter** väljer du länken **Visa mer** för att öka detalj nivån.
@@ -98,6 +99,7 @@ Gör något av följande för att lära dig mer:
 |**Öka detalj nivån ytterligare**     | Om du vill öka detalj nivån till en speciell etikett väljer du ett namn i kolumnen **känslighets etikett** för att visa rapporten **etikett per källa** . <br><br>I den här rapporten visas data för den valda etiketten, inklusive käll namn, källtyp, prenumerations-ID och antalet klassificerade filer och tabeller.      |
 |**Bläddra till till gångar**     |  Om du vill bläddra igenom de till gångar som hittas med en speciell etikett eller källa väljer du en eller flera etiketter eller källor, beroende på vilken rapport du visar, och väljer sedan **Bläddra till gångar** :::image type="icon" source="media/insights/ico-browse-assets.png" border="false"::: ovanför filtren. <br><br>Sök resultatet visar alla etiketterade till gångar som har hittats för det valda filtret.  Mer information finns i [Sök i Azure avdelningens kontroll Data Catalog](how-to-search-catalog.md).       |
 | | |
+
 ## <a name="sensitivity-label-integration-with-microsoft-365-compliance"></a>Integrering av känslighets etiketter med Microsoft 365 kompatibilitet
 
 Nära integrering med [Microsoft Information Protection](/microsoft-365/compliance/information-protection) som erbjuds i Microsoft 365 innebär att avdelningens kontroll gör det möjligt för direkta sätt att utöka insynen i din datafastighet och klassificera och etikettera data.
@@ -108,15 +110,9 @@ Mer information finns i [etikettera data automatiskt i Azure avdelningens kontro
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure avdelningens kontroll Insight-rapporter
-> [!div class="nextstepaction"]
-> [Ord lista](glossary-insights.md)
+Läs mer om de här insikts rapporterna i Azure avdelningens kontroll:
 
-> [!div class="nextstepaction"]
-> [Skanna insikter](scan-insights.md)
-
-> [!div class="nextstepaction"]
-> [Klassificerings insikter](./classification-insights.md)
-
-> [!div class="nextstepaction"]
-> [Fil namns insikter](file-extension-insights.md)
+- [Ord lista](glossary-insights.md)
+- [Skanna insikter](scan-insights.md)
+- [Klassificerings insikter](./classification-insights.md)
+- [Fil namns insikter](file-extension-insights.md)

@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: fdfaef554e4e641656abd3fd2b4a5d3bbc519ccd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6398d23aeb0e26fbc336c0c1066078f327fa2f73
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325427"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576578"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Översikt över virtuella nätverks isolering och sekretess
 
@@ -28,7 +28,7 @@ Här följer de andra artiklarna i den här serien:
 
 **1. VNet-översikt**  >  [2. Skydda arbets ytan](how-to-secure-workspace-vnet.md)  >  [3. Skydda inlärnings miljö](how-to-secure-training-vnet.md)  >  [4. Skydda inferencing-miljön](how-to-secure-inferencing-vnet.md)  >  [5. Aktivera Studio-funktioner](how-to-enable-studio-virtual-network.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du är bekant med följande avsnitt:
 + [Virtuella Azure-nätverk](../virtual-network/virtual-networks-overview.md)
@@ -145,10 +145,11 @@ Om ditt lagrings utrymme finns i ett VNet måste du först utföra ytterligare k
 
 * Förhandsgranska data i Studio.
 * Visualisera data i designern.
+* Distribuera en modell i designern.
 * Skicka ett AutoML experiment.
 * Starta ett etikettande projekt.
 
-Om du vill aktivera fullständig Studio-funktionalitet inuti ett VNet, se [använd Azure Machine Learning Studio i ett virtuellt nätverk](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Studio stöder lagrings konton med hjälp av antingen tjänst slut punkter eller privata slut punkter.
+Om du vill aktivera fullständig Studio-funktionalitet inuti ett VNet, se [använd Azure Machine Learning Studio i ett virtuellt nätverk](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). Studio stöder lagrings konton med hjälp av antingen tjänst slut punkter eller privata slut punkter.
 
 ### <a name="limitations"></a>Begränsningar
 - [Ml stöd för data märkning](how-to-create-labeling-projects.md#use-ml-assisted-labeling) stöder inte standard lagrings konton som skyddas bakom ett virtuellt nätverk. Du måste använda ett lagrings konto som inte är standard för ML assisterad data etiketter. Observera att lagrings kontot som inte är standard kan skyddas bakom det virtuella nätverket. 

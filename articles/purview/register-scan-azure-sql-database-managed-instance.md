@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 24d2418cc571e1cbb3feff8aab5eee70ab08a97a
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: ded15b45dd859b18180bd396067360ae6585ef97
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555914"
+ms.locfileid: "96575881"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registrera och skanna en Azure SQL Database Hanterad instans
 
@@ -100,6 +100,20 @@ Det krävs för att hämta tjänstens huvud namn för program-ID och hemlighet:
 1. Välj **skapa** för att slutföra
 1. Om nyckel valvet inte är anslutet till avdelningens kontroll måste du [skapa en ny nyckel valv anslutning](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Skapa slutligen [en ny autentiseringsuppgift](manage-credentials.md#create-a-new-credential) med tjänstens huvud namn för att konfigurera din sökning
+
+### <a name="firewall-settings"></a>Brandväggsinställningar
+
+Din databas server måste tillåta att Azure-anslutningar aktive ras. Detta gör att Azure-avdelningens kontroll kan komma åt och ansluta servern. Du kan följa instruktionen anvisningar för anslutningar inifrån [Azure](../azure-sql/database/firewall-configure.md#connections-from-inside-azure).
+
+1. Navigera till ditt databas konto
+1. Välj Server namnet på sidan **Översikt**
+1. Välj **säkerhets > brand väggar och virtuella nätverk**
+1. Välj **Ja** om **du vill tillåta Azure-tjänster och-resurser åtkomst till den här servern**
+
+    :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="alternativ för registrering av källor" border="true":::
+    
+> [!Note]
+> Azure-avdelningens kontroll stöder för närvarande inte VNET-konfiguration. Därför kan du inte göra IP-baserade brand Väggs inställningar.
 
 ## <a name="register-an-azure-sql-database-managed-instance-data-source"></a>Registrera en data källa för en Azure SQL Database Hanterad instans
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: f57e809373a8bd06c4b4afbb9b193464315e788f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 754b1544f112fb63fae91a52c7e48f25b9790ed2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959585"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575099"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Självstudie: Konfigurera en IoT Edge enhet
 
@@ -295,6 +295,10 @@ Nu ska vi uppdatera certifikaten och värd namnet genom att redigera filen confi
     ```bash
     journalctl -u iotedge --no-pager --no-full
     ```
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Den här självstudien är en del av en uppsättning där varje artikel bygger på det arbete som utförts i föregående avsnitt. Vänta tills du är klar med att rensa alla resurser tills du är klar med den sista självstudien.
+
 ## <a name="next-steps"></a>Nästa steg
 
 Vi har precis slutfört konfigurationen av en virtuell Azure-dator som Azure IoT Edge transparent Gateway. Vi startade genom att generera test certifikat som vi laddade upp till Azure Key Vault. Därefter använde vi en skript-och Resource Manager-mall för att distribuera den virtuella datorn med avbildningen "Ubuntu Server 16,04 LTS + Azure IoT Edge runtime" från Azure Marketplace. Med den virtuella datorn igång via SSH var vi inloggad på Azure och hämtade certifikat från Key Vault. Vi har gjort flera uppdateringar av konfigurationen av IoT Edge runtime genom att uppdatera filen config. yaml.

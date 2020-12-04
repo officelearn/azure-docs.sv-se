@@ -1,17 +1,15 @@
 ---
 title: Översikt över Service Fabric Reliable Actors
 description: Introduktion till Service Fabric Reliable Actors programmerings modellen baserat på mönstret för virtuell aktör.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: adb15d995cd2a9fd604aa6b91360adc88a2804e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a8a7003a69deaf6b74d6fbb8a3cf84b0a78eecf
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89007935"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576391"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introduktion till Service Fabric Reliable Actors
 Reliable Actors är ett Service Fabric program ramverk baserat på mönstret för [virtuell aktör](https://research.microsoft.com/en-us/projects/orleans/) . Reliable Actors-API: et tillhandahåller en enda trådad programmerings modell som bygger på de skalbarhets-och Tillförlitlighets garantier som tillhandahålls av Service Fabric.
@@ -124,8 +122,8 @@ Det här diagrammet följer dessa konventioner:
 
 Några viktiga saker att tänka på:
 
-* Även om *Method1* körs på uppdrag av *ActorId2* som svar på klient begär ande *xyz789*, kommer en annan klientbegäran (*vi abc123*) att kräva att *Method1* körs av *ActorId2*. Den andra körningen av *Method1* startar dock inte förrän den tidigare körningen har slutförts. På samma sätt utlöses en påminnelse som registrerats av *ActorId2* medan *Method1* körs som svar på klient begär ande *xyz789*. Återanropet av påminnelsen utförs först när båda körningarna av *Method1* har slutförts. Allt detta beror på att den tidsbaserade samtidiga samtidigheten för *ActorId2*är aktive rad.
-* På samma sätt tillämpas den ombaserade samtidigheten också för *ActorId1*, som demonstreras av körningen av *Method1*, *Method2*och timer-återanropet för *ActorId1* händer i serie.
+* Även om *Method1* körs på uppdrag av *ActorId2* som svar på klient begär ande *xyz789*, kommer en annan klientbegäran (*vi abc123*) att kräva att *Method1* körs av *ActorId2*. Den andra körningen av *Method1* startar dock inte förrän den tidigare körningen har slutförts. På samma sätt utlöses en påminnelse som registrerats av *ActorId2* medan *Method1* körs som svar på klient begär ande *xyz789*. Återanropet av påminnelsen utförs först när båda körningarna av *Method1* har slutförts. Allt detta beror på att den tidsbaserade samtidiga samtidigheten för *ActorId2* är aktive rad.
+* På samma sätt tillämpas den ombaserade samtidigheten också för *ActorId1*, som demonstreras av körningen av *Method1*, *Method2* och timer-återanropet för *ActorId1* händer i serie.
 * Körningen av *Method1* på uppdrag av *ActorId1* överlappar körningen på uppdrag av *ActorId2*. Detta beror på att den omvända samtidigheten endast tillämpas inom en aktör och inte mellan aktörer.
 * I vissa av metod-/återanrops körningarna `Task` (C#)/ `CompletableFuture` (Java) som returnerades av metoden/motringningen slutförs efter att metoden returnerades. I vissa andra har den asynkrona åtgärden redan slutförts när metoden/motringningen returnerar. I båda fallen frigörs låset per aktör bara när både metoden/motringningen returnerar och den asynkrona åtgärden har slutförts.
 

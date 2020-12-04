@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 09/23/2020
-ms.openlocfilehash: 72566987068729efef4310ce145c30584c4895b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/03/2020
+ms.openlocfilehash: 4436289d544de057acef132117346ac53c20b5a7
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011412"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576524"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Data skydd i Azure Stream Analytics 
 
@@ -41,7 +41,7 @@ Dessutom kan du välja att lagra alla data till gångar (kund information och an
 
 Stream Analytics använder automatiskt optimala krypterings standarder över hela infrastrukturen för att kryptera och skydda dina data. Du kan helt enkelt lita på Stream Analytics att lagra alla dina data på ett säkert sätt så att du inte behöver oroa dig för att hantera infrastrukturen.
 
-Om du vill använda Kundhanterade nycklar (CMK) för att kryptera dina data kan du använda ditt eget lagrings konto (generell användning v1 eller v2) för att lagra alla privata data till gångar som krävs av Stream Analytics Runtime. Ditt lagrings konto kan krypteras efter behov. Ingen av dina privata data till gångar lagras permanent av Stream Analytics-infrastrukturen. 
+Om du vill använda Kundhanterade nycklar för att kryptera dina data kan du använda ditt eget lagrings konto (generell användning v1 eller v2) för att lagra alla privata data till gångar som krävs av Stream Analytics Runtime. Ditt lagrings konto kan krypteras efter behov. Ingen av dina privata data till gångar lagras permanent av Stream Analytics-infrastrukturen. 
 
 Den här inställningen måste konfigureras när Stream Analytics jobb skapas och kan inte ändras under jobbets livs cykel. Det rekommenderas inte att ändra eller ta bort lagrings utrymme som används av din Stream Analytics. Om du tar bort ditt lagrings konto kommer du att ta bort alla privata data till gångar permanent, vilket leder till att jobbet Miss fungerar. 
 
@@ -50,12 +50,9 @@ Det går inte att uppdatera eller rotera nycklar till ditt lagrings konto med hj
 
 ### <a name="configure-storage-account-for-private-data"></a>Konfigurera lagrings konto för privata data 
 
-
 Kryptera ditt lagrings konto för att skydda alla dina data och välj manuellt platsen för dina privata data. 
 
 För att hjälpa dig att uppfylla dina krav på efterlevnad i en reglerad bransch eller miljö kan du läsa mer om [Microsofts erbjudanden för efterlevnad](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
-
-
 
 Använd följande steg för att konfigurera ditt lagrings konto för privata data till gångar. Den här konfigurationen görs från ditt Stream Analytics jobb, inte från ditt lagrings konto.
 
@@ -69,9 +66,15 @@ Använd följande steg för att konfigurera ditt lagrings konto för privata dat
 
 1. Markera kryss rutan med texten *skydda alla privata data till gångar som krävs av det här jobbet i mitt lagrings konto*.
 
-1. Välj ett lagrings konto från din prenumeration. Observera att den här inställningen inte kan ändras under jobbets livs cykel. 
+1. Välj ett lagrings konto från din prenumeration. Observera att den här inställningen inte kan ändras under jobbets livs cykel. Du kan inte heller lägga till det här alternativet när jobbet har skapats.
+
+1. Om du vill autentisera med en anslutnings sträng väljer du **anslutnings sträng** i list rutan autentiseringsläge. Lagrings konto nyckeln fylls i automatiskt från din prenumeration.
 
    ![Inställningar för lagrings konto för privata data](./media/data-protection/storage-account-create.png)
+
+1. Om du vill autentisera med hanterad identitet (förhands granskning) väljer du **hanterad identitet** i list rutan autentiseringsläge. Om du väljer hanterad identitet måste du lägga till ditt Stream Analytics jobb i lagrings kontots åtkomst kontrol lista. Om du inte ger ditt jobb åtkomst kommer jobbet inte att kunna utföra några åtgärder. Mer information om hur du beviljar åtkomst finns i [använda Azure RBAC för att tilldela en hanterad identitets åtkomst till en annan resurs](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
+
+   :::image type="content" source="media/data-protection/storage-account-create-msi.png" alt-text="Inställningar för lagrings konto för privata data med hanterad identitets autentisering":::
 
 ## <a name="private-data-assets-that-are-stored-by-stream-analytics"></a>Privata data till gångar som lagras av Stream Analytics
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 07/22/2020
+ms.date: 11/11/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 12879b22e255384701b0cd265b50ed34d5e198c9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 3943caba5249432b3a0a4b7c2e63b2b818e2b7a1
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345550"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575711"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>Självstudie: Förbered för att distribuera Azure Stack Edge Pro  
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Skapa en ny resurs
 > * Hämta aktiveringsnyckeln
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="get-started"></a>Kom igång
 
@@ -45,7 +45,7 @@ För att distribuera Azure Stack Edge Pro, se följande självstudier i den angi
 
 Nu kan du börja konfigurera Azure-portalen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande är konfigurations kraven för din Azure Stack Edge-resurs, din Azure Stack Edge-enhet och data Center nätverket.
 

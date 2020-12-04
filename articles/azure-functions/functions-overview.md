@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperfq2
-ms.openlocfilehash: 514f2e9a82a50f95f9c054c6a54e7b5af3c0af15
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a312c0ff255df4545181755ae6accd0d7dfb13a2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96167785"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574861"
 ---
 # <a name="introduction-to-azure-functions"></a>Introduktion till Azure Functions
 
@@ -43,7 +43,7 @@ Följande är ett vanligt, _men inte heller en uttömmande_ uppsättning scenari
 | **Köra schemalagda aktiviteter** | Kör kod vid [angivna tider](./functions-bindings-timer.md) |
 | **Skapa Reliable Message Queue-system** | Bearbeta meddelande köer med hjälp av [Queue Storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md)eller [Event Hubs](./functions-bindings-event-hubs.md) |
 | **Analysera IoT-dataströmmar** | Samla in och bearbeta [data från IoT-enheter](./functions-bindings-event-iot.md) |
-| **Bearbeta data i real tid** | Använd [Functions och signal R](./functions-bindings-signalr-service.md) för att svara på data för tillfället |
+| **Bearbeta data i real tid** | Använd [Functions och signalerer](./functions-bindings-signalr-service.md) för att svara på data för tillfället |
 
 När du skapar dina funktioner har du följande alternativ och tillgängliga resurser:
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: df800938d568af0b94cfb1d368ef32e9b085b6eb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 543e6115be30963600d867bb9c2a03dfbb54e9f1
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913117"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576561"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Distribuera exempeletikettverktyget
 
@@ -34,16 +34,16 @@ Det snabbaste sättet att starta märkning av data är att köra verktyget för 
 
 Innan vi börjar är det viktigt att Observera att det finns två sätt att distribuera exempel etikett verktyget till en Azure Container Instance (ACI). Båda alternativen används för att köra verktyget för etikettering med ACI: 
 
-* [Använda Azure Portal](#azure-portal)
+* [Använda Azure-portalen](#azure-portal)
 * [Använda Azure CLI](#azure-cli)
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Följ de här stegen för att skapa en ny resurs med hjälp av Azure Portal: 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/signin/index/).
-2. Välj **Skapa en resurs** . 
-3. Välj sedan **webbapp** . 
+2. Välj **Skapa en resurs**. 
+3. Välj sedan **webbapp**. 
 
    > [!div class="mx-imgBorder"]
    > ![Välja webbapp](./media/quickstarts/formre-create-web-app.png)
@@ -136,7 +136,7 @@ DNS_NAME_LABEL=aci-demo-$RANDOM
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \

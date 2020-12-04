@@ -8,18 +8,18 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f261db8d40e1a1cc1737ff6a3f5c50da661b73e6
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: f9471b6b465b63f48feb3bda82e7827308aae945
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433480"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575406"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Självstudie: Konfigurera en miljö för maskin inlärning på IoT Edge
 
 Den här artikeln hjälper dig att förbereda din miljö för utveckling och distribution. Börja med att konfigurera en utvecklings dator med alla verktyg du behöver. Skapa sedan nödvändiga moln resurser i Azure.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Varje artikel i serien bygger på arbetet i föregående artikel. Om du har kommit till den här artikeln direkt kan du gå till den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien.
 
@@ -209,6 +209,10 @@ Som en del av att skapa IoT-hubben skapade även skriptet som vi körde i föreg
 1. Titta på **cirkulations frågan**, som är inställd på **Sant**. Den här inställningen innebär att alla meddelanden i enhetens telemetri matchar den här vägen. och därför skickas alla meddelanden till **turbofanDeviceStorage** -slutpunkten.
 
 1. Stäng bara den här sidan eftersom inga redigeringar gjordes.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Den här självstudien är en del av en uppsättning där varje artikel bygger på det arbete som utförts i föregående avsnitt. Vänta tills du är klar med att rensa alla resurser tills du är klar med den sista självstudien.
 
 ## <a name="next-steps"></a>Nästa steg
 

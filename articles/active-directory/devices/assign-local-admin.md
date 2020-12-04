@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f705150f927a08b5ca2f91b702ee0853766ac23a
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: cfd7b5ac981fcb87d0fc929d944205dec9432b74
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511125"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575830"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala gruppen Administratörer på Azure AD-anslutna enheter
 
@@ -81,7 +81,7 @@ Från och med Windows 10 2004 Update kan du använda Azure AD-grupper för att h
 
 För närvarande finns det inget användar gränssnitt i Intune för att hantera dessa principer och de måste konfigureras med [anpassade OMA-URI-inställningar](/mem/intune/configuration/custom-settings-windows-10). Några saker att tänka på när du använder någon av dessa principer: 
 
-- Att lägga till Azure AD-grupper via principen kräver gruppens SID som kan hämtas genom att köra grupp-API: et. SID definieras av egenskapen `securityIdentifier` i Groups-API: et.
+- Att lägga till Azure AD-grupper via principen kräver gruppens SID som kan hämtas genom att köra [Microsoft Graph API för grupper](/graph/api/resources/group?view=graph-rest-beta). SID definieras av egenskapen `securityIdentifier` i API-svaret.
 - När principen för begränsade grupper tillämpas, tas all aktuell medlem i gruppen som inte finns med i listan medlemmar bort. Detta innebär att den här principen med nya medlemmar eller grupper tar bort befintliga administratörer, nämligen användare som anslöt till enheten, rollen enhets administratör och rollen global administratör från enheten. För att undvika att ta bort befintliga medlemmar måste du konfigurera dem som en del av listan medlemmar i principen begränsade grupper. Den här begränsningen åtgärdas om du använder principen lokala användare och grupper som tillåter stegvisa uppdateringar av grupp medlemskap
 - Administratörs behörighet med båda principerna utvärderas endast för följande välkända grupper på en Windows 10-enhet – administratörer, användare, gäster, privilegierade användare, användare av fjärr skrivbord och fjärrhantering. 
 - Hantering av lokala administratörer med Azure AD-grupper kan inte användas för Hybrid Azure AD-anslutna eller registrerade Azure AD-enheter.

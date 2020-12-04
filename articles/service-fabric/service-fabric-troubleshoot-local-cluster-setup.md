@@ -1,16 +1,14 @@
 ---
 title: Felsöka din lokala Azure Service Fabric Cluster-installation
 description: Den här artikeln beskriver en uppsättning förslag för fel sökning av ditt lokala utvecklings kluster
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: mikhegn
-ms.openlocfilehash: 76ca0bb7b81b3896538f08ff2ef52ed1ac6b363f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20948cd1626c02d73fb6e9ef096b552bbab627fb
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87091614"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575915"
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Felsöka konfigurationen av ditt lokala utvecklingskluster
 Om du stöter på ett problem när du interagerar med ditt lokala Azure Service Fabric Development-kluster kan du läsa följande förslag för möjliga lösningar.

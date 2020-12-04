@@ -1,16 +1,14 @@
 ---
 title: Skillnader mellan Cloud Services och Service Fabric
 description: En översikt över hur du migrerar program från Cloud Services till Service Fabric.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
-ms.openlocfilehash: 763b9977f756075789b826c2f1e01cd41ac60a73
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: c7e7d346b5a39a262d1d55265becadb1c718cc04
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091176"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575779"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Lär dig mer om skillnaderna mellan Cloud Services och Service Fabric innan du migrerar program.
 Microsoft Azure Service Fabric är nästa generations moln program plattform för mycket skalbara, mycket pålitliga distribuerade program. Den introducerar många nya funktioner för paketering, distribution, uppgradering och hantering av distribuerade moln program. 
@@ -98,7 +96,7 @@ Samma kommunikations modell kan användas i Service Fabric. Detta kan vara anvä
 | Roll. GetInstances | FabricClient. QueryManager. GetNodeList eller ResolveService | * |
 | RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime. GetActivationContext eller Naming (ResolveService) | * |
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Den enklaste sökvägen från Cloud Services till Service Fabric är att bara ersätta Cloud Services-distributionen med ett Service Fabric program, så att programmets övergripande arkitektur är ungefär samma. Följande artikel innehåller en guide som hjälper dig att konvertera en webb-eller arbets roll till en Service Fabric tillstånds lös tjänst.
 
 * [Enkel migrering: konvertera en webb-eller arbets roll till en Service Fabric tillstånds lös tjänst](service-fabric-cloud-services-migration-worker-role-stateless-service.md)

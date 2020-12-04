@@ -1,16 +1,14 @@
 ---
 title: Hantera program i Visual Studio
 description: Använd Visual Studio för att skapa, utveckla, paketera, distribuera och felsöka Azure Service Fabric-program och-tjänster.
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: mikhegn
-ms.openlocfilehash: d6734f5da0fb7e5c9052b26b55b2d90b068bdbbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fd9295a0dead180767febcc5339ef0a25cb1e48
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75614340"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574555"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Använd Visual Studio för att förenkla skrivning och hantering av Service Fabric program
 Du kan hantera dina Azure Service Fabric-program och-tjänster via Visual Studio. När du har [konfigurerat utvecklings miljön](service-fabric-get-started.md)kan du använda Visual Studio för att skapa Service Fabric program, lägga till tjänster eller paketera, registrera och distribuera program i ditt lokala utvecklings kluster.

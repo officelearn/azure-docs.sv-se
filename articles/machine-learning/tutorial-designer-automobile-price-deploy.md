@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: designer
-ms.openlocfilehash: 28358db2e538867957fcc8d4984cf1c028f9ab2c
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 14be695f2f58b9738af11a3d2ca3f06592a1cc6e
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030382"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575966"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Självstudie: Distribuera en maskin inlärnings modell med designern
 
@@ -28,7 +28,7 @@ Du kan distribuera den förutsägande modellen som utvecklats i [del ett av sjä
 > * Distribuera real tids slut punkten.
 > * Testa real tids slut punkten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför [del ett av självstudien](tutorial-designer-automobile-price-train-score.md) och lär dig hur du tränar och poängs ätter en maskin inlärnings modell i designern.
 
@@ -123,7 +123,7 @@ Mer information om hur du konsumerar din webb tjänst finns i [använda en model
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig viktiga steg i hur du skapar, distribuerar och använder en maskin inlärnings modell i designern. Mer information om hur du kan använda designern för att lösa andra typer av problem finns i våra andra exempel pipelines.
+I den här självstudien har du lärt dig viktiga steg i hur du skapar, distribuerar och använder en maskin inlärnings modell i designern. Mer information om hur du kan använda designern finns i följande länkar:
 
-> [!div class="nextstepaction"]
-> [Designer-exempel](samples-designer.md)
++ [Design exempel](samples-designer.md): Lär dig hur du använder designern för att lösa andra typer av problem.
++ [Använd Azure Machine Learning Studio i ett virtuellt Azure-nätverk](how-to-enable-studio-virtual-network.md).

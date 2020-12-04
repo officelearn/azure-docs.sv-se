@@ -4,13 +4,12 @@ description: Lär dig hur Azure Service Fabric Node-typer relaterar till skalnin
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
-ms.custom: sfrev
-ms.openlocfilehash: 870467760a2baaa887b06fb8e01335f225f04d6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7df7ed9fa1f872cd9554dcf4c8880b7c9d5e53c4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90561898"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576408"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric Node-typer och skalnings uppsättningar för virtuella datorer
 
@@ -18,7 +17,7 @@ ms.locfileid: "90561898"
 
 Service Fabric runtime installeras på varje virtuell dator i skalnings uppsättningen av tillägget *Microsoft. Azure. ServiceFabric* för virtuella datorer. Du kan skala upp eller ned varje nodtyp separat, ändra OS-SKU: n som körs på varje klusternod, ha olika portar öppna och använda olika kapacitets mått.
 
-Följande bild visar ett kluster som har två nodtyper, med namnet *FrontEnd* och *Server*del. Varje nodtyp har fem noder.
+Följande bild visar ett kluster som har två nodtyper, med namnet *FrontEnd* och *Server* del. Varje nodtyp har fem noder.
 
 ![Ett kluster som har två nodtyper][NodeTypes]
 
@@ -30,7 +29,7 @@ När du skalar ut en skalnings uppsättning skapas en ny instans. Det nya instan
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Mappa skal uppsättnings belastningsutjämnare till nodtyper och skalnings uppsättningar
 
-Om du har distribuerat klustret i Azure Portal eller använt exemplet Azure Resource Manager mall visas alla resurser under en resurs grupp. Du kan se belastnings utjämning för varje skalnings uppsättning eller nodtyp. Belastnings Utjämnings namnet har följande format: **lb- &lt; Node typ namn &gt; **. Ett exempel är LB-sfcluster4doc-0, som du ser i följande figur:
+Om du har distribuerat klustret i Azure Portal eller använt exemplet Azure Resource Manager mall visas alla resurser under en resurs grupp. Du kan se belastnings utjämning för varje skalnings uppsättning eller nodtyp. Belastnings Utjämnings namnet har följande format: **lb- &lt; Node typ namn &gt;**. Ett exempel är LB-sfcluster4doc-0, som du ser i följande figur:
 
 ![Skärm bild som visar en resurs grupp med två belastningsutjämnare markerade.][Resources]
 

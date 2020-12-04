@@ -10,14 +10,14 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 0475e7a7b9bb40e77fe23362ff098350037bdd30
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ca812fc7548e3c70f1faa1e1ed6a34afda3872af
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555285"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575983"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer"></a>Självstudie: förutsäga Automobile-priset med designern
+# <a name="tutorial-predict-automobile-price-with-the-designer"></a>Självstudie: Förutsäg ett bilpris med designern
 
 
 I den här självstudien får du lära dig hur du använder Azure Machine Learning designer för att träna och distribuera en maskin inlärnings modell som förutsäger priset på en bil. Designern är ett dra-och-släpp-verktyg som gör att du kan skapa maskin inlärnings modeller utan en enda rad kod.
@@ -48,7 +48,10 @@ Om du vill skapa en Azure Machine Learning pipeline behöver du en Azure Machine
 
 ### <a name="create-a-new-workspace"></a>Skapa en ny arbetsyta
 
-För att kunna använda designern behöver du först en Azure Machine Learning-arbetsyta. Arbets ytan är den översta resursen för Azure Machine Learning, den innehåller en central plats där du kan arbeta med alla artefakter som du skapar i Azure Machine Learning.
+Du behöver en Azure Machine Learning-arbetsyta för att kunna använda designern. Arbets ytan är den översta resursen för Azure Machine Learning, den innehåller en central plats där du kan arbeta med alla artefakter som du skapar i Azure Machine Learning. Instruktioner om hur du skapar en arbets yta finns i [skapa och hantera Azure Machine Learning arbets ytor](how-to-manage-workspace.md).
+
+> [!NOTE]
+> Om din arbets yta använder ett virtuellt nätverk finns det ytterligare konfigurations steg som du måste använda för att använda designern. Mer information finns i [använda Azure Machine Learning Studio i ett virtuellt Azure-nätverk](how-to-enable-studio-virtual-network.md)
 
 ### <a name="create-the-pipeline"></a>Skapa pipelinen
 
@@ -70,7 +73,7 @@ Du kan ange ett **standard beräknings mål** för hela pipelinen, vilket anger 
 
 1. Bredvid pipelinens namn **väljer du** ![ skärm bild av kugg hjuls ikonen längst ](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) upp på arbets ytan för att öppna fönstret **Inställningar** .
 
-1. I fönstret **Inställningar** till höger om arbets ytan väljer du **Välj Compute Target (Välj Compute Target** ).
+1. I fönstret **Inställningar** till höger om arbets ytan väljer du **Välj Compute Target (Välj Compute Target**).
 
     Om du redan har ett tillgängligt beräknings mål kan du välja att köra denna pipeline.
 
@@ -118,7 +121,7 @@ När du tränar en modell måste du göra något om de data som saknas. I den h�
 
 1. Dra modulen **Välj kolumner i data uppsättning** till arbets ytan. Släpp modulen under data uppsättnings modulen.
 
-1. Anslut data uppsättningen för **Automobil pris data (RAW)** till modulen **Välj kolumner i data uppsättning** . Dra från data uppsättningens utgående port, som är den lilla cirkeln längst ned i data uppsättningen på arbets ytan, till Indataporten för **Select-kolumner i data uppsättningen** , som är den lilla cirkeln överst i modulen.
+1. Anslut data uppsättningen för **Automobil pris data (RAW)** till modulen **Välj kolumner i data uppsättning** . Dra från data uppsättningens utgående port, som är den lilla cirkeln längst ned i data uppsättningen på arbets ytan, till Indataporten för **Select-kolumner i data uppsättningen**, som är den lilla cirkeln överst i modulen.
 
     > [!TIP]
     > Du skapar ett data flöde via din pipeline när du ansluter utdataporten för en modul till en annan indataport.
@@ -275,7 +278,7 @@ Nu när din pipeline är all konfiguration kan du skicka en pipeline-körning f�
     
     Du kan visa körnings status och information överst till höger på arbets ytan.
     
-    Om är den första körningen kan det ta upp till 20 minuter innan din pipeline har slutförts. Standard beräknings inställningarna har en minsta Node-storlek på 0, vilket innebär att Designer måste allokera resurser efter inaktivitet. Upprepade pipelines körningar tar mindre tid eftersom beräknings resurserna redan har allokerats. Dessutom använder designern cachelagrade resultat för varje modul för att ytterligare förbättra effektiviteten.
+    Om det här är den första körningen kan det ta upp till 20 minuter innan din pipeline har slutförts. Standard beräknings inställningarna har en minsta Node-storlek på 0, vilket innebär att Designer måste allokera resurser efter inaktivitet. Upprepade pipelines körningar tar mindre tid eftersom beräknings resurserna redan har allokerats. Dessutom använder designern cachelagrade resultat för varje modul för att ytterligare förbättra effektiviteten.
 
 ### <a name="view-scored-labels"></a>Visa Poäng etiketter
 
@@ -295,11 +298,11 @@ Använd **utvärdera modell** för att se hur väl den tränade modellen utfört
 
 Följande statistik visas för din modell:
 
-* **Medelvärde för absolut fel (Mae)** : medelvärdet av absoluta fel. Ett fel är skillnaden mellan det förväntade värdet och det faktiska värdet.
-* **Rot genomsnitts fel (rmse)** : kvadratroten ur genomsnittet av de förutsägelser som gjorts på test data uppsättningen.
-* **Relativa absoluta fel** : Medelvärdet av absoluta fel i förhållande till den absoluta skillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
-* **Relativa kvadratfel** : Medelvärdet av kvadratfel i förhållande till kvadratskillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
-* **Friktionskoefficienten** : även känt som R-kvadratvärdet anger det här statistik måttet hur väl en modell passar data.
+* **Medelvärde för absolut fel (Mae)**: medelvärdet av absoluta fel. Ett fel är skillnaden mellan det förväntade värdet och det faktiska värdet.
+* **Rot genomsnitts fel (rmse)**: kvadratroten ur genomsnittet av de förutsägelser som gjorts på test data uppsättningen.
+* **Relativa absoluta fel**: Medelvärdet av absoluta fel i förhållande till den absoluta skillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
+* **Relativa kvadratfel**: Medelvärdet av kvadratfel i förhållande till kvadratskillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
+* **Friktionskoefficienten**: även känt som R-kvadratvärdet anger det här statistik måttet hur väl en modell passar data.
 
 För all felstatistik gäller att mindre är bättre. Ett mindre värde anger att förutsägelserna är närmare de faktiska värdena. För att fastställa koefficienten är det närmare värdet en (1,0), desto bättre förutsägelser.
 

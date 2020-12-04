@@ -8,12 +8,12 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b9a29e890553d15d19853ec836f8c4296869e143
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8efc0301296f64abfe9b827e943882e930929086
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959636"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575337"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Självstudie: träna och distribuera en Azure Machine Learning modell
 
@@ -179,6 +179,10 @@ Kontrol lera att antecknings böckerna har slutförts genom att kontrol lera att
 Du kan infoga python-instruktioner i antecknings boken för fel sökning, till exempel `print()` kommandot för att visa värden. Om du ser variabler eller objekt som inte har definierats kör du cellerna där de först deklareras eller instansieras.
 
 Du kanske måste ta bort tidigare skapade filer och Azure-resurser om du behöver göra om antecknings böckerna.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Den här självstudien är en del av en uppsättning där varje artikel bygger på det arbete som utförts i föregående avsnitt. Vänta tills du är klar med att rensa alla resurser tills du är klar med den sista självstudien.
 
 ## <a name="next-steps"></a>Nästa steg
 

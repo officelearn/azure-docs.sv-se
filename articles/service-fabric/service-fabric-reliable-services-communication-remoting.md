@@ -1,17 +1,15 @@
 ---
 title: Fjärrtjänst för fjärr kommunikation med C# i Service Fabric
 description: Med Service Fabric fjärr kommunikation kan klienter och tjänster kommunicera med C#-tjänster med hjälp av ett fjärran rop.
-author: vturecek
 ms.topic: conceptual
 ms.date: 09/20/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 246b1456c05605c4015c19e1a139e9ad65f6eaba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3659fea73abae3c9c5264f227b90d0af95a93e7
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022164"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576663"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Tjänst-Remoting i C# med Reliable Services
 
@@ -269,7 +267,7 @@ Skapa klient sammansättningen med gränssnitts sammansättningen för att se ti
 
 ### <a name="use-explicit-remoting-classes-to-create-a-listenerclient-factory-for-the-v2-interface-compatible-version"></a>Använd explicita fjärr kommunikations klasser för att skapa en lyssnare/klient fabrik för v2-versionen (Interface Compatible)
 
-Följ de här stegen:
+Gör så här:
 
 1. Lägg till en slut punkts resurs med namnet "ServiceEndpointV2_1" i tjänst manifestet.
 
@@ -358,7 +356,7 @@ Det här steget ser till att tjänsten bara lyssnar på v2-lyssnaren.
 ### <a name="use-custom-serialization-with-a-remoting-wrapped-message"></a>Använda anpassad serialisering med ett meddelande med figursatt meddelande hantering
 
 För ett meddelande om figursatt meddelande hantering skapar vi ett enda figursatt objekt med alla parametrar som ett fält i det.
-Följ de här stegen:
+Gör så här:
 
 1. Implementera `IServiceRemotingMessageSerializationProvider` gränssnittet för att tillhandahålla implementering för anpassad serialisering.
     Det här kodfragmentet visar hur implementeringen ser ut.

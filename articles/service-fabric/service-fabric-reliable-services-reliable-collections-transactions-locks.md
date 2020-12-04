@@ -3,13 +3,12 @@ title: Transaktioner och lås lägen i Reliable Collections
 description: Azure Service Fabric Reliable State Manager och Reliable Collections-transaktioner och-låsning.
 ms.topic: conceptual
 ms.date: 5/1/2017
-ms.custom: sfrev
-ms.openlocfilehash: d1094462ebabcea1fbead3d5b30fdfb8dda6463a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57ca46047641b79d5e4c50ede4a27e16dcec5d89
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500290"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576731"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transaktioner och lås lägen i Azure Service Fabric Reliable Collections
 

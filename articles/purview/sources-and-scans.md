@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 5c5be9089992104d27af3db84eb2c9a165f779f2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6432cc9affd34c0fa9b832aea91932a2b9e7540f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554365"
+ms.locfileid: "96576680"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Data källor och filtyper som stöds i Azure avdelningens kontroll
 
@@ -32,7 +32,7 @@ Azure avdelningens kontroll stöder följande källor:
 | Azure-datautforskaren                      | Tjänstens huvudnamn                              | UX            |
 | Azure Data Lake Storage Gen1 (ADLS Gen1) | Tjänstens huvud namn, MSI                              | UX            |
 | Azure Data Lake Storage Gen2 (ADLS Gen2) | Konto nyckel, tjänstens huvud namn, MSI            | UX            |
-| Cosmos DB                                 | Konto nyckel                                    | UX            |
+| Azure Cosmos DB                          | Konto nyckel                                    | UX            |
 
 
 > [!Note]

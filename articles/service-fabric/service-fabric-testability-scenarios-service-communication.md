@@ -1,16 +1,14 @@
 ---
 title: 'Testning: tjänst kommunikation'
 description: Tjänst-till-tjänst-kommunikation är en viktig integrations plats för ett Service Fabric program. Den här artikeln beskriver design överväganden och testnings tekniker.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
-ms.openlocfilehash: 87b922cb9655588a22c739d26c9ce9e49d35781a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fbf889422d69d031d777acd80cf3becfb3184568
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007128"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575932"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric testnings scenarier: tjänst kommunikation
 Mikrotjänster och tjänsteorienterad arkitektur format yta naturligt i Azure Service Fabric. I den här typen av distribuerade arkitekturer består komponentbaserade mikrotjänstprogram vanligt vis av flera tjänster som måste kommunicera med varandra. I de enklaste fallen har du vanligt vis minst en tillstånds lös webb tjänst och en tillstånds känslig data lagrings tjänst som behöver kommunicera.

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 44365dec247b9f3135a090cee397cad32598fd29
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f621d11553101c2c0bcfce804b26c218ae58670c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977875"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576476"
 ---
 # <a name="calling-client-library-overview"></a>Översikt över klientbiblioteket för samtal
 
@@ -28,7 +28,7 @@ Tjänst klient biblioteken är inte tillgängliga än och ger till gång till pl
 
 I följande lista presenteras de funktioner som för närvarande är tillgängliga i Azure Communication Services som anropar klient bibliotek.
 
-| Grupp med funktioner | Funktion                                                                                                          | JS  | Java (Android) | Objective-C (iOS) 
+| Grupp med funktioner | Kapacitet                                                                                                          | JS  | Java (Android) | Objective-C (iOS) 
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---  | -------------- | -------------
 | Kärn funktioner | Placera ett ett-till-ett-samtal mellan två användare                                                                           | ✔️   | ✔️            | ✔️  
 |                   | Placera ett grupp samtal med fler än två användare (upp till 350 användare)                                                       | ✔️   | ✔️            | ✔️ 
@@ -70,6 +70,26 @@ Följande tabell visar en uppsättning webbläsare och versioner som stöds och 
 * Observera att den senaste versionen av Chrome stöds förutom de tidigare två versionerna.<br/>
 
 * * Observera att Safari-versionerna 13.1 + stöds. Utgående video för Safari macOS stöds inte ännu, men stöds i iOS. Delning av utgående skärm stöds endast på Desktop iOS.
+
+## <a name="calling-client---browser-security-model"></a>Anropa klientens webbläsare säkerhets modell
+
+### <a name="user-webrtc-over-https"></a>Användarens WebRTC över HTTPS
+
+WebRTC-API: er som `getUserMedia` kräver att den app som anropar dessa API: er hanteras via https.
+
+För lokal utveckling kan du använda `http://localhost` .
+
+### <a name="embed-the-communication-services-calling-sdk-in-an-iframe"></a>Bädda in kommunikations tjänsterna som anropar SDK i en iframe
+
+En ny [behörighets princip (kallas även en funktions princip)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute) antas av olika webbläsare. Den här principen påverkar anrops scenarier genom att styra hur program kan komma åt en enhets kamera och mikrofon genom ett iframe-element mellan ursprung.
+
+Om du vill använda en iframe som värd för en del av appen från en annan domän måste du lägga till `allow` attributet med rätt värde i iframe.
+
+Denna IFRAME tillåter till exempel både kamera-och mikrofon åtkomst:
+
+```html
+<iframe allow="camera *; microphone *">
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

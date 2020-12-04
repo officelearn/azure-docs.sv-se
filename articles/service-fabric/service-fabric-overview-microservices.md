@@ -3,13 +3,12 @@ title: Introduktion till mikrotjänster på Azure
 description: En översikt över varför det är viktigt att skapa moln program med en mikrotjänster-metod för modern program utveckling och hur Azure Service Fabric tillhandahåller en plattform för att uppnå detta.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.custom: sfrev
-ms.openlocfilehash: 4345c919e73e57667fb3b9c90c42224326bc3552
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d20e04820c87a7390d9c20e511259ee9860c27f5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300776"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575660"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Varför ska man använda en mikrotjänst metod för att skapa program
 
@@ -43,7 +42,7 @@ Nack delen med mikrotjänster är att du måste hantera fler separata entiteter 
 
 Standarder gör mikrotjänster-metoden att fungera genom att ange hur du ska kommunicera och tolerera enbart de saker du behöver från en tjänst i stället för fasta avtal. Det är viktigt att definiera dessa kontrakt direkt i designen eftersom tjänsterna uppdateras oberoende av varandra. En annan beskrivning som myntade för att utforma med en mikrotjänst metod är "detaljerad service-orienterad arkitektur (SOA)".
 
-***Det är enkelt att utforma mikrotjänster som är en fristående Federation av tjänster, med oberoende ändringar i alla och överenskomna standarder för kommunikation.***
+***Det är enkelt att utforma mikrotjänster som är en fristående Federation av tjänster, med oberoende ändringar i alla och överenskomna standarder för kommunikation.** _
 
 När fler moln program skapas har människor upptäckt att den här dekompositionen av den övergripande applikationen i oberoende, scenario-fokuserade tjänster är ett bättre långsiktigt tillvägagångs sätt.
 
@@ -67,7 +66,7 @@ När du använder en metod för mikrotjänster kan du skapa ett program med mån
 
 Det finns olika definitioner av mikrotjänster. De flesta av dessa egenskaper hos mikrotjänster godkänns ofta:
 
-* Kapsla in en kund eller ett affärs scenario. Vilket problem löser du?
+_ Kapsla in en kund eller ett affärs scenario. Vilket problem löser du?
 * Utvecklat av ett litet teknik team.
 * Skrivet i valfritt programmeringsspråk med valfritt ramverk.
 * Består av kod, och alternativt tillstånd, som båda är oberoende versioner, distribueras och skalas.
@@ -77,7 +76,7 @@ Det finns olika definitioner av mikrotjänster. De flesta av dessa egenskaper ho
 
 Så här summerar du:
 
-***Mikrotjänstprogram består av små, oberoende versioner av och skalbara kundfokuserade tjänster som kommunicerar med varandra via standard protokoll med väldefinierade gränssnitt.***
+***Mikrotjänstprogram består av små, oberoende versioner av och skalbara kundfokuserade tjänster som kommunicerar med varandra via standard protokoll med väldefinierade gränssnitt.** _
 
 ### <a name="written-in-any-programming-language-using-any-framework"></a>Skrivet i valfritt programmeringsspråk med valfritt ramverk
 
@@ -95,9 +94,9 @@ Vi går tillbaka till vår jämförelse av monolitisk och mikrotjänsternas meto
 
 ![Lagring av Service Fabric plattforms tillstånd][Image2]
 
-***Monolitisk-metoden till vänster har en enda databas och nivåer av en viss teknik.***
+_*_Monolitisk-metoden till vänster har en enda databas och nivåer av en viss teknik._*_
 
-***Mikrotjänster-metoden, till höger, har ett diagram över sammankopplade mikrotjänster där tillstånd vanligt vis är begränsat till mikrotjänsten och olika tekniker används.***
+_*_Mikrotjänster-metoden, till höger, har ett diagram över sammankopplade mikrotjänster där tillstånd vanligt vis är begränsat till mikrotjänsten och olika tekniker används._*_
 
 I en monolitisk metod använder programmet vanligt vis en enda databas. Fördelen med att använda en databas är att den finns på en enda plats, vilket gör det enkelt att distribuera. Varje komponent kan ha en enda tabell för att lagra dess tillstånd. Teamen måste ha en strikt separat status, vilket är en utmaning. Oundvikligen kommer någon att vara frestad att lägga till en kolumn i en befintlig kund tabell, göra en koppling mellan tabeller och skapa beroenden i lagrings skiktet. När detta inträffar kan du inte skala enskilda komponenter.
 
@@ -137,18 +136,18 @@ Besök Azure Architecture Center för att få hjälp med att [utforma och skapa 
 
 Azure Service Fabric när Microsoft övergår från att leverera inramade produkter, som vanligt vis monolitisk, för att leverera tjänster. Upplevelsen av att skapa och driva stora tjänster, t. ex. Azure SQL Database och Azure Cosmos DB, formad Service Fabric. Plattformen utvecklades över tid då fler tjänster antog den. Service Fabric kördes inte bara i Azure utan även i fristående distributioner av Windows Server.
 
-***Syftet med Service Fabric är att lösa de hårda problemen med att skapa och köra en tjänst och att använda infrastruktur resurser på ett effektivt sätt, så att team kan lösa affärs problem med hjälp av en metod för mikrotjänster.***
+_*_Syftet med Service Fabric är att lösa de hårda problemen med att skapa och köra en tjänst och att använda infrastruktur resurser på ett effektivt sätt, så att team kan lösa affärs problem med hjälp av en metod för mikrotjänster._*_
 
 Denna korta video presenterar Service Fabric och mikrotjänster:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 Service Fabric hjälper dig att bygga program som använder en mikrotjänster-metod genom att tillhandahålla:
 
-* En plattform som tillhandahåller system tjänster för att distribuera, uppgradera, identifiera och starta om misslyckade tjänster, upptäcka tjänster, dirigera meddelanden, hantera tillstånd och övervaka hälso tillstånd.
+_ En plattform som tillhandahåller system tjänster för att distribuera, uppgradera, identifiera och starta om misslyckade tjänster, upptäcka tjänster, dirigera meddelanden, hantera tillstånd och övervaka hälso tillstånd.
 * Möjligheten att distribuera program som antingen körs i behållare eller som processer. Service Fabric är en behållare och process Orchestrator.
 * Effektiva programmerings-API: er som hjälper dig att bygga program som mikrotjänster: [ASP.net Core, Reliable Actors och Reliable Services](service-fabric-choose-framework.md). Du kan till exempel få information om hälso tillstånd och diagnostik, eller så kan du dra nytta av inbyggd hög tillgänglighet.
 
-***Service Fabric är oberoende om hur du skapar tjänsten och du kan använda valfri teknik. Men det tillhandahåller inbyggda programmerings-API: er som gör det enklare att skapa mikrotjänster.***
+***Service Fabric är oberoende om hur du skapar tjänsten och du kan använda valfri teknik. Men det tillhandahåller inbyggda programmerings-API: er som gör det enklare att skapa mikrotjänster.** _
 
 ### <a name="migrating-existing-applications-to-service-fabric"></a>Migrera befintliga program till Service Fabric
 
@@ -162,7 +161,7 @@ Med Service Fabric kan du återanvända befintlig kod och modernisera den med ny
 
 ![Migrering till mikrotjänster][Image3]
 
-Kom ihåg att du kan *starta och stoppa i någon av dessa steg*. Du behöver inte fortsätta till nästa steg. 
+Kom ihåg att du kan _start och stoppa i någon av dessa steg *. Du behöver inte fortsätta till nästa steg. 
 
 Nu ska vi titta på exempel för var och en av dessa steg.
 

@@ -1,17 +1,15 @@
 ---
 title: Översikt över Azure Service Fabric aktörens livs cykel
 description: Förklarar Service Fabric pålitliga aktörs livs cykel, skräp insamling och manuellt ta bort aktörer och deras status
-author: amanbha
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.author: amanbha
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3cea6213b2c6f2797d46f865afe1e13cbf4aaff6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88db4bb2376cbc418d6954e274a18a6c18a280d1
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016707"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576051"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Aktörs livs cykel, automatisk skräp insamling och manuell borttagning
 En aktör aktive ras första gången ett anrop görs till någon av dess metoder. En aktör inaktive ras (skräp insamlad av aktörernas körningar) om den inte används under en konfigurerbar tids period. En aktör och dess tillstånd kan också tas bort manuellt när som helst.

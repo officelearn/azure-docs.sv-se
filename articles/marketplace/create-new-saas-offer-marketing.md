@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: c8fa2efe708823ff4154edfd58f1b18e0176a990
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ccc5a63da40950fbf9f05e3e029393fce8814d7
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381209"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576697"
 ---
 # <a name="how-to-market-your-saas-offer"></a>Så här marknadsför du ditt SaaS-erbjudande
 
@@ -23,9 +23,9 @@ I den här artikeln beskrivs ytterligare marknadsförings alternativ som du kan 
 
 Att tillhandahålla information om **samförsäljning med Microsoft** -sidan är helt valfritt. Men det krävs för att uppnå samförsäljnings status för _klar_ och _IP-adresser_ . I Microsofts försäljnings team används den här informationen för att lära dig mer om din lösning när du utvärderar den efter kundens behov. Den information som du anger på den här fliken är inte tillgänglig direkt för kunderna.
 
-Mer information och anvisningar om hur du konfigurerar fliken **medförsäljning med Microsoft** finns i [samförsäljnings alternativ i Partner Center](partner-center-portal/commercial-marketplace-co-sell.md).
+Mer information och anvisningar om hur du konfigurerar fliken **medförsäljning med Microsoft** finns i [samförsäljnings alternativ i Partner Center](commercial-marketplace-co-sell.md).
 
-## <a name="resell-through-csps"></a>Att sälja via CSP
+## <a name="resell-through-csps"></a>Sälja via CSP-partner
 
 Om du väljer att göra ditt erbjudande tillgängligt i CSP-programmet (Cloud Solution Provider) kan kryptografiproviders sälja din produkt som en del av en samlad lösning till sina kunder. Mer information om hur du säljer ditt erbjudande via CSP-programmet och stegvisa anvisningar för hur du konfigurerar åter **försäljaren via fliken kryptografiproviders** finns i [program för Cloud Solution Provider](cloud-solution-providers.md).
 

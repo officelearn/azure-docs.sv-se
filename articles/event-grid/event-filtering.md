@@ -2,13 +2,13 @@
 title: Händelse filtrering för Azure Event Grid
 description: Beskriver hur du filtrerar händelser när du skapar en Azure Event Grid-prenumeration.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 837209d4197c271598155776b8d171a705e1f454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/03/2020
+ms.openlocfilehash: bc3e84037693fcd909961ba409871d947ef1de7d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120100"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574914"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Förstå händelse filtrering för Event Grid prenumerationer
 
@@ -117,12 +117,29 @@ Tillgängliga operatorer för **strängar** är:
 
 Alla sträng jämförelser är **inte** Skift läges känsliga.
 
-### <a name="key"></a>Tangent
+> [!NOTE]
+> Om händelse-JSON inte innehåller den avancerade filter nyckeln är filtret evaulated som **ej matchat** för följande operatorer: 
+> - NumberGreaterThan
+> - NumberGreaterThanOrEquals
+> - NumberLessThan
+> - NumberLessThanOrEquals
+> - Numberin
+> - BoolEquals
+> - StringContains
+> - StringBeginsWith
+> - StringEndsWith
+> - Strängin
+> 
+>Filtret är evaulated **matchat** för följande operatorer:
+> - NumberNotIn
+> - StringNotIn
+
+### <a name="key"></a>Nyckel
 
 För händelser i Event Grid schemat använder du följande värden för nyckeln:
 
 * ID
-* Avsnitt
+* Ämne
 * Ämne
 * Typ
 * DataVersion
@@ -142,7 +159,7 @@ Använd händelse data fält (t. ex. data. KEY1) för anpassade indata-schema.
 
 Värdena kan vara:
 
-* nummer
+* antal
 * sträng
 * boolean
 * matris
@@ -154,7 +171,7 @@ Avancerad filtrering har följande begränsningar:
 * 5 avancerade filter och 25 filter värden i alla filter per Event Grid-prenumeration
 * 512 tecken per sträng värde
 * Fem värden för **in** -och **not** -operatorer
-* Nycklar med ** `.` (punkt)** -tecknen i dem. Till exempel: `http://schemas.microsoft.com/claims/authnclassreference` eller `john.doe@contoso.com` . För närvarande finns det inget stöd för escape-tecken i nycklar. 
+* Nycklar med **`.` (punkt)** -tecknen i dem. Till exempel: `http://schemas.microsoft.com/claims/authnclassreference` eller `john.doe@contoso.com` . För närvarande finns det inget stöd för escape-tecken i nycklar. 
 
 Samma nyckel kan användas i mer än ett filter.
 

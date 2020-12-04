@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 10/13/2020
+ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: d82cbafbbdeb379c8eb97494ca8d3243f356b7a1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 18eb952d06d83b4604625a795be3c8512c3f90d7
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542124"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576595"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Hantera och öka kvoter för resurser med Azure Machine Learning
 
@@ -45,25 +45,29 @@ Tillsammans med hanterings kvoter kan du lära dig hur du [planerar och hanterar
 
 I det här avsnittet får du lära dig om standard-och Max kvot gränserna för följande resurser:
 
++ Azure Machine Learning till gångar
+  + Azure Machine Learning Compute
+  + Azure Machine Learning pipelines
 + Virtuella datorer
-+ Azure Machine Learning Compute
-+ Azure Machine Learning pipelines
 + Azure Container Instances
 + Azure Storage
 
 > [!IMPORTANT]
 > Begränsningar kan komma att ändras. Den senaste informationen finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md) för alla Azure.
 
-### <a name="virtual-machines"></a>Virtuella datorer
-Varje Azure-prenumeration har en gräns för antalet virtuella datorer i alla tjänster. Virtuella dator kärnor har en regional total gräns och en regional gräns per storleks serie. Båda gränserna tillämpas separat.
+### <a name="azure-machine-learning-assets"></a>Azure Machine Learning till gångar
+Följande begränsningar för till gångar gäller per arbets yta. 
 
-Anta till exempel att en prenumeration i regionen USA, östra har en gräns för totalt antal VM-kärnor på 30, en gräns för antal kärnor i A-serien på 30 och en gräns för antal kärnor i D-serien på 30. Den här prenumerationen skulle kunna distribuera 30 a1-VM: ar eller 30 D1-datorer, eller en kombination av de två som inte överstiger totalt 30 kärnor.
+| **Resurs** | **Maximal gräns** |
+| --- | --- |
+| Datauppsättningar | 10 miljoner |
+| Körningar | 10 miljoner |
+| Modeller | 10 miljoner|
+| Artifacts | 10 miljoner |
 
-Du kan inte höja gränserna för virtuella datorer över värdena som visas i följande tabell.
+Dessutom är den maximala **körnings tiden** 30 dagar och det maximala antalet mått som **loggas per körning** är 1 000 000.
 
-[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
-
-### <a name="azure-machine-learning-compute"></a>Azure Machine Learning Compute
+#### <a name="azure-machine-learning-compute"></a>Azure Machine Learning Compute
 [Azure Machine Learning Compute](concept-compute-target.md#azure-machine-learning-compute-managed) har en standard kvot gräns för både antalet kärnor och antalet unika beräknings resurser som tillåts per region i en prenumeration. Den här kvoten är separat från den virtuella datorns kärn kvot från föregående avsnitt.
 
 [Begär en kvot ökning](#request-quota-increases) för att höja gränserna i det här avsnittet upp till den maximala gränsen som visas i tabellen.
@@ -90,13 +94,22 @@ I följande tabell visas ytterligare gränser som du inte kan överskrida.
 <sup>1</sup> maximal livs längd är varaktigheten mellan när en körning startar och när den har slutförts. Slutförda körningar sparas oändligt. Data för körningar som inte slutförts inom den maximala livs längden är inte tillgängliga.
 <sup>2</sup> jobb på en nod med låg prioritet kan åsidosättas när det finns en kapacitets begränsning. Vi rekommenderar att du implementerar kontroll punkter i jobbet.
 
-### <a name="azure-machine-learning-pipelines"></a>Azure Machine Learning pipelines
+#### <a name="azure-machine-learning-pipelines"></a>Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) har följande gränser.
 
 | **Resurs** | **Gräns** |
 | --- | --- |
 | Steg i en pipeline | 30 000 |
 | Arbets ytor per resurs grupp | 800 |
+
+### <a name="virtual-machines"></a>Virtuella datorer
+Varje Azure-prenumeration har en gräns för antalet virtuella datorer i alla tjänster. Virtuella dator kärnor har en regional total gräns och en regional gräns per storleks serie. Båda gränserna tillämpas separat.
+
+Anta till exempel att en prenumeration i regionen USA, östra har en gräns för totalt antal VM-kärnor på 30, en gräns för antal kärnor i A-serien på 30 och en gräns för antal kärnor i D-serien på 30. Den här prenumerationen skulle kunna distribuera 30 a1-VM: ar eller 30 D1-datorer, eller en kombination av de två som inte överstiger totalt 30 kärnor.
+
+Du kan inte höja gränserna för virtuella datorer över värdena som visas i följande tabell.
+
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### <a name="container-instances"></a>Container Instances
 

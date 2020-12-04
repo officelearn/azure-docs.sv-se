@@ -8,18 +8,36 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 965c420fa29c4cf82517148c01e17d6d7dd6ea97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d603e5d03480b99eb3d6adb72a3440198fda2e47
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74106504"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575473"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Självstudie: en lösning från slut punkt till slut punkt med hjälp av Azure Machine Learning och IoT Edge
 
 IoT-program vill ofta dra nytta av det intelligenta molnet och den intelligenta gränsen. I den här självstudien vägleder vi dig genom utbildningen av en maskin inlärnings modell med data som samlas in från IoT-enheter i molnet, distribution av modellen till IoT Edge och underhåll och raffinering av modellen med jämna mellanrum.
 
 Det främsta syftet med den här självstudien är att introducera bearbetningen av IoT-data med Machine Learning, specifikt på gränsen. Medan vi vidrör många aspekter av ett allmänt Machine Learning-arbetsflöde är den här självstudien inte avsedd som en djupgående introduktion till Machine Learning. Som ett litet exempel försöker vi inte skapa en mycket optimerad modell för användnings fallet – vi räcker bara för att illustrera processen med att skapa och använda en praktisk modell för IoT-databearbetning.
+
+## <a name="prerequisites"></a>Krav
+
+För att slutföra självstudien måste du ha åtkomst till en Azure-prenumeration där du har behörighet att skapa resurser. Flera av de tjänster som används i den här självstudien debiteras Azure-avgifter. Om du inte redan har en Azure-prenumeration kan du komma igång med ett [kostnads fritt Azure-konto](https://azure.microsoft.com/offers/ms-azr-0044p/).
+
+Du behöver också en dator med PowerShell installerat där du kan köra skript för att konfigurera en virtuell Azure-dator som utvecklings dator.
+
+I det här dokumentet använder vi följande uppsättning verktyg:
+
+* En Azure IoT Hub för data insamling
+
+* Azure Notebooks som vår huvud klient för förberedelse av data och maskin inlärnings experiment. Att köra python-kod i en bärbar dator på en delmängd av exempel data är ett bra sätt att få snabb och interaktiv data behandling under förberedelse av data. Jupyter-anteckningsböcker kan också användas för att förbereda skript som ska köras i stor skala i en beräknings Server del.
+
+* Azure Machine Learning som Server del för maskin inlärning i skala och för generering av Machine Learning-avbildningar. Vi driver Azure Machine Learning Server del med skript som är beredda och testade i Jupyter Notebooks.
+
+* Azure IoT Edge för program utanför molnet för en Machine Learning-avbildning
+
+Det finns andra tillgängliga alternativ. I vissa fall kan exempelvis IoT Central användas som ett alternativ utan kod för att samla in initiala tränings data från IoT-enheter.
 
 ## <a name="target-audience-and-roles"></a>Mål grupp och roller
 
@@ -40,9 +58,9 @@ De data som används i den här självstudien hämtas från [data uppsättningen
 
 Från Readme-filen:
 
-***Experiment scenario***
+***Experimentellt scenario** _
 
-*Data uppsättningar består av flera multivarierad tids serier. Varje data uppsättning är ytterligare indelad i utbildning och test del mängder. Varje tids serie är från en annan motor, d.v.s. data kan anses vara från en flotta av motorer av samma typ. Varje motor börjar med olika grader av inledande slitage och tillverknings variation som är okänt för användaren. Detta slitage betraktas som vanligt, d.v.s. det anses inte vara ett fel tillstånd. Det finns tre operativa inställningar som har en betydande effekt på motorns prestanda. Dessa inställningar ingår också i datan. Data är förorenade av sensor brus.*
+_Data mängder består av flera multivarierad tids serier. Varje data uppsättning är ytterligare indelad i utbildning och test del mängder. Varje tids serie är från en annan motor, d.v.s. data kan anses vara från en flotta av motorer av samma typ. Varje motor börjar med olika grader av inledande slitage och tillverknings variation som är okänt för användaren. Detta slitage betraktas som vanligt, d.v.s. det anses inte vara ett fel tillstånd. Det finns tre operativa inställningar som har en betydande effekt på motorns prestanda. Dessa inställningar ingår också i datan. Data är förorenade av sensor brus. *
 
 *Motorn fungerar normalt i början av varje tids serie och utvecklar ett fel vid någon tidpunkt under serien. I inlärnings uppsättningen växer felet i storleksordning tills systemet havererar. I test uppsättningen går tids serien ut en stund innan systemet kraschar. Målet med tävlingen är att förutsäga antalet återstående operativa cykler innan det uppstår problem i test uppsättningen, d.v.s. antalet operativa cykler efter den senaste cykeln som motorn fortsätter att fungera. Tillhandahöll också en Vector med sanna återstående användbara livs längd värden (RUL) för test data.*
 
@@ -74,23 +92,9 @@ Bilden nedan illustrerar de grova steg som vi följer i den här självstudien:
 
 1. **Underhålla och förfina modellen**. Vårt arbete utförs inte när modellen har distribuerats. I många fall vill vi fortsätta samla in data och regelbundet överföra dessa data till molnet. Vi kan sedan använda dessa data för att omträna och förfina vår modell, som vi sedan kan distribuera till IoT Edge.
 
-## <a name="prerequisites"></a>Krav
+## <a name="clean-up-resources"></a>Rensa resurser
 
-För att slutföra självstudien måste du ha åtkomst till en Azure-prenumeration där du har behörighet att skapa resurser. Flera av de tjänster som används i den här självstudien debiteras Azure-avgifter. Om du inte redan har en Azure-prenumeration kan du komma igång med ett [kostnads fritt Azure-konto](https://azure.microsoft.com/offers/ms-azr-0044p/).
-
-Du behöver också en dator med PowerShell installerat där du kan köra skript för att konfigurera en virtuell Azure-dator som utvecklings dator.
-
-I det här dokumentet använder vi följande uppsättning verktyg:
-
-* En Azure IoT Hub för data insamling
-
-* Azure Notebooks som vår huvud klient för förberedelse av data och maskin inlärnings experiment. Att köra python-kod i en bärbar dator på en delmängd av exempel data är ett bra sätt att få snabb och interaktiv data behandling under förberedelse av data. Jupyter-anteckningsböcker kan också användas för att förbereda skript som ska köras i stor skala i en beräknings Server del.
-
-* Azure Machine Learning som Server del för maskin inlärning i skala och för generering av Machine Learning-avbildningar. Vi driver Azure Machine Learning Server del med skript som är beredda och testade i Jupyter Notebooks.
-
-* Azure IoT Edge för program utanför molnet för en Machine Learning-avbildning
-
-Det finns andra tillgängliga alternativ. I vissa fall kan exempelvis IoT Central användas som ett alternativ utan kod för att samla in initiala tränings data från IoT-enheter.
+Den här självstudien är en del av en uppsättning där varje artikel bygger på det arbete som utförts i föregående avsnitt. Vänta tills du är klar med att rensa alla resurser tills du är klar med den sista självstudien.
 
 ## <a name="next-steps"></a>Nästa steg
 

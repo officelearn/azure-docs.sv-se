@@ -1,16 +1,15 @@
 ---
 title: Översikt över Service Fabric-programmeringsmodell
 description: 'Service Fabric erbjuder två ramverk för att skapa tjänster: aktörs ramverket och tjänst ramverket. De erbjuder distinkta kompromisser i enkelhet och kontroll.'
-author: vturecek
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: 8e1c96d0b04140f8c1121cfb74b43969b49cfdda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 523c9e0064d8b78698f1a0dd3544bda58436800c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260534"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575728"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Översikt över Service Fabric-programmeringsmodell
 

@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 57948cf705d2a58b4f8e19e56121115ba33362ad
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: a427c77ec23bb933f96d8aec54ca33169aee84d4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518642"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576034"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Synapse Analytics
 
@@ -83,7 +83,7 @@ A: inte just nu.
 
 ### <a name="q-how-do-i-migrate-existing-pipelines-from-azure-data-factory-to-an-azure-synapse-workspace"></a>F: Hur gör jag för att migrera befintliga pipelines från Azure Data Factory till en Azure dataSynapses-arbetsyta?
 
-A: vid det här tillfället måste du manuellt återskapa Azure Data Factory pipelines och relaterade artefakter manuellt. 
+A: vid det här tillfället måste du manuellt återskapa Azure Data Factory pipelines och relaterade artefakter genom att exportera JSON från den ursprungliga pipelinen och importera den till din Synapse-arbetsyta.
 
 ## <a name="apache-spark"></a>Apache Spark
 
@@ -146,6 +146,6 @@ S: du hittar en fullständig lista över skillnader i [skillnaderna i T-SQL-funk
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kom igång med Azure Synapse Analytics](get-started.md)
+* [Komma igång med Azure Synapse Analytics](get-started.md)
 * [Skapa en arbetsyta](quickstart-create-workspace.md)
 * [Använda en serverlös SQL-pool](quickstart-sql-on-demand.md)

@@ -8,12 +8,12 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef6e86bbb55a2c51779f2dcf60f802ce549516cb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 4ac7f300fa88d57efe65c6d79645d4e75ca7edd9
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959687"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575490"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Självstudie: skapa simulerade enhets data
 
@@ -157,6 +157,10 @@ De data som vi precis skickade till din IoT Hub dirigerades till lagrings behål
 1. Filerna skrivs i [Avro](https://avro.apache.org/) -format. Dubbelklicka på någon av dessa filer för att öppna en annan flik i webbläsaren och återge data delvis. Om du uppmanas att öppna filen i ett program kan du välja VS Code och den kommer att återges på rätt sätt.
 
 1. Du behöver inte försöka att läsa eller tolka data just nu. Vi kommer att göra det i nästa artikel.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Den här självstudien är en del av en uppsättning där varje artikel bygger på det arbete som utförts i föregående avsnitt. Vänta tills du är klar med att rensa alla resurser tills du är klar med den sista självstudien.
 
 ## <a name="next-steps"></a>Nästa steg
 

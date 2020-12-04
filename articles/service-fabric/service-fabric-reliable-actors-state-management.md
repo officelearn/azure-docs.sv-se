@@ -1,17 +1,15 @@
 ---
 title: Hantering av Reliable Actors tillstånd
 description: Beskriver hur Reliable Actors status hanteras, sparas och replikeras för hög tillgänglighet.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d5859886dbd1211f929be1031237f7e7d9b1fc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: badfc490f26b71881e7970c2c0be3472abfec25a
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89611707"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575609"
 ---
 # <a name="reliable-actors-state-management"></a>Hantering av Reliable Actors tillstånd
 Reliable Actors är entrådade objekt som kan kapsla in både logik och tillstånd. Eftersom aktörerna körs på Reliable Services kan de underhålla tillstånden på ett tillförlitligt sätt genom att använda samma beständiga och replikerade mekanismer. På så sätt förlorar aktörerna sina tillstånd efter fel, vid återaktivering efter skräp insamling, eller när de flyttas runt mellan noder i ett kluster på grund av resurs utjämning eller uppgraderingar.

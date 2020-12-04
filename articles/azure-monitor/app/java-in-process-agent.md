@@ -3,12 +3,15 @@ title: Azure Monitor Application Insights Java
 description: Övervakning av program prestanda för Java-program som körs i vilken miljö som helst utan kod ändring. Distribuerad spårning och program karta.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 7046e4a1aeeda5e537208c79858c95c79e188348
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
+ms.openlocfilehash: 4b29e5375c10fc3c1aaa203df720fdd24090d11e
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437209"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601143"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java-kodad program övervakning Azure Monitor Application Insights
 

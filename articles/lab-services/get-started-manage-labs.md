@@ -3,12 +3,12 @@ title: Kom igång med Azure Lab Services
 description: Den här artikeln beskriver hur du kommer igång med Azure Lab Services.
 ms.topic: article
 ms.date: 11/18/2020
-ms.openlocfilehash: 6fb0da7f91e0eecdeefecdb6635b657245fda9af
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 44afe13fb6f555b12dfce939ce8e88e3af8dc7ef
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434438"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602673"
 ---
 # <a name="get-started-with-lab-services"></a>Kom igång med labb tjänster 
 
@@ -115,12 +115,8 @@ Lärare kan lägga till student användare i ett labb och övervaka sina Tim kvo
 
 1. Från [Azure Lab Services-webbplatsen](https://labs.azure.com/) klickar du på **användare** från vänster sida av fönstret.
 1. Längst upp i fönstret klickar du på **Lägg till användare** och väljer **Lägg till per e-postadress**. 
-
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-button.png" alt-text="Knappen Lägg till användare":::
 1. I fönstret **Lägg till användare** som visas till höger anger du elevernas e-postadresser på separata rader eller på en enskild rad, avgränsade med semikolon.
 1. Klicka på **Spara**.
-
-    :::image type="content" source="./media/get-started-manage-labs/add-students.png" alt-text="Lägg till studenter i labbet":::
 1. Din lista över användare kommer nu att uppdateras med e-post, status, inbjudan och kvot timmar.
 
     När studenter har registrerats för ett labb, kommer deras namn att uppdateras med de första och de sista namnen från Azure Active Directory.

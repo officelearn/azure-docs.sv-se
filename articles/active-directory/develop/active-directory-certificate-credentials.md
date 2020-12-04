@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 77e34e4a18012f15b9e907e3b9efc1965b98f824
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3222c790ccd0cee936b246253a16b5c434c61c8
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612128"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602214"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Autentiseringsuppgifter för certifikat för Microsoft Identity Platform Application Authentication
 
@@ -30,13 +30,13 @@ En typ av autentiseringsuppgift som ett program kan använda för autentisering 
 
 Om du vill beräkna försäkran kan du använda ett av många JWT-bibliotek på det språk som din val- [MSAL stöder med `.WithCertificate()` ](msal-net-client-assertions.md). Informationen utförs av token i dess [huvud](#header), [anspråk](#claims-payload)och [signatur](#signature).
 
-### <a name="header"></a>Sidhuvud
+### <a name="header"></a>Huvud
 
 | Parameter |  Markera om |
 | --- | --- |
 | `alg` | Ska vara **RS256** |
 | `typ` | Bör vara **JWT** |
-| `x5t` | X. 509-certifikatets hash-värde (även kallat certifikatets SHA-1- *tumavtryck*) är kodat som ett base64-sträng värde. Till exempel, med ett X. 509 certifikat-hash av `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (hex), `x5t` skulle anspråk vara `hOBcHZi846VCHSJbFAs26Go9VTQ=` (base64). |
+| `x5t` | X. 509-certifikatets hash-värde (även kallat certifikatets SHA-1- *tumavtryck*) är kodat som ett Base64url-sträng värde. Till exempel, med ett X. 509 certifikat-hash för `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (hex), `x5t` skulle anspråket vara `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64url). |
 
 ### <a name="claims-payload"></a>Anspråk (nytto Last)
 

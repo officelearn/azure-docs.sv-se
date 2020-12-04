@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: eb1be4c78be0eb7fb943700b168fa82ede4d3861
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9a3a6bd6489baea90ed4143b42a09e7d697bbc50
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458388"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602452"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Fördefinierad faktura modell för formulär tolken
 
@@ -80,8 +80,8 @@ Faktura tjänsten kommer att extrahera fälten text, tabeller och 26 fakturor. N
 | CustomerId | sträng | Referens-ID för kunden | CID – 12345 |  |
 | PurchaseOrder | sträng | Ett referens nummer för inköps order | PO – 3333 | |  |
 | InvoiceId | sträng | ID för den här aktuella fakturan (ofta "faktura nummer") | INV-100 | |  |
-| InvoiceDate | date | Datum då fakturan utfärdades | 11/15/2019 | 
-| DueDate | date | Datum betalning för den här fakturan är förfallen | 12/15/2019 | 2019-12-15 | 2019-11-15 |
+| InvoiceDate | datum | Datum då fakturan utfärdades | 11/15/2019 | 
+| DueDate | datum | Datum betalning för den här fakturan är förfallen | 12/15/2019 | 2019-12-15 | 2019-11-15 |
 | Namn | sträng | Leverantör som har skapat den här fakturan | CONTOSO LTD. | |
 | VendorAddress | sträng | E-postadress för leverantören | 123 456th St New York, Sverige, 10001 | |
 | VendorAddressRecipient | sträng | Namn som är associerat med VendorAddress | Contoso Headquarters | |
@@ -99,8 +99,8 @@ Faktura tjänsten kommer att extrahera fälten text, tabeller och 26 fakturor. N
 | ServiceAddressRecipient | sträng | Namn som är associerat med ServiceAddress | Microsoft-tjänster | |
 | RemittanceAddress | sträng | Explicit remittering eller betalnings adress för kunden | 123 remittera St New York, Sverige, 10001 |  |
 | RemittanceAddressRecipient | sträng | Namn som är associerat med RemittanceAddress | Contoso-fakturering |  |
-| ServiceStartDate | date | Första datumet för service perioden (till exempel en service period för verktyg) | 2019-10-14 | 2019-10-14 |
-| ServiceEndDate | date | Slutdatum för service perioden (till exempel en service period för verktyg) | 11/14/2019 | 2019-11-14 |
+| ServiceStartDate | datum | Första datumet för service perioden (till exempel en service period för verktyg) | 2019-10-14 | 2019-10-14 |
+| ServiceEndDate | datum | Slutdatum för service perioden (till exempel en service period för verktyg) | 11/14/2019 | 2019-11-14 |
 | PreviousUnpaidBalance | antal | Explicit tidigare obetald balans | $500.00 | 500 |
 
 
@@ -112,4 +112,4 @@ Faktura tjänsten kommer att extrahera fälten text, tabeller och 26 fakturor. N
 ## <a name="see-also"></a>Se även
 
 * [Vad är formigenkänning?](./overview.md)
-* [REST API referens dokument](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync)
+* [REST API referens dokument](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291)

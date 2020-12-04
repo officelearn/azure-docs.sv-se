@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 10ad0b83f3c85b48f9d066e1feec8d8aac4dd057
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a6a1b41dd4ede055ba81c069c2164bb36da99876
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533680"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602316"
 ---
 # <a name="azure-security-baseline-for-azure-lighthouse"></a>Azures säkerhets bas linje för Azure Lighthouse
 
@@ -306,7 +306,7 @@ Om en tjänst leverantör vill att deras säkerhets team ska kunna granska deleg
 
 ## <a name="logging-and-threat-detection"></a>Loggning och hotidentifiering
 
-*Mer information finns i [Azure Security Benchmark: Loggning och hotidentifiering](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Mer information finns i [Azure Security Benchmark: Loggning och hotidentifiering](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Aktivera hot identifiering för Azure-resurser
 
@@ -676,7 +676,7 @@ Strategin bör omfatta dokumenterad vägledning, policyer och standarder för f�
 
 -   Åtgärdsstrategi för olika hot- och angreppsscenarier
 
--   /Azure/Security/benchmarks/Security-Controls-v2-Logging-Threat-Protection för Internet Edge och ingående och utgående strategi
+-   /Azure/Security/benchmarks/Security-Controls-v2-Logging-Threat-Detection för Internet Edge och ingående och utgående strategi
 -   Strategi för hybridmoln och lokala anslutningar
 
 -   Aktuella nätverkssäkerhetsartefakter (som nätverksdiagram och referensnätverksarkitekturer)
@@ -748,7 +748,7 @@ Läs mer i följande referenser:
 
 - [Azure Security Benchmark – loggning och hotidentifiering](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Azure Security Benchmark – svar på incidenter](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark – svar på incidenter](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Regelverk för Azure-säkerhet 4 – process: uppdatera processer kring incidentsvar för molnet](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

@@ -11,18 +11,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 683a6c9f31947355a5415a5b8b57b621f717af91
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 92d440d019942219b322ef084b45317983d04fbe
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967672"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602248"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Hur objekt och autentiseringsuppgifter synkroniseras i en Azure Active Directory Domain Services hanterad domän
 
 Objekt och autentiseringsuppgifter i en Azure Active Directory Domain Services (Azure AD DS)-hanterad domän kan antingen skapas lokalt i domänen eller synkroniseras från en Azure Active Directory (Azure AD)-klient. När du först distribuerar Azure AD DS konfigureras en automatisk enkelriktad synkronisering och startas för att replikera objekten från Azure AD. Den här enkelriktade synkroniseringen fortsätter att köras i bakgrunden för att hålla den hanterade Azure AD DS-domänen uppdaterad med eventuella ändringar från Azure AD. Ingen synkronisering sker från Azure AD DS tillbaka till Azure AD.
 
 I en hybrid miljö kan objekt och autentiseringsuppgifter från en lokal AD DS-domän synkroniseras till Azure AD med hjälp av Azure AD Connect. När objekten har synkroniserats till Azure AD, gör den automatiska bakgrundssynkroniseringen att dessa objekt och autentiseringsuppgifter är tillgängliga för program som använder den hanterade domänen.
+
+Om lokal AD DS och Azure AD har kon figurer ATS för federerad autentisering med hjälp av ADFS, finns det inget (aktuellt/giltigt) lösen ords-hash tillgängligt i Azure DS. Azure AD-användarkonton som skapats innan den ursprungliga autentiseringen har implementerats kan ha en gammal hash för lösen ord men det är troligt vis inte en hash av sitt lokal lösen ord. Därför kommer Azure AD DS inte att kunna verifiera användarens autentiseringsuppgifter.
 
 Följande diagram illustrerar hur synkroniseringen fungerar mellan Azure AD DS, Azure AD och en valfri lokal AD DS-miljö:
 
@@ -40,7 +42,7 @@ Synkroniseringsprocessen är enkelriktad/enkelriktad genom design. Det finns ing
 
 I följande tabell visas några vanliga attribut och hur de synkroniseras till Azure AD DS.
 
-| Attribut i Azure AD DS | Källa | Anteckningar |
+| Attribut i Azure AD DS | Källa | Kommentarer |
 |:--- |:--- |:--- |
 | UPN | Användarens *UPN* -attribut i Azure AD-klienten | UPN-attributet från Azure AD-klienten synkroniseras med Azure AD DS. Det mest pålitliga sättet att logga in på en hanterad domän är att använda UPN. |
 | Sam | Användarens *smek namn* -attribut i Azure AD-klient eller automatiskt genererad | Attributet *sAMAccountName* hämtas från attributet *smek namn* i Azure AD-klienten. Om flera användar konton har samma *startalias* -attribut skapas *sAMAccountName* automatiskt. Om användarens *smek namn* eller *UPN* -prefix är längre än 20 tecken genereras *sAMAccountName* automatiskt för att uppfylla gränsen på 20 tecken i *sAMAccountName* -attribut. |
@@ -67,7 +69,7 @@ I följande tabell visas hur särskilda attribut för användar objekt i Azure A
 | employeedId |Anställnings |
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | förnamn |förnamn |
-| Befattning |rubrik |
+| Befattning |title |
 | e-post |e-post |
 | mailNickname |msDS-AzureADMailNickname |
 | mailNickname |SAMAccountName (kan ibland skapas automatiskt) |

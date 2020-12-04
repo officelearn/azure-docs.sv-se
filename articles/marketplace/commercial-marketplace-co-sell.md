@@ -1,22 +1,22 @@
 ---
-title: Alternativet samförsäljning i Partner Center | Azure Marketplace
-description: Den information som du anger på fliken Co-Sales i ditt erbjudande används av Microsoft Sales Teams för att lära dig mer om ditt erbjudande när du utvärderar den efter kund behov.
+title: Alternativet samförsäljning på den kommersiella Marketplace | Azure Marketplace
+description: Den information som du anger på fliken Co-Sales med Microsoft i ditt erbjudande kommer att användas av Microsoft Sales Teams för att lära dig mer om ditt erbjudande när du utvärderar det för kundernas behov.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 12/03/2020
-ms.openlocfilehash: f424cd85e26511f8fe3d863b1f2c77bc1e5e7537
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/04/2020
+ms.openlocfilehash: baa99518498b05b0a658627d9908298eb58f7775
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583012"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602741"
 ---
-# <a name="co-sell-option-in-partner-center"></a>Alternativet för säljsamarbete i Partner Center
+# <a name="co-sell-option-in-the-commercial-marketplace"></a>Alternativet samförsäljning på den kommersiella marknaden
 
-Att tillhandahålla information på fliken Co-försäljning är helt valfritt. Det krävs för att uppnå samförsäljnings [motiverade status](/legal/marketplace/certification-policies.md#3000-requirements-for-co-sell-status)för alla produkter. Den information du anger kommer att användas av Microsoft Sales Teams för att lära dig mer om ditt erbjudande när du utvärderar den efter kund behov. Den är inte tillgänglig direkt för kunderna. Mer information finns i [Co-Sälj med Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+Att tillhandahålla information på fliken **Co-Sälj med Microsoft** är helt valfritt. Det krävs för att uppnå samförsäljnings [motiverade status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)för alla produkter. Den information du anger kommer att användas av Microsoft Sales Teams för att lära dig mer om ditt erbjudande när du utvärderar den efter kund behov. Den är inte tillgänglig direkt för kunderna. Mer information finns i [Co-Sälj med Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 Alternativet Co-försäljning i Partner Center är för närvarande tillgängligt för följande typer av erbjudanden.
 

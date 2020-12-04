@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 711b3399d865899770567583a1425faeb9e408ec
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 083d820c989870b2a73217eeebf192f0d540ba36
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555813"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602554"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Självstudie: Genomsök data med Azure avdelningens kontroll (för hands version)
 
@@ -146,11 +146,14 @@ När katalog konfigurationen har slutförts kör du följande skript i PowerShel
 
    När du kör kommandot visas ett popup-fönster där du kan logga in med dina Azure Active Directory autentiseringsuppgifter.
 
-1. Använd följande kommando för att köra start paketet. Ersätt `CatalogName` `TenantID` `SubscriptionID` `NewResourceGroupName` `CatalogResourceGroupName` plats hållarna,,, och. För `NewResourceGroupName` använder du ett unikt namn för den resurs grupp som ska innehålla datafastigheten.
+1. Använd följande kommando för att köra start paketet. Ersätt `CatalogName` `TenantID` `SubscriptionID` `newresourcegroupname` `CatalogResourceGroupName` plats hållarna,,, och. För `newresourcegroupname` använder du ett unikt namn för den resurs grupp som ska innehålla datafastigheten.
+
+> [!IMPORTANT]
+> **Newresourcegroupname** kan bara vara alfanumeriska eller siffror. **Inga versaler och specialtecken tillåts.**
 
    ```powershell
    .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId <TenantID>`
-   -ResourceGroup <NewResourceGroupName> `
+   -ResourceGroup <newresourcegroupname> `
    -SubscriptionId <SubscriptionID> `
    -CatalogResourceGroup <CatalogResourceGroupName>
    ```
@@ -158,6 +161,9 @@ När katalog konfigurationen har slutförts kör du följande skript i PowerShel
 Det kan ta upp till 10 minuter innan miljön har kon figurer ATS. Under den här tiden kan du se olika popup-fönster, som du kan ignorera. Stäng inte **BlobDataCreator.exe** fönstret. den stängs automatiskt när den har slutförts.
 
 När du ser meddelandet väntar du på `Executing Copy pipeline xxxxxxxxxx-487e-4fc4-9628-92dd8c2c732b` att en annan instans av **BlobDataCreator.exe** starta och avsluta körs.
+
+> [!IMPORTANT]
+> Om antalet aktiva aktiviteter slutar minska, kan du avsluta fönstret BLOB Creator och trycka på RETUR i PowerShell-fönstret
 
 När processen har avslut ATS skapas en resurs grupp med det namn du angav. Azure Data Factory, Azure Blob Storage och Azure Data Lake Storage Gen2-konton finns i den här resurs gruppen. Resurs gruppen finns i den prenumeration du angav.
 

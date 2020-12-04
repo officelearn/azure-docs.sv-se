@@ -3,12 +3,12 @@ title: Testning av Azure Durable Functions-enhet
 description: Lär dig mer om att enhets test Durable Functions.
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: 86733f8b5b80799bad3e52c643ed27465dfc7641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7786a0a2e2d31086e1938b70e63fe2374e16fe7f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74231227"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601364"
 ---
 # <a name="durable-functions-unit-testing"></a>Durable Functions enhets testning
 
@@ -17,7 +17,7 @@ Enhets testning är en viktig del av modern program utvecklings praxis. Enhets t
 > [!NOTE]
 > Den här artikeln innehåller rikt linjer för enhets testning för Durable Functions appar som riktar in sig på Durable Functions 1. x. Den har ännu inte uppdaterats till ändringar som gjorts i Durable Functions 2. x. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I exemplen i den här artikeln krävs kunskaper om följande begrepp och ramverk:
 
@@ -25,7 +25,7 @@ I exemplen i den här artikeln krävs kunskaper om följande begrepp och ramverk
 
 * Bestående funktioner
 
-* [xUnit](https://xunit.github.io/) -testnings ramverk
+* [xUnit](https://github.com/xunit/xunit) -testnings ramverk
 
 * [MOQ](https://github.com/moq/moq4) -modellerande ramverk
 
@@ -179,6 +179,6 @@ Och enhets testerna kontrollerar utdataformatets format. Enhets testerna kan anv
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Läs mer om xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)
+> [Läs mer om xUnit](https://xunit.net/docs/getting-started/netcore/cmdline)
 > 
 > [Läs mer om MOQ](https://github.com/Moq/moq4/wiki/Quickstart)

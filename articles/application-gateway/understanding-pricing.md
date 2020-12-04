@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/01/2020
 ms.author: azhussai
-ms.openlocfilehash: 1d88379726cfb6c4218c38b9ccc87005609a9aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ba6b7a69c95951a083628f23be68d811c7768c
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460753"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601619"
 ---
 # <a name="understanding-pricing-for-azure-application-gateway-and-web-application-firewall"></a>Förstå priser för Azure Application Gateway och brand vägg för webbaserade program
 
@@ -82,7 +82,7 @@ I följande tabell visas exempel priser baserade på en ögonblicks bild av pris
 
 |              Application Gateway typ             |  Kostnader ($/timme)  |
 | ------------------------------------------------- | ---------------|
-|                     Liten                         |       Ej tillämpligt       |
+|                     Liten                         |       NA       |
 |                     Medium                        |     $0,126     |
 |                     Stor                         |     $0,448     |
 
@@ -254,9 +254,19 @@ Om bearbetnings kapacitet som motsvarar ytterligare 10 CUs var tillgänglig för
 
 Fast pris = $0,246 * 730 (timmar) = $179,58
 
-Variabla kostnader = $0,008 * (3 (instans enheter) * 10 (kapacitets enheter) + 5 (ytterligare kapacitets enheter)) * 730 (timmar) = $204,4
+Variabla kostnader = $0,008 * (3 (instans enheter) * 10 (kapacitets enheter) + 10 (ytterligare kapacitets enheter)) * 730 (timmar) = $233,6
 
-Totalkostnad = $179,58 + $204,4 = $383,98
+Totalkostnad = $179,58 + $233,6 = $413,18
+
+Men om bearbetnings kapaciteten motsvarar endast mer än 7 ytterligare CUs var tillgänglig för användning inom de 3 reserverade instanserna.
+I det här scenariot är Application Gateway-resursen under skalad och kan eventuellt leda till ökad fördröjning eller begär Anden som tas bort.
+
+Fast pris = $0,246 * 730 (timmar) = $179,58
+
+Variabla kostnader = $0,008 * (3 (instans enheter) * 10 (kapacitets enheter) + 7 (ytterligare kapacitets enheter)) * 730 (timmar) = $216,08
+
+Totalkostnad = $179,58 + $216,08 = $395,66
+
 
 ![Diagram över manuell skalning 2.](./media/pricing/manual-scale-2.png)
 

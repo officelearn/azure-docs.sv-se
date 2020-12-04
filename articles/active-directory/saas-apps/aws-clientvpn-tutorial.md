@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/03/2020
+ms.date: 11/25/2020
 ms.author: jeedes
-ms.openlocfilehash: 557d2eb636e51f4259bc525fe39f8c95303774cd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9a2c52674bafeb170efd41afa9c395aeecda9df8
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181046"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602129"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-clientvpn"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med AWS ClientVPN
 
@@ -80,7 +80,13 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<LOCALHOST>`
 
-    b. Skriv en URL i text rutan **svars-URL** med följande mönster: `https://<LOCALHOST>`
+    b. I text rutan **svars-URL** skriver du en URL med något av följande mönster:
+
+    | Svars-URL |
+    |------------|
+    | `https://<LOCALHOST>` |
+    | `https://self-service.clientvpn.amazonaws.com/api/auth/sso/saml` |
+    |
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska inloggnings-URL: en och svars-URL: en. Kontakta [AWS ClientVPN client support team](https://aws.amazon.com/contact-us/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -99,7 +105,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig AWS ClientVPN-program att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
     
-    | Namn |  Källattribut|
+    | Name |  Källattribut|
     | -------------- | --------- |
     | memberOf | användare. grupper |
 
@@ -146,11 +152,11 @@ I det här avsnittet skapas en användare som kallas Britta Simon i AWS ClientVP
 
 I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning med följande alternativ. 
 
-1. Klicka på **testa det här programmet** i Azure Portal. Detta omdirigeras till AWS ClientVPN-inloggnings-URL där du kan starta inloggnings flödet. 
+* Klicka på **testa det här programmet** i Azure Portal. Detta omdirigeras till AWS ClientVPN-inloggnings-URL där du kan starta inloggnings flödet. 
 
-2. Gå till AWS ClientVPN-inloggnings-URL: en direkt och starta inloggnings flödet därifrån.
+* Gå till AWS ClientVPN-inloggnings-URL: en direkt och starta inloggnings flödet därifrån.
 
-3. Du kan använda Microsoft Access-panelen. När du klickar på panelen AWS ClientVPN på åtkomst panelen omdirigeras det till AWS ClientVPN-inloggnings-URL. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
+* Du kan använda Microsoft Mina appar. När du klickar på panelen AWS ClientVPN i Mina appar omdirigeras det till AWS ClientVPN-inloggnings-URL. Mer information om Mina appar finns i [Introduktion till Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## <a name="next-steps"></a>Nästa steg

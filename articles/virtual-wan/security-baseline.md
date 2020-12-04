@@ -7,22 +7,22 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7f75f764f378118f9a34c1eee467e78ac279e19c
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 994cb250aff2079e32eeef6a0d22466a284481f5
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029055"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602435"
 ---
 # <a name="azure-security-baseline-for-virtual-wan"></a>Azures säkerhets bas linje för virtuellt WAN
 
-Den här säkerhets bas linjen använder vägledning från [Azures säkerhets benchmark-version 2,0](../security/benchmarks/overview.md) för att Microsoft Azure virtuella WAN. Azures säkerhets benchmark ger rekommendationer om hur du kan skydda dina moln lösningar på Azure. Innehållet grupperas efter de **säkerhets kontroller** som definierats av Azures säkerhets benchmark och relaterade rikt linjer som gäller för virtuella WAN-nätverk. **Kontroller** som inte gäller för virtuellt WAN har uteslutits.
+Den här säkerhets bas linjen använder vägledning från [Azures säkerhets benchmark-version 2,0](../security/benchmarks/overview.md) för att Microsoft Azure virtuella WAN. Azure Security Benchmark ger rekommendationer om hur du kan skydda dina molnlösningar i Azure. Innehållet grupperas efter de **säkerhets kontroller** som definierats av Azures säkerhets benchmark och relaterade rikt linjer som gäller för virtuella WAN-nätverk. **Kontroller** som inte gäller för virtuellt WAN har uteslutits.
 
 Om du vill se hur det virtuella WAN-nätverket mappas fullständigt till Azures säkerhets benchmark, se den [fullständiga virtuella WAN-filen för bas linje mappning](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
-*Mer information finns i [säkerhets principen för Azure-säkerhet: nätverks säkerhet](/azure/security/benchmarks/security-controls-v2-network-security).*
+*Mer information finns i [Azure Security Benchmark: Nätverkssäkerhet](/azure/security/benchmarks/security-controls-v2-network-security).*
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: implementera säkerhet för intern trafik
 
@@ -36,9 +36,9 @@ Om du vill se hur det virtuella WAN-nätverket mappas fullständigt till Azures 
 
 - [Dokumentation om anpassad routningstabell](how-to-virtual-hub-routing.md)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="ns-2-connect-private-networks-together"></a>NS-2: Anslut privata nätverk till varandra 
 
@@ -50,9 +50,9 @@ Om du vill se hur det virtuella WAN-nätverket mappas fullständigt till Azures 
 
 - [Översikt över peka till plats-VPN](virtual-wan-point-to-site-portal.md)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvars område**: delat
+**Ansvar**: Delad
 
 ### <a name="ns-4-protect-applications-and-services-from-external-network-attacks"></a>NS-4: skydda program och tjänster från externa nätverks attacker
 
@@ -68,9 +68,9 @@ Välj Azure-tillhandahållen DDoS Protection för att skydda dina till gångar m
 
 - [Rekommendationer för Azure Security Center](../security-center/recommendations-reference.md#recs-network)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvars område**: delat
+**Ansvar**: Delad
 
 ### <a name="ns-5-deploy-intrusion-detectionintrusion-prevention-systems-idsips"></a>NS-5: Distribuera intrångs identifiering/intrångs skydd system (ID/IP-adresser)
 
@@ -78,9 +78,9 @@ Välj Azure-tillhandahållen DDoS Protection för att skydda dina till gångar m
 
 - [Konfigurera Azure-brandväggen i en virtuell WAN-hubb](howto-firewall.md)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="ns-6-simplify-network-security-rules"></a>NS-6: förenkla nätverks säkerhets regler
 
@@ -92,9 +92,9 @@ Välj Azure-tillhandahållen DDoS Protection för att skydda dina till gångar m
 
 - [Dokumentation om Azure Firewall](/azure/firewall/)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="ns-7-secure-domain-name-service-dns"></a>NS-7: säker Domain Name Service (DNS)
 
@@ -106,15 +106,15 @@ Välj Azure-tillhandahållen DDoS Protection för att skydda dina till gångar m
 
 - [Använd Azure-brandväggen som en DNS-vidarebefordrare med privat länk](https://github.com/adstuart/azure-privatelink-dns-azurefirewall)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ## <a name="identity-management"></a>Identitetshantering
 
-*Mer information finns i [Azure Security benchmark: Identity Management](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*Mer information finns i [Azure Security Benchmark: Identitetshantering](/azure/security/benchmarks/security-controls-v2-identity-management).*
 
-### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: standardisera Azure Active Directory som system för central identitets-och autentisering
+### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Standardisera Azure Active Directory som centralt system för identiteter och autentisering
 
 **Vägledning**: Azure Active Directory (Azure AD) är standard tjänsten för identitets-och åtkomst hantering för Azure-tjänster. inklusive virtuellt WAN. Standardisera Azure AD för att styra organisationens identitets-och åtkomst hantering i:
 
@@ -131,15 +131,15 @@ Läs informationen om hur du använder Azure AD i punkt-till-plats-VPN-scenarier
 
 - [Konfigurera Azure Active Directory autentisering för användar-VPN](virtual-wan-point-to-site-azure-ad.md)
 
-- [Innehav i Azure Active Directory](../active-directory/develop/single-and-multi-tenant-apps.md) 
+- [Klientorganisation i Azure Active Directory](../active-directory/develop/single-and-multi-tenant-apps.md) 
 
-- [Så här skapar och konfigurerar du en Azure AD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Skapa och konfigurera en Azure AD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvars område**: delat
+**Ansvar**: Delad
 
-### <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: Använd starka verifierings kontroller för alla Azure Active Directory-baserade åtkomst
+### <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: Använd kraftfulla verifieringskontroller för all Azure Active Directory-baserad åtkomst
 
 **Vägledning**: för närvarande tillhandahålls Azure Active Directory (Azure AD)-autentisering via integrering med virtuella WAN-platser med virtuella WAN-nätverk.
 
@@ -155,11 +155,11 @@ Se till att den högsta nivån av metoden stark autentisering används för admi
 
 - [Så här aktiverar du MFA i P2S VPN för virtuellt WAN](openvpn-azure-ad-mfa.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvars område**: delat
+**Ansvar**: Delad
 
-### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: begränsa åtkomsten till Azure-resursen baserat på villkor
+### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: Begränsa åtkomsten till Azure-resurser baserat på villkor
 
 **Vägledning**: Aktivera Azure Active Directory (Azure AD) multifaktorautentisering för VPN-användare (punkt-till-plats) med hjälp av Azure AD-autentisering. Konfigurera multifaktorautentisering på basis av varje användare eller utnyttja multifaktorautentisering med villkorlig åtkomst. Villkorlig åtkomst ger en detaljerad kontroll över hur en andra faktor ska höjas. Den kan tillåta tilldelning av multifaktorautentisering till endast VPN och utesluta andra program som är kopplade till Azure AD-klienten. 
 
@@ -169,29 +169,29 @@ Observera att Azure AD-autentisering endast är tillgängligt för gateways med 
 
 - [Konfigurera Azure Active Directory autentisering för användar-VPN](virtual-wan-point-to-site-azure-ad.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
-### <a name="im-7-eliminate-unintended-credential-exposure"></a>IM-7: eliminera oavsiktlig exponering för autentiseringsuppgifter
+### <a name="im-7-eliminate-unintended-credential-exposure"></a>IM-7: Eliminera oavsiktlig exponering av autentiseringsuppgifter
 
-**Vägledning**: plats-till-plats-VPN i Virtual WAN använder i förväg delade nycklar (PSK) som identifieras, skapas och hanteras av kunden i sina Azure Key Vault. Implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault.
+**Vägledning**: plats-till-plats-VPN i Virtual WAN använder i förväg delade nycklar (PSK) som identifieras, skapas och hanteras av kunden i sina Azure Key Vault. Implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Credential Scanner uppmanar också till att flytta identifierade autentiseringsuppgifter till en säkrare plats som Azure Key Vault.
 
-För GitHub kan du använda intern hemlighet-genomsökning för att identifiera autentiseringsuppgifter eller annan form av hemligheter i koden.
+För GitHub kan du använda funktionen för identifiering av interna hemligheter till att identifiera autentiseringsuppgifter och andra hemligheter i koden.
 
 - [Konfigurera inloggnings skannern](https://secdevtools.azurewebsites.net/helpcredscan.html) 
 
-- [GitHub Secret-genomsökning](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
+- [Identifiering av hemligheter i GitHub](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
-## <a name="privileged-access"></a>Privilegie rad åtkomst
+## <a name="privileged-access"></a>Privilegierad åtkomst
 
-*Mer information finns i [Azure Security benchmark: privilegie rad åtkomst](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*Mer information finns i [Azure Security Benchmark: Privilegierad åtkomst](/azure/security/benchmarks/security-controls-v2-privileged-access).*
 
-### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: begränsa administrativ åtkomst till verksamhets kritiska system
+### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Begränsa administrativ åtkomst till affärskritiska system
 
 **Vägledning**: Azure Virtual WAN använder Azures rollbaserade åtkomst kontroller (Azure RBAC) för att isolera åtkomst till affärs kritiska system genom att begränsa vilka konton som beviljas privilegie rad åtkomst till de prenumerationer och hanterings grupper som de finns i.
 
@@ -205,15 +205,15 @@ Alla typer av åtkomst kontroller bör justeras mot din strategi för företags 
 
 - [Administratörer för Azure-prenumeration](../cost-management-billing/manage/add-change-subscription-administrator.md)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ## <a name="data-protection"></a>Dataskydd
 
-*Mer information finns i [Azure Security benchmark: Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection).*
+*Mer information finns i [Azure Security Benchmark: Dataskydd](/azure/security/benchmarks/security-controls-v2-data-protection).*
 
-### <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4: kryptera känslig information under överföring
+### <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4: Kryptera känslig information under överföring
 
 **Vägledning**: använda punkt-till-plats-VPN, plats-till-plats-VPN och krypterad Express väg med virtuellt WAN för dina anslutnings krav. VPN-kryptering skyddar data under överföring från "out of band"-attacker (till exempel trafik avbildning) för att säkerställa att angripare inte kan läsa eller ändra data. 
 
@@ -223,33 +223,33 @@ Alla typer av åtkomst kontroller bör justeras mot din strategi för företags 
 
 - [Krypterad ExpressRoute](vpn-over-expressroute.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvars område**: delat
+**Ansvar**: Delad
 
 ## <a name="asset-management"></a>Tillgångshantering
 
-*Mer information finns i [Azure Security benchmark: Asset Management](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*Mer information finns i [Azure Security Benchmark: Tillgångshantering](/azure/security/benchmarks/security-controls-v2-asset-management).*
 
-### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: se till att säkerhets teamet har insyn i risker för till gångar
+### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: Se till att säkerhetsteamet har insyn i risker för tillgångar
 
-**Vägledning**: se till att säkerhets team beviljas behörigheter för säkerhets läsare i din Azure-klient och prenumerationer så att de kan övervaka säkerhets risker med hjälp av Azure Security Center. 
+**Riktlinjer**: Se till att säkerhetsteamen beviljas behörigheter för säkerhetsläsare i din Azure-klient och prenumerationer som gör att de kan övervaka säkerhetsrisker med hjälp av Azure Security Center. 
 
-Beroende på hur säkerhets teamets ansvars områden är strukturerade kan övervakning av säkerhets risker vara ansvaret för en central säkerhets grupp eller ett lokalt team. Med detta måste säkerhets insikter och risker alltid aggregeras centralt inom en organisation. 
+Beroende på hur säkerhetsteamets ansvarsområden är strukturerade kan ansvaret för övervakning av säkerhetsrisker ligga hos en central säkerhetsgrupp eller ett lokalt team. Med detta måste säkerhets insikter och risker alltid aggregeras centralt inom en organisation. 
 
 Behörigheter för säkerhets läsare kan tillämpas i stort sett till en hel klient organisation (rot hanterings grupp) eller omfattas av hanterings grupper eller vissa prenumerationer. 
 
-Obs: ytterligare behörigheter kan krävas för att få insyn i arbets belastningar och tjänster. 
+Obs! Ytterligare behörigheter kan krävas för att få insyn i arbetsbelastningar och tjänster. 
 
-- [Översikt över rollen säkerhets läsare](../role-based-access-control/built-in-roles.md#security-reader)
+- [Översikt över säkerhetsläsarrollen](../role-based-access-control/built-in-roles.md#security-reader)
 
-- [Översikt över Azure Hanteringsgrupper](../governance/management-groups/overview.md)
+- [Översikt över Azure-hanteringsgrupper](../governance/management-groups/overview.md)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
-### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: se till att säkerhets teamet har åtkomst till till gångs inventering och metadata
+### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: Se till att säkerhetsteamet har åtkomst till tillgångsinventering och metadata
 
 **Vägledning**: Använd taggar för dina Azure-resurser, resurs grupper och prenumerationer för att logiskt organisera dem i en taxonomi. Varje tagg består av ett namn och ett värde-par. Du kan till exempel använda namnet ”Miljö” och värdet ”Produktion” för alla resurser i produktionsmiljön. Azure Virtual WAN stöder även Azure Resource Manager-baserade resurs distributioner med vilka du kan exportera till gångs mallar. 
 
@@ -257,20 +257,20 @@ Obs: ytterligare behörigheter kan krävas för att få insyn i arbets belastnin
 
 - [Azure Security Center till gångs lager hantering](../security-center/asset-inventory.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
-### <a name="am-3-use-only-approved-azure-services"></a>AM-3: Använd endast godkända Azure-tjänster
+### <a name="am-3-use-only-approved-azure-services"></a>AM-3: Använd bara godkända Azure-tjänster
 
 **Vägledning**: Använd Azure Monitor för att skapa regler för att utlösa aviseringar när en icke-godkänd tjänst upptäcks. Det virtuella WAN-nätverket ger tillsammans många funktioner för nätverk, säkerhet och routning för att tillhandahålla ett enda drift gränssnitt. Virtuella WAN-gatewayer, ExpressRoute-gatewayer och Azure-brandväggen har loggning och mått som är tillgängliga via Azure Monitor. 
  
 
 - [Virtuella WAN-loggar och-mått](logs-metrics.md)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="am-5-limit-users-ability-to-interact-with-azure-resource-manager"></a>AM-5: begränsa användarnas möjlighet att interagera med Azure Resource Manager
 
@@ -278,13 +278,13 @@ Obs: ytterligare behörigheter kan krävas för att få insyn i arbets belastnin
 
 - [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
-## <a name="logging-and-threat-detection"></a>Loggning och hot identifiering
+## <a name="logging-and-threat-detection"></a>Loggning och hotidentifiering
 
-*Mer information finns i [säkerhets benchmark för Azure: loggning och hot identifiering](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Mer information finns i [Azure Security Benchmark: Loggning och hotidentifiering](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Aktivera hot identifiering för Azure-resurser
 
@@ -295,19 +295,19 @@ Obs: ytterligare behörigheter kan krävas för att få insyn i arbets belastnin
 - Riskfylld inloggning – ett riskfylldt inloggning är en indikator för ett inloggnings försök som kan ha utförts av någon som inte är den legitima ägaren till ett användar konto.
 - Användare som har flaggats för risk – En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats.
 
-Använd Azure Security Center för att skapa aviseringar för vissa misstänkta aktiviteter, till exempel ett ovanligt antal misslyckade autentiseringsförsök, inklusive föråldrade konton i prenumerationen. Förutom den grundläggande säkerhetsövervakningen kan du använda Threat Protection-modulen från Security Center för att samla in mer djupgående säkerhets aviseringar från enskilda Azure Compute-resurser (virtuella datorer, behållare, App Service), data resurser (SQL DB och lagring) och Azure Service-lager. Med den här funktionen kan du få insyn i konto avvikelser i de enskilda resurserna.
+Använd Azure Security Center för att skapa aviseringar för vissa misstänkta aktiviteter, till exempel ett ovanligt antal misslyckade autentiseringsförsök, inklusive föråldrade konton i prenumerationen. Förutom den grundläggande säkerhetsövervakningen kan du använda Threat Protection-modulen från Security Center för att samla in mer djupgående säkerhets aviseringar från enskilda Azure Compute-resurser (virtuella datorer, behållare, App Service), data resurser (SQL DB och lagring) och Azure Service-lager. Med den här funktionen kan du få insyn i kontoavvikelser i de enskilda resurserna.
 
-- [Granska aktivitets rapporter i Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md) 
+- [Granska aktivitetsrapporter i Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md) 
 
 - [Aktivera Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Konfigurera Azure-brandväggen i en virtuell WAN-hubb](howto-firewall.md)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvars område**: delat
+**Ansvar**: Delad
 
-### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Aktivera hot identifiering för Azure Identity and Access Management
+### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Aktivera hotidentifiering i hanteringen av identiteter och åtkomst i Azure
 
 **Vägledning**: punkt-till-plats-VPN med virtuellt WAN är integrerat med Azure Active Directory (Azure AD). Azure AD innehåller följande användar loggar som kan visas i Azure AD repor ting eller integreras med Azure Monitor, Azure Sentinel, SIEM eller övervaknings verktyg för mer avancerade hot övervakning och analys användnings fall. Dessa är:
 
@@ -316,19 +316,19 @@ Använd Azure Security Center för att skapa aviseringar för vissa misstänkta 
 - Riskfylld inloggning – ett riskfylldt inloggning är en indikator för ett inloggnings försök som kan ha utförts av någon som inte är den legitima ägaren till ett användar konto.
 - Användare som har flaggats för risk – En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats.
 
-Använd Azure Security Center för att skapa aviseringar för vissa misstänkta aktiviteter, till exempel ett ovanligt antal misslyckade autentiseringsförsök, inklusive föråldrade konton i prenumerationen. Förutom den grundläggande säkerhetsövervakningen kan du använda Threat Protection-modulen från Security Center för att samla in mer djupgående säkerhets aviseringar från enskilda Azure Compute-resurser (virtuella datorer, behållare, App Service), data resurser (SQL DB och lagring) och Azure Service-lager. Med den här funktionen kan du få insyn i konto avvikelser i de enskilda resurserna.
+Använd Azure Security Center för att skapa aviseringar för vissa misstänkta aktiviteter, till exempel ett ovanligt antal misslyckade autentiseringsförsök, inklusive föråldrade konton i prenumerationen. Förutom den grundläggande säkerhetsövervakningen kan du använda Threat Protection-modulen från Security Center för att samla in mer djupgående säkerhets aviseringar från enskilda Azure Compute-resurser (virtuella datorer, behållare, App Service), data resurser (SQL DB och lagring) och Azure Service-lager. Med den här funktionen kan du få insyn i kontoavvikelser i de enskilda resurserna.
 
-- [Granska aktivitets rapporter i Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md) 
+- [Granska aktivitetsrapporter i Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md) 
 
 - [Aktivera Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Konfigurera Azure-brandväggen i en virtuell WAN-hubb](howto-firewall.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvars område**: delat
+**Ansvar**: Delad
 
-### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Aktivera loggning för Azure nätverks aktiviteter
+### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Aktivera loggning av nätverksaktiviteter i Azure
 
 **Vägledning**: övervaka Azure Virtual WAN med Azure Monitor. Det virtuella WAN-nätverket ger tillsammans många funktioner för nätverk, säkerhet och routning för att tillhandahålla ett enda drift gränssnitt. Virtuella WAN-gatewayer, ExpressRoute-gatewayer och Azure-brandväggen har loggning och mått som är tillgängliga via Azure Monitor. Aktivitets logg poster samlas in som standard och kan visas i Azure Portal. Du kan använda Azure aktivitets loggar (tidigare kallade drift loggar och gransknings loggar) för att visa alla åtgärder som skickats till din Azure-prenumeration.
 
@@ -339,9 +339,9 @@ En rad olika diagnostikloggar är också tillgängliga för virtuella WAN-nätve
 
 - [Azure Firewall-loggar och mått](/azure/firewall/logs-and-metrics)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ### <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Aktivera loggning för Azure-resurser
 
@@ -355,11 +355,11 @@ Aktivera Azures resurs loggar för virtuellt WAN-nätverk. Du kan använda Azure
 
 - [Förstå Azure Security Center insamling av data](../security-center/security-center-enable-data-collection.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvars område**: delat
+**Ansvar**: Delad
 
-### <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: centralisera hantering av säkerhets loggar och analys
+### <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: Central hantering och analys av säkerhetsloggar
 
 **Vägledning**: Aktivera säkerhets loggning för virtuellt WAN-nätverk med Azure Monitor. Det virtuella WAN-nätverket ger tillsammans många funktioner för nätverk, säkerhet och routning för att tillhandahålla ett enda drift gränssnitt. Virtuella WAN-gatewayer, ExpressRoute-gatewayer och Azure-brandväggen har loggning och mått som är tillgängliga via Azure Monitor. Aktivitets logg poster samlas in som standard och kan visas i Azure Portal. Du kan använda Azure aktivitets loggar (tidigare kallade drift loggar och gransknings loggar) för att visa alla åtgärder som skickats till din Azure-prenumeration. 
 
@@ -374,11 +374,11 @@ Azure Virtual WAN-säkerhet tillhandahålls via Azure-brandväggen.
 
 - [Dokumentation om Azure Firewall](/azure/firewall/overview)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvars område**: delat
+**Ansvar**: Delad
 
-### <a name="lt-6-configure-log-storage-retention"></a>LT-6: Konfigurera kvarhållning av logg lagring
+### <a name="lt-6-configure-log-storage-retention"></a>LT-6: Konfigurera kvarhållning av loggar
 
 **Vägledning**: Konfigurera logg kvarhållning enligt dina krav på efterlevnad, reglering och affärs verksamhet. I Azure Monitor kan du Log Analytics ange arbets ytans lagrings period enligt organisationens regler för efterlevnad. Använd Azure Storage-, Data Lake-eller Log Analytics arbets ytans konton för långsiktig lagring och arkivering.
 
@@ -388,132 +388,132 @@ Azure Virtual WAN-säkerhet tillhandahålls via Azure-brandväggen.
 
 - [Azure Security Center aviseringar och rekommendationer exportera](../security-center/continuous-export.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvars område**: delat
+**Ansvar**: Delad
 
 ## <a name="incident-response"></a>Incidenthantering
 
-*Mer information finns i [Azure Security benchmark: incident svar](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*Mer information finns i [Azure Security Benchmark: Incidentsvar](/azure/security/benchmarks/security-controls-v2-incident-response).*
 
-### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: förberedelse – uppdatera incident svars process för Azure
+### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: Förberedelse – uppdatera processen för svar på incidenter i Azure
 
-**Vägledning**: se till att din organisation har processer som svarar på säkerhets incidenter, har uppdaterat de här processerna för Azure och utnyttjar dem regelbundet för att säkerställa beredskap.
+**Vägledning**: Se till att organisationen har processer för svar på säkerhetsincidenter, att processerna är uppdaterade för Azure och att de tränas regelbundet för att säkerställa beredskapen.
 
-- [Implementera säkerhet i företags miljön](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [Implementera säkerhet i hela företagsmiljön](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-- [Referens guide för incident svar](/microsoft-365/downloads/IR-Reference-Guide.pdf)
+- [Referensguide för incidentsvar](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
-### <a name="ir-2-preparation--setup-incident-notification"></a>IR-2: förberedelse – installations incident meddelande
+### <a name="ir-2-preparation--setup-incident-notification"></a>IR-2: Förberedelse – konfigurera aviseringar vid incidenter
 
-**Vägledning**: Konfigurera säkerhets incident kontakt information i Azure Security Center. Den här kontakt informationen används av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att dina data har öppnats av en olagligt eller obehörig part. Du har också alternativ för att anpassa incident aviseringar och meddelanden i olika Azure-tjänster baserat på dina incident svars behov. 
+**Vägledning**: Konfigurera kontaktinformation vid säkerhetsincidenter i Azure Security Center. Microsoft använder de här kontaktuppgifterna till att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker obehörig åtkomst till dina data. Det finns även alternativ för att anpassa aviseringar och meddelanden vid incidenter i olika Azure-tjänster baserat på åtgärdsbehovet. 
 
-- [Så här ställer du in Azure Security Center säkerhets kontakt](../security-center/security-center-provide-security-contact-details.md)
+- [Så här ställer du in säkerhetskontakt i Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
-### <a name="ir-3-detection-and-analysis--create-incidents-based-on-high-quality-alerts"></a>IR-3: identifiering och analys – skapa incidenter baserat på aviseringar med hög kvalitet
+### <a name="ir-3-detection-and-analysis--create-incidents-based-on-high-quality-alerts"></a>IR-3: Identifiering och analys – skapa incidenter baserat på aviseringar med hög kvalitet
 
-**Vägledning**: se till att du har en process för att skapa aviseringar med hög kvalitet och mäta kvaliteten på aviseringar. På så sätt kan du lära dig lektioner från tidigare incidenter och prioritera aviseringar för analytiker, så att de inte slösar tid på falska positiva identifieringar. 
+**Riktlinjer**: Se till att du har en process för att skapa aviseringar med hög kvalitet och att mäta kvaliteten på aviseringar. På så sätt kan du dra slutsatser från tidigare incidenter och prioritera aviseringar för analytiker, så att de inte slösar tid på falska positiva identifieringar. 
 
-Aviseringar med hög kvalitet kan byggas utifrån erfarenhet från tidigare incidenter, validerade community-källor och verktyg som utformats för att generera och rensa aviseringar från fusing och korrelera olika signal källor. 
+Aviseringar med hög kvalitet kan byggas utifrån erfarenhet från tidigare incidenter, validerade community-källor och verktyg som utformats för att generera och rensa aviseringar genom att slå samman och korrelera olika signalkällor. 
 
-Azure Security Center ger aviseringar med hög kvalitet över flera Azure-tillgångar. Du kan använda ASC data Connector för att strömma aviseringarna till Azure Sentinel. Med Azure Sentinel kan du skapa avancerade aviserings regler för att generera incidenter automatiskt för en undersökning. 
+Azure Security Center tillhandahåller aviseringar med hög kvalitet för flera olika typer av Azure-tillgångar. Du kan använda anslutningsprogrammet för ASC-data för att strömma aviseringarna till Azure Sentinel. Med Azure Sentinel kan du skapa avancerade aviseringsregler för att generera incidenter automatiskt för en undersökning. 
 
-Exportera dina Azure Security Center-aviseringar och rekommendationer med hjälp av export funktionen för att identifiera risker med Azure-resurser. Exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö.
+Exportera dina Azure Security Center-aviseringar och -rekommendationer med hjälp av exportfunktionen för att identifiera risker med Azure-resurser. Exportera aviseringar och rekommendationer antingen manuellt eller löpande.
 
 - [Så här konfigurerar du export](../security-center/continuous-export.md)
 
-- [Strömma aviseringar till Azure Sentinel](../sentinel/connect-azure-security-center.md)
+- [Så här strömmar du aviseringar till Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
-### <a name="ir-4-detection-and-analysis--investigate-an-incident"></a>IR-4: identifiering och analys – Undersök en incident
+### <a name="ir-4-detection-and-analysis--investigate-an-incident"></a>IR-4: Identifiering och analys – undersöka en incident
 
-**Vägledning**: se till att analytiker kan fråga och använda olika data källor när de undersöker potentiella incidenter, för att bygga en fullständig vy över vad som hände. Diverse loggar bör samlas in för att spåra aktiviteter för en potentiell angripare över Kill-kedjan för att undvika att fläckar.  Du bör också se till att insikter och kunskaper fångas upp för andra analytiker och för framtida historiska referenser.  
+**Riktlinjer**: Se till att analytiker kan fråga och använda olika datakällor när de undersöker potentiella incidenter, så att de kan skapa en fullständig överblick över vad som hände. Diverse loggar bör samlas in för att spåra en potentiell angripares aktiviteter över hela händelsekedjan för att undvika att blinda fläckar.  Du bör också se till att insikter och kunskaper fångas upp för andra analytiker och för framtida historiska referenser.  
 
-Data källorna för undersökningen innehåller de centraliserade loggnings källor som redan har samlats in från tjänster som omfattas och som kör system, men kan även innehålla:
+Datakällorna för undersökningen innehåller de centraliserade loggningskällor som redan har samlats in från tjänster som omfattas och system som körs, men kan även innehålla:
 
-- Nätverks data – Använd Nätverks säkerhets grupper flödes loggar, Azure Network Watcher och Azure Monitor för att avbilda nätverks flödes loggar och annan analys information. 
+- Nätverksdata – Använd nätverkssäkerhetsgruppers flödesloggar, Azure Network Watcher och Azure Monitor för att avbilda nätverksflödesloggar och annan analysinformation. 
 
-- Ögonblicks bilder av system som körs: 
+- Ögonblicksbilder av system som körs: 
 
-    - Använd ögonblicks bild funktionen i Azure Virtual Machine för att skapa en ögonblicks bild av den aktiva system disken. 
+    - Använd funktionen för ögonblicksbilder på den virtuella Azure-datorn för att skapa en ögonblicksbild av det aktiva systemets disk. 
 
-    - Använd operativ systemets interna minnes dumpnings funktion för att skapa en ögonblicks bild av det aktiva systemets minne.
+    - Använd operativsystemets interna minnesdumpningsfunktion för att skapa en ögonblicksbild av det aktiva systemets minne.
 
-    - Använd ögonblicks bild funktionen i Azure-tjänsterna eller din program varu funktion för att skapa ögonblicks bilder av de system som körs.
+    - Använd funktionen för ögonblicksbilder i Azure-tjänsterna eller din programvaras egna funktion för att skapa ögonblicksbilder av de system som körs.
 
-Azure Sentinel tillhandahåller omfattande data analyser i praktiskt taget alla logg källor och en ärende hanterings Portal för att hantera den fullständiga livs cykeln för incidenter. Informations information under en undersökning kan associeras med en incident för spårning och rapportering. 
+Azure Sentinel tillhandahåller omfattande dataanalyser i praktiskt taget alla loggkällor och en ärendehanteringsportal för att hantera hela livscykeln för incidenter. Affärsinformation under en undersökning kan associeras med en incident för spårning och rapportering. 
 
-- [Ögonblicks bild av en Windows-dators disk](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+- [Ögonblicksbild av en Windows-dators disk](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 
-- [Ögonblicks bild av en Linux-dators disk](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+- [Ögonblicksbild av en Linux-dators disk](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
-- [Microsoft Azure stöd för diagnostikinformation och insamling av minnes dum par](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
+- [Microsoft Azure har stöd för diagnostikinformation och insamling av minnesdumpar](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 
-- [Undersök incidenter med Azure Sentinel](../sentinel/tutorial-investigate-cases.md)
+- [Undersöka incidenter med Azure Sentinel](../sentinel/tutorial-investigate-cases.md)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Azure Security Center-övervakning**: Inte tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
-### <a name="ir-5-detection-and-analysis--prioritize-incidents"></a>IR-5: identifiering och analys – prioritera incidenter
+### <a name="ir-5-detection-and-analysis--prioritize-incidents"></a>IR-5: Identifiering och analys – prioritera incidenter
 
-**Vägledning**: Tillhandahåll sammanhang för att analysera vilka incidenter som ska fokusera på den första baserat på aviseringens allvarlighets grad och till gångens känslighet. 
+**Riktlinjer**: Tillhandahålla en kontext till analytiker om vilka incidenter att fokusera på först baserat på aviseringens allvarlighetsgrad och tillgångens känslighet. 
 
-Azure Security Center tilldelar en allvarlighets grad till varje avisering för att hjälpa dig att prioritera vilka aviseringar som bör undersökas först. Allvarlighets graden baseras på hur tillförlitlig Security Center befinner sig i att söka efter eller analysera det som används för att utfärda aviseringen, samt den konfidensnivå som det fanns skadlig avsikt bakom den aktivitet som ledde till aviseringen.
+Azure Security Center tilldelar en allvarlighetsgrad till varje avisering för att hjälpa dig att prioritera vilka aviseringar som bör undersökas först. Allvarlighetsgraden baseras på hur tillförlitligt Security Center är i sökandet eller på den analys som användes för att utfärda aviseringen, samt konfidensnivån att det fanns en skadlig avsikt bakom den aktivitet som ledde till aviseringen.
 
-Markera dessutom resurser med taggar och skapa ett namngivnings system för att identifiera och kategorisera Azure-resurser, särskilt för bearbetning av känsliga data.  Det är ditt ansvar att prioritera reparationen av aviseringar baserat på allvarlighets graden för de Azure-resurser och den miljö där incidenten inträffade.
+Markera även resurser med taggar och skapa ett namngivningssystem för att identifiera och kategorisera Azure-resurser, i synnerhet sådana som används för bearbetning av känsliga data.  Det är ditt ansvar att prioritera åtgärdandet av aviseringar baserat på allvarlighetsgraden för de Azure-resurser och den miljö där incidenten inträffade.
 
 - [Säkerhetsaviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md)
 
 - [Använda taggar för att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
-### <a name="ir-6-containment-eradication-and-recovery--automate-the-incident-handling"></a>IR-6: inne slutning, utrotning och återställning – automatisera incident hanteringen
+### <a name="ir-6-containment-eradication-and-recovery--automate-the-incident-handling"></a>IR-6: Inneslutning, utrotning och återställning – automatisera hanteringen av incidenter
 
-**Vägledning**: automatisera manuella återkommande uppgifter för att påskynda svars tiden och minska belastningen på analytiker. Manuella uppgifter tar längre tid att köra, vilket saktar ned varje incident och minskar hur många incidenter en analytiker kan hantera. Manuella uppgifter ökar också analytikerns utmattning, vilket ökar risken för mänskligt fel som orsakar fördröjningar och minskar risken för att analytikerna ska kunna fokusera på komplexa uppgifter på ett effektivt sätt. Använd automatiserings funktioner för arbets flöde i Azure Security Center och Azure Sentinel för att automatiskt utlösa åtgärder eller köra en Spelbok för att svara på inkommande säkerhets aviseringar. Spelbok tar åtgärder, till exempel att skicka meddelanden, inaktivera konton och isolera problematiska nätverk. 
+**Vägledning**: Automatisera manuella återkommande uppgifter för att korta ned svarstiderna och underlätta för analytikerna. Det tar längre tid att köra uppgifter manuellt, så att varje incident tar längre tid att hantera och analytikerna hinner med färre incidenter. Manuella uppgifter gör dessutom analytikern mer utmattad, vilket ökar risken för mänskliga fel som i sin tur orsakar fördröjningar, samt minskar analytikernas förmåga att fokusera på komplexa uppgifter på ett effektivt sätt. Använd automatiseringsfunktioner för arbetsflöde i Azure Security Center och Azure Sentinel för att automatiskt utlösa åtgärder eller köra en spelbok för att svara på inkommande säkerhetsaviseringar. Spelboken vidtar åtgärder som att skicka meddelanden, inaktivera konton och isolera problematiska nätverk. 
 
-- [Konfigurera automatisering av arbets flöde i Security Center](../security-center/workflow-automation.md)
+- [Konfigurera arbetsflödesautomation i Security Center](../security-center/workflow-automation.md)
 
-- [Konfigurera automatiska hot svar i Azure Security Center](../security-center/tutorial-security-incident.md#triage-security-alerts)
+- [Konfigurera automatiska svar på hot i Azure Security Center](../security-center/tutorial-security-incident.md#triage-security-alerts)
 
-- [Konfigurera automatiska hot svar i Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
+- [Konfigurera automatiska svar på hot i Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center-övervakning**: Inte tillgänglig för tillfället
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
-## <a name="posture-and-vulnerability-management"></a>Position och sårbarhets hantering
+## <a name="posture-and-vulnerability-management"></a>Hantering av säkerhetsposition och säkerhetsrisker
 
-*Mer information finns i [Azure Security benchmark: position and sårbarhet Management](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
+*Mer information finns i [Azure Security Benchmark: Hantering av säkerhetsposition och säkerhetsrisker](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
 
-### <a name="pv-8-conduct-regular-attack-simulation"></a>PV-8: utför regelbunden attack simulering
+### <a name="pv-8-conduct-regular-attack-simulation"></a>PV-8: Utför regelbundna angreppssimuleringar
 
-**Vägledning**: vid behov kan du genomföra inträngande tester eller röda team aktiviteter på dina Azure-resurser och se till att åtgärda alla viktiga säkerhets brister.
-Följ test reglerna för Microsoft Cloud inträngande för att se till att dina inträngande tester inte strider mot Microsofts principer. Använd Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft-hanterad moln infrastruktur, tjänster och program.
+**Vägledning**: Utför intrångstester och ”red team”-aktiviteter för dina Azure-resurser och åtgärda alla kritiska säkerhetsbrister som upptäcks.
+Se till att följa reglerna för intrångstester i Microsoft Cloud så att dina tester inte strider mot Microsofts policyer. Använd Microsofts strategi och utförande av ”red team”-aktiviteter och intrångstester live mot molninfrastruktur, tjänster och appar som hanteras av Microsoft.
 
-- [Inträngande testning i Azure](../security/fundamentals/pen-testing.md)
+- [Intrångstester i Azure](../security/fundamentals/pen-testing.md)
 
-- [Inträngande test regler för engagemang](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
+- [Regler för intrångstester](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
-- [Microsoft Cloud röd team indelning](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [”Red team”-aktiviteter i Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvars område**: delat
+**Ansvar**: Delad
 
 ## <a name="endpoint-security"></a>Slut punkts säkerhet
 
@@ -529,191 +529,191 @@ Följ test reglerna för Microsoft Cloud inträngande för att se till att dina 
 
 - [Microsoft Defender ATP-tjänsten för icke-Windows-servrar](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center-övervakning**: Ja
 
-**Ansvars område**: delat
+**Ansvar**: Delad
 
 ## <a name="governance-and-strategy"></a>Styrning och strategi
 
-*Mer information finns i [Azure Security benchmark: styrning och strategi](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*Mer information finns i [Azure Security Benchmark: Styrning och strategi](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
 
-### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: definiera strategi för till gångs hantering och data skydd 
+### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: Definiera en strategi för tillgångshantering och dataskydd 
 
-**Vägledning**: se till att dokumentera och förmedla en tydlig strategi för kontinuerlig övervakning och skydd av system och data. Prioritera identifiering, utvärdering, skydd och övervakning av affärs kritiska data och system. 
+**Vägledning**: Se till att dokumentera och förmedla en tydlig strategi för kontinuerlig övervakning och skydd av system och data. Prioritera identifiering, utvärdering, skydd och övervakning av affärskritiska data och system. 
 
-Strategin bör omfatta dokumenterad vägledning, principer och standarder för följande element: 
+Strategin bör omfatta dokumenterad vägledning, policyer och standarder för följande element: 
 
--   Data klassificerings standard i enlighet med affärs riskerna
+-   En standard för dataklassificering i enlighet med affärsrisker
 
--   Insyn i säkerhets organisationen för risker och till gångs inventering 
+-   Säkerhetsorganisationens insyn i risker och tillgångsinventering 
 
--   Godkännande av säkerhets organisation för Azure-tjänster för användning 
+-   Säkerhetsorganisationens godkännande av de Azure-tjänster som används 
 
--   Säkerhet för till gångar via deras livs cykel
+-   Tillgångars säkerhet genom hela livscykeln
 
--   Nödvändig åtkomst kontroll strategi i enlighet med organisationens data klassificering
+-   Strategi för nödvändig åtkomstkontroll i enlighet med organisationens dataklassificering
 
--   Användning av data skydds funktioner i Azure Native och tredje part
+-   Användning av inbyggda säkerhetsfunktioner för Azure- och tredje partsdata
 
--   Krav på data kryptering för överförings-och rest-användnings fall
+-   Krypteringskrav för användningsfall med data under transport och i vila
 
 -   Lämpliga kryptografiska standarder
 
-Mer information finns i följande referenser:
-- [Rekommendation för Azure Security Architecture – lagring, data och kryptering](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+Läs mer i följande referenser:
+- [Rekommendationer för en säkerhetsarkitektur i Azure – lagring, data och kryptering](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
 
-- [Grundläggande Azure-säkerhet – Azure Data Security, kryptering och lagring](../security/fundamentals/encryption-overview.md)
+- [Grundläggande Azure-säkerhet – säkerhet, kryptering och lagring av data i Azure](../security/fundamentals/encryption-overview.md)
 
-- [Ramverk för moln införande – metod tips för Azure Data Security och kryptering](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework – regelverk kring datasäkerhet och kryptering i Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Hantering av Azure Security-inventarier](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Azure Security Benchmark – hantering av tillgångar](/azure/security/benchmarks/security-controls-v2-asset-management)
 
-- [Azure Security benchmark – data skydd](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Azure Security Benchmark – dataskydd](/azure/security/benchmarks/security-controls-v2-data-protection)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
-### <a name="gs-2-define-enterprise-segmentation-strategy"></a>GS-2: definiera strategi för företags segmentering 
+### <a name="gs-2-define-enterprise-segmentation-strategy"></a>GS-2: Definiera företagets segmenteringsstrategi 
 
-**Vägledning**: upprätta en företagsomfattande strategi för att segmentera åtkomst till till gångar med en kombination av identitet, nätverk, program, prenumeration, hanterings grupp och andra kontroller.
+**Vägledning**: Upprätta en strategi för hela företaget gällande att segmentera åtkomsten till tillgångar utifrån en kombination av identiteter, nätverk, program, prenumerationer, hanteringsgrupper och andra kontroller.
 
-Du bör noggrant balansera behovet av säkerhets separation med behovet av att möjliggöra daglig drift av de system som behöver kommunicera med varandra och komma åt data.
+Du måste noga avväga behovet av separationsskyddet med behovet att underlätta den dagliga driften av de system som måste kommunicera med varandra och komma åt data.
 
-Se till att segmenterings strategin implementeras konsekvent över kontroll typer, inklusive nätverks säkerhet, identitets-och åtkomst modeller samt program behörighet/åtkomst modeller och kontroller för mänsklig process.
+Se till att segmenteringsstrategin implementeras konsekvent för olika kontrolltyper som nätverkssäkerhet, modeller för identiteter och åtkomst, modeller för appbehörighet och appåtkomst samt kontroller för mänskliga processer.
 
-- [Vägledning om segment strategi i Azure (video)](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
+- [Vägledning om segmenteringsstrategi i Azure (video)](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
 
-- [Vägledning om segment strategi i Azure (dokument)](/security/compass/governance#enterprise-segmentation-strategy)
+- [Vägledning om segmenteringsstrategi i Azure (dokument)](/security/compass/governance#enterprise-segmentation-strategy)
 
-- [Justera nätverks segmentering med strategi för företags segmentering](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
+- [Justera nätverkssegmenteringen efter företagets segmenteringsstrategi](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
-### <a name="gs-3-define-security-posture-management-strategy"></a>GS-3: definiera säkerhets position hanterings strategi
+### <a name="gs-3-define-security-posture-management-strategy"></a>GS-3: Definiera en strategi för hantering av säkerhetspositionen
 
-**Vägledning**: ständigt mäta och minimera risker för enskilda till gångar och miljön som de finns i. Prioritera höga värde till gångar och högexponerade attack ytor, till exempel publicerade program, ingångs-och utgångs punkter, användar-och administratörs slut punkter osv.
+**Vägledning**: Mät och minimera risker gällande enskilda tillgångar och miljöerna där de finns regelbundet. Prioritera värdefulla tillgångar och attackytor med stor exponering, som publicerade appar, in- och utgångar i nätverket och slutpunkter för användare och administratörer.
 
-- [Azure Security benchmark – position och sårbarhets hantering](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Azure Security Benchmark – hantering av säkerhetspositionen och säkerhetsrisker](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
-### <a name="gs-4-align-organization-roles-responsibilities-and-accountabilities"></a>GS-4: justera organisations roller, ansvars områden och Accountabilities
+### <a name="gs-4-align-organization-roles-responsibilities-and-accountabilities"></a>GS-4: Justera organisationens roller och ansvarsområden
 
-**Vägledning**: se till att dokumentera och förmedla en tydlig strategi för roller och ansvar i din säkerhets organisation. Prioritera att tillhandahålla tydliga ansvar för säkerhets beslut, utbilda alla på den delade ansvars modellen och utbilda tekniska team om teknik för att skydda molnet.
+**Vägledning**: Dokumentera och förmedla en tydlig strategi gällande säkerhetsorganisationens roller och ansvarsområden. Prioritera att delegera ett tydligt ansvar för olika säkerhetsbeslut och utbilda alla kring modellen med gemensamt ansvar, och ge de tekniska teamen den utbildning som behövs kring tekniken för att skydda molnet.
 
-- [Bästa praxis för Azure-säkerhet 1 – personer: utbilda team om molnets säkerhets resa](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
+- [Regelverk för Azure-säkerhet 1 – personal: utbilda teamen om molnsäkerhetsresan](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
 
-- [Bästa praxis för Azure-säkerhet 2 – personer: utbilda team om moln säkerhets teknik](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
+- [Regelverk för Azure-säkerhet 2 – personal: utbilda teamen om molnsäkerhetstekniken](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
 
-- [Bästa praxis för Azure Security 3 – process: tilldela ansvar för moln säkerhets beslut](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [Regelverk för Azure-säkerhet 3 – personal: tilldela ansvar för molnsäkerhetsbeslut](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-**Ansvar**: kund
+**Ansvar**: Kund
 
-### <a name="gs-5-define-network-security-strategy"></a>GS-5: definiera nätverks säkerhets strategi
+### <a name="gs-5-define-network-security-strategy"></a>GS-5: Definiera en strategi för nätverkssäkerhet
 
-**Vägledning**: upprätta en Azure Network Security-metod som en del av din organisations övergripande strategi för säkerhets åtkomst kontroll.  
+**Vägledning**: Upprätta en strategi för nätverkssäkerhet i Azure inom ramen för organisationens övergripande strategi för åtkomstkontroll.  
+
+Strategin bör omfatta dokumenterad vägledning, policyer och standarder för följande element: 
+
+-   Centraliserade ansvarsområden kring nätverkshantering och säkerhet
+
+-   Modell för segmentering av virtuella nätverk anpassad efter företagets segmenteringsstrategi
+
+-   Åtgärdsstrategi för olika hot- och angreppsscenarier
+
+-   Strategi för kantenheter på internet samt in- och utgångar
+
+-   Strategi för hybridmoln och lokala anslutningar
+
+-   Aktuella nätverkssäkerhetsartefakter (som nätverksdiagram och referensnätverksarkitekturer)
+
+Läs mer i följande referenser:
+- [Regelverk för Azure-säkerhet 11 – arkitektur. En enhetlig säkerhetsstrategi](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+
+- [Azure Security Benchmark – nätverkssäkerhet](/azure/security/benchmarks/security-controls-v2-network-security)
+
+- [Översikt över nätverkssäkerhet i Azure](../security/fundamentals/network-overview.md)
+
+- [En strategi för företagets nätverksarkitektur](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
+
+**Övervakning i Azure Security Center**: Ej tillämpligt
+
+**Ansvar**: Kund
+
+### <a name="gs-6-define-identity-and-privileged-access-strategy"></a>GS-6: Definiera en strategi för identiteter och privilegierad åtkomst
+
+**Vägledning**: Upprätta en strategi för identiteter och privilegierad åtkomst i Azure inom ramen för organisationens övergripande strategi för åtkomstkontroll.  
+
+Strategin bör omfatta dokumenterad vägledning, policyer och standarder för följande element: 
+
+-   Ett centraliserat system för identiteter och autentisering och dess anslutningar till andra interna och externa identitetssystem
+
+-   Starka autentiseringsmetoder i olika användningsfall och scenarier
+
+-   Skydda och användare med hög behörighet
+
+-   Övervaka och hantera avvikande användaraktiviteter  
+
+-   Process för att granska och stämma av identiteter och åtkomstbehörighet
+
+Läs mer i följande referenser:
+
+- [Azure Security Benchmark – hantering av identiteter](/azure/security/benchmarks/security-controls-v2-identity-management)
+
+- [Azure Security Benchmark – privilegierad åtkomst](/azure/security/benchmarks//security-controls-v2-privileged-access)
+
+- [Regelverk för Azure-säkerhet 11 – arkitektur. En enhetlig säkerhetsstrategi](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+
+- [Översikt över säker identitetshantering i Azure](../security/fundamentals/identity-management-overview.md)
+
+**Övervakning i Azure Security Center**: Ej tillämpligt
+
+**Ansvar**: Kund
+
+### <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: Definiera en strategi för loggning och hotåtgärder
+
+**Riktlinjer**: Upprätta en strategi för loggning och hothantering för att snabbt upptäcka och åtgärda hot och samtidigt uppfylla kraven för efterlevnad. Prioritera att ge analytiker högkvalitativa varningar och sömlösa upplevelser så att de kan fokusera på hot i stället för på integrering och manuella åtgärder. 
 
 Strategin bör omfatta dokumenterad vägledning, principer och standarder för följande element: 
 
--   Centraliserad nätverks hantering och säkerhets ansvar
+-   Säkerhetsorganisationens roller och ansvarsområden 
 
--   Modell för virtuella nätverks segment justerade med strategin för företags segmentering
+-   En väldefinierad process för incidentsvar anpassad efter NIST eller något annat branschramverk 
 
--   Reparations strategi i olika hot och angrepps scenarier
+-   Insamling och kvarhållning av loggar som stöd till hotidentifiering, incidentsvar och efterlevnadskrav
 
--   Strategi för Internet Edge och inkommande och utgående
+-   Central insyn i och korrelerande information om olika hot med hjälp av SIEM, interna Azure-funktioner och andra källor 
 
--   Hybrid moln och lokal strategi för samanslutning
+-   Plan för kommunikation med kunder, leverantörer och offentliga intressenter
 
--   Aktuella nätverks säkerhets artefakter (t. ex. nätverks diagram, referens nätverks arkitektur)
+-   Användning av plattformar för incidenthantering i Azure och från tredje part, till exempel för loggning och hotidentifiering, datautredning och motverkande åtgärder
 
-Mer information finns i följande referenser:
-- [Azure-säkerhet Best Practice 11-Architecture. Enhetlig säkerhets strategi](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+-   Processer för hantering av incidenter och efterföljande aktiviteter som hantering av lärdomar och bevis
 
-- [Säkerhet för Azure-säkerhet](/azure/security/benchmarks/security-benchmark-v2-network-security)
+Läs mer i följande referenser:
 
-- [Översikt över Azure Network Security](../security/fundamentals/network-overview.md)
+- [Azure Security Benchmark – loggning och hotidentifiering](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Arkitektur strategi för företags nätverk](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
+- [Azure Security Benchmark – svar på incidenter](/azure/security/benchmarks/security-controls-v2-incident-response)
 
-**Azure Security Center övervakning**: inte tillämpligt
+- [Regelverk för Azure-säkerhet 4 – process: uppdatera processer kring incidentsvar för molnet](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-**Ansvar**: kund
+- [Azure Adoption Framework, guide till beslut om loggning och rapporter](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
-### <a name="gs-6-define-identity-and-privileged-access-strategy"></a>GS-6: definiera identitets-och privilegie rad åtkomst strategi
+- [Hantering och övervakning i företagsskala i Azure](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
 
-**Vägledning**: upprätta en Azure Identity-och Privileged Access-metod som en del av din organisations övergripande strategi för säkerhets åtkomst kontroll.  
+**Övervakning i Azure Security Center**: Ej tillämpligt
 
-Strategin bör omfatta dokumenterad vägledning, principer och standarder för följande element: 
-
--   Ett centraliserat identitets-och autentiserings system och dess samanslutning med andra interna och externa identitets system
-
--   Starka autentiseringsmetoder i olika användnings fall och villkor
-
--   Skydd av privilegierade användare
-
--   Avvikande användar aktiviteter, övervakning och hantering  
-
--   Process för användar identitets-och åtkomst granskning och avstämning
-
-Mer information finns i följande referenser:
-
-- [Azure-säkerhet för prestandatest – identitets hantering](/azure/security/benchmarks/security-benchmark-v2-identity-management)
-
-- [Azure Security benchmark – privilegie rad åtkomst](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
-
-- [Azure-säkerhet Best Practice 11-Architecture. Enhetlig säkerhets strategi](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
-
-- [Översikt över Azure Identity Management-säkerhet](../security/fundamentals/identity-management-overview.md)
-
-**Azure Security Center övervakning**: inte tillämpligt
-
-**Ansvar**: kund
-
-### <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: definiera strategi för loggning och hot svar
-
-**Vägledning**: upprätta en strategi för loggning och hot svar för att snabbt upptäcka och åtgärda hot samtidigt som de uppfyller kraven för efterlevnad. Prioritera att ge analytiker med hög kvalitets varningar och sömlösa upplevelser så att de kan fokusera på hot i stället för integrering och manuella steg. 
-
-Strategin bör omfatta dokumenterad vägledning, principer och standarder för följande element: 
-
--   Organisationens roll och ansvars områden för säkerhets åtgärder (SecOps) 
-
--   En väldefinierad incident svars process som justeras med NIST eller något annat bransch ramverk 
-
--   Insamling och kvarhållning av loggar för att stödja hot identifiering, incident svar och krav på efterlevnad
-
--   Centraliserad synlighet och korrelations information om hot, med SIEM, interna Azure-funktioner och andra källor 
-
--   Kommunikation och meddelande plan med dina kunder, leverantörer och offentliga intressen
-
--   Användning av inbyggda Azure-och tredjeparts-plattformar för incident hantering, till exempel loggning och hot identifiering, data utredning och angrepp och utrotning
-
--   Processer för hantering av incidenter och aktiviteter efter incidenter, till exempel lektioner som lärts och underlags kvarhållning
-
-Mer information finns i följande referenser:
-
-- [Azure-säkerhet för benchmark-loggning och hot identifiering](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
-
-- [Azure-säkerhet benchmark – incident svar](/azure/security/benchmarks/security-benchmark-v2-incident-response)
-
-- [Azure Security Best Practice 4 – process. Uppdatera incident svars processer för molnet](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
-
-- [Besluts guide för Azure införande Framework, loggning och rapportering](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
-
-- [Azure Enterprise Scale, Management och Monitoring](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
-
-**Azure Security Center övervakning**: inte tillämpligt
-
-**Ansvar**: kund
+**Ansvar**: Kund
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Översikt över Azure Security benchmark v2](/azure/security/benchmarks/overview)
-- Läs mer om [Azures säkerhets bas linjer](/azure/security/benchmarks/security-baselines-overview)
+- Läs mer i [Översikten över Azure Security Benchmark V2](/azure/security/benchmarks/overview)
+- Läs mer om [säkerhetsbaslinjer för Azure](/azure/security/benchmarks/security-baselines-overview)

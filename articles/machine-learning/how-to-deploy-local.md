@@ -10,14 +10,14 @@ author: lobrien
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy
-ms.openlocfilehash: 1d2e25f76d9a68eeb01a45c34651fe1537297980
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 71f393897dff266f1b0922a19eefd70cffea133d
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510581"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600361"
 ---
-# <a name="deploy-on-your-local-machines-models-trained-with-azure-machine-learning"></a>Distribuera på dina lokala datorer modeller utbildade med Azure Machine Learning
+# <a name="deploy-models-trained-with-azure-machine-learning-on-your-local-machines"></a>Distribuera modeller som har tränats med Azure Machine Learning på dina lokala datorer 
 
 Den här artikeln beskriver hur du använder den lokala datorn som mål för utbildning eller distribution av modeller som skapats i Azure Machine Learning. Azure Machine Learning är tillräckligt flexibel för att fungera med de flesta python-ramverk för maskin inlärning. Maskin inlärnings lösningar har i allmänhet komplexa beroenden som kan vara svåra att duplicera. I den här artikeln får du lära dig hur du balanserar total kontroll med enkel användning.
 
@@ -27,7 +27,7 @@ Scenarier för lokal distribution är:
 * Fel sökning och fel sökning i senare steg.
 * Slutlig distribution på användarens hanterade maskin vara.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 - En modell och en miljö. Om du inte har en tränad modell kan du använda den modell och de beroende filer som finns i [den här självstudien](tutorial-train-models-with-aml.md).

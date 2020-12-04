@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 5985c30973f703b897fa2eedc2be3b939d97900b
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 3d3c452dd883316520e0c28f01c241af74d597c8
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559005"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602792"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Så här anropar du Textanalys REST API
 
@@ -48,7 +48,7 @@ Se tabellen nedan för att se vilka funktioner som kan användas asynkront. Obse
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 
 > [!NOTE]
@@ -71,8 +71,8 @@ Formatet för API-begäranden är detsamma för alla synkrona åtgärder. Dokume
 
 | Element | Giltiga värden | Obligatoriskt? | Användning |
 |---------|--------------|-----------|-------|
-|`id` |Data typen är sträng, men i dokument-ID: n är det vanligt vis heltal. | Krävs | Systemet använder de ID: n som du anger för att strukturera utdata. Språk koder, nyckel fraser och sentiment resultat genereras för varje ID i begäran.|
-|`text` | Ostrukturerad rå text, upp till 5 120 tecken. | Krävs | För språk identifiering kan text uttryckas på valfritt språk. För sentiment analys, extrahering av nyckel fraser och enhets identifiering måste texten vara på ett [språk som stöds](../language-support.md). |
+|`id` |Data typen är sträng, men i dokument-ID: n är det vanligt vis heltal. | Obligatorisk | Systemet använder de ID: n som du anger för att strukturera utdata. Språk koder, nyckel fraser och sentiment resultat genereras för varje ID i begäran.|
+|`text` | Ostrukturerad rå text, upp till 5 120 tecken. | Obligatorisk | För språk identifiering kan text uttryckas på valfritt språk. För sentiment analys, extrahering av nyckel fraser och enhets identifiering måste texten vara på ett [språk som stöds](../language-support.md). |
 |`language` | 2 teckens [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) -kod för ett [språk som stöds](../language-support.md) | Det varierar | Krävs för sentiment-analys, extrahering av nyckel fraser och länkning av entiteter. valfritt för språk identifiering. Det finns inget fel om du exkluderar det, men analysen har minskats utan den. Språk koden ska motsvara den `text` du anger. |
 
 Följande är ett exempel på en API-begäran för synkrona Textanalys-slutpunkter. 
@@ -105,14 +105,14 @@ Med `/analyze` slut punkten kan du välja vilken av de textanalys funktioner som
 | Element | Giltiga värden | Obligatoriskt? | Användning |
 |---------|--------------|-----------|-------|
 |`displayName` | Sträng | Valfritt | Används som visnings namn för den unika identifieraren för jobbet.|
-|`analysisInput` | Innehåller `documents` fältet nedan | Krävs | Innehåller informationen för de dokument som du vill skicka. |
-|`documents` | Innehåller `id` fälten och `text` nedan | Krävs | Innehåller information för varje dokument som skickas och dokumentets rå text. |
-|`id` | Sträng | Krävs | De ID: n som du anger används för att strukturera utdata. |
-|`text` | Ostrukturerad rå text, upp till 125 000 tecken. | Krävs | Måste vara på det engelska språket, vilket är det enda språk som stöds för närvarande. |
-|`tasks` | Innehåller följande Textanalys funktioner: `entityRecognitionTasks` , `keyPhraseExtractionTasks` eller `entityRecognitionPiiTasks` . | Krävs | En eller flera av de Textanalys-funktioner som du vill använda. Observera att `entityRecognitionPiiTasks` har en valfri `domain` parameter som kan anges till `pii` eller `phi` . Om inget anges används standardvärdet i systemet `pii` . |
-|`parameters` | Innehåller `model-version` fälten och `stringIndexType` nedan | Krävs | Det här fältet ingår i ovanstående funktions uppgifter som du väljer. De innehåller information om modell versionen som du vill använda och index typen. |
-|`model-version` | Sträng | Krävs | Ange vilken version av modellen som du vill använda.  |
-|`stringIndexType` | Sträng | Krävs | Ange den text avkodare som matchar din programmerings miljö.  De typer som stöds är `textElement_v8` (standard), `unicodeCodePoint` , `utf16CodeUnit` . Mer information finns i [artikeln text förskjutning](../concepts/text-offsets.md#offsets-in-api-version-31-preview) .  |
+|`analysisInput` | Innehåller `documents` fältet nedan | Obligatorisk | Innehåller informationen för de dokument som du vill skicka. |
+|`documents` | Innehåller `id` fälten och `text` nedan | Obligatorisk | Innehåller information för varje dokument som skickas och dokumentets rå text. |
+|`id` | Sträng | Obligatorisk | De ID: n som du anger används för att strukturera utdata. |
+|`text` | Ostrukturerad rå text, upp till 125 000 tecken. | Obligatorisk | Måste vara på det engelska språket, vilket är det enda språk som stöds för närvarande. |
+|`tasks` | Innehåller följande Textanalys funktioner: `entityRecognitionTasks` , `keyPhraseExtractionTasks` eller `entityRecognitionPiiTasks` . | Obligatorisk | En eller flera av de Textanalys-funktioner som du vill använda. Observera att `entityRecognitionPiiTasks` har en valfri `domain` parameter som kan anges till `pii` eller `phi` . Om inget anges används standardvärdet i systemet `pii` . |
+|`parameters` | Innehåller `model-version` fälten och `stringIndexType` nedan | Obligatorisk | Det här fältet ingår i ovanstående funktions uppgifter som du väljer. De innehåller information om modell versionen som du vill använda och index typen. |
+|`model-version` | Sträng | Obligatorisk | Ange vilken version av modellen som du vill använda.  |
+|`stringIndexType` | Sträng | Obligatorisk | Ange den text avkodare som matchar din programmerings miljö.  De typer som stöds är `textElement_v8` (standard), `unicodeCodePoint` , `utf16CodeUnit` . Mer information finns i [artikeln text förskjutning](../concepts/text-offsets.md#offsets-in-api-version-31-preview) .  |
 |`domain` | Sträng | Valfritt | Gäller endast för en parameter för `entityRecognitionPiiTasks` uppgiften och kan anges till `pii` eller `phi` . Den används som standard `pii` om inget värde anges.  |
 
 ```json
@@ -160,9 +160,9 @@ Formatet för API-begäranden till Textanalys för hälso värdbaserade API: er 
 
 | Element | Giltiga värden | Obligatoriskt? | Användning |
 |---------|--------------|-----------|-------|
-|`id` |Data typen är sträng, men i dokument-ID: n är det vanligt vis heltal. | Krävs | Systemet använder de ID: n som du anger för att strukturera utdata. |
-|`text` | Ostrukturerad rå text, upp till 5 120 tecken. | Krävs | Observera att endast engelsk text stöds för närvarande. |
-|`language` | 2 teckens [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) -kod för ett [språk som stöds](../language-support.md) | Krävs | `en`Stöds för närvarande inte. |
+|`id` |Data typen är sträng, men i dokument-ID: n är det vanligt vis heltal. | Obligatorisk | Systemet använder de ID: n som du anger för att strukturera utdata. |
+|`text` | Ostrukturerad rå text, upp till 5 120 tecken. | Obligatorisk | Observera att endast engelsk text stöds för närvarande. |
+|`language` | 2 teckens [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) -kod för ett [språk som stöds](../language-support.md) | Obligatorisk | `en`Stöds för närvarande inte. |
 
 Följande är ett exempel på en API-begäran för Textanalys för hälso slut punkter. 
 
@@ -260,6 +260,8 @@ Om du har gjort anropet till asynkrona `/analyze` eller `/health` slut punkter k
 3. Lägg till i `Operation-Location` begäran.
 
 4. Svaret är ett enda JSON-dokument med ett objekt för varje dokument-ID som anges i begäran.
+
+Observera att `/analyze` `/health` resultaten från get-begäran i steg 2 är tillgängliga i 24 timmar från den tidpunkt då jobbet skapades.  Den här tiden anges av `expirationDateTime` värdet i get-svaret.  Efter den här tids perioden rensas resultatet och är inte längre tillgängligt för hämtning.    
 
 ## <a name="example-api-responses"></a>Exempel-API-svar
  

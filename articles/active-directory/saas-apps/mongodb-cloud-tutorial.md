@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
-ms.openlocfilehash: f76f6bc77a26a8574218a07321ab72acc9280569
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: af1c0702929e7cd700c8d19ab24e40f9c6f43a21
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517998"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602197"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med MongoDB Cloud
 
@@ -50,7 +50,7 @@ Om du vill konfigurera integreringen av MongoDB-molnet i Azure AD måste du läg
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I den vänstra rutan väljer du **Azure Active Directory**.
 1. Gå till **Företagsprogram** och välj sedan **Alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. Välj **nytt program** om du vill lägga till ett nytt program.
 1. I avsnittet **Lägg till från galleriet** , Skriv **MongoDB Cloud** i sökrutan.
 1. Välj **MongoDB Cloud** från resultaten och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
@@ -84,7 +84,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. I text rutan **svars-URL** anger du en URL som använder följande mönster: `https://auth.mongodb.com/sso/saml2/<Customer_Unique>`
 
-1. Välj **Ange ytterligare URL: er**och utför följande steg om du vill konfigurera programmet i **SP** -initierat läge:
+1. Välj **Ange ytterligare URL: er** och utför följande steg om du vill konfigurera programmet i **SP** -initierat läge:
 
     I text rutan **inloggnings-URL** anger du en URL som använder följande mönster:  `https://cloud.mongodb.com/sso/<Customer_Unique>`
 
@@ -97,7 +97,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Förutom föregående attribut förväntar sig Cloud-MongoDB några fler attribut att skickas tillbaka i SAML-svaret. Dessa attribut har också fyllts i automatiskt, men du kan granska dem enligt dina krav.
     
-    | Namn | Källattribut|
+    | Name | Källattribut|
     | ---------------| --------- |
     | e-post | user.userprincipalname |
     | firstName | user.givenname |
@@ -118,7 +118,7 @@ I det här avsnittet skapar du en test användare i Azure Portal som kallas B. S
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryss rutan **Visa lösen ord** och skriv sedan lösen ordet.
    1. Välj **Skapa**.
 
@@ -162,7 +162,7 @@ När du väljer moln panelen MongoDB i åtkomst panelen loggas du automatiskt in
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
-- [Registrera dig för MongoDB-Atlas på Azure](https://azuremarketplace.microsoft.com/marketplace/apps/mongodb.mongodb_atlas_may_2020?tab=Overview)
+- [Registrera dig för MongoDB-Atlas på Azure](https://azuremarketplace.microsoft.com/marketplace/apps/mongodb.mdb_atlas_oct2020?tab=Overview)
 
 - [Prova MongoDB Cloud med Azure AD](https://aad.portal.azure.com/)
 

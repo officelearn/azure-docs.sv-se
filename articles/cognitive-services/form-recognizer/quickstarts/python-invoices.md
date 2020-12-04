@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/12/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 7c6b5406728817c3dd700ec285d9af77c9d3cf60
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 2ed8bdd167814ea21fced89042bdcf80fd3a73df
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96009321"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602656"
 ---
 # <a name="quickstart-extract-invoice-data-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: extrahera faktura data med hjälp av formulär tolken REST API med python
 
@@ -30,7 +30,7 @@ För att slutföra den här snabb starten måste du ha:
 - Ett faktura dokument. Du kan använda [exempel fakturan](../media/sample-invoice.jpg) för den här snabb starten.
 
 > [!NOTE]
-> Den här snabb starten använder en lokal fil. Om du vill använda ett faktura dokument som har öppnats via URL i stället, se [referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync).
+> Den här snabb starten använder en lokal fil. Om du vill använda ett faktura dokument som har öppnats via URL i stället, se [referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync).
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
@@ -290,6 +290,6 @@ if __name__ == '__main__':
 I den här snabb starten använde du formulär tolken REST API med python för att extrahera innehållet från fakturor. Sedan läser du referens dokumentationen för att utforska formulärets tolknings-API i större djup.
 
 > [!div class="nextstepaction"]
-> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync)
+> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)
 
    

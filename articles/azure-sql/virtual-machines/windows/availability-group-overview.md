@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d04f689dec3a3c182c0da23007247c20c4f8063d
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 8573e45270dfd1ff984eae3dc5fbf1dc5f2fc6da
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504398"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600871"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Always on-tillgänglighetsgrupper på SQL Server på virtuella Azure-datorer
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,12 +37,14 @@ Följande diagram illustrerar en tillgänglighets grupp för SQL Server på virt
 
 ## <a name="vm-redundancy"></a>VM-redundans 
 
-För att öka redundansen och hög tillgänglighet ska de virtuella SQL Server datorerna antingen finnas i samma [tillgänglighets uppsättning](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview)eller olika [tillgänglighets zoner](../../../availability-zones/az-overview.md).
+Om du vill öka redundansen och hög tillgänglighet bör SQL Server virtuella datorer antingen finnas i samma [tillgänglighets uppsättning](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview)eller olika [tillgänglighets zoner](../../../availability-zones/az-overview.md).
 
-En tillgänglighets uppsättning är en gruppering av resurser som är konfigurerade så att det inte finns två land i samma tillgänglighets zon. Detta förhindrar att flera resurser i gruppen påverkas under distributions upprullningar. 
+Att placera en uppsättning virtuella datorer i samma tillgänglighets uppsättning skyddar mot avbrott i ett Data Center som orsakas av utrustnings problem (virtuella datorer i en tillgänglighets uppsättning delar inte resurser) eller från uppdateringar (virtuella datorer i en tillgänglighets uppsättning uppdateras inte samtidigt). Tillgänglighetszoner skydda mot ett helt data centers haveri, med varje zon som representerar en uppsättning data Center inom en region.  Genom att se till att resurser placeras i olika Tillgänglighetszoner kan du inte göra något av dina virtuella datorer offline på data center nivå.
+
+När du skapar virtuella Azure-datorer måste du välja mellan att konfigurera tillgänglighets uppsättningar jämfört med Tillgänglighetszoner.  En virtuell Azure-dator är inte medlem i båda.
 
 
-## <a name="connectivity"></a>Anslutningsmöjlighet 
+## <a name="connectivity"></a>Anslutning 
 
 I en traditionell lokal distribution ansluter klienter till tillgänglighets gruppens lyssnare med hjälp av det virtuella nätverks namnet (VNN) och lyssnaren dirigerar trafik till lämplig SQL Server replik i tillgänglighets gruppen. Det finns dock ett extra krav för att dirigera trafik i Azure-nätverket. 
 

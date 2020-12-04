@@ -2,15 +2,15 @@
 title: Test väskor för test Toolkit
 description: Beskriver de tester som körs av ARM-mallens test verktyg.
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: dda8e92c17029126e7f473a6aee03acfc970e04b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9ad659e15a88725e4c3905ab6c623fda7610fd
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378125"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600912"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Standardtest-fall för test verktyg för ARM-mall
 
@@ -137,9 +137,11 @@ I följande exempel **överförs** det här testet.
 
 Test namn: **platsen får inte vara hårdkodad**
 
-Användare av din mall kan ha begränsade regioner tillgängliga för dem. När du anger resurs platsen till `"[resourceGroup().location]"` kan resurs gruppen ha skapats i en region som andra användare inte kan komma åt. Dessa användare blockeras från att använda mallen.
+Mallarna måste ha en parameter med namnet location. Använd den här parametern för att ange placeringen av resurser i mallen. I huvud mal len (med namnet azuredeploy.jspå eller mainTemplate.jspå) kan den här parametern användas som standard för resurs gruppens plats. I länkade eller kapslade mallar får plats parametern inte ha en standard plats.
 
-När du definierar platsen för varje resurs använder du en parameter som används som standard för resurs gruppens plats. Genom att ange den här parametern kan användare använda standardvärdet när de är praktiska men även ange en annan plats.
+Användare av din mall kan ha begränsade regioner tillgängliga för dem. När du hårdkodar resurs platsen kan användarna blockeras från att skapa en resurs i den regionen. Användarna kan blockeras även om du anger resurs platsen till `"[resourceGroup().location]"` . Resurs gruppen kan ha skapats i en region som andra användare inte kan komma åt. Dessa användare blockeras från att använda mallen.
+
+Genom att ange en plats parameter som är standard för resurs gruppens plats kan användarna använda standardvärdet när de är praktiska, men även ange en annan plats.
 
 I följande exempel **Miss lyckas** det här testet eftersom platsen på resursen är inställd på `resourceGroup().location` .
 
@@ -195,7 +197,7 @@ I nästa exempel används en plats parameter men det här testet **Miss lyckas**
 }
 ```
 
-Skapa i stället en parameter som används som standard för resurs grupps platsen, men gör det möjligt för användarna att ange ett annat värde. I följande exempel **överförs** det här testet.
+Skapa i stället en parameter som används som standard för resurs grupps platsen, men gör det möjligt för användarna att ange ett annat värde. I följande exempel **överförs** det här testet när mallen används som huvud mal len.
 
 ```json
 {
@@ -227,6 +229,8 @@ Skapa i stället en parameter som används som standard för resurs grupps plats
     "outputs": {}
 }
 ```
+
+Men om föregående exempel används som en länkad mall, **Miss lyckas** testet. Ta bort standardvärdet när det används som en länkad mall.
 
 ## <a name="resources-should-have-location"></a>Resurserna måste ha plats
 

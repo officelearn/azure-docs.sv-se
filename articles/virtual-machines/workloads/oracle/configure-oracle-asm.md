@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: e5593d530891e39404e0b9760861f2f22ae333d3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6f0b58374ae3eb972993b544117d8cbb98371ce5
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000002"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602622"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Konfigurera Oracle ASM på en virtuell Azure Linux-dator  
 
@@ -33,7 +33,7 @@ Om du väljer att installera och använda CLI lokalt kräver de här självstudi
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Du skapar en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resurs grupp är en logisk behållare där Azure-resurser distribueras och hanteras. I det här exemplet är en resurs grupp med namnet *myResourceGroup* i regionen *östra* .
+Skapa en resurs grupp med kommandot [AZ Group Create](/cli/azure/group) . En Azure-resurs grupp är en logisk behållare där Azure-resurser distribueras och hanteras. I det här exemplet är en resurs grupp med namnet *myResourceGroup* i regionen *östra* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -345,7 +345,7 @@ I den här självstudien är standard användaren *rutnät* och standard gruppen
 
 Slutför följande steg för att ladda ned och förbereda Oracle Grid Infrastructure-programmet:
 
-1. Hämta Oracle Grid-infrastruktur från [sidan för Oracle ASM-hämtning](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
+1. Hämta Oracle Grid-infrastruktur från [sidan för Oracle ASM-hämtning](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html). 
 
    Under nedladdningen **Oracle Database 12C Release 1 Grid Infrastructure (12.1.0.2.0) för Linux x86-64** laddar du ned de två. zip-filerna.
 

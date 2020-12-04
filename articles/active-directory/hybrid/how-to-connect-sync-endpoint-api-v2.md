@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect Sync v2-slutpunkt, offentlig för hands version | Microsoft Docs
+title: Azure AD Connect Sync v2-slutpunkt | Microsoft Docs
 description: 'Det här dokumentet täcker uppdateringar av API: t för Azure AD Connect-synkronisering v2-slutpunkt.'
 services: active-directory
 author: billmath
@@ -12,34 +12,24 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b9b73e30094ed7d07e19f4b93f2fe8ab8f6af3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ffb298bca53a06bd1ef14a750648fe6e76fd45ee
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339429"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602112"
 ---
-# <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Azure AD Connect Sync v2 Endpoint API (offentlig för hands version) 
+# <a name="azure-ad-connect-sync-v2-endpoint-api"></a>Slutpunkts-API för Azure AD Connect-synkronisering v2 
 Microsoft har distribuerat en ny slut punkt (API) för Azure AD Connect som förbättrar prestandan för synkroniseringstjänsten i Azure Active Directory. Genom att använda den nya v2-slutpunkten får du märkbara prestanda vinster vid export och import till Azure AD. Den här nya slut punkten stöder följande:
     
- -  Synkronisera grupper med upp till 250 000 medlemmar
+ - Synkronisera grupper med upp till 250 000 medlemmar
  - prestanda vinster vid export och import till Azure AD
  
 > [!NOTE]
 > För närvarande har den nya slut punkten ingen konfigurerad grupp storleks gräns för Microsoft 365 grupper som skrivs tillbaka. Detta kan påverka din Active Directory och fördröjning av synkronisering. Vi rekommenderar att du ökar grupp storlekarna stegvis.  
 
-
 ## <a name="pre-requisites"></a>Förutsättningar  
 För att du ska kunna använda den nya v2-slutpunkten måste du använda [Azure AD Connect version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) eller senare och följa distributions stegen nedan för att aktivera v2-slutpunkten för din Azure AD Connect-Server.   
-
->[!NOTE]
->Denna offentliga för hands version är för närvarande bara tillgänglig i Azures globala moln och är inte tillgänglig för [nationella moln](../develop/authentication-national-cloud.md).
-
-### <a name="public-preview-limitations"></a>Offentliga begränsningar i förhandsversionen  
-Även om den här versionen har genomgått omfattande testning kan du fortfarande stöta på problem. Ett av målen för den här offentliga för hands versionen är att hitta och åtgärda eventuella problem.  
-
->[!IMPORTANT]
-> Även om det finns stöd för den här offentliga för hands versionen kan Microsoft inte alltid åtgärda alla problem som du kan stöta på omedelbart. Därför rekommenderar vi att du använder din bästa bedömning innan du distribuerar den här versionen i din produktions miljö. 
 
 ## <a name="deployment-guidance"></a>Vägledning för distribution 
 Du måste distribuera [Azure AD Connect version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) eller senare för att kunna använda v2-slutpunkten. Använd länken som finns för att ladda ned. 
@@ -184,17 +174,9 @@ Om du har aktiverat v2-slutpunkten och behöver återställa, följer du dessa s
 > När du växlar tillbaka från v2 till v1-slutpunkter kommer grupper som synkroniserats med fler än 50 000-medlemmar att tas bort när en fullständig synkronisering har körts, för både AD-grupper som har tilldelats till Azure AD och Microsoft 365 enhetliga grupper som har skapats till AD. 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar  
-**F: kan en kund använda den här funktionen i produktionen?**  
-</br>Ja, det kan användas i produktions miljöer, med den aktuella antimans villkoret.
  
-**F: Vem kan kunden kontakta när något går fel?**  
-</br>Om du behöver stöd när du använder den här funktionen bör du öppna ett support ärende. 
- 
-**F: kan jag förväntar mig frekventa uppdateringar av den offentliga för hands versionen?**  
-</br>Det finns en begränsad omfattning av pågående ändringar under en offentlig för hands version.Du bör utvärdera den här risken när du distribuerar offentliga för hands versions funktioner i produktion.  
- 
-**F: tid till nästa mil stolpe?**  
-</br>Funktioner för offentlig för hands version kan dras tillbaka och kanske omdesignas innan ytterligare mil stolpar når ytterligare.  
+**När kommer den nya slut punkten att bli standard för uppgraderingar och nya installationer?**  
+</br>Vi planerar en ny version av AADConnect som ska publiceras för hämtning i januari 2021. Den här versionen använder slut punkten v2 som standard och aktiverar synkronisering av grupper som är större än 50 000 withuot ytterligare konfiguration. Den här versionen kommer senare att publiceras för automatisk uppgradering till berättigade servrar.
  
 ## <a name="next-steps"></a>Nästa steg
 

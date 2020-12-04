@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: f9be9dd94aad8c206b562f2c984ec944f70d3957
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5dbe161af172b65919328fca0b272f3b658f1b32
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188080"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600497"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Så här använder du Postman för att skicka förfrågningar till Azure Digitals dubbla API: er
 
@@ -130,7 +130,7 @@ Om du vill göra en Postman-begäran till en av Azures digitala dubbla API: er b
 
 Om du vill fortsätta med en exempel fråga kommer den här artikeln att använda fråge-API: t (och dess [referens dokumentation](/rest/api/digital-twins/dataplane/query/querytwins)) för att fråga efter alla digitala dubbla i en instans.
 
-1. Hämta URL för begäran och skriv från referens dokumentationen. Detta är *inlägget https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31* för fråge-API: et.
+1. Hämta URL för begäran och skriv från referens dokumentationen. Detta är *inlägget `https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31`* för fråge-API: et.
 1. I Postman anger du typen för begäran och anger URL: en för begäran och fyller i plats hållare i URL: en efter behov. Det är här du ska använda din instanss **värdnamn** från avsnittet [*krav*](#prerequisites) .
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="I informationen om den nya begäran har fråge-URL: en från referens dokumentationen fyllts i i rutan URL för begäran." lightbox="media/how-to-use-postman/postman-request-url.png":::

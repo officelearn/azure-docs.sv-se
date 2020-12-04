@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: 00b504c7bcf51a69d03fb1294de4f52ef35ed163
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c9e0b155a4cf34373bb6d851241dc62ddd661045
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555996"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602389"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Snabb start: skapa ett Azure avdelningens kontroll-konto i Azure Portal
 
@@ -21,11 +21,67 @@ ms.locfileid: "96555996"
 
 I den här snabb starten skapar du ett Azure avdelningens kontroll-konto.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Din egen [Azure Active Directory klient](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+
+* Ditt konto måste ha behörighet att skapa resurser i prenumerationen
+
+* Om du **Azure policy** blockera alla program från att skapa **lagrings konto** och **EventHub-namnområde** måste du göra princip undantag med hjälp av taggen, som kan anges under processen för att skapa ett avdelningens kontroll-konto. Huvud orsaken är att för varje avdelningens kontroll-konto måste det skapas en hanterad resurs grupp och inom den här resurs gruppen, ett lagrings konto och ett EventHub-namnområde.
+    1. Navigera till Azure Portal och Sök efter **princip**
+    1. Följ [skapa en anpassad princip definition](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) eller ändra en befintlig princip om du vill lägga till två undantag med `not` operatorn och `resourceBypass` taggen:
+
+        ```json
+        {
+          "mode": "All",
+          "policyRule": {
+            "if": {
+              "anyOf": [
+              {
+                "allOf": [
+                {
+                  "field": "type",
+                  "equals": "Microsoft.Storage/storageAccounts"
+                },
+                {
+                  "not": {
+                    "field": "tags['<resourceBypass>']",
+                    "exists": true
+                  }
+                }]
+              },
+              {
+                "allOf": [
+                {
+                  "field": "type",
+                  "equals": "Microsoft.EventHub/namespaces"
+                },
+                {
+                  "not": {
+                    "field": "tags['<resourceBypass>']",
+                    "exists": true
+                  }
+                }]
+              }]
+            },
+            "then": {
+              "effect": "deny"
+            }
+          },
+          "parameters": {}
+        }
+        ```
+        
+        > [!Note]
+        > Taggen kan vara allt `resourceBypass` intill och det är upp till dig att definiera värdet när du skapar avdelningens kontroll i senare steg så länge som principen kan identifiera taggen.
+
+        :::image type="content" source="./media/create-catalog-portal/policy-definition.png" alt-text="Skärm bild som visar hur du skapar en princip definition.":::
+
+    1. [Skapa en princip tilldelning](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) med den anpassade principen som skapats.
+
+        [![Skärm bild som visar hur du skapar princip tilldelning](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -61,9 +117,17 @@ Om det behövs följer du de här stegen för att konfigurera din prenumeration 
     1. Ange ett **avdelningens kontroll-konto namn** för din katalog. Blank steg och symboler är inte tillåtna.
     1. Välj en  **plats** och välj sedan **Nästa: konfiguration**.
 1. På fliken **konfiguration** väljer du önskad **plattforms storlek** . tillåtna värden är 4 kapacitets enheter (CU) och 16 cu. Välj **Nästa: Taggar**.
-1. På fliken **taggar** kan du också lägga till en eller flera taggar. Taggarna används endast i Azure Portal, inte i Azure-avdelningens kontroll.
+1. På fliken **taggar** kan du också lägga till en eller flera taggar. Taggarna används endast i Azure Portal, inte i Azure-avdelningens kontroll. 
+
+    > [!Note] 
+    > Om du har **Azure policy** och behöver lägga till undantag som i **krav** måste du lägga till rätt tagg. Du kan till exempel lägga till `resourceBypass` tagg: :::image type="content" source="./media/create-catalog-portal/add-purview-tag.png" alt-text="Lägg till tagg i avdelningens kontroll-kontot.":::
+
 1. Välj **granska & skapa** och välj sedan **skapa**. Det tar några minuter att slutföra skapandet. Den nya konto instansen för Azure-avdelningens kontroll visas i listan på sidan med **avdelningens kontroll-konton** .
 1. När den nya konto etableringen är klar väljer **du gå till resurs**.
+
+    > [!Note]
+    > Om etableringen misslyckades med `Conflict` status innebär det att det finns en princip spärr för Azure-avdelningens kontroll från att skapa ett **lagrings konto** och **EventHub-namnområde**. Du måste gå igenom **nödvändiga** steg för att lägga till undantag.
+    > :::image type="content" source="./media/create-catalog-portal/purview-conflict-error.png" alt-text="Fel meddelande för avdelningens kontroll-konflikt":::
 
 1. Välj **Starta avdelningens kontroll-konto**.
 

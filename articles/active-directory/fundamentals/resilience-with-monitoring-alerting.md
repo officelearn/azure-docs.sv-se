@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcb63931f883c6061ded996621a09aacbacd14af
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 766fd80ae5f7450c8e45d10afa4612a788a8d5fc
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919843"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602164"
 ---
 # <a name="resilience-through-monitoring-and-analytics"></a>Återhämtning genom övervakning och analys
 
@@ -41,7 +41,7 @@ Spåra till exempel följande mått, eftersom ett plötslig släpp i antingen le
 
   - **Lyckad frekvens (%)**: lyckade förfrågningar/totalt antal begär Anden.
 
-  Få åtkomst till de [viktigaste indikatorerna](https://docs.microsoft.com/azure/active-directory-b2c/view-audit-logs) i [application Insights](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights) där Azure AD B2C principbaserade loggar, [gransknings loggar](https://docs.microsoft.coms/azure/active-directory-b2c/analytics-with-application-insights)och inloggnings loggar lagras.  
+  Få åtkomst till de [viktigaste indikatorerna](https://docs.microsoft.com/azure/active-directory-b2c/view-audit-logs) i [application Insights](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights) där Azure AD B2C principbaserade loggar, [gransknings loggar](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights)och inloggnings loggar lagras.  
 
    - **Visualiseringar**: använda Log Analytics skapar instrument paneler för att visuellt övervaka nyckel indikatorerna.
 

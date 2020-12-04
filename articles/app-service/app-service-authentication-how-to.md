@@ -4,12 +4,12 @@ description: Lär dig att anpassa funktionen för autentisering och auktoriserin
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 0e07dc42a45a697b293e2ebc90bdd92aa924f071
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 85fd7fdba4c62f4837a419af44c83f7e46cb9e39
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302031"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601789"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
 
@@ -24,6 +24,7 @@ För att komma igång snabbt, se någon av följande Självstudier:
 * [Så här konfigurerar du din app för att använda Microsoft-kontoinloggning](configure-authentication-provider-microsoft.md)
 * [Så här konfigurerar du din app för att använda Twitter-inloggning](configure-authentication-provider-twitter.md)
 * [Så här konfigurerar du din app för inloggning med hjälp av en OpenID Connect-Provider (för hands version)](configure-authentication-provider-openid-connect.md)
+* [Så här konfigurerar du din app för inloggning med hjälp av en inloggning med Apple (för hands version)](configure-authentication-provider-apple.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>Använd flera inloggnings leverantörer
 
@@ -33,7 +34,7 @@ På sidan **autentisering/auktorisering** i Azure Portal konfigurerar du först 
 
 I **åtgärd som ska vidtas när begäran inte autentiseras** väljer du **Tillåt anonyma begär Anden (ingen åtgärd)**.
 
-På inloggnings sidan eller i navigerings fältet eller på någon annan plats i appen lägger du till en inloggnings länk till alla providers som du har aktiverat ( `/.auth/login/<provider>` ). Ett exempel:
+På inloggnings sidan eller i navigerings fältet eller på någon annan plats i appen lägger du till en inloggnings länk till alla providers som du har aktiverat ( `/.auth/login/<provider>` ). Exempel:
 
 ```html
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -41,6 +42,7 @@ På inloggnings sidan eller i navigerings fältet eller på någon annan plats i
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
 <a href="/.auth/login/twitter">Log in with Twitter</a>
+<a href="/.auth/login/apple">Log in with Apple</a>
 ```
 
 När användaren klickar på en av länkarna öppnas respektive inloggnings sida för att logga in användaren.
@@ -55,7 +57,7 @@ Om du vill omdirigera användaren efter inloggning till en anpassad URL, använd
 
 I en klient-riktad inloggning loggar programmet in användaren till providern manuellt och skickar sedan autentiseringstoken till App Service för verifiering (se [Authentication Flow](overview-authentication-authorization.md#authentication-flow)). Den här verifieringen ger i själva verket ingen åtkomst till de resurser som behövs, men en lyckad verifiering ger dig en sessionstoken som du kan använda för att få åtkomst till program resurser. 
 
-För att verifiera providerns token måste App Service-appen först konfigureras med önskad Provider. När du har hämtat autentiseringstoken från providern efter att du har hämtat token, kan du ställa in token `/.auth/login/<provider>` för verifiering. Ett exempel: 
+För att verifiera providerns token måste App Service-appen först konfigureras med önskad Provider. När du har hämtat autentiseringstoken från providern efter att du har hämtat token, kan du ställa in token `/.auth/login/<provider>` för verifiering. Exempel: 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -86,7 +88,7 @@ Om providerns token verifieras, returnerar API: t med en `authenticationToken` i
 }
 ```
 
-När du har denna sessionstoken kan du komma åt skyddade app-resurser genom att lägga till `X-ZUMO-AUTH` rubriken till dina HTTP-begäranden. Ett exempel: 
+När du har denna sessionstoken kan du komma åt skyddade app-resurser genom att lägga till `X-ZUMO-AUTH` rubriken till dina HTTP-begäranden. Exempel: 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -107,7 +109,7 @@ Här är en enkel utloggningslänk på en webbsida:
 <a href="/.auth/logout">Sign out</a>
 ```
 
-Som standard omdirigerar en lyckad utloggning klienten till URL: en `/.auth/logout/done` . Du kan ändra omdirigerings sidan efter utloggning genom att lägga till `post_logout_redirect_uri` Frågeparametern. Ett exempel:
+Som standard omdirigerar en lyckad utloggning klienten till URL: en `/.auth/logout/done` . Du kan ändra omdirigerings sidan efter utloggning genom att lägga till `post_logout_redirect_uri` Frågeparametern. Exempel:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -269,7 +271,7 @@ För alla Windows-appar kan du definiera behörighets beteendet för IIS-webbser
 
 ### <a name="identity-provider-level"></a>Identitets leverantörs nivå
 
-Identitets leverantören kan ge viss behörighet för att aktivera nycklar. Ett exempel:
+Identitets leverantören kan ge viss behörighet för att aktivera nycklar. Exempel:
 
 - För [Azure App Service](configure-authentication-provider-aad.md)kan du [Hantera åtkomst på företags nivå](../active-directory/manage-apps/what-is-access-management.md) direkt i Azure AD. Instruktioner finns i [så här tar du bort en användares åtkomst till ett program](../active-directory/manage-apps/methods-for-removing-user-access.md).
 - Google [-API](configure-authentication-provider-google.md)-projekt som tillhör en [organisation](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) kan konfigureras så att de endast tillåter åtkomst till användare i din organisation (se [Google ' **Setting Up The OAuth 2,0** support Page](https://support.google.com/cloud/answer/6158849?hl=en)).
@@ -315,7 +317,6 @@ Följande förbrukar möjliga konfigurations alternativ i filen:
         "enabled": <true|false>
     },
     "globalValidation": {
-        "requireAuthentication": <true|false>,
         "unauthenticatedClientAction": "RedirectToLoginPage|AllowAnonymous|Return401|Return403",
         "redirectToProvider": "<default provider alias>",
         "excludedPaths": [
@@ -349,13 +350,13 @@ Följande förbrukar möjliga konfigurations alternativ i filen:
             }
         },
         "preserveUrlFragmentsForLogins": <true|false>,
-        "allowedExternalRedirectUri": [
+        "allowedExternalRedirectUrls": [
             "https://uri1.azurewebsites.net/",
             "https://uri2.azurewebsites.net/",
             "url_scheme_of_your_app://easyauth.callback"
         ],
         "cookieExpiration": {
-            "convention": "FixedTime|IdentityProviderDerived",
+            "convention": "FixedTime|IdentityDerived",
             "timeToExpiration": "<timespan>"
         },
         "nonce": {
@@ -437,13 +438,26 @@ Följande förbrukar möjliga konfigurations alternativ i filen:
                 "consumerSecretSettingName": "APP_SETTING_CONTAINING TWITTER_CONSUMER_SECRET"
             }
         },
+        "apple": {
+            "enabled": <true|false>,
+            "registration": {
+                "clientId": "<client id>",
+                "clientSecretSettingName": "APP_SETTING_CONTAINING_APPLE_SECRET"
+            },
+            "login": {
+                "scopes": [
+                    "profile",
+                    "email"
+                ]
+            }
+        },
         "openIdConnectProviders": {
             "<providerName>": {
                 "enabled": <true|false>,
                 "registration": {
                     "clientId": "<client id>",
                     "clientCredential": {
-                        "secretSettingName": "<name of app setting containing client secret>"
+                        "clientSecretSettingName": "<name of app setting containing client secret>"
                     },
                     "openIdConnectConfiguration": {
                         "authorizationEndpoint": "<url specifying authorization endpoint>",
@@ -455,7 +469,7 @@ Följande förbrukar möjliga konfigurations alternativ i filen:
                 },
                 "login": {
                     "nameClaimType": "<name of claim containing name>",
-                    "scope": [
+                    "scopes": [
                         "openid",
                         "profile",
                         "email"
@@ -486,7 +500,7 @@ Du kan ändra den körnings version som används av din app. Den nya körnings v
 
 #### <a name="view-the-current-runtime-version"></a>Visa den aktuella körnings versionen
 
-Du kan visa den aktuella versionen av plattforms oberoende mellanprogram, antingen med hjälp av Azure CLI eller via någon av HTTP-slutpunkterna för built0-versionen i din app.
+Du kan visa den aktuella versionen av plattforms oberoende mellanprogram, antingen med hjälp av Azure CLI eller via någon av de inbyggda HTTP-slutpunkterna i din app.
 
 ##### <a name="from-the-azure-cli"></a>Från Azure CLI
 

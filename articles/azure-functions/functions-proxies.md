@@ -3,12 +3,12 @@ title: Arbeta med proxyservrar i Azure Functions
 description: Översikt över hur du använder Azure Functions-proxyservrar
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 3e08b9cf633162cc7015f47774b043cf58c115a0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fb263239f99bcb4ec4c893b700d5c1cce078659f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020406"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601381"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions-proxyservrar
 
@@ -55,11 +55,11 @@ Konfigurationen för en proxy behöver inte vara statisk. Du kan ange att den sk
 ### <a name="reference-local-functions"></a><a name="reference-localhost"></a>Referera till lokala funktioner
 Du kan använda `localhost` för att referera till en funktion inuti samma Function-app direkt, utan en tur-proxy-begäran.
 
-`"backendurl": "https://localhost/api/httptriggerC#1"` hänvisar till en lokal HTTP-utlöst funktion på vägen `/api/httptriggerC#1`
+`"backendUri": "https://localhost/api/httptriggerC#1"` hänvisar till en lokal HTTP-utlöst funktion på vägen `/api/httptriggerC#1`
 
  
 >[!Note]  
->Om din funktion använder auktoriseringsregler *-, admin-eller sys* -nivåer måste du ange koden och clientId, enligt den ursprungliga funktions webb adressen. I det här fallet skulle referensen se ut: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` vi rekommenderar att du lagrar dessa nycklar i [program inställningar] och refererar till dem i dina proxyservrar. På så sätt undviker du att lagra hemligheter i käll koden. 
+>Om din funktion använder auktoriseringsregler *-, admin-eller sys* -nivåer måste du ange koden och clientId, enligt den ursprungliga funktions webb adressen. I det här fallet skulle referensen se ut: `"backendUri": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` vi rekommenderar att du lagrar dessa nycklar i [program inställningar] och refererar till dem i dina proxyservrar. På så sätt undviker du att lagra hemligheter i käll koden. 
 
 ### <a name="reference-request-parameters"></a><a name="request-parameters"></a>Parametrar för referens förfrågan
 

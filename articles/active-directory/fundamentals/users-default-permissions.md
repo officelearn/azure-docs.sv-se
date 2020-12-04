@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29580564ffa2fed579065e6a8551a6f44597e41a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: d8825dcb2d8dbcf4a1296d8bace84b3d2716687f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433265"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602042"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Vilka är standard användar behörigheterna i Azure Active Directory?
 Alla användare beviljas en uppsättning standardbehörigheter i Azure Active Directory (AD Azure). En användares åtkomst består av typen av användare, deras [roll tilldelningar](active-directory-users-assign-role-azure-portal.md)och deras ägarskap för enskilda objekt. Den här artikeln beskriver dessa standardbehörigheter och innehåller en jämförelse av standardinställningar för medlem och gäst. Standard användar behörigheter kan bara ändras i användar inställningar i Azure AD.
@@ -32,10 +32,10 @@ Uppsättningen standard behörigheter som tas emot beror på om användaren är 
 
 **Område** | **Behörigheter för medlemsanvändare** | **Standard behörigheter för gäst användare** | **Begränsad gäst användar behörighet (förhands granskning)**
 ------------ | --------- | ---------- | ----------
-Användare och kontakter | <ul><li>Räkna upp lista över alla användare och kontakter<li>Läsa alla offentliga egenskaper om användare och kontakter</li><li>Bjuda in gäster<li>Ändra eget lösenord<li>Hantera eget mobilnummer<li>Hantera eget foto<li>Ogiltigförklara egna uppdateringstokens</li></ul> | <ul><li>Läsa egna egenskaper<li>Läsa visnings namn, e-post, inloggnings namn, Foto, User Principal Name och egenskaper för användar typ för andra användare och kontakter<li>Ändra eget lösenord<li>Sök efter en annan användare efter visnings namn, användarens huvud namn eller ObjectId (om det är tillåtet)<li>Read Manager och information om den direkta rapporten för andra användare</li></ul> | <ul><li>Läsa egna egenskaper<li>Ändra eget lösenord</li></ul>
+Användare och kontakter | <ul><li>Räkna upp lista över alla användare och kontakter<li>Läsa alla offentliga egenskaper om användare och kontakter</li><li>Bjuda in gäster<li>Ändra eget lösenord<li>Hantera eget mobilnummer<li>Hantera eget foto<li>Ogiltigförklara egna uppdateringstokens</li></ul> | <ul><li>Läsa egna egenskaper<li>Läsa visnings namn, e-post, inloggnings namn, Foto, User Principal Name och egenskaper för användar typ för andra användare och kontakter<li>Ändra eget lösenord<li>Sök efter en annan användare med ObjectId (om det är tillåtet)<li>Read Manager och information om den direkta rapporten för andra användare</li></ul> | <ul><li>Läsa egna egenskaper<li>Ändra eget lösenord</li></ul>
 Grupper | <ul><li>Skapa säkerhetsgrupper<li>Skapa Microsoft 365 grupper<li>Räkna upp listan över alla grupper<li>Läsa alla icke-dolda egenskaper i grupper<li>Läsa icke-dolda gruppmeddelanden<li>Läs dolda Microsoft 365 grupp medlemskap för anslutet grupper<li>Hantera egenskaper, ägarskap och medlemskap i grupper som användaren äger<li>Lägga till gäster i egna grupper<li>Hantera inställningar för dynamiskt medlemskap<li>Ta bort egna grupper<li>Återställa ägda Microsoft 365 grupper</li></ul> | <ul><li>Läsa egenskaper för icke-dolda grupper, inklusive medlemskap och ägarskap (även icke-anslutna grupper)<li>Läs dolda Microsoft 365 grupp medlemskap för anslutna grupper<li>Sök efter grupper efter visnings namn eller ObjectId (om det är tillåtet)</li></ul> | <ul><li>Läsa objekt-ID för anslutna grupper<li>Läs medlemskap och ägarskap för anslutna grupper i vissa Microsoft 365 appar (om det är tillåtet)</li></ul>
 Program | <ul><li>Registrera (Skapa) ett nytt program<li>Räkna upp listan över alla program<li>Skrivskyddade egenskaper för registrerade program och företagsprogram<li>Hantera egenskaper för program, tilldelningar och autentiseringsuppgifter för egna program<li>Skapa eller ta bort programlösenord för användare<li>Ta bort egna program<li>Återställ egna program</li></ul> | <ul><li>Skrivskyddade egenskaper för registrerade program och företagsprogram</li></ul> | <ul><li>Skrivskyddade egenskaper för registrerade program och företagsprogram
-Egenskaper</li></ul> | <ul><li>Räkna upp listan över alla enheter<li>Läs alla enhetsegenskaper<li>Läs alla egenskaper för egna enheter</li></ul> | Inga behörigheter | Inga behörigheter
+Enheter</li></ul> | <ul><li>Räkna upp listan över alla enheter<li>Läs alla enhetsegenskaper<li>Läs alla egenskaper för egna enheter</li></ul> | Inga behörigheter | Inga behörigheter
 Katalog | <ul><li>Läs all företagsinformation<li>Läsa alla domäner<li>Läsa alla partnerkontrakt</li></ul> | <ul><li>Läs företagets visnings namn<li>Läsa alla domäner</li></ul> | <ul><li>Läs företagets visnings namn<li>Läsa alla domäner</li></ul>
 Roller och omfattningar | <ul><li>Läsa alla administrativa roller och medlemskap<li>Läsa alla egenskaper och medlemskap i administrativa enheter</li></ul> | Inga behörigheter | Inga behörigheter
 Prenumerationer | <ul><li>Läsa alla prenumerationer<li>Aktivera tjänsteplanmedlem</li></ul> | Inga behörigheter | Inga behörigheter

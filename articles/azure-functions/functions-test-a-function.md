@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: ff64d5c17174f8e1e67111ebca9ccf050deb2f26
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 2488a476fe40c2bf1f3e290b462babceff30a9b0
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409662"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601398"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategier för att testa din kod i Azure Functions
 
@@ -28,18 +28,18 @@ Exempel lagrings platsen finns på [GitHub](https://github.com/Azure-Samples/azu
 
 ## <a name="c-in-visual-studio"></a>C# i Visual Studio
 
-I följande exempel beskrivs hur du skapar en C# Function-app i Visual Studio och kör och testar med [xUnit](https://xunit.github.io).
+I följande exempel beskrivs hur du skapar en C# Function-app i Visual Studio och kör och testar med [xUnit](https://github.com/xunit/xunit).
 
 ![Testa Azure Functions med C# i Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>Installation
+### <a name="setup"></a>Konfiguration
 
 Om du vill konfigurera din miljö skapar du en funktion och testar appen. Följande steg hjälper dig att skapa appar och funktioner som krävs för att stödja testerna:
 
 1. [Skapa en ny Functions-app](./functions-create-first-azure-function.md) och **namnge den-funktionen**
 2. [Skapa en HTTP-funktion från mallen](./functions-create-first-azure-function.md) och ge den namnet **MyHttpTrigger**.
 3. [Skapa en timer-funktion från mallen](./functions-create-scheduled-function.md) och ge den namnet **MyTimerTrigger**.
-4. [Skapa en testapp för xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) i lösningen och ge den namnet **functions. tests**.
+4. [Skapa en testapp för xUnit](https://xunit.net/docs/getting-started/netcore/cmdline) i lösningen och ge den namnet **functions. tests**.
 5. Använd NuGet för att lägga till en referens från testappen till [Microsoft. AspNetCore. MVC](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Referera till *Functions* -appen](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) från *functions. tests* -appen.
 
@@ -107,11 +107,11 @@ namespace Functions.Tests
 
 `ListLogger`Klassen implementerar följande medlemmar enligt `ILogger` gränssnittet:
 
-- **BeginScope** : omfattningar lägger till kontext i loggningen. I det här fallet pekar testet precis på den statiska instansen i `NullScope` klassen för att testet ska fungera.
+- **BeginScope**: omfattningar lägger till kontext i loggningen. I det här fallet pekar testet precis på den statiska instansen i `NullScope` klassen för att testet ska fungera.
 
-- **IsEnabled** : standardvärdet `false` har angetts.
+- **IsEnabled**: standardvärdet `false` har angetts.
 
-- **Log** : den här metoden använder funktionen tillhandahållen `formatter` för att formatera meddelandet och lägger sedan till den resulterande texten i `Logs` samlingen.
+- **Log**: den här metoden använder funktionen tillhandahållen `formatter` för att formatera meddelandet och lägger sedan till den resulterande texten i `Logs` samlingen.
 
 `Logs`Samlingen är en instans av `List<string>` och initieras i konstruktorn.
 
@@ -193,13 +193,13 @@ namespace Functions.Tests
 
 `TestFactory`Klassen implementerar följande medlemmar:
 
-- **Data** : den här egenskapen returnerar en [IEnumerable](/dotnet/api/system.collections.ienumerable) -samling med exempel data. Nyckel värdes paren representerar värden som skickas till en frågesträng.
+- **Data**: den här egenskapen returnerar en [IEnumerable](/dotnet/api/system.collections.ienumerable) -samling med exempel data. Nyckel värdes paren representerar värden som skickas till en frågesträng.
 
-- **CreateDictionary** : den här metoden accepterar ett nyckel/värde-par som argument och returnerar en ny som `Dictionary` används för att skapa `QueryCollection` för att representera frågesträngs värden.
+- **CreateDictionary**: den här metoden accepterar ett nyckel/värde-par som argument och returnerar en ny som `Dictionary` används för att skapa `QueryCollection` för att representera frågesträngs värden.
 
-- **CreateHttpRequest** : den här metoden skapar en http-begäran som initieras med de aktuella frågesträngs parametrarna.
+- **CreateHttpRequest**: den här metoden skapar en http-begäran som initieras med de aktuella frågesträngs parametrarna.
 
-- **CreateLogger** : den här metoden returnerar en loggnings klass som används för testning baserat på loggnings typ. `ListLogger`Håller reda på loggade meddelanden som är tillgängliga för utvärdering i tester.
+- **CreateLogger**: den här metoden returnerar en loggnings klass som används för testning baserat på loggnings typ. `ListLogger`Håller reda på loggade meddelanden som är tillgängliga för utvärdering i tester.
 
 Slutligen skapar du en ny klass i *functions. testar* projektet med namnet **FunctionsTests.cs** och anger följande kod:
 
@@ -245,11 +245,11 @@ namespace Functions.Tests
 
 De medlemmar som implementeras i den här klassen är:
 
-- **Http_trigger_should_return_known_string** : det här testet skapar en begäran med frågesträng svärdet för `name=Bill` en http-funktion och kontrollerar att det förväntade svaret returneras.
+- **Http_trigger_should_return_known_string**: det här testet skapar en begäran med frågesträng svärdet för `name=Bill` en http-funktion och kontrollerar att det förväntade svaret returneras.
 
-- **Http_trigger_should_return_string_from_member_data** : det här testet använder xUnit-attribut för att tillhandahålla exempel data till http-funktionen.
+- **Http_trigger_should_return_string_from_member_data**: det här testet använder xUnit-attribut för att tillhandahålla exempel data till http-funktionen.
 
-- **Timer_should_log_message** : det här testet skapar en instans av `ListLogger` och skickar den till en timer-funktion. När funktionen har körts, kontrol leras loggen för att se till att det förväntade meddelandet finns.
+- **Timer_should_log_message**: det här testet skapar en instans av `ListLogger` och skickar den till en timer-funktion. När funktionen har körts, kontrol leras loggen för att se till att det förväntade meddelandet finns.
 
 Om du vill komma åt program inställningarna i dina tester kan du [mata](./functions-dotnet-dependency-injection.md) in en `IConfiguration` instans med modell variabel värden i en funktion.
 
@@ -269,7 +269,7 @@ I följande exempel beskrivs hur du skapar en JavaScript Function-app i VS Code 
 
 ![Testa Azure Functions med Java Script i VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>Installation
+### <a name="setup"></a>Konfiguration
 
 Om du vill konfigurera din miljö initierar du en ny Node.js app i en tom mapp genom att köra `npm init` .
 

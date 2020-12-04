@@ -3,19 +3,19 @@ title: Använd Azure Lab Services för Hackathon
 description: I den här artikeln beskrivs hur du använder Azure Lab Services för att skapa labb som du kan använda för att köra Hackathon kickar.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 561351636a37c2cd5c3070dbfef2a3122e5c29b0
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: a0917ede4502dcbb59d1a30b7985b06c06975599
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434268"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602588"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Använd Azure Lab Services för nästa Hackathon
 Azure Lab Services är utformad för att vara lätt att använda så att du snabbt kan skapa ett nytt labb av virtuella datorer (VM) för din Hackathon.  Använd följande check lista för att se till att din Hackathon går så smidigt som möjligt. Den här check listan bör utföras av IT-avdelningen eller fakulteten som ansvarar för att skapa och hantera ditt Hackathon-labb. 
 
 Om du vill använda labb tjänster för din Hackathon, se till att både labb kontot och labbet skapas minst några dagar innan du börjar med din Hackathon. Följ också anvisningarna nedan:
 
-## <a name="guidance"></a>Vägledning
+## <a name="guidance"></a>Riktlinjer
 
 - **Skapa labbet i en region eller plats som är närmast deltagarna**. 
 
@@ -39,7 +39,7 @@ Om du vill använda labb tjänster för din Hackathon, se till att både labb ko
 
 - **Bestäm om du vill begränsa åtkomsten till labbet**. 
 
-    När du lägger till användare i labbet finns det ett begränsa åtkomst alternativ som är aktiverat som standard. Den här funktionen kräver att du lägger till alla dina e-postmeddelanden i Hackathon-deltagarna i listan innan de kan registrera sig och komma åt labbet med hjälp av registrerings länken. Om du har en Hackathon där du inte vet vem deltagarna kommer före händelsen kan du välja att inaktivera alternativet begränsa åtkomst, vilket gör att vem som helst kan registrera sig i labbet med hjälp av registrerings länken. Mer information finns i [instruktions guiden för att lägga till användare](how-to-configure-student-usage.md#add-users-to-a-lab).
+    När du lägger till användare i labbet finns det ett begränsa åtkomst alternativ som är aktiverat som standard. Den här funktionen kräver att du lägger till alla dina e-postmeddelanden i Hackathon-deltagarna i listan innan de kan registrera sig och komma åt labbet med hjälp av registrerings länken. Om du har en Hackathon där du inte vet vem deltagarna kommer före händelsen kan du välja att inaktivera alternativet begränsa åtkomst, vilket gör att vem som helst kan registrera sig i labbet med hjälp av registrerings länken. Mer information finns i [instruktions guiden för att lägga till användare](how-to-configure-student-usage.md).
 
 - **Verifiera inställningar för schema, kvot och automatisk avstängning**. 
 

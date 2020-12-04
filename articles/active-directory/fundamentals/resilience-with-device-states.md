@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4075cb71cb4dae7ac506c16e3987070cfa10bb09
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: faa334c21e23ecddad287846d34aaf0d72af66cc
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919855"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602192"
 ---
 # <a name="build-resilience-with-device-states"></a>Bygg återhämtning med enhets tillstånd
 
@@ -44,7 +44,7 @@ När en PRT används för att begära åtkomst till ett program, är dess enhet,
 
 * För personliga eller företagsägda iOS-och Android-enheter distribuerar du [Microsoft Authenticator-appen](../user-help/user-help-auth-app-overview.md). Förutom Multi-Factor Authentication och lösen ords lös inloggnings funktioner, kommer Microsoft Authenticator-appen att aktivera enkel inloggning mellan interna program via [Broker-autentisering](../develop/brokered-auth.md) med färre autentiserings-prompter för slutanvändare.
 
-* För personliga eller företagsägda iOS-och Android-enheter använder du [hantering av mobil program](https://docs.microsoft.com/mem/intune/apps/app-management.md) för att på ett säkert sätt få åtkomst till företags resurser med färre autentiseringsbegäranden. 
+* För personliga eller företagsägda iOS-och Android-enheter använder du [hantering av mobil program](https://docs.microsoft.com/mem/intune/apps/app-management) för att på ett säkert sätt få åtkomst till företags resurser med färre autentiseringsbegäranden. 
 
 * [Använd Microsoft Enterprise SSO-plugin-programmet för Apple-enheter (för hands version)](../develop/apple-sso-plugin.md). Detta registrerar enheten och ger enkel inloggning mellan webbläsare och interna Azure AD-program. 
 

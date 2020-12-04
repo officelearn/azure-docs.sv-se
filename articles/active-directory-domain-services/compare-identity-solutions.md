@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: joflore
-ms.openlocfilehash: 0576fdaa9bdcc90636c3cd2bc90ba2818f1e69e7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 916615808bc1e28b9794b57e08960520e3abd835
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962674"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602282"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Jämför självhanterade Active Directory Domain Services, Azure Active Directory och hanterade Azure Active Directory Domain Services
 
@@ -114,6 +114,9 @@ Med Azure AD DS-anslutna enheter kan program använda Kerberos-och NTLM-protokol
 | Hantering                      | Hanterings program för mobil enheter (MDM) som Intune | Grupprincip                                                              |
 | Nätverk                      | Fungerar via Internet                             | Måste vara ansluten till, eller peer-with, det virtuella nätverk där den hanterade domänen är distribuerad |
 | Perfekt för...                    | Mobila eller Station ära enheter för slutanvändare                  | Virtuella server-datorer som distribuerats i Azure                                              |
+
+
+Om lokal AD DS och Azure AD har kon figurer ATS för federerad autentisering med hjälp av ADFS, finns det inget (aktuellt/giltigt) lösen ords-hash tillgängligt i Azure DS. Azure AD-användarkonton som skapats innan den ursprungliga autentiseringen har implementerats kan ha en gammal hash för lösen ord men det är troligt vis inte en hash av sitt lokal lösen ord. Därför kommer Azure AD DS inte att kunna verifiera användarens autentiseringsuppgifter
 
 ## <a name="next-steps"></a>Nästa steg
 

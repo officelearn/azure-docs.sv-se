@@ -7,12 +7,12 @@ ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ad5c6f205fc832eb125e52b4135990fc58742e62
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e1eeb85980430e33446329b5f25ff963ab1c8027
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453236"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600851"
 ---
 # <a name="preview-tutorial-create-and-connect-to-time-series-insights-gen2-to-store-visualize-and-analyze-iot-plug-and-play-device-telemetry"></a>För hands versions Självstudier: skapa och Anslut till Time Series Insights Gen2 för att lagra, visualisera och analysera IoT Plug and Play Device-telemetri
 
@@ -124,7 +124,7 @@ Du kan börja mata in data i Azure Time Series Insights Gen2 utan att ha en för
 * Typ namnet kan vara antingen modell namnet eller visnings namnet.
 * Modell beskrivningen blir typens beskrivning.
 * Minst en typ variabel skapas för varje telemetri med ett numeriskt schema.
-  * Endast numeriska data typer kan användas för variabler, men om ett värde skickas som en annan typ som kan konverteras, `"0"` kan du använda en [konverterings](/rest/api/time-series-insights/reference-time-series-expression-syntax.md#conversion-functions) funktion som t `toDouble` . ex..
+  * Endast numeriska data typer kan användas för variabler, men om ett värde skickas som en annan typ som kan konverteras, `"0"` kan du använda en [konverterings](/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) funktion som t `toDouble` . ex..
 * Variabel namnet kan antingen vara telemetri-namnet eller visnings namnet.
 * När du definierar ett variabelt tids serie uttryck kan du se telemetrins namn på kabeln och dess datatyp.
 
@@ -138,7 +138,7 @@ Du kan börja mata in data i Azure Time Series Insights Gen2 utan att ha en för
 ![DTDL till tids serie modell typ](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
 
 > [!NOTE]
-> Det här exemplet visar tre variabler, men varje typ kan ha upp till 100. Olika variabler kan referera till samma telemetri-värde för att utföra olika beräkningar vid behov. En fullständig lista över filter, agg regeringar och skalära funktioner finns [Time Series Insights Gen2 Time Series Expression syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax.md).
+> Det här exemplet visar tre variabler, men varje typ kan ha upp till 100. Olika variabler kan referera till samma telemetri-värde för att utföra olika beräkningar vid behov. En fullständig lista över filter, agg regeringar och skalära funktioner finns [Time Series Insights Gen2 Time Series Expression syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 Öppna en text redigerare och spara följande JSON-fil på din lokala enhet:
 
@@ -226,4 +226,4 @@ Gå tillbaka till diagram fönstret och expandera **enhets flottan > enheten**. 
 
 * En djupgående översikt över din miljös tids serie modell finns i [tids serie modell i Azure Time Series Insights Gen2](../time-series-insights/concepts-model-overview.md) -artikeln.
 
-* Information om API: n för frågor och tids serie uttryck finns i [Azure Time Series Insights Gen2-fråge-API: er](/rest/api/time-series-insights/reference-query-apis.md).
+* Information om API: n för frågor och tids serie uttryck finns i [Azure Time Series Insights Gen2-fråge-API: er](/rest/api/time-series-insights/reference-query-apis).

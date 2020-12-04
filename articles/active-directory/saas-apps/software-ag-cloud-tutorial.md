@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 11/20/2020
 ms.author: jeedes
-ms.openlocfilehash: ccf945f8bfec85a18493d515dce48f4cb3e3b612
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4acc4c0cec530b8f83648042cd7a417992257543
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182380"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602078"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med program-AG-molnet
 
@@ -77,9 +77,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://*.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://*.softwareag.cloud/auth/realms/TENANT-NAME`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [program varan AG Cloud client support team](mailto:support@softwareag.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -121,19 +121,19 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1.  Klicka på **Administration**
 
-    ![Konfigurerar program-AG Cloud1](./media/software-ag-cloud-tutorial/admin.png)
+    ![Konfigurera Cloud administration för program-AG](./media/software-ag-cloud-tutorial/admin.png)
 
 1. Gå till **> för enkel inloggning för att lägga till identitets leverantör**
 
-    ![Konfigurerar program-AG Cloud2](./media/software-ag-cloud-tutorial/add-identity-provider.png)
+    ![Konfigurerar Software AG Cloud Identity Provider](./media/software-ag-cloud-tutorial/add-identity-provider.png)
 
 1. Utför följande steg på följande sida.
 
-    ![Konfigurerar program-AG Cloud3](./media/software-ag-cloud-tutorial/saml-1.png)
+    ![Konfigurera program AG-moln Följ steg](./media/software-ag-cloud-tutorial/saml-1.png)
 
     a. I text rutan **visnings namn för identitetsprovider** anger du namnet som `azure ad` .
 
-    b. Klistra in det **entitets-ID-** värde som du kopierade från Azure Portal i den **unika identifieraren för IDENTITETSPROVIDER i Software AG** .
+    b. Ange ett unikt namn för identitets leverantören i den **unika identifieraren för identitets leverantören som ska användas i text rutan för Software AG-moln omdirigering** Fältet **programs AG Cloud Redirect URI** kommer att uppdateras och fyllas i med URI: n. Kopiera denna URI och Använd den för att konfigurera **enhets-ID** och annan information i Azure Portal enligt de mönster som definierats.
 
     c. Importera **XML-** filen för federationsmetadata i **Identity Provider-konfigurationen** och klicka på **Nästa**.
 
@@ -147,11 +147,12 @@ I det här avsnittet skapas en användare som kallas Britta Simon i Software AG-
 
 I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning med följande alternativ. 
 
-1. Klicka på **testa det här programmet** i Azure Portal. Detta kommer att omdirigeras till program varan AG-inloggnings-URL där du kan initiera inloggnings flödet. 
+* Om du antar att Microsoft Azure har kon figurer ATS som en provider i Software AG-molnet navigerar du till `www.softwareag.cloud` och klickar på knappen Logga in och anger miljö namnet. Klicka på länken Logga in med på nästa skärm <IDP NAME> och ange autentiseringsuppgifterna. När du har autentiserat dig är du inloggad och tas till program varan AG-molnets start sida.
 
-2. Gå till Software AG-inloggnings-URL för moln inloggning direkt och starta inloggnings flödet därifrån.
+* Gå till Software AG-inloggnings-URL för moln inloggning direkt och starta inloggnings flödet därifrån.
 
-3. Du kan använda Microsoft Access-panelen. När du klickar på panelen programs AG-moln på åtkomst panelen omdirigeras det till URL: en moln inloggnings-URL för Software AG. Mer information om åtkomst panelen finns i [Introduktion till åtkomst panelen](../user-help/my-apps-portal-end-user-access.md)
+* Du kan använda Microsoft Mina appar. När du klickar på moln panelen programs AG i Mina appar omdirigeras det till URL: en för moln inloggning i program varan AG. Mer information om Mina appar finns i [Introduktion till Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+
 
 ## <a name="next-steps"></a>Nästa steg
 

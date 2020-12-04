@@ -2,39 +2,74 @@
 title: Konfigurera användnings inställningar i labb för Azure Lab Services
 description: Lär dig hur du konfigurerar antalet studenter för ett labb, gör dem registrerade med labbet, styr antalet timmar som de kan använda den virtuella datorn och mer.
 ms.topic: article
-ms.date: 11/11/2020
-ms.openlocfilehash: e768c74d338cf21eb56660fe3790fc1f0f3ec80d
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 12/01/2020
+ms.openlocfilehash: 3b05246445aea708312891ec631a35da3bc1eb8e
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434557"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602639"
 ---
 # <a name="add-and-manage-lab-users"></a>Lägg till och hantera labbanvändare
 
 Den här artikeln beskriver hur du lägger till student användare i ett labb, registrerar dem med labbet, styr antalet ytterligare timmar som de kan använda den virtuella datorn (VM) med mera. 
 
-## <a name="add-users-to-a-lab"></a>Lägga till användare i ett labb
+När du lägger till användare är som standard alternativet **begränsa åtkomst** aktive rad och, om de inte finns med i listan över användare, kan eleverna inte registrera sig med labbet även om de har en registrerings länk. Endast listade användare kan registrera sig i labbet med hjälp av den registrerings länk som du skickar. Du kan inaktivera **begränsa åtkomst**, vilket gör att studenter kan registrera sig för labbet så länge de har registrerings länken. 
 
-I det här avsnittet lägger du till studenter i ett labb manuellt eller genom att ladda upp en CSV-fil. Gör följande:
+Den här artikeln visar hur du lägger till användare i ett labb.
+
+## <a name="add-users-from-an-azure-ad-group"></a>Lägga till användare från en Azure AD-grupp
+
+### <a name="overview"></a>Översikt
+
+Nu kan du synkronisera en labb användar lista med en befintlig Azure Active Directory (Azure AD)-grupp så att du inte behöver lägga till eller ta bort användare manuellt. 
+
+En Azure AD-grupp kan skapas i din organisations Azure Active Directory för att hantera åtkomst till organisations resurser och molnbaserade appar. Mer information finns i [Azure AD-grupper](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups). Om din organisation använder Microsoft Office 365 eller Azure-tjänster, kommer din organisation redan ha administratörer som hanterar din Azure Active Directory. 
+
+### <a name="sync-users-with-azure-ad-group"></a>Synkronisera användare med Azure AD-grupp
+
+> [!IMPORTANT]
+> Se till att användar listan är tom. Om det finns befintliga användare i ett labb som du har lagt till manuellt eller genom att importera en CSV-fil, visas inte alternativet för att synkronisera labbet med en befintlig grupp. 
+
+1. Logga in på [Azure Lab Services webbplats](https://labs.azure.com/).
+1. Välj det labb du vill arbeta med.
+1. I det vänstra fönstret väljer **du användare**. 
+1. Klicka på **Synkronisera från grupp**. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-sync-group.png" alt-text="Lägg till användare genom att synkronisera från en Azure AD-grupp":::
+    
+1. Du uppmanas att välja en befintlig Azure AD-grupp för att synkronisera ditt labb med. 
+    
+    Om du inte ser en Azure AD-grupp i listan kan det bero på följande orsaker:
+
+    -   Om du är gäst användare för en Azure Active Directory (vanligt vis om du befinner dig utanför organisationen som äger Azure AD) och du inte kan söka efter grupper i Azure AD. I det här fallet kan du inte lägga till en Azure AD-grupp i labbet i det här fallet. 
+    -   Azure AD-grupper som skapats via team visas inte i den här listan. Du kan lägga till Azure Lab Services-appen i Teams för att skapa och hantera labb direkt inifrån. Se mer information om att [hantera en användar lista för labb inifrån Teams](how-to-manage-user-lists-within-teams.md). 
+1. När du har valt Azure AD-gruppen att synkronisera labbet med klickar du på **Lägg till**.
+1. När ett labb har synkroniserats, tar det emot alla i Azure AD-gruppen i labbet som användare och du ser att användar listan har uppdaterats. Endast personer i den här Azure AD-gruppen får åtkomst till ditt labb. Användar listan uppdateras var 24: e timme för att matcha det senaste medlemskapet i Azure AD-gruppen. Du kan också klicka på knappen Synkronisera på fliken användare för att synkronisera manuellt med de senaste ändringarna i Azure AD-gruppen.
+1. Bjud in användarna till ditt labb genom att klicka på knappen **Bjud in alla** , som kommer att skicka ett e-postmeddelande till alla användare med registrerings länken till labbet. 
+
+### <a name="automatic-management-of-virtual-machines-based-on-changes-to-the-azure-ad-group"></a>Automatisk hantering av virtuella datorer baserat på ändringar i Azure AD-gruppen 
+
+När labbet har synkroniserats med en Azure AD-grupp matchar antalet virtuella datorer i labbet automatiskt antalet användare i gruppen. Du kommer inte längre att kunna uppdatera labb kapaciteten manuellt. När en användare läggs till i Azure AD-gruppen lägger ett labb automatiskt till en virtuell dator för användaren. När en användare tas bort från Azure AD-gruppen tar ett labb automatiskt bort användarens virtuella dator från labbet. 
+
+## <a name="add-users-manually-from-emails-or-csv-file"></a>Lägga till användare manuellt från e-post (er) eller CSV-fil
+
+I det här avsnittet lägger du till studenter manuellt (via e-postadress eller genom att ladda upp en CSV-fil). 
+
+### <a name="add-users-by-email-address"></a>Lägg till användare via e-postadress
 
 1. I det vänstra fönstret väljer **du användare**. 
+1. Klicka på **Lägg till användare manuellt**. 
 
-    Som standard är alternativet **begränsa åtkomst** aktiverat och om de inte finns med i listan över användare kan studenter inte registrera sig för labbet även om de har en registrerings länk. Endast listade användare kan registrera sig i labbet med hjälp av den registrerings länk som du skickar. I den här proceduren ska du lägga till användare i listan. Du kan också inaktivera **begränsa åtkomst**, vilket gör att eleverna kan registrera sig för labbet så länge de har registrerings länken. 
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-manually.png" alt-text="Lägg till användare manuellt":::
+1. Välj **Lägg till per e-postadress** (standard), ange elevernas e-postadresser på separata rader eller på en enda rad som avgränsas med semikolon. 
 
-1. Välj **Lägg till användare** längst upp i fönstret **användare** och välj sedan **Lägg till efter e-postadress**. 
-
-    ![Knappen Lägg till användare](./media/how-to-configure-student-usage/add-users-button.png)
-
-1. I fönstret **Lägg till användare** anger du elevernas e-postadresser på separata rader eller på en enda rad som avgränsas med semikolon. 
-
-    ![Lägg till användares e-postadresser](./media/how-to-configure-student-usage/add-users-email-addresses.png)
-
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-email-addresses.png" alt-text="Lägg till användares e-postadresser":::
 1. Välj **Spara**. 
 
     I listan visas e-postadresser och status för de aktuella användarna, oavsett om de är registrerade i labbet eller inte. 
 
-    ![Användarlista](./media/how-to-configure-student-usage/list-of-added-users.png)
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Användarlista":::
 
     > [!NOTE]
     > När eleverna har registrerats i labbet visas deras namn i listan. Namnet som visas i listan skapas med hjälp av de första och sista namnen på eleverna i Azure Active Directory. 
@@ -47,23 +82,15 @@ En CSV-textfil används för att lagra kommaavgränsade tabell data (siffror och
 
 1. I Microsoft Excel skapar du en CSV-fil med en lista över studenters e-postadresser i en kolumn.
 
-    ![Lista med användare i en CSV-fil](./media/how-to-configure-student-usage/csv-file-with-users.png)
-
+    :::image type="content" source="./media/how-to-configure-student-usage/csv-file-with-users.png" alt-text="Lista med användare i en CSV-fil":::
 1. Välj **Lägg till användare** längst upp i fönstret **användare** och välj sedan **Ladda upp CSV**.
-
-    ![Knappen "överför CSV"](./media/how-to-configure-student-usage/upload-csv-button.png)
-
 1. Välj den CSV-fil som innehåller elevernas e-postadresser och välj sedan **Öppna**.
 
     I fönstret **Lägg till användare** visas listan med e-POSTADRESSER från CSV-filen. 
-
-    ![Fönstret "Lägg till användare" med e-postadresser från CSV-filen](./media/how-to-configure-student-usage/add-users-window.png)
-
 1. Välj **Spara**. 
-
 1. I fönstret **användare** kan du se listan med tillagda studenter. 
 
-    ![Lista över tillagda användare i fönstret "användare"](./media/how-to-configure-student-usage/list-of-added-users.png)
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Lista över tillagda användare i fönstret användare":::
 
 ## <a name="send-invitations-to-users"></a>Skicka inbjudningar till användare
 
@@ -210,7 +237,6 @@ Om de inte har länkat sitt GitHub-konto till en Microsoft-konto kan de göra f�
 1. Välj ellipsen (**...**) i verktygsfältet och välj sedan **exportera CSV**. 
 
     ![Knappen "exportera CSV"](./media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
-
 
 ## <a name="next-steps"></a>Nästa steg
 

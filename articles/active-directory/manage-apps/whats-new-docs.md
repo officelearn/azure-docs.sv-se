@@ -1,7 +1,7 @@
 ---
 title: Vad är nytt i Azure Active Directory program hantering
 description: Ny och uppdaterad dokumentation för Azure Active Directory program hantering.
-ms.date: 11/05/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,26 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 10861438334bc804d1b1e4b9a669280f7e09ffde
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 38602482f1a25f212829342fe691d7bb75666d31
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654017"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571019"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory program hantering: Nyheter
 
 Välkommen till nyheter i Azure Active Directory program hanterings dokumentation. Den här artikeln innehåller nya dokument som har lagts till och de som har haft betydande uppdateringar under de senaste tre månaderna. Information om vad som är nytt i program hanterings tjänsten finns i [Nyheter i Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="november-2020"></a>November 2020
+
+### <a name="new-articles"></a>Nya artiklar
+- [Rubrik-baserad enkel inloggning för lokala appar med Azure AD App proxy (för hands version)](application-proxy-configure-single-sign-on-with-headers.md)
+
+### <a name="updated-articles"></a>Uppdaterade artiklar
+- [Azure Active Directory program hantering: Nyheter](whats-new-docs.md)
+- [Problem med att logga in på SAML-baserade appar som konfigurerats för enkel inloggning](application-sign-in-problem-federated-sso-gallery.md)
+
 
 ## <a name="october-2020"></a>Oktober 2020
 
@@ -32,7 +42,7 @@ Välkommen till nyheter i Azure Active Directory program hanterings dokumentatio
 
 ### <a name="updated-articles"></a>Uppdaterade artiklar
 
-- [Problem med att logga in till SAML-baserade enkel inloggning konfigurerade appar](application-sign-in-problem-federated-sso-gallery.md)
+- [Problem med att logga in på SAML-baserade appar som konfigurerats för enkel inloggning](application-sign-in-problem-federated-sso-gallery.md)
 - [Problem med att installera anslutningsappen för programproxyagenten](application-proxy-connector-installation-problem.md)
 - [Flytta programautentisering från Active Directory Federation Services (AD FS) till Azure Active Directory](migrate-adfs-apps-to-azure.md)
 - [Konfigurera hur slutanvändare godkänner program](configure-user-consent.md)
@@ -52,7 +62,7 @@ Välkommen till nyheter i Azure Active Directory program hanterings dokumentatio
 - [Hantera medgivande till program och utvärdera medgivande begär Anden](manage-consent-requests.md)
 - [Visa appar med hjälp av din Azure AD-klient för identitets hantering](application-types.md)
 - [Förstå hur användare tilldelas till appar i Azure Active Directory](ways-users-get-assigned-to-applications.md)
-- [Hantera användar tilldelning för en app i Azure Active Directory](assign-user-or-group-access-portal.md)
+- [Hantera användartilldelning för en app i Azure Active Directory](assign-user-or-group-access-portal.md)
 
 
 ## <a name="august-2020"></a>Augusti 2020

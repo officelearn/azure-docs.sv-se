@@ -4,25 +4,22 @@ description: Lär dig hur du interagerar med Kubernetes-resurser för att hanter
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: ae617615a8ba83e311a416581fb41d3cb6ca1b05
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: cfd09e469de68a1eee7440773347e9fe58bf8619
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635617"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571631"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Få åtkomst till Kubernetes-resurser från Azure Portal (för hands version)
 
 Azure Portal innehåller en Kubernetes Resource Viewer (för hands version) för enkel åtkomst till Kubernetes-resurserna i ditt Azure Kubernetes service-kluster (AKS). Genom att Visa Kubernetes-resurser från Azure Portal reduceras kontext växlingen mellan Azure Portal och `kubectl` kommando rads verktyget, vilket effektiviserar upplevelsen med att visa och redigera dina Kubernetes-resurser. Resurs läsaren innehåller för närvarande flera resurs typer, till exempel distributioner, poddar och replik uppsättningar.
 
-Kubernetes från Azure Portal ersätter [instrument panels tillägget AKS][kubernetes-dashboard], som är inställt för utfasning.
-
->[!NOTE]
->Capabilty stöds för närvarande inte i [privata Azure Kubernetes service-kluster](./private-clusters.md).
+Kubernetes från Azure Portal ersätter [instrument panels tillägget AKS][kubernetes-dashboard], vilket är inaktuellt.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill visa Kubernetes-resurser i Azure Portal behöver du ett AKS-kluster. Alla kluster stöds, men om du använder Azure Active Directory (Azure AD)-integration måste klustret använda [AKS-hanterad Azure AD-integrering][aks-managed-aad]. Om klustret använder äldre Azure AD kan du uppgradera klustret i portalen eller med [Azure CLI][cli-aad-upgrade].
 
@@ -46,21 +43,21 @@ I det här exemplet ska vi använda vårt exempel på AKS-kluster för att distr
 
 När YAML-filen har lagts till visar Resource Viewer både Kubernetes-tjänster som skapades: den interna tjänsten (Azure-rösta) och den externa tjänsten (Azure-rösta-Front) för att få åtkomst till Azures röst program. Den externa tjänsten innehåller en länkad extern IP-adress så att du enkelt kan se programmet i din webbläsare.
 
-:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Kubernetes Pod-information som visas i Azure Portal." lightbox="media/kubernetes-portal/portal-services.png":::
+:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Information om Azure röstnings program som visas i Azure Portal." lightbox="media/kubernetes-portal/portal-services.png":::
 
 ### <a name="monitor-deployment-insights"></a>Övervaka distributions Insights
 
 AKS-kluster med [Azure Monitor för behållare][enable-monitor] aktiverade kan snabbt Visa distributions insikter. I vyn Kubernetes-resurser kan användare se Live-status för enskilda distributioner, inklusive processor-och minnes användning, samt över gång till Azure Monitor för mer detaljerad information. Här är ett exempel på distributions insikter från ett exempel på AKS-kluster:
 
-:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Kubernetes Pod-information som visas i Azure Portal." lightbox="media/kubernetes-portal/deployment-insights.png":::
+:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Distributions insikter som visas i Azure Portal." lightbox="media/kubernetes-portal/deployment-insights.png":::
 
 ## <a name="edit-yaml"></a>Redigera YAML
 
 Vyn Kubernetes innehåller även en YAML-redigerare. En inbyggd YAML-redigerare innebär att du kan uppdatera eller skapa tjänster och distributioner inifrån portalen och tillämpa ändringar direkt.
 
-:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Kubernetes Pod-information som visas i Azure Portal.":::
+:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="YAML-redigeraren för en Kubernetes-tjänst visas i Azure Portal.":::
 
-När du har redigerat YAML tillämpas ändringarna genom att välja **Granska + Spara** , bekräfta ändringarna och sedan Spara igen.
+När du har redigerat YAML tillämpas ändringarna genom att välja **Granska + Spara**, bekräfta ändringarna och sedan Spara igen.
 
 >[!WARNING]
 > Att utföra direkta produktions ändringar via användar gränssnittet eller CLI rekommenderas inte. du bör utnyttja [bästa metoder för kontinuerlig integrering (CI) och kontinuerlig distribution (CD)](kubernetes-action.md). Hanterings funktionerna i Azure Portal-Kubernetes och YAML-redigeraren är utformade för att lära sig och sätta igång nya distributioner i en utvecklings-och testnings inställning.
@@ -80,7 +77,7 @@ För att få åtkomst till Kubernetes-resurserna måste du ha åtkomst till AKS-
 
 För befintliga kluster kan du behöva aktivera resurs visningen Kubernetes. Om du vill aktivera resursvyn följer du anvisningarna i portalen för klustret.
 
-:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Kubernetes Pod-information som visas i Azure Portal." lightbox="media/kubernetes-portal/enable-resource-view.png":::
+:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Azure Portal-meddelande om du vill aktivera resursvyn för Kubernetes." lightbox="media/kubernetes-portal/enable-resource-view.png":::
 
 > [!TIP]
 > AKS-funktionen för [**tillåtna IP-intervall för API-servrar**](api-server-authorized-ip-ranges.md) kan läggas till för att begränsa åtkomsten till API-servern till endast brand väggens offentliga slut punkt. Ett annat alternativ för sådana kluster är att uppdatera för `--api-server-authorized-ip-ranges` att inkludera åtkomst för en lokal klient dator eller ett IP-adressintervall (från vilken Portal bläddras). För att tillåta den här åtkomsten behöver du datorns offentliga IPv4-adress. Du kan hitta den här adressen med kommandot nedan eller genom att söka efter "Vad är min IP-adress" i en webbläsare.

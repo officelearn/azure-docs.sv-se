@@ -1,7 +1,7 @@
 ---
 title: Vad är nytt i Azure Active Directory programmets etablering
 description: Ny och uppdaterad dokumentation för Azure Active Directory programmets etablering.
-ms.date: 11/05/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,24 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 51a2facfdaccc6cb29264873e9ffd60fc48735da
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: fd9be81e8c23686695f8cdb49d873d5a663d69c4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174670"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571767"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory applikations etablering: Nyheter
 
 Välkommen till nyheter i Azure Active Directory Application Provisioning-dokumentationen. Den här artikeln innehåller nya dokument som har lagts till och de som har haft betydande uppdateringar under de senaste tre månaderna. Information om vad som är nytt med etablerings tjänsten finns i [Nyheter i Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="november-2020"></a>November 2020
+
+### <a name="updated-articles"></a>Uppdaterade artiklar
+- [Självstudie – anpassa användar etablering attribut-mappningar för SaaS-program i Azure Active Directory](customize-application-attributes.md)
+- [Så här fungerar etablering](how-provisioning-works.md)
+- [Självstudie – Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure AD](use-scim-to-provision-users-and-groups.md)
+
 
 ## <a name="october-2020"></a>Oktober 2020
 

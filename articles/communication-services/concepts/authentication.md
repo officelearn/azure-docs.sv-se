@@ -9,12 +9,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 96e10bc19d59b60824a908c67816a21ca80326d0
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d6e02852dcd2d30a764417a4b5e0e012a1d2ab5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832814"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571104"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Autentisera till Azure Communication Services
 
@@ -58,9 +58,9 @@ Om du inte använder ett klient bibliotek för att göra HTTP-förfrågningar ti
     URLPathAndQuery + "\n"
     DateHeaderValue + ";" + HostHeaderValue + ";" + ContentHashHeaderValue
     ```
-1. Generera en HMAC-256-signatur för den UTF-8-kodade sträng som du skapade i föregående steg. Koda sedan resultaten som base64. Observera att du också måste base64-avkoda din lagrings konto nyckel. Använd följande format (visas som pseudo-kod):
+1. Generera en HMAC-256-signatur för den UTF-8-kodade sträng som du skapade i föregående steg. Koda sedan resultaten som base64. Observera att du också måste base64-avkoda din åtkomst nyckel. Använd följande format (visas som pseudo-kod):
     ```
-    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_azure_storage_account_shared_key>)))
+    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_access_key>)))
     ```
 1. Ange Authorization-huvudet enligt följande:
     ```

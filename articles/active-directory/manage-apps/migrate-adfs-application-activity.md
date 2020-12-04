@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1245010ae0b21c5bb8e3ebd93a9fe851d48c858b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 77a43d5bd5f2b228d5ed4384fc1efdca76f8ea0b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835517"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573892"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Använda rapporten AD FS program aktivitet (för hands version) för att migrera program till Azure AD
 
@@ -26,19 +26,23 @@ Många organisationer använder Active Directory Federation Services (AD FS) (AD
 
 I rapporten AD FS program aktivitet (för hands version) i Azure Portal kan du snabbt identifiera vilka av dina program som kan migreras till Azure AD. Den utvärderar alla AD FS program för kompatibilitet med Azure AD, söker efter eventuella problem och ger vägledning om att förbereda enskilda program för migrering. Med rapporten AD FS program aktivitet kan du:
 
-* **Identifiera AD FS program och omfånget för migreringen.** Rapporten AD FS program aktivitet visar alla AD FS program i din organisation och visar att de är kompatibla med att migrera till Azure AD.
+* **Identifiera AD FS program och omfånget för migreringen.** I rapporten AD FS program aktivitet visas alla AD FS program i din organisation som har haft en aktiv användar inloggning under de senaste 30 dagarna. Rapporten visar att det är en app-beredskap för migrering till Azure AD. Rapporten visar inte Microsoft-relaterade förlitande parter i AD FS som Office 365. Till exempel förlitande parter med namnet "urn: federation: MicrosoftOnline".
+
 * **Prioritera program för migrering.** Hämta antalet unika användare som har loggat in på programmet under de senaste 1, 7 eller 30 dagarna för att avgöra den kritiska risken för migrering av programmet.
-* **Kör migrerings test och åtgärda problem.** Rapporterings tjänsten kör automatiskt tester för att avgöra om ett program är redo att migrera. Resultaten visas i rapporten AD FS program aktivitet som en migrerings status. Om potentiella problem med migreringen identifieras får du specifika anvisningar om hur du löser problemen.
+* **Kör migrerings test och åtgärda problem.** Rapporterings tjänsten kör automatiskt tester för att avgöra om ett program är redo att migrera. Resultaten visas i rapporten AD FS program aktivitet som en migrerings status. Om AD FS-konfigurationen inte är kompatibel med en Azure AD-konfiguration får du en detaljerad vägledning om hur du kan adressera konfigurationen i Azure AD.
 
 AD FS programmets aktivitets data är tillgängliga för användare som har tilldelats någon av dessa administratörs roller: global administratör, rapport läsare, säkerhets läsare, program administratör eller moln program administratör.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Din organisation måste för närvarande använda AD FS för att få åtkomst till program.
 * Azure AD Connect Health måste vara aktiverat i din Azure AD-klient.
 * Azure AD Connect Health för AD FS agent måste vara installerad.
    * [Läs mer om Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md)
    * [Kom igång med att konfigurera Azure AD Connect Health och installera AD FS-agenten](../hybrid/how-to-connect-health-agent-install.md)
+
+>[!IMPORTANT] 
+>Det finns ett par orsaker till att du inte ser alla program som du förväntar dig när du har installerat Azure AD Connect Health. Rapporten AD FS program aktivitet visar bara AD FS förlitande parter med användar inloggningar under de senaste 30 dagarna. Rapporten visar inte heller Microsoft-relaterade förlitande parter som Office 365.
 
 ## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>Identifiera AD FS program som kan migreras 
 
@@ -121,6 +125,17 @@ I följande tabell visas alla test av anspråks regler som utförs på AD FS pro
 |EXTERNAL_ATTRIBUTE_STORE      | Utfärdande-instruktionen använder ett attributarkiv som är ett annat Active Directory. För närvarande är Azure AD inte käll anspråk från butiker som Active Directory eller Azure AD. Om det här resultatet hindrar dig från att migrera program till Azure AD kan du berätta för [oss](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695717-allow-to-source-user-attributes-from-external-dire).          |
 |UNSUPPORTED_ISSUANCE_CLASS      | Utfärdande-instruktionen använder Lägg till för att lägga till anspråk i den inkommande anspråks uppsättningen. I Azure AD kan detta konfigureras som flera anspråks omvandlingar.Mer information finns i [Anpassa anspråk som utfärdats i SAML-token för företags program](../develop/active-directory-claims-mapping.md).         |
 |UNSUPPORTED_ISSUANCE_TRANSFORMATION      | Utfärdande-instruktionen använder reguljära uttryck för att transformera värdet för det anspråk som ska genereras.För att uppnå liknande funktioner i Azure AD kan du använda fördefinierade omvandlingar som Extract (), trim (), ToLower, bland annat. Mer information finns i [Anpassa anspråk som utfärdats i SAML-token för företags program](../develop/active-directory-saml-claims-customization.md).          |
+
+## <a name="troubleshooting"></a>Felsökning
+
+### <a name="cant-see-all-my-ad-fs-applications-in-the-report"></a>Det går inte att se alla mina AD FS-program i rapporten
+
+ Om du har installerat Azure AD Connect hälsa men ändå ser meddelandet för att installera det, eller om du inte ser alla dina AD FS-program i rapporten, kan det bero på att du inte har aktiva AD FS program eller att AD FS programmen är Microsoft-program.
+ 
+ I rapporten AD FS program aktivitet visas alla AD FS program i din organisation med aktiva inloggnings användare under de senaste 30 dagarna. Rapporten visar inte heller Microsoft-relaterade förlitande parter i AD FS som Office 365. Till exempel förlitande parter med namnet "urn: federation: MicrosoftOnline", "microsoftonline", "Microsoft: winhello: cert: bevisa: servern visas inte i listan.
+
+
+
 
 
 ## <a name="next-steps"></a>Nästa steg

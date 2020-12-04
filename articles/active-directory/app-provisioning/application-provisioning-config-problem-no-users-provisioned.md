@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 12/03/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 21f16a0b9c8b3b603735520d5dcdbf61601e1480
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 89a5838524daa1959ecf6b4fe3c17d6175ca8553
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994833"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571784"
 ---
 # <a name="no-users-are-being-provisioned"></a>Inga användare etableras 
 >[!NOTE]
@@ -24,7 +24,7 @@ ms.locfileid: "95994833"
 >
 När den automatiska etableringen har kon figurer ATS för ett program (inklusive att kontrol lera att autentiseringsuppgifterna för appen som angetts för Azure AD för att ansluta till appen är giltiga), är användare och/eller grupper etablerade i appen. Etableringen bestäms av följande saker:
 
--   Vilka användare och grupper som har **tilldelats** till programmet. Observera att etablering av kapslade grupper eller Microsoft 365 grupper inte stöds. Mer information om tilldelning finns i [tilldela en användare eller grupp till en företags app i Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md).
+-   Vilka användare och grupper som har **tilldelats** till programmet. Observera att etablering av kapslade grupper inte stöds. Mer information om tilldelning finns i [tilldela en användare eller grupp till en företags app i Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md).
 -   Huruvida **attributmappning** är aktiverade och konfigurerade för att synkronisera giltiga attribut från Azure AD till appen. Mer information om mappning av mappar finns i [Anpassa mappningar av användar Provisioning-attribut för SaaS-program i Azure Active Directory](customize-application-attributes.md).
 -   Huruvida det finns ett **omfångs filter** som filtrerar användare baserat på vissa attributvärden. Mer information om omfångs filter finns i [attribut-baserad program etablering med omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
   

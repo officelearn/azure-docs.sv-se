@@ -15,18 +15,18 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 432cc733ee31bdaa18d555d9a6aeb6aee9879a44
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b4de685accf665c7555a454ef247ddf589c6ba5f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748538"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572345"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Självstudie: Implementera en uppdateringsprocess för enhetens inbyggda programvara
 
 Du kan behöva uppdatera den inbyggda programvaran på enheter som är anslutna till din IoT Hub. Du kanske vill lägga till nya funktioner i den inbyggda programvaran eller tillämpa säkerhetskorrigeringar. I många IoT-scenarier är det inte möjligt att fysiskt besöka och uppdatera den inbyggda programvaran manuellt för dina enheter. I den här självstudien får du lära dig att starta och övervaka processen för uppdatering av inbyggd programvara via fjärranslutning med ett serverdelsprogram anslutet till din hubb.
 
-Om du vill skapa och övervaka uppdateringsprocessen för den inbyggda programvaran, skapar serverdelsprogrammet i den här självstudien en _konfiguration_ i din IoT Hub. Den [automatiska enhetshanteringen](./iot-hub-automatic-device-management.md) i IoT Hub använder den här konfigurationen för att uppdatera en uppsättning _önskade egenskaper för enhetstvillingar_ på alla kylaggregat. De önskade egenskaperna anger informationen om uppdateringen av den inbyggda programvara som krävs. När kylaggregaten kör uppdateringsprocessen för den inbyggda programvaran rapporterar de status till serverdelsprogrammet med hjälp av _rapporterade egenskaper för enhetstvillingar_ . Serverdelsprogrammet kan använda konfigurationen för att övervaka de rapporterade egenskaperna från enheten och spåra uppdateringsprocessen för den inbyggda programvaran så att den kan slutföras:
+Om du vill skapa och övervaka uppdateringsprocessen för den inbyggda programvaran, skapar serverdelsprogrammet i den här självstudien en _konfiguration_ i din IoT Hub. Den [automatiska enhetshanteringen](./iot-hub-automatic-device-management.md) i IoT Hub använder den här konfigurationen för att uppdatera en uppsättning _önskade egenskaper för enhetstvillingar_ på alla kylaggregat. De önskade egenskaperna anger informationen om uppdateringen av den inbyggda programvara som krävs. När kylaggregaten kör uppdateringsprocessen för den inbyggda programvaran rapporterar de status till serverdelsprogrammet med hjälp av _rapporterade egenskaper för enhetstvillingar_. Serverdelsprogrammet kan använda konfigurationen för att övervaka de rapporterade egenskaperna från enheten och spåra uppdateringsprocessen för den inbyggda programvaran så att den kan slutföras:
 
 ![Uppdateringsprocessen för den inbyggda programvaran](media/tutorial-firmware-update/Process.png)
 
@@ -38,11 +38,9 @@ I den här självstudien slutför du följande uppgifter:
 > * Simulera uppdateringsprocessen för inbyggd programvara på en enhet.
 > * Ta emot statusuppdateringar från enheten allteftersom uppdateringen av den inbyggda programvaran fortskrider.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node.js v10. x. x eller senare på din utvecklings dator.
 
@@ -62,7 +60,7 @@ Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den hä
 
 För att slutföra den här självstudien måste din Azure-prenumeration innehålla en IoT Hub med en enhet som har lagts till i enhetsidentitetsregistret. Posten i enhetsidentitetsregistret gör att den simulerade enheten som du kör i den här kursen kan ansluta till din hubb.
 
-Om du inte redan har en IoT-hubb i din prenumeration kan du konfigurera ett konto med följande CLI-skript. Det här skriptet använder namnet **tutorial-iot-hub** för IoT-hubben. Du bör ersätta det här namnet med ditt eget unika namn när du kör det. Skriptet skapar resursgruppen och hubben i regionen **USA, centrala** , vilket du kan ändra till en region som ligger närmare till dig. Skriptet hämtar anslutningssträngen för IoT-hubbtjänsten som du använder i serverdelsexemplet för att ansluta till din IoT Hub:
+Om du inte redan har en IoT-hubb i din prenumeration kan du konfigurera ett konto med följande CLI-skript. Det här skriptet använder namnet **tutorial-iot-hub** för IoT-hubben. Du bör ersätta det här namnet med ditt eget unika namn när du kör det. Skriptet skapar resursgruppen och hubben i regionen **USA, centrala**, vilket du kan ändra till en region som ligger närmare till dig. Skriptet hämtar anslutningssträngen för IoT-hubbtjänsten som du använder i serverdelsexemplet för att ansluta till din IoT Hub:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -82,7 +80,7 @@ az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
-I den här självstudien används en simulerad enhet med namnet **MyFirmwareUpdateDevice** . Följande skript lägger till enheten till identitetsregistret för din enhet, anger ett taggvärde och hämtar anslutningssträngen:
+I den här självstudien används en simulerad enhet med namnet **MyFirmwareUpdateDevice**. Följande skript lägger till enheten till identitetsregistret för din enhet, anger ett taggvärde och hämtar anslutningssträngen:
 
 ```azurecli-interactive
 # Set the name of your IoT hub
@@ -199,7 +197,7 @@ Eftersom automatisk enhets konfiguration körs när den skapas och var femte min
 
 Om du planerar att slutföra nästa självstudiekurs så lämna resursgruppen och IoT-hubben och återanvänd dem senare.
 
-Om du inte behöver IoT-hubben längre kan du ta bort den och resursgruppen i portalen. Det gör du genom att markera **tutorial-iot-hub-rg** -resursgruppen som innehåller din IoT-hubb och klicka på **Ta bort** .
+Om du inte behöver IoT-hubben längre kan du ta bort den och resursgruppen i portalen. Det gör du genom att markera **tutorial-iot-hub-rg**-resursgruppen som innehåller din IoT-hubb och klicka på **Ta bort**.
 
 Du kan också använda CLI:
 

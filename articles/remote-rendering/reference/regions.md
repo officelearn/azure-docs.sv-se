@@ -5,20 +5,27 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 45949ae11a59ad9b5459dbc3ec049743b40e55ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: 1b20f7134f1b39853a78ee5b709e732ccf35acac
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80680367"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571121"
 ---
 # <a name="regions"></a>Regioner
 
 Den här sidan listar de regioner som för närvarande är tillgängliga för användning med Azure Remote rendering. För bästa resultat bör du alltid använda den region som ligger närmast din fysiska plats.
 
-| Name | Region | URL |
+| Namn | Region | URL |
 |-----------|:-----------|:-----------|
-| USA, västra 2 | USA, västra 2 | `https://remoterendering.westus2.mixedreality.azure.com` |
+| Australien, östra | australienöstra | `https://remoterendering.australiaeast.mixedreality.azure.com` |
 | East US | USA, östra | `https://remoterendering.eastus.mixedreality.azure.com` |
-| Europa, västra | Europa, västra | `https://remoterendering.westeurope.mixedreality.azure.com` |
+| USA, östra 2 | usaöstra2 | `https://remoterendering.eastus2.mixedreality.azure.com` |
+| Japan, östra | Japan, östra | `https://remoterendering.japaneast.mixedreality.azure.com` |
+| Norra Europa | northeurope | `https://remoterendering.northeurope.mixedreality.azure.com` |
+| USA, södra centrala | USA, södra centrala | `https://remoterendering.southcentralus.mixedreality.azure.com` |
 | Sydostasien | Asien, sydöstra | `https://remoterendering.southeastasia.mixedreality.azure.com` |
+| Storbritannien, södra | södrastorbritannien | `https://remoterendering.uksouth.mixedreality.azure.com` |
+| Europa, västra | Europa, västra | `https://remoterendering.westeurope.mixedreality.azure.com` |
+| USA, västra 2 | USA, västra 2 | `https://remoterendering.westus2.mixedreality.azure.com` |

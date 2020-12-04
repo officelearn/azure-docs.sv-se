@@ -1,17 +1,15 @@
 ---
 title: Räkna upp aktörer på Azure Service Fabric
 description: Lär dig mer om uppräkning av Reliable Actors och deras metadata i ett Azure-Service Fabric program med hjälp av exempel.
-author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd3a61db32fb8e442beb42bd45c88da8559a29dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11742d1a1c0837588e7122ee615f3f7929aae363
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016656"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571359"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Räkna upp Service Fabric Reliable Actors
 Med tjänsten Reliable Actors kan en klient räkna upp metadata om de aktörer som tjänsten är värd för. Eftersom aktörs tjänsten är en partitionerad tillstånds känslig tjänst utförs uppräkningen per partition. Eftersom varje partition kan innehålla många aktörer returneras uppräkningen som en uppsättning växlade resultat. Sidorna upprepas tills alla sidor har lästs. I följande exempel visas hur du skapar en lista över alla aktiva aktörer i en partition av en aktörs tjänst:

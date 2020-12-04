@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 20173c4ba02f53a526167a5a8e22bd0cedc85594
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 971bac8a0b0951d4e07e139aea6c465a9159b8db
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393226"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96570968"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Självstudie: kör en "Hello World!" Python-skript (del 2 av 4)
 
@@ -33,7 +33,7 @@ I de här självstudierna får du:
 > * Skicka in och kör "Hello World!" över.
 > * Visa kodens utdata i molnet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Slut för ande av [del 1](tutorial-1st-experiment-sdk-setup-local.md) om du inte redan har en Azure Machine Learning-arbetsyta.
 - Introduktions kunskap om python-språket och Machine Learning-arbetsflöden.
@@ -61,7 +61,8 @@ tutorial
 └──02-create-compute.py
 ```
 
-### <a name="test-your-script-locally"></a>Testa ditt skript lokalt
+
+### <a name="test-your-script-locally"></a><a name="test"></a>Testa ditt skript lokalt
 
 Du kan köra din kod lokalt genom att använda din favorit-IDE eller Terminal. Att köra kod lokalt har fördelen med interaktiv fel sökning av kod.
 
@@ -70,7 +71,10 @@ cd <path/to/tutorial>
 python ./src/hello.py
 ```
 
-## <a name="create-a-control-script"></a>Skapa ett kontroll skript
+> [!div class="nextstepaction"]
+> [Jag körde skriptet lokalt](?success=run-local#control-script) i [ett problem](https://www.research.net/r/7C2NTH7?issue=run-local)
+
+## <a name="create-a-control-script"></a><a name="control-script"></a> Skapa ett kontroll skript
 
 Med ett *kontroll skript* kan du köra `hello.py` skriptet i molnet. Du använder kontroll skriptet för att styra hur och var din maskin inlärnings kod ska köras.  
 
@@ -89,6 +93,8 @@ run = experiment.submit(config)
 aml_url = run.get_portal_url()
 print(aml_url)
 ```
+
+
 
 ### <a name="understand-the-code"></a>Förstå koden
 
@@ -135,7 +141,10 @@ Här är en beskrivning av hur kontroll skriptet fungerar:
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-and-run-your-code-in-the-cloud"></a>Skicka in och kör din kod i molnet
+> [!div class="nextstepaction"]
+> [Jag skapade kontroll skriptet som](?success=create-control-script#submit) [Jag stötte på ett problem](https://www.research.net/r/7C2NTH7?issue=create-control-script)
+
+## <a name="submit-and-run-your-code-in-the-cloud"></a><a name="submit"></a> Skicka in och kör din kod i molnet
 
 Kör ditt kontroll skript, som i sin tur körs `hello.py` på det beräknings kluster som du skapade i [installations guiden](tutorial-1st-experiment-sdk-setup-local.md)för.
 
@@ -154,7 +163,10 @@ python 03-run-hello.py
 > [!TIP]
 > Om du kör den här koden får du ett fel meddelande om att du inte har åtkomst till prenumerationen. mer information om autentiseringsalternativ finns i [ansluta till en arbets yta](how-to-manage-workspace.md?tab=python#connect-multi-tenant) .
 
-## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>Övervaka din kod i molnet med hjälp av Studio
+> [!div class="nextstepaction"]
+> [Jag har skickat in kod i molnet som](?success=submit-to-cloud#monitor) [Jag stötte på ett problem](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
+
+## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a><a name="monitor"></a>Övervaka din kod i molnet med hjälp av Studio
 
 Utdata kommer att innehålla en länk till Studio som ser ut ungefär så här: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>` .
 
@@ -185,6 +197,9 @@ Följ länken och gå till fliken **utdata + loggar** . Där kan du se en `70_dr
 På rad 8 visas "Hello World!" utdataparametrar.
 
 `70_driver_log.txt`Filen innehåller standard resultatet från en körning. Den här filen kan vara användbar när du felsöker fjärrkörningar i molnet.
+
+> [!div class="nextstepaction"]
+> [Jag såg loggen i Studio](?success=monitor-in-studio#next-steps) [Jag stötte på ett problem](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
 
 ## <a name="next-steps"></a>Nästa steg
 

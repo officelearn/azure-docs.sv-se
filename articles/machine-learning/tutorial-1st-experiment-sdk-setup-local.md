@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 1b4ee9f06e8ed8bd47be1075070dea71b42b1cef
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 05ac0f78345e1c1d7643f24410d53b209ab7c375
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349077"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574164"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Självstudie: kom igång med Azure Machine Learning i utvecklings miljön (del 1 av 4)
 
@@ -52,7 +52,10 @@ Du kan använda de verktyg som är mest välbekanta för dig (till exempel Conda
 pip install azureml-sdk
 ```
 
-## <a name="create-a-directory-structure-for-code"></a>Skapa en katalog struktur för kod
+> [!div class="nextstepaction"]
+> [Jag har installerat SDK: n som](?success=install-sdk#dir) [Jag stötte på ett problem](https://www.research.net/r/7C8Z3DN?issue=install-sdk)
+
+## <a name="create-a-directory-structure-for-code"></a><a name="dir"></a>Skapa en katalog struktur för kod
 Vi rekommenderar att du konfigurerar följande enkla katalog struktur för den här självstudien:
 
 ```markdown
@@ -63,7 +66,11 @@ tutorial
 - `tutorial`: Katalogen på den översta nivån i projektet.
 - `.azureml`: Dold under katalog för lagring av Azure Machine Learning konfigurationsfiler.
 
-## <a name="create-an-azure-machine-learning-workspace"></a>Skapa en Azure Machine Learning-arbetsyta
+
+> [!div class="nextstepaction"]
+> [Jag har skapat en katalog](?success=create-dir#workspace) som [Jag stötte på ett problem](https://www.research.net/r/7C8Z3DN?issue=create-dir)
+
+## <a name="create-an-azure-machine-learning-workspace"></a><a name="workspace"></a>Skapa en Azure Machine Learning-arbetsyta
 
 En arbets yta är en resurs på den översta nivån för Azure Machine Learning och är en central plats för att:
 
@@ -119,7 +126,10 @@ Filen `.azureml/config.json` innehåller de metadata som krävs för att ansluta
 >
 > Autentisering krävs fortfarande för att interagera med din Azure Machine Learning-arbetsyta.
 
-## <a name="create-an-azure-machine-learning-compute-cluster"></a>Skapa ett Azure Machine Learning beräknings kluster
+> [!div class="nextstepaction"]
+> [Jag har skapat en arbets yta](?success=create-workspace#cluster) som [jag råkat ut för ett problem](https://www.research.net/r/7C8Z3DN?issue=create-workspace)
+
+## <a name="create-an-azure-machine-learning-compute-cluster"></a><a name="cluster"></a> Skapa ett Azure Machine Learning beräknings kluster
 
 Skapa ett Python-skript i `tutorial` katalogen på den översta nivån som heter `02-create-compute.py` . Fyll i det med följande kod för att skapa ett Azure Machine Learning beräknings kluster som automatiskt skalar mellan noll och fyra noder:
 
@@ -167,6 +177,9 @@ tutorial
 └──01-create-workspace.py
 └──02-create-compute.py
 ```
+
+> [!div class="nextstepaction"]
+> [Jag har skapat ett beräknings kluster](?success=create-compute-cluster#next-steps) som [Jag stötte på ett problem](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6d6a0bdb9a6aaa2d9ca75ccd4a6d71e9046bee4a
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 9ebbe54dd41cd7d7b83ef12f465326db3ef2b9ab
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523656"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572192"
 ---
 # <a name="how-to-review-synapse-rbac-role-assignments"></a>Granska Synapse RBAC-roll tilldelningar
 
@@ -21,7 +21,10 @@ Synapse RBAC-roller används för att tilldela behörigheter till användare, gr
 
 Den här artikeln förklarar hur du granskar de aktuella roll tilldelningarna för en arbets yta.
 
-Med en Synapse RBAC-roll kan du Visa Synapse RBAC-roll tilldelningar för alla omfattningar, inklusive tilldelningar för objekt som du inte har åtkomst till. Endast en Synapse-administratör kan bevilja Synapse RBAC-åtkomst.   
+Med en Synapse RBAC-roll kan du Visa Synapse RBAC-roll tilldelningar för alla omfattningar, inklusive tilldelningar för objekt som du inte har åtkomst till. Endast en Synapse-administratör kan bevilja Synapse RBAC-åtkomst.  
+
+>[!Note]
+>Gäst användare (användare från en annan AD-klient) kan inte se eller hantera roll tilldelningar, även om de tilldelats Synapse-administratörs rollen.    
 
 ## <a name="open-synapse-studio"></a>Öppna Synapse Studio  
 

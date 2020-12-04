@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 41955475f32fe674bcb3ef2d1b6e59c71a008b6b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5c49a6ee25429ab324cea573425ea8b3dd56fdb2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656453"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573620"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudie: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory
 
@@ -31,7 +31,7 @@ I den här självstudien:
 > * Lägger till ett lokalt program till Azure AD-klientorganisationen
 > * Verifierar att en test användare kan logga in på programmet med hjälp av ett Azure AD-konto
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill lägga till ett lokalt program i Azure AD behöver du:
 
@@ -87,6 +87,9 @@ Aktivera TLS 1.2:
 
 1. Starta om servern.
 
+> [!Note]
+> Microsoft uppdaterar Azure-tjänster för att använda TLS-certifikat från en annan uppsättning rot certifikat utfärdare (ca: er). Den här ändringen görs eftersom de aktuella CA-certifikaten inte uppfyller något av kraven för CA/webbläsarens forum bas linje. Se [ändringar i Azure TLS-certifikat](https://docs.microsoft.com/azure/security/fundamentals/tls-certificate-changes) för mer information.
+
 ## <a name="prepare-your-on-premises-environment"></a>Förbered din lokala miljö
 
 Börja med att aktivera kommunikation till Azure-datacenter för att förbereda din miljö för Azure AD-programproxy. Om det finns en brand vägg i sökvägen ser du till att den är öppen. En öppen brand vägg gör det möjligt för anslutningen att göra HTTPS-förfrågningar (TCP) till programproxyn.
@@ -113,7 +116,7 @@ Tillåt åtkomst till följande webbadresser:
 | --- | --- | --- |
 | &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Kommunikation mellan anslutningsprogrammet och molntjänsten för programproxy |
 | crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP |Anslutnings tjänsten använder dessa URL: er för att verifiera certifikat. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;. microsoftonline-p.com<br>&ast;. msauth.net<br>&ast;. msauthimages.net<br>&ast;. msecnd.net<br>&ast;. msftauth.net<br>&ast;. msftauthimages.net<br>&ast;. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS |Anslutningsprogrammet använder dessa webbadresser under registreringen. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;. microsoftonline-p.com<br>&ast;. msauth.net<br>&ast;. msauthimages.net<br>&ast;. msecnd.net<br>&ast;. msftauth.net<br>&ast;. msftauthimages.net<br>&ast;. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS |Anslutningsprogrammet använder dessa webbadresser under registreringen. |
 | ctldl.windowsupdate.com | 80/HTTP |Anslutningen använder denna URL under registrerings processen. |
 
 Du kan tillåta anslutningar till &ast; . msappproxy.net, &ast; . ServiceBus.Windows.net och andra URL: er ovan om din brand vägg eller proxy låter dig konfigurera listan över tillåtna DNS-listor. Om inte, måste du tillåta åtkomst till [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519). IP-adressintervallen uppdateras varje vecka.

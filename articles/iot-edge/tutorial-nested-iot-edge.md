@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 28b34ecaf51406b35c67d3838714691390f5adf7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2f59feb83149042781b624aeb0df73fe3ab32587
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453062"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574232"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Självstudie: skapa en hierarki med IoT Edge enheter (förhands granskning)
 
@@ -45,7 +45,7 @@ I den här självstudien definieras följande nätverks skikt:
 
 I den här självstudien används en hierarki med två enheter för enkelhetens skull. En enhet, **topLayerDevice**, representerar en enhet i hierarkins övre skikt, som kan ansluta direkt till molnet. Enheten kommer även att kallas för den **överordnade enheten**. Den andra enheten, **lowerLayerDevice**, representerar en enhet i den nedre nivån i hierarkin, som inte kan ansluta direkt till molnet. Enheten kommer även att kallas för den **underordnade enheten**. Du kan lägga till ytterligare lägre lager enheter för att representera produktions miljön. Konfigurationen av ytterligare lägre lager enheter kommer att följa **lowerLayerDevice**-konfigurationen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill skapa en hierarki med IoT Edge enheter behöver du:
 
@@ -53,7 +53,7 @@ Om du vill skapa en hierarki med IoT Edge enheter behöver du:
 * Två Linux-enheter kan konfigureras som IoT Edge enheter. Om du inte har tillgängliga enheter kan du använda [Azure Virtual Machines](../virtual-machines/linux/index.yml).
 * Ett Azure-konto med en giltig prenumeration. Om du inte har en [Azure-prenumeration](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * En kostnads fri eller standard nivå [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) i Azure.
-* Azure CLI v 2.3.1 med Azure IoT-tillägget v 0.10.6 eller senare installerat. I den här självstudien används [Azure Cloud Shell](../cloud-shell/overview.md). Om du inte känner till Azure Cloud Shell kan du [titta på en snabb start för mer information](./quickstart-linux.md#use-azure-cloud-shell).
+* Azure CLI v 2.3.1 med Azure IoT-tillägget v 0.10.6 eller senare installerat. I den här självstudien används [Azure Cloud Shell](../cloud-shell/overview.md). Om du inte känner till Azure Cloud Shell kan du [titta på en snabb start för mer information](./quickstart-linux.md#prerequisites).
 
 Du kan också testa det här scenariot genom att följa exemplet med skript [Azure IoT Edge för industriella IoT-exempel](https://aka.ms/iotedge-nested-sample), som distribuerar virtuella Azure-datorer som förkonfigurerade enheter för att simulera en fabriks miljö.
 
@@ -311,7 +311,7 @@ I [Azure Portal](https://ms.portal.azure.com/):
 
 1. Lägg till följande miljövariabler i din Edge Hub-modul:
 
-    | Name | Värde |
+    | Namn | Värde |
     | - | - |
     | `experimentalFeatures__enabled` | `true` |
     | `experimentalFeatures__nestedEdgeEnabled` | `true` |
@@ -324,7 +324,7 @@ I [Azure Portal](https://ms.portal.azure.com/):
 
 1. Under fliken miljövariabler anger du följande Miljövariabelns namn-värde-par:
 
-    | Name | Värde |
+    | Namn | Värde |
     | - | - |
     | `REGISTRY_PROXY_REMOTEURL` | `https://mcr.microsoft.com` |
 
@@ -482,7 +482,7 @@ I [Azure Portal](https://ms.portal.azure.com/):
 
 1. Lägg till följande miljövariabler i din Edge Hub-modul:
 
-    | Name | Värde |
+    | Namn | Värde |
     | - | - |
     | `experimentalFeatures__enabled` | `true` |
     | `experimentalFeatures__nestedEdgeEnabled` | `true` |

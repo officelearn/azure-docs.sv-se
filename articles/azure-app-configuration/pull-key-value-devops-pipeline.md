@@ -7,18 +7,18 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 15810e65873c685565ccaad6c2dcdc1707713f2c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1c28b4e9821f31f927ef4f640aa664d330cf8792
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182656"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571002"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Hämta inställningar till app-konfiguration med Azure-pipeline
 
 Den [Azure App konfigurations](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task) aktiviteten hämtar nyckel värden från appens konfigurations Arkiv och anger dem som Azure pipeline-variabler, som kan användas av efterföljande uppgifter. Den här uppgiften kompletterar den [Azure App push](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push) -aktivitet för konfiguration som skickar nyckel värden från en konfigurations fil till konfigurations arkivet för appen. Mer information finns i [push-inställningar för att konfigurera appar med Azure-pipeliner](push-kv-devops-pipeline.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - Konfigurations Arkiv för app – skapa ett kostnads fritt i [Azure Portal](https://portal.azure.com).
@@ -27,7 +27,7 @@ Den [Azure App konfigurations](https://marketplace.visualstudio.com/items?itemNa
 
 ## <a name="create-a-service-connection"></a>Skapa en tjänst anslutning
 
-Med en tjänst anslutning kan du komma åt resurser i din Azure-prenumeration från ditt Azure DevOps-projekt.
+Med en [tjänst anslutning](/azure/devops/pipelines/library/service-endpoints) kan du komma åt resurser i din Azure-prenumeration från ditt Azure DevOps-projekt.
 
 1. I Azure DevOps går du till projektet som innehåller din mål-pipeline och öppnar **projekt inställningarna** längst ned till vänster.
 1. Under **pipelines** väljer du **tjänst anslutningar**.
@@ -108,7 +108,7 @@ Värdet skrivs då till-konsolen.
 
 Om ett oväntat fel inträffar kan fel söknings loggar aktive ras genom att ställa in pipeline-variabeln `system.debug` till `true` .
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Hur gör jag för att skriva min konfiguration från flera nycklar och etiketter?**
 

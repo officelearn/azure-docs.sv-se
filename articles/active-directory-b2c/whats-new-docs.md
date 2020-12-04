@@ -1,7 +1,7 @@
 ---
 title: Vad är nytt i Azure Active Directory Business-to-kund (B2C)
 description: Ny och uppdaterad dokumentation för Azure Active Directory B2C (Business-to-Customer).
-ms.date: 11/10/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,23 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: f89537d1e221ecc9a871343e863f021723965239
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 4c204ec33604ff5edd1551f9728c28e3dcab9a61
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550104"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571087"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: Vad är nytt
 
 Välkommen till nyheter i Azure Active Directory B2C-dokumentationen. Den här artikeln innehåller nya dokument som har lagts till och de som har haft betydande uppdateringar under de senaste tre månaderna. Information om vad som är nytt med B2C-tjänsten finns i [Nyheter i Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="november-2020"></a>November 2020
+
+### <a name="updated-articles"></a>Uppdaterade artiklar
+- [Övervaka Azure AD B2C med Azure Monitor](azure-monitor.md)
+- [Självstudie: aktivera autentisering i ett program med en sida med Azure AD B2C](tutorial-single-page-app.md)
+
 
 ## <a name="october-2020"></a>Oktober 2020
 

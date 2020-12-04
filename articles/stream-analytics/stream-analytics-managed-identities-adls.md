@@ -7,14 +7,14 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: b20391c4d856a5c52b6017ae892ec0b86873dbca
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 82c5a246dca69c0723394e41058c4fc123bbb84e
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491893"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571954"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autentisera Stream Analytics för att Azure Data Lake Storage Gen1 med hanterade identiteter
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autentisera Stream Analytics för att Azure Data Lake Storage Gen1 med hanterade identiteter (för hands version)
 
 Azure Stream Analytics stöder gen1-utdata (Managed Identity Authentication) med Azure Data Lake Storage (ADLS). Identiteten är ett hanterat program som är registrerat i Azure Active Directory som representerar ett angivet Stream Analytics jobb och som kan användas för att autentisera till en mål resurs. Hanterade identiteter eliminerar begränsningar för användarbaserade autentiseringsmetoder, som att behöva autentisera på grund av lösen ords ändringar eller förfallo datum för användar-token som inträffar var 90: e dag. Dessutom kan hanterade identiteter hjälpa till med automatisering av Stream Analytics jobb distributioner som utdata till Azure Data Lake Storage Gen1.
 
@@ -34,7 +34,7 @@ Den här artikeln visar tre sätt att aktivera hanterad identitet för ett Azure
 
    ![Stream Analytics tjänstens huvud namns-ID](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
  
-   Tjänstens huvud namn har samma namn som Stream Analyticss jobbet. Om namnet på ditt jobb till exempel är **MyASAJob** , är namnet på det skapade tjänst huvud namnet också **MyASAJob**.
+   Tjänstens huvud namn har samma namn som Stream Analyticss jobbet. Om namnet på ditt jobb till exempel är **MyASAJob**, är namnet på det skapade tjänst huvud namnet också **MyASAJob**.
 
 3. I fönstret utmatnings egenskaper i ADLS Gen1 utgående mottagare klickar du på list rutan autentiseringsläge och väljer * * hanterad identitet * *.
 
@@ -84,7 +84,7 @@ Den här artikeln visar tre sätt att aktivera hanterad identitet för ett Azure
 
    * Ange **Skriv** -och **körnings** behörigheter automatiskt för ADLS gen1 sökväg för prefix som används i jobbet och tilldela den till den här mappen och alla underordnade.
 
-5. Du kan skapa Resource Manager-mallar med följande egenskap med hjälp av [Stream Analytics CI. CD NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) version 1.5.0 eller senare på en build-dator (utanför Visual Studio). Följ distributions stegen i Resource Manager-mallen i nästa avsnitt för att hämta tjänstens huvud namn och bevilja åtkomst till tjänstens huvud namn via PowerShell.
+5. Du kan skapa Resource Manager-mallar med följande egenskap med hjälp av [Stream Analytics CI.CD NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) version 1.5.0 eller senare på en build-dator (utanför Visual Studio). Följ distributions stegen i Resource Manager-mallen i nästa avsnitt för att hämta tjänstens huvud namn och bevilja åtkomst till tjänstens huvud namn via PowerShell.
 
 ## <a name="resource-manager-template-deployment"></a>Distribution av Resource Manager-mall
 
@@ -182,9 +182,9 @@ Den hanterade identitet som skapats för ett Stream Analytics jobb tas bara bort
 ## <a name="limitations"></a>Begränsningar
 Den här funktionen har inte stöd för följande:
 
-1. **Åtkomst till flera klienter** : tjänstens huvud namn som skapats för ett angivet Stream Analytics jobb finns på den Azure Active Directory klient som jobbet skapades på och kan inte användas mot en resurs som finns på en annan Azure Active Directory-klient. Därför kan du bara använda MSI på ADLS gen 1-resurser som är inom samma Azure Active Directory-klient som ditt Azure Stream Analytics-jobb. 
+1. **Åtkomst till flera klienter**: tjänstens huvud namn som skapats för ett angivet Stream Analytics jobb finns på den Azure Active Directory klient som jobbet skapades på och kan inte användas mot en resurs som finns på en annan Azure Active Directory-klient. Därför kan du bara använda MSI på ADLS gen 1-resurser som är inom samma Azure Active Directory-klient som ditt Azure Stream Analytics-jobb. 
 
-2. **[Användarens tilldelade identitet](../active-directory/managed-identities-azure-resources/overview.md)** : stöds inte. Det innebär att användaren inte kan ange sitt eget tjänst huvud namn som ska användas av deras Stream Analytics-jobb. Tjänstens huvud namn genereras av Azure Stream Analytics.
+2. **[Användarens tilldelade identitet](../active-directory/managed-identities-azure-resources/overview.md)**: stöds inte. Det innebär att användaren inte kan ange sitt eget tjänst huvud namn som ska användas av deras Stream Analytics-jobb. Tjänstens huvud namn genereras av Azure Stream Analytics.
 
 ## <a name="next-steps"></a>Nästa steg
 

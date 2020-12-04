@@ -6,16 +6,16 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: f14ded89ad294abbfaf9861e5f4caf17dd82fb98
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: f1aad2464e4979ecbf35deceaad4de70e05b3004
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490720"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573671"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Använd hanterad identitet för att autentisera ditt Azure Stream Analytics jobb till Azure Blob Storage utdata
+# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Använd hanterad identitet (förhands granskning) för att autentisera ditt Azure Stream Analytics jobb till Azure Blob Storage utdata
 
-Med [hanterad identitets autentisering](../active-directory/managed-identities-azure-resources/overview.md) för utdata till Azure Blob storage får Stream Analytics-jobb direkt åtkomst till ett lagrings konto i stället för att använda en anslutnings sträng. Förutom förbättrad säkerhet kan du också använda den här funktionen för att skriva data till ett lagrings konto i en Virtual Network (VNET) i Azure.
+[Managed Identity Authentication](../active-directory/managed-identities-azure-resources/overview.md) (för hands version) för utdata till Azure Blob storage ger Stream Analytics-jobb direkt åtkomst till ett lagrings konto i stället för att använda en anslutnings sträng. Förutom förbättrad säkerhet kan du också använda den här funktionen för att skriva data till ett lagrings konto i en Virtual Network (VNET) i Azure.
 
 Den här artikeln visar hur du aktiverar hanterad identitet för BLOB-utdata för ett Stream Analytics jobb via Azure Portal och via en Azure Resource Manager-distribution.
 

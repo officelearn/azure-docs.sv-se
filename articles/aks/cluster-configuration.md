@@ -2,16 +2,16 @@
 title: Kluster konfiguration i Azure Kubernetes Services (AKS)
 description: Lär dig hur du konfigurerar ett kluster i Azure Kubernetes service (AKS)
 services: container-service
-ms.topic: conceptual
+ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 88774450fb196da5de24bcad047ecdb8c424f653
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: dcd9ec52992da8037bb498dc09701879c4c94667
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736546"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572583"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurera ett AKS-kluster
 
@@ -302,7 +302,7 @@ När du arbetar med resurs gruppen för noden bör du tänka på att du inte kan
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du använder `Kured` för att [tillämpa säkerhets-och kernel-uppdateringar på Linux-noder](node-updates-kured.md) i klustret.
+- Lär dig hur [du uppgraderar nodens avbildningar](node-image-upgrade.md) i klustret.
 - Se [uppgradera ett Azure Kubernetes service (AKS)-kluster](upgrade-cluster.md) för att lära dig hur du uppgraderar klustret till den senaste versionen av Kubernetes.
 - Läs mer om [ `containerd` och Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - I listan med [vanliga frågor och svar om AKS](faq.md) hittar du svar på några vanliga frågor om AKS.

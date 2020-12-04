@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 43b03abb2aac13358a2187a0a5dc570c1e45934e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c612e2a95e2596b2732ed8282037c8ded908a0a0
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458490"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571393"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Djup inlärning jämfört med Machine Learning i Azure Machine Learning
 
@@ -93,8 +93,6 @@ Text analys som bygger på djup inlärnings metoder innebär analys av stora mä
 
 Företag använder djup inlärning för att utföra text analyser för att identifiera insider handel och efterlevnad med myndighets bestämmelser. Ett annat vanligt exempel är försäkrings bedrägerier: text analys har ofta använts för att analysera stora mängder dokument för att identifiera sannolikheten för ett försäkrings anspråk som bedrägerier. 
 
-Lär dig hur du använder en TensorFlow-modell i Azure Machine Learning: [klassificera handskrivna siffror med hjälp av en TensorFlow-modell](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri)
-
 ## <a name="artificial-neural-networks"></a>Artificiell neurala-nätverk
 
 Artificiell neurala-nätverk bildas av lager av anslutna noder. I djup inlärnings modeller används neurala-nätverk som har ett stort antal lager. 
@@ -118,6 +116,9 @@ Ett (convolutional neurala-nätverk är ett särskilt effektivt artificiellt neu
 ## <a name="next-steps"></a>Nästa steg
 
 I följande artiklar visas fler alternativ för att använda djup inlärnings modeller med öppen källkod i [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri):
+
+
+- [Klassificera handskrivna siffror med hjälp av en TensorFlow-modell](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) 
 
 - [Klassificera handskrivna siffror med en TensorFlow-uppskattning och keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 

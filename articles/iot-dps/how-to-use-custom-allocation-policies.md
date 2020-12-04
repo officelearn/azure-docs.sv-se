@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 9db4328ce6519bef05017ba697d8f0f029f2096a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 26615b82bb9dcbc1247bec9b7a06b579dfa1eb2b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967422"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571648"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Så här använder du anpassade allokeringsprinciper
 
@@ -44,11 +44,11 @@ Du utför följande steg i den här artikeln:
 
 Följande förutsättningar gäller för en Windows-utvecklings miljö. För Linux eller macOS, se lämpligt avsnitt i [förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) i SDK-dokumentationen.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 med arbets belastningen ["Skriv bords utveckling med C++"](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) aktiverat. Visual Studio 2015 och Visual Studio 2017 stöds också.
+- [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 med arbets belastningen ["Skriv bords utveckling med C++"](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) aktiverat. Visual Studio 2015 och Visual Studio 2017 stöds också.
 
-* Senaste versionen av [Git](https://git-scm.com/download/) installerad.
+- Senaste versionen av [Git](https://git-scm.com/download/) installerad.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-the-provisioning-service-and-two-divisional-iot-hubs"></a>Skapa etablerings tjänsten och två avdelnings IoT-hubbar
 

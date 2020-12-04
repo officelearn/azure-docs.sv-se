@@ -16,12 +16,12 @@ ms.custom:
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: cf1c558474cfde85dd2c9ba8c85dc553fe5d9b56
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1eead9bb93fe8b753ace518cde18b240ab1a3cd4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547511"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572685"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Självstudier: Använda en simulerad enhet för att testa anslutningen till din IoT-hubb
 
@@ -36,15 +36,7 @@ I den här guiden får du lära dig att:
 > * Kontrollera anslutningen moln till enhet
 > * Kontrollera dubbelsynkronisering
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="prerequisites"></a>Förutsättningar
-
-CLI-skript som du kör i den här självstudiekursen använder [Microsoft Azure IoT-tillägg för Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Kör följande CLI-kommando om du vill installera tillägget:
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -72,21 +64,21 @@ Om du har skapat en IoT Hub på kostnadsfri eller standardnivå i en föregåend
 
 En enhet måste autentiseras mot din hubb innan den kan utbyta data med hubben. Du kan använda verktyget **IoT-enheter** -verktyget i området **enhetshantering** i portalen för att hantera dina enheter och kontrollera de autentiseringsnycklar som de använder. I denna del av kursen lägger du till en ny testenhet, tar emot dess nyckel och kontrollerar att en testenhet kan anslutas till hubben. Senare kan du återställa autentiseringsnyckeln om du vill se vad som händer när en enhet försöker använda en inaktuell nyckel. Det här avsnittet av kursen använder Azure-portalen för att skapa, hantera och övervaka en enhet och exempelenhetssimulatorn Node.js.
 
-Logga in på portalen och gå till IoT-hubben. Gå sedan till verktyget **IoT-enheter** :
+Logga in på portalen och gå till IoT-hubben. Gå sedan till verktyget **IoT-enheter**:
 
 ![Verktyget IoT-enheter](media/tutorial-connectivity/iot-devices-tool.png)
 
-Om du vill registrera en ny enhet klickar du på **+ Lägg till** , ange **MyTestDevice** som **enhets-ID** och klicka på **Spara** :
+Om du vill registrera en ny enhet klickar du på **+ Lägg till**, ange **MyTestDevice** som **enhets-ID** och klicka på **Spara**:
 
 ![Lägg till en ny enhet](media/tutorial-connectivity/add-device.png)
 
-För att hämta anslutningssträngen för **MyTestDevice** , klicka på den i listan över enheter och kopiera sedan värdet **sträng-primär anslutningsnyckel** . Anslutningssträngen innehåller den *delade åtkomstnyckeln* för enheten.
+För att hämta anslutningssträngen för **MyTestDevice**, klicka på den i listan över enheter och kopiera sedan värdet **sträng-primär anslutningsnyckel**. Anslutningssträngen innehåller den *delade åtkomstnyckeln* för enheten.
 
 ![Hämta enhetens anslutningssträng](media/tutorial-connectivity/copy-connection-string.png)
 
 För att simulera när **MyTestDevice** skickar telemetri till din IoT-hubb kan du köra den Node.js simulerade enheten programmet du hämtade tidigare.
 
-Navigera till rotmappen för Node.js-exempelprojektet som du hämtade i ett terminalfönster på din utvecklingsdator. Gå sedan till mappen **iot-hub\Tutorials\ConnectivityTests** .
+Navigera till rotmappen för Node.js-exempelprojektet som du hämtade i ett terminalfönster på din utvecklingsdator. Gå sedan till mappen **iot-hub\Tutorials\ConnectivityTests**.
 
 Installera de bibliotek som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i terminalfönstret. Använd enhetsanslutningssträngen som du antecknade när du lade till enheten i portalen.
 
@@ -105,7 +97,7 @@ Du har nu autentiserats från en enhet med en enhetsnyckel som har genererats av
 
 I det här avsnittet får du återställa enhetsnyckeln och se felet när den simulerade enheten försöker ansluta.
 
-För att återställa nyckeln för primära enheten för **MyTestDevice** , kör följande kommandon:
+För att återställa nyckeln för primära enheten för **MyTestDevice**, kör följande kommandon:
 
 ```azurecli-interactive
 # Generate a new Base64 encoded key using the current date
@@ -146,7 +138,7 @@ az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubNam
 
 Anteckna den fullständiga texten i din genererade SAS-token. En SAS-token ser ut så här: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
-Navigera till rotmappen för Node.js-exempelprojektet som du hämtade i ett terminalfönster på din utvecklingsdator. Gå sedan till mappen **iot-hub\Tutorials\ConnectivityTests** .
+Navigera till rotmappen för Node.js-exempelprojektet som du hämtade i ett terminalfönster på din utvecklingsdator. Gå sedan till mappen **iot-hub\Tutorials\ConnectivityTests**.
 
 Installera de bibliotek som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i terminalfönstret:
 
@@ -200,7 +192,7 @@ Terminalfönstret visar information när det skickar telemetri till din hubb:
 
 ![Simulerade enhet som skickar meddelanden](media/tutorial-connectivity/sim-3-sending.png)
 
-Du kan använda **mått** i portalen för att kontrol lera att telemetri-meddelandena når din IoT Hub. Välj IoT-hubb i listrutan **Resurs** , välj **Skickade telemetrimeddelanden** som mått och ange **Senaste timmen** som tidsintervall. Diagrammet visar det sammanlagda antalet meddelanden som har skickats av den simulerade enheten:
+Du kan använda **mått** i portalen för att kontrol lera att telemetri-meddelandena når din IoT Hub. Välj IoT-hubb i listrutan **Resurs**, välj **Skickade telemetrimeddelanden** som mått och ange **Senaste timmen** som tidsintervall. Diagrammet visar det sammanlagda antalet meddelanden som har skickats av den simulerade enheten:
 
 ![Visa mått för IoT-hubb](media/tutorial-connectivity/metrics-portal.png)
 
@@ -228,7 +220,7 @@ Den simulerade enheten skriver ut ett meddelande till konsolen när den tar emot
 
 När den simulerade enheten tar emot ett direkt metodanrop skickar den en bekräftelse till hubben:
 
-![Ta emot bekräftelse för direktmetod](media/tutorial-connectivity/method-acknowledgement.png)
+![Ta emot bekräftelse av direkt metod](media/tutorial-connectivity/method-acknowledgement.png)
 
 ## <a name="check-twin-synchronization"></a>Kontrollera dubbelsynkronisering
 
@@ -266,7 +258,7 @@ Förutom att ta emot önskade egenskapsändringar när de har utförts, söker s
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte behöver IoT-hubben längre kan du ta bort den och resursgruppen i portalen. Det gör du genom att markera **tutorials-iot-hub-rg** -resursgruppen som innehåller din IoT-hubb och klicka på **Ta bort** .
+Om du inte behöver IoT-hubben längre kan du ta bort den och resursgruppen i portalen. Det gör du genom att markera **tutorials-iot-hub-rg**-resursgruppen som innehåller din IoT-hubb och klicka på **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/23/2020
+ms.date: 12/03/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 29033cbabfcfa00c9f8458cbc161af67df5806cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21b1004a347dec3a7f2a6460d8b853350bf36ff0
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325971"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571053"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Datorer med hög prestanda beräknings storlek
 
@@ -40,7 +40,7 @@ De flesta av de virtuella HPC-datorernas storlekar (HBv2, HB, HC, H16r, H16mr, A
 Med det här gränssnittet kan de RDMA-kompatibla instanserna kommunicera över ett InfiniBand-nätverk (IB) till HDR-priser för HBv2, EDR priser för HB, HC, NDv2, FDR-priser för H16r, H16mr och andra RDMA-kompatibla N-seriens virtuella datorer och QDR priser för A8-och A9-datorer. Dessa RDMA-funktioner kan öka skalbarheten och prestandan för vissa MPI-program (Message Passing Interface).
 
 > [!NOTE]
-> I Azure HPC finns det två typer av virtuella datorer beroende på om de är SR-IOV-aktiverade för InfiniBand. SR-IOV för InfiniBand-aktiverade virtuella datorer är för närvarande: HBv2, HB, HC, NCv3 och NDv2. Resten av de InfiniBand-aktiverade virtuella datorerna är inte SR-IOV aktiverat för närvarande.
+> I Azure HPC finns det två typer av virtuella datorer beroende på om de är SR-IOV-aktiverade för InfiniBand. För närvarande är nästan alla nyare generationerna RDMA-kompatibla eller InfiniBand-aktiverade virtuella datorer i Azure SR-IOV-aktiverade, förutom H16r, H16mr, NC24r, A8, A9.
 > RDMA är bara aktiverat över InfiniBand-nätverket (IB) och stöds för alla RDMA-kompatibla virtuella datorer.
 > IP över IB stöds endast på de virtuella SR-IOV-datorer som är aktiverade.
 > RDMA är inte aktiverat över Ethernet-nätverket.
@@ -55,7 +55,7 @@ Med det här gränssnittet kan de RDMA-kompatibla instanserna kommunicera över 
 
    Om du vill lägga till ett VM-tillägg i en virtuell dator kan du använda [Azure PowerShell](/powershell/azure/) -cmdletar. Mer information finns i [tillägg och funktioner för virtuella datorer](./extensions/overview.md). Du kan också arbeta med tillägg för virtuella datorer som distribueras i den [klassiska distributions modellen](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
-- **MPI** – SR-IOV-aktiverade VM-storlekar på Azure (HBV2, HB, HC, NCv3, NDv2) gör att du kan använda nästan vilken smak av MPI som ska användas med Mellanox ofed. På virtuella datorer som inte är SR-IOV-aktiverade använder MPI-implementeringar som stöds av Microsoft Network Direct (ND)-gränssnittet för att kommunicera mellan virtuella datorer. Därför stöds endast Microsoft MPI (MS-MPI) 2012 R2 eller senare och Intel MPI 5. x-versioner. Senare versioner (2017, 2018) av Intel MPI runtime-biblioteket kan vara kompatibla med Azure RDMA-drivrutinerna. Se [installations MPI för HPC](./workloads/hpc/setup-mpi.md) för mer information om hur du konfigurerar MPI på virtuella HPC-datorer i Azure.
+- **MPI** – SR-IOV-aktiverade VM-storlekar i Azure tillåter nästan vilken smak av MPI som ska användas med Mellanox ofed. På virtuella datorer som inte är SR-IOV-aktiverade använder MPI-implementeringar som stöds av Microsoft Network Direct (ND)-gränssnittet för att kommunicera mellan virtuella datorer. Därför stöds endast Microsoft MPI (MS-MPI) 2012 R2 eller senare och Intel MPI 5. x-versioner. Senare versioner (2017, 2018) av Intel MPI runtime-biblioteket kan vara kompatibla med Azure RDMA-drivrutinerna. Se [installations MPI för HPC](./workloads/hpc/setup-mpi.md) för mer information om hur du konfigurerar MPI på virtuella HPC-datorer i Azure.
 
 - **RDMA-nätverkets adress utrymme** – RDMA-nätverket i Azure reserverar adress utrymmet 172.16.0.0/16. Om du vill köra MPI-program på instanser som har distribuerats i ett virtuellt Azure-nätverk kontrollerar du att det virtuella nätverkets adress utrymme inte överlappar RDMA-nätverket.
 

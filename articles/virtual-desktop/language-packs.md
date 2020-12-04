@@ -3,15 +3,15 @@ title: Installera språk paket på virtuella Windows 10-datorer i Windows Virtua
 description: Så här installerar du språk paket för Windows 10-virtuella datorer med flera sessioner i Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 12/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 10d79d08e3f6ed422f0354074ebc6e0acc125553
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ca4b5486b54de28497ea41765337bfa19f12e3d7
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94354044"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573127"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Lägga till språk paket i en Windows 10-avbildning för flera sessioner
 
@@ -24,7 +24,7 @@ Det finns två sätt som du kan använda för att hantera användarnas språk be
 
 Den sistnämnda metoden är mycket mer effektiv och kostnads effektiv. Det är dock upp till dig att bestämma vilken metod som passar bäst för dina behov. I den här artikeln får du lära dig hur du anpassar språk för dina avbildningar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att anpassa dina Windows 10 Enterprise multi-session-avbildningar för att lägga till flera språk:
 
@@ -34,20 +34,24 @@ Du behöver följande för att anpassa dina Windows 10 Enterprise multi-session-
      
      - Språk-ISO:
         - [Windows 10, version 1903 eller 1909 språk paket ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
-        - [Windows 10, version 2004 språk paket ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
+        - [Windows 10, version 2004 eller 20H2 språk paket ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
 
      - Franska departements disk 1 ISO:
         - [Windows 10, version 1903 eller 1909 franska departements disk 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
-        - [Windows 10, version 2004 FRANSKAs disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+        - [Windows 10, version 2004 eller 20H2 DEPARTEMENTs disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         
      - Inkorg-appar ISO:
         - [Inbox-appar för Windows 10, version 1903 eller 1909 i ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
         - [Windows 10, version 2004 Inbox-appar ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
         - [Windows 10, version 20H2 Inbox-appar ISO](https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso)
      
-     - Om du använder Windows 10, version 2004 eller 20H2 kan du använda LXP-ISO (Local Experience Pack) för att hämta nya språk. Använd informationen för [att lägga till språk i Windows 10: kända problem](/windows-hardware/manufacture/desktop/language-packs-known-issue) för att ta reda på om du ska hämta version 9b eller 9c:
-        - [Windows 10, version 2004 eller 20H2 **9b** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
-        - [Windows 10, version 2004 eller 20H2 **9c** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY) 
+     - Om du använder ISO-filer för lokala Experience Pack (LXP) för att lokalisera dina avbildningar måste du också hämta rätt LXP ISO för bästa språk upplevelsen
+        - Om du använder Windows 10, version 1903 eller 1909:
+          - [Windows 10, version 1903 eller 1909 LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_1903_32_64_ARM64_MultiLng_LngPkAll_LXP_ONLY.iso)
+        - Om du använder Windows 10, version 2004 eller 20H2, använder du informationen i [lägga till språk i Windows 10: kända problem](/windows-hardware/manufacture/desktop/language-packs-known-issue) för att ta reda på vilka av följande LXP ISO passar dig:
+          - [Windows 10, version 2004 eller 20H2 **9b** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
+          - [Windows 10, version 2004 eller 20H2 **9c** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY)
+          - [Windows 10, version 2004 eller 20H2 **10C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
 
 - En Azure Files resurs eller en fil resurs på en virtuell Windows-fil Server
 
@@ -64,7 +68,7 @@ Så här skapar du innehålls lagrings platsen för språk paket och FODs och en
 
 3. Gå till språk paketet ISO och kopiera innehållet från mappen **LocalExperiencePacks** och **x64 \\ Langpacks** och klistra in innehållet i fil resursen.
 
-4. Gå till **ISO-filen med franska** , kopiera allt innehåll och klistra in den i fil resursen.
+4. Gå till **ISO-filen med franska**, kopiera allt innehåll och klistra in den i fil resursen.
 5. Gå till mappen **amd64fre** i Inkorgen appar i ISO och kopiera innehållet i lagrings platsen för de Inbox-appar som du har för berett.
 
      >[!NOTE]

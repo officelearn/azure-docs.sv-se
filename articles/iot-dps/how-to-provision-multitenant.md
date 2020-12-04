@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: bcdda8d1bd08a26dcdbec294be88fd4540670596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0c132d1aa7a37dc8e7620352bb7b9a078d79a09
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531431"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571614"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Så här etablerar du för flera klientorganisationer 
 
@@ -36,13 +36,10 @@ I den här artikeln används ett simulerat enhets exempel från [Azure IoT C SDK
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* [Konfigurations IoT Hub Device Provisioning service har](./quick-setup-auto-provision.md) slutförts med snabb starten för Azure Portal.
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- [Konfigurations IoT Hub Device Provisioning service har](./quick-setup-auto-provision.md) slutförts med snabb starten för Azure Portal.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-two-regional-iot-hubs"></a>Skapa två regionala IoT-hubbar
 
@@ -89,7 +86,7 @@ För enkelhetens skull använder den här artikeln [symmetrisk nyckel attesterin
 
 2. Välj fliken **Hantera registreringar** och klicka sedan på knappen **Lägg till registrerings grupp** överst på sidan. 
 
-3. I **Lägg till registrerings grupp**anger du följande information och klickar på knappen **Spara** .
+3. I **Lägg till registrerings grupp** anger du följande information och klickar på knappen **Spara** .
 
     **Grupp namn**: ange **contoso-US-Devices**.
 
@@ -102,7 +99,7 @@ För enkelhetens skull använder den här artikeln [symmetrisk nyckel attesterin
     ![Lägg till registrerings grupp för flera innehavare för symmetrisk nyckel attestering](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
 
-4. I **Lägg till registrerings grupp**klickar du på **Länka en ny IoT-hubb** för att länka båda dina regionala hubbar.
+4. I **Lägg till registrerings grupp** klickar du på **Länka en ny IoT-hubb** för att länka båda dina regionala hubbar.
 
     **Prenumeration**: om du har flera prenumerationer väljer du den prenumeration där du skapade de regionala IoT-hubbarna.
 
@@ -191,7 +188,7 @@ För att göra rensningen enklare kommer de virtuella datorerna att läggas till
 
 I det här avsnittet ska du klona Azure IoT C SDK på varje virtuell dator. SDK: n innehåller ett exempel som simulerar en klients enhets etablering från varje region.
 
-1. För varje virtuell dator installerar du **cmake**, **g + +**, **gcc**och [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) med följande kommandon:
+1. För varje virtuell dator installerar du **cmake**, **g + +**, **gcc** och [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) med följande kommandon:
 
     ```bash
     sudo apt-get update

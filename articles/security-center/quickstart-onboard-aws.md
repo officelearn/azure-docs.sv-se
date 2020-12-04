@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 7aa65cb8e37ce48a59c276fdf2631f75397d3236
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 23609613cace2f9be90ad5c88d4d51bb1c2f1a9b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122515"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573518"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Anslut dina AWS-konton till Azure Security Center
 
@@ -48,6 +48,8 @@ I skärm bilden nedan ser du AWS-konton som visas på instrument panelen i Secur
 
 
 ## <a name="connect-your-aws-account"></a>Anslut ditt AWS-konto
+
+Följ stegen nedan för att skapa din AWS Cloud Connector. 
 
 ### <a name="step-1-set-up-aws-security-hub"></a>Steg 1. Konfigurera AWS Security Hub:
 
@@ -160,7 +162,7 @@ AWS Systems Manager krävs för att automatisera uppgifter över dina AWS-resurs
 
         Lär dig mer om Azure-Taggar i [use-taggar för att organisera dina Azure-resurser och-hanterings hierarkier](../azure-resource-manager/management/tag-resources.md).
 
-### <a name="step-7-confirmation"></a>Steg 7. Bekräftelse
+### <a name="step-6-confirmation"></a>Steg 6. Bekräftelse
 
 När anslutningen har skapats och AWS-säkerhetshubben har kon figurer ATS korrekt:
 

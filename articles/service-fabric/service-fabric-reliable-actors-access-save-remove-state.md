@@ -1,17 +1,15 @@
 ---
 title: Hantera Azure Service Fabric-tillstånd
 description: Lär dig mer om att komma åt, Spara och ta bort tillstånd för Azure Service Fabric Reliable skådespelare och överväganden när du skapar ett program.
-author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e97fadb374fc45110f5071aab48da0a57eef4284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e796232719342883efc2aa5dd377d586f3039ad
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012797"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571325"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Åtkomst, Spara och ta bort Reliable Actors tillstånd
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) är entrådade objekt som kan kapsla in både logik och tillstånd och bevara tillstånd på ett tillförlitligt sätt. Varje aktörs instans har sin egen [tillstånds ansvarig](service-fabric-reliable-actors-state-management.md): en ord lista som är en data struktur som på ett tillförlitligt sätt lagrar nyckel/värde-par. Tillstånds hanteraren är en omslutning runt en tillstånds leverantör. Du kan använda den för att lagra data oavsett vilken [beständighets inställning](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) som används.

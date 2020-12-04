@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: bcb8cc6da3d2fc631058386103575549e376a32c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4e256d97d055b56df8c917c841416e5c7eb52465
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452157"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573535"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planera ett Azure Application erbjudande för den kommersiella marknads platsen
 
@@ -121,7 +121,7 @@ När du skapar ett nytt Azure Application erbjudande i Partner Center, kommer du
 5. Sekretess policy adress (länk)
 6. Erbjudandets namn
 7. Sammanfattning
-8. Description
+8. Beskrivning
 9. Skärm bilder/videor
 
 Följande skärm bild visar hur information om erbjudandet visas i Azure Portal:
@@ -177,7 +177,7 @@ För att hjälpa till att skapa ett erbjudande enklare kan du förbereda några 
   - . png-fil
   - Måste innehålla en beskrivning
 - **Media – videor** (valfritt): du kan lägga till upp till fem videor med följande krav som demonstrerar ditt erbjudande:
-  - Name
+  - Namn
   - URL: måste vara värd för YouTube eller Vimeo.
   - Miniatyr: 1280 x 720. png-fil
 
@@ -210,7 +210,7 @@ Den här konfigurationen krävs om du vill använda [händelsen för batch-anvä
 Du kan välja att välja mellan marknadsförings-och försäljnings kanaler som stöds av Microsoft. När du skapar erbjudandet i Partner Center visas två flikar i slutet av processen:
 
 - Att **sälja via CSP**: Använd det här alternativet om du vill att CSP-partner (Microsoft Cloud solution providers) ska kunna sälja din lösning som en del av ett sammanslaget erbjudande. Mer information finns i [Cloud Solution Provider-programmet](./cloud-solution-providers.md) .
-- **Samförsäljning med Microsoft: med** det här alternativet kan Microsofts försäljnings team överväga din IP-samkunds kvalificerade lösning vid utvärdering av kundernas behov. Se [samförsäljnings alternativ i Partner Center](partner-center-portal/commercial-marketplace-co-sell.md) för detaljerad information om hur du förbereder erbjudandet för utvärdering. Mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner Channels finns i [moln lösnings leverantörer](cloud-solution-providers.md).
+- **Samförsäljning med Microsoft: med** det här alternativet kan Microsofts försäljnings team överväga din IP-samkunds kvalificerade lösning vid utvärdering av kundernas behov. Se [samförsäljnings alternativ i Partner Center](commercial-marketplace-co-sell.md) för detaljerad information om hur du förbereder erbjudandet för utvärdering. Mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner Channels finns i [moln lösnings leverantörer](cloud-solution-providers.md).
 
 Mer information finns i [utveckla din moln verksamhet med Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 

@@ -1,17 +1,15 @@
 ---
 title: Ta bort Azure Service Fabric-aktörer
 description: Lär dig hur du manuellt och helt tar bort Reliable Actors och deras tillstånd i ett Azure Service Fabric-program.
-author: amanbha
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: amanbha
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 80192aef564317e36fba56025aa31c787676d974
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16d4ab6a3c155f897cf9212fb1cd6c34d977b9ec
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006864"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574028"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Ta bort Reliable Actors och deras tillstånd
 Skräp insamling av inaktiverade aktörer rensar bara aktörs objekt, men tar inte bort data som lagras i en aktörs tillstånds hanterare. När en aktör återaktiveras, blir dess data återigen tillgängliga för den via tillstånds hanteraren. I de fall där aktörer lagrar data i tillstånds hanteraren och inaktive ras men aldrig återaktiveras, kan det vara nödvändigt att rensa data.

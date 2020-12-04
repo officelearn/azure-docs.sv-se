@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 2d041782e8df795acb120ba1357cec5ef204dc28
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 9032e4c04279d87bf4422d3a87d19fdbecec1a64
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656348"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571801"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
 
@@ -167,6 +167,9 @@ Nu bör du se all trafik som flödar genom proxyservern. Om du har problem bör 
 Det bästa sättet att identifiera och felsöka anslutnings problem är att ta en nätverks avbildning när du startar kopplings tjänsten. Här följer några snabba tips om att fånga och filtrera nätverks spår.
 
 Du kan använda valfritt övervaknings verktyg. I den här artikeln använde vi Microsoft Message Analyzer.
+
+> [!NOTE]
+> [Microsoft Message Analyzer (MMA) drogs](https://docs.microsoft.com/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) ned och hämtnings paketen togs bort från Microsoft.com-platser den 25 2019 november.  Det finns för närvarande ingen Microsoft-ersättning för Microsoft Message Analyzer i utvecklingen för tillfället.  För liknande funktioner kan du använda ett verktyg från tredje part för Network Protocol Analyzer, till exempel wireshark.
 
 Följande exempel är speciella för Message Analyzer, men principerna kan tillämpas på alla analys verktyg.
 

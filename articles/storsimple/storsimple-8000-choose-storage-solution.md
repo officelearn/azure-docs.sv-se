@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: e6f5bb1c2716acbbac8d3e776eb9beda045fd881
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f2de6dbba2548f0c281df35edf2883d0c00af667
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968748"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571921"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Jämföra StorSimple med dataöverföringsalternativen Azure File Sync och Data Box Edge 
 
@@ -33,7 +33,7 @@ Det här dokumentet innehåller en översikt över alternativ för lokal data ö
 |**Edge-beräkning** |Inte tillgänglig |Inte tillgänglig |Stöder körning av behållare med hjälp av Azure IoT Edge    |
 |**Form faktor**  |Fysisk enhet   |Agent som är installerad på Windows Server |Fysisk enhet   |
 |**Maskinvara**     |Fysisk enhet som tillhandahålls från Microsoft som en del av tjänsten | Kunden tillhandahöll |Fysisk enhet som tillhandahålls från Microsoft som en del av tjänsten  |
-|**Dataformat**  |Anpassat format   |Files         |Blobbar eller filer    |
+|**Dataformat**  |Anpassat format   |Filer         |Blobbar eller filer    |
 |**Protokoll stöd** |iSCSI          |SMB, NFS    | SMB eller NFS      |
 |**Prissättning**      |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 

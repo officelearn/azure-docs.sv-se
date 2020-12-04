@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 5f6d768e3d863d52cfc91beb799d86fcd854af16
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 791358fe6a9524e3275ed75ce34bdc86123f0ee0
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517639"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572362"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Windows-enhet
 
@@ -33,23 +33,23 @@ Den här snabb starten vägleder dig genom att skapa en virtuell Windows-dator o
 
 Om du inte har en aktiv Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Du kan använda Azure CLI för att utföra många av stegen i den här snabb starten. Azure IoT har ett tillägg för att aktivera ytterligare funktioner.
-
-Lägg till Azure IoT-tillägget till Cloud Shell-instansen.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
+
+Förbered din miljö för Azure CLI.
+
+- Använd [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell) med hjälp av PowerShell-miljön.
+
+   [![Inbäddad start](https://shell.azure.com/images/launchcloudshell.png "Starta Azure Cloud Shell")](https://shell.azure.com)   
+- Om du vill kan du i stället [installera](/cli/azure/install-azure-cli) Azure CLI för att köra CLI-referenskommandon.
+   - Om du använder en lokal installation loggar du in med Azure CLI med hjälp av kommandot [az login](/cli/azure/reference-index#az-login).  Slutför autentiseringsprocessen genom att följa stegen som visas i terminalen.  Fler inloggningsalternativ finns i [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli).
+  - När du uppmanas till det installerar du Azure CLI-tillägg vid första användning.  Mer information om tillägg finns i [Använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
+  - Kör [az version](/cli/azure/reference-index?#az_version) om du vill hitta versionen och de beroende bibliotek som är installerade. Om du vill uppgradera till den senaste versionen kör du [az upgrade](/cli/azure/reference-index?#az_upgrade).
 
 Molnresurser:
 
-* En resursgrupp som du använder för att hantera alla resurser i den här snabbstarten.
+- En resursgrupp som du använder för att hantera alla resurser i den här snabbstarten.
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
@@ -57,7 +57,7 @@ Molnresurser:
 
 IoT Edge-enhet:
 
-* En virtuell Windows-dator som fungerar som IoT Edge enhet. Du kan skapa den här virtuella datorn med följande kommando och ersätta `{password}` med ett säkert lösen ord:
+- En virtuell Windows-dator som fungerar som IoT Edge enhet. Du kan skapa den här virtuella datorn med följande kommando och ersätta `{password}` med ett säkert lösen ord:
 
   ```azurecli-interactive
   az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2
@@ -116,7 +116,7 @@ Eftersom IoT Edge-enheter fungerar och kan hanteras på annat sätt än typiska 
 2. Visa anslutnings strängen för enheten, som länkar din fysiska enhet med sin identitet i IoT Hub. Det innehåller namnet på din IoT-hubb, namnet på enheten och sedan en delad nyckel som autentiserar anslutningar mellan de två.
 
    ```azurecli-interactive
-   az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
+   az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
 3. Kopiera värdet för `connectionString`-nyckeln från JSON-utdata och spara det. Det här värdet är enhetens anslutningssträng. Du ska använda den här anslutningssträngen för att konfigurera IoT Edge-körningen i nästa avsnitt.
@@ -187,7 +187,7 @@ Kontrollera att körningen har installerats och konfigurerats korrekt. Det kan t
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
-3. Visa alla moduler som körs på din IoT Edge-enhet. Eftersom det är första gången du startar tjänsten, bör du bara kunna se den **edgeAgent** -modul som körs. EdgeAgent-modulen körs som standard och hjälper till att installera och starta ytterligare moduler som du distribuerar till din enhet.
+3. Visa alla moduler som körs på din IoT Edge-enhet. Eftersom det är första gången du startar tjänsten, bör du bara kunna se den **edgeAgent**-modul som körs. EdgeAgent-modulen körs som standard och hjälper till att installera och starta ytterligare moduler som du distribuerar till din enhet.
 
     ```powershell
     iotedge list

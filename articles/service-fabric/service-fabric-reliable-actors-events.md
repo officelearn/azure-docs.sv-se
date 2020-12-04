@@ -1,17 +1,15 @@
 ---
 title: Händelser i skådespelare-baserade Azure Service Fabric-aktörer
 description: Lär dig mer om händelser för Service Fabric Reliable Actors, ett effektivt sätt att kommunicera mellan skådespelare och klient.
-author: vturecek
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.author: amanbha
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f5634a33dccb06437f2e5f095e7880221dba9d6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 591e3539715ba0873e44f56a93d05df6552bb1ef
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89007918"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571376"
 ---
 # <a name="actor-events"></a>Aktörs händelser
 Aktörs händelser ger ett sätt att skicka aviseringar med bästa prestanda från aktören till klienterna. Aktörs händelser är utformade för kommunikation mellan skådespelare och klient och bör inte användas för kommunikation mellan skådespelare och aktör.

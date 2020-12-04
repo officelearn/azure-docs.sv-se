@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 962bb7a4484f28d52ffd4f0cae985140ec2f0d28
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f1ded1ce87df1cb57960bbc99cd950ed7b3f97ee
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006038"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573943"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Dataöverföring för stora datamängder med måttlig eller hög nätverksbandbredd
  
@@ -88,7 +88,7 @@ Om du använder data överföring online använder du tabellen i följande avsni
 |    **Datatyp**              |    Azure-blobbar, Azure Files, Azure-tabeller    |    Azure-blobbar, Azure Files, Azure-tabeller    |    Azure-blobbar, Azure Files                           |   Stöd för 70 + data anslutningar för data lager och format    |
 |    **Form faktor**            |    Kommandoradsverktyg                        |    Programmerings gränssnitt                    |    Microsoft tillhandahåller en virtuell <br>eller fysisk enhet     |    Tjänsten i Azure Portal                                            |
 |    **Inledande eng ång slöin ställning** |    Överskådlig               |    Medel                       |    Enkelt (<30 minuter) till måttlig (1-2 timmar)            |    Bredd                                                          |
-|    **För bearbetning av data**          |    Nej                                        |    Nej                                        |    Ja (med Edge Compute)                               |    Yes                                                                |
+|    **För bearbetning av data**          |    Nej                                        |    Nej                                        |    Ja (med Edge Compute)                               |    Ja                                                                |
 |    **Överföring från andra moln**   |    Nej                                        |    Nej                                        |    Nej                                                    |    Ja                                                                |
 |    **Användar typ**                    |    IT-proffs eller utveckling                                       |    Dev                                       |    IT-proffs                                                |    IT-proffs                                                             |
 |    **Prissättning**                      |    Kostnads fritt gäller avgifterna för utgående data         |    Kostnads fritt gäller avgifterna för utgående data         |    [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Prissättning](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
@@ -102,7 +102,7 @@ Om du använder data överföring online använder du tabellen i följande avsni
     - [Överför data med data Box-enhet](../../databox/data-box-quickstart-portal.md).
 - [Överför data med AZCopy](./storage-use-azcopy-v10.md).
 - Förstå hur du:
-    - [Överför data med data Box Gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Överför data med data Box Gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
     - [Transformera data med data Box Edge innan du skickar dem till Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
 - [Lär dig hur du överför data med Azure Data Factory](../../data-factory/quickstart-create-data-factory-portal.md).
 - Använd REST-API: er för att överföra data

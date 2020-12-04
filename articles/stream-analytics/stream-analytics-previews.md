@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 8/07/2020
-ms.openlocfilehash: 4179b06759802025f97bd32a355b788c96c9eddb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a32491453812d74d4bd93f3f97b7e6a32036f65f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123328"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573382"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics för hands versions funktioner
 
@@ -22,7 +22,7 @@ I den här artikeln sammanfattas alla funktioner som för hands version för Azu
 
 Följande funktioner finns i offentlig för hands version. Du kan dra nytta av dessa funktioner idag, men Använd dem inte i produktions miljön.
 
-### <a name="authenticate-to-sql-database-output-with-managed-identities"></a>Autentisera för att SQL Database utdata med hanterade identiteter
+### <a name="authenticate-to-sql-database-output-with-managed-identities-preview"></a>Autentisera för att SQL Database utdata med hanterade identiteter (för hands version)
 
 Azure Stream Analytics stöder [autentisering med hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) för Azure SQL Database utgående mottagare. Hanterade identiteter eliminerar begränsningar för användarbaserade autentiseringsmetoder, t. ex. behovet av att autentisera på grund av lösen ords ändringar. 
 

@@ -9,18 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 97a90284ad8d195751eb5dd90675822d00243ea8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 11c20f3f79a4fceafaca9b1a948f1b4a425dad87
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665216"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572719"
 ---
 # <a name="voice-and-video-concepts"></a>Begrepp inom röst- och videosamtal
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Du kan använda Azure Communication Services för att ringa och ta emot röst-och video samtal, analysera anrops-metadata, registrera samtal och till och med skapa anrops träd. Dina anrop kan göras till andra Internet-anslutna enheter och till vanliga telefoner. Du kan använda kommunikations tjänsterna Java Script, Android eller iOS klient bibliotek för att bygga program som gör att användarna kan prata med varandra i privata konversationer eller gruppera diskussioner. Azure Communication Services stöder anrop till och från tjänster eller robotar.
+Du kan använda Azure Communication Services för att skapa och ta emot en till en eller grupp röst-och video samtal. Dina anrop kan göras till andra Internet-anslutna enheter och till vanliga telefoner. Du kan använda kommunikations tjänsterna Java Script, Android eller iOS klient bibliotek för att bygga program som gör att användarna kan prata med varandra i privata konversationer eller gruppera diskussioner. Azure Communication Services stöder anrop till och från tjänster eller robotar.
 
 ## <a name="call-types-in-azure-communication-services"></a>Samtals typer i Azure Communication Services
 

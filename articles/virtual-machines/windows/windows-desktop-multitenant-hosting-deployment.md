@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 5bd41396cf075f83fd37a4276f7a30223ec8c1f3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 101f2cfe57624502764d145351a6343cfdd2a334
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96482951"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572872"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Så här distribuerar du Windows 10 på Azure med värd rättigheter för flera innehavare 
 För kunder med Windows 10 Enterprise E3/E5 per användare eller Windows anslutning för virtuella skriv bord per användare (användar prenumerations licenser eller användar prenumerations licenser), kan du använda värd rättigheterna för flera innehavare för Windows 10 för att ta med Windows 10-licenser till molnet och köra Windows 10 Virtual Machines på Azure utan att betala för en annan licens. Mer information finns i [värd för flera innehavare för Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -112,7 +112,7 @@ LicenseType              :
 
 ## <a name="additional-information-about-joining-azure-ad"></a>Mer information om att ansluta till Azure AD
 >[!NOTE]
->Azure tillhandahåller alla virtuella Windows-datorer med inbyggt administratörs konto, som inte kan användas för att ansluta till AAD. Exempelvis fungerar inte *inställningar > konto > åtkomst till arbete eller skola > + Connect* . Du måste skapa och logga in som ett andra administratörs konto för att kunna ansluta till Azure AD manuellt. Du kan också konfigurera Azure AD med hjälp av ett konfigurations paket. Använd länken i avsnittet *Nästa steg* om du vill veta mer.
+>Azure tillhandahåller alla virtuella Windows-datorer med inbyggt administratörs konto, som inte kan användas för att ansluta till AAD. Exempelvis fungerar inte *inställningar > konto > åtkomst till arbete eller skola > + Connect* . Du måste skapa och logga in som ett andra administratörs konto för att kunna ansluta till Azure AD manuellt. Du kan också konfigurera Azure AD med ett konfigurations paket, använda länken i avsnittet *Nästa steg* för att lära dig mer.
 >
 >
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0728e5d12b13164d127941a49603836ff92fd515
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5fa303b9f4a67078d4748332c187f53b8e7addcf
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045809"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572175"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Självstudie: utveckla IoT Edge moduler för Windows-enheter
 
@@ -24,7 +24,7 @@ I snabb starten skapade du en IoT Edge-enhet med en virtuell Windows-dator och d
 
 I den här självstudien använder vi exemplet på att distribuera en **C#-modul till en Windows-enhet**. Det här exemplet valdes eftersom det är det vanligaste utvecklings scenariot. Om du är intresse rad av att utveckla på ett annat språk, eller om du planerar att distribuera Azure-tjänster som moduler, kommer den här kursen fortfarande att vara användbar för att lära dig mer om utvecklingsverktyg. När du förstår utvecklings koncepten kan du välja önskat språk eller Azure-tjänst för att få information.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -34,22 +34,6 @@ I de här självstudierna får du lära dig att
 > * Distribuera din kod till en IoT Edge enhet.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="key-concepts"></a>Viktiga begrepp
-
-Den här självstudien vägleder dig genom utvecklingen av en IoT Edge modul. En *IoT Edge modul*, eller ibland bara *modul* för kort, är en behållare som innehåller körbar kod. Du kan distribuera en eller flera moduler till en IoT Edge enhet. Moduler utför vissa uppgifter som att mata in data från sensorer, utföra data analyser eller åtgärder för data rensning eller skicka meddelanden till en IoT-hubb. Mer information finns i [förstå Azure IoT Edge moduler](iot-edge-modules.md).
-
-När du utvecklar IoT Edge moduler är det viktigt att förstå skillnaden mellan utvecklings datorn och mål IoT Edges enheten där modulen slutligen kommer att distribueras. Den behållare som du skapar för att hålla din modul kod måste matcha *mål enhetens*operativ system (OS). För utveckling av Windows-behållare är det här konceptet enklare eftersom Windows-behållare bara körs på Windows-operativsystem. Men du kan till exempel använda Windows Development-datorn för att bygga moduler för Linux IoT Edge-enheter. I det scenariot måste du kontrol lera att din utvecklings dator körde Linux-behållare. När du går igenom den här självstudien bör du tänka på skillnaden mellan *utvecklings datorns operativ system* och *behållar operativ systemet*.
-
-Den här kursen riktar sig till Windows-enheter som kör IoT Edge. Windows IoT Edge-enheter använder Windows-behållare. Vi rekommenderar att du använder Visual Studio för att utveckla för Windows-enheter, så att den här självstudien kommer att använda. Du kan även använda Visual Studio Code även om det finns skillnader i stödet mellan de två verktygen.
-
-I följande tabell visas de utvecklings scenarier som stöds för **Windows-behållare** i Visual Studio Code och Visual Studio.
-
-|   | Visual Studio-koden | Visual Studio 2017/2019 |
-| - | ------------------ | ------------------ |
-| **Azure-tjänster** | Azure Functions <br> Azure Stream Analytics |   |
-| **Språk** | C# (fel sökning stöds inte) | C <br> C# |
-| **Mer information** | [Azure IoT Edge för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge verktyg för Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Azure IoT Edge verktyg för Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 ## <a name="prerequisites"></a>Krav
 
@@ -68,6 +52,22 @@ En Azure IoT Edge enhet i Windows:
 Molnresurser:
 
 * En [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) (kostnads fri) eller standard nivå i Azure.
+
+## <a name="key-concepts"></a>Viktiga begrepp
+
+Den här självstudien vägleder dig genom utvecklingen av en IoT Edge modul. En *IoT Edge modul*, eller ibland bara *modul* för kort, är en behållare som innehåller körbar kod. Du kan distribuera en eller flera moduler till en IoT Edge enhet. Moduler utför vissa uppgifter som att mata in data från sensorer, utföra data analyser eller åtgärder för data rensning eller skicka meddelanden till en IoT-hubb. Mer information finns i [förstå Azure IoT Edge moduler](iot-edge-modules.md).
+
+När du utvecklar IoT Edge moduler är det viktigt att förstå skillnaden mellan utvecklings datorn och mål IoT Edges enheten där modulen slutligen kommer att distribueras. Den behållare som du skapar för att hålla din modul kod måste matcha *mål enhetens* operativ system (OS). För utveckling av Windows-behållare är det här konceptet enklare eftersom Windows-behållare bara körs på Windows-operativsystem. Men du kan till exempel använda Windows Development-datorn för att bygga moduler för Linux IoT Edge-enheter. I det scenariot måste du kontrol lera att din utvecklings dator körde Linux-behållare. När du går igenom den här självstudien bör du tänka på skillnaden mellan *utvecklings datorns operativ system* och *behållar operativ systemet*.
+
+Den här kursen riktar sig till Windows-enheter som kör IoT Edge. Windows IoT Edge-enheter använder Windows-behållare. Vi rekommenderar att du använder Visual Studio för att utveckla för Windows-enheter, så att den här självstudien kommer att använda. Du kan även använda Visual Studio Code även om det finns skillnader i stödet mellan de två verktygen.
+
+I följande tabell visas de utvecklings scenarier som stöds för **Windows-behållare** i Visual Studio Code och Visual Studio.
+
+|   | Visual Studio-koden | Visual Studio 2017/2019 |
+| - | ------------------ | ------------------ |
+| **Azure-tjänster** | Azure Functions <br> Azure Stream Analytics |   |
+| **Språk** | C# (fel sökning stöds inte) | C <br> C# |
+| **Mer information** | [Azure IoT Edge för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge verktyg för Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Azure IoT Edge verktyg för Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 ## <a name="install-container-engine"></a>Installera container motor
 
@@ -205,7 +205,7 @@ C#-koden som medföljer projekt mal len använder [klassen ModuleClient](/dotnet
 
 7. Hitta egenskapen **vägar** för de $edgeHub önskade egenskaperna.
 
-   En av funktionerna i modulen IoT Edge Hub är att dirigera meddelanden mellan alla moduler i en distribution. Granska värdena i egenskapen routes. En väg, **IotEdgeModule1ToIoTHub**, använder ett jokertecken ( **\*** ) för att inkludera alla meddelanden som kommer från en utgående kö i IotEdgeModule1-modulen. Dessa meddelanden hamnar i *$upstream*, vilket är ett reserverat namn som anger IoT Hub. Den andra vägen, **sensorToIotEdgeModule1**, tar meddelanden från SimulatedTemperatureSensor-modulen och dirigerar dem till *INPUT1* -indatakö i IotEdgeModule1-modulen.
+   En av funktionerna i modulen IoT Edge Hub är att dirigera meddelanden mellan alla moduler i en distribution. Granska värdena i egenskapen routes. En väg, **IotEdgeModule1ToIoTHub**, använder ett jokertecken (* *\** _) för att inkludera alla meddelanden som kommer från en utgående kö i IotEdgeModule1-modulen. Dessa meddelanden hamnar i _ $ Stream *, vilket är ett reserverat namn som visar IoT Hub. Den andra vägen, **sensorToIotEdgeModule1**, tar meddelanden från SimulatedTemperatureSensor-modulen och dirigerar dem till *INPUT1* -indatakö i IotEdgeModule1-modulen.
 
    ![Granska vägar i deployment.template.jspå](./media/tutorial-develop-for-windows/deployment-routes.png)
 
@@ -262,12 +262,12 @@ Nu har din utvecklings dator åtkomst till ditt behållar register, och dina IoT
 
     ![Visa båda avbildnings versionerna i behållar registret](./media/tutorial-develop-for-windows/view-repository-versions.png)
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsök
 
 Om du stöter på fel när du skapar och skickar en modultyp måste det ofta göras med Docker-konfiguration på din utvecklings dator. Använd följande kontroller för att granska konfigurationen:
 
 * Körde du `docker login` kommandot med de autentiseringsuppgifter som du kopierade från behållar registret? De här autentiseringsuppgifterna skiljer sig från de som du använder för att logga in på Azure.
-* Stämmer containerlagringsplatsen? Har du rätt namn på behållar registret och rätt Modulnamn? Öppna filen **module.js** i mappen IotEdgeModule1 för att kontrol lera. Värdet för lagring bör se ut som ** \<registry name\> . azurecr.io/iotedgemodule1**.
+* Stämmer containerlagringsplatsen? Har du rätt namn på behållar registret och rätt Modulnamn? Öppna filen **module.js** i mappen IotEdgeModule1 för att kontrol lera. Värdet för lagring bör se ut som **\<registry name\> . azurecr.io/iotedgemodule1**.
 * Om du har använt ett annat namn än **IotEdgeModule1** för modulen, är det namnet konsekvent i lösningen?
 * Kör datorn samma typ av behållare som du skapar? Den här självstudien gäller för Windows IoT Edge-enheter, så dina Visual Studio-filer bör ha **Windows-amd64-** tillägget och Docker-skrivbordet ska köra Windows-behållare.
 

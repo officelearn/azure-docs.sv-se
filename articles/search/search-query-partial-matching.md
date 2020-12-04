@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 9f36502eb464f051cd50b51245db69fa76daa915
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/03/2020
+ms.openlocfilehash: 79ba186351cc145e012658abc30572e99b123dbb
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499551"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573994"
 ---
-# <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Partiell terms ökning och mönster med specialtecken (jokertecken, regex, mönster)
+# <a name="partial-term-search-and-patterns-with-special-characters-hyphens-wildcard-regex-patterns"></a>Partiell terms ökning och mönster med specialtecken (bindestreck, jokertecken, regex, mönster)
 
-En *partiell term sökning* refererar till frågor som består av term fragment, där i stället för en hel period, kanske du bara har Start, mitten eller slutet av termen (kallas ibland för prefix, infix eller suffix). En partiell term sökning kan innehålla en kombination av fragment, ofta med specialtecken, till exempel bindestreck eller snedstreck som ingår i frågesträngen. Vanliga användnings områden är delar av ett telefonnummer, en URL, koder eller avstavade sammansatta ord.
+En *partiell term sökning* refererar till frågor som består av term fragment, där i stället för en hel period, kanske du bara har Start, mitten eller slutet av termen (kallas ibland för prefix, infix eller suffix). En partiell term sökning kan innehålla en kombination av fragment, ofta med specialtecken som bindestreck, bindestreck eller snedstreck som ingår i frågesträngen. Vanliga användnings områden är delar av ett telefonnummer, en URL, koder eller avstavade sammansatta ord.
 
 Partiell term sökning och frågesträngar som innehåller specialtecken kan vara problematiska om indexet inte har tokens i det förväntade formatet. Under den [lexikala analys fasen](search-lucene-query-architecture.md#stage-2-lexical-analysis) av indexering (förutsatt standard analys) ignoreras specialtecken, sammansatta ord delas upp och blank steg tas bort. alla kan orsaka att frågor inte kan köras när ingen matchning hittas. Till exempel visas ett telefonnummer som `+1 (425) 703-6214` (token as `"1"` ,, `"425"` `"703"` , `"6214"` ) inte i en `"3-62"` fråga eftersom innehållet faktiskt inte finns i indexet. 
 
@@ -26,7 +26,7 @@ Lösningen är att anropa en analys under indexering som bevarar en fullständig
 > [!TIP]
 > Om du är bekant med Postman-och REST-API: er kan du [Hämta frågan exempel samling](https://github.com/Azure-Samples/azure-search-postman-samples/) för att fråga efter del termer och specialtecken som beskrivs i den här artikeln.
 
-## <a name="what-is-partial-term-search-in-azure-cognitive-search"></a>Vad är delvis terms ökning i Azure Kognitiv sökning
+## <a name="about-partial-term-search"></a>Om delvis terms ökning
 
 Azure Kognitiv sökning söker efter hela token-termer i indexet och hittar inte en matchning på en partiell term om du inte inkluderar plats hållare för jokertecken ( `*` och `?` ), eller formaterar frågan som ett reguljärt uttryck. Ofullständiga villkor anges med hjälp av följande metoder:
 
@@ -45,15 +45,15 @@ För partiell term-eller mönsters ökning och några andra fråge formulär som
 
 När du behöver söka efter fragment eller mönster eller specialtecken kan du åsidosätta standard analys verktyget med en anpassad analys som fungerar under enklare tokenisering-regler och behåller hela strängen i indexet. Genom att gå tillbaka, ser metoden ut så här:
 
-+ Definiera ett fält för att lagra en intakt version av strängen (förutsatt att du vill analysera och icke-analyserad text vid fråge tillfället)
-+ Utvärdera och välj bland de olika analys verktyg som genererar token till rätt nivå av granularitet
-+ Koppla analysen till fältet
-+ Bygg och testa indexet
+1. Definiera ett fält för att lagra en intakt version av strängen (förutsatt att du vill analysera och icke-analyserad text vid fråge tillfället)
+1. Utvärdera och välj bland de olika analys verktyg som genererar token till rätt nivå av granularitet
+1. Koppla analysen till fältet
+1. Bygg och testa indexet
 
 > [!TIP]
 > Utvärderings versioner är en iterativ process som kräver upprepade index återuppbyggnadar. Du kan göra det här steget enklare genom att använda Postman, REST-API: er för [create index](/rest/api/searchservice/create-index), [ta bort index](/rest/api/searchservice/delete-index),[läsa in dokument](/rest/api/searchservice/addupdate-or-delete-documents)och [söka dokument](/rest/api/searchservice/search-documents). För Läs dokument bör begär ande texten innehålla en liten representativ data uppsättning som du vill testa (till exempel ett fält med telefonnummer eller produkt koder). Med dessa API: er i samma Postman-samling kan du snabbt gå igenom de här stegen.
 
-## <a name="duplicate-fields-for-different-scenarios"></a>Duplicera fält för olika scenarier
+## <a name="1---create-a-dedicated-field"></a>1 – Skapa ett dedikerat fält
 
 Analys verktyg bestämmer hur termerna ska vara tokens i ett index. Eftersom analys verktyg tilldelas per fält kan du skapa fält i ditt index för att optimera för olika scenarier. Du kan till exempel definiera "featureCode" och "featureCodeRegex" för att stödja vanlig full texts ökning på den första och avancerade mönster matchningen på den andra. De analys verktyg som tilldelas varje fält avgör hur innehållet i varje fält är tokens i indexet.  
 
@@ -74,7 +74,9 @@ Analys verktyg bestämmer hur termerna ska vara tokens i ett index. Eftersom ana
 },
 ```
 
-## <a name="choose-an-analyzer"></a>Välj en analys
+<a name="set-an-analyzer"></a>
+
+## <a name="2---set-an-analyzer"></a>2 – Ange en analys
 
 När du väljer en analys som producerar token för en hel period är följande analys verktyg vanliga alternativ:
 
@@ -98,7 +100,7 @@ Du måste ha ett ifyllt index för att arbeta med. Om du har ett befintligt inde
    }
     ```
 
-1. Utvärdera svaret för att se hur texten är token i indexet. Observera hur varje term är lägre – bokstäver och uppdelad. Endast de frågor som matchar dessa tokens kommer att returnera det här dokumentet i resultatet. En fråga som innehåller "10-eller" kommer inte att fungera.
+1. Utvärdera svaret för att se hur texten är token i indexet. Observera hur varje term är lägre-bokstäver, bindestreck borttagna och del strängar som delas upp i enskilda tokens. Endast de frågor som matchar dessa tokens kommer att returnera det här dokumentet i resultatet. En fråga som innehåller "10-eller" kommer inte att fungera.
 
     ```json
     {
@@ -152,7 +154,7 @@ Du måste ha ett ifyllt index för att arbeta med. Om du har ett befintligt inde
 > [!Important]
 > Tänk på att Query parser ofta använder gemener i ett Sök uttryck när du skapar frågeuttrycket. Om du använder en analys som inte gör text inmatningar under indexering och du inte får förväntade resultat, kan det vara orsaken. Lösningen är att lägga till ett token med lägre Case-filter, enligt beskrivningen i avsnittet "Använd anpassade analys verktyg" nedan.
 
-## <a name="configure-an-analyzer"></a>Konfigurera en analys
+## <a name="3---configure-an-analyzer"></a>3 – Konfigurera en analys
  
 Oavsett om du utvärderar analyser eller om du flyttar framåt med en speciell konfiguration måste du ange analys på fält definitionen och eventuellt konfigurera själva analysen om du inte använder en inbyggd analys. När du byter analys verktyg behöver du vanligt vis bygga om indexet (släpp, återskapa och Läs in igen). 
 
@@ -216,7 +218,7 @@ I följande exempel visas en anpassad analys som ger nyckelordet tokenizer och e
 > [!NOTE]
 > `keyword_v2`Filtret tokenizer och `lowercase` token är känt för systemet och använder sina standardkonfigurationer, vilket är anledningen till att du kan referera till dem efter namn utan att behöva definiera dem först.
 
-## <a name="build-and-test"></a>Skapa och testa
+## <a name="4---build-and-test"></a>4 – Bygg och testa
 
 När du har definierat ett index med analys verktyg och fält definitioner som stöder ditt scenario kan du läsa in dokument som har representativa strängar så att du kan testa partiella sträng frågor. 
 
@@ -228,7 +230,7 @@ I föregående avsnitt förklaras logiken. I det här avsnittet beskrivs varje A
 
 + [Läs in dokument](/rest/api/searchservice/addupdate-or-delete-documents) importerar dokument med samma struktur som ditt index, samt sökbart innehåll. Efter det här steget är indexet redo att fråga eller testa.
 
-+ [Test analys](/rest/api/searchservice/test-analyzer) introducerades i [Välj en analys](#choose-an-analyzer). Testa några av strängarna i ditt index med hjälp av en rad olika analys verktyg för att förstå hur termerna är tokens.
++ [Test analys](/rest/api/searchservice/test-analyzer) introducerades i [Ange en analys](#set-an-analyzer). Testa några av strängarna i ditt index med hjälp av en rad olika analys verktyg för att förstå hur termerna är tokens.
 
 + [Sök i dokument](/rest/api/searchservice/search-documents) förklarar hur du skapar en fråga med hjälp av antingen [enkel syntax](query-simple-syntax.md) eller [fullständig Lucene-syntax](query-lucene-syntax.md) för jokertecken och reguljära uttryck.
 

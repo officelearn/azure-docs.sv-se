@@ -1,17 +1,15 @@
 ---
 title: Skapa en aktör baserad tjänst på Azure Service Fabric
 description: Lär dig att skapa, felsöka och distribuera din första aktörbaserade tjänst i C# med hjälp av Service Fabric Reliable Actors.
-author: vturecek
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f775608c6c349c93a43ef4aef26ad50707cd39b7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 225ccb67153a33ed47af68ebb1549dce37426278
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023626"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573469"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Komma igång med Reliable Actors
 > [!div class="op_single_selector"]
@@ -20,7 +18,7 @@ ms.locfileid: "96023626"
 
 Den här artikeln beskriver hur du skapar och felsöker ett enkelt tillförlitligt aktörs program i Visual Studio. Mer information om Reliable Actors finns i [Introduktion till Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att du har Service Fabric utvecklings miljö, inklusive Visual Studio, konfigurerat på din dator. Mer information finns i [så här konfigurerar du utvecklings miljön](service-fabric-get-started.md).
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ce8d014f7ec9ae0a915b69cff033e929f139acc0
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 1feabdfa5b4715427b63e0d419b62d4c41bd1ee5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532099"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572396"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Linux-enhet
 
@@ -33,23 +33,17 @@ Den här snabb starten vägleder dig genom att skapa en virtuell Linux-dator som
 
 Om du inte har en aktiv Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Du kommer använda Azure CLI för att slutföra många av stegen i den här snabbstarten och Azure IoT har ett tillägg för att aktivera ytterligare funktioner.
-
-Lägg till Azure IoT-tillägget till Cloud Shell-instansen.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="prerequisites"></a>Krav
 
+Förbered din miljö för Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
 Molnresurser:
 
-* En resursgrupp som du använder för att hantera alla resurser i den här snabbstarten. Vi använder exempel på resurs grupps namnet **IoTEdgeResources** i den här snabb starten och följande självstudier.
+- En resursgrupp som du använder för att hantera alla resurser i den här snabbstarten. Vi använder exempel på resurs grupps namnet **IoTEdgeResources** i den här snabb starten och följande självstudier.
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2

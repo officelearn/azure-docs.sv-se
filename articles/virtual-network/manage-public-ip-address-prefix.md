@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: 90fc35249daea51a08cb83143c6be024e78964a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b86f9bcbc863a78fd5f8f748e973a20ea709636
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804018"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573178"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Skapa, ändra eller ta bort ett prefix för offentlig IP-adress
 
@@ -44,7 +44,7 @@ Prefix för offentliga IP-adresser har en avgift. Mer information finns i [priss
 1. I det övre vänstra hörnet i portalen väljer du **+ skapa en resurs**.
 2. Ange *offentligt IP-prefix* i rutan *Sök i Marketplace* . När det **offentliga IP** -adressprefixet visas i Sök resultaten väljer du det.
 3. Under **offentlig IP**-adressprefix väljer du **skapa**.
-4. Ange eller välj värden för följande inställningar under **skapa offentlig IP-adressprefix**och välj sedan **skapa**:
+4. Ange eller välj värden för följande inställningar under **skapa offentlig IP-adressprefix** och välj sedan **skapa**:
 
    |Inställning|Obligatoriskt?|Information|
    |---|---|---|
@@ -61,6 +61,9 @@ Prefix för offentliga IP-adresser har en avgift. Mer information finns i [priss
 |CLI|[AZ Network Public-IP prefix Create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
 
+>[!NOTE]
+>I regioner med tillgänglighets zoner kan du använda PowerShell-eller CLI-kommandon för att skapa ett offentligt IP-adressprefix som antingen: icke-zonindelade, associerat med en speciell zon eller använda zon-redundans.  För API version 2020-08-01 eller senare, om en zon parameter inte anges, skapas ett icke-zonindelade offentligt IP-adressprefix. För versioner av API: t som är äldre än 2020-08-01 skapas ett prefix för zonens redundant offentlig IP-adress. 
+
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>Skapa en statisk offentlig IP-adress från ett prefix
 När du har skapat ett prefix måste du skapa statiska IP-adresser från prefixet. Följ stegen nedan för att göra detta.
 
@@ -72,8 +75,8 @@ När du har skapat ett prefix måste du skapa statiska IP-adresser från prefixe
    |Inställning|Obligatoriskt?|Information|
    |---|---|---|
    |Namn|Ja|Namnet på den offentliga IP-adressen måste vara unikt inom den resurs grupp du väljer.|
-   |Tids gräns för inaktivitet (minuter)|Inga|Hur många minuter som en TCP-eller HTTP-anslutning är öppen utan att lita på klienter för att skicka Keep-Alive-meddelanden. |
-   |DNS-namnetikett|Inga|Måste vara unikt inom Azure-regionen som du skapar namnet i (för alla prenumerationer och alla kunder). Azure registrerar automatiskt namn och IP-adress i DNS så att du kan ansluta till en resurs med namnet. Azure lägger till ett standard under nät som *location.cloudapp.Azure.com* (där platsen är den plats du väljer) till det namn som du anger för att skapa det fullständigt kvalificerade DNS-namnet. Mer information finns i [använda Azure DNS med en offentlig Azure-IP-adress](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
+   |Tids gräns för inaktivitet (minuter)|Nej|Hur många minuter som en TCP-eller HTTP-anslutning är öppen utan att lita på klienter för att skicka Keep-Alive-meddelanden. |
+   |DNS-namnetikett|Nej|Måste vara unikt inom Azure-regionen som du skapar namnet i (för alla prenumerationer och alla kunder). Azure registrerar automatiskt namn och IP-adress i DNS så att du kan ansluta till en resurs med namnet. Azure lägger till ett standard under nät som *location.cloudapp.Azure.com* (där platsen är den plats du väljer) till det namn som du anger för att skapa det fullständigt kvalificerade DNS-namnet. Mer information finns i [använda Azure DNS med en offentlig Azure-IP-adress](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 
 Alternativt kan du använda CLI-och PS-kommandona nedan med parametrarna--Public-IP-prefix (CLI) och-PublicIpPrefix (PS) för att skapa en offentlig IP-adressresurs. 
 
@@ -88,7 +91,7 @@ Alternativt kan du använda CLI-och PS-kommandona nedan med parametrarna--Public
 2. Välj namnet på det offentliga IP-adressprefix som du vill visa, ändra inställningarna för eller ta bort i listan.
 3. Slutför något av följande alternativ, beroende på om du vill visa, ta bort eller ändra prefixet för det offentliga IP-adressen.
    - **Visa**: **översikts** avsnittet visar nyckel inställningar för det offentliga IP-adressprefixet, till exempel prefix.
-   - **Ta**bort: om du vill ta bort det offentliga IP-adressprefixet väljer du **ta bort** i avsnittet **Översikt** . Om adresser inom prefixet är kopplade till offentliga IP-adressresurser måste du först ta bort de offentliga IP-adress resurserna. Se [ta bort en offentlig IP-adress](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
+   - **Ta** bort: om du vill ta bort det offentliga IP-adressprefixet väljer du **ta bort** i avsnittet **Översikt** . Om adresser inom prefixet är kopplade till offentliga IP-adressresurser måste du först ta bort de offentliga IP-adress resurserna. Se [ta bort en offentlig IP-adress](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
 
 **Kommandon**
 

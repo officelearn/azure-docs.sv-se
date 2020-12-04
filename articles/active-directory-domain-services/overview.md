@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/14/2020
+ms.date: 12/03/2020
 ms.author: joflore
 ms.custom: contperfq1
-ms.openlocfilehash: 988119c34ab0a8ef0e20ec86a7552fb7b4643cd1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d8d709590345982479301f25601fae25fa6f4fae
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967995"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571869"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Vad är Azure Active Directory Domain Services?
 
@@ -33,7 +33,7 @@ Azure AD DS integreras med din befintliga Azure AD-klient. Den här integratione
 
 När du skapar en Azure AD DS-hanterad domän definierar du ett unikt namn område. Det här namn området är domän namnet, till exempel *aaddscontoso.com*. Två Windows Server-domänkontrollanter (DCs) distribueras sedan till den valda Azure-regionen. Den här distributionen av DCs kallas för en replik uppsättning.
 
-Du behöver inte hantera, konfigurera eller uppdatera dessa domänkontrollanter. Azure-plattformen hanterar DCs som en del av den hanterade domänen, inklusive säkerhets kopior.
+Du behöver inte hantera, konfigurera eller uppdatera dessa domänkontrollanter. Azure-plattformen hanterar DCs som en del av den hanterade domänen, inklusive säkerhets kopiering och kryptering i vila med hjälp av Azure Disk Encryption.
 
 En hanterad domän har kon figurer ATS för att utföra en enkelriktad synkronisering från Azure AD för att ge åtkomst till en central uppsättning användare, grupper och autentiseringsuppgifter. Du kan skapa resurser direkt i den hanterade domänen, men de synkroniseras inte tillbaka till Azure AD. Program, tjänster och virtuella datorer i Azure som ansluter till den hanterade domänen kan sedan använda vanliga AD DS-funktioner som domän anslutning, grup princip, LDAP och Kerberos/NTLM-autentisering.
 

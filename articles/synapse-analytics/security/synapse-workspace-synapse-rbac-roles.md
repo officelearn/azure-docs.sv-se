@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: bae214fb8eff9747bf3f79323d8eb9ce1cb6cdb7
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a978113265e5e61c0fc09ef0daeb1da9826f294d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531606"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572804"
 ---
 # <a name="synapse-rbac-roles"></a>Synapse RBAC-roller
 
@@ -28,7 +28,7 @@ För användare som är bekanta med de Synapse RBAC-roller som anges under för 
 - **Nya omfång på lägre nivåer** införs för flera roller.  Med dessa omfång kan roller begränsas till vissa resurser eller objekt.
 
 >[!Note]
->- De **nya rollerna och de lågnivå definitionerna är för närvarande i för hands version**.  Du uppmanas att använda de här nya rollerna och omfattningarna, som stöds helt och ger feedback om användningen.
+>De **nya SYNAPSE RBAC-rollerna och de lågnivå omfattningarna är för närvarande i för hands version**.  Du uppmanas att använda de här nya rollerna och omfattningarna, som stöds helt och ger feedback om användningen.
 
 ## <a name="built-in-synapse-rbac-roles-and-scopes"></a>Inbyggda RBAC-roller och omfång för Synapse
 
@@ -75,7 +75,7 @@ Synapse-administratör|arbets ytor/läsa</br>arbets ytor/roleAssignments/Write, 
 
 I följande tabell visas Synapse-åtgärder och de inbyggda roller som tillåter följande åtgärder:
 
-Åtgärd|Roll
+Action|Roll
 --|--
 arbets ytor/läsa|Synapse-administratör</br>Synapse Apache Spark administratör</br>Synapse SQL-administratör</br>Synapse-deltagare</br>Synapse artefakt utgivare</br>Synapse artefakt användare</br>Synapse Compute-operator </br>Användare för Synapse-autentiseringsuppgift</br>Synapse länkade Data Manager</br>Synapse-användare 
 arbets ytor/roleAssignments/Write, Delete|Synapse-administratör

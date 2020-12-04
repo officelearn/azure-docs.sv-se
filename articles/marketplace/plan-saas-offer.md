@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 9034757539a3dfd8b5e43e97ec518479da396456
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: d2d890db3c246ad7f3d0a56a3df264d5f78bd54d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917553"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571138"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planera ett SaaS-erbjudande för den kommersiella marknaden
 
@@ -125,7 +125,7 @@ Ett erbjudande med till exempel fakturering och enbart privat plan (ingen offent
 
 Detaljerad information om List alternativ som stöds av onlinebutiker finns i [lista och pris alternativ per onlinebutik](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). Mer information om kategorier och under kategorier finns [i kategorier och under Kategorier i den kommersiella marknads platsen](categories.md).
 
-## <a name="legal-contracts"></a>Juridiska avtal
+## <a name="legal-contracts"></a>Juridiska kontrakt
 
 För att förenkla inköps processen för kunder och minska den juridiska komplexiteten för program varu leverantörer erbjuder Microsoft ett standard kontrakt som du kan använda för dina erbjudanden på den kommersiella marknaden. När du erbjuder program varan under standard kontraktet behöver kunderna bara läsa och godkänna den en gång, och du behöver inte skapa anpassade allmänna villkor.
 
@@ -258,7 +258,7 @@ Du kan välja att välja mellan marknadsförings-och försäljnings kanaler som 
 
 - Att **sälja via CSP**: Använd det här alternativet om du vill att CSP-partner (Microsoft Cloud solution providers) ska kunna sälja din lösning som en del av ett sammanslaget erbjudande. Mer information finns i [Cloud Solution Provider-programmet](cloud-solution-providers.md) .
 
-- **Samförsäljning med Microsoft: med** det här alternativet kan Microsofts försäljnings team överväga din IP-samkunds kvalificerade lösning vid utvärdering av kundernas behov. Se [samförsäljnings alternativ i Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) för detaljerad information om hur du förbereder erbjudandet för utvärdering.
+- **Samförsäljning med Microsoft: med** det här alternativet kan Microsofts försäljnings team överväga din IP-samkunds kvalificerade lösning vid utvärdering av kundernas behov. Se [samförsäljnings alternativ i Partner Center](commercial-marketplace-co-sell.md) för detaljerad information om hur du förbereder erbjudandet för utvärdering.
 
 ## <a name="next-steps"></a>Nästa steg
 

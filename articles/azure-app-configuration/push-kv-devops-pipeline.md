@@ -7,18 +7,18 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
-ms.openlocfilehash: 936be917d5b494c9d71386440c711ef6c29ffb45
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7c0f886f23bc24eeed54043e9a7ee5fb1f645172
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183506"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572515"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Push-inställningar till app-konfiguration med Azure-pipeline
 
 Med push-åtgärden för [Azure App konfiguration](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push) skickas nyckel värden från en konfigurations fil till appens konfigurations arkiv. Den här aktiviteten möjliggör fullständig cirkel funktion i pipelinen eftersom du nu kan hämta inställningar från appens konfigurations Arkiv och push-inställningar till appens konfigurations arkiv.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - Konfigurations resurs för app – skapa en kostnads fri i [Azure Portal](https://portal.azure.com).
@@ -27,7 +27,7 @@ Med push-åtgärden för [Azure App konfiguration](https://marketplace.visualstu
 
 ## <a name="create-a-service-connection"></a>Skapa en tjänst anslutning
 
-Med en tjänst anslutning kan du komma åt resurser i din Azure-prenumeration från ditt Azure DevOps-projekt.
+Med en [tjänst anslutning](/azure/devops/pipelines/library/service-endpoints) kan du komma åt resurser i din Azure-prenumeration från ditt Azure DevOps-projekt.
 
 1. I Azure DevOps går du till projektet som innehåller din mål-pipeline och öppnar **projekt inställningarna** längst ned till vänster.
 1. Under **pipelines** väljer du **tjänst anslutningar** och sedan **ny tjänst anslutning** längst upp till höger.
@@ -97,7 +97,7 @@ När du har fyllt i nödvändiga parametrar kör du pipelinen. Alla nyckel värd
 
 Om ett oväntat fel inträffar kan fel söknings loggar aktive ras genom att ställa in pipeline-variabeln `system.debug` till `true` .
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Hur kan jag ladda upp flera konfigurationsfiler?**
 

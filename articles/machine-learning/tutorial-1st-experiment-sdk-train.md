@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: f3ba5751e7a0c2369d505535896bbb4ff7523c02
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 17bf7b3f457ff6046d92012ffd679ed4b9315530
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314569"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574130"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>Självstudie: träna din första Machine Learning-modell (del 3 av 4)
 
@@ -38,7 +38,7 @@ I den här kursen får du:
 > * Logga mått till Azure Machine Learning.
 > * Visa dina mått i molnet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slut för ande av [del 2](tutorial-1st-experiment-hello-world.md) av serien.
 * Introduktions kunskap om python-språket och Machine Learning-arbetsflöden.
@@ -51,92 +51,13 @@ Först definierar du nätverks arkitekturen neurala i en `model.py` fil. All din
 
 Följande kod hämtas från [det här introduktions exemplet](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html) från PyTorch. Observera att Azure Machine Learning begreppen gäller för alla Machine Learning-koder, inte bara PyTorch.
 
-```python
-# tutorial/src/model.py
-import torch.nn as nn
-import torch.nn.functional as F
-
-
-class Net(nn.Module):
-    def __init__(self):
-        super(Net, self).__init__()
-        self.conv1 = nn.Conv2d(3, 6, 5)
-        self.pool = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(6, 16, 5)
-        self.fc1 = nn.Linear(16 * 5 * 5, 120)
-        self.fc2 = nn.Linear(120, 84)
-        self.fc3 = nn.Linear(84, 10)
-
-    def forward(self, x):
-        x = self.pool(F.relu(self.conv1(x)))
-        x = self.pool(F.relu(self.conv2(x)))
-        x = x.view(-1, 16 * 5 * 5)
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        x = self.fc3(x)
-        return x
-```
+:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/src/model.py":::
 
 Sedan definierar du övnings skriptet. Det här skriptet laddar ned CIFAR10-datauppsättningen med hjälp av PyTorch `torchvision.dataset` -API: er, konfigurerar nätverket som definierats i `model.py` och tågen det för två epoker genom att använda standard SGD och kors-entropi.
 
 Skapa ett `train.py` skript i under `src` katalogen:
 
-```python
-# tutorial/src/train.py
-import torch
-import torch.optim as optim
-import torchvision
-import torchvision.transforms as transforms
-
-from model import Net
-
-# download CIFAR10 data
-trainset = torchvision.datasets.CIFAR10(
-    root="./data",
-    train=True,
-    download=True,
-    transform=torchvision.transforms.ToTensor(),
-)
-trainloader = torch.utils.data.DataLoader(
-    trainset, batch_size=4, shuffle=True
-)
-
-if __name__ == "__main__":
-
-    # define convolutional network
-    net = Net()
-
-    # set up pytorch loss /  optimizer
-    criterion = torch.nn.CrossEntropyLoss()
-    optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
-
-    # train the network
-    for epoch in range(2):
-
-        running_loss = 0.0
-        for i, data in enumerate(trainloader, 0):
-            # unpack the data
-            inputs, labels = data
-
-            # zero the parameter gradients
-            optimizer.zero_grad()
-
-            # forward + backward + optimize
-            outputs = net(inputs)
-            loss = criterion(outputs, labels)
-            loss.backward()
-            optimizer.step()
-
-            # print statistics
-            running_loss += loss.item()
-            if i % 2000 == 1999:
-                loss = running_loss / 2000
-                print(f"epoch={epoch + 1}, batch={i + 1:5}: loss {loss:.2f}")
-                running_loss = 0.0
-
-    print("Finished Training")
-
-```
+:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/src/train.py":::
 
 Nu har du följande katalog struktur:
 
@@ -153,27 +74,23 @@ tutorial
 └──03-run-hello.py
 ```
 
-## <a name="create-a-python-environment"></a>Skapa en python-miljö
+> [!div class="nextstepaction"]
+> [Jag har skapat de utbildnings skript](?success=create-scripts#environment) [Jag stötte på ett problem](https://www.research.net/r/7CTJQQN?issue=create-scripts)
+
+## <a name="create-a-python-environment"></a><a name="environment"></a> Skapa en python-miljö
 
 I demonstrations syfte kommer vi att använda en Conda-miljö. (Stegen för en virtuell pip-miljö är nästan identiska.)
 
 Skapa en fil `pytorch-env.yml` som heter i den `.azureml` dolda katalogen:
 
-```yml
-# tutorial/.azureml/pytorch-env.yml
-name: pytorch-env
-channels:
-    - defaults
-    - pytorch
-dependencies:
-    - python=3.6.2
-    - pytorch
-    - torchvision
-```
+:::code language="yml" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/environments/pytorch-env.yml":::
 
 Den här miljön har alla beroenden som ditt modell-och utbildnings skript kräver. Observera att det inte finns något beroende på Azure Machine Learning SDK för python.
 
-## <a name="test-locally"></a>Testa lokalt
+> [!div class="nextstepaction"]
+> [Jag skapade miljö filen](?success=create-env-file#test-local) [Jag stötte på ett problem](https://www.research.net/r/7CTJQQN?issue=create-env-file)
+
+## <a name="test-locally"></a><a name="test-local"></a> Testa lokalt
 
 Använd följande kod för att testa att skriptet körs lokalt i den här miljön:
 
@@ -185,33 +102,16 @@ python src/train.py                             # train model
 
 När du har kört skriptet ser du de data som hämtats till en katalog med namnet `tutorial/data` .
 
-## <a name="create-the-control-script"></a>Skapa kontroll skriptet
+> [!div class="nextstepaction"]
+> [Jag skapade miljö filen](?success=test-local#create-local) [Jag stötte på ett problem](https://www.research.net/r/7CTJQQN?issue=test-local)
+
+## <a name="create-the-control-script"></a><a name="create-local"></a> Skapa kontroll skriptet
 
 Skillnaden mellan följande kontroll skript och det som du använde för att skicka "Hello World!" är att du lägger till ett par extra rader för att ställa in miljön.
 
 Skapa en ny python-fil i `tutorial` katalogen `04-run-pytorch.py` :
 
-```python
-# tutorial/04-run-pytorch.py
-from azureml.core import Workspace
-from azureml.core import Experiment
-from azureml.core import Environment
-from azureml.core import ScriptRunConfig
-
-if __name__ == "__main__":
-    ws = Workspace.from_config()
-    experiment = Experiment(workspace=ws, name='day1-experiment-train')
-    config = ScriptRunConfig(source_directory='src', script='train.py', compute_target='cpu-cluster')
-
-    # set up pytorch environment
-    env = Environment.from_conda_specification(name='pytorch-env', file_path='.azureml/pytorch-env.yml')
-    config.run_config.environment = env
-
-    run = experiment.submit(config)
-
-    aml_url = run.get_portal_url()
-    print(aml_url)
-```
+:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/04-run-pytorch.py":::
 
 ### <a name="understand-the-code-changes"></a>Förstå kod ändringarna
 
@@ -232,9 +132,13 @@ if __name__ == "__main__":
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-the-run-to-azure-machine-learning"></a>Skicka in körningen till Azure Machine Learning
+> [!div class="nextstepaction"]
+> [Jag skapade kontroll skriptet som](?success=control-script#submit) [Jag stötte på ett problem](https://www.research.net/r/7CTJQQ?issue=control-script)
 
-Om du har växlat lokala miljöer ska du se till att växla tillbaka till en miljö där Azure Machine Learning SDK för python har installerats. 
+
+## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit"></a> Skicka in körningen till Azure Machine Learning
+
+Om du har växlat lokala miljöer ska du se till att växla tillbaka till en miljö där Azure Machine Learning SDK för python har installerats.
 
 Kör sedan:
 
@@ -281,7 +185,10 @@ Azure Machine Learning också ha en samling av granskade miljöer. Dessa miljöe
 
 I korthet kan du spara tid med registrerade miljöer! Läs om [hur du använder miljöer](./how-to-use-environments.md) för mer information.
 
-## <a name="log-training-metrics"></a>Logga utbildnings mått
+> [!div class="nextstepaction"]
+> [Jag har skickat in körningen](?success=test-w-environment#log) [Jag stötte på ett problem](https://www.research.net/r/7CTJQQ?issue=test-w-environment)
+
+## <a name="log-training-metrics"></a><a name="log"></a> Logga utbildnings mått
 
 Nu när du har en modell utbildning i Azure Machine Learning börjar du spåra vissa prestanda mått.
 
@@ -291,67 +198,8 @@ Det aktuella tränings skriptet skriver ut mått till terminalen. Azure Machine 
 
 Ändra `train.py` skriptet så att det innehåller två rader med kod:
 
-```python
-# train.py
-import torch
-import torch.optim as optim
-import torchvision
-import torchvision.transforms as transforms
+:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/code/pytorch-cifar10-train-with-logging/train.py":::
 
-from model import Net
-from azureml.core import Run
-
-
-# ADDITIONAL CODE: get Azure Machine Learning run from the current context
-run = Run.get_context()
-
-# download CIFAR10 data
-trainset = torchvision.datasets.CIFAR10(
-    root="./data",
-    train=True,
-    download=True,
-    transform=torchvision.transforms.ToTensor(),
-)
-trainloader = torch.utils.data.DataLoader(
-    trainset, batch_size=4, shuffle=True, num_workers=2
-)
-
-if __name__ == "__main__":
-
-    # define convolutional network
-    net = Net()
-
-    # set up pytorch loss /  optimizer
-    criterion = torch.nn.CrossEntropyLoss()
-    optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
-
-    # train the network
-    for epoch in range(2):
-
-        running_loss = 0.0
-        for i, data in enumerate(trainloader, 0):
-            # unpack the data
-            inputs, labels = data
-
-            # zero the parameter gradients
-            optimizer.zero_grad()
-
-            # forward + backward + optimize
-            outputs = net(inputs)
-            loss = criterion(outputs, labels)
-            loss.backward()
-            optimizer.step()
-
-            # print statistics
-            running_loss += loss.item()
-            if i % 2000 == 1999:
-                loss = running_loss / 2000
-                run.log('loss', loss) # ADDITIONAL CODE: log loss metric to Azure Machine Learning
-                print(f'epoch={epoch + 1}, batch={i + 1:5}: loss {loss:.2f}')
-                running_loss = 0.0
-
-    print('Finished Training')
-```
 
 #### <a name="understand-the-additional-two-lines-of-code"></a>Förstå ytterligare två rader med kod
 
@@ -372,26 +220,19 @@ Mått i Azure Machine Learning:
 - Utrustad med ett användar gränssnitt så att du kan visualisera inlärnings prestanda i Studio.
 - Utformad för skalning, så du behåller dessa förmåner även om du kör hundratals experiment.
 
+> [!div class="nextstepaction"]
+> [Jag ändrade Train.py ](?success=modify-train#log) [Jag stötte på ett problem](https://www.research.net/r/7CTJQQ?issue=modify-train)
+
 ### <a name="update-the-conda-environment-file"></a>Uppdatera miljö filen för Conda
 
 `train.py`Skriptet tog bara ett nytt beroende av `azureml.core` . Uppdatera `pytorch-env.yml` för att avspegla den här ändringen:
 
-```yaml
-# tutorial/.azureml/pytorch-env.yml
-name: pytorch-env
-channels:
-    - defaults
-    - pytorch
-dependencies:
-    - python=3.6.2
-    - pytorch
-    - torchvision
-    - pip
-    - pip:
-        - azureml-sdk
-```
+:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/configuration/pytorch-aml-env.yml":::
 
-### <a name="submit-the-run-to-azure-machine-learning"></a>Skicka in körningen till Azure Machine Learning
+> [!div class="nextstepaction"]
+> [Jag har uppdaterat miljö filen som](?success=update-environment#submit-again) [Jag stötte på ett problem](https://www.research.net/r/7CTJQQ?issue=update-environment)
+
+### <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit-again"></a> Skicka in körningen till Azure Machine Learning
 Skicka skriptet en gång till:
 
 ```bash
@@ -401,6 +242,9 @@ python 04-run-pytorch.py
 När du besöker Studio går du till fliken **mått** där du nu kan se live-uppdateringar om modell inlärnings förlusten!
 
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Diagram över kurs förlust på fliken mått.":::
+
+> [!div class="nextstepaction"]
+> [Jag skickade om körningen som](?success=resubmit-with-logging#next-steps) [Jag stötte på ett problem](https://www.research.net/r/7CTJQQ?issue=resubmit-with-logging)
 
 ## <a name="next-steps"></a>Nästa steg
 

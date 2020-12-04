@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 1f8cb98ea36fdad9a67eca26c6fbea7ede1f811a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 96a1eebbdcbf269b06d2ece77987ce7813f1d5f5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94627888"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571070"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Använda hanterade identiteter i Azure Kubernetes-tjänsten
 
@@ -105,23 +105,35 @@ Slutligen kan du hämta autentiseringsuppgifter för att få åtkomst till klust
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
-## <a name="update-an-existing-service-principal-based-aks-cluster-to-managed-identities"></a>Uppdatera ett befintligt tjänst objekt baserat AKS-kluster till hanterade identiteter
+## <a name="update-an-aks-cluster-to-managed-identities-preview"></a>Uppdatera ett AKS-kluster till hanterade identiteter (för hands version)
 
-Nu kan du uppdatera ett AKS-kluster med hanterade identiteter med hjälp av följande CLI-kommandon.
+Nu kan du uppdatera ett AKS-kluster som för närvarande arbetar med tjänstens huvud namn för att arbeta med hanterade identiteter med hjälp av följande CLI-kommandon.
 
-Börja med att uppdatera tilldelad identitet:
+Registrera först funktions flaggan för systemtilldelad identitet:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n MigrateToMSIClusterPreview
+```
+
+Uppdatera den systemtilldelade identiteten:
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 
-Uppdatera sedan den tilldelade användaren identiteten:
+Uppdatera den användare som tilldelats identiteten:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview
+```
+
+Uppdatera den användare som tilldelats identiteten:
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
 ```
 > [!NOTE]
-> När systemtilldelade eller tilldelade identiteter har uppdaterats till hanterad identitet, utför du en `az nodepool upgrade --node-image-only` på noderna för att slutföra uppdateringen av den hanterade identiteten.
+> När systemtilldelade eller användarspecifika identiteter har uppdaterats till hanterad identitet, utför du en `az nodepool upgrade --node-image-only` på noderna för att slutföra uppdateringen av den hanterade identiteten.
 
 ## <a name="bring-your-own-control-plane-mi-preview"></a>Ta med ditt eget kontroll plan MI (för hands version)
 En anpassad kontroll plan identitet ger åtkomst till den befintliga identiteten innan klustret skapas. Detta möjliggör scenarier som att använda en anpassad VNET eller outboundType av UDR med en hanterad identitet.

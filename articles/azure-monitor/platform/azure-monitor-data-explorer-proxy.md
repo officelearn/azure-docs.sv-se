@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 8884fd56cfc1e18a0a358d6902f7f8bcbfc1f5d3
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 5cb2f7b3b07c20e09d61e97412bc35f03b15cb3b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553885"
+ms.locfileid: "96572158"
 ---
 # <a name="cross-resource-query-azure-data-explorer-using-azure-monitor"></a>Fråga Azure Datautforskaren över resurs med Azure Monitor
 Azure Monitor stöder kors tjänst frågor mellan Azure Datautforskaren, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview)och [Log Analytics (La)](/azure/azure-monitor/platform/data-platform-logs). Du kan sedan fråga ditt Azure Datautforskaren-kluster med Log Analytics/Application Insights-verktyg och se det i en kors tjänst fråga. Artikeln visar hur du skapar en kors tjänst fråga.
@@ -20,7 +20,7 @@ Azure Monitor stöder kors tjänst frågor mellan Azure Datautforskaren, [Applic
 Azure Monitor kors tjänst flöde: :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Azure Monitor och Azure-datautforskaren kors tjänst flöde.":::
 
 >[!NOTE]
->* Azure Monitor proxy är i privat förhands granskning-AllowListing krävs.
+>* Azure Monitor kors tjänst frågan är i privat förhands granskning-AllowListing krävs.
 >* Kontakta [tjänst teamet](mailto:ADXProxy@microsoft.com) om du har frågor.
 ## <a name="cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer"></a>Kors fråga Log Analytics-eller Application Insights resurser och Azure Datautforskaren
 
@@ -66,9 +66,3 @@ Kusto Explorer loggar automatiskt in till den klient som användar kontot urspru
 * [Skriv frågor](https://docs.microsoft.com/azure/data-explorer/write-queries)
 * [Fråga efter data i Azure Monitor med Azure Datautforskaren](https://docs.microsoft.com/azure/data-explorer/query-monitor-data)
 * [Utföra kors resurs logg frågor i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query)
-
-
-
-
-
-

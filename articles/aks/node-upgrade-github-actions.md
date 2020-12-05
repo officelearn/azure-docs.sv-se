@@ -5,12 +5,12 @@ description: Lär dig hur du uppdaterar AKS-noder med GitHub-åtgärder
 services: container-service
 ms.topic: article
 ms.date: 11/27/2020
-ms.openlocfilehash: 7a24911fd771663c7edbbdf0c8d2d763a74fc586
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 504c99a7305a5010f8dbe56a30b53d6fc3a13c5b
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96535234"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607848"
 ---
 # <a name="apply-security-updates-to-azure-kubernetes-service-aks-nodes-automatically-using-github-actions"></a>Tillämpa säkerhets uppdateringar på Azure Kubernetes service (AKS)-noder automatiskt med hjälp av GitHub-åtgärder
 
@@ -170,8 +170,8 @@ När du har skapat åtgärden sparas arbets flödet och är klart att köras.
 
 > [!NOTE]
 > Om du vill uppgradera en enskild nod i stället för alla noder i klustret lägger du till `--name` parametern i `az aks nodepool upgrade` kommandot för att ange namnet på noden. Exempel:
-> ```
-> inlineScript: az aks nodepool upgrade -g {resourceGroupName} --cluster-name {aksClusterName} --name {{nodePoolName}} --node-image-only
+> ```azurecli-interactive
+> az aks nodepool upgrade -g {resourceGroupName} --cluster-name {aksClusterName} --name {{nodePoolName}} --node-image-only
 > ```
 
 ## <a name="run-the-github-action-manually"></a>Kör GitHub-åtgärden manuellt

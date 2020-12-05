@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 11/24/2020
 ms.author: alkohli
-ms.openlocfilehash: 5e5cb077868a224620d1a23e1ff1aac9c8d9f095
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: ab9559e1e8265b3adf08b36d1a8097a00297c61a
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874482"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96606998"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Skapa certifikat för din Azure Stack Edge Pro med Azure Stack Hub readiness Checker-verktyget 
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver hur du skapar certifikat för Azure Stack Edge Pro m
 
 ## <a name="using-azure-stack-hub-readiness-checker-tool"></a>Använda Azure Stack Hub readiness Checker-verktyget
 
-Använd Azure Stack Hub readiness Checker-verktyget för att skapa certifikat signerings förfrågningar (kund tjänst representant) för en Azure Stack distribution av Edge Pro-enheter. Du kan skapa dessa förfrågningar när du har placerat en order för Azure Stack Edge Pro-enheten och väntar på att enheten ska anlända. 
+Använd Azure Stack Hub readiness Checker-verktyget för att skapa certifikat signerings förfrågningar (kund tjänst representant) för en Azure Stack distribution av Edge Pro-enheter. Du kan skapa dessa förfrågningar när du har placerat en order för Azure Stack Edge Pro-enheten och väntar tills enheten har anlänt.
 
 > [!NOTE]
 > Använd endast det här verktyget i test-eller utvecklings syfte och inte för produktions enheter. 
@@ -59,21 +59,21 @@ Använd de här stegen för att förbereda Azure Stack Edge Pro-enhetens certifi
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
-    Om du vill kontrol lera den installerade versionen skriver du:  
+    Hämta den installerade versionen genom att skriva:  
 
     ```azurepowershell
     Get-InstalledModule -Name Microsoft.AzureStack.ReadinessChecker  | ft Name, Version 
     ```
 
-3. Skapa en katalog för alla certifikat om den inte finns. Ange: 
+3. Skapa en katalog för alla certifikat om du inte redan har en. Ange: 
     
     ```azurepowershell
     New-Item "C:\certrequest" -ItemType Directory
     ``` 
     
-4. Ange följande information för att skapa en certifikat förfrågan. Om du genererar ett VPN-certifikat gäller inte några av dessa indata. 
+4. Ange följande information för att skapa en certifikat förfrågan. Om du genererar ett VPN-certifikat gäller inte några av dessa indata.
     
-    |Indata |Beskrivning  |
+    |Indata |Description  |
     |---------|---------|
     |`OutputRequestPath`|Fil Sök vägen på den lokala klienten där du vill att certifikat begär Anden ska skapas.        |
     |`DeviceName`|Namnet på enheten på sidan **enheter** i det lokala webb gränssnittet på enheten. <br> Det här fältet krävs inte för ett VPN-certifikat.         |
@@ -107,7 +107,7 @@ Använd de här stegen för att förbereda Azure Stack Edge Pro-enhetens certifi
     ```
 
     
-5. Du hittar filerna för certifikatbegäran under katalogen som du angav i parametern OutputRequestPath ovan. När du använder `MultipleCSR` -parametern visas fyra filer med `.req` tillägget. Filerna är följande:
+5. Du hittar filerna för certifikatbegäran i den katalog som du angav i parametern OutputRequestPath ovan. När du använder `MultipleCSR` -parametern visas följande fyra filer med `.req` tillägget:
 
     
     |Filnamn  |Typ av certifikat förfrågan  |
@@ -115,17 +115,17 @@ Använd de här stegen för att förbereda Azure Stack Edge Pro-enhetens certifi
     |Börja med din `DeviceName`     |Begäran om lokalt webb GRÄNSSNITTs certifikat      |
     |Börja med din `NodeSerialNumber`     |Begäran om nod-certifikat         |
     |Från och med `login`     |Begäran om Azure Resource Manager slut punkts certifikat       |
-    |Från och med `wildcard`     |Begäran om Blob Storage-certifikat; Det innehåller ett jokertecken eftersom det täcker alla lagrings konton som du kan skapa på enheten.          |
+    |Från och med `wildcard`     |Begäran om Blob Storage-certifikat. Det innehåller ett jokertecken eftersom det täcker alla lagrings konton som du kan skapa på enheten.          |
     |Från och med `AzureStackEdgeVPNCertificate`     |VPN-klientens certifikat förfrågan.         |
 
     Du ser också en INF-mapp. Detta innehåller en hantering. <Edge-enhets namn> informations filen i klartext som förklarar certifikat informationen.  
 
 
-6. Skicka filerna till din certifikat utfärdare (antingen intern eller offentlig). Se till att certifikat utfärdaren genererar certifikat med hjälp av den genererade begäran som uppfyller Azure Stack gräns för gräns-och användar krav för [Node-certifikat](azure-stack-edge-j-series-manage-certificates.md#node-certificates), [slut punkts certifikat](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates)och [lokala UI-certifikat](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates).
+6. Skicka filerna till din certifikat utfärdare (antingen intern eller offentlig). Se till att certifikat utfärdaren genererar certifikat med hjälp av den genererade begäran som uppfyller Azure Stack gräns för gräns-och slutanvändare för- [nod](azure-stack-edge-j-series-manage-certificates.md#node-certificates)-certifikat, [slut punkts certifikat](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates)och [lokala UI-certifikat](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates).
 
 ## <a name="prepare-certificates-for-deployment"></a>Förbereda certifikat för distribution
 
-De certifikatfiler som du får från certifikat utfärdaren (CA) måste importeras och exporteras med egenskaper som matchar Azure Stack Edge Pro-enhetens certifikat krav. Utför följande steg på samma system som du genererade begär Anden om certifikat signering.
+De certifikatfiler som du får från certifikat utfärdaren (CA) måste importeras och exporteras med egenskaper som matchar certifikat kraven för den Azure Stack Edge Pro-enheten. Utför följande steg på samma system som du genererade begär Anden om certifikat signering.
 
 - Om du vill importera certifikaten följer du stegen i [Importera certifikat på klienterna som har åtkomst till din Azure Stack Edge Pro-enhet](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 

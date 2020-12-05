@@ -4,12 +4,12 @@ description: Skapa och hantera ett tjänstobjekt för Azure Active Directory fö
 services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 7f62c7dc7aacf9be4a59498aa5c556e9991ad578
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e95eae3ab8d992bc169e54700e7e31715e72102e
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85298556"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607831"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Tjänstens huvudnamn med Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ För att skapa ett Azure AD-huvudnamn för tjänsten måste du ha behörighet at
 
 Om du använder ett huvud namn för tjänsten från en annan Azure AD-klient finns det ytterligare överväganden kring de behörigheter som är tillgängliga när du distribuerar klustret. Du kanske inte har rätt behörighet för att läsa och skriva katalog information. Mer information finns i [Vad är standard användar behörigheter i Azure Active Directory?][azure-ad-permissions]
 
-Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Skapa och använda ett tjänstens huvudnamn automatiskt
 
@@ -105,7 +105,6 @@ Du kan använda avancerade nätverk där det virtuella nätverket och undernäte
 - Skapa en [anpassad roll][rbac-custom-role] och definiera följande rollbehörigheter:
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft. Network/virtualNetworks/subnets/Write*
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
@@ -146,7 +145,7 @@ Tänk på följande när du använder AKS och Azure AD-tjänstens huvudnamn.
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 Autentiseringsuppgifterna för tjänstens huvud namn för ett AKS-kluster cachelagras av Azure CLI. Om autentiseringsuppgifterna har upphört att gälla uppstår fel vid distribution av AKS-kluster. Följande fel meddelande visas när du kör [AZ AKS Create][az-aks-create] kan tyda på ett problem med de cachelagrade tjänstens huvud namns uppgifter:
 

@@ -6,18 +6,18 @@ ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 204e087908ff978880966332b4619935dc6f0458
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 7ade24b6478f78a51e0be68ae69ae0b076ecff1f
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559124"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607882"
 ---
 # <a name="configure-premiumv3-tier-for-azure-app-service"></a>Konfigurera PremiumV3-nivån för Azure App Service
 
 Den nya pris nivån för **PremiumV3** ger dig snabbare processorer, SSD-lagring och fyrdubbla förhållandet mellan förhållandet mellan minne och kärna för de befintliga pris nivåerna (dubbla **PremiumV2** -nivån). Med prestanda fördelen kan du spara pengar genom att köra dina appar på färre instanser. I den här artikeln får du lära dig hur du skapar en app i **PremiumV3** -nivån eller skalar upp en app till **PremiumV3** -nivån.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill skala upp en app till **PremiumV3** måste du ha en Azure App Service-app som körs på en pris nivå som är lägre än **PremiumV3** och appen måste köras i en app service-distribution som stöder PremiumV3.
 
@@ -82,7 +82,7 @@ Vissa App Services planer kan inte skala upp till PremiumV3-nivån om den underl
 Om din app körs i en App Service distribution där **PremiumV3** inte är tillgänglig, eller om din app körs i en region som för närvarande inte stöder **PremiumV3**, måste du distribuera om appen för att kunna dra nytta av **PremiumV3**.  Du kan välja mellan två alternativ:
 
 - Skapa en app i en ny resurs grupp och med en ny App Service plan. När du skapar App Service plan väljer du en **PremiumV3** -nivå. Det här steget säkerställer att App Service plan distribueras till en distributions enhet som stöder **PremiumV3**. Distribuera sedan program koden till den nya appen. Även om du skalar App Service plan ned till en lägre nivå för att spara kostnader kan du alltid skala upp till **PremiumV3** eftersom distributions enheten stöder det.
-- Om din app redan körs på en befintlig **Premium** -nivå kan du klona din app med alla appinställningar, anslutnings strängar och distributions konfiguration till en ny app service-plan som använder **PremiumV3**.
+- Om din app redan körs på en befintlig **Premium** -nivå kan du klona din app med alla appinställningar, anslutnings strängar och distributions konfiguration till en ny resurs grupp i en ny app service-plan som använder **PremiumV3**.
 
     ![Skärm bild som visar hur du klonar din app.](media/app-service-configure-premium-tier/clone-app.png)
 

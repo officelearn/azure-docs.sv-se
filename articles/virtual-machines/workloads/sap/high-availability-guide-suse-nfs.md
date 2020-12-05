@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 5976649ee396d897b76713b7863668d92279612e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6b0504f5e4199ee3cd8e86660b866fddf2568485
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484319"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608579"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server
 
@@ -53,6 +53,10 @@ ms.locfileid: "96484319"
 
 Den här artikeln beskriver hur du distribuerar virtuella datorer, konfigurerar de virtuella datorerna, installerar kluster ramverket och installerar en NFS-server med hög tillgänglighet som kan användas för att lagra delade data i ett SAP-system med hög tillgänglighet.
 I den här guiden beskrivs hur du konfigurerar en NFS-server med hög tillgänglighet som används av två SAP-system, NW1 och NW2. Namnen på resurserna (till exempel virtuella datorer, virtuella nätverk) i exemplet förutsätter att du har använt [mallen SAP File Server][template-file-server] med Resource prefixet **Prod**.
+
+
+> [!NOTE]
+> Den här artikeln innehåller referenser till villkoren *slav* och *Master*, termer som Microsoft inte längre använder. När villkoren tas bort från program varan tar vi bort dem från den här artikeln.
 
 Läs följande SAP-anteckningar och dokument först
 

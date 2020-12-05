@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 42259b36f1a9bfe243df47cc08b33fe8c46d819d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5d105ad4c2aff03dae52b340037e4c193bf82ca1
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493074"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608443"
 ---
 # <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Azure Cosmos DB emulator – viktig information och information om hämtning
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,6 +26,12 @@ Den här artikeln visar viktig information om Azure Cosmos DB emulator med en li
 |**Komma igång**|[Utveckla lokalt med Azure Cosmos-emulatorn](local-emulator.md)|
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="2119-3-december-2020"></a>2.11.9 (3 december 2020)
+
+ - I den här versionen åtgärdas några problem med Azure Cosmos DB emulator-funktionen förutom den allmänna innehålls uppdateringen som återspeglar de senaste funktionerna och förbättringarna i Azure Cosmos DB:
+ * Åtgärda ett problem där stora dokument nytto Last förfrågningar inte fungerar när du använder direkt läge och Java-klientprogram.
+ * Korrigering för ett anslutnings problem med MongoDB-slutpunkt version 3,6 när den är avsedd för .NET-baserade program.
 
 ### <a name="2118-6-november-2020"></a>2.11.8 (6 november 2020)
 

@@ -7,23 +7,19 @@ ms.date: 10/21/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: b3d9e2e275b4c0d000759878557e5e14f7dfc04f
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 421f9dc26d184d16a2fe563aefa72062c5d8c7e6
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925755"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608409"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Köra en anpassad behållare i Azure
 
 ::: zone pivot="container-windows"
-[Azure App Service](overview.md) har fördefinierade programstackar i Windows som ASP.NET eller Node.js, som körs i IIS. Den förkonfigurerade Windows-behållaren (för hands version) låser operativ systemet från administrativ åtkomst, program varu installationer, ändringar i Global Assembly Cache och så vidare. Mer information finns i [operativ systemets funktioner på Azure App Service](operating-system-functionality.md). Om programmet kräver mer åtkomst än den förkonfigurerade miljön tillåter kan du istället distribuera en anpassad Windows-container.
+[Azure App Service](overview.md) har fördefinierade programstackar i Windows som ASP.NET eller Node.js, som körs i IIS. Den förkonfigurerade Windows container-miljön låser upp operativ systemet från administrativ åtkomst, program varu installationer, ändringar i den globala sammansättningscachen och så vidare. Mer information finns i [operativ systemets funktioner på Azure App Service](operating-system-functionality.md). Om programmet kräver mer åtkomst än den förkonfigurerade miljön tillåter kan du istället distribuera en anpassad Windows-container.
 
 Den här snabb starten visar hur du distribuerar en ASP.NET-app i en Windows-avbildning till [Docker Hub](https://hub.docker.com/) från Visual Studio. Du kör appen i en anpassad behållare i Azure App Service.
-
-> [!NOTE]
-> App Service i Windows-behållare är i för hands version.
->
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -34,28 +30,28 @@ För att slutföra den här kursen behöver du:
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Växla Docker för att köra Windows-containrar</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Installera Visual Studio 2019</a> med arbets belastningarna **ASP.net och webb utveckling** och **Azure Development** . Om du redan har installerat Visual Studio 2019:
 
-    - Installera de senaste uppdateringarna i Visual Studio genom att välja **Hjälp**  >  **sökning efter uppdateringar** .
-    - Lägg till arbets belastningarna i Visual Studio genom att välja **verktyg**  >  **Hämta verktyg och funktioner** .
+    - Installera de senaste uppdateringarna i Visual Studio genom att välja **Hjälp**  >  **sökning efter uppdateringar**.
+    - Lägg till arbets belastningarna i Visual Studio genom att välja **verktyg**  >  **Hämta verktyg och funktioner**.
 
 ## <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp
 
 Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
-1. Öppna Visual Studio och välj sedan **skapa ett nytt projekt** .
+1. Öppna Visual Studio och välj sedan **skapa ett nytt projekt**.
 
-1. I **skapa ett nytt projekt** , leta upp och välj **ASP.net webb program (.NET Framework)** för C# och välj sedan **Nästa** .
+1. I **skapa ett nytt projekt**, leta upp och välj **ASP.net webb program (.NET Framework)** för C# och välj sedan **Nästa**.
 
-1. I **Konfigurera ditt nya projekt** namnger du programmet _myfirstazurewebapp_ och väljer sedan **skapa** .
+1. I **Konfigurera ditt nya projekt** namnger du programmet _myfirstazurewebapp_ och väljer sedan **skapa**.
 
    ![Konfigurera ditt webbapp](./media/quickstart-custom-container/configure-web-app-project-container.png)
 
 1. Du kan distribuera alla typer av ASP.NET-webbappar till Azure. I den här snabb starten väljer du **MVC** -mallen.
 
-1. Välj **Docker-support** och se till att autentiseringen är inställd på **Ingen autentisering** . Välj **Skapa** .
+1. Välj **Docker-support** och se till att autentiseringen är inställd på **Ingen autentisering**. Välj **Skapa**.
 
    ![Skapa ASP.NET-webbprogram](./media/quickstart-custom-container/select-mvc-template-for-container.png)
 
-1. Om filen _Dockerfile_ inte öppnas automatiskt öppnar du den från **Solution Explorer** .
+1. Om filen _Dockerfile_ inte öppnas automatiskt öppnar du den från **Solution Explorer**.
 
 1. Du behöver en [överordnad avbildning som stöds](configure-custom-container.md#supported-parent-images). Ändra den överordnade avbildningen genom att ersätta raden `FROM` med följande kod och spara filen:
 
@@ -69,15 +65,15 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
 ## <a name="publish-to-docker-hub"></a>Publicera till Docker Hub
 
-1. I **Solution Explorer** högerklickar du på projektet **Myfirstazurewebapp** och väljer **publicera** .
+1. I **Solution Explorer** högerklickar du på projektet **Myfirstazurewebapp** och väljer **publicera**.
 
-1. Välj **App Service** och välj sedan **publicera** .
+1. Välj **App Service** och välj sedan **publicera**.
 
-1. I Välj ett **publicerings mål** väljer du **container Registry** och **Docker Hub** och klickar sedan på **publicera** .
+1. I Välj ett **publicerings mål** väljer du **container Registry** och **Docker Hub** och klickar sedan på **publicera**.
 
    ![Publicera från projektöversiktssidan](./media/quickstart-custom-container/publish-to-docker-vs2019.png)
 
-1. Ange dina autentiseringsuppgifter för Docker Hub-kontot och välj **Spara** .
+1. Ange dina autentiseringsuppgifter för Docker Hub-kontot och välj **Spara**.
 
    Vänta tills distributionen har slutförts. Sidan **publicera** visar nu det databas namn som ska användas senare.
 
@@ -91,11 +87,11 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
 1. Välj **Skapa en resurs** längst upp till vänster i Azure Portal.
 
-1. Sök efter **Web App for containers** i sökrutan ovanför Azure Marketplace-resurser och välj **skapa** .
+1. Sök efter **Web App for containers** i sökrutan ovanför Azure Marketplace-resurser och välj **skapa**.
 
-1. I **webbapp skapar** väljer du din prenumeration och en **resurs grupp** . Du kan skapa en ny resurs grupp om det behövs.
+1. I **webbapp skapar** väljer du din prenumeration och en **resurs grupp**. Du kan skapa en ny resurs grupp om det behövs.
 
-1. Ange ett namn på appen, till exempel *Win-container-demo* och välj **Windows** för **operativ system** . Välj **Nästa: Docker** för att fortsätta.
+1. Ange ett namn på appen, till exempel *Win-container-demo* och välj **Windows** för **operativ system**. Välj **Nästa: Docker** för att fortsätta.
 
    ![Skapa en Web App for Containers](media/quickstart-custom-container/create-web-app-continer.png)
 
@@ -113,9 +109,9 @@ När Azure-åtgärden är klar visas ett meddelande.
 
 ![Distributionen lyckades](media/quickstart-custom-container/portal-create-finished.png)
 
-1. Klicka på **Gå till resurs** .
+1. Klicka på **Gå till resurs**.
 
-1. I översikten över den här resursen följer du länken bredvid **URL** .
+1. I översikten över den här resursen följer du länken bredvid **URL**.
 
 En ny webb sida öppnas på följande sida:
 
@@ -157,11 +153,11 @@ De strömmade loggarna ser ut så här:
    </div>
    ```
 
-1. Om du vill distribuera om till Azure högerklickar du på projektet **myfirstazurewebapp** i **Solution Explorer** och väljer **publicera** .
+1. Om du vill distribuera om till Azure högerklickar du på projektet **myfirstazurewebapp** i **Solution Explorer** och väljer **publicera**.
 
 1. På publiceringssidan väljer du **Publicera** och väntar tills publiceringen ska slutföras.
 
-1. Om du vill uppmana App Service att hämta den nya avbildningen från Docker Hub startar du om appen. Tillbaka på sidan app i portalen klickar du på **starta om**  >  **Ja** .
+1. Om du vill uppmana App Service att hämta den nya avbildningen från Docker Hub startar du om appen. Tillbaka på sidan app i portalen klickar du på **starta om**  >  **Ja**.
 
    ![Starta om webbapp i Azure](./media/quickstart-custom-container/portal-restart-app.png)
 
@@ -217,7 +213,7 @@ Kontrol lera sedan att du har Docker installerat och körs. Följande kommando v
 docker --version
 ```
 
-Se slutligen till att Azure Container Registry är ansluten. Det gör du genom att välja Docker-logo typen i aktivitets fältet och sedan navigera till **register** .
+Se slutligen till att Azure Container Registry är ansluten. Det gör du genom att välja Docker-logo typen i aktivitets fältet och sedan navigera till **register**.
 
 ![Skärm bild visar värdet för register värden med Azure Expanded och en fil med tillägget dot i o filename.](./media/quickstart-docker/registries.png)
 
@@ -225,7 +221,7 @@ Se slutligen till att Azure Container Registry är ansluten. Det gör du genom a
 
 Nu när allt har kon figurer ATS kan du distribuera avbildningen till [Azure App Service](https://azure.microsoft.com/services/app-service/) direkt från Docker-utöknings Utforskaren.
 
-Hitta avbildningen under noden **register** i **Docker** Explorer och expandera den för att visa dess taggar. Högerklicka på en tagg och välj sedan **distribuera avbildning till Azure App Service** .
+Hitta avbildningen under noden **register** i **Docker** Explorer och expandera den för att visa dess taggar. Högerklicka på en tagg och välj sedan **distribuera avbildning till Azure App Service**.
 
 Härifrån följer du anvisningarna för att välja en prenumeration, ett globalt unikt app-namn, en resurs grupp och en App Service-plan. Välj **B1 Basic** för pris nivån och en region.
 

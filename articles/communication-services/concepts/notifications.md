@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9cf503f374cd2fd1ca04aad6650b2c07abebbc46
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a52188dc5058dbc74d3b03fba860b98540cd4a41
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519361"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608511"
 ---
 # <a name="communication-services-notifications"></a>Meddelanden om kommunikations tjänster
 
@@ -48,13 +48,10 @@ Kommunikations tjänster använder Azure Notification Hub som en direkt tjänst 
 Om du vill skicka push-meddelanden till klient enheter med hjälp av Notification Hubs [skapar du en Notification Hub](../../notification-hubs/create-notification-hub-portal.md) i samma prenumeration som kommunikations tjänst resursen. Azure Notification Hubs måste konfigureras för den plattforms meddelande tjänst som du vill använda. Information om hur du hämtar push-meddelanden i din klient app från Notification Hubs finns i [komma igång med Notification Hubs](../../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md) och välj mål klient plattform i list rutan längst upp på sidan.
 
 > [!NOTE]
-> För närvarande stöds APN-och FCM-plattformarna.
+> För närvarande stöds APN-och FCM-plattformarna.  
+APN-plattformen måste konfigureras med autentiseringsläge för token. Autentiseringsläget för certifikat stöds inte från och med nu. 
 
 När din Notification Hub har kon figurer ATS kan du associera den med din kommunikations tjänst resurs genom att tillhandahålla en anslutnings sträng för hubben med hjälp av Azure Resource Manager klienten eller via Azure Portal. Anslutnings strängen ska innehålla behörigheter för "Send". Vi rekommenderar att du skapar en annan åtkomst princip med endast behörigheterna "Skicka" specifikt för hubben. Läs mer om [Notification Hubs säkerhets-och åtkomst principer](../../notification-hubs/notification-hubs-push-notification-security.md)
-
-> [!IMPORTANT]
-> Detta gäller endast för token Authentication mode. Autentiseringsläget för certifikat stöds inte från och med nu.  
-För att kunna aktivera APN VOIP-meddelanden måste du ange värdet för paket-ID: t när du konfigurerar Notification Hub så att den är ditt programpaket-ID med `.voip` suffixet. Mer information finns i [använda APN VoIP via Notification Hubs](../../notification-hubs/voip-apns.md) .
 
 #### <a name="using-the-azure-resource-manager-client-to-configure-the-notification-hub"></a>Konfigurera Notification Hub med hjälp av Azure Resource Manager-klienten
 

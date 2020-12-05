@@ -7,18 +7,18 @@ ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperfq2
-ms.openlocfilehash: a312c0ff255df4545181755ae6accd0d7dfb13a2
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 8b836ac8bd2255abf9a94e532a0599994c3ede89
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574861"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608260"
 ---
 # <a name="introduction-to-azure-functions"></a>Introduktion till Azure Functions
 
 Vi skapar ofta system för att reagera på en serie kritiska händelser. Oavsett om du skapar ett webb-API, svarar på databas ändringar, bearbetar IoT-dataströmmar eller till och med hanterar meddelande köer – varje program behöver ett sätt att köra viss kod när dessa händelser inträffar.
 
-För att möta detta måste Azure Functions tillhandahålla "Compute on-demand"-och på två betydande sätt.
+För att uppfylla detta behov tillhandahåller Azure Functions "Compute on-demand" på två betydande sätt.
 
 För det första, Azure Functions gör det möjligt att implementera systemets logik i snabbt tillgängliga kodblock. Kodblock kallas för "Functions". Olika funktioner kan köras när du behöver svara på kritiska händelser.
 

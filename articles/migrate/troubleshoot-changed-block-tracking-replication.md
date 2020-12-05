@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: da1f7ce1474513fd9de286495f59aca63d8628b6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 04dcf8edbce7782e6d196271bfa85f2f8d1c5ba3
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377265"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608341"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Felsöka replikeringsfel i VM-migrering utan agent
 
@@ -59,7 +59,7 @@ När portalen skapar nyckel valvet lägger det också till en princip för anvä
 
 - Det andra fallet var det kan inträffa när en användare (Användare1) försökte konfigurera replikeringen från början och påträffade ett fel, men nyckel valvet har redan skapats (och användar åtkomst principen har tilldelats korrekt till den här användaren). Nu vid ett senare tillfälle försöker en annan användare (användare2) Konfigurera replikering, men åtgärden konfigurera hanterat lagrings konto eller skapa SAS-definition Miss lyckas eftersom det inte finns någon princip för användar åtkomst som motsvarar användare2 i nyckel valvet.
 
-**Lösning** : Lös problemet genom att skapa en princip för användar åtkomst för användare2 i användare2-behörighet för att konfigurera hanterat lagrings konto och generera SAS-definitioner. Användare2 kan göra detta från Azure PowerShell med hjälp av nedanstående cmdlets:
+**Lösning**: Lös problemet genom att skapa en princip för användar åtkomst för användare2 i användare2-behörighet för att konfigurera hanterat lagrings konto och generera SAS-definitioner. Användare2 kan göra detta från Azure PowerShell med hjälp av nedanstående cmdlets:
 
 $userPrincipalId = $ (Get-AzureRmADUser-UserPrincipalName "user2_email_address"). Identitet
 
@@ -139,7 +139,7 @@ Komponenten som försöker replikera data till Azure är antingen avstängd elle
     
     Det här kommandot försöker upprätta en TCP-anslutning och returnerar utdata.
     
-     - I utdata kontrollerar du fältet " _TcpTestSucceeded_ ". Om värdet är " _Sant_ " uppstår inga anslutnings problem mellan Azure Migrate-installationen och Azure Key Vault. Om värdet är "false", finns det ett anslutnings problem.
+     - I utdata kontrollerar du fältet "_TcpTestSucceeded_". Om värdet är "_Sant_" uppstår inga anslutnings problem mellan Azure Migrate-installationen och Azure Key Vault. Om värdet är "false", finns det ett anslutnings problem.
     
     **Lösning:** Om det här testet Miss lyckas uppstår ett anslutnings problem mellan Azure Migrate-apparaten och Azure Key Vault. Delta i det lokala nätverkets team för att kontrol lera anslutnings problem. Normalt kan det finnas vissa brand Väggs inställningar som orsakar felen.
     
@@ -225,7 +225,7 @@ Möjliga orsaker är:
     
     Det här kommandot försöker upprätta en TCP-anslutning och returnerar utdata.
     
-    1. I utdata kontrollerar du fältet " _TcpTestSucceeded_ ". Om värdet är " _Sant_ " uppstår inga anslutnings problem mellan Azure Migrate-installationen och Azure Key Vault. Om värdet är "false", finns det ett anslutnings problem.
+    1. I utdata kontrollerar du fältet "_TcpTestSucceeded_". Om värdet är "_Sant_" uppstår inga anslutnings problem mellan Azure Migrate-installationen och Azure Key Vault. Om värdet är "false", finns det ett anslutnings problem.
     
     **Lösning:** Om det här testet Miss lyckas uppstår ett anslutnings problem mellan Azure Migrate-apparaten och Azure Key Vault. Delta i det lokala nätverkets team för att kontrol lera anslutnings problem. Normalt kan det finnas vissa brand Väggs inställningar som orsakar felen.
     
@@ -242,7 +242,7 @@ Det här felet kan lösas på följande två sätt:
 
 Ett känt problem som kan orsaka en KANALBINDNINGSTOKEN återställning av en virtuell dator på VMware vSphere 5,5 beskrivs i [VMware KB 2048201: ändring av block spårning](https://go.microsoft.com/fwlink/?linkid=2138888) återställs efter en lagring vMotion-åtgärd i vSphere 5. x. Om du använder VMware vSphere 5.5 kontrollerar du att du har uppdateringarna som beskrivs i den här KB-artikeln.
 
-Alternativt kan du [återställa VMware-ändring av block spårning på en virtuell dator med VMware PowerCLI.
+Du kan också återställa VMware-spårning av ändrade block på en virtuell dator med VMware PowerCLI.
 
 ## <a name="an-internal-error-occurred"></a>Ett internt fel har uppstått
 
@@ -276,7 +276,7 @@ Om du har en virtuell dator med flera diskar kan du stöta på det här felet om
 
 Det här problemet uppstår när ögonblicks bilds genereringen slutar svara. När det här problemet uppstår kan du se Skapa ögonblicks bilds aktivitet på 95% eller 99%. Se denna [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) för att lösa problemet.
 
-### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Fel meddelande: ett internt fel uppstod. [Det gick inte att konsolidera diskarna på den virtuella datorn _[orsaker]_ ]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Fel meddelande: ett internt fel uppstod. [Det gick inte att konsolidera diskarna på den virtuella datorn _[orsaker]_]
 
 När vi konsoliderar diskar i slutet av en replikeringscykel, Miss lyckas åtgärden. Följ anvisningarna i [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138970) genom att välja lämplig _orsak_ för att lösa problemet.
 

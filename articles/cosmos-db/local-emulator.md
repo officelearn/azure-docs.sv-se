@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 6fb1ef45ff4e77ab21480a1013a3cec6bcc7cfa1
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: bfab099c3b81164e0d9ffaa009ea13f42aefb875
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030908"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608647"
 ---
 # <a name="install-and-use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Installera och Använd Azure Cosmos DB emulatorn för lokal utveckling och testning
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -60,7 +60,7 @@ Eftersom Azure Cosmos DB-emulatorn tillhandahåller en emulerad miljö som körs
 Kontrol lera att du har följande maskinvaru-och program varu krav innan du installerar emulatorn:
 
 * Program varu krav:
-  * För närvarande stöds Windows Server 2012 R2, Windows Server 2016, 2019 eller Windows 8, 10-värd-OS. Värd operativ systemet med Active Directory aktiverat stöds inte för närvarande.
+  * För närvarande stöds Windows Server 2016, 2019 eller Windows 10-värd-OS. Värd operativ systemet med Active Directory aktiverat stöds inte för närvarande.
   * 64-bitars operativsystem
 
 * Minsta maskin varu krav:

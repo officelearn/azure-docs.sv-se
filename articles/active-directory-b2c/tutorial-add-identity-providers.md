@@ -11,12 +11,13 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9f9abf9105da773ec5f8321c0f8e70e20516618c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 166bdb7a2cf15a84e1b826a9a798042c568bb227
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922157"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608239"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Självstudie: Lägg till identitets leverantörer till dina program i Azure Active Directory B2C
 
@@ -31,11 +32,11 @@ I den här artikeln kan du se hur du:
 
 Du använder vanligt vis bara en identitets leverantör i dina program, men du har möjlighet att lägga till fler. Den här självstudien visar hur du lägger till en Azure AD-identitetsprovider och en Facebook-identitetsprovider i ditt program. Att lägga till båda dessa identitets leverantörer i ditt program är valfritt. Du kan också lägga till andra identitets leverantörer, till exempel [Amazon](identity-provider-amazon.md), [GitHub](identity-provider-github.md), [Google](identity-provider-google.md), [LinkedIn](identity-provider-linkedin.md), [Microsoft](identity-provider-microsoft-account.md)eller [Twitter](identity-provider-twitter.md).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-[Skapa ett användar flöde](tutorial-create-user-flows.md) så att användarna kan registrera sig och logga in i programmet.
+[Skapa ett användarflöde](tutorial-create-user-flows.md) så att användare kan registrera sig och logga in i ditt program.
 
 ## <a name="create-applications"></a>Skapa program
 
@@ -61,11 +62,11 @@ Om du vill aktivera inloggning för användare från Azure AD måste du registre
 
     Alla URL: er ska nu använda [b2clogin.com](b2clogin.md).
 
-1. Välj **Registrera**och registrera sedan det **program-ID (klient)** som du använder i ett senare steg.
-1. Under **Hantera** på program-menyn väljer du **certifikat & hemligheter**och väljer sedan **ny klient hemlighet**.
+1. Välj **Registrera** och registrera sedan det **program-ID (klient)** som du använder i ett senare steg.
+1. Under **Hantera** på program-menyn väljer du **certifikat & hemligheter** och väljer sedan **ny klient hemlighet**.
 1. Ange en **Beskrivning** av klient hemligheten. Exempelvis `Azure AD B2C App Secret`.
 1. Välj förfallo period. För det här programmet godkänner du valet på **1 år**.
-1. Välj **Lägg till**och registrera sedan värdet för den nya klient hemlighet som du använder i ett senare steg.
+1. Välj **Lägg till** och registrera sedan värdet för den nya klient hemlighet som du använder i ett senare steg.
 
 ### <a name="create-a-facebook-application"></a>Skapa ett Facebook-program
 
@@ -78,15 +79,15 @@ Om du vill använda ett Facebook-konto som identitets leverantör i Azure AD B2C
 1. Klicka på **skapa app-ID**. Detta kan kräva att du accepterar Facebook-plattforms principer och slutför en säkerhets kontroll online.
 1. Välj **Inställningar**  >  **Basic**.
 1. Välj en **kategori**, till exempel `Business and Pages` . Det här värdet krävs av Facebook, men används inte av Azure AD B2C.
-1. Längst ned på sidan väljer du **Lägg till plattform**och väljer sedan **webbplats**.
-1. I **webbplats-URL**skriver du `https://your-tenant-name.b2clogin.com/` ersätta `your-tenant-name` med namnet på din klient.
+1. Längst ned på sidan väljer du **Lägg till plattform** och väljer sedan **webbplats**.
+1. I **webbplats-URL** skriver du `https://your-tenant-name.b2clogin.com/` ersätta `your-tenant-name` med namnet på din klient.
 1. Ange en URL för **Sekretess policyns URL**, till exempel `http://www.contoso.com/` . URL: en till sekretess policyn är en sida som du upprätthåller för att tillhandahålla sekretess information för ditt program.
 1. Välj **Spara ändringar**.
 1. Överst på sidan registrerar du värdet för **app-ID**.
-1. Bredvid **appens hemlighet**väljer du **Visa** och registrera dess värde. Du kan använda både appens ID och appens hemlighet för att konfigurera Facebook som en identitets leverantör i din klient organisation. **App Secret** är en viktig säkerhets autentiseringsuppgift som du bör lagra säkert.
-1. Välj plus tecknet bredvid **produkter**och välj sedan **Konfigurera**på **Facebook-inloggning**.
+1. Bredvid **appens hemlighet** väljer du **Visa** och registrera dess värde. Du kan använda både appens ID och appens hemlighet för att konfigurera Facebook som en identitets leverantör i din klient organisation. **App Secret** är en viktig säkerhets autentiseringsuppgift som du bör lagra säkert.
+1. Välj plus tecknet bredvid **produkter** och välj sedan **Konfigurera** på **Facebook-inloggning**.
 1. Under **Facebook-inloggning** i den vänstra menyn väljer du **Inställningar**.
-1. I **giltiga OAuth-omdirigerings-URI: er**anger du `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Ersätt `your-tenant-name` med namnet på din klient. Välj **Spara ändringar** längst ned på sidan.
+1. I **giltiga OAuth-omdirigerings-URI: er** anger du `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Ersätt `your-tenant-name` med namnet på din klient. Välj **Spara ändringar** längst ned på sidan.
 1. Om du vill göra ditt Facebook-program tillgängligt för Azure AD B2C klickar du på **status** väljaren längst upp till höger på sidan och **aktiverar det för att göra** programmet offentligt, och klickar sedan på **Bekräfta**. I det här läget bör statusen ändras från **utveckling** till **Live**.
 
 ## <a name="add-the-identity-providers"></a>Lägg till identitets leverantörer
@@ -97,21 +98,23 @@ När du har skapat programmet för den identitetsprovider som du vill lägga til
 
 1. Kontrol lera att du använder den katalog som innehåller Azure AD B2C klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller Azure AD B2C klienten.
 1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
-1. Välj **identitets leverantörer**och välj sedan **ny OpenID Connect-Provider**.
+1. Välj **identitets leverantörer** och välj sedan **ny OpenID Connect-Provider**.
 1. Ange ett **namn**. Ange till exempel *contoso Azure AD*.
-1. För **metadata-URL**anger du följande URL `your-AD-tenant-domain` som ersätter med domän namnet för din Azure AD-klient:
+1. För **metadata-URL** anger du följande URL `{tenant}` som ersätter med domän namnet för din Azure AD-klient:
 
     ```
-    https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
+    https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
     ```
 
-    Exempelvis `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
+    Exempelvis `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
+    Exempelvis `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
 
-1. För **klient-ID**anger du det program-ID som du tidigare har registrerat.
-1. För **klient hemlighet**anger du den klient hemlighet som du tidigare har registrerat.
-1. Lämna standardvärdena för **omfång**, **svars typ**och **svars läge**.
-1. Valfritt Ange ett värde för **Domain_hint**. Till exempel *ContosoAD*. [Domän tips](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) är direktiv som ingår i autentiseringsbegäran från ett program. De kan användas för att påskynda användaren till deras federerade IdP-inloggnings sida. Eller så kan de användas av ett program med flera klienter för att påskynda användaren direkt till den anpassade inloggnings sidan för Azure AD för klient organisationen.
-1. Under **anspråks mappning för identitetsprovider**anger du följande anspråks mappnings värden:
+1. För **klient-ID** anger du det program-ID som du tidigare har registrerat.
+1. För **klient hemlighet** anger du den klient hemlighet som du tidigare har registrerat.
+1. För **scopet** anger du `openid profile` .
+1. Lämna standardvärdena för **svars typ** och **svars läge**.
+1. Valfritt I **domän tipset** anger du `contoso.com` . Mer information finns i [Konfigurera direkt inloggning med Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
+1. Under **identitets leverantör anspråks mappning** väljer du följande anspråk:
 
     * **Användar-ID**: *OID*
     * **Visnings namn**: *namn*
@@ -123,25 +126,25 @@ När du har skapat programmet för den identitetsprovider som du vill lägga til
 
 ### <a name="add-the-facebook-identity-provider"></a>Lägg till Facebook Identity Provider
 
-1. Välj **identitets leverantörer**och välj sedan **Facebook**.
+1. Välj **identitets leverantörer** och välj sedan **Facebook**.
 1. Ange ett **namn**. Till exempel *Facebook*.
-1. För **klient-ID**anger du app-ID: t för det Facebook-program som du skapade tidigare.
-1. För **klient hemligheten**anger du appens hemlighet som du har spelat in.
+1. För **klient-ID** anger du app-ID: t för det Facebook-program som du skapade tidigare.
+1. För **klient hemligheten** anger du appens hemlighet som du har spelat in.
 1. Välj **Spara**.
 
 ## <a name="update-the-user-flow"></a>Uppdatera användar flödet
 
 I självstudien som du avslutade som en del av kraven skapade du ett användar flöde för registrering och inloggning med namnet *B2C_1_signupsignin1*. I det här avsnittet lägger du till identitets leverantörer i *B2C_1_signupsignin1* användar flödet.
 
-1. Välj **användar flöden**och välj sedan *B2C_1_signupsignin1* användar flödet.
+1. Välj **användar flöden** och välj sedan *B2C_1_signupsignin1* användar flödet.
 2. Välj **identitets leverantörer**, Välj **Facebook** och **contoso Azure AD** Identity-providers som du har lagt till.
 3. Välj **Spara**.
 
 ## <a name="test-the-user-flow"></a>Testa användar flödet
 
 1. På sidan Översikt i det användar flöde som du har skapat väljer du **Kör användar flöde**.
-1. För **program**väljer du det webb program som heter *webapp1* som du tidigare har registrerat. **Svars-URL: en** ska visas `https://jwt.ms` .
-1. Välj **Kör användar flöde**och logga sedan in med en identitets leverantör som du har lagt till tidigare.
+1. För **program** väljer du det webb program som heter *webapp1* som du tidigare har registrerat. **Svars-URL: en** ska visas `https://jwt.ms` .
+1. Välj **Kör användar flöde** och logga sedan in med en identitets leverantör som du har lagt till tidigare.
 1. Upprepa steg 1 till 3 för de andra identitets leverantörer som du har lagt till.
 
 Om inloggnings åtgärden lyckas omdirigeras du till `https://jwt.ms` som visar den avkodade token, ungefär som:

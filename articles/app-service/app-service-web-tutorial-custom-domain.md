@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a74a3b7542a8d683e9bbf16f99c9b2646d95e00d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b45e1fbaf912cc045ba51a79db434baecbabdf43
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95986555"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608273"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Självstudie: mappa ett befintligt anpassat DNS-namn till Azure App Service
 
@@ -20,7 +20,7 @@ ms.locfileid: "95986555"
 
 ![Skärm bild som visar Azure Portal navigering till en Azure-App.](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Mappa en under domän (till exempel `www.contoso.com` ) med hjälp av en CNAME-post.
@@ -83,7 +83,7 @@ Du ser hanteringssidan för App Service-appen.
 
 1. Välj någon av betalnivåerna (**D1**, **B1**, **B2**, **B3** eller en nivå i kategorin **Produktion**). Om du vill ha fler alternativ väljer du **Se ytterligare alternativ**.
 
-1. Välj **Tillämpa**.
+1. Välj **Använd**.
 
    ![Skärm bild som visar kontrollerar pris nivån.](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -206,7 +206,7 @@ För att mappa en A-post till en app, vanligt vis till rot domänen, skapar du t
 > | Posttyp | Värd | Värde |
 > | - | - | - |
 > | A | `www` | IP-adress från [Kopiera appens IP-adress](#info) |
-> | TXT | `asuid.www` | `<app-name>.azurewebsites.net` |
+> | TXT | `asuid.www` | [Verifierings-ID: t som du fick tidigare](#get-a-domain-verification-id) |
 >
 
 När posterna har lagts till ser sidan DNS-poster ut som i följande exempel:

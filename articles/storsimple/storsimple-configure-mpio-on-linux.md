@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 75ccfe7a8e62e519b1df89792211433260a6abf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6584b2ecc54efd257bb30c479fd0f22150e8d9e1
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294721"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608596"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurera MPIO på en StorSimple-värd som kör CentOS
 I den här artikeln beskrivs de steg som krävs för att konfigurera multipath i/o (MPIO) på din CentOS 6,6-värd Server. Värd servern är ansluten till din Microsoft Azure StorSimple enhet för hög tillgänglighet via iSCSI-initierare. Den beskriver i detalj den automatiska identifieringen av flera Sök vägs enheter och den speciella installationen enbart för StorSimple volymer.
@@ -21,6 +21,9 @@ Den här proceduren gäller för alla modeller av enheter med StorSimple 8000-se
 
 > [!NOTE]
 > Det går inte att använda den här proceduren för en StorSimple Cloud Appliance. Mer information finns i så här konfigurerar du värd servrar för moln installationen.
+
+> [!NOTE]
+> Den här artikeln innehåller referenser till termen *Black*, en term som Microsoft inte längre använder. När termen tas bort från program varan tar vi bort det från den här artikeln.
 
 
 ## <a name="about-multipathing"></a>Om flera sökvägar
@@ -39,7 +42,7 @@ Flera sökvägar i Linux består av kernel-komponenter och komponenter för anv�
 * **Användar utrymme**: det här är *flera Sök vägs verktyg* som hanterar enheter med flera sökvägar genom att instruera modulen enhets mappning över flera sökvägar vad du ska göra. Verktygen består av:
    
    * **Flera sökvägar**: visar och konfigurerar enheter med flera sökvägar.
-   * **Flera**sökvägar: daemon som kör flera sökvägar och övervakar Sök vägarna.
+   * **Flera** sökvägar: daemon som kör flera sökvägar och övervakar Sök vägarna.
    * **Devmap-Name**: ger ett meningsfullt enhets namn till udev för devmaps.
    * **Kpartx**: mappar linjär devmaps till diskpartitioner för att göra att flera sökvägar kan partitioneras.
    * **Multisökväg. conf**: konfigurations fil för daemon för flera sökvägar som används för att skriva över den inbyggda konfigurations tabellen.

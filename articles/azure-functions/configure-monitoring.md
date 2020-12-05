@@ -4,12 +4,12 @@ description: Lär dig hur du ansluter din Function-app för att Application Insi
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperfq2, devx-track-azurecli
-ms.openlocfilehash: 0b8aae707f0fb055677af111f1e88c0a2e19b227
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 02d5ad2e9697c14818a985325267d7caea80f65e
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175754"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607134"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Så här konfigurerar du övervakning för Azure Functions
 
@@ -38,6 +38,9 @@ Azure Functions loggen innehåller en *kategori* för varje logg. Kategorin visa
 | **`Host.Results`** | **begäran** | Dessa loggar som genereras av körning indikerar att en funktion lyckades eller misslyckades. Alla dessa loggar skrivs på `Information` nivå. Om du filtrerar på `Warning` eller ovanför visas inte någon av dessa data. |
 | **`Microsoft`** | **Anden** | Fullständigt kvalificerad logg kategori som motsvarar en .NET Runtime-komponent som anropas av värden.  |
 | **`Worker`** | **Anden** | Loggar som genereras av språk arbets processen för non-.NET språk. Språk arbets loggar kan också loggas i en `Microsoft.*` kategori, till exempel `Microsoft.Azure.WebJobs.Script.Workers.Rpc.RpcFunctionInvocationDispatcher` . De här loggarna skrivs på `Information` nivå.|
+
+> [!NOTE]
+> För funktioner i .NET-klass bibliotek förutsätter dessa kategorier att du använder `ILogger` och inte `ILogger<T>` . Mer information finns i dokumentationen för [Functions ILogger](functions-dotnet-class-library.md#ilogger). 
 
 # <a name="v1x"></a>[v1. x](#tab/v1)
 
@@ -192,7 +195,7 @@ Mer information finns [i sampling i Application Insights](../azure-monitor/app/s
 
 ## <a name="configure-scale-controller-logs"></a>Konfigurera loggar för skalnings styrenhet
 
-_Den här funktionen är i för hands version._ 
+_Den här funktionen är i förhandsversion._ 
 
 Du kan låta [Azure Functions Scale Controller](./functions-scale.md#runtime-scaling) generera loggar till antingen Application Insights eller till Blob Storage för att bättre förstå de beslut som skalnings styrenheten gör för din Function-app.
 
@@ -260,7 +263,7 @@ Om det inte gick att skapa en Application Insights-resurs med din Function-app, 
 
     :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Skapa en Application Insights resurs":::
 
-1. Välj **Tillämpa**. 
+1. Välj **Använd**. 
 
    Application Insights resursen skapas i samma resurs grupp och prenumeration som din Function-app. När resursen har skapats stänger du Application Insightss fönstret.
 

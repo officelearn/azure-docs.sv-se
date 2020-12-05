@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar Azure Functions med C#.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 3c363d13933e6554a6eefbeaf02d87dc6b382628
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dc08e378d68743ed7906f4dec7c8f31202959880
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002414"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608290"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referens för Azure Functions C#-utvecklare
 
@@ -19,9 +19,9 @@ Den här artikeln är en introduktion till att utveckla Azure Functions med hjä
 
 Som C#-utvecklare kanske du också är intresse rad av någon av följande artiklar:
 
-| Komma igång | Begrepp| Guidad inlärning/exempel |
+| Kom igång | Begrepp| Guidad inlärning/exempel |
 | -- | -- | -- | 
-| <ul><li>[Använda Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Använda Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Använda kommando rads verktyg](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Värdalternativ](functions-scale.md)</li><li>[Prestanda &nbsp; överväganden](functions-best-practices.md)</li><li>[Visual Studio-utveckling](functions-develop-vs.md)</li><li>[Beroende inmatning](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Skapa serverlösa program](/learn/paths/create-serverless-applications/)</li><li>[C#-exempel](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+| <ul><li>[Använda Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Använda Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Använda kommando rads verktyg](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Värdalternativ](functions-scale.md)</li><li>[Prestanda &nbsp; överväganden](functions-best-practices.md)</li><li>[Visual Studio-utveckling](functions-develop-vs.md)</li><li>[Beroendeinmatning](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Skapa serverlösa program](/learn/paths/create-serverless-applications/)</li><li>[C#-exempel](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 
 Azure Functions stöder C#-och C#-skript programmeringsspråk. Om du vill ha vägledning om hur du [använder c# i Azure Portal](functions-create-function-app-portal.md), se [c#-skript (. CSX) som utvecklar referens](functions-reference-csharp.md).
 
@@ -327,6 +327,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 {
     logger.LogInformation("Request for item with key={itemKey}.", id);
 ```
+
+Mer information om hur funktioner implementeras `ILogger` finns i [samla in telemetridata](functions-monitoring.md#collecting-telemetry-data). Kategorier som föregås `Function` av antar att du använder en `ILogger` instans. Om du väljer att i stället använda ett `ILogger<T>` , kan kategori namnet i stället baseras på `T` .  
 
 ### <a name="structured-logging"></a>Strukturerad loggning
 

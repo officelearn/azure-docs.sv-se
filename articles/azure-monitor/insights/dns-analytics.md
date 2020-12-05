@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 947b509468857b98b868881bdd48adf67a5d60db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7bdea9239faa4ec66fffa236bea40afd5e628e62
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994645"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607151"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in insikter om din DNS-infrastruktur med DNS-analys för hands versions lösning
 
@@ -57,13 +57,13 @@ Lösningen börjar samla in data utan att behöva ytterligare konfiguration. Du 
 
 På instrument panelen för lösningen klickar du på **konfiguration** för att öppna sidan DNS-analys konfiguration. Det finns två typer av konfigurations ändringar som du kan göra:
 
-- **Vit listas domän namn**. Lösningen bearbetar inte alla söknings frågor. Den innehåller en vitlista av domänsuffix. Sök frågor som matchar domän namn som matchar domänsuffix i denna vitlista bearbetas inte av lösningen. Om du inte bearbetar vit listas domän namn kan du optimera data som skickas till Azure Monitor. Standard-vitlista innehåller populära offentliga domän namn, till exempel www.google.com och www.facebook.com. Du kan visa den fullständiga standard listan genom att bläddra.
+- **Allowlisted domän namn**. Lösningen bearbetar inte alla söknings frågor. Den underhåller en tillåten av domänsuffix. Sök frågor som matchar domän namn som matchar domänsuffix i denna tillåten bearbetas inte av lösningen. Om du inte bearbetar allowlisted domän namn kan du optimera data som skickas till Azure Monitor. Standard-tillåten innehåller populära offentliga domän namn, till exempel www.google.com och www.facebook.com. Du kan visa den fullständiga standard listan genom att bläddra.
 
   Du kan ändra listan för att lägga till valfritt domänsuffix som du vill visa Sök insikter för. Du kan också ta bort alla domänsuffix som du inte vill visa Sök insikter för.
 
 - **Tröskelvärde för pratsam-klient**. DNS-klienter som överskrider tröskelvärdet för antalet uppslags förfrågningar är markerade på bladet **DNS-klienter** . Standard tröskelvärdet är 1 000. Du kan redigera tröskelvärdet.
 
-    ![Vit listas domän namn](./media/dns-analytics/dns-config.png)
+    ![Allowlisted domän namn](./media/dns-analytics/dns-config.png)
 
 ## <a name="management-packs"></a>Hanteringspaket
 
@@ -110,7 +110,7 @@ Informationen hjälper dig att identifiera:
 - IP-adresser som domän namnet matchar.
 - Skadlig IP-adress.
 - Problemets allvarlighets grad.
-- Orsak till svartlista den skadliga IP-adressen.
+- Orsak för Blocklisting av den skadliga IP-adressen.
 - Identifierings tid.
 
 **Efterfrågade domäner**. Visar de vanligaste domän namnen som efter frågas av DNS-klienterna i din miljö. Du kan visa listan över alla domän namn som efter frågas. Du kan också öka detalj nivån för Sök begär Anden för ett särskilt domän namn i loggs ökningen.

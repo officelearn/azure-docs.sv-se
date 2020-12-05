@@ -5,21 +5,21 @@ services: iot-hub
 author: robinsh
 ms.service: iot-hub
 ms.topic: include
-ms.date: 09/09/2020
+ms.date: 11/25/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 2f9527bec37300ad9653ad2078b248255b8f1d9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c2b680f4bc1816e58f37d2633f36792abd6b9e4
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016017"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96615919"
 ---
 > [!IMPORTANT]
-> Följande funktioner stöds inte för enheter som använder autentisering med X. 509 certifikat utfärdare (CA):
+> Följande funktioner för enheter som använder autentisering med X. 509 certifikat utfärdare (CA) är inte allmänt tillgängliga än, och för [hands versions läge måste aktive ras](../articles/iot-hub/iot-hub-preview-mode.md):
 >
 > - HTTPS, MQTT över WebSockets och AMQP över WebSockets-protokoll.
 > - Fil överföringar (alla protokoll).
 >
-> Det finns stöd för enheter som använder tumavtryck-autentisering med X. 509. Mer information om X. 509-autentisering med IoT Hub finns i [X. 509-certifikat som stöds](../articles/iot-hub/iot-hub-devguide-security.md#supported-x509-certificates).  
+> Den är allmänt tillgänglig på enheter som använder tumavtryck-autentiseringen av X. 509. Mer information om X. 509-autentisering med IoT Hub finns i [X. 509-certifikat som stöds](../articles/iot-hub/iot-hub-devguide-security.md#supported-x509-certificates).  
 >

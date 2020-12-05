@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/07/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: a0ed1ef796412211d1d0871d3e09aed4f7346ae5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 35d5940fbc001d1806711afb14aa4a549bcb1826
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979243"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96615831"
 ---
 <a name="HOLTop"></a>
 
@@ -28,11 +28,11 @@ ms.locfileid: "94979243"
 
 # <a name="version-21"></a>[Version 2,1](#tab/version-2)
 
-[v2 referens dokumentation](/dotnet/api/overview/azure/cognitiveservices/client/textanalytics)  |  [käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics)  |  för v2-bibliotek [v2-paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/)  |  [v2-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
+[v2 referens dokumentation](/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet)  |  [käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics)  |  för v2-bibliotek [v2-paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/)  |  [v2-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 
 ---
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
@@ -176,10 +176,10 @@ Om du använder en version `3.x` av tjänsten kan du använda en valfri `TextAna
 
 * [Sentiment-analys](#sentiment-analysis)
 * [Åsikts utvinning](#opinion-mining)
-* [Språk identifiering](#language-detection)
+* [Språkidentifiering](#language-detection)
 * [Igenkänning av namngiven entitet](#named-entity-recognition-ner)
 * [Länkning av entitet](#entity-linking)
-* [Extrahering av nyckel fraser](#key-phrase-extraction)
+* [Extrahering av nyckelfraser](#key-phrase-extraction)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: 4a06d40c3052fef9a484dc98220a0ad7cccd33bb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a039bfb84cae202f62c8e9c98278dd0a3f0e502b
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509351"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96615848"
 ---
 En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna igen mänskligt tal (kallas ofta tal till text). I den här snabb starten får du lära dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativt tal-till-text-konvertering.
 
@@ -114,7 +114,7 @@ public class Program {
 
 ## <a name="error-handling"></a>Felhantering
 
-I föregående exempel får du bara den tolkade texten med `result.getText()` , men för att hantera fel och andra svar måste du skriva kod för att hantera resultatet. I följande exempel utvärderas [`result.getReason()`](/java/api/com.microsoft.cognitiveservices.speech.resultreason&preserve-view=true) och:
+I föregående exempel får du bara den tolkade texten med `result.getText()` , men för att hantera fel och andra svar måste du skriva kod för att hantera resultatet. I följande exempel utvärderas [`result.getReason()`](/java/api/com.microsoft.cognitiveservices.speech.recognitionresult.getreason) och:
 
 * Skriver ut resultatet för igenkänning: `ResultReason.RecognizedSpeech`
 * Om det inte finns någon igenkännings matchning, informera användaren: `ResultReason.NoMatch`

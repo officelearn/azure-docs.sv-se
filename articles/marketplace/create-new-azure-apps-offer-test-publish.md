@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: b54e965188be51ec54110bb85d8cda8f01256836
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 461f9354bb3a6eae0af186de8fe9f39c6b5fff2c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370452"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620927"
 ---
 # <a name="how-to-test-and-publish-an-azure-application-offer"></a>Testa och publicera ett Azure Application erbjudande
 
@@ -72,4 +72,4 @@ Om du har fel i ett eller flera publicerings steg, korrigerar du dem innan du pu
 ## <a name="next-step"></a>Nästa steg
 
 - [Få åtkomst till analys rapporter för den kommersiella marknads platsen i Partner Center](partner-center-portal/analytics.md)
-- Lär dig [hur du marknadsför ditt Azure Applications erbjudande](create-new-azure-apps-offer-marketing.md) genom samförsäljningen med Microsoft och återförsäljs via CSP-program.
+- Lär dig [hur du säljer ditt Azure Applications erbjudande](create-new-azure-apps-offer-marketing.md) genom medförsäljning med Microsoft och som återförsäljs via CSP-program.

@@ -1,20 +1,26 @@
 ---
 title: Översikt över Azure Functions
-description: Lär dig hur Azure Functions kan hjälpa dig att bygga skalbara appar utan server.
+description: Lär dig hur Azure Functions kan hjälpa dig att bygga robusta appar utan server.
 author: craigshoemaker
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperfq2
-ms.openlocfilehash: 8b836ac8bd2255abf9a94e532a0599994c3ede89
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 269d911c13cbc59a054c5548e106780d630c8e2b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608260"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620879"
 ---
 # <a name="introduction-to-azure-functions"></a>Introduktion till Azure Functions
+
+Azure Functions är en server lös lösning som gör att du kan skriva mindre kod, upprätthålla mindre infrastruktur och spara pengar. I stället för att oroa dig för att distribuera och underhålla servrar tillhandahåller moln infrastrukturen alla uppdaterade servrar som behövs för att se till att dina program körs.
+
+Du fokuserar på de delar av koden som är viktigast för dig och Azure Functions hanterar resten.<br /><br />
+
+> [!VIDEO https://www.youtube.com/embed/8-jz5f_JyEQ]
 
 Vi skapar ofta system för att reagera på en serie kritiska händelser. Oavsett om du skapar ett webb-API, svarar på databas ändringar, bearbetar IoT-dataströmmar eller till och med hanterar meddelande köer – varje program behöver ett sätt att köra viss kod när dessa händelser inträffar.
 

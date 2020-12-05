@@ -2,20 +2,20 @@
 title: Omfångs synkronisering med PowerShell för Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur du använder Azure AD PowerShell för att konfigurera omfångst synkronisering från Azure AD till en Azure Active Directory Domain Services hanterad domän
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.author: joflore
-ms.openlocfilehash: dc6ebb88440ecdccc3ea78d85f0b6186100da01a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: c078117baf84d7dbfaaaa2b569abb8a5f5c67e6d
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967891"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619019"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-azure-ad-powershell"></a>Konfigurera omfångs synkronisering från Azure AD till Azure Active Directory Domain Services med hjälp av Azure AD PowerShell
 
@@ -175,7 +175,7 @@ Om du ändrar omfånget för synkroniseringen synkroniserar den hanterade domän
 
 Om du vill ändra listan över grupper vars användare ska synkroniseras med den hanterade domänen kör du `Select-GroupsToSync.ps1` skript och anger den nya listan över grupper som ska synkroniseras.
 
-I följande exempel innehåller grupperna för synkronisering inte längre *GroupName2*och innehåller nu *GroupName3*.
+I följande exempel innehåller grupperna för synkronisering inte längre *GroupName2* och innehåller nu *GroupName3*.
 
 > [!WARNING]
 > Du måste inkludera *Administratörs gruppen för AAD-domänkontrollanten* i listan över grupper för omfångs synkronisering. Om du inte tar med den här gruppen går det inte att använda den hanterade domänen.

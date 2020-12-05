@@ -2,20 +2,20 @@
 title: Självstudie – Skapa ett skogs förtroende i Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur du skapar en enkelriktad utgående skog till en lokal AD DS-domän i Azure Portal för Azure AD Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: cbdcd170e6c6fb768172acfe3eb3c907714cd560
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 0231689acef3345fb2b0f25170522d59552171ba
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967264"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618339"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Självstudie: skapa en utgående skogs förtroende till en lokal domän i Azure Active Directory Domain Services
 
@@ -23,7 +23,7 @@ I miljöer där du inte kan synkronisera lösen ord, eller om du har användare 
 
 ![Diagram över skogs förtroende från Azure AD DS till lokal AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera DNS i en lokal AD DS-miljö för att stödja Azure AD DS-anslutning
@@ -75,7 +75,7 @@ För att korrekt lösa den hanterade domänen från den lokala miljön kan du be
 
 1. Välj **Start | Administrations verktyg | DNS**
 1. Högerklicka på DNS-server, till exempel *myAD01*, och välj sedan **Egenskaper**
-1. Välj **vidarebefordrare**och sedan **Redigera** för att lägga till ytterligare vidarebefordrare.
+1. Välj **vidarebefordrare** och sedan **Redigera** för att lägga till ytterligare vidarebefordrare.
 1. Lägg till IP-adresserna för den hanterade domänen, till exempel *10.0.2.4* och *10.0.2.5*.
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Skapa inkommande skogs förtroende i den lokala domänen
@@ -88,9 +88,9 @@ Om du vill konfigurera inkommande förtroende för den lokala AD DS-domänen utf
 1. Högerklicka på domän, till exempel *OnPrem.contoso.com*, och välj sedan **Egenskaper**
 1. Välj fliken **förtroenden** och sedan **Nytt förtroende**
 1. Ange namnet på Azure AD DS-domännamnet, till exempel *aaddscontoso.com*, och välj sedan **Nästa**
-1. Välj alternativet för att skapa ett **skogs förtroende**och skapa ett enkelriktat **sätt: inkommande** förtroende.
+1. Välj alternativet för att skapa ett **skogs förtroende** och skapa ett enkelriktat **sätt: inkommande** förtroende.
 1. Välj att endast skapa förtroende för **den här domänen**. I nästa steg skapar du förtroendet i Azure Portal för den hanterade domänen.
-1. Välj att använda **autentisering för hela skogen**och ange och bekräfta ett lösen ord för förtroende. Samma lösen ord anges också i Azure Portal i nästa avsnitt.
+1. Välj att använda **autentisering för hela skogen** och ange och bekräfta ett lösen ord för förtroende. Samma lösen ord anges också i Azure Portal i nästa avsnitt.
 1. Gå igenom de kommande Fönstren med standard alternativ och välj alternativet för **Nej, bekräfta inte det utgående förtroendet**.
 1. Välj **Slutför**
 
@@ -100,11 +100,11 @@ När den lokala AD DS-domänen har kon figurer ATS för att matcha den hanterade
 
 Utför följande steg för att skapa utgående förtroende för den hanterade domänen i Azure Portal:
 
-1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**och väljer sedan din hanterade domän, till exempel *aaddscontoso.com*
-1. I menyn till vänster i den hanterade domänen väljer du **förtroenden**och väljer sedan till **+ Lägg till** ett förtroende.
+1. I Azure Portal söker du efter och väljer **Azure AD Domain Services** och väljer sedan din hanterade domän, till exempel *aaddscontoso.com*
+1. I menyn till vänster i den hanterade domänen väljer du **förtroenden** och väljer sedan till **+ Lägg till** ett förtroende.
 
    > [!NOTE]
-   > Om du inte ser meny alternativet **förtroende** kontrollerar du under **Egenskaper** för *skogs typen*. Endast *resurs* skogar kan skapa förtroenden. Om skogs typen är *användare*kan du inte skapa förtroenden. Det finns för närvarande inget sätt att ändra skogs typen för en hanterad domän. Du måste ta bort och återskapa den hanterade domänen som en resurs skog.
+   > Om du inte ser meny alternativet **förtroende** kontrollerar du under **Egenskaper** för *skogs typen*. Endast *resurs* skogar kan skapa förtroenden. Om skogs typen är *användare* kan du inte skapa förtroenden. Det finns för närvarande inget sätt att ändra skogs typen för en hanterad domän. Du måste ta bort och återskapa den hanterade domänen som en resurs skog.
 
 1. Ange ett visnings namn som identifierar ditt förtroende, sedan DNS-namnet för den lokala betrodda skogen, till exempel *OnPrem.contoso.com*
 1. Ange samma lösen ord för förtroende som användes när du konfigurerade det inkommande skogs förtroendet för den lokala AD DS-domänen i föregående avsnitt.
@@ -152,19 +152,19 @@ Med hjälp av den virtuella Windows Server-datorn som är ansluten till Azure AD
 
 1. Anslut till den virtuella Windows Server-datorn som är ansluten till resurs skogen för Azure AD DS med hjälp av [Azure skydds](../bastion/bastion-overview.md) och dina autentiseringsuppgifter för Azure AD DS-administratören.
 
-1. Öppna **Windows-inställningar**och Sök sedan efter och välj **nätverks-och delnings Center**.
+1. Öppna **Windows-inställningar** och Sök sedan efter och välj **nätverks-och delnings Center**.
 1. Välj alternativet för att **Ändra avancerade delnings** inställningar.
-1. Under **domän profil**väljer du **aktivera fil-och skrivar delning** och **sparar ändringarna**.
+1. Under **domän profil** väljer du **aktivera fil-och skrivar delning** och **sparar ändringarna**.
 1. Stäng **nätverks-och delnings Center**.
 
 #### <a name="create-a-security-group-and-add-members"></a>Skapa en säkerhets grupp och Lägg till medlemmar
 
 1. Öppna **Active Directory-användare och datorer**.
-1. Högerklicka på domän namnet, Välj **nytt**och välj sedan **organisationsenhet**.
-1. I rutan Namn skriver du *LocalObjects*och väljer sedan **OK**.
+1. Högerklicka på domän namnet, Välj **nytt** och välj sedan **organisationsenhet**.
+1. I rutan Namn skriver du *LocalObjects* och väljer sedan **OK**.
 1. Markera och högerklicka på **LocalObjects** i navigerings fönstret. Välj **ny** och sedan **grupp**.
-1. Skriv *FileServerAccess* i rutan **grupp namn** . För **grupp omfånget**väljer du **domän lokalt**och väljer sedan **OK**.
-1. I innehålls rutan dubbelklickar du på **FileServerAccess**. Välj **medlemmar**, Välj att **lägga till**och välj sedan **platser**.
+1. Skriv *FileServerAccess* i rutan **grupp namn** . För **grupp omfånget** väljer du **domän lokalt** och väljer sedan **OK**.
+1. I innehålls rutan dubbelklickar du på **FileServerAccess**. Välj **medlemmar**, Välj att **lägga till** och välj sedan **platser**.
 1. Välj din lokala Active Directory från vyn **plats** och välj sedan **OK**.
 1. Skriv *domän användare* i rutan **Ange de objekt namn som ska väljas** . Välj **kontrol lera namn**, ange autentiseringsuppgifter för den lokala Active Directory och välj sedan **OK**.
 
@@ -179,18 +179,18 @@ Med hjälp av den virtuella Windows Server-datorn som är ansluten till Azure AD
 1. Högerklicka på mappen och välj **Egenskaper**.
 1. Välj fliken **säkerhet** och välj sedan **Redigera**.
 1. I dialog rutan *behörigheter för CrossForestShare* väljer du **Lägg till**.
-1. Skriv *FileServerAccess* i **Ange de objekt namn som ska väljas**och välj sedan **OK**.
+1. Skriv *FileServerAccess* i **Ange de objekt namn som ska väljas** och välj sedan **OK**.
 1. Välj *FileServerAccess* i listan **grupper eller användar namn** . I listan **behörigheter för FileServerAccess** väljer du *Tillåt* för behörigheterna **ändra** och **Skriv** och väljer sedan **OK**.
 1. Välj fliken **delning** och välj sedan **Avancerad delning...**
-1. Välj **dela den här mappen**och ange ett minnes minnes namn för fil resursen i **resurs namn** , till exempel *CrossForestShare*.
-1. Välj **behörigheter**. I listan **behörigheter för alla** väljer du **Tillåt** för behörigheten **ändra** .
-1. Välj **OK** två gånger och **Stäng**sedan.
+1. Välj **dela den här mappen** och ange ett minnes minnes namn för fil resursen i **resurs namn** , till exempel *CrossForestShare*.
+1. Välj **Behörigheter**. I listan **behörigheter för alla** väljer du **Tillåt** för behörigheten **ändra** .
+1. Välj **OK** två gånger och **Stäng** sedan.
 
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Verifiera autentisering mellan skogar till en resurs
 
 1. Logga in på en Windows-dator som är ansluten till din lokala Active Directory med ett användar konto från din lokala Active Directory.
-1. Med **Utforskaren i Windows**ansluter du till den resurs som du skapade med det fullständigt kvalificerade värd namnet och resursen, till exempel `\\fs1.aaddscontoso.com\CrossforestShare` .
-1. Om du vill verifiera Skriv behörigheten högerklickar du i mappen, väljer **nytt**och väljer sedan **text dokument**. Använd standard namnet **nytt text dokument**.
+1. Med **Utforskaren i Windows** ansluter du till den resurs som du skapade med det fullständigt kvalificerade värd namnet och resursen, till exempel `\\fs1.aaddscontoso.com\CrossforestShare` .
+1. Om du vill verifiera Skriv behörigheten högerklickar du i mappen, väljer **nytt** och väljer sedan **text dokument**. Använd standard namnet **nytt text dokument**.
 
     Om Skriv behörigheterna har angetts korrekt skapas ett nytt text dokument. Följande steg kommer sedan att öppna, redigera och ta bort filen efter behov.
 1. Om du vill verifiera Läs behörighet öppnar du **nytt text dokument**.

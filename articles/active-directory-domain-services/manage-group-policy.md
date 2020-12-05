@@ -1,7 +1,7 @@
 ---
 title: Skapa och hantera grup princip i Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur du redigerar inbyggda grup princip objekt (GPO) och hur du skapar egna anpassade principer i en Azure Active Directory Domain Services hanterad domän.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -9,13 +9,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: deefcb66e05199896e8997d707a06e45f397adec
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: f1f2499c49c4adf16b632bc75c246a28330ad27b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963746"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619393"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrera grupprincip i en Azure Active Directory Domain Services hanterad domän
 
@@ -51,10 +51,10 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
 Om du vill skapa och konfigurera grupprincip objekt (GPO) måste du installera grupprincip hanterings verktyg. Dessa verktyg kan installeras som en funktion i Windows Server. Mer information om hur du installerar administrations verktyg på en Windows-klient finns i installera [verktyg för fjärrserveradministration (RSAT)][install-rsat].
 
 1. Logga in på den virtuella hanterings datorn. Anvisningar om hur du ansluter med hjälp av Azure Portal finns i [ansluta till en virtuell Windows Server-dator][connect-windows-server-vm].
-1. **Serverhanteraren** bör öppnas som standard när du loggar in på den virtuella datorn. Annars väljer du **Serverhanteraren**på **Start** -menyn.
+1. **Serverhanteraren** bör öppnas som standard när du loggar in på den virtuella datorn. Annars väljer du **Serverhanteraren** på **Start** -menyn.
 1. I fönstret *instrument panel* i fönstret **Serverhanteraren** väljer du **Lägg till roller och funktioner**.
-1. På sidan **innan du börjar** i *guiden Lägg till roller och funktioner*väljer du **Nästa**.
-1. För *installations typen*låter du alternativet för **rollbaserad eller funktions baserad installation** vara markerat och väljer **Nästa**.
+1. På sidan **innan du börjar** i *guiden Lägg till roller och funktioner* väljer du **Nästa**.
+1. För *installations typen* låter du alternativet för **rollbaserad eller funktions baserad installation** vara markerat och väljer **Nästa**.
 1. På sidan **Server val** väljer du den aktuella virtuella datorn från serverpoolen, till exempel *myvm.aaddscontoso.com*, och väljer sedan **Nästa**.
 1. På sidan **Server roller** klickar du på **Nästa**.
 1. På sidan **funktioner** väljer du funktionen **Grupprincip hantering** .
@@ -71,7 +71,7 @@ Det finns standard grup princip objekt (GPO) för användare och datorer i en ha
 > [!NOTE]
 > Om du vill administrera en grup princip i en hanterad domän måste du vara inloggad på ett användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* .
 
-1. Välj **administrations verktyg**på Start skärmen. En lista över tillgängliga hanterings verktyg visas, inklusive **Grupprincip hantering** som installerades i föregående avsnitt.
+1. Välj **administrations verktyg** på Start skärmen. En lista över tillgängliga hanterings verktyg visas, inklusive **Grupprincip hantering** som installerades i föregående avsnitt.
 1. Öppna konsolen grupprinciphantering (GPMC) genom att välja **Grupprincip hantering**.
 
     ![konsolen grupprinciphantering öppnar redigera grup princip objekt](./media/active-directory-domain-services-admin-guide/gp-management-console.png)

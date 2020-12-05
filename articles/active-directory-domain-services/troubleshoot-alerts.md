@@ -2,7 +2,7 @@
 title: Vanliga varningar och lösningar i Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur du löser vanliga aviseringar som har genererats som en del av hälso tillståndet för Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 54319292-6aa0-4a08-846b-e3c53ecca483
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: 5324018bace0ad530dea8ae94cecdc5b41b618c7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 80011b2ae2a70ce4c540ac31897cc8be4a6580c3
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967604"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618628"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Kända problem: vanliga aviseringar och lösningar i Azure Active Directory Domain Services
 
@@ -73,7 +73,7 @@ För att lösa den här aviseringen tar du bort din befintliga hanterade domän 
 
 1. [Ta bort den hanterade domänen](delete-aadds.md) från katalogen.
 1. Om du vill uppdatera det virtuella nätverkets IP-adressintervall söker du efter och väljer *virtuella nätverk* i Azure Portal. Välj det virtuella nätverk för Azure AD DS som felaktigt har en offentlig IP-adressintervall angiven.
-1. Under **Inställningar**väljer du *adress utrymme*.
+1. Under **Inställningar** väljer du *adress utrymme*.
 1. Uppdatera adress intervallet genom att välja det befintliga adress intervallet och redigera det eller lägga till ytterligare ett adress intervall. Kontrol lera att det nya IP-adressintervallet är i ett privat IP-adressintervall. **Spara** ändringarna när du är klar.
 1. Välj **undernät** i det vänstra navigerings fältet.
 1. Välj det undernät som du vill redigera eller skapa ett ytterligare undernät.
@@ -133,7 +133,7 @@ Azure AD DS skapar ytterligare resurser för att fungera korrekt, till exempel o
 
 Den här aviseringen skapas när en av de nödvändiga resurserna tas bort. Om resursen har tagits bort under 4 timmar sedan, finns det en risk att Azure-plattformen automatiskt kan återskapa den borttagna resursen. Följande steg beskriver hur du kontrollerar hälso status och tidsstämpel för borttagning av resurser:
 
-1. Sök efter och välj **domän tjänster**i Azure Portal. Välj din hanterade domän, till exempel *aaddscontoso.com*.
+1. Sök efter och välj **domän tjänster** i Azure Portal. Välj din hanterade domän, till exempel *aaddscontoso.com*.
 1. I det vänstra navigerings fältet väljer du **hälsa**.
 1. På sidan hälsa väljer du aviseringen med ID- *AADDS109*.
 1. Aviseringen har en tidsstämpel för första gången den hittades. Om tidsstämpeln är mindre än 4 timmar sedan kan Azure-plattformen automatiskt återskapa resursen och lösa själva aviseringen.
@@ -179,7 +179,7 @@ För att lösa den här aviseringen tar du bort din befintliga hanterade domän 
 
 1. [Ta bort den hanterade domänen](delete-aadds.md) från katalogen.
 1. Om du vill uppdatera det virtuella nätverkets IP-adressintervall söker du efter och väljer *virtuella nätverk* i Azure Portal. Välj det virtuella nätverket för den hanterade domän som har det lilla IP-adressintervallet.
-1. Under **Inställningar**väljer du *adress utrymme*.
+1. Under **Inställningar** väljer du *adress utrymme*.
 1. Uppdatera adress intervallet genom att välja det befintliga adress intervallet och redigera det eller lägga till ytterligare ett adress intervall. Kontrol lera att det nya IP-adressintervallet är tillräckligt stort för den hanterade domänens under näts intervall. **Spara** ändringarna när du är klar.
 1. Välj **undernät** i det vänstra navigerings fältet.
 1. Välj det undernät som du vill redigera eller skapa ett ytterligare undernät.

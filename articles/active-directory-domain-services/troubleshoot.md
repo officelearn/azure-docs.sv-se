@@ -2,7 +2,7 @@
 title: Azure Active Directory Domain Services fel sökning | Microsoft Docs
 description: Lär dig hur du felsöker vanliga fel när du skapar eller hanterar Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 9593fe71fc4a29678d58d7c67699210a4a39f95e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 89b04f86d41f8e4828580f70a9aec8acea3e0053
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967383"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618458"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Vanliga fel och fel söknings steg för Azure Active Directory Domain Services
 
@@ -121,7 +121,7 @@ För att kontrol lera status för det här programmet och aktivera det vid behov
 1. I Azure Portal väljer du **Azure Active Directory** i navigerings menyn till vänster.
 1. Välj **företags program**. Välj *alla program* på list menyn **program typ** och välj sedan **Använd**.
 1. I rutan Sök anger du *00000002-0000-0000-C000-00000000000*. Välj programmet och välj sedan **Egenskaper**.
-1. Om **aktive rad för användare till inloggning** har värdet *Nej*anger du värdet *Ja*och väljer sedan **Spara**.
+1. Om **aktive rad för användare till inloggning** har värdet *Nej* anger du värdet *Ja* och väljer sedan **Spara**.
 1. När du har aktiverat programmet försöker du aktivera Azure AD DS igen.
 
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Användarna kan inte logga in på den hanterade domänen för Azure AD Domain Services

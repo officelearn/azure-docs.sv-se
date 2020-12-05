@@ -2,7 +2,7 @@
 title: Aktivera SharePoint-tjänsten för användar profiler med Azure AD DS | Microsoft Docs
 description: Lär dig hur du konfigurerar en Azure Active Directory Domain Services hanterad domän så att den stöder profilsynkronisering för SharePoint Server
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: 7bd63ece1ec32e5e4cecfd2a458124a4f24ccaa6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 8fbde10ccf5a7f083f5fbddaadd6668d880a1fac
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962487"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619835"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Konfigurera Azure Active Directory Domain Services som stöder synkronisering av användar profiler för SharePoint Server
 
@@ -60,11 +60,11 @@ Utför följande steg från din Azure AD DS Management VM:
 > [!NOTE]
 > Om du vill redigera grupp medlemskap i en hanterad domän måste du vara inloggad på ett användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* .
 
-1. Välj **administrations verktyg**på Start skärmen. En lista över tillgängliga hanterings verktyg visas som har installerats i självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
+1. Välj **administrations verktyg** på Start skärmen. En lista över tillgängliga hanterings verktyg visas som har installerats i självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
 1. Om du vill hantera grupp medlemskap väljer du **Active Directory Administrationscenter** i listan över administrations verktyg.
 1. I det vänstra fönstret väljer du din hanterade domän, till exempel *aaddscontoso.com*. En lista över befintliga organisationsenheter och resurser visas.
 1. Välj ou för **användare** och välj sedan säkerhets gruppen *AAD DC Service accounts* .
-1. Välj **medlemmar**och välj sedan **Lägg till.**...
+1. Välj **medlemmar** och välj sedan **Lägg till.**...
 1. Ange namnet på SharePoint-tjänstkontot och välj sedan **OK**. I följande exempel heter SharePoint-tjänstkontot *SPAdmin*:
 
     ![Lägg till SharePoint-tjänstkontot i säkerhets gruppen för AAD DC service-konton](./media/deploy-sp-profile-sync/add-member-to-aad-dc-service-accounts-group.png)

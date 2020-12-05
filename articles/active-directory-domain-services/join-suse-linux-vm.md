@@ -2,20 +2,20 @@
 title: Anslut en virtuell SLE-dator till Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur du konfigurerar och ansluter till en SUSE Linux Enterprise-dator till en Azure AD Domain Services hanterad domän.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.author: joflore
-ms.openlocfilehash: 607d3bc8eca3bd969f0f47ca95923040fb22591e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.author: justinha
+ms.openlocfilehash: f2f421d95dfc376aed373c718198db33a870d9dc
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275868"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619614"
 ---
 # <a name="join-a-suse-linux-enterprise-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Ansluta en SUSE Linux Enterprise-dator till en Azure Active Directory Domain Services hanterad domän
 
@@ -93,7 +93,7 @@ Slutför följande steg för att ansluta till den hanterade domänen med **SSSD*
 
     Lägg till din egen IP-adress för hanterade domäner och välj sedan **OK**.
 
-1. Välj *Network Services*  >  *hantering av användar inloggning*i huvud fönstret för YaST.
+1. Välj *Network Services*  >  *hantering av användar inloggning* i huvud fönstret för YaST.
 
     Modulen öppnas med en översikt över olika nätverks egenskaper för datorn och den autentiseringsmetod som används för närvarande, som visas i följande exempel skärm bild:
 
@@ -137,13 +137,13 @@ När den virtuella datorn har registrerats i den hanterade domänen konfigurerar
 
 1. Om du vill tillåta att användare i den hanterade domänen har hem kataloger på den virtuella datorn markerar du kryss rutan för *skapa arbets kataloger*.
 
-1. I sido fältet väljer du **tjänst alternativ › namn switch**och sedan *utökade alternativ*. Välj antingen *fallback_homedir* eller *override_homedir*i fönstret och välj sedan **Lägg till**.
+1. I sido fältet väljer du **tjänst alternativ › namn switch** och sedan *utökade alternativ*. Välj antingen *fallback_homedir* eller *override_homedir* i fönstret och välj sedan **Lägg till**.
 
-1. Ange ett värde för hem katalogens plats. Om du vill att hem kataloger ska följa formatet på */home/user_name*använder du */Home/%u*. Mer information om möjliga variabler finns i SSSD. conf man Page ( `man 5 sssd.conf` ), avsnitt *override_homedir*.
+1. Ange ett värde för hem katalogens plats. Om du vill att hem kataloger ska följa formatet på */home/user_name* använder du */Home/%u*. Mer information om möjliga variabler finns i SSSD. conf man Page ( `man 5 sssd.conf` ), avsnitt *override_homedir*.
 
 1. Välj **OK**.
 
-1. Välj **OK**om du vill spara ändringarna. Kontrol lera sedan att värdena som visas nu är korrekta. Välj **Avbryt**om du vill lämna dialog rutan.
+1. Klicka på **OK** för att spara ändringarna. Kontrol lera sedan att värdena som visas nu är korrekta. Välj **Avbryt** om du vill lämna dialog rutan.
 
 1. Om du avser att köra SSSD och winbind samtidigt (t. ex. När du ansluter till via SSSD, men sedan kör en Samba-fil Server) ska *Kerberos-metoden* för samba vara inställd på *hemligheter och keytab* i SMB. conf. Alternativet SSSD *ad_update_samba_machine_account_password* ska också anges till *Sant* i SSSD. conf. De här alternativen förhindrar att systemets keytab inte går att synkronisera.
 
@@ -163,7 +163,7 @@ Slutför följande steg för att ansluta till den hanterade domänen med **winbi
 
 1. Markera alternativet för *offline-autentisering* så att dina domän användare kan logga in även om den hanterade domänen inte är tillgänglig för tillfället.
 
-1. Välj *Expert inställningar*om du vill ändra UID-och GID-intervall för samba-användare och-grupper.
+1. Välj *Expert inställningar* om du vill ändra UID-och GID-intervall för samba-användare och-grupper.
 
 1. Konfigurera NTP-tidssynkronisering (Network Time Protocol) för din hanterade domän genom att välja *NTP-konfiguration*. Ange IP-adresserna för den hanterade domänen. De här IP-adresserna visas i fönstret *Egenskaper* i Azure Portal för din hanterade domän, till exempel *10.0.2.4* och *10.0.2.5*.
 
@@ -187,7 +187,7 @@ Så här ansluter du till den hanterade domänen med hjälp av **winbind** och *
 
 ## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-terminal"></a>Anslut den virtuella datorn till den hanterade domänen med winbind från terminalen
 
-Så här ansluter du till den hanterade domänen med **winbind** och * `samba net` kommandot*:
+Så här ansluter du till den hanterade domänen med **winbind** och *`samba net` kommandot*:
 
 1. Installera Kerberos-klienten och Samba-winbind:
 

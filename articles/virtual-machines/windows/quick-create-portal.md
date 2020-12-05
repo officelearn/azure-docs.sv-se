@@ -9,10 +9,10 @@ ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 46119b9f7cdac47920d4bba8e00c3fc56b0edc78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 12/05/2020
 ms.locfileid: "87494527"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator i Azure Portal
@@ -28,13 +28,13 @@ Logga in på Azure Portal på https://portal.azure.com.
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
 1. Skriv **virtuella datorer** i sökningen.
-1. Under **tjänster**väljer du **virtuella datorer**.
+1. Under **tjänster** väljer du **virtuella datorer**.
 1. På sidan **virtuella datorer** väljer du **Lägg till**. 
 1. På fliken **Grundläggande inställningar** går du till **Projektinformation**, kontrollerar att korrekt prenumeration har valts och väljer sedan **Skapa ny** för resursgruppen. Skriv *myResourceGroup* som namn. 
 
     ![Skärm bild av avsnittet projekt information som visar var du väljer Azure-prenumerationen och resurs gruppen för den virtuella datorn](./media/quick-create-portal/project-details.png)
 
-1. Under **instans information**skriver du *myVM* för namnet på den **virtuella datorn** och väljer *östra USA* för din **region**och väljer sedan *Windows Server 2019 Data Center* för **avbildningen**. Låt de övriga standardvärdena vara som de är.
+1. Under **instans information** skriver du *myVM* för namnet på den **virtuella datorn** och väljer *östra USA* för din **region** och väljer sedan *Windows Server 2019 Data Center* för **avbildningen**. Låt de övriga standardvärdena vara som de är.
 
     ![Skärm bild av avsnittet instans information där du anger ett namn för den virtuella datorn och väljer dess region, bild och storlek](./media/quick-create-portal/instance-details.png)
 
@@ -42,7 +42,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
     ![Skärm bild av avsnittet administratörs konto där du anger administratörens användar namn och lösen ord](./media/quick-create-portal/administrator-account.png)
 
-1. Under **regler för inkommande port**väljer du **Tillåt valda portar** och väljer sedan **RDP (3389)** och **http (80)** i list rutan.
+1. Under **regler för inkommande port** väljer du **Tillåt valda portar** och väljer sedan **RDP (3389)** och **http (80)** i list rutan.
 
     ![Skärm bild av avsnittet regler för inkommande port där du väljer vilka portar som inkommande anslutningar tillåts på](./media/quick-create-portal/inbound-port-rules.png)
 

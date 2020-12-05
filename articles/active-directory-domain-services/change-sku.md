@@ -2,20 +2,20 @@
 title: 'Ändra SKU: n för en Azure AD Domain Services | Microsoft Docs'
 description: Läs om SKU-nivån för en Azure AD Domain Services hanterad domän om dina affärs behov ändras
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: c85a3f3262da6002e9604b1506552b9188a64460
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 320bd87aa78d26cee44c48f27365febd1dd426ff
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962759"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620298"
 ---
 # <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>Ändra SKU: n för en befintlig Azure Active Directory Domain Services hanterad domän
 
@@ -40,7 +40,7 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
 
 Du kan ändra SKU: er upp eller ned efter att den hanterade domänen har distribuerats. Men om du använder en resurs skog och har skapat enkelriktade utgående skogs förtroenden från Azure AD DS till en lokal AD DS-miljö finns det vissa begränsningar för ändrings åtgärden för SKU. *Premium* -och *Enterprise* -SKU: erna definierar en gräns för antalet förtroenden som du kan skapa. Du kan inte ändra till en SKU med en lägre Max gräns än vad du för närvarande har konfigurerat.
 
-Till exempel:
+Exempel:
 
 * Om du har skapat två skogs förtroenden på *Premium* -SKU: n kan du inte ändra till *standard* -SKU: n. *Standard* -SKU: n har inte stöd för skogs förtroenden.
 * Eller, om du har skapat sju förtroenden på *Premium* -SKU: n, kan du inte ändra till *företags* -SKU: n. *Enterprise* -SKU: n stöder högst fem förtroenden.
@@ -51,7 +51,7 @@ Mer information om dessa begränsningar finns i [funktioner och begränsningar f
 
 Utför följande steg för att ändra SKU: n för en hanterad domän med hjälp av Azure Portal:
 
-1. Sök efter och välj **Azure AD Domain Services**överst i Azure Portal. Välj den hanterade domänen i listan, till exempel *aaddscontoso.com*.
+1. Sök efter och välj **Azure AD Domain Services** överst i Azure Portal. Välj den hanterade domänen i listan, till exempel *aaddscontoso.com*.
 1. På menyn till vänster på sidan Azure AD DS väljer du **inställningar > SKU**.
 
     ![Välj meny alternativet SKU för din Azure AD DS-hanterade domän i Azure Portal](media/change-sku/overview-change-sku.png)

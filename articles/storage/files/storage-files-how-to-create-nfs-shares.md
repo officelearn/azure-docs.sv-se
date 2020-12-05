@@ -4,16 +4,16 @@ description: Lär dig hur du skapar en Azure-filresurs som kan monteras med hjä
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 7680e251d8411ce154e1f7dfb8af1d66514dd579
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 3cf22ee22c35b850aff33290a59a7043bb57c984
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629469"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620960"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Så här skapar du en NFS-resurs
 
@@ -64,7 +64,7 @@ az feature register --name AllowNfsFileShares \
 az provider register --namespace Microsoft.Storage
 ```
 
-## <a name="verify-that-the-feature-is-registered"></a>Kontrol lera att funktionen har registrerats
+## <a name="verify-feature-registration"></a>Verifiera funktions registrering
 
 Registreringens godkännande kan ta upp till en timme. Kontrol lera att registreringen är klar med följande kommandon:
 
@@ -80,6 +80,34 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNfs
 az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscription <yourSubscriptionIDHere>
 ```
 
+## <a name="verify-storage-account-kind"></a>Verifiera typ av lagrings konto
+
+För närvarande kan endast FileStorage-konton skapa NFS-resurser. 
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Du kan kontrol lera vilken typ av lagrings konto du har genom att navigera till det i Azure Portal. Välj sedan **Egenskaper** från ditt lagrings konto. På bladet egenskaper kontrollerar du värdet under **Kontotyp**, värdet ska vara **FileStorage**.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Du kan använda följande kommando för att kontrol lera att du har ett FileStorage-konto:
+
+```azurepowershell
+$accountKind=Get-AzStorageAccount -ResourceGroupName "yourResourceGroup" -Name "yourStorageAccountName"
+$accountKind.Kind
+```
+
+Utdata ska vara **FileStorage**, om det inte är det är lagrings kontot av fel typ. Information om hur du skapar ett **FileStorage** -konto finns i [så här skapar du en Azure Premium-filresurs](storage-how-to-create-premium-fileshare.md).
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+Du kan använda följande kommando för att kontrol lera att du har ett FileStorage-konto:
+
+```azurecli
+az storage account show -g yourResourceGroup -n yourStorageAccountName
+```
+
+Utdata ska innehålla **"Natura": "FileStorage"**, om inte, så är lagrings kontot av fel typ. Information om hur du skapar ett **FileStorage** -konto finns i [så här skapar du en Azure Premium-filresurs](storage-how-to-create-premium-fileshare.md).
+
+---
 ## <a name="create-an-nfs-share"></a>Skapa en NFS-filresurs
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)

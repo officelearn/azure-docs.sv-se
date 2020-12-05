@@ -2,7 +2,7 @@
 title: Vanliga distributions scenarier för Azure AD Domain Services | Microsoft Docs
 description: Lär dig mer om några vanliga scenarier och användnings fall för Azure Active Directory Domain Services att tillhandahålla värde och uppfylla affärs behov.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.author: joflore
-ms.openlocfilehash: 6c63609642b8dd8d1269222b06b57033d84ad8a0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: d33698ed2f9ac53aae3c836acd54f19a4b72ceef
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967910"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619036"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Vanliga användnings fall och scenarier för Azure Active Directory Domain Services
 

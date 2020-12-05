@@ -1,7 +1,7 @@
 ---
 title: Hantera DNS för Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur du installerar DNS-serverns verktyg för att hantera DNS och skapa villkorliga vidarebefordrare för en Azure Active Directory Domain Services hanterad domän.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -9,13 +9,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: b347f8043216d4347099d68ff1c62156410582a3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: afa6920a36a5a7218571239b36815004d8f2d450
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963184"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619359"
 ---
 # <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrera DNS och skapa villkorliga vidarebefordrare i en Azure Active Directory Domain Services hanterad domän
 
@@ -50,8 +50,8 @@ Om du vill skapa och ändra DNS-poster i en hanterad domän måste du installera
 1. Logga in på den virtuella hanterings datorn. Anvisningar om hur du ansluter med hjälp av Azure Portal finns i [ansluta till en virtuell Windows Server-dator][connect-windows-server-vm].
 1. Om **Serverhanteraren** inte öppnas som standard när du loggar in på den virtuella datorn väljer du **Start** -menyn och väljer **Serverhanteraren**.
 1. I fönstret *instrument panel* i fönstret **Serverhanteraren** väljer du **Lägg till roller och funktioner**.
-1. På sidan **innan du börjar** i *guiden Lägg till roller och funktioner*väljer du **Nästa**.
-1. För *installations typen*låter du alternativet för **rollbaserad eller funktions baserad installation** vara markerat och väljer **Nästa**.
+1. På sidan **innan du börjar** i *guiden Lägg till roller och funktioner* väljer du **Nästa**.
+1. För *installations typen* låter du alternativet för **rollbaserad eller funktions baserad installation** vara markerat och väljer **Nästa**.
 1. På sidan **Server val** väljer du den aktuella virtuella datorn från serverpoolen, till exempel *myvm.aaddscontoso.com*, och väljer sedan **Nästa**.
 1. På sidan **Server roller** klickar du på **Nästa**.
 1. På sidan **funktioner** expanderar du noden **verktyg för fjärrserveradministration** och expandera sedan noden **roll administrations verktyg** . Välj funktionen **verktyg för DNS-Server** från listan över roll administrations verktyg.
@@ -68,8 +68,8 @@ Med verktyg för DNS-server installerat kan du administrera DNS-poster på den h
 > [!NOTE]
 > Om du vill administrera DNS i en hanterad domän måste du vara inloggad på ett användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* .
 
-1. Välj **administrations verktyg**på Start skärmen. En lista över tillgängliga hanterings verktyg visas, inklusive **DNS** installerat i föregående avsnitt. Välj **DNS** för att starta konsolen DNS-hantering.
-1. I dialog rutan **Anslut till DNS-Server** väljer **du följande dator**och anger sedan DNS-domännamnet för den hanterade domänen, till exempel *aaddscontoso.com*:
+1. Välj **administrations verktyg** på Start skärmen. En lista över tillgängliga hanterings verktyg visas, inklusive **DNS** installerat i föregående avsnitt. Välj **DNS** för att starta konsolen DNS-hantering.
+1. I dialog rutan **Anslut till DNS-Server** väljer **du följande dator** och anger sedan DNS-domännamnet för den hanterade domänen, till exempel *aaddscontoso.com*:
 
     ![Ansluta till den hanterade domänen i DNS-konsolen](./media/manage-dns/connect-dns-server.png)
 
@@ -94,14 +94,14 @@ Utför följande steg för att skapa en villkorlig vidarebefordrare i den hanter
 
     ![Lägga till och konfigurera en villkorlig vidarebefordrare för DNS-servern](./media/manage-dns/create-conditional-forwarder.png)
 
-1. Markera kryss rutan för att **lagra den här villkorliga vidarebefordraren i Active Directory och replikera den enligt**följande. Välj sedan alternativet för *alla DNS-servrar i den här domänen*, som visas i följande exempel:
+1. Markera kryss rutan för att **lagra den här villkorliga vidarebefordraren i Active Directory och replikera den enligt** följande. Välj sedan alternativet för *alla DNS-servrar i den här domänen*, som visas i följande exempel:
 
     ![DNS-konsol – Välj alla DNS-servrar i den här domänen](./media/manage-dns/store-in-domain.png)
 
     > [!IMPORTANT]
     > Om den villkorliga vidarebefordraren lagras i *skogen* i stället för *domänen*, Miss lyckas den villkorliga vidarebefordraren.
 
-1. Välj **OK**för att skapa den villkorliga vidarebefordraren.
+1. Välj **OK** för att skapa den villkorliga vidarebefordraren.
 
 Namn matchningen för resurserna i andra namn områden från de virtuella datorer som är anslutna till den hanterade domänen bör nu lösas korrekt. Frågor för den DNS-domän som kon figurer ATS i den villkorliga vidarebefordraren skickas till relevanta DNS-servrar.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d9c4dff1e4a3ba7c7a2b11311e97eb5e66a1585
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8530b74a63f4e5e2c04ff95a0106b896102dda2c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994255"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618101"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Aktivera inloggning med lösen ords skydd (för hands version)
 
@@ -29,7 +29,7 @@ Det här dokumentet fokuserar på att aktivera säkerhets nyckel baserad lösen 
 
 ## <a name="requirements"></a>Krav
 
-- [Azure AD-Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md)
 - Aktivera [kombinerad för hands version av säkerhets informations registrering](concept-registration-mfa-sspr-combined.md)
 - Kompatibla [säkerhets nycklar för FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
 - Webauthn kräver Windows 10 version 1903 eller högre * *
@@ -38,7 +38,7 @@ Om du vill använda säkerhets nycklar för att logga in på webbappar och tjän
 
 ## <a name="prepare-devices-for-preview"></a>Förbereda enheter för för hands version
 
-Azure AD-anslutna enheter som du pilot med måste köra Windows 10 version 1909 eller senare. Den bästa upplevelsen är i Windows 10 version 1903 eller senare.
+För Azure AD-anslutna enheter är den bästa upplevelsen av Windows 10 version 1903 eller senare.
 
 Hybrid Azure AD-anslutna enheter måste köra Windows 10 version 2004 eller senare.
 

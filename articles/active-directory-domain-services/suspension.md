@@ -2,7 +2,7 @@
 title: Inaktiverade domäner i Azure AD Domain Services | Microsoft Docs
 description: Läs om de olika hälso tillstånden för en Azure AD DS-hanterad domän och hur du återställer en pausad domän.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: 9bcecdfaf3121ea024fee567dbe83544229373be
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: b0b48e7ad494386052e6d94c32d7215b3f4f0202
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967706"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618832"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Förstå hälso tillstånden och lösa inaktiverade domäner i Azure Active Directory Domain Services
 
@@ -91,13 +91,13 @@ Följande beteende uppstår när en hanterad domän är i tillståndet *Suspende
 
 ### <a name="how-do-you-know-if-your-managed-domain-is-suspended"></a>Hur vet du om din hanterade domän har pausats?
 
-Du ser en [avisering][resolve-alerts] på sidan Azure AD DS Health i den Azure Portal som antecknar domänen är inaktive rad. Domänens tillstånd visas även *inaktive*rad.
+Du ser en [avisering][resolve-alerts] på sidan Azure AD DS Health i den Azure Portal som antecknar domänen är inaktive rad. Domänens tillstånd visas även *inaktive* rad.
 
 ### <a name="restore-a-suspended-domain"></a>Återställa en pausad domän
 
 Slutför följande steg för att återställa hälsan för en hanterad domän som har tillståndet *Suspended* :
 
-1. Sök efter och välj **domän tjänster**i Azure Portal.
+1. Sök efter och välj **domän tjänster** i Azure Portal.
 1. Välj din hanterade domän i listan, t. ex. *aaddscontoso.com*, och välj sedan **hälsa**.
 1. Välj aviseringen, till exempel *AADDS503* eller *AADDS504*, beroende på orsaken till SUS pensionen.
 1. Välj den upplösnings länk som anges i aviseringen och följ stegen för att lösa problemet.

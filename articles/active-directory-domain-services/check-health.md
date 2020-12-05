@@ -2,7 +2,7 @@
 title: Kontrol lera hälso tillståndet för Azure Active Directory Domain Services | Microsoft Docs
 description: Lär dig hur du kontrollerar hälsan för en Azure Active Directory Domain Services (Azure AD DS)-hanterad domän och förstå status meddelanden med hjälp av Azure Portal.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: bf65657ea60e94f167bfbb6585026702b64e9658
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 92cc6157c590d3e05b4002e0f071c08e4ec23a16
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962742"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620332"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Kontrol lera hälso tillståndet för en Azure Active Directory Domain Services hanterad domän
 
@@ -47,7 +47,7 @@ Statusen längst upp till höger visar den övergripande hälsan för den hanter
 
 ## <a name="understand-monitors-and-alerts"></a>Förstå övervakare och aviseringar
 
-Hälso tillståndet för en hanterad domän visar två typer av information – *övervakare*och *aviseringar*. Övervakare visar den tid som grundläggande bakgrunds aktiviteter har slutförts. Aviseringar ger information eller förslag för att förbättra stabiliteten i den hanterade domänen.
+Hälso tillståndet för en hanterad domän visar två typer av information – *övervakare* och *aviseringar*. Övervakare visar den tid som grundläggande bakgrunds aktiviteter har slutförts. Aviseringar ger information eller förslag för att förbättra stabiliteten i den hanterade domänen.
 
 ### <a name="monitors"></a>Övervakare
 

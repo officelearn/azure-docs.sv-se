@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jlian
-ms.openlocfilehash: ddb89f60c9fe380012c299afaafb6046bf6849c9
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: f4438aebcb81d665a19a595ac7ade4fea27fc43f
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602758"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621016"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Stöd för Transport Layer Security (TLS) i IoT Hub
 
@@ -22,7 +22,7 @@ TLS 1,0 och 1,1 betraktas som äldre och planeras för utfasning. Mer informatio
 
 ## <a name="iot-hubs-server-tls-certificate"></a>IoT Hubs serverns TLS-certifikat
 
-Under en TLS-handskakning visar IoT Hub RSA-kodade Server certifikat för att ansluta klienter. Roten är rot certifikat utfärdaren för Baltimore CyberTrust. Nyligen fanns det en ändring av utfärdarna av nya mellanliggande certifikat utfärdare (ICAs). Mer information finns i [IoT Hub TLS-certifikat uppdatering](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/)
+Under en TLS-handskakning visar IoT Hub RSA-kodade Server certifikat för att ansluta klienter. Roten är rot certifikat utfärdaren för Baltimore CyberTrust. Nyligen har vi lanserat en ändring av vårt TLS-servercertifikat så att det nu utfärdas av nya, mellanliggande certifikat utfärdare (ICA). Mer information finns i [IoT Hub TLS-certifikat uppdatering](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/).
 
 ### <a name="elliptic-curve-cryptography-ecc-server-tls-certificate-preview"></a>TLS-certifikat (Elliptic Curve Cryptography) för Server (för hands version)
 
@@ -31,7 +31,7 @@ IoT Hub ECC-serverns TLS-certifikat är tillgängligt för en offentlig för han
 För hands version av IoT Hubens ECC-servercertifikat:
 
 1. [Skapa en ny IoT-hubb med förhands gransknings läge på](iot-hub-preview-mode.md).
-1. [Konfigurera klienten](#tls-configuration-for-sdk-and-iot-edge) så att den *endast* inkluderar ECDSA CHIFFER och *exkludera* alla RSA-paket. Dessa är chiffersviter för den offentliga för hands versionen av ECC-certifikatet:
+1. [Konfigurera klienten](#tls-configuration-for-sdk-and-iot-edge) så att den *endast* inkluderar ECDSA CHIFFER och *exkludera* alla RSA-paket. Detta är de chiffersviter som stöds för den offentliga för hands versionen av ECC-certifikat:
     - `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
     - `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
     - `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`
@@ -133,7 +133,7 @@ Använd den här funktionen för att ange den maximala fragment längden i klart
 Statligt SDK-stöd för den här offentliga för hands versions funktionen är inte tillgänglig ännu. För att komma igång
 
 1. [Skapa en ny IoT-hubb med förhands gransknings läge på](iot-hub-preview-mode.md).
-1. Konfigurera klienten så att den anger `SSL_CTX_set_tlsext_max_fragment_length` något av följande värden: 2 ^ 9, 2 ^ 10, 2 ^ 11 och 2 ^ 12.
+1. När du använder OpenSSL anropar du [SSL_CTX_set_tlsext_max_fragment_length](https://manpages.debian.org/testing/libssl-doc/SSL_CTX_set_max_send_fragment.3ssl.en.html) för att ange Fragmenteringens storlek.
 1. Anslut din klient till förhands gransknings IoT Hub.
 
 ## <a name="next-steps"></a>Nästa steg

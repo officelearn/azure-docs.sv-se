@@ -1,20 +1,20 @@
 ---
 title: Självstudie – Skapa en Azure Active Directory Domain Services hanterad domän | Microsoft Docs
 description: I den här självstudien får du lära dig hur du skapar och konfigurerar en Azure Active Directory Domain Services hanterad domän med hjälp av Azure Portal.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 53720b19daa436893073b4f40528a49add653ff3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 945c131394a0a3c6273f79044c8500a2feba70fe
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967247"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618152"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: skapa och konfigurera en Azure Active Directory Domain Services hanterad domän
 
@@ -22,7 +22,7 @@ Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade 
 
 Du kan skapa en hanterad domän med hjälp av standard konfigurations alternativ för nätverk och synkronisering, eller [definiera inställningarna manuellt][tutorial-create-instance-advanced]. Den här självstudien visar hur du använder standard alternativ för att skapa och konfigurera en Azure AD DS-hanterad domän med hjälp av Azure Portal.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förstå DNS-krav för en hanterad domän
@@ -70,7 +70,7 @@ När du skapar en hanterad domän anger du ett DNS-namn. Det finns några saker 
 > [!TIP]
 > Om du skapar ett eget domän namn bör du ta hand om befintliga DNS-namnområden. Vi rekommenderar att du använder ett domän namn separat från ett befintligt Azure eller lokalt DNS-adressutrymme.
 >
-> Om du till exempel har ett befintligt DNS-namnområdet *contoso.com*skapar du en hanterad domän med det anpassade domän namnet för *aaddscontoso.com*. Om du behöver använda säker LDAP måste du registrera och äga det här anpassade domän namnet för att generera nödvändiga certifikat.
+> Om du till exempel har ett befintligt DNS-namnområdet *contoso.com* skapar du en hanterad domän med det anpassade domän namnet för *aaddscontoso.com*. Om du behöver använda säker LDAP måste du registrera och äga det här anpassade domän namnet för att generera nödvändiga certifikat.
 >
 > Du kan behöva skapa ytterligare DNS-poster för andra tjänster i din miljö, eller villkorliga DNS-vidarebefordrare mellan befintliga DNS-namn utrymmen i din miljö. Om du till exempel kör en webb server som är värd för en plats som använder rot-DNS-namnet, kan det finnas namn konflikter som kräver ytterligare DNS-poster.
 >
@@ -117,7 +117,7 @@ Välj **Granska + skapa** för att godkänna standard konfigurations alternative
 
 Granska konfigurations inställningarna för din hanterade domän på sidan **Sammanfattning** i guiden. Du kan gå tillbaka till valfritt steg i guiden för att göra ändringar. Om du vill distribuera om en hanterad domän till en annan Azure AD-klient på ett konsekvent sätt med hjälp av dessa konfigurations alternativ kan du också **Ladda ned en mall för automatisering**.
 
-1. Välj **skapa**för att skapa den hanterade domänen. En anteckning visas att vissa konfigurations alternativ, till exempel DNS-namn eller virtuellt nätverk, inte kan ändras när Azure AD DS Managed har skapats. Fortsätt genom att välja **OK**.
+1. Välj **skapa** för att skapa den hanterade domänen. En anteckning visas att vissa konfigurations alternativ, till exempel DNS-namn eller virtuellt nätverk, inte kan ändras när Azure AD DS Managed har skapats. Fortsätt genom att välja **OK**.
 1. Processen för etablering av din hanterade domän kan ta upp till en timme. Ett meddelande visas i portalen som visar förloppet för din Azure AD DS-distribution. Välj aviseringen om du vill visa detaljerad förloppet för distributionen.
 
     ![Meddelande i pågående distributions Azure Portal](./media/tutorial-create-instance/deployment-in-progress.png)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 2f59feb83149042781b624aeb0df73fe3ab32587
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 0226635fe34244bf09bc92f9fe065593d3a79a5a
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574232"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621067"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Självstudie: skapa en hierarki med IoT Edge enheter (förhands granskning)
 
@@ -45,7 +45,7 @@ I den här självstudien definieras följande nätverks skikt:
 
 I den här självstudien används en hierarki med två enheter för enkelhetens skull. En enhet, **topLayerDevice**, representerar en enhet i hierarkins övre skikt, som kan ansluta direkt till molnet. Enheten kommer även att kallas för den **överordnade enheten**. Den andra enheten, **lowerLayerDevice**, representerar en enhet i den nedre nivån i hierarkin, som inte kan ansluta direkt till molnet. Enheten kommer även att kallas för den **underordnade enheten**. Du kan lägga till ytterligare lägre lager enheter för att representera produktions miljön. Konfigurationen av ytterligare lägre lager enheter kommer att följa **lowerLayerDevice**-konfigurationen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill skapa en hierarki med IoT Edge enheter behöver du:
 
@@ -311,7 +311,7 @@ I [Azure Portal](https://ms.portal.azure.com/):
 
 1. Lägg till följande miljövariabler i din Edge Hub-modul:
 
-    | Namn | Värde |
+    | Name | Värde |
     | - | - |
     | `experimentalFeatures__enabled` | `true` |
     | `experimentalFeatures__nestedEdgeEnabled` | `true` |
@@ -324,7 +324,7 @@ I [Azure Portal](https://ms.portal.azure.com/):
 
 1. Under fliken miljövariabler anger du följande Miljövariabelns namn-värde-par:
 
-    | Namn | Värde |
+    | Name | Värde |
     | - | - |
     | `REGISTRY_PROXY_REMOTEURL` | `https://mcr.microsoft.com` |
 
@@ -482,7 +482,7 @@ I [Azure Portal](https://ms.portal.azure.com/):
 
 1. Lägg till följande miljövariabler i din Edge Hub-modul:
 
-    | Namn | Värde |
+    | Name | Värde |
     | - | - |
     | `experimentalFeatures__enabled` | `true` |
     | `experimentalFeatures__nestedEdgeEnabled` | `true` |
@@ -611,7 +611,7 @@ Ta bort resurser:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien konfigurerade du två IoT Edge enheter som gatewayer och anger en som överordnad enhet för den andra. Sedan har du påvisat hämtningen av en behållar avbildning till den underordnade enheten via en gateway. Du kan också testa det här scenariot genom att följa exemplet med skript [Azure IoT Edge för industriella IoT-exempel](https://aka.ms/iotedge-nested-sample), som distribuerar virtuella Azure-datorer som förkonfigurerade enheter för att simulera en fabriks miljö.
+I den här självstudien konfigurerade du två IoT Edge enheter som gatewayer och anger en som överordnad enhet för den andra. Sedan har du påvisat hämtningen av en behållar avbildning till den underordnade enheten via en gateway.
 
 Om du vill se hur Azure IoT Edge kan skapa flera lösningar för ditt företag fortsätter du med de andra självstudiekurserna.
 

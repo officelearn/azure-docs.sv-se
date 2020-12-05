@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: acb05da0255445de31e08f2724dcb484a3e05b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 12/05/2020
 ms.locfileid: "84764273"
 ---
 # <a name="networking-limit-increase"></a>Höjning av nätverksgräns
@@ -27,7 +27,7 @@ Om du vill visa din aktuella nätverks användning och kvot i Azure Portal öppn
 Du kan begära en ökning genom **att använda hjälp + support** eller i **användnings** -och kvoter i portalen.
 
 > [!Note]
-> Om du vill ändra standard storleken för **offentliga IP-prefix**väljer du den **minsta offentliga IP-prefixets längd** i list rutan.
+> Om du vill ändra standard storleken för **offentliga IP-prefix** väljer du den **minsta offentliga IP-prefixets längd** i list rutan.
 
 ## <a name="request-networking-quota-increase-at-subscription-level-using-help--support"></a>Begär nätverks kvot öka på prenumerations nivå med hjälp + support
 
@@ -41,7 +41,7 @@ Följ instruktionerna nedan om du vill skapa en supportbegäran med **Hjälp + S
 
     ![Ny supportbegäran](./media/networking-quota-request/new-support-request.png)
 
-1. För **typ av problem**väljer du **tjänst-och prenumerations gränser (kvoter)**.
+1. För **typ av problem** väljer du **tjänst-och prenumerations gränser (kvoter)**.
 
     ![List rutan för att välja prenumerations gränser från ärende typ](./media/networking-quota-request/select-quota-issue-type.png)
 
@@ -49,11 +49,11 @@ Följ instruktionerna nedan om du vill skapa en supportbegäran med **Hjälp + S
 
     ![Välj prenumerations nyheter](./media/networking-quota-request/select-subscription-support-request.png)
 
-1. Under **typ av kvot**väljer du **nätverk**. Välj **Nästa: lösningar**.
+1. Under **typ av kvot** väljer du **nätverk**. Välj **Nästa: lösningar**.
 
     ![Välj typ av kvot](./media/networking-quota-request/select-quota-type-network.png)
 
-1. I **problem information**väljer du **Ange information** och fyller i ytterligare information som kan hjälpa dig att bearbeta din begäran.
+1. I **problem information** väljer du **Ange information** och fyller i ytterligare information som kan hjälpa dig att bearbeta din begäran.
 
     ![Ange information](./media/networking-quota-request/provide-details-link.png)
 

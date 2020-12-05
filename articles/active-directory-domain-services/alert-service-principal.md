@@ -2,7 +2,7 @@
 title: Lösa aviseringar om tjänstens huvud namn i Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur du felsöker tjänstens huvud konfigurations aviseringar för Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: fc980d18a05b18706bb7eeecd907769b80e1b18f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 00ab5c85a477c9c4080acf252cbbde9d4ce816a9
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962725"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620247"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Kända problem: aviseringar för tjänstens huvud namn i Azure Active Directory Domain Services
 
@@ -68,12 +68,12 @@ Den hanterade domänens hälsa uppdateras automatiskt inom två timmar och avise
 
 ### <a name="re-register-the-microsoft-aad-namespace"></a>Registrera Microsoft AAD-namnrymden igen
 
-Om program-ID *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-947a-dc74e5d09022*eller *d87dcbc6-a371-462e-88e3-28ad15ec4e64* saknas i Azure AD-katalogen utför du följande steg för att registrera *Microsoft. AAD* -resurs leverantören på nytt:
+Om program-ID *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-947a-dc74e5d09022* eller *d87dcbc6-a371-462e-88e3-28ad15ec4e64* saknas i Azure AD-katalogen utför du följande steg för att registrera *Microsoft. AAD* -resurs leverantören på nytt:
 
-1. Sök efter och välj **prenumerationer**i Azure Portal.
+1. Sök efter och välj **prenumerationer** i Azure Portal.
 1. Välj den prenumeration som är kopplad till din hanterade domän.
-1. Välj **resurs leverantörer**i det vänstra navigerings fältet.
-1. Sök efter *Microsoft. AAD*och välj sedan **registrera igen**.
+1. Välj **resurs leverantörer** i det vänstra navigerings fältet.
+1. Sök efter *Microsoft. AAD* och välj sedan **registrera igen**.
 
 Den hanterade domänens hälsa uppdateras automatiskt inom två timmar och aviseringen tas bort.
 
@@ -99,8 +99,8 @@ Om du vill återskapa Azure AD-programmet som används för synkronisering av au
 2. Ta nu bort det gamla programmet och objektet med hjälp av följande PowerShell-cmdletar:
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
-    Remove-AzureADApplication -ObjectId $app.ObjectId
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
+    Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $spObject
     ```

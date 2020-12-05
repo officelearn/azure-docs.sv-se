@@ -2,7 +2,7 @@
 title: Aktivera säkerhets granskningar för Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur du aktiverar säkerhets granskningar för att centralisera loggning av händelser för analys och aviseringar i Azure AD Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: b4fb5c1dcb2bb34b472c2a3eda88ca4c219303d0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.author: justinha
+ms.openlocfilehash: 13bdc8797af8facaa73d3e43ecfbe504a6bd1dc2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175176"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618883"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Aktivera säkerhets granskningar för Azure Active Directory Domain Services
 
@@ -217,7 +217,7 @@ Azure AD DS-säkerhetsgranskningar överensstämmer med traditionell granskning 
 
 Följande kategorier av gransknings händelser är tillgängliga:
 
-| Namn på gransknings kategori | Beskrivning |
+| Namn på gransknings kategori | Description |
 |:---|:---|
 | Konto inloggning|Granskningar försöker autentisera konto data på en domänkontrollant eller en lokal hanterare för konto säkerhet (SAM).</p>Princip inställningar för inloggning och utloggning och händelser spårar försök att komma åt en viss dator. Inställningar och händelser i den här kategorin fokuserar på den konto databas som används. Den här kategorin omfattar följande under Kategorier:<ul><li>[Granska verifiering av autentiseringsuppgifter](/windows/security/threat-protection/auditing/audit-credential-validation)</li><li>[Granska Kerberos-autentiseringstjänst](/windows/security/threat-protection/auditing/audit-kerberos-authentication-service)</li><li>[Granska Kerberos-tjänstbiljettåtgärder](/windows/security/threat-protection/auditing/audit-kerberos-service-ticket-operations)</li><li>[Granska andra inloggnings-och utloggnings händelser](/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li></ul>|
 | Kontohantering|Granskar ändringar av användar-och dator konton och grupper. Den här kategorin omfattar följande under Kategorier:<ul><li>[Granska hantering av programgrupp](/windows/security/threat-protection/auditing/audit-application-group-management)</li><li>[Granska hantering av datorkonto](/windows/security/threat-protection/auditing/audit-computer-account-management)</li><li>[Granska hantering av distributionsgrupp](/windows/security/threat-protection/auditing/audit-distribution-group-management)</li><li>[Granska annan konto hantering](/windows/security/threat-protection/auditing/audit-other-account-management-events)</li><li>[Granska hantering av säkerhetsgrupp](/windows/security/threat-protection/auditing/audit-security-group-management)</li><li>[Granska hantering av användarkonto](/windows/security/threat-protection/auditing/audit-user-account-management)</li></ul>|

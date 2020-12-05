@@ -2,7 +2,7 @@
 title: Omfångs synkronisering för Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur du använder Azure Portal för att konfigurera omfångst synkronisering från Azure AD till en Azure Active Directory Domain Services hanterad domän
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.author: joflore
+ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 514932726d9283af0c3fb404f787a10057ce8842
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4e65b47b2a1fd71c69ecb350f60df1fedff66b74
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967859"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618917"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-the-azure-portal"></a>Konfigurera omfångst synkronisering från Azure AD till Azure Active Directory Domain Services med hjälp av Azure Portal
 
@@ -59,8 +59,8 @@ Utför följande steg för att aktivera omfångs synkronisering i Azure Portal:
 
 1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**. Välj din hanterade domän, till exempel *aaddscontoso.com*.
 1. Välj **synkronisering** på menyn till vänster.
-1. För *synkroniseringens typ*väljer du **omfattning**.
-1. Välj **Välj grupper**och Sök sedan efter och välj de grupper som ska läggas till.
+1. För *synkroniseringens typ* väljer du **omfattning**.
+1. Välj **Välj grupper** och Sök sedan efter och välj de grupper som ska läggas till.
 1. När alla ändringar görs väljer du **Spara omfånget för synkronisering**.
 
 Om du ändrar omfånget för synkroniseringen synkroniserar den hanterade domänen om alla data. Objekt som inte längre behövs i den hanterade domänen tas bort och omsynkroniseringen kan ta lite tid att slutföra.
@@ -83,7 +83,7 @@ Utför följande steg för att inaktivera gruppbaserad omsynkronisering för en 
 
 1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**. Välj din hanterade domän, till exempel *aaddscontoso.com*.
 1. Välj **synkronisering** på menyn till vänster.
-1. Ändra *synkroniseringens typ* från **omfång** till **alla**och välj sedan **Spara omfånget för synkronisering**.
+1. Ändra *synkroniseringens typ* från **omfång** till **alla** och välj sedan **Spara omfånget för synkronisering**.
 
 Om du ändrar omfånget för synkroniseringen synkroniserar den hanterade domänen om alla data. Objekt som inte längre behövs i den hanterade domänen tas bort och omsynkroniseringen kan ta lite tid att slutföra.
 

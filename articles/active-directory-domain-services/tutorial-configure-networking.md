@@ -1,20 +1,20 @@
 ---
 title: Självstudie – Konfigurera virtuella nätverk för Azure AD Domain Services | Microsoft Docs
 description: I den här självstudien får du lära dig hur du skapar och konfigurerar ett virtuellt undernät i Azure eller nätverks-peering för en Azure Active Directory Domain Services hanterad domän med hjälp av Azure Portal.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 33beb0767ef1f21d4fb3d08c9072d7c8479d2cb1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: ddb8f360304bdb41ae359f293af4d10b0afc6558
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967417"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618424"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: Konfigurera virtuella nätverk för en Azure Active Directory Domain Services hanterad domän
 
@@ -24,7 +24,7 @@ När du skapar dina egna virtuella datorer och program, bör de inte distribuera
 
 I den här självstudien får du lära dig hur du skapar och konfigurerar ett dedikerat virtuellt nätverks under nät eller hur du peer-koppla ett annat nätverk till Azure AD DS-hanterad domäns virtuella nätverk.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förstå de virtuella nätverks anslutnings alternativen för domänanslutna resurser till Azure AD DS
@@ -86,7 +86,7 @@ Utför följande steg för att skapa ett virtuellt nätverks under nät för vir
 
     ![Lägg till ytterligare ett IP-adressintervall för virtuellt nätverk i Azure Portal](./media/tutorial-configure-networking/add-vnet-address-range.png)
 
-1. Sedan väljer du **undernät**på menyn till vänster i fönstret virtuellt nätverk och väljer sedan **+ undernät** för att lägga till ett undernät.
+1. Sedan väljer du **undernät** på menyn till vänster i fönstret virtuellt nätverk och väljer sedan **+ undernät** för att lägga till ett undernät.
 1. Ange ett namn för under nätet, till exempel *arbets belastningar*. Om det behövs uppdaterar du **adress intervallet** om du vill använda en delmängd av det IP-adressintervall som kon figurer ATS för det virtuella nätverket i föregående steg. Lämna standardvärdena för alternativ som nätverks säkerhets grupp, routningstabell, tjänst slut punkter.
 
     I följande exempel skapas ett undernät med namnet *arbets belastningar* som använder IP-adressintervallet *10.0.3.0/24* :
@@ -137,7 +137,7 @@ För att virtuella datorer och program i det peer-distribuerade virtuella nätve
 I den här självstudien ska vi konfigurera Azure Virtual Network DNS-servrar för att dirigera alla frågor till Azure AD DS-domänkontrollanter.
 
 1. I Azure Portal väljer du resurs gruppen för det peer-virtuella nätverket, till exempel *myResourceGroup*. I listan över resurser väljer du det peer-virtuella nätverket, till exempel *myVnet*.
-1. Välj **DNS-servrar**i den vänstra menyn i fönstret virtuellt nätverk.
+1. Välj **DNS-servrar** i den vänstra menyn i fönstret virtuellt nätverk.
 1. Som standard använder ett virtuellt nätverk de inbyggda Azure-tillhandahållna DNS-servrarna. Välj att använda **anpassade** DNS-servrar. Ange IP-adresserna för Azure AD DS-domän kontrol Lanterna, som vanligt vis är *10.0.2.4* och *10.0.2.5*. Bekräfta de här IP-adresserna i **översikts** fönstret för din hanterade domän i portalen.
 
     ![Konfigurera de virtuella nätverkets DNS-servrar så att de använder Azure AD DS-domänkontrollanter](./media/tutorial-configure-networking/custom-dns.png)

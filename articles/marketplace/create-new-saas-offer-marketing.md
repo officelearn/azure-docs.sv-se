@@ -1,5 +1,5 @@
 ---
-title: Hur du marknadsför ditt SaaS-erbjudande i Microsoft Partner Center
+title: Hur du säljer ditt SaaS-erbjudande i Microsoft Partner Center
 description: Lär dig mer om samförsäljning med Microsoft och åter försäljning via alternativ för CSP-program (Cloud solution providers) för ditt SaaS-erbjudande (Software as a Service) på Microsofts kommersiella marknads plats.
 author: mingshen-ms
 ms.author: mingshen
@@ -8,22 +8,22 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 4ccc5a63da40950fbf9f05e3e029393fce8814d7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e61d85b5f02cb73d078888badc2fa24c4506fe64
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576697"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620892"
 ---
-# <a name="how-to-market-your-saas-offer"></a>Så här marknadsför du ditt SaaS-erbjudande
+# <a name="how-to-sell-your-saas-offer"></a>Hur du säljer ditt SaaS-erbjudande
 
-I den här artikeln beskrivs ytterligare marknadsförings alternativ som du kan välja om du säljer ditt SaaS-erbjudande (Software as a Service) via Microsoft. Du kan samsälja ditt erbjudande med Microsoft, så att det säljs via [Cloud solution providers (CSP)-programmet](cloud-solution-providers.md)eller båda.
+I den här artikeln beskrivs ytterligare alternativ som du kan välja om du säljer ditt SaaS-erbjudande (Software as a Service) via Microsoft. Du kan samsälja ditt erbjudande med Microsoft, så att det säljs via [Cloud solution providers (CSP)-programmet](cloud-solution-providers.md)eller båda.
 
 ## <a name="co-sell-with-microsoft"></a>Säljsamarbeta med Microsoft
 
 Att tillhandahålla information om **samförsäljning med Microsoft** -sidan är helt valfritt. Men det krävs för att uppnå samförsäljnings status för _klar_ och _IP-adresser_ . I Microsofts försäljnings team används den här informationen för att lära dig mer om din lösning när du utvärderar den efter kundens behov. Den information som du anger på den här fliken är inte tillgänglig direkt för kunderna.
 
-Mer information och anvisningar om hur du konfigurerar fliken **medförsäljning med Microsoft** finns i [samförsäljnings alternativ i Partner Center](commercial-marketplace-co-sell.md).
+Mer information och anvisningar för att konfigurera **samförsäljning med Microsoft** -fliken finns [i samförsäljnings alternativet på den kommersiella Marketplace](commercial-marketplace-co-sell.md).
 
 ## <a name="resell-through-csps"></a>Sälja via CSP-partner
 

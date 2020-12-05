@@ -2,21 +2,21 @@
 title: Översikt över Azure Active Directory Domain Services | Microsoft Docs
 description: I den här översikten får du veta vad Azure Active Directory Domain Services tillhandahåller och hur du använder det i din organisation för att tillhandahålla identitets tjänster till program och tjänster i molnet.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
 ms.date: 12/03/2020
-ms.author: joflore
+ms.author: justinha
 ms.custom: contperfq1
-ms.openlocfilehash: d8d709590345982479301f25601fae25fa6f4fae
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 141b59e400154ef40ebced25c69eaf162ac1787a
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571869"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619121"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Vad är Azure Active Directory Domain Services?
 

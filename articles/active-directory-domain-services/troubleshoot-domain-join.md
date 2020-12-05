@@ -2,20 +2,20 @@
 title: Felsöka domän koppling med Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur du felsöker vanliga problem när du försöker att ansluta till en virtuell dator eller ansluta ett program till Azure Active Directory Domain Services och du inte kan ansluta eller autentisera till den hanterade domänen.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: ee60b684d64ef49fbb669de8c98203e2df5268bf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 86d6ca79a12e4706f558e92c3c83c5bddaa99b3c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967519"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618611"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Felsök problem med domän anslutning med en Azure Active Directory Domain Services hanterad domän
 
@@ -43,7 +43,7 @@ När du skapar en hanterad domän skapas även en nätverks säkerhets grupp med
 
 Om du fortfarande har anslutnings problem kan du läsa följande fel söknings steg:
 
-1. Kontrol lera hälso statusen för den hanterade domänen i Azure Portal. Om du har en avisering för *AADDS001*blockerar en regel för nätverks säkerhets grupp åtkomst.
+1. Kontrol lera hälso statusen för den hanterade domänen i Azure Portal. Om du har en avisering för *AADDS001* blockerar en regel för nätverks säkerhets grupp åtkomst.
 1. Granska de [nödvändiga portarna och reglerna för nätverks säkerhets gruppen][network-ports]. Kontrol lera att inga regler för nätverks säkerhets grupper tillämpas på den virtuella datorn eller det virtuella nätverk som du ansluter från blockera dessa nätverks portar.
 1. När eventuella konfigurations problem för nätverks säkerhets grupper har lösts försvinner *AADDS001* -aviseringen från hälso sidan om 2 timmar. När nätverks anslutningen nu är tillgänglig kan du försöka att ansluta den virtuella datorn igen.
 

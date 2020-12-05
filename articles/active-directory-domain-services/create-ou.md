@@ -2,7 +2,7 @@
 title: Skapa en organisationsenhet (OU) i Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur du skapar och hanterar en anpassad organisationsenhet (OU) i en Azure AD Domain Services hanterad domän.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: df8d32fb38d9ea6750ef47651e4f660428fd1fbe
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: fbdfcc23553a27aaa4d7bbd4bff9c4f33cb8fd19
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961008"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620026"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-active-directory-domain-services-managed-domain"></a>Skapa en organisationsenhet (OU) i en Azure Active Directory Domain Services hanterad domän
 
@@ -67,7 +67,7 @@ Om du vill skapa en anpassad ORGANISATIONSENHET använder du Active Directory ad
 > Om du vill skapa en anpassad ORGANISATIONSENHET i en hanterad domän måste du vara inloggad på ett användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* .
 
 1. Logga in på den virtuella hanterings datorn. Anvisningar om hur du ansluter med hjälp av Azure Portal finns i [ansluta till en virtuell Windows Server-dator][connect-windows-server-vm].
-1. Välj **administrations verktyg**på Start skärmen. En lista över tillgängliga hanterings verktyg visas som har installerats i självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
+1. Välj **administrations verktyg** på Start skärmen. En lista över tillgängliga hanterings verktyg visas som har installerats i självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
 1. Om du vill skapa och hantera organisationsenheter väljer du **Active Directory Administrationscenter** i listan över administrations verktyg.
 1. I det vänstra fönstret väljer du din hanterade domän, till exempel *aaddscontoso.com*. En lista över befintliga organisationsenheter och resurser visas:
 
@@ -77,7 +77,7 @@ Om du vill skapa en anpassad ORGANISATIONSENHET använder du Active Directory ad
 
     ![Välj alternativet för att skapa en ny ORGANISATIONSENHET i Active Directory Administrationscenter](./media/create-ou/create-ou-adac-new-ou.png)
 
-1. I dialog rutan **skapa organisationsenhet** anger du ett **namn** för den nya organisationsenheten, till exempel *MyCustomOu*. Ange en kort beskrivning av ORGANISATIONSENHETen, till exempel *anpassad organisationsenhet för tjänst konton*. Om du vill kan du också ange fältet som **hanteras av** för organisationsenheten. Välj **OK**om du vill skapa en anpassad Organisationsenhet.
+1. I dialog rutan **skapa organisationsenhet** anger du ett **namn** för den nya organisationsenheten, till exempel *MyCustomOu*. Ange en kort beskrivning av ORGANISATIONSENHETen, till exempel *anpassad organisationsenhet för tjänst konton*. Om du vill kan du också ange fältet som **hanteras av** för organisationsenheten. Välj **OK** om du vill skapa en anpassad Organisationsenhet.
 
     ![Skapa en anpassad ORGANISATIONSENHET från Active Directory Administrationscenter](./media/create-ou/create-ou-dialog.png)
 

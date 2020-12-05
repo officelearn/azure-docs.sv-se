@@ -1,5 +1,5 @@
 ---
-title: Vad är Azure Machine Learning
+title: Vad är Azure Machine Learning?
 description: Azure Machine Learning är en integrerad data vetenskaps lösning för data forskare och MLops för att modellera och distribuera ML-program i moln skala.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: af38f68a9709b21989ba787fb5b2c623e07dc440
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 85080c018749f9aab716eff0a4527363da987007
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541291"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620485"
 ---
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
@@ -49,7 +49,7 @@ Azure Machine Learning innehåller alla verktyg och data forskare som behöver f
 
 + + [Många modeller Solution Accelerator](https://aka.ms/many-models) (för hands version) bygger på Azure Machine Learning och gör det möjligt att träna, hantera och hantera hundratals eller till och med tusentals maskin inlärnings modeller.
 
-+ [Visual Studio Code-tillägg](tutorial-setup-vscode-extension.md)
++ [Machine Learning-tillägg för Visual Studio Code-användare](tutorial-setup-vscode-extension.md)
 
 + [Maskininlärning CLI](reference-azure-machine-learning-cli.md)
 
@@ -111,10 +111,10 @@ Information om hur du kommer igång med Azure Machine Learning finns i [Nästa s
 
 Azure Machine Learning fungerar med andra tjänster på Azure-plattformen och integreras med verktyg för öppen källkod som git och MLFlow.
 
-+ Compute-mål som __Azure Kubernetes service__ , __Azure Container instances__ , __Azure Databricks__ , __Azure Data Lake Analytics__ och __Azure HDInsight__. Mer information om Compute-mål finns i [Vad är Compute-mål?](concept-compute-target.md).
++ Compute-mål som __Azure Kubernetes service__, __Azure Container instances__, __Azure Databricks__, __Azure Data Lake Analytics__ och __Azure HDInsight__. Mer information om Compute-mål finns i [Vad är Compute-mål?](concept-compute-target.md).
 + __Azure Event Grid__. Mer information finns i [använda Azure Machine Learning händelser](./how-to-use-event-grid.md).
 + __Azure Monitor__. Mer information finns i [övervaknings Azure Machine Learning](monitor-azure-machine-learning.md).
-+ Data lager som __Azure Storage konton__ , __Azure Data Lake Storage__ , __Azure SQL Database__ , __Azure Database for PostgreSQL__ och __Azure Open-datauppsättningar__. Mer information finns i [få åtkomst till data i Azure Storage Services](how-to-access-data.md) och [skapa data uppsättningar med Azure Open data uppsättningar](how-to-create-register-datasets.md).
++ Data lager som __Azure Storage konton__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__ och __Azure Open-datauppsättningar__. Mer information finns i [få åtkomst till data i Azure Storage Services](how-to-access-data.md) och [skapa data uppsättningar med Azure Open data uppsättningar](how-to-create-register-datasets.md).
 + __Virtuella Azure-nätverk__. Mer information finns i [Översikt över virtuell nätverks isolering och sekretess](how-to-network-security-overview.md).
 + __Azure-pipeliner__. Mer information finns i [träna och distribuera Machine Learning-modeller](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Git-lagringsplatsens loggar__. Mer information finns i [git-integrering](concept-train-model-git-integration.md).

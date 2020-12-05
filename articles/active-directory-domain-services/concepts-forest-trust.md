@@ -2,20 +2,20 @@
 title: Så här fungerar förtroenden för Azure AD Domain Services | Microsoft Docs
 description: Lär dig mer om hur skogs förtroende fungerar med Azure AD Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 50b400ffa047d3865a9df77912da187de1ce9cc9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 5c72ab7d085de558ee95f3c602ccc6be6160b322
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962623"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620213"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Så här fungerar förtroende relationer för resurs skogar i Azure Active Directory Domain Services
 
@@ -45,7 +45,7 @@ Följande diagram visar att alla domäner i *träd 1* och *träd 2* har transiti
 
 Förtroende relationer ger åtkomst till resurser kan vara antingen envägs eller dubbelriktat.
 
-Ett enkelriktat förtroende är en enkelriktad autentiserings-sökväg som skapas mellan två domäner. I ett enkelriktat förtroende mellan *domän a* och *domän B*kan användare i *domän a* komma åt resurser i *domän B*. Användare i *domän B* kan dock inte komma åt resurser i *domän A*.
+Ett enkelriktat förtroende är en enkelriktad autentiserings-sökväg som skapas mellan två domäner. I ett enkelriktat förtroende mellan *domän a* och *domän B* kan användare i *domän a* komma åt resurser i *domän B*. Användare i *domän B* kan dock inte komma åt resurser i *domän A*.
 
 Vissa enkelriktade förtroenden kan antingen vara icke-transitiva eller transitiva beroende på vilken typ av förtroende som skapas.
 
@@ -70,7 +70,7 @@ Skogs förtroenden hjälper dig att hantera en segmenterad AD DS-infrastruktur o
 
 Med skogs förtroenden kan du länka två olika skogar för att bilda en enkelriktad eller dubbelriktad transitiv förtroende relation. Ett skogs förtroende gör att administratörer kan ansluta två AD DS-skogar med en enda förtroende relation för att ge en sömlös autentiserings-och auktoriserings upplevelse i skogarna.
 
-Ett skogs förtroende kan bara skapas mellan en skogs rots domän i en skog och en skogs rots domän i en annan skog. Skogs förtroenden kan bara skapas mellan två skogar och kan inte implicit utökas till en tredje skog. Detta innebär att om ett skogs förtroende skapas mellan *skog 1* och *skog 2*och ett annat skogs förtroende skapas mellan *skog 2* och *skog 3*, har *skog 1* inte ett implicit förtroende med *skog 3*.
+Ett skogs förtroende kan bara skapas mellan en skogs rots domän i en skog och en skogs rots domän i en annan skog. Skogs förtroenden kan bara skapas mellan två skogar och kan inte implicit utökas till en tredje skog. Detta innebär att om ett skogs förtroende skapas mellan *skog 1* och *skog 2* och ett annat skogs förtroende skapas mellan *skog 2* och *skog 3*, har *skog 1* inte ett implicit förtroende med *skog 3*.
 
 I följande diagram visas två separata skogs förtroende relationer mellan tre AD DS-skogar i en enda organisation.
 
@@ -170,7 +170,7 @@ Följande diagram och steg innehåller en detaljerad beskrivning av den Kerberos
 
 1. *Användare1* loggar in på *Arbetsstation1* med autentiseringsuppgifter från *Europe.tailspintoys.com* -domänen. Användaren försöker sedan få åtkomst till en delad resurs på *FileServer1* som finns i *USA.wingtiptoys.com* -skogen.
 
-2. *Arbetsstation1* kontaktar Kerberos KDC på en domänkontrollant i sin domän, *ChildDC1*och begär en tjänst biljett för *FileServer1* SPN.
+2. *Arbetsstation1* kontaktar Kerberos KDC på en domänkontrollant i sin domän, *ChildDC1* och begär en tjänst biljett för *FileServer1* SPN.
 
 3. *ChildDC1* hittar inte SPN i sin domän databas och frågar den globala katalogen för att se om några domäner i *tailspintoys.com* -skogen innehåller detta SPN. Eftersom en global katalog är begränsad till sin egen skog, hittas inte SPN.
 
@@ -190,7 +190,7 @@ Följande diagram och steg innehåller en detaljerad beskrivning av den Kerberos
 
 9. *Arbetsstation1* kontaktar KDC på *ChildDC2* och förhandlar om biljetten för *Användare1* för att få åtkomst till *FileServer1*.
 
-10. När *Arbetsstation1* har en tjänst biljett skickar den tjänst biljetten till *FileServer1*, som läser säkerhetsautentiseringsuppgifterna för *Användare1*och skapar en åtkomsttoken enligt detta.
+10. När *Arbetsstation1* har en tjänst biljett skickar den tjänst biljetten till *FileServer1*, som läser säkerhetsautentiseringsuppgifterna för *Användare1* och skapar en åtkomsttoken enligt detta.
 
 ## <a name="trusted-domain-object"></a>Betrott domän objekt
 

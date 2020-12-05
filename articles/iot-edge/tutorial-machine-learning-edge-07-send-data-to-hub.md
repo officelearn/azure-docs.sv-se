@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f0695af6922182aa8be7acfb4b0a931bed35ef7d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1927ec00df67522563fb063f2cb127fee4c0bcbf
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959313"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621050"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Självstudie: skicka data via transparent Gateway
 
@@ -24,7 +24,7 @@ Vi övervakar IoT Edge enhetens funktion medan den simulerade enheten skickar da
 
 Det här steget utförs vanligt vis av en moln-eller enhets utvecklare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Varje artikel i serien bygger på arbetet i föregående artikel. Om du har kommit till den här artikeln direkt kan du gå till den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien.
 
@@ -237,10 +237,7 @@ Om du planerar att utforska de resurser som används av den här självstudien v
 
 I den här artikeln använde vi vår utvecklings-VM för att simulera en löv enhet som skickar sensor-och drift data till vår IoT Edge-enhet. Vi validerade att modulerna på enheten dirigerade, klassificerade, sparade och överförde data genom att undersöka real tids åtgärden hos gräns enheten och genom att titta på filerna som överförts till lagrings kontot.
 
-Mer information finns på följande sidor:
+Om du vill fortsätta lära dig mer IoT Edge funktioner kan du prova den här självstudien härnäst:
 
 > [!div class="nextstepaction"]
-> [Ansluta en underordnad enhet till en Azure IoT Edge-gateway](how-to-connect-downstream-device.md)
-
-> [!div class="nextstepaction"]
-> [Lagra data på gränsen med Azure Blob Storage på IoT Edge (förhands granskning)](how-to-store-data-blob.md)
+> [Skapa en hierarki med IoT Edge enheter (förhands granskning)](tutorial-nested-iot-edge.md?view=iotedge-2020-11&preserve-view=true)

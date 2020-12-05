@@ -2,7 +2,7 @@
 title: Lös säkra LDAP-aviseringar i Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur du felsöker och löser vanliga aviseringar med säker LDAP för Azure Active Directory Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: b9bdcc7e338c0dffc97bd05a6ae9b64947542b2e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 15c1f3a1731edf7b45061646d43688b4aacc6104
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962810"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620315"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Kända problem: säkert LDAP aviseringar i Azure Active Directory Domain Services
 
@@ -34,11 +34,11 @@ Den här artikeln hjälper dig att förstå och lösa vanliga aviseringar med s�
 
 När du aktiverar säker LDAP rekommenderar vi att du skapar ytterligare regler som begränsar inkommande LDAPs åtkomst till vissa IP-adresser. Reglerna skyddar den hanterade domänen från brute force-attacker. Utför följande steg för att uppdatera nätverks säkerhets gruppen så att den begränsar TCP-port 636-åtkomst för säker LDAP:
 
-1. Sök efter och välj **nätverks säkerhets grupper**i Azure Portal.
+1. Sök efter och välj **nätverks säkerhets grupper** i Azure Portal.
 1. Välj den nätverks säkerhets grupp som är kopplad till din hanterade domän, t. ex. *AADDS-contoso.com-NSG*, och välj sedan **inkommande säkerhets regler**
 1. Välj **+ Lägg** till för att skapa en regel för TCP-port 636. Om det behövs väljer du **Avancerat** i fönstret för att skapa en regel.
-1. För **källan**väljer du *IP-adresser* på den nedrullningsbara menyn. Ange de käll-IP-adresser som du vill bevilja åtkomst för säker LDAP-trafik.
-1. Välj *valfri* som **mål**och ange sedan *636* för **mål ports intervall**.
+1. För **källan** väljer du *IP-adresser* på den nedrullningsbara menyn. Ange de käll-IP-adresser som du vill bevilja åtkomst för säker LDAP-trafik.
+1. Välj *valfri* som **mål** och ange sedan *636* för **mål ports intervall**.
 1. Ange **protokollet** som *TCP* och **åtgärden** som ska *tillåtas*.
 1. Ange regelns prioritet och ange sedan ett namn som *RestrictLDAPS*.
 1. När du är klar väljer du **Lägg till** för att skapa regeln.

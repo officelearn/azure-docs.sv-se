@@ -2,7 +2,7 @@
 title: Anslut en virtuell Ubuntu-dator till Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur du konfigurerar och ansluter till en Ubuntu Linux virtuell dator till en Azure AD Domain Services hanterad domän.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: joflore
+ms.author: justinha
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ac620ffa36bdeb35ef524ef2956db03c8edcb566
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8b6d022b9a1f3be70f69943a53754c9dd909ca99
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962096"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619495"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Ansluta en Ubuntu Linux virtuell dator till en Azure Active Directory Domain Services hanterad domän
 
@@ -79,7 +79,7 @@ När du är färdig sparar du och avslutar *hosts* -filen med hjälp `:wq` av re
 
 Den virtuella datorn behöver vissa ytterligare paket för att ansluta den virtuella datorn till den hanterade domänen. Installera och konfigurera de här paketen genom att uppdatera och installera de verktyg för domän anslutning som använder `apt-get`
 
-Under Kerberos-installationen uppmanas du att ange sfär namnet i *krb5-user-* paketet i alla versaler. Om namnet på din hanterade domän till exempel är *aaddscontoso.com*anger du *AADDSCONTOSO.com* som sfär. Installationen skriver `[realm]` `[domain_realm]` avsnitten och i */etc/krb5.conf* konfigurations fil. Se till att du anger sfären alla VERSALer:
+Under Kerberos-installationen uppmanas du att ange sfär namnet i *krb5-user-* paketet i alla versaler. Om namnet på din hanterade domän till exempel är *aaddscontoso.com* anger du *AADDSCONTOSO.com* som sfär. Installationen skriver `[realm]` `[domain_realm]` avsnitten och i */etc/krb5.conf* konfigurations fil. Se till att du anger sfären alla VERSALer:
 
 ```console
 sudo apt-get update

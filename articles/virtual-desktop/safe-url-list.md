@@ -3,19 +3,22 @@ title: URL-lista som krävs för Windows Virtual Desktop – Azure
 description: 'En lista med URL: er som du måste avblockera för att säkerställa att distributionen av Windows virtuella datorer fungerar som avsett.'
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6b3fdc18a04dadf4bf1cf380c7bb51d21f826633
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 70b7042e4006cc59419d0ea6798fe7626a82c086
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512349"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621084"
 ---
 # <a name="required-url-list"></a>Obligatorisk URL-lista
 
-För att kunna distribuera och använda det virtuella Windows-skrivbordet måste du avblockera vissa URL: er så att dina virtuella datorer (VM) kan komma åt dem när som helst. Den här artikeln innehåller de URL: er som krävs för att avblockera.
+För att kunna distribuera och använda det virtuella Windows-skrivbordet måste du avblockera vissa URL: er så att dina virtuella datorer (VM) kan komma åt dem när som helst. Den här artikeln innehåller de URL: er som krävs för att avblockera för att Windows Virtual Desktop ska fungera korrekt. 
+
+>[!IMPORTANT]
+>Virtuella Windows-datorer stöder inte distributioner som blockerar URL: erna som anges i den här artikeln.
 
 ## <a name="virtual-machines"></a>Virtuella datorer
 

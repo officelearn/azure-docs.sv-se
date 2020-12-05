@@ -1,20 +1,20 @@
 ---
 title: Skapa en Azure AD Domain Services resurs skog med Azure PowerShell | Microsoft Docs
 description: I den här artikeln får du lära dig hur du skapar och konfigurerar en Azure Active Directory Domain Services resurs skog och en utgående skog till en lokal Active Directory Domain Services miljö med hjälp av Azure PowerShell.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.author: joflore
-ms.openlocfilehash: 32ec3eface215330aba9e40b46e45b97b5c07091
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.author: justinha
+ms.openlocfilehash: ebfc2476b7955b926f86094de03973155386eb8f
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041100"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619975"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Skapa en Azure Active Directory Domain Services resurs skog och utgående skogs förtroende till en lokal domän med hjälp av Azure PowerShell
 
@@ -74,7 +74,7 @@ Innan du börjar ska du se till att du förstår [nätverks överväganden, skog
 
 Azure AD DS kräver tjänstens huvud namn för att synkronisera data från Azure AD. Det här huvud kontot måste skapas i din Azure AD-klient innan du skapar den hanterade domän resurs skogen.
 
-Skapa ett Azure AD-tjänstens huvud namn för Azure AD DS för att kommunicera och autentisera sig själv. Ett angivet program-ID används med namnet *domänkontrollant tjänster* med ID *6ba9a5d4-8456-4118-b521-9c5ca10cdf84* . Ändra inte det här program-ID: t.
+Skapa ett Azure AD-tjänstens huvud namn för Azure AD DS för att kommunicera och autentisera sig själv. Ett angivet program-ID används med namnet *domänkontrollant tjänster* med ID *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Ändra inte det här program-ID: t.
 
 Skapa ett Azure AD-tjänstens huvud namn med cmdleten [New-AzureADServicePrincipal][New-AzureADServicePrincipal] :
 
@@ -117,9 +117,9 @@ Om du vill skapa en resurs skog för en hanterad domän använder du `New-AzureA
     | Virtuellt nätverksnamn              | *-aaddsVnetName*                  | Namnet på det virtuella nätverket för den hanterade domänen.|
     | Adressutrymme                     | *-aaddsVnetCIDRAddressSpace*      | Det virtuella nätverkets adress intervall i CIDR-format (om du skapar det virtuella nätverket).|
     | Namn på Azure AD DS-undernät           | *-aaddsSubnetName*                | Namnet på under nätet för det *aaddsVnetName* virtuella nätverk som är värd för den hanterade domänen. Distribuera inte dina egna virtuella datorer och arbets belastningar i det här under nätet. |
-    | Azure AD DS-adressintervall         | *-aaddsSubnetCIDRAddressRange*    | Under näts adress intervall i CIDR-notering för AAD DS-instansen, till exempel *192.168.1.0/24* . Adress intervallet måste finnas i adress intervallet för det virtuella nätverket och skiljer sig från andra undernät. |
+    | Azure AD DS-adressintervall         | *-aaddsSubnetCIDRAddressRange*    | Under näts adress intervall i CIDR-notering för AAD DS-instansen, till exempel *192.168.1.0/24*. Adress intervallet måste finnas i adress intervallet för det virtuella nätverket och skiljer sig från andra undernät. |
     | Under näts namn för arbets belastning (valfritt)   | *-workloadSubnetName*             | Valfritt namn på ett undernät i det virtuella *aaddsVnetName* -nätverket som ska skapas för dina egna program arbets belastningar. Virtuella datorer och program och även vara anslutna till ett peer-kopplat Azure-nätverk i stället. |
-    | Adress intervall för arbets belastning (valfritt) | *-workloadSubnetCIDRAddressRange* | Valfritt under näts adress intervall i CIDR-notation för program arbets belastning, till exempel *192.168.2.0/24* . Adress intervallet måste finnas i adress intervallet för det virtuella nätverket och skiljer sig från andra undernät.|
+    | Adress intervall för arbets belastning (valfritt) | *-workloadSubnetCIDRAddressRange* | Valfritt under näts adress intervall i CIDR-notation för program arbets belastning, till exempel *192.168.2.0/24*. Adress intervallet måste finnas i adress intervallet för det virtuella nätverket och skiljer sig från andra undernät.|
 
 1. Skapa nu en resurs skog med hanterad domän med hjälp av `New-AzureAaaddsForest` skriptet. I följande exempel skapas en skog med namnet *addscontoso.com* och ett arbets belastnings undernät skapas. Ange egna parameter namn och IP-adressintervall eller befintliga virtuella nätverk.
 
@@ -163,7 +163,7 @@ Innan du börjar ska du kontrol lera att du förstår [nätverks övervägandena
     * Bekräfta att den lokala domänkontrollanten kan ansluta till den hanterade virtuella datorn med hjälp av `ping` eller fjärr skrivbord, till exempel.
     * Kontrol lera att den virtuella hanterings datorn kan ansluta till dina lokala domänkontrollanter och försök igen med ett verktyg som `ping` .
 
-1. I Azure Portal söker du efter och väljer **Azure AD Domain Services** . Välj din hanterade domän, till exempel *aaddscontoso.com* och vänta tills status har rapporteras som **körs** .
+1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**. Välj din hanterade domän, till exempel *aaddscontoso.com* och vänta tills status har rapporteras som **körs**.
 
     När du kör [uppdaterar du DNS-inställningarna för det virtuella Azure-nätverket](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network) och [aktiverar sedan användar konton för Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) för att slutföra konfigurationerna för den hanterade domän resurs skogen.
 
@@ -200,9 +200,9 @@ Ange nu skriptet med följande information:
 | Eget namn på förtroende                | *-TrustFriendlyName* | Eget namn på förtroende relationen. |
 | Lokala AD DS DNS IP-adresser | *-TrustDnsIPs*       | En kommaavgränsad lista över DNS-serverns IPv4-adresser för den betrodda domänen i listan. |
 | Förtroende lösen ord                     | *-TrustPassword*     | Ett komplext lösen ord för förtroende relationen. Det här lösen ordet anges också när du skapar ett enkelriktat inkommande förtroende i den lokala AD DS. |
-| Autentiseringsuppgifter                        | *-Autentiseringsuppgifter*       | De autentiseringsuppgifter som används för att autentisera till Azure. Användaren måste vara i *gruppen AAD DC-administratörer* . Om detta inte anges uppmanas skriptet för autentisering. |
+| Autentiseringsuppgifter                        | *-Autentiseringsuppgifter*       | De autentiseringsuppgifter som används för att autentisera till Azure. Användaren måste vara i *gruppen AAD DC-administratörer*. Om detta inte anges uppmanas skriptet för autentisering. |
 
-I följande exempel skapas en förtroende relation med namnet *myAzureADDSTrust* till *OnPrem.contoso.com* . Använd dina egna parameter namn och lösen ord:.
+I följande exempel skapas en förtroende relation med namnet *myAzureADDSTrust* till *OnPrem.contoso.com*. Använd dina egna parameter namn och lösen ord:.
 
 ```azurepowershell
 Add-AaddsResourceForestTrust `
@@ -221,9 +221,9 @@ Add-AaddsResourceForestTrust `
 För att korrekt lösa den hanterade domänen från den lokala miljön kan du behöva lägga till vidarebefordrare till de befintliga DNS-servrarna. Om du inte har konfigurerat den lokala miljön för att kommunicera med den hanterade domänen utför du följande steg från en hanterings arbets station för den lokala AD DS-domänen:
 
 1. Välj **Start | Administrations verktyg | DNS**
-1. Högerklicka på DNS-server, till exempel *myAD01* , Välj **Egenskaper**
+1. Högerklicka på DNS-server, till exempel *myAD01*, Välj **Egenskaper**
 1. Välj **vidarebefordrare** och sedan **Redigera** för att lägga till ytterligare vidarebefordrare.
-1. Lägg till IP-adresserna för den hanterade domänen, till exempel *10.0.1.4* och *10.0.1.5* .
+1. Lägg till IP-adresserna för den hanterade domänen, till exempel *10.0.1.4* och *10.0.1.5*.
 1. Från en lokal kommando tolk, verifiera namn matchning med hjälp av **nslookup** i domän namnet för den hanterade domänens resurs skog. Exempelvis `Nslookup aaddscontoso.com` ska returnera de två IP-adresserna för den hanterade domän resurs skogen.
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Skapa inkommande skogs förtroende i den lokala domänen
@@ -233,13 +233,13 @@ Den lokala AD DS-domänen måste ha ett inkommande skogs förtroende för den ha
 Om du vill konfigurera inkommande förtroende för den lokala AD DS-domänen utför du följande steg från en hanterings arbets station för den lokala AD DS-domänen:
 
 1. Välj **Start | Administrations verktyg | Active Directory domäner och förtroenden**
-1. Högerklicka på domän, till exempel *OnPrem.contoso.com* , Välj **Egenskaper**
+1. Högerklicka på domän, till exempel *OnPrem.contoso.com*, Välj **Egenskaper**
 1. Välj fliken **förtroenden** och sedan **Nytt förtroende**
-1. Ange namnet på den hanterade domänen, till exempel *aaddscontoso.com* , och välj sedan **Nästa**
+1. Ange namnet på den hanterade domänen, till exempel *aaddscontoso.com*, och välj sedan **Nästa**
 1. Välj alternativet för att skapa ett **skogs förtroende** och skapa ett enkelriktat **sätt: inkommande** förtroende.
-1. Välj att endast skapa förtroende för **den här domänen** . I nästa steg skapar du förtroendet i Azure Portal för den hanterade domänen.
+1. Välj att endast skapa förtroende för **den här domänen**. I nästa steg skapar du förtroendet i Azure Portal för den hanterade domänen.
 1. Välj att använda **autentisering för hela skogen** och ange och bekräfta ett lösen ord för förtroende. Samma lösen ord anges också i Azure Portal i nästa avsnitt.
-1. Gå igenom de kommande Fönstren med standard alternativ och välj alternativet för **Nej, bekräfta inte det utgående förtroendet** . Du kan inte validera förtroende relationen eftersom det delegerade administratörs kontot till resurs skogen för hanterad domän inte har de behörigheter som krävs. Det här beteendet är avsiktligt.
+1. Gå igenom de kommande Fönstren med standard alternativ och välj alternativet för **Nej, bekräfta inte det utgående förtroendet**. Du kan inte validera förtroende relationen eftersom det delegerade administratörs kontot till resurs skogen för hanterad domän inte har de behörigheter som krävs. Det här beteendet är avsiktligt.
 1. Välj **Slutför**
 
 ## <a name="validate-resource-authentication"></a>Verifiera autentisering av resurs
@@ -288,21 +288,21 @@ Med den virtuella Windows Server-datorn ansluten till resurs skogen för hantera
     > [!TIP]
     > För att på ett säkert sätt ansluta till dina virtuella datorer som är anslutna till Azure AD Domain Services kan du använda [Azure skydds Host-tjänsten](../bastion/bastion-overview.md) i Azure-regioner som stöds.
 
-1. Öppna **Windows-inställningar** och Sök sedan efter och välj **nätverks-och delnings Center** .
+1. Öppna **Windows-inställningar** och Sök sedan efter och välj **nätverks-och delnings Center**.
 1. Välj alternativet för att **Ändra avancerade delnings** inställningar.
-1. Under **domän profil** väljer du **aktivera fil-och skrivar delning** och **sparar ändringarna** .
-1. Stäng **nätverks-och delnings Center** .
+1. Under **domän profil** väljer du **aktivera fil-och skrivar delning** och **sparar ändringarna**.
+1. Stäng **nätverks-och delnings Center**.
 
 #### <a name="create-a-security-group-and-add-members"></a>Skapa en säkerhets grupp och Lägg till medlemmar
 
-1. Öppna **Active Directory-användare och datorer** .
-1. Högerklicka på domän namnet, Välj **nytt** och välj sedan **organisationsenhet** .
-1. I rutan Namn skriver du *LocalObjects* och väljer sedan **OK** .
-1. Markera och högerklicka på **LocalObjects** i navigerings fönstret. Välj **ny** och sedan **grupp** .
-1. Skriv *FileServerAccess* i rutan **grupp namn** . För **grupp omfånget** väljer du **domän lokalt** och väljer sedan **OK** .
-1. I innehålls rutan dubbelklickar du på **FileServerAccess** . Välj **medlemmar** , Välj att **lägga till** och välj sedan **platser** .
-1. Välj din lokala Active Directory från vyn **plats** och välj sedan **OK** .
-1. Skriv *domän användare* i rutan **Ange de objekt namn som ska väljas** . Välj **kontrol lera namn** , ange autentiseringsuppgifter för den lokala Active Directory och välj sedan **OK** .
+1. Öppna **Active Directory-användare och datorer**.
+1. Högerklicka på domän namnet, Välj **nytt** och välj sedan **organisationsenhet**.
+1. I rutan Namn skriver du *LocalObjects* och väljer sedan **OK**.
+1. Markera och högerklicka på **LocalObjects** i navigerings fönstret. Välj **ny** och sedan **grupp**.
+1. Skriv *FileServerAccess* i rutan **grupp namn** . För **grupp omfånget** väljer du **domän lokalt** och väljer sedan **OK**.
+1. I innehålls rutan dubbelklickar du på **FileServerAccess**. Välj **medlemmar**, Välj att **lägga till** och välj sedan **platser**.
+1. Välj din lokala Active Directory från vyn **plats** och välj sedan **OK**.
+1. Skriv *domän användare* i rutan **Ange de objekt namn som ska väljas** . Välj **kontrol lera namn**, ange autentiseringsuppgifter för den lokala Active Directory och välj sedan **OK**.
 
     > [!NOTE]
     > Du måste ange autentiseringsuppgifter eftersom förtroende relationen bara är ett sätt. Det innebär att användare från den hanterade domänen inte kan komma åt resurser eller söka efter användare eller grupper i den betrodda (lokala) domänen.
@@ -311,27 +311,27 @@ Med den virtuella Windows Server-datorn ansluten till resurs skogen för hantera
 
 #### <a name="create-a-file-share-for-cross-forest-access"></a>Skapa en fil resurs för åtkomst över flera skogar
 
-1. På den virtuella Windows Server-datorn som är ansluten till resurs skogen för hanterad domän skapar du en mapp och anger namn som *CrossForestShare* .
-1. Högerklicka på mappen och välj **Egenskaper** .
-1. Välj fliken **säkerhet** och välj sedan **Redigera** .
-1. I dialog rutan *behörigheter för CrossForestShare* väljer du **Lägg till** .
-1. Skriv *FileServerAccess* i **Ange de objekt namn som ska väljas** och välj sedan **OK** .
-1. Välj *FileServerAccess* i listan **grupper eller användar namn** . I listan **behörigheter för FileServerAccess** väljer du *Tillåt* för behörigheterna **ändra** och **Skriv** och väljer sedan **OK** .
+1. På den virtuella Windows Server-datorn som är ansluten till resurs skogen för hanterad domän skapar du en mapp och anger namn som *CrossForestShare*.
+1. Högerklicka på mappen och välj **Egenskaper**.
+1. Välj fliken **säkerhet** och välj sedan **Redigera**.
+1. I dialog rutan *behörigheter för CrossForestShare* väljer du **Lägg till**.
+1. Skriv *FileServerAccess* i **Ange de objekt namn som ska väljas** och välj sedan **OK**.
+1. Välj *FileServerAccess* i listan **grupper eller användar namn** . I listan **behörigheter för FileServerAccess** väljer du *Tillåt* för behörigheterna **ändra** och **Skriv** och väljer sedan **OK**.
 1. Välj fliken **delning** och välj sedan **Avancerad delning...**
-1. Välj **dela den här mappen** och ange ett minnes minnes namn för fil resursen i **resurs namn** , till exempel *CrossForestShare* .
-1. Välj **behörigheter** . I listan **behörigheter för alla** väljer du **Tillåt** för behörigheten **ändra** .
+1. Välj **dela den här mappen** och ange ett minnes minnes namn för fil resursen i **resurs namn** , till exempel *CrossForestShare*.
+1. Välj **Behörigheter**. I listan **behörigheter för alla** väljer du **Tillåt** för behörigheten **ändra** .
 1. Välj **OK** två gånger och **Stäng** sedan.
 
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Verifiera autentisering mellan skogar till en resurs
 
 1. Logga in på en Windows-dator som är ansluten till din lokala Active Directory med ett användar konto från din lokala Active Directory.
 1. Med **Utforskaren i Windows** ansluter du till den resurs som du skapade med det fullständigt kvalificerade värd namnet och resursen, till exempel `\\fs1.aaddscontoso.com\CrossforestShare` .
-1. Om du vill verifiera Skriv behörigheten högerklickar du i mappen, väljer **nytt** och väljer sedan **text dokument** . Använd standard namnet **nytt text dokument** .
+1. Om du vill verifiera Skriv behörigheten högerklickar du i mappen, väljer **nytt** och väljer sedan **text dokument**. Använd standard namnet **nytt text dokument**.
 
     Om Skriv behörigheterna har angetts korrekt skapas ett nytt text dokument. Följande steg kommer sedan att öppna, redigera och ta bort filen efter behov.
-1. Om du vill verifiera Läs behörighet öppnar du **nytt text dokument** .
-1. Du kan kontrol lera behörigheten Ändra genom att lägga till text i filen och stänga **anteckningar** . När du uppmanas att spara ändringarna väljer du **Spara** .
-1. Om du vill verifiera borttagnings behörigheten högerklickar du på **nytt text dokument** och väljer **ta bort** . Bekräfta borttagning av filer genom att välja **Ja** .
+1. Om du vill verifiera Läs behörighet öppnar du **nytt text dokument**.
+1. Du kan kontrol lera behörigheten Ändra genom att lägga till text i filen och stänga **anteckningar**. När du uppmanas att spara ändringarna väljer du **Spara**.
+1. Om du vill verifiera borttagnings behörigheten högerklickar du på **nytt text dokument** och väljer **ta bort**. Bekräfta borttagning av filer genom att välja **Ja** .
 
 ## <a name="update-or-remove-outbound-forest-trust"></a>Uppdatera eller ta bort utgående skogs förtroende
 
@@ -349,7 +349,7 @@ Följande exempel visar hur du uppdaterar en befintlig förtroende relation om d
     Install-Script -Name Get-AaddsResourceForestTrusts,Set-AaddsResourceForestTrust
     ```
 
-1. Innan du kan uppdatera ett befintligt förtroende måste du först hämta förtroende resursen med hjälp av `Get-AaddsResourceForestTrusts` skriptet. I följande exempel tilldelas det befintliga förtroendet ett objekt med namnet *existingTrust* . Ange ett eget namn på den hanterade domän skogen och namnet på den lokala skogen som ska uppdateras:
+1. Innan du kan uppdatera ett befintligt förtroende måste du först hämta förtroende resursen med hjälp av `Get-AaddsResourceForestTrusts` skriptet. I följande exempel tilldelas det befintliga förtroendet ett objekt med namnet *existingTrust*. Ange ett eget namn på den hanterade domän skogen och namnet på den lokala skogen som ska uppdateras:
 
     ```powershell
     $existingTrust = Get-AaddsResourceForestTrust `
@@ -388,7 +388,7 @@ Om du inte längre behöver det enkelriktade utgående skogs förtroendet från 
 Om du vill ta bort det enkelriktade inkommande förtroendet från den lokala AD DS-skogen ansluter du till en hanterings dator med åtkomst till den lokala AD DS-skogen och utför följande steg:
 
 1. Välj **Start | Administrations verktyg | Active Directory domäner och förtroenden**
-1. Högerklicka på domän, till exempel *OnPrem.contoso.com* , Välj **Egenskaper**
+1. Högerklicka på domän, till exempel *OnPrem.contoso.com*, Välj **Egenskaper**
 1. Välj fliken **förtroenden** och välj sedan det befintliga inkommande förtroendet från den hanterade domän skogen.
 1. Välj **ta bort** och bekräfta sedan att du vill ta bort det inkommande förtroendet.
 

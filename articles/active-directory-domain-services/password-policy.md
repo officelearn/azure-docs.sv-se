@@ -2,7 +2,7 @@
 title: Skapa och Använd lösen ords principer i Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur och varför du kan använda detaljerade lösen ords principer för att skydda och kontrol lera konto lösen ord i en hanterad Azure AD DS-domän.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 2dbc75ac4f143089db778b260bb2c4bee5b49f6a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.author: justinha
+ms.openlocfilehash: df132af1675b3f373fe1eab5685c5d2f07813445
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393174"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619240"
 ---
 # <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Principer för lösen ords-och konto utelåsning på Azure Active Directory Domain Services hanterade domäner
 
@@ -117,7 +117,7 @@ Om du vill skapa en anpassad lösen ords princip använder du Active Directory a
 
     ![Välj de användare och grupper som lösen ords principen ska tillämpas på](./media/password-policy/fgpp-applies-to.png)
 
-1. Lösen ords principer kan bara tillämpas på grupper. I dialog rutan **platser** expanderar du domän namnet, till exempel *aaddscontoso.com* , och väljer sedan en organisationsenhet, till exempel **AADDC-användare**. Om du har en anpassad ORGANISATIONSENHET som innehåller en grupp med användare som du vill tillämpa väljer du den ORGANISATIONSENHETen.
+1. Lösen ords principer kan bara tillämpas på grupper. I dialog rutan **platser** expanderar du domän namnet, till exempel *aaddscontoso.com*, och väljer sedan en organisationsenhet, till exempel **AADDC-användare**. Om du har en anpassad ORGANISATIONSENHET som innehåller en grupp med användare som du vill tillämpa väljer du den ORGANISATIONSENHETen.
 
     ![Välj den ORGANISATIONSENHET som gruppen tillhör](./media/password-policy/fgpp-container.png)
 

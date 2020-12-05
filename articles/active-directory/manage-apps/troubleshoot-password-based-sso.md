@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 1823de88597756ba3db9aee0dc29501b1ba914a4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d122cedbad41d6984614a0edccb2fd98269710f2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646244"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618084"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Felsöka lösenordsbaserad enkel inloggning i Azure AD
 
@@ -30,7 +30,7 @@ Kontrol lera att lösenordsbaserad enkel inloggning har kon figurer ATS. Mer inf
 ## <a name="users-not-assigned"></a>Användare har inte tilldelats
 Se till att användaren är tilldelad till appen. Läs mer i [tilldela en användare eller grupp till en app](assign-user-or-group-access-portal.md).
 
-## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>Autentiseringsuppgifterna fylls i, men tillägget skickas inte
+## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>Autentiseringsuppgifterna fylls i, men tillägget skickar dem inte
 
 Det här problemet uppstår vanligt vis om program leverantören har ändrat sin inloggnings sida nyligen för att lägga till ett fält, ändrat en identifierare som används för att identifiera fälten för användar namn och lösen ord eller ändra hur inloggnings upplevelsen fungerar för programmet. I många fall kan Microsoft samar beta med program leverantörer för att snabbt lösa problemen.
 
@@ -150,6 +150,13 @@ Om du upplever något av dessa problem kan du göra följande:
 - Se till att användarna inte försöker logga in i appen från Mina appar i *Incognito*, *InPrivate* eller *privat läge*.
 - Försök att utföra manuell inhämtning igen. Se till att de röda markeringarna är över rätt fält.
 - Om den manuella hämtningen verkar sluta svara eller om inloggnings sidan inte svarar, kan du försöka att utföra den manuella insamlingen igen. Men den här gången har du slutfört processen genom att trycka på F12-tangenten för att öppna webbläsarens utvecklarverktyg. Välj fliken **konsol** . Skriv **window. location = "*&lt; den inloggnings-URL som du angav när du konfigurerade &gt; appen*"** och tryck sedan på RETUR. Detta innebär en omdirigering av sidan som avslutar insamlings processen och lagrar de fält som har registrerats.
+
+### <a name="i-cant-add-another-user-to-my-password-based-sso-app"></a>Jag kan inte lägga till en annan användare i min Password-baserade SSO-app
+
+Lösenordsbaserade SSO-appar har en gräns på 48 användare. Därför har den en gräns på 48 nycklar för användar namn/lösen ord par per app.
+Om du vill lägga till ytterligare användare kan du antingen:
+-   Lägg till ytterligare en instans av appen
+-   Ta bort användare som inte längre använder appen först
 
 ## <a name="request-support"></a>Support för begäran 
 Om du får ett fel meddelande när du konfigurerar SSO och tilldelar användare, öppnar du ett support ärende. Inkludera så mycket som möjligt av följande information:

@@ -5,15 +5,15 @@ description: Den här artikeln innehåller en översikt över brand vägg för w
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/16/2020
+ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: f15a739904c28361a60210a0cc4606c7048d0f53
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 36f04b02774a01814811ea131388629de27e9f07
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518982"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621033"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Vad är Azure Web Application-brandvägg på Azure Application Gateway?
 
@@ -143,7 +143,7 @@ I avvikande bedömnings läge blockeras inte trafik som matchar någon regel dir
 Det finns ett tröskelvärde på 5 för avvikelse poängen för att blockera trafik. En enda *viktig* regel matchning är därför tillräckligt för att Application Gateway WAF ska blockera en begäran, även i förebyggande läge. Men en *varnings* regel matchning ökar bara avvikelse poängen med 3, vilket inte är tillräckligt för att blockera trafiken.
 
 > [!NOTE]
-> Meddelandet som loggas när en WAF-regel matchar trafiken inkluderar åtgärd svärdet "blockerad". Men trafiken blockeras faktiskt bara för en avvikande poäng på 5 eller högre.  
+> Meddelandet som loggas när en WAF-regel matchar trafiken inkluderar åtgärd svärdet "blockerad". Men trafiken blockeras faktiskt bara för en avvikande poäng på 5 eller högre. Mer information finns i [Felsöka brand vägg för webbaserade program (WAF) för Azure Application Gateway](web-application-firewall-troubleshoot.md#understanding-waf-logs). 
 
 ### <a name="waf-monitoring"></a>WAF-övervakning
 

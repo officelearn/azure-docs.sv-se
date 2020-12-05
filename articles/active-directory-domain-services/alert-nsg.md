@@ -2,7 +2,7 @@
 title: Lösa aviseringar om nätverks säkerhets grupper i Azure AD DS | Microsoft Docs
 description: Lär dig hur du felsöker och löser konfigurations aviseringar för nätverks säkerhets grupper för Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: f8917d7bd8fc1a4091607b9a405cfefbb51bc188
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: d8f2e77b7225306844cec85363a2971eaac4eebd
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962793"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620264"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Kända problem: aviseringar om nätverks konfiguration i Azure Active Directory Domain Services
 
@@ -38,25 +38,25 @@ Följande standard säkerhets regler för inkommande och utgående trafik tillä
 
 ### <a name="inbound-security-rules"></a>Ingående säkerhetsregler
 
-| Prioritet | Namn | Port | Protokoll | Källa | Mål | Åtgärd |
+| Prioritet | Name | Port | Protokoll | Källa | Mål | Action |
 |----------|------|------|----------|--------|-------------|--------|
-| 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Alla | Tillåt |
-| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Alla | Tillåt |
-| 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Alla | Tillåt |
-| 65000    | AllVnetInBound | Alla | Alla | VirtualNetwork | VirtualNetwork | Tillåt |
-| 65001    | AllowAzureLoadBalancerInBound | Alla | Alla | AzureLoadBalancer | Alla | Tillåt |
-| 65500    | DenyAllInBound | Alla | Alla | Alla | Alla | Neka |
+| 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Valfri | Tillåt |
+| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Valfri | Tillåt |
+| 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Valfri | Tillåt |
+| 65000    | AllVnetInBound | Valfri | Valfri | VirtualNetwork | VirtualNetwork | Tillåt |
+| 65001    | AllowAzureLoadBalancerInBound | Valfri | Valfri | AzureLoadBalancer | Valfri | Tillåt |
+| 65500    | DenyAllInBound | Valfri | Valfri | Valfri | Valfri | Neka |
 
 > [!NOTE]
 > Du kan också ha en ytterligare regel som tillåter inkommande trafik om du [konfigurerar säker LDAP][configure-ldaps]. Denna ytterligare regel krävs för korrekt LDAP-kommunikation.
 
 ### <a name="outbound-security-rules"></a>Säkerhetsregler för utgående trafik
 
-| Prioritet | Namn | Port | Protokoll | Källa | Mål | Åtgärd |
+| Prioritet | Name | Port | Protokoll | Källa | Mål | Action |
 |----------|------|------|----------|--------|-------------|--------|
-| 65000    | AllVnetOutBound | Alla | Alla | VirtualNetwork | VirtualNetwork | Tillåt |
-| 65001    | AllowAzureLoadBalancerOutBound | Alla | Alla |  Alla | Internet | Tillåt |
-| 65500    | DenyAllOutBound | Alla | Alla | Alla | Alla | Neka |
+| 65000    | AllVnetOutBound | Valfri | Valfri | VirtualNetwork | VirtualNetwork | Tillåt |
+| 65001    | AllowAzureLoadBalancerOutBound | Valfri | Valfri |  Valfri | Internet | Tillåt |
+| 65500    | DenyAllOutBound | Valfri | Valfri | Valfri | Valfri | Neka |
 
 >[!NOTE]
 > Azure AD DS behöver obegränsad utgående åtkomst från det virtuella nätverket. Vi rekommenderar inte att du skapar några ytterligare regler som begränsar utgående åtkomst för det virtuella nätverket.
@@ -65,7 +65,7 @@ Följande standard säkerhets regler för inkommande och utgående trafik tillä
 
 För att kontrol lera de befintliga säkerhets reglerna och se till att standard portarna är öppna, utför du följande steg:
 
-1. Sök efter och välj **nätverks säkerhets grupper**i Azure Portal.
+1. Sök efter och välj **nätverks säkerhets grupper** i Azure Portal.
 1. Välj den nätverks säkerhets grupp som är kopplad till din hanterade domän, t. ex. *AADDS-contoso.com-NSG*.
 1. På sidan **Översikt** visas befintliga inkommande och utgående säkerhets regler.
 
@@ -77,10 +77,10 @@ För att kontrol lera de befintliga säkerhets reglerna och se till att standard
 
 Slutför följande steg för att lägga till en säkerhets regel som saknas:
 
-1. Sök efter och välj **nätverks säkerhets grupper**i Azure Portal.
+1. Sök efter och välj **nätverks säkerhets grupper** i Azure Portal.
 1. Välj den nätverks säkerhets grupp som är kopplad till din hanterade domän, t. ex. *AADDS-contoso.com-NSG*.
 1. Under **Inställningar** i den vänstra panelen klickar du på *inkommande säkerhets regler* eller *utgående säkerhets regler* , beroende på vilken regel du behöver lägga till.
-1. Välj **Lägg till**och skapa sedan den nödvändiga regeln baserat på porten, protokollet, riktningen osv. När du är klar väljer du **OK**.
+1. Välj **Lägg till** och skapa sedan den nödvändiga regeln baserat på porten, protokollet, riktningen osv. När du är klar väljer du **OK**.
 
 Det tar en stund för säkerhets regeln att läggas till och visas i listan.
 

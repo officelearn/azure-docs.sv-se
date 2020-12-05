@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 11/08/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8cf0652148ad54eeacdec874823ea680f39f670c
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: b09eb03994098f8cb68033f3c42309a77e15f91c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372735"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620999"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Granskning för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -61,10 +61,22 @@ En gransknings princip kan definieras för en viss databas eller som en standard
    > [!NOTE]
    > Du bör undvika att aktivera granskning av både server granskning och databas-BLOB, om inte:
     >
-    > - Du vill använda ett annat *lagrings konto* , en *kvarhållningsperiod* eller en *Log Analytics arbets yta* för en viss databas.
+    > - Du vill använda ett annat *lagrings konto*, en *kvarhållningsperiod* eller en *Log Analytics arbets yta* för en viss databas.
     > - Du vill granska händelse typer eller kategorier för en speciell databas som skiljer sig från resten av databaserna på servern. Du kan till exempel ha tabell infogningar som bara behöver granskas för en speciell databas.
    >
    > Annars rekommenderar vi att du bara aktiverar granskning på server nivå och lämnar granskning på databas nivå inaktive rad för alla databaser.
+
+#### <a name="remarks"></a>Kommentarer
+
+- Gransknings loggar skrivs för att **lägga till blobbar** i en Azure Blob Storage i din Azure-prenumeration
+- Gransknings loggarna är i. xel-format och kan öppnas med hjälp av [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
+- Om du vill konfigurera ett oåterkalleligt logg Arkiv för gransknings händelser på Server-eller databas nivå följer du [instruktionerna som anges i Azure Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes). Kontrol lera att du har valt **Tillåt ytterligare tillägg** när du konfigurerar den oföränderliga blob-lagringen.
+- Du kan skriva gransknings loggar till ett Azure Storage konto bakom ett VNet eller en brand vägg. Mer information finns i [Skriv granskning till ett lagrings konto bakom VNet och brand vägg](audit-write-storage-account-behind-vnet-firewall.md).
+- Mer information om logg formatet, hierarkin för lagringsmappen och namngivnings konventioner finns i [referensen för logg format för BLOB-granskning](./audit-log-format.md).
+- Granskning på [skrivskyddade repliker](read-scale-out.md) aktive ras automatiskt. Mer information om hierarkin för lagrings-mappar, namngivnings konventioner och logg format finns i [SQL Database Gransknings logg format](audit-log-format.md).
+- När du använder Azure AD-autentisering visas *inte* poster för misslyckade inloggningar i SQL-gransknings loggen. Om du vill visa gransknings poster för misslyckad inloggning måste du gå till [Azure Active Directory Portal](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)som loggar information om dessa händelser.
+- Inloggningar dirigeras av gatewayen till den angivna instansen där-databasen finns.  I händelse av AAD-inloggning verifieras autentiseringsuppgifterna innan ett försök görs att använda den användaren för att logga in på den begärda databasen.  Om det uppstår fel används inte den begärda databasen, så ingen granskning sker.  Om det gäller SQL-inloggningar verifieras autentiseringsuppgifterna för begärda data, så i så fall kan de granskas.  Lyckade inloggningar, som uppenbart når databasen, granskas i båda fallen.
+- När du har konfigurerat dina gransknings inställningar kan du aktivera den nya funktionen för hot identifiering och konfigurera e-postmeddelanden för att få säkerhets aviseringar. När du använder hot identifiering får du proaktiva aviseringar om avvikande databas aktiviteter som kan innebära potentiella säkerhetshot. Mer information finns i [komma igång med hot identifiering](threat-detection-overview.md).
 
 ## <a name="set-up-auditing-for-your-server"></a><a id="setup-auditing"></a>Konfigurera granskning för servern
 
@@ -82,7 +94,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med hjälp av Azure P
   > [!NOTE]
   > Det går inte att aktivera granskning på en pausad dedikerad SQL-pool. Om du vill aktivera granskning avbryter du den dedikerade SQL-poolen. Läs mer om [dedikerad SQL-pool](../..//synapse-analytics/sql/best-practices-sql-pool.md).
 
-1. Öppna [Azure-portalen](https://portal.azure.com).
+1. Gå till [Azure-portalen](https://portal.azure.com).
 2. Navigera till **granskning** under säkerhets rubriken i **SQL Database** eller **SQL Server** -fönstret.
 3. Om du vill konfigurera en server gransknings princip kan du välja länken **Visa Server inställningar** på sidan databas granskning. Du kan sedan Visa eller ändra server gransknings inställningarna. Server gransknings principer gäller för alla befintliga och nyligen skapade databaser på den här servern.
 
@@ -120,17 +132,6 @@ Om du vill konfigurera att skriva gransknings loggar till ett lagrings konto vä
   - Om du ändrar kvarhållningsperioden från 0 (obegränsad kvarhållning) till ett annat värde, Observera att kvarhållning endast kommer att gälla för loggar som skrivits efter att kvarhållning har ändrats (loggar som skrivits under perioden när kvarhållning hade värdet obegränsat bevaras, även efter att kvarhållning har Aktiver ATS).
 
   ![storage account](./media/auditing-overview/auditing_select_storage.png)
-
-#### <a name="remarks"></a>Kommentarer
-
-- Gransknings loggar skrivs för att **lägga till blobbar** i en Azure Blob Storage i din Azure-prenumeration
-- Gransknings loggarna är i. xel-format och kan öppnas med hjälp av [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
-- Om du vill konfigurera ett oåterkalleligt logg Arkiv för gransknings händelser på Server-eller databas nivå följer du [instruktionerna som anges i Azure Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes). Kontrol lera att du har valt **Tillåt ytterligare tillägg** när du konfigurerar den oföränderliga blob-lagringen.
-- Du kan skriva gransknings loggar till ett Azure Storage konto bakom ett VNet eller en brand vägg. Mer information finns i [Skriv granskning till ett lagrings konto bakom VNet och brand vägg](audit-write-storage-account-behind-vnet-firewall.md).
-- När du har konfigurerat dina gransknings inställningar kan du aktivera den nya funktionen för hot identifiering och konfigurera e-postmeddelanden för att få säkerhets aviseringar. När du använder hot identifiering får du proaktiva aviseringar om avvikande databas aktiviteter som kan innebära potentiella säkerhetshot. Mer information finns i [komma igång med hot identifiering](threat-detection-overview.md).
-- Mer information om logg formatet, hierarkin för lagringsmappen och namngivnings konventioner finns i [referensen för logg format för BLOB-granskning](./audit-log-format.md).
-- När du använder Azure AD-autentisering visas *inte* poster för misslyckade inloggningar i SQL-gransknings loggen. Om du vill visa gransknings poster för misslyckad inloggning måste du gå till [Azure Active Directory Portal](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)som loggar information om dessa händelser.
-- Granskning på [skrivskyddade repliker](read-scale-out.md) aktive ras automatiskt. Mer information om hierarkin för lagrings-mappar, namngivnings konventioner och logg format finns i [SQL Database Gransknings logg format](audit-log-format.md).
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Granska till Log Analytics destination
   
@@ -219,11 +220,11 @@ Om du väljer att skriva gransknings loggar till ett Azure Storage-konto finns d
 
 ### <a name="auditing-geo-replicated-databases"></a>Granska geo-replikerade databaser
 
-När du aktiverar granskning på den primära databasen med geo-replikerade databaser, kommer den sekundära databasen ha en identisk gransknings princip. Du kan också konfigurera granskning på den sekundära databasen genom att aktivera granskning på den **sekundära servern** , oberoende av den primära databasen.
+När du aktiverar granskning på den primära databasen med geo-replikerade databaser, kommer den sekundära databasen ha en identisk gransknings princip. Du kan också konfigurera granskning på den sekundära databasen genom att aktivera granskning på den **sekundära servern**, oberoende av den primära databasen.
 
-- Server nivå ( **rekommenderas** ): aktivera granskning på både den **primära servern** och den **sekundära servern** – de primära och sekundära databaserna kommer att granskas oberoende av varandra baserat på deras respektive princip på server nivå.
+- Server nivå (**rekommenderas**): aktivera granskning på både den **primära servern** och den **sekundära servern** – de primära och sekundära databaserna kommer att granskas oberoende av varandra baserat på deras respektive princip på server nivå.
 - Databas nivå: granskning på databas nivå för sekundära databaser kan bara konfigureras från primära databas gransknings inställningar.
-  - Granskning måste vara aktiverat på själva den *primära databasen* , inte på servern.
+  - Granskning måste vara aktiverat på själva den *primära databasen*, inte på servern.
   - När granskning har Aktiver ATS på den primära databasen aktive ras den också på den sekundära databasen.
 
     > [!IMPORTANT]
@@ -246,7 +247,7 @@ I produktion är det troligt att du uppdaterar dina lagrings nycklar med jämna 
 
 ### <a name="using-azure-powershell"></a>Använda Azure PowerShell
 
-**PowerShell-cmdletar (inklusive WHERE-sats stöd för ytterligare filtrering)** :
+**PowerShell-cmdletar (inklusive WHERE-sats stöd för ytterligare filtrering)**:
 
 - [Skapa eller uppdatera databas gransknings princip (Set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
 - [Skapa eller uppdatera Server gransknings princip (Set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)
@@ -259,7 +260,7 @@ Ett skript exempel finns i [Konfigurera granskning och hot identifiering med Pow
 
 ### <a name="using-rest-api"></a>Använda REST-API:et
 
-**REST API** :
+**REST API**:
 
 - [Skapa eller uppdatera databas gransknings princip](/rest/api/sql/database%20auditing%20settings/createorupdate)
 - [Skapa eller uppdatera Server gransknings princip](/rest/api/sql/server%20auditing%20settings/createorupdate)

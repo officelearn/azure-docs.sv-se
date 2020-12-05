@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 705b0f02682b6aa41cb5c8e77d8da39faa5edb1f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 70dfccb32389d2f1fb492669c9f84a3e6ae77bbb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450116"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621356"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicera en integrerad lösning
 
@@ -32,18 +32,17 @@ En översikt över integrerade lösnings program finns i [översikts videon för
 ## <a name="eligibility-criteria"></a>Behörighetskrav
 
 * Deltagande partners måste ha ett MPN-ID.
-* Deltagande tjänste leverantörer ska vara samförsäljnings klara.
-* Deltagande program leverantörer bör vara färdiga IP-adresser.
+* Deltagande tjänste leverantörer ska vara [samförsäljnings klara](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+* Deltagande program leverantörer bör vara [färdiga IP-adresser](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
 * Minst en deltagande partner måste ha guld kompetens i något av följande områden:
-
-    * Apputveckling
-    * Programintegrering
-    * Hantering av programlivscykel
-    * Moln plattform
-    * Dataanalys
-    * Datacenter
-    * Data plattform
-    * DevOps
+    - Apputveckling
+    - Programintegrering
+    - Hantering av programlivscykel
+    - Moln plattform
+    - Dataanalys
+    - Datacenter
+    - Data plattform
+    - DevOps
 
 * Lösningen måste innehålla minst två partner organisationer, som sammanför IP och tjänster för en komplett kund lösning och erfarenhet.
 * Partnerns IP-adress måste bygga på Azure, Dynamics 365 eller Power Platform.

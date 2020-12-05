@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: 63be912986542741359cd5e88227f06905d42647
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: da89d4fbc3f9e03e76d901c2215e4f16c5273013
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350882"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621118"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Omvandling av mottagare i data flöde för mappning
 
@@ -103,6 +103,10 @@ Som standard skrivs data till flera handfat i en icke deterministisk ordning. K�
 > När du använder [cachelagrade sökningar](./concepts-data-flow-expression-builder.md#cached-lookup)ser du till att din Sink-beställning har de cachelagrade sinkarna inställt på 1, lägst (eller första) i ordning.
 
 ![Beställning av anpassad mottagare](media/data-flow/cache-2.png "Beställning av anpassad mottagare")
+
+### <a name="sink-groups"></a>Mottagar grupper
+
+Du kan gruppera handfat tillsammans genom att använda samma ordnings nummer för en serie handfat. ADF kommer att behandla dessa mottagare som grupper som kan köras parallellt. Alternativ för parallell körning kommer att placeras i data flödes aktiviteten pipeline.
 
 ## <a name="error-row-handling"></a>Felhantering av poster
 

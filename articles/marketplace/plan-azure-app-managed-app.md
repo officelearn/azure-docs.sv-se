@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: a915b5a348e3167d2cf81906b19abd9850584ce9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 694f501efc565ed498c1c8d8e2e38326277e8605
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460983"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621424"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Planera ett Azure-hanterat program för ett erbjudande för Azure-program
 
@@ -90,7 +90,7 @@ Priserna anges i USD (USD = USA dollar) konverteras till den lokala valutan för
 Med JIT-åtkomst kan du begära utökad åtkomst till ett hanterat programs resurser för fel sökning eller underhåll. Du har alltid skrivskyddad åtkomst till resurserna, men under en viss tids period kan du ha större åtkomst. Mer information finns i [Aktivera och begär just-in-Time-åtkomst för Azure Managed Applications](../azure-resource-manager/managed-applications/request-just-in-time-access.md).
 
 > [!NOTE]
-> Information som användaren bör märka även om skimmingBe vill uppdatera din `createUiDefinition.json` fil för att stödja den här funktionen.
+> Se till att uppdatera din `createUiDefinition.json` fil för att stödja den här funktionen.
 
 ## <a name="deployment-mode"></a>Distributions läge
 

@@ -1,14 +1,14 @@
 ---
 title: Hantera migreringsjobb i skala med Azure Migrate
 description: Lär dig hur du effektivt använder Azure Migrate på delegerade kund resurser.
-ms.date: 12/3/2020
+ms.date: 12/4/2020
 ms.topic: how-to
-ms.openlocfilehash: 184307814bd3ceae6047734946f79b0ba5cb2e10
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: d1a01149c80b30f279f7d68551946c3ffe404d5e
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603412"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621577"
 ---
 # <a name="manage-migration-projects-at-scale-with-azure-migrate"></a>Hantera migreringsjobb i skala med Azure Migrate
 
@@ -38,7 +38,7 @@ Den här metoden minimerar kontext byten för tjänst leverantörer som arbetar 
 
 Arbets flödet för den här modellen ser ut ungefär så här:
 
-1. Kunden registreras [i Azure-Lighthouse](onboard-customer.md). Den inbyggda rollen deltagare krävs för den identitet som ska användas med Azure Migrate.
+1. Kunden registreras [i Azure-Lighthouse](onboard-customer.md). Den inbyggda rollen deltagare krävs för den identitet som ska användas med Azure Migrate. Se exempel mal len [delegerad-Resource-Management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) för ett exempel som använder den här rollen.
 1. Den angivna användaren loggar in på hanterings klienten i Azure Portal och går sedan till Azure Migrate. Den här användaren [skapar ett Azure Migrate-projekt](/migrate/create-manage-projects.md)och väljer lämplig delegerad kund prenumeration.
 1. Användaren utför sedan [steg för identifiering och utvärdering](../../migrate/tutorial-discover-vmware.md).
 
@@ -60,13 +60,15 @@ Den här metoden gör det möjligt för tjänste leverantörer att starta identi
 
 Arbets flödet för den här modellen ser ut ungefär så här:
 
-1. Kunden registreras [i Azure-Lighthouse](onboard-customer.md). Den inbyggda rollen deltagare krävs för den identitet som ska användas med Azure Migrate.
+1. Kunden registreras [i Azure-Lighthouse](onboard-customer.md). Den inbyggda rollen deltagare krävs för den identitet som ska användas med Azure Migrate. Se exempel mal len [delegerad-Resource-Management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) för ett exempel som använder den här rollen.
 1. Den angivna användaren loggar in på hanterings klienten i Azure Portal och går sedan till Azure Migrate. Den här användaren [skapar ett Azure Migrate-projekt](/migrate/create-manage-projects.md) i en prenumeration som tillhör hanterings klienten.
 1. Användaren utför sedan [steg för identifiering och utvärdering](../../migrate/tutorial-discover-vmware.md). Lokala virtuella datorer identifieras och utvärderas i det migreringsjobb som skapats i hanterings klienten, sedan migreras därifrån.
 
    Om du hanterar flera kunder på samma Hyper-V-värd kan du identifiera alla arbets belastningar samtidigt. Kundspecifika virtuella datorer kan väljas i samma grupp, en utvärdering kan skapas och migrering kan utföras genom att välja rätt kund prenumeration som mål destination. Du behöver inte begränsa identifierings omfånget och du kan ha en fullständig översikt över alla kund arbets belastningar i ett enda migreringsjobb.
 
 1. När du är klar fortsätter du med migreringen genom att välja den delegerade kund prenumerationen som mål destination för replikering och migrering av arbets belastningarna. De nyligen skapade resurserna kommer att finnas i kund prenumerationen, medan utvärderings data och resurser som hör till migreringsjobbet finns kvar i hanterings klienten.
+
+Obs: du måste ändra parameter filen för att avspegla din miljö innan du distribuerar https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate
 
 ## <a name="partner-recognition-for-customer-migrations"></a>Partner igenkänning för kundmigreringar
 

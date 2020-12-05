@@ -8,18 +8,18 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f9471b6b465b63f48feb3bda82e7827308aae945
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: b62790fd8f01b7ffb2df4d242b97e8464c11399b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575406"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621135"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Självstudie: Konfigurera en miljö för maskin inlärning på IoT Edge
 
 Den här artikeln hjälper dig att förbereda din miljö för utveckling och distribution. Börja med att konfigurera en utvecklings dator med alla verktyg du behöver. Skapa sedan nödvändiga moln resurser i Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Varje artikel i serien bygger på arbetet i föregående artikel. Om du har kommit till den här artikeln direkt kan du gå till den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien.
 
@@ -217,12 +217,6 @@ Den här självstudien är en del av en uppsättning där varje artikel bygger p
 ## <a name="next-steps"></a>Nästa steg
 
 I den här artikeln har vi skapat en IoT Hub och konfigurerat en väg till ett Azure Storage-konto. Nu ska vi skicka data från en uppsättning simulerade enheter genom IoT Hub till lagrings kontot. Senare i självstudien, när vi har konfigurerat vår IoT Edge enhet och moduler, kommer vi att gå tillbaka till vägar och se lite mer på cirkulations frågan.
-
-Mer information om de steg som beskrivs i den här delen av Machine Learning i IoT Edge själv studie kursen finns i:
-
-* [Grunderna i Azure IoT](../iot-fundamentals/index.yml)
-* [Konfigurera meddelandedirigering med IoT Hub](../iot-hub/tutorial-routing.md)
-* [Skapa en IoT-hubb med hjälp av Azure Portal](../iot-hub/iot-hub-create-through-portal.md)
 
 Fortsätt till nästa artikel för att skapa en simulerad enhet som ska övervakas.
 

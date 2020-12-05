@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 50cce15d14561bb1c8ebfdbbeeedd99dc8efcda1
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 37a989082b63dc101bb519fea1cc4ef16c76ae49
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533000"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621543"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optisk teckenläsning (OCR)
 
@@ -147,7 +147,7 @@ Den [offentliga för hands versionen av Read 3,2 API](https://westus.dev.cogniti
 Läs åtgärden stöder för närvarande extrahering av handskriven text exklusivt på engelska.
 
 ## <a name="use-the-rest-api-and-sdk"></a>Använd REST API och SDK
-Filen [Read 3. x REST API](./QuickStarts/CSharp-hand-text.md) är det bästa alternativet för de flesta kunder på grund av enkel integrering och snabb produktivitet. Azure och Visuellt innehåll service hanterar skalning, prestanda, data säkerhet och efterlevnad för att möta kundernas behov.
+Filen [Read 3. x REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) är det bästa alternativet för de flesta kunder på grund av enkel integrering och snabb produktivitet. Azure och Visuellt innehåll service hanterar skalning, prestanda, data säkerhet och efterlevnad för att möta kundernas behov.
 
 ## <a name="deploy-on-premise-with-docker-containers"></a>Distribuera lokalt med Docker-behållare
 Med den [skrivskyddade Docker-behållaren (för hands version)](./computer-vision-how-to-install-containers.md) kan du distribuera de nya OCR-funktionerna i din egen lokala miljö. Containrar är bra för specifika säkerhets- och datastyrningskrav.

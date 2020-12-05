@@ -3,15 +3,15 @@ title: Översikt över fel sökning av Windows Virtual Desktop – Azure
 description: En översikt för fel sökning av problem när du konfigurerar en Windows Virtual Desktop-miljö.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 06/05/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 171322fbec099aa9fafc36c4f951213b33007976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d051594572f742b290867d12e0fb148f2abbf370
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009366"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621322"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Fel sökning – översikt, feedback och support för Windows Virtual Desktop
 
@@ -45,7 +45,7 @@ Använd följande tabell för att identifiera och lösa problem som kan uppstå 
 | Ansluta klienter                                                                    | Se [Windows Virtual Desktop Service-anslutningar](troubleshoot-service-connection.md) och om det inte löser problemet kan du läsa [konfiguration av virtuell dator i Session Host](troubleshoot-vm-configuration.md). |
 | Svars tider för fjärrprogram eller skriv bord                                      | Om problemen är knutna till en specifik applikation eller produkt kontaktar du det team som ansvarar för produkten. |
 | Licensierings meddelanden eller fel                                                          | Om problemen är knutna till en specifik applikation eller produkt kontaktar du det team som ansvarar för produkten. |
-| Problem med autentiseringsmetoder från tredje part | Kontrol lera att din tredjeparts leverantör stöder scenarier för virtuella Windows-datorer och se om det finns några kända problem. |
+| Problem med autentiseringsmetoder eller-verktyg från tredje part | Kontrol lera att din tredjeparts leverantör stöder scenarier för virtuella Windows-datorer och se om det finns några kända problem. |
 | Problem med att använda Log Analytics för virtuella Windows-datorer | [Öppna en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/)om du har problem med det diagnostiska schemat.<br><br>För frågor, visualisering eller andra problem i Log Analytics väljer du lämplig problem typ under Log Analytics. |
 | Problem med M365-appar | Kontakta M365 administrations Center med något av [Hjälp alternativen för M365 administrations Center](/microsoft-365/admin/contact-support-for-business-products/). |
 

@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/11/2020
-ms.openlocfilehash: 2cfd498f73646b0021d5fbb3e982dc82871ef35c
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 12/04/2020
+ms.openlocfilehash: 87465ff381c62343a11c54130378b48580ca40e2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027014"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621660"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mappa fel söknings läge för data flöde
 
@@ -25,9 +25,9 @@ Med fel söknings läget Azure Data Factory mappnings data flödet kan du intera
 
 ![Felsöka skjutreglage](media/data-flow/debugbutton.png "Felsöka skjutreglage")
 
-När du har aktiverat skjutreglaget uppmanas du att välja vilken integration runtime-konfiguration som du vill använda. Om du väljer AutoResolveIntegrationRuntime, kommer ett kluster med åtta kärnor i allmän beräkning med en tid på 60 minuter att leva upp. Mer information om data flödes integrerings körningar finns i [prestanda för data flöde](concepts-data-flow-performance.md#ir).
+När du har aktiverat skjutreglaget uppmanas du att välja vilken integration runtime-konfiguration som du vill använda. Om AutoResolveIntegrationRuntime väljs, kommer ett kluster med åtta kärnor i allmän beräkning med en standardinställd 60-minuters tid att leva upp. Om du vill tillåta mer inaktiva team innan tids gränsen uppnås, kan du välja en högre TTL-inställning. Mer information om data flödes integrerings körningar finns i [prestanda för data flöde](concepts-data-flow-performance.md#ir).
 
-![Felsök IR-val](media/data-flow/debugbutton2.png "Felsök IR-val")
+![Felsök IR-val](media/data-flow/debug-new-1.png "Felsök IR-val")
 
 När fel söknings läget är aktiverat kan du interaktivt bygga ditt data flöde med ett aktivt Spark-kluster. Sessionen stängs när du har aktiverat fel sökning i Azure Data Factory. Du bör vara medveten om de timkostnad som Azure Databricks under tiden som du har aktiverat felsökningssessionen.
 
@@ -36,7 +36,7 @@ I de flesta fall är det en bra idé att skapa dina data flöden i fel söknings
 ![Visa fel söknings sessioner för data flöde](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
 
 > [!NOTE]
-> Varje felsökningssession som en användare startar från sitt användar gränssnitt för ADF-webbläsare är en ny session med ett eget Spark-kluster. Du kan använda vyn övervakning för att felsöka sessioner ovan för att visa och hantera fel söknings sessioner per fabrik.
+> Varje felsökningssession som en användare startar från sitt användar gränssnitt för ADF-webbläsare är en ny session med ett eget Spark-kluster. Du kan använda vyn övervakning för att felsöka sessioner ovan för att visa och hantera fel söknings sessioner per fabrik. Du debiteras för varje timme som varje felsökningssession körs, inklusive TTL-tiden.
 
 ## <a name="cluster-status"></a>Klusterstatus
 

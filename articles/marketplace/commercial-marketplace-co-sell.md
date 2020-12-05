@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 12/04/2020
-ms.openlocfilehash: baa99518498b05b0a658627d9908298eb58f7775
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 7b335c3db5fb52c4323b797556d48e3ed9ae410a
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602741"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621628"
 ---
 # <a name="co-sell-option-in-the-commercial-marketplace"></a>Alternativet samförsäljning på den kommersiella marknaden
 
-Att tillhandahålla information på fliken **Co-Sälj med Microsoft** är helt valfritt. Det krävs för att uppnå samförsäljnings [motiverade status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)för alla produkter. Den information du anger kommer att användas av Microsoft Sales Teams för att lära dig mer om ditt erbjudande när du utvärderar den efter kund behov. Den är inte tillgänglig direkt för kunderna. Mer information finns i [Co-Sälj med Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+Att tillhandahålla information på fliken **Co-Sälj med Microsoft** är helt valfritt. Det krävs för att uppnå samförsäljnings [motiverade status](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)för alla produkter. Den information du anger kommer att användas av Microsoft Sales Teams för att lära dig mer om ditt erbjudande när du utvärderar den efter kund behov. Den är inte tillgänglig direkt för kunderna. Mer information finns i [Co-Sälj med Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 Alternativet Co-försäljning i Partner Center är för närvarande tillgängligt för följande typer av erbjudanden.
 

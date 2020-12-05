@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: d2d890db3c246ad7f3d0a56a3df264d5f78bd54d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5f7278a688147842b7dbfab79a20afea2b4a9288
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571138"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621611"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planera ett SaaS-erbjudande för den kommersiella marknaden
 
@@ -113,10 +113,10 @@ Om ditt SaaS-erbjudande är *både* en IT-lösning (Azure Marketplace) och en f�
 
 | Avgiftsbelagd fakturering | Offentligt abonnemang | Privat plan | Tillgängligt i: |
 |---|---|---|---|
-| Ja             | Ja         | Nej           | Azure Marketplace och Azure Portal |
+| Ja             | Ja         | Inga           | Azure Marketplace och Azure Portal |
 | Ja             | Ja         | Ja          | Azure Marketplace och Azure Portal * |
-| Ja             | Nej          | Ja          | Endast Azure Portal |
-| Nej              | Nej          | Ja          | Endast Azure Portal |
+| Ja             | Inga          | Ja          | Endast Azure Portal |
+| Inga              | Inga          | Ja          | Endast Azure Portal |
 |||||
 
 &#42; privat plan för erbjudandet är endast tillgängligt via Azure Portal
@@ -150,7 +150,7 @@ När du [skapar ett nytt SaaS-erbjudande](create-new-saas-offer.md) i Partner Ce
 6. Sekretesspolicy
 7. Erbjudandets namn
 8. Sammanfattning
-9. Beskrivning
+9. Description
 10. Skärm bilder/videor
 11. Dokument
 
@@ -202,7 +202,7 @@ För att hjälpa till att skapa ett erbjudande enklare kan du förbereda några 
   - . png-fil
   - Måste innehålla en beskrivning
 - **Media-videor** (valfritt): du kan lägga till upp till fyra videor med följande krav som demonstrerar ditt erbjudande:
-  - Namn
+  - Name
   - URL: måste vara värd för YouTube eller Vimeo.
   - Miniatyr: 1280 x 720. png-fil
 
@@ -250,15 +250,15 @@ I följande exempel visas ett exempel på en uppdelning av kostnader och utbetal
 | Microsoft betalar 80% av din licens kostnad<br>`*` För kvalificerade SaaS-appar betalar Microsoft 90% av din licens kostnad| $80,00 per månad<br>``*`` $90,00 per månad |
 |||
 
-**`*` Minskad service avgift för Marketplace** – för vissa SaaS-erbjudanden som du har publicerat på den kommersiella marknaden kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För dina erbjudanden som ska kvalificeras måste ditt erbjudande ha utsetts av Microsoft som Azure IP Co-Sälj-motiverade. Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att ta emot den minskade service avgiften för Marketplace för månaden. Den minskade service avgiften för Marketplace gäller även för Azure IP Co-Sälj motiverade VM: ar, hanterade appar och andra kvalificerade IaaS-erbjudanden som görs tillgängliga via den kommersiella marknads platsen.
+**`*` Minskad service avgift för Marketplace** – för vissa SaaS-erbjudanden som du har publicerat på den kommersiella marknaden kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För dina erbjudanden som ska kvalificeras måste ditt erbjudande ha utsetts av Microsoft som Azure IP Co-Sälj-motiverade. Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att ta emot den minskade service avgiften för Marketplace för månaden. Information om IP-samförsäljnings behörighet finns i [krav för medförsäljnings status](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Den minskade service avgiften för Marketplace gäller även för Azure IP Co-Sälj motiverade VM: ar, hanterade appar och andra kvalificerade IaaS-erbjudanden som görs tillgängliga via den kommersiella marknads platsen.
 
 ## <a name="additional-sales-opportunities"></a>Ytterligare försäljnings möjligheter
 
 Du kan välja att välja mellan marknadsförings-och försäljnings kanaler som stöds av Microsoft. När du skapar erbjudandet i Partner Center visas två flikar i slutet av processen:
 
-- Att **sälja via CSP**: Använd det här alternativet om du vill att CSP-partner (Microsoft Cloud solution providers) ska kunna sälja din lösning som en del av ett sammanslaget erbjudande. Mer information finns i [Cloud Solution Provider-programmet](cloud-solution-providers.md) .
+- Att **sälja via CSP**: Använd det här alternativet om du vill att CSP-partner (Microsoft Cloud solution providers) ska kunna sälja din lösning som en del av ett sammanslaget erbjudande. Mer information om det här programmet finns i [program för Cloud Solution Provider](cloud-solution-providers.md).
 
-- **Samförsäljning med Microsoft: med** det här alternativet kan Microsofts försäljnings team överväga din IP-samkunds kvalificerade lösning vid utvärdering av kundernas behov. Se [samförsäljnings alternativ i Partner Center](commercial-marketplace-co-sell.md) för detaljerad information om hur du förbereder erbjudandet för utvärdering.
+- **Samförsäljning med Microsoft: med** det här alternativet kan Microsofts försäljnings team överväga din IP-samkunds kvalificerade lösning vid utvärdering av kundernas behov. Information om samförsäljnings behörighet finns i [krav för medförsäljnings status](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Detaljerad information om hur du förbereder erbjudandet för utvärdering finns i [samförsäljnings alternativ i Partner Center](commercial-marketplace-co-sell.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

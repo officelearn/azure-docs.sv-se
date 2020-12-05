@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 0fda0b659dd2500e811fac1f53c99a9987276185
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ef284661d44f700cf0b5282efcd2e6f7b94fa3b6
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537481"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621526"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>Azure cache för Redis alternativ för nätverks isolering 
 I den här artikeln får du lära dig hur du fastställer den bästa nätverks isolerings lösningen för dina behov. Vi går igenom grunderna i Azures privata länk, Azure Virtual Network-injektering (VNet) och Azure brand Väggs regler med deras fördelar och begränsningar.  
@@ -22,7 +22,7 @@ Azures privata länk ger privat anslutning från ett virtuellt nätverk till Azu
 ### <a name="advantages"></a>Fördelar
 * Stöds på Basic-, standard-och Premium Azure-cache för Redis-instanser. 
 * Med hjälp av en [privat Azure-länk](../private-link/private-link-overview.md)kan du ansluta till en Azure-cache-instans från det virtuella nätverket via en privat slut punkt, som tilldelas en privat IP-adress i ett undernät i det virtuella nätverket. Med det här alternativet är cache-instanser tillgängliga både i VNet och offentligt.  
-* När en privat slut punkt har skapats kan åtkomst till det offentliga nätverket begränsas via- `publicNetworkAccess` flaggan. Den här flaggan är inställd på `Enabled` som standard och ger dig möjlighet att tillåta både offentlig och privat länk till cacheminnet. Om detta är inställt på `Disabled` , tillåter det bara åtkomst till privat länk. Du kan ställa in värdet på `Disabled` med en patch-begäran. Mer information finns i [Azure cache för Redis med Azure Private Link (för hands version)](cache-private-link.md). 
+* När en privat slut punkt har skapats kan åtkomst till det offentliga nätverket begränsas via- `publicNetworkAccess` flaggan. Den här flaggan är inställd på som `Disabled` standard, vilket bara tillåter åtkomst till privat länk. Du kan ställa in värdet på `Enabled` eller `Disabled` med en patch-begäran. Mer information finns i [Azure cache för Redis med Azure Private Link (för hands version)](cache-private-link.md). 
 * Alla externa cache-beroenden påverkar inte VNets NSG-regler.
 
 ### <a name="limitations"></a>Begränsningar 

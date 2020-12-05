@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: c689c83e50a42885900f62d1a65d0aa75f36f2ec
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 188bc14de502640ae05f1d1eb55330d86cee50b4
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014042"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621487"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Virtuella WAN-partner och platser för virtuella hubbar
 
@@ -60,7 +60,7 @@ Dessa partner har **hanterade program** erbjudanden som nu är tillgängliga fö
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Distributions guide för Barracuda CloudGen WAN](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
 |[VWAN för Cisco Cloud Service router (CSR)](https://aka.ms/ciscoMarketPlaceOffer)| Under den offentliga för hands versionen av Cisco Cloud Services (CSR) WAN till VWAN Hub kräver Cisco att kunden registrerar sig som en Cisco EFT-kund (tidig fält utvärdering) genom att skicka ett e-postmeddelande till vwan_public_preview@external.cisco.com och begära distributions guiden för vManage. |
 
-Följande partners är planerad för att ta NVA i den virtuella hubben i en snar framtid: Citrix, versa till nätverk och VeloCloud.
+Följande partners är planerad för att ta NVA i den virtuella hubben i den nära framtiden: Aviatrix, Citrix, VeloCloud och versa-nätverk.
 
 ## <a name="locations"></a><a name="locations"></a>Platser
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 9a975ee863e81a9f542e717d734f12db850f749e
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 898c106fb961373889fbae87db6c755fe2495ff8
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738330"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621271"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Transact-funktioner för kommersiella Marketplace
 
@@ -90,7 +90,7 @@ Det här alternativet tillåter högre eller lägre priser än det offentligt ti
 
 Vi debiterar en 20% standard avgift för Store-tjänster när kunderna köper ditt Transact-erbjudande från den kommersiella marknads platsen. Mer information om den här avgiften finns i avsnitt 5c i [Microsoft Publisher-avtalet](https://go.microsoft.com/fwlink/?LinkID=699560).
 
-För vissa Transact-erbjudanden som du publicerar till den kommersiella marknads platsen kan du kvalificera dig för en minskad lagrings avgift på 10%. För att ett erbjudande ska kvalificeras måste det ha utsetts av Microsoft som Azure IP Co-Sälj-motiverade. Berättigande måste uppfyllas minst fem arbets dagar före slutet av varje kalender månad för att ta emot den minskade service avgiften för Marketplace för månaden.
+För vissa Transact-erbjudanden som du publicerar till den kommersiella marknads platsen kan du kvalificera dig för en minskad lagrings avgift på 10%. För att ett erbjudande ska kvalificeras måste det ha utsetts av Microsoft som Azure IP Co-Sälj-motiverade. Berättigande måste uppfyllas minst fem arbets dagar före slutet av varje kalender månad för att ta emot den minskade service avgiften för Marketplace för månaden. Information om IP-samförsäljnings behörighet finns i [krav för medförsäljnings status](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
 
 Den minskade service avgiften för Marketplace gäller för Azure IP Co-Sälj motiverade SaaS, VM, hanterade appar och andra kvalificerade IaaS-lösningar som görs tillgängliga via den kommersiella Marketplace. Betalda SaaS-erbjudanden som är kopplade till en Microsoft Teams-app eller minst två Microsoft 365-tillägg (Excel, PowerPoint, Word, Outlook och SharePoint) och som publiceras till Microsoft AppSource också få rabatten.
 

@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 1a9d5fe69cd9d853d0bf8ec971f31518bbf47c9a
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 31ae4605b6cc9e26c89beea692fe61fcbda49c4c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504704"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621509"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure cache för Redis med Azures privata länk (offentlig för hands version)
 I den här artikeln får du lära dig hur du skapar ett virtuellt nätverk och en Azure-cache för Redis-instans med en privat slut punkt med hjälp av Azure Portal. Du får också lära dig hur du lägger till en privat slut punkt i en befintlig Azure-cache för Redis-instansen.
@@ -111,8 +111,8 @@ Det tar en stund innan cacheminnet skulle skapas. Du kan övervaka förloppet p�
     
 > [!IMPORTANT]
 > 
-> Det finns en `publicNetworkAccess` flagga som är som `Enabled` standard. 
-> Den här flaggan är avsedd att tillåta att både offentlig och privat slut punkt får åtkomst till cachen om den är inställd på `Enabled` . Om detta är inställt på `Disabled` , tillåter det bara åtkomst till privat slut punkt. Du kan ställa in värdet på `Disabled` med följande patch-begäran.
+> Det finns en `publicNetworkAccess` flagga som är som `Disabled` standard. 
+> Den här flaggan är avsedd att tillåta att både offentlig och privat slut punkt får åtkomst till cachen om den är inställd på `Enabled` . Om detta är inställt på `Disabled` , tillåter det bara åtkomst till privat slut punkt. Du kan ställa in värdet på `Disabled` eller `Enabled` med följande patch-begäran. Redigera värdet för att avspegla vilken flagga som du vill använda för cacheminnet.
 > ```http
 > PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 > {    "properties": {
@@ -204,7 +204,7 @@ Följ dessa steg om du vill skapa en privat slut punkt.
 
 13. När meddelandet grön **verifiering har skickats** visas väljer du **skapa**.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 ### <a name="why-cant-i-connect-to-a-private-endpoint"></a>Varför kan jag inte ansluta till en privat slut punkt?
 Om cacheminnet redan är ett VNet-inmatat cacheminne kan inte privata slut punkter användas med din cache-instans. Om din cache-instans använder en funktion som inte stöds (visas nedan) kan du inte ansluta till din privata slut punkts instans. Dessutom måste cache-instanser skapas efter 27 juli för att använda privata slut punkter.
@@ -212,8 +212,9 @@ Om cacheminnet redan är ett VNet-inmatat cacheminne kan inte privata slut punkt
 ### <a name="what-features-are-not-supported-with-private-endpoints"></a>Vilka funktioner stöds inte med privata slut punkter?
 Geo-replikering, brand Väggs regler, stöd för Portal konsol, flera slut punkter per klustrad cache, beständighet till brand Väggs regler och zon redundans. 
 
-### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-from-public-network-access"></a>Hur kan jag ändra min privata slut punkt för att inaktive ras från offentlig nätverks åtkomst?
-Det finns en `publicNetworkAccess` flagga som är som `Enabled` standard. Den här flaggan är avsedd att tillåta att både offentlig och privat slut punkt får åtkomst till cachen om den är inställd på `Enabled` . Om detta är inställt på `Disabled` , tillåter det bara åtkomst till privat slut punkt. Du kan ställa in värdet på `Disabled` med följande patch-begäran.
+### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>Hur kan jag ändra min privata slut punkt så att den inaktive ras eller aktive ras från offentlig nätverks åtkomst?
+Det finns en `publicNetworkAccess` flagga som är som `Disabled` standard. Den här flaggan är avsedd att tillåta att både offentlig och privat slut punkt får åtkomst till cachen om den är inställd på `Enabled` . Om detta är inställt på `Disabled` , tillåter det bara åtkomst till privat slut punkt. Du kan ställa in värdet på `Disabled` eller `Enabled` med följande patch-begäran. Redigera värdet för att avspegla vilken flagga som du vill använda för cacheminnet.
+
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 {    "properties": {

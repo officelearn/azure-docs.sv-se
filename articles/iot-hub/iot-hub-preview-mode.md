@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: jlian
-ms.openlocfilehash: 5299a049ab2cc2246a861dd3fb81f466b56afad3
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 864870c4392b12477c321c86afd9da848120490c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603486"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621713"
 ---
 # <a name="turn-on-preview-mode-for-iot-hub-to-try-select-new-features"></a>Aktivera förhands gransknings läge för IoT Hub prova att välja nya funktioner
 
@@ -66,7 +66,7 @@ När du har skapat en IoT Hub i förhands gransknings läget visas alltid denna 
 
 Använd *inte* en IoT-hubb i förhands gransknings läge för produktion. Förhands gransknings läget är *endast* avsett för att förhandsgranska de valda funktioner som visas överst på den här sidan. Andra begränsningar i IoT Hub förhands gransknings läge
 
-- Vissa befintliga IoT Hub funktioner som privat länk, hanterad identitet, enhets strömmar och redundans kan fungera som de ska eller inte alls.
+- Vissa befintliga IoT Hub funktioner som t. ex. IP-filter, privat länk, hanterad identitet, enhets strömmar och redundans kan fungera som de ska eller inte alls.
 - En IoT-hubb i förhands gransknings läge kan inte ändras eller uppgraderas till en normal IoT-hubb.
 - Vi kan inte garantera normal [IoT Hub SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/v1_2/) – används inte för produktion.
 

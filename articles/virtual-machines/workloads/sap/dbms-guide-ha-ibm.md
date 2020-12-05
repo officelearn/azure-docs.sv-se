@@ -8,17 +8,20 @@ ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 01f02efd36c51f3969ee53e9efc78fbe1664b187
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 54bde8c9dd47e88ffdc831ccb9f7833720583238
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486546"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621390"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Hög tillgänglighet för IBM DB2-LUW på virtuella Azure-datorer på SUSE Linux Enterprise Server med pacemaker
 
 IBM DB2 för Linux, UNIX och Windows (LUW) i [konfigurationen för hög tillgänglighet och haveri beredskap (hadr)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) består av en nod som kör en primär databas instans och minst en nod som kör en sekundär databas instans. Ändringar av den primära databas instansen replikeras till en sekundär databas instans synkront eller asynkront, beroende på din konfiguration. 
 
+> [!NOTE]
+> Den här artikeln innehåller referenser till villkors *huvud* och *slav*, och villkor som Microsoft inte längre använder. När de här villkoren tas bort från program varan tar vi bort dem från den här artikeln.
+   
 Den här artikeln beskriver hur du distribuerar och konfigurerar virtuella datorer i Azure, installerar kluster ramverket och installerar IBM DB2-LUW med HADR-konfigurationen. 
 
 Artikeln beskriver inte hur du installerar och konfigurerar IBM DB2-LUW med HADR eller SAP-programinstallation. För att hjälpa dig att utföra dessa uppgifter tillhandahåller vi referenser till installations handböcker för SAP och IBM. Den här artikeln fokuserar på delar som är speciella för Azure-miljön. 
@@ -93,7 +96,7 @@ Om du vill distribuera en IBM DB2-konfiguration måste du följa dessa steg:
 
 Slutför planerings processen innan du kör distributionen. Planering skapar grunden för att distribuera en konfiguration av DB2 med HADR i Azure. Viktiga element som måste vara en del av planeringen för IMB DB2-LUW (databas delen av SAP-miljön) visas i följande tabell:
 
-| Avsnitt | Kort beskrivning |
+| Ämne | Kort beskrivning |
 | --- | --- |
 | Definiera Azure-resurs grupper | Resurs grupper där du distribuerar VM, VNet, Azure Load Balancer och andra resurser. Kan vara befintlig eller ny. |
 | Definition av virtuellt nätverk/undernät | Där virtuella datorer för IBM DB2 och Azure Load Balancer distribueras. Kan vara befintlig eller nyligen skapad. |

@@ -4,16 +4,16 @@ description: Lär dig hur du monterar en nätverks fil system resurs.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 530ae82720e6b4eb6a3e4d1021c0b37b9f4dbf5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a993d9c1de35132198de5e3becc4f16d6a2a437
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707449"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621305"
 ---
 # <a name="how-to-mount-an-nfs-file-share"></a>Montera en NFS-filresurs
 
@@ -43,7 +43,7 @@ ms.locfileid: "90707449"
 ## <a name="disable-secure-transfer"></a>Inaktivera säker överföring
 
 1. Logga in på Azure Portal och få åtkomst till det lagrings konto som innehåller den NFS-resurs som du skapade.
-1. Välj **konfiguration**.
+1. Välj **Konfiguration**.
 1. Välj **inaktive rad** för **säker överföring krävs**.
 1. Välj **Spara**.
 
@@ -55,9 +55,13 @@ ms.locfileid: "90707449"
 1. Ange den monterings Sök väg som du vill använda och kopiera skriptet.
 1. Anslut till klienten och Använd det tillhandahållna monterings skriptet.
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Skärm bild av skärmen för konfiguration av lagrings konto med säker överföring inaktive rad.":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Skärm bild av bladet fil resurs anslutning":::
 
 Nu har du monterat din NFS-resurs.
+
+### <a name="validate-connectivity"></a>Verifiera anslutning
+
+Om din montering misslyckades är det möjligt att den privata slut punkten inte konfigurerades korrekt eller inte går att komma åt. Information om hur du bekräftar anslutningen finns i avsnittet [Verifiera anslutning](storage-files-networking-endpoints.md#verify-connectivity) i artikeln nätverks slut punkter.
 
 ## <a name="next-steps"></a>Nästa steg
 

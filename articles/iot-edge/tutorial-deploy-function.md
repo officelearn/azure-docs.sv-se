@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 45f990e5426516db5537319d07c11aa705e462e7
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 5b5d60a014cf63bd28f3097ac3131ad4c7018208
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534865"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621254"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Självstudie: Distribuera Azure Functions som IoT Edge moduler
 
@@ -68,7 +68,7 @@ Skapa en C#-funktions lösnings mall som du kan anpassa med din egen kod.
    | Fält | Värde |
    | ----- | ----- |
    | Välj mapp | Välj den plats på utvecklingsdatorn där Visual Studio Code ska skapa lösningsfilerna. |
-   | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen, till exempel **FunctionSolution** , eller acceptera standardnamnet. |
+   | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen, till exempel **FunctionSolution**, eller acceptera standardnamnet. |
    | Välj modulmall | Välj **Azure Functions - C#**. |
    | Ange ett modulnamn | Ge modulen namnet **CSharpFunction**. |
    | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen har fyllts i från föregående steg. Ersätt **localhost: 5000** med **inloggnings serverns** värde från Azure Container Registry. Du kan hämta inloggnings servern från sidan Översikt i behållar registret i Azure Portal. Den sista strängen ser ut som \<registry name\> . azurecr.io/CSharpFunction. |
@@ -237,7 +237,7 @@ Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du h
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du skapat en Azure Function-modul med kod för att filtrera rå data som genereras av din IoT Edge-enhet. När du är redo att skapa dina egna moduler kan du lära dig mer om hur du [utvecklar med Azure IoT Edge för Visual Studio Code](how-to-vs-code-develop-module.md).
+I den här självstudien har du skapat en Azure Function-modul med kod för att filtrera rå data som genereras av din IoT Edge-enhet.
 
 Fortsätt med någon av följande självstudier om du vill lära dig mer om hur Azure IoT Edge kan hjälpa dig att omvandla dina data till affärsinsikter.
 

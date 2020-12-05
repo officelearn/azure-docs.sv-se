@@ -4,16 +4,16 @@ description: Lär dig hur du konfigurerar Azure-filnätverkets slut punkter.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/17/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 880eeb87d8727d65b2aaecdad8b0ed9ccaacea7a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 079d7aa9b654a318c7269a41605c3e146b08f127
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629860"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621339"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Konfigurera Azure Files nätverks slut punkter
 
@@ -45,15 +45,26 @@ Du kan konfigurera dina slut punkter för att begränsa nätverks åtkomsten til
 
 Om du skapar en privat slut punkt för ditt lagrings konto leder det till att följande Azure-resurser distribueras:
 
-- **En privat slut punkt** : en Azure-resurs som representerar lagrings kontots privata slut punkt. Du kan tänka på detta som en resurs som ansluter ett lagrings konto och ett nätverks gränssnitt.
-- **Ett nätverks gränssnitt (NIC)** : det nätverks gränssnitt som upprätthåller en privat IP-adress inom det angivna virtuella nätverket/under nätet. Det här är exakt samma resurs som distribueras när du distribuerar en virtuell dator, men i stället för att tilldelas en virtuell dator, ägs den av den privata slut punkten.
-- **En privat DNS-zon** : om du aldrig har distribuerat en privat slut punkt för det här virtuella nätverket tidigare, kommer en ny privat DNS-zon att distribueras för det virtuella nätverket. En DNS A-post kommer också att skapas för lagrings kontot i den här DNS-zonen. Om du redan har distribuerat en privat slut punkt i det här virtuella nätverket kommer en ny A-post för lagrings kontot att läggas till i den befintliga DNS-zonen. Distribution av en DNS-zon är valfritt, rekommenderas, och krävs om du monterar dina Azure-filresurser med ett huvud namn för AD-tjänsten eller med det fileraste API: et.
+- **En privat slut punkt**: en Azure-resurs som representerar lagrings kontots privata slut punkt. Du kan tänka på detta som en resurs som ansluter ett lagrings konto och ett nätverks gränssnitt.
+- **Ett nätverks gränssnitt (NIC)**: det nätverks gränssnitt som upprätthåller en privat IP-adress inom det angivna virtuella nätverket/under nätet. Det här är exakt samma resurs som distribueras när du distribuerar en virtuell dator, men i stället för att tilldelas en virtuell dator, ägs den av den privata slut punkten.
+- **En privat DNS-zon**: om du aldrig har distribuerat en privat slut punkt för det här virtuella nätverket tidigare, kommer en ny privat DNS-zon att distribueras för det virtuella nätverket. En DNS A-post kommer också att skapas för lagrings kontot i den här DNS-zonen. Om du redan har distribuerat en privat slut punkt i det här virtuella nätverket kommer en ny A-post för lagrings kontot att läggas till i den befintliga DNS-zonen. Distribution av en DNS-zon är valfritt, rekommenderas, och krävs om du monterar dina Azure-filresurser med ett huvud namn för AD-tjänsten eller med det fileraste API: et.
 
 > [!Note]  
 > I den här artikeln används DNS-suffixet för lagrings kontot för Azures offentliga regioner `core.windows.net` . Den här kommentarer gäller också för Azures suveräna moln, till exempel Azure-molnet för amerikanska myndigheter och molnet i molnet, och ersätter bara de nödvändiga suffixen för din miljö. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-private-portal](../../../includes/storage-files-networking-endpoints-private-portal.md)]
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+[!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+[!INCLUDE [storage-files-networking-endpoints-private-cli](../../../includes/storage-files-networking-endpoints-private-cli.md)]
+---
+
+## <a name="verify-connectivity"></a>Verifiera anslutningen
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Om du har en virtuell dator i det virtuella nätverket, eller om du har konfigurerat DNS-vidarebefordran enligt beskrivningen i [Konfigurera DNS-vidarebefordran för Azure Files](storage-files-networking-dns.md), kan du testa att den privata slut punkten har kon figurer ATS korrekt genom att köra följande kommandon från PowerShell, kommando raden eller terminalen (fungerar för Windows, Linux eller MacOS). Du måste ersätta `<storage-account-name>` med lämpligt lagrings konto namn:
 
@@ -74,7 +85,6 @@ Aliases:  storageaccount.file.core.windows.net
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-[!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
 
 Om du har en virtuell dator i det virtuella nätverket, eller om du har konfigurerat DNS-vidarebefordran enligt beskrivningen i [Konfigurera DNS-vidarebefordran för Azure Files](storage-files-networking-dns.md), kan du testa att den privata slut punkten har kon figurer ATS korrekt med följande kommandon:
 
@@ -101,7 +111,6 @@ IP4Address : 192.168.0.5
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-[!INCLUDE [storage-files-networking-endpoints-private-cli](../../../includes/storage-files-networking-endpoints-private-cli.md)]
 
 Om du har en virtuell dator i det virtuella nätverket, eller om du har konfigurerat DNS-vidarebefordran enligt beskrivningen i [Konfigurera DNS-vidarebefordran för Azure Files](storage-files-networking-dns.md), kan du testa att den privata slut punkten har kon figurer ATS korrekt med följande kommandon:
 
@@ -127,10 +136,9 @@ storageaccount.file.core.windows.net      canonical name = storageaccount.privat
 Name:   storageaccount.privatelink.file.core.windows.net
 Address: 192.168.0.5
 ```
-
 ---
 
-### <a name="restrict-public-endpoint-access"></a>Begränsa offentlig slut punkts åtkomst
+## <a name="restrict-public-endpoint-access"></a>Begränsa offentlig slut punkts åtkomst
 
 Genom att begränsa åtkomsten till den offentliga slut punkten måste du först inaktivera allmän åtkomst till den offentliga slut punkten. Att inaktivera åtkomst till den offentliga slut punkten påverkar inte privata slut punkter. När den offentliga slut punkten har inaktiverats kan du välja vissa nätverk eller IP-adresser som kan fortsätta att komma åt den. I allmänhet begränsar de flesta brand Väggs principer för ett lagrings konto nätverks åtkomst till ett eller flera virtuella nätverk.
 

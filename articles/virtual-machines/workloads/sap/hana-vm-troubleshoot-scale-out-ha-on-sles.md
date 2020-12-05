@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 7cf18e2d375d7a45c3641876b8a3ed5974882927
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 87758100299eb170a7950a1a7a2c6bd2029b27fb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010035"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621560"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verifiera och Felsök SAP HANA skalnings-och hög tillgänglighets installation på SLES 12 SP3 
 
@@ -45,6 +45,9 @@ Alla tester för SAP HANA utskalning i kombination med SAP HANA system replikeri
 SUSE har publicerat en [detaljerad beskrivning av den här Prestandaoptimerad installationen][sles-hana-scale-out-ha-paper].
 
 För typer av virtuella datorer som stöds för SAP HANA utskalning kontrollerar du [SAP HANA Certified IaaS-katalogen][sap-hana-iaas-list].
+
+> [!NOTE]
+> Den här artikeln innehåller referenser till villkors *huvud* och *slav*, och villkor som Microsoft inte längre använder. När de här villkoren tas bort från program varan tar vi bort dem från den här artikeln.
 
 Det uppstod ett tekniskt problem med SAP HANA utskalning i kombination med flera undernät och virtuella nätverkskort och konfiguration av HSR. Det är obligatoriskt att använda de senaste SAP HANA 2,0-korrigeringarna där problemet har åtgärd ATS. Följande SAP HANA-versioner stöds: 
 

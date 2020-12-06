@@ -7,12 +7,12 @@ ms.date: 10/21/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 421f9dc26d184d16a2fe563aefa72062c5d8c7e6
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 360da015f012822593dbb6390cb7df0017ba85b1
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608409"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745085"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Köra en anpassad behållare i Azure
 
@@ -20,6 +20,10 @@ ms.locfileid: "96608409"
 [Azure App Service](overview.md) har fördefinierade programstackar i Windows som ASP.NET eller Node.js, som körs i IIS. Den förkonfigurerade Windows container-miljön låser upp operativ systemet från administrativ åtkomst, program varu installationer, ändringar i den globala sammansättningscachen och så vidare. Mer information finns i [operativ systemets funktioner på Azure App Service](operating-system-functionality.md). Om programmet kräver mer åtkomst än den förkonfigurerade miljön tillåter kan du istället distribuera en anpassad Windows-container.
 
 Den här snabb starten visar hur du distribuerar en ASP.NET-app i en Windows-avbildning till [Docker Hub](https://hub.docker.com/) från Visual Studio. Du kör appen i en anpassad behållare i Azure App Service.
+
+> [!NOTE]
+> Windows-behållare är begränsade till Azure Files och har för närvarande inte stöd för Azure-blob.
+
 
 ## <a name="prerequisites"></a>Förutsättningar
 

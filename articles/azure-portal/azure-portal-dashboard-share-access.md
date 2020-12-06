@@ -1,24 +1,15 @@
 ---
 title: Dela Azure Portal instrument paneler med hjälp av rollbaserad åtkomst kontroll i Azure
 description: Den här artikeln förklarar hur du delar en instrument panel i Azure Portal med hjälp av rollbaserad åtkomst kontroll i Azure.
-services: azure-portal
-documentationcenter: ''
-author: mgblythe
-manager: mtillman
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: b74cae439ce351a4d720f215679cc0802eebe898
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: de2efd75d07c3dc7df771aad1bd9c73453dad212
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092213"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745986"
 ---
 # <a name="share-azure-dashboards-by-using-azure-role-based-access-control"></a>Dela Azure-instrumentpaneler med hjälp av rollbaserad åtkomst kontroll i Azure
 
@@ -41,7 +32,7 @@ Med rollbaserad åtkomst kontroll i Azure (Azure RBAC) kan du tilldela användar
 
 Behörigheterna som du tilldelar ärver från prenumerationen till resursen. Den publicerade instrument panelen är en resurs. Du kanske redan har tilldelat användare roller för den prenumeration som gäller för den publicerade instrument panelen.
 
-Anta att du har en Azure-prenumeration och att olika medlemmar i teamet har tilldelats rollen som *ägare*, *deltagare*eller *läsare* för prenumerationen. Användare som är ägare eller deltagare kan visa, Visa, skapa, ändra eller ta bort instrument paneler i prenumerationen. Användare som är läsare kan visa och Visa instrument paneler, men kan inte ändra eller ta bort dem. Användare med läsar åtkomst kan göra lokala redigeringar till en publicerad instrument panel, till exempel vid fel sökning av problem, men de kan inte publicera tillbaka ändringarna till servern. De kan skapa en privat kopia av instrument panelen för sig själva.
+Anta att du har en Azure-prenumeration och att olika medlemmar i teamet har tilldelats rollen som *ägare*, *deltagare* eller *läsare* för prenumerationen. Användare som är ägare eller deltagare kan visa, Visa, skapa, ändra eller ta bort instrument paneler i prenumerationen. Användare som är läsare kan visa och Visa instrument paneler, men kan inte ändra eller ta bort dem. Användare med läsar åtkomst kan göra lokala redigeringar till en publicerad instrument panel, till exempel vid fel sökning av problem, men de kan inte publicera tillbaka ändringarna till servern. De kan skapa en privat kopia av instrument panelen för sig själva.
 
 Du kan också tilldela behörigheter till resurs gruppen som innehåller flera instrument paneler eller till en enskild instrument panel. Du kan till exempel bestämma att en grupp användare ska ha begränsade behörigheter i prenumerationen, men större åtkomst till en viss instrument panel. Tilldela dessa användare till en roll för instrument panelen.
 
@@ -55,7 +46,7 @@ Innan du tilldelar åtkomst måste du publicera instrument panelen.
 
     ![Välj resurs för din instrument panel](./media/azure-portal-dashboard-share-access/share-dashboard-for-access-control.png)
 
-1. I **delning + åtkomst kontroll**väljer du **publicera**.
+1. I **delning + åtkomst kontroll** väljer du **publicera**.
 
     ![publicera din instrument panel](./media/azure-portal-dashboard-share-access/publish-dashboard-for-access-control.png)
 
@@ -69,7 +60,7 @@ Du kan tilldela en grupp användare en roll för den instrument panelen.
 
 1. När du har publicerat instrument panelen väljer du alternativet **dela** eller ta **bort** delning för att få åtkomst till **delning + åtkomst kontroll**.
 
-1. I **delning + åtkomst kontroll**väljer du **Hantera användare**.
+1. I **delning + åtkomst kontroll** väljer du **Hantera användare**.
 
     ![hantera användare för en instrument panel](./media/azure-portal-dashboard-share-access/manage-users-for-access-control.png)
 

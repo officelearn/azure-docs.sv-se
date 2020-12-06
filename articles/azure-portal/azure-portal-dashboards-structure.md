@@ -1,23 +1,14 @@
 ---
-title: Strukturen för Azure-instrumentpaneler | Microsoft Docs
+title: Strukturen för Azure-instrumentpaneler
 description: Gå igenom JSON-strukturen för en Azure-instrumentpanel med hjälp av ett exempel på en instrument panel. Innehåller en referens till resurs egenskaper.
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: mtillman
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 12/20/2019
-ms.author: mblythe
-ms.openlocfilehash: 014463fb0a5af639ff0da5f8db2805f9796fd928
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d37e2fd9c9f6ef6e7ddea6dea002f26f20cd66a7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072483"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745969"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Strukturen för Azure-instrumentpaneler
 Det här dokumentet vägleder dig genom strukturen i en Azure-instrumentpanel med hjälp av följande instrument panel som exempel:
@@ -290,7 +281,7 @@ Eftersom delade [Azure-instrumentpaneler är resurser](../azure-resource-manager
 
 ## <a name="common-resource-properties"></a>Gemensamma resurs egenskaper
 
-Nu ska vi dela upp relevanta avsnitt i JSON.  Egenskaperna på den översta nivån, __ID__, __namn__, __typ__, __plats__och __taggar__ delas mellan alla typer av Azure-resurser. Det vill säga att de inte har mycket att göra med instrument panelens innehåll.
+Nu ska vi dela upp relevanta avsnitt i JSON.  Egenskaperna på den översta nivån, __ID__, __namn__, __typ__, __plats__ och __taggar__ delas mellan alla typer av Azure-resurser. Det vill säga att de inte har mycket att göra med instrument panelens innehåll.
 
 ### <a name="the-id-property"></a>Egenskapen ID
 
@@ -322,10 +313,10 @@ Objektet under "0" innehåller två egenskaper, __ordning__ och __delar__.  I de
 Objektet __delar__ innehåller en egenskap för varje del, där namnet på egenskapen är ett tal. Talet är inte signifikant. 
 
 ### <a name="the-part-object"></a>Del objekt
-Varje enskilt del objekt har en __position__och __metadata__.
+Varje enskilt del objekt har en __position__ och __metadata__.
 
 ### <a name="the-position-object"></a>Objektet position
-Egenskapen __position__ innehåller storlek och plats information för delen uttryckt som __x__, __y__, __rowSpan__och __colSpan__. Värdena är vad gäller rutnäts enheter. Dessa rutnäts enheter visas när instrument panelen är i anpassa-läget som visas här. Om du vill att en panel ska ha en bredd på två rutnäts enheter, en höjd av en rutnäts enhet och en plats i det övre vänstra hörnet på instrument panelen, ser objektet position ut så här:
+Egenskapen __position__ innehåller storlek och plats information för delen uttryckt som __x__, __y__, __rowSpan__ och __colSpan__. Värdena är vad gäller rutnäts enheter. Dessa rutnäts enheter visas när instrument panelen är i anpassa-läget som visas här. Om du vill att en panel ska ha en bredd på två rutnäts enheter, en höjd av en rutnäts enhet och en plats i det övre vänstra hörnet på instrument panelen, ser objektet position ut så här:
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
@@ -340,7 +331,7 @@ Varje del har en metadata-egenskap, ett objekt har endast en obligatorisk egensk
 1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Används för att visa videor från YouTube, channel9 och någon annan typ av video som fungerar i en HTML-video-tagg.
 1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Används för att visa namn och status för en virtuell Azure-dator.
 
-Varje typ av del har en egen konfiguration. De möjliga konfigurations egenskaperna kallas __indata__, __Inställningar__och __till gång__. 
+Varje typ av del har en egen konfiguration. De möjliga konfigurations egenskaperna kallas __indata__, __Inställningar__ och __till gång__. 
 
 ### <a name="the-inputs-object"></a>Objektet Inputs
 Objektet Inputs innehåller vanligt vis information som binder en panel till en resurs instans.  Den virtuella dator delen i vårt exempel instrument panel innehåller en enda inmatare som använder Azures resurs-ID för att uttrycka bindningen.  Detta resurs-ID-format är konsekvent för alla Azure-resurser.

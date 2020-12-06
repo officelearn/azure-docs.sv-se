@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 63bb235dcebc67b753e01dd8b193ef1a2b66787d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 222106f5838a1eb237987afaa93924f1efe4a1f4
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555171"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746292"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Fil namns insikter om dina data från Azure avdelningens kontroll 
 
@@ -26,7 +26,7 @@ I den här instruktions guiden lär du dig att:
 > - Visa fil namns insikter för dina data
 > - Öka detalj nivån för mer information om fil tillägg på dina data
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Innan du börjar med avdelningens kontroll Insights bör du kontrol lera att du har slutfört följande steg:
 
@@ -39,6 +39,9 @@ Mer information finns i [Hantera data källor i Azure avdelningens kontroll (fö
 ## <a name="use-purview-file-extension-insights"></a>Använd avdelningens kontroll File Extension Insights
 
 När du skannar dina till gångar kan Azure avdelningens kontroll identifiera de filtyper som finns i din datafastighet och du får mer information om varje filtyp. Information omfattar hur många filer av varje typ du har, var dessa filer finns och om de är lättlästa för känsliga data.
+
+> [!NOTE]
+> När du har skannat dina käll typer ger du **fil namns tillägget** ett par timmar för att avspegla de nya till gångarna.
 
 **Så här visar du fil namns insikter:**
 

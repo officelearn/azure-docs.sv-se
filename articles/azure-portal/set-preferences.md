@@ -1,20 +1,15 @@
 ---
-title: Hantera Azure Portal inställningar och inställningar | Microsoft Docs
+title: Hantera dina inställningar i Microsoft Azure-portalen
 description: Du kan ändra Azure Portal standardinställningarna så att de passar dina egna inställningar. Inställningarna omfattar tids gräns för inaktiv session, standardvy, Meny läge, kontrast, tema, meddelanden och språk och nationella format
-services: azure-portal
 keywords: inställningar, tids gräns, språk, regional
-author: mgblythe
-ms.author: mblythe
 ms.date: 08/05/2020
 ms.topic: how-to
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 0f94f694163ba836091e522a29f73cabd64e22b5
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 07dd3eb5cb132adf87852f29d867be772294d189
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145947"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745646"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Hantera dina inställningar i Microsoft Azure-portalen
 
@@ -33,7 +28,7 @@ Du kan ändra den prenumeration som öppnas som standard när du loggar in på A
 
 1. Välj de prenumerationer som du vill använda som standard prenumerationer när du startar portalen. 
 
-    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Filtrera resurs lista efter prenumeration."::: 
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Välj de prenumerationer som du vill använda som standard prenumerationer när du startar portalen."::: 
 
 
 ## <a name="choose-your-default-view"></a>Välj standardvy 
@@ -44,7 +39,7 @@ Du kan ändra sidan som öppnas som standard när du loggar in på Azure Portal.
 
 - Det går inte att anpassa **Start sidan** .  Den visar genvägar till populära Azure-tjänster och listar de resurser som du har använt senast. Vi ger dig också användbara länkar till resurser som Microsoft Learn och Azure-översikten.
 
-- Instrument paneler kan anpassas för att skapa en arbets yta som har utformats precis för dig. Du kan till exempel bygga en instrument panel som är projekt, uppgift eller roll fokuserad. Om du väljer **instrument panel** , kommer din standardvy att gå till den senast använda instrument panelen. Mer information finns i [skapa och dela instrument paneler i Azure Portal](azure-portal-dashboards.md).
+- Instrument paneler kan anpassas för att skapa en arbets yta som har utformats precis för dig. Du kan till exempel bygga en instrument panel som är projekt, uppgift eller roll fokuserad. Om du väljer **instrument panel**, kommer din standardvy att gå till den senast använda instrument panelen. Mer information finns i [skapa och dela instrument paneler i Azure Portal](azure-portal-dashboards.md).
 
 ## <a name="choose-a-portal-menu-mode"></a>Välj ett meny läge för portalen
 
@@ -68,7 +63,7 @@ Alternativt kan du välja ett tema med hög kontrast. Med teman för hög kontra
 
 Meddelanden är system meddelanden relaterade till din aktuella session. De tillhandahåller information som ditt aktuella kredit saldo när resurser som du just har skapat blir tillgängliga eller bekräfta din senaste åtgärd, till exempel. När popup-meddelanden är aktiverade visas meddelandena kortfattat i det övre hörnet på skärmen. 
 
-Om du vill aktivera eller inaktivera popup-meddelanden väljer eller rensar du **Aktivera popup-meddelanden** .
+Om du vill aktivera eller inaktivera popup-meddelanden väljer eller rensar du **Aktivera popup-meddelanden**.
 
 ![Skärm bild som visar Azure Portal inställningar med popup-meddelanden markerade](./media/set-preferences/popup-notifications.png)
 
@@ -84,7 +79,7 @@ Inställningen tids gräns för inaktivitet hjälper till att skydda resurser fr
 
 ### <a name="change-your-individual-timeout-setting-user"></a>Ändra din individuella timeout-inställning (användare)
 
-Välj List rutan under **Logga ut mig när du är inaktiv** . Välj hur länge din Azure Portal-session ska loggas ut om du är inaktiv.
+Välj List rutan under **Logga ut mig när du är inaktiv**. Välj hur länge din Azure Portal-session ska loggas ut om du är inaktiv.
 
 ![Skärm bild som visar Portal inställningar med inaktiva timeout-inställningar markerade](./media/set-preferences/inactive-signout-user.png)
 
@@ -100,7 +95,7 @@ Administratörer i [rollen global administratör](../active-directory/roles/perm
 
 Om du är global administratör och vill framtvinga en tids gräns för inaktivitet för alla användare av Azure Portal följer du dessa steg:
 
-1. Välj länk texten **Konfigurera timeout för katalog nivå** .
+1. Välj länk texten **Konfigurera timeout för katalog nivå**.
 
     ![Skärm bild som visar Portal inställningar med länk text markerad](./media/set-preferences/settings-admin.png)
 
@@ -108,7 +103,7 @@ Om du är global administratör och vill framtvinga en tids gräns för inaktivi
 
 1. Ange sedan **timmar** och **minuter** för den längsta tid som en användare kan vara inaktiv innan sessionen loggas ut automatiskt.
 
-1. Välj **Tillämpa** .
+1. Välj **Använd**.
 
     ![Skärm bild som visar sidan för att ange tids gräns för inaktivitet på katalog nivå](./media/set-preferences/configure.png)
 
@@ -118,7 +113,7 @@ Om du vill bekräfta att tids gränsen för inaktivitet har angetts korrekt väl
 
 ## <a name="restore-default-settings"></a>Återställ standardinställningarna
 
-Om du har ändrat Azure Portal inställningarna och vill ta bort dem väljer du **Återställ standardinställningar** . Eventuella ändringar som du har gjort i Portal inställningarna går förlorade. Det här alternativet påverkar inte anpassningar av instrument paneler.
+Om du har ändrat Azure Portal inställningarna och vill ta bort dem väljer du **Återställ standardinställningar**. Eventuella ändringar som du har gjort i Portal inställningarna går förlorade. Det här alternativet påverkar inte anpassningar av instrument paneler.
 
 ![Skärm bild som visar återställning av standardinställningar](./media/set-preferences/useful-links-restore-defaults.png)
 
@@ -132,7 +127,7 @@ Information om dina anpassade inställningar lagras i Azure. Du kan exportera f�
 
 Det är en bra idé att exportera och granska dina inställningar om du planerar att ta bort dem. Det kan vara tids krävande att skapa instrument paneler eller göra om inställningar.
 
-Om du vill exportera dina Portal inställningar väljer du **Exportera alla inställningar** .
+Om du vill exportera dina Portal inställningar väljer du **Exportera alla inställningar**.
 
 ![Skärm bild som visar export av inställningar](./media/set-preferences/useful-links-export-settings.png)
 
@@ -150,7 +145,7 @@ Det är en bra idé att exportera och granska dina inställningar innan du tar b
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-Om du vill ta bort dina Portal inställningar väljer du **ta bort alla inställningar och privata instrument paneler** .
+Om du vill ta bort dina Portal inställningar väljer du **ta bort alla inställningar och privata instrument paneler**.
 
 ![Skärm bild som visar borttagning av inställningar](./media/set-preferences/useful-links-delete-settings.png)
 

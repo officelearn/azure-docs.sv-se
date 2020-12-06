@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 74f4391fcd071ac510fc66b2f8bc36ec4549dc47
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e6a92282d2bcd316a771742048dacd9a7181de4f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575762"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746190"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Känslighets etikett insikter om dina data i Azure avdelningens kontroll
 
@@ -27,7 +27,7 @@ I den här instruktions guiden lär du dig att:
 > - Visa känslighets etiketter för insikter om dina data
 > - Öka detalj nivån för mer känslighets märkning av data
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar med avdelningens kontroll Insights bör du kontrol lera att du har slutfört följande steg:
 
@@ -48,6 +48,9 @@ Med känslighets etiketter kan du ange hur känslig viss information som finns i
 Medan klassificeringar matchas direkt (en social security number har en klassificering av **person nummer**) används känslighets etiketter när en eller flera klassificeringar och scenarier hittas tillsammans. 
 
 Avdelningens kontroll använder samma klassificeringar, även kallade känsliga informations typer, som Microsoft 365. På så sätt kan du utöka dina befintliga känslighets etiketter i dina Azure avdelningens kontroll-tillgångar.
+
+> [!NOTE]
+> När du har skannat dina käll typer ger du **känslighets etiketter** insikter om några timmar för att avspegla de nya till gångarna.
 
 **Visa känslighets etiketting Insights:**
 

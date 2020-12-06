@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 12/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b3f7a8fbe2afcf9b5603f288fe6e3bc429b14532
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 674bb67018fcbf7df6285a66c2e0aeb37d24f409
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340203"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744926"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Ändra flödes hämtnings modell i Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -48,11 +48,11 @@ Här är några viktiga skillnader mellan processorn för förändrings matnings
 | Söker efter framtida ändringar | Söker automatiskt efter ändringar baserat på användardefinierad `WithPollInterval` | Manuell |
 | Beteende där det inte finns några nya ändringar | Vänta `WithPollInterval` och kontrol lera automatiskt | Måste fånga upp undantag och manuellt kontrol lera manuellt |
 | Bearbeta ändringar från hela behållaren | Ja, och automatiskt parallellt över flera trådar/datorer som konsumeras från samma behållare| Ja, och manuellt parallellt med FeedTokens |
-| Bearbeta ändringar från bara en enda partitionsnyckel | Stöds inte | Ja|
+| Bearbeta ändringar från bara en enda partitionsnyckel | Stöds inte | Yes|
 | Support nivå | Allmänt tillgänglig | Förhandsgranskning |
 
 > [!NOTE]
-> Till skillnad från när du läser med Change feed-processorn måste du explicit hantera fall där inga nya ändringar har uppstått. 
+> Till skillnad från när du läser med Change feed-processorn måste du uttryckligen hantera fall där det inte finns några nya ändringar. 
 
 ## <a name="consuming-an-entire-containers-changes"></a>Konsumera en hel behållares ändringar
 

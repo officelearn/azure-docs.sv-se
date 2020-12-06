@@ -2,14 +2,14 @@
 title: Resurs leverantörer och resurs typer
 description: Beskriver de resurs leverantörer som stöder Azure Resource Manager. Den beskriver scheman, tillgängliga API-versioner och de regioner som kan vara värdar för resurserna.
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 12/04/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6413a1279c9c7a995bb144097e3db55d5f3a90d2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6d114fdfae12dd9ee96a23e4dafc3847c6429d0c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452098"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745124"
 ---
 # <a name="azure-resource-providers-and-types"></a>Resursproviders och resurstyper i Azure
 
@@ -45,20 +45,28 @@ Du kan inte avregistrera en resurs leverantör när du fortfarande har resurs ty
 
 ## <a name="azure-portal"></a>Azure Portal
 
+### <a name="register-resource-provider"></a>Registrera resursprovider
+
 Så här visar du alla resurs leverantörer och registrerings status för din prenumeration:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **Alla tjänster** på menyn i Azure-portalen.
+1. Sök efter **prenumerationer** på Azure Portal-menyn. Välj den från de tillgängliga alternativen.
 
-    ![Välj prenumerationer](./media/resource-providers-and-types/select-all-services.png)
+   :::image type="content" source="./media/resource-providers-and-types/search-subscriptions.png" alt-text="Sök efter prenumerationer":::
 
-3. I rutan **alla tjänster** anger du **prenumeration** och väljer sedan **prenumerationer**.
-4. Välj den prenumeration i listan prenumeration som du vill visa.
-5. Välj **resurs leverantörer** och Visa listan över tillgängliga resurs leverantörer.
+1. Välj den prenumeration som du vill visa.
 
-    ![Visa resurs leverantörer](./media/resource-providers-and-types/show-resource-providers.png)
+   :::image type="content" source="./media/resource-providers-and-types/select-subscription.png" alt-text="Välj prenumerationer":::
 
-6. Registrera en resurs leverantör genom att välja **Registrera**. I föregående skärm bild är **register** länken markerad för **Microsoft. skiss**. Om du vill behålla minst privilegier i prenumerationen registrerar du bara de resurs leverantörer som du är redo att använda.
+1. Välj **resurs leverantörer** på den vänstra menyn under **Inställningar**.
+
+   :::image type="content" source="./media/resource-providers-and-types/select-resource-providers.png" alt-text="Välj resurs leverantörer":::
+
+6. Leta upp den resurs leverantör som du vill registrera och välj **Registrera**. Om du vill behålla minst privilegier i prenumerationen registrerar du bara de resurs leverantörer som du är redo att använda.
+
+   :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="registrera resurs leverantörer":::
+
+### <a name="view-resource-provider"></a>Visa Resource Provider
 
 Så här visar du information om en viss resurs leverantör:
 

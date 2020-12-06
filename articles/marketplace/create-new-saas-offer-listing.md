@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: b6b3cac51ffd4ccd138994ac65b4f96b07816970
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3a47ba2025bcaba542d2dbec0c89643e0900f233
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368703"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746156"
 ---
 # <a name="how-to-configure-your-saas-offer-listing-details"></a>Så här konfigurerar du din SaaS-lista med information om erbjudandet
 
@@ -24,13 +24,13 @@ Den information som du anger på sidan **erbjudande lista** för ditt SaaS-erbju
 
 ## <a name="marketplace-details"></a>Information om Marketplace
 
-På sidan **erbjudande lista** , under **Marketplace-information** , utför du följande steg. Om du vill veta mer om dessa uppgifter som krävs, se [erbjudande lista](plan-azure-application-offer.md#offer-listing-details).
+På sidan **erbjudande lista** , under **Marketplace-information**, utför du följande steg. Om du vill veta mer om dessa uppgifter som krävs, se [erbjudande lista](plan-azure-application-offer.md#offer-listing-details).
 
 1. Rutan **namn** är förifylld med det namn som du angav tidigare i dialog rutan  **nytt erbjudande** . Du kan ändra namnet när som helst.
 1. Ange upp till 50 tecken text i rutan **Sammanfattning av Sök Resultat** . Den här sammanfattningen används i Sök resultaten för Marketplace-listan.
 1. I rutan **Beskrivning** anger du en beskrivning för ditt erbjudande. Den här text rutan innehåller text redigerings kontroller som du kan använda för att göra din beskrivning mer engagerande. Du kan också använda HTML-taggar för att formatera beskrivningen. Du kan ange upp till 3 000 tecken text i den här rutan, inklusive HTML-kod och blank steg. Information om HTML-formatering finns [i HTML-taggar som stöds i de kommersiella erbjudandena för Marketplace-erbjudanden](supported-html-tags.md).
 1. I rutan **komma igång instruktioner** ger du instruktioner för att hjälpa kunder att ansluta till ditt SaaS-erbjudande. Du kan lägga till upp till 3 000 tecken med text och länkar till mer detaljerad onlinedokumentationen.
-1. Valfritt I rutorna **Sök Nyckelord** anger du upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande i den kommersiella Marketplace. Du behöver inte inkludera erbjudandets **namn** och **Beskrivning** : den texten ingår automatiskt i sökningen.
+1. Valfritt I rutorna **Sök Nyckelord** anger du upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande i den kommersiella Marketplace. Du behöver inte inkludera erbjudandets **namn** och **Beskrivning**: den texten ingår automatiskt i sökningen.
 1. I **länk rutan sekretess policy** anger du en länk (från och med https) till din organisations sekretess policy. Du är ansvarig för att se till att din app uppfyller sekretess lagar och föreskrifter och att tillhandahålla en giltig sekretess policy.
 
 ## <a name="add-supplemental-links-optional"></a>Lägg till kompletterande länkar (valfritt)
@@ -43,7 +43,7 @@ Slutför de här stegen för att lägga till länkar till kompletterande onlined
 
 ## <a name="enter-your-contact-information"></a>Ange din kontakt information
 
-Ange information för följande kontakter under **kontakt information** :
+Ange information för följande kontakter under **kontakt information**:
 
 - **Support kontakt**  (krävs) – för allmänna supportfrågor.
 - Teknisk **kontakt** (krävs) – för tekniska frågor. Vi kommer att använda den här informationen för att kontakta dig när det finns problem med erbjudandet, inklusive certifierings problem.
@@ -105,4 +105,4 @@ Välj **Spara utkast** innan du fortsätter till nästa flik: förhandsgranska m
 ## <a name="next-steps"></a>Nästa steg
 
 - Om du säljer ditt erbjudande via Microsoft går du till [så här lägger du till en förhands gransknings mål grupp för ditt SaaS-erbjudande](create-new-saas-offer-preview.md). 
-- Annars går du till [hur du marknadsför ditt SaaS-erbjudande](create-new-saas-offer-marketing.md).
+- Annars går du till [hur du säljer ditt SaaS-erbjudande](create-new-saas-offer-marketing.md).

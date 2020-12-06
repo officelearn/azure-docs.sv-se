@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: ed0c7ef98e70774350c9a3ff12b0cc3f4186e1bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 041df9b77e85f09d2cf680773edc995c6288acaa
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381190"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746428"
 ---
 # <a name="how-to-add-a-preview-audience-for-your-saas-offer"></a>Så här lägger du till en förhands gransknings grupp för ditt SaaS-erbjudande
 
 När du skapar ett SaaS-erbjudande (Software as a Service) i Partner Center måste du definiera en förhands gransknings grupp som kan granska din erbjudande lista innan den går live. Den här artikeln förklarar hur du konfigurerar en förhands gransknings grupp.
 
 > [!NOTE]
-> Om du väljer att bearbeta transaktioner oberoende av visas inte det här alternativet. Gå istället till [hur du marknadsför ditt SaaS-erbjudande](create-new-saas-offer-marketing.md).
+> Om du väljer att bearbeta transaktioner oberoende av visas inte det här alternativet. Gå istället till [hur du säljer ditt SaaS-erbjudande](create-new-saas-offer-marketing.md).
 
 ## <a name="define-a-preview-audience"></a>Definiera en förhands gransknings publik
 
@@ -45,7 +45,7 @@ På fliken **förhands visning** kan du definiera en begränsad mål grupp som k
 1. I kolumnen **typ** lägger du till **MixedAadMsaId** till varje rad som har en e-postadress.
 1. Spara filen som en. CSV-fil.
 1. På sidan för **hands versions mål** väljer du länken **Importera mål grupp (CSV)** .
-1. Välj **Ja**i dialog rutan **Bekräfta** .
+1. Välj **Ja** i dialog rutan **Bekräfta** .
 1. Välj. CSV-fil och välj sedan **Öppna**.
 1. Välj **Spara utkast** innan du fortsätter till nästa flik: **teknisk konfiguration**.
 

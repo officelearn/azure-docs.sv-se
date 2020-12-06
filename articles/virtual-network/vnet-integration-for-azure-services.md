@@ -12,18 +12,18 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: b01ade25c6592e68e34eeb542a90cdd0124a0446
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4a6cd529511d4a2e71e1a31c1600f8a51f455a37
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738048"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746139"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Integrera Azure-tjänster med virtuella nätverk för nätverks isolering
 
-Virtual Network integrering för en Azure-tjänst gör det möjligt att låsa åtkomsten till tjänsten enbart till din virtuella nätverks infrastruktur. VNet-infrastrukturen inkluderar även peer-baserade virtuella nätverk och lokala nätverk.
+Virtual Network-integration (VNet) för en Azure-tjänst gör det möjligt att låsa åtkomsten till tjänsten enbart till din virtuella nätverks infrastruktur. VNet-infrastrukturen inkluderar även peer-baserade virtuella nätverk och lokala nätverk.
 
-Azure-tjänster uppnår nätverks isolering med en eller flera av följande metoder:
+VNet-integrering ger Azure-tjänster fördelarna med nätverks isolering och kan utföras av en eller flera av följande metoder:
 - [Distribuera dedikerade instanser av tjänsten till ett virtuellt nätverk](virtual-network-service-endpoints-overview.md). Tjänsterna kan sedan nås privat i det virtuella nätverket och från lokala nätverk.
 - Använd [privat slut punkt](../private-link/private-endpoint-overview.md) som ansluter dig privat och säkert till en tjänst som drivs av en [privat Azure-länk](../private-link/private-link-overview.md). Privat slut punkt använder en privat IP-adress från ditt VNet, vilket effektivt tar tjänsten i det virtuella nätverket.
 - Åtkomst till tjänsten med offentliga slut punkter genom att utöka ett virtuellt nätverk till tjänsten via [tjänstens slut punkter](virtual-network-service-endpoints-overview.md). Med tjänst slut punkter kan tjänst resurser skyddas till det virtuella nätverket.

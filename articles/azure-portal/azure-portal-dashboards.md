@@ -1,24 +1,15 @@
 ---
 title: Skapa och dela instrumentpaneler i Azure-portalen
 description: Den här artikeln beskriver hur du skapar, anpassar, publicerar och delar instrument paneler i Azure Portal.
-services: azure-portal
-documentationcenter: ''
-author: sewatson
-manager: mtillman
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: b4241e51f186ea973702562ab27bb7f13a77de57
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 10c322c9d9d18f7b79a4419bd9efa2e366a5b7c3
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089493"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745833"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Skapa och dela instrumentpaneler i Azure-portalen
 
@@ -32,7 +23,7 @@ I det här exemplet skapar vi en ny, privat instrument panel och tilldelar ett n
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Välj **instrument panel**på Azure Portal-menyn. Din standardvy kanske redan är inställd på instrument panelen.
+1. Välj **instrument panel** på Azure Portal-menyn. Din standardvy kanske redan är inställd på instrument panelen.
 
     ![Öppna instrument panelen](./media/azure-portal-dashboards/portal-menu-dashboard.png)
 
@@ -40,7 +31,7 @@ I det här exemplet skapar vi en ny, privat instrument panel och tilldelar ett n
 
     ![Skärm bild av ny instrument panel](./media/azure-portal-dashboards/create-new-dashboard.png)
 
-    Den här åtgärden öppnar **panel galleriet**där du väljer paneler och ett tomt rutnät där du ordnar panelerna.
+    Den här åtgärden öppnar **panel galleriet** där du väljer paneler och ett tomt rutnät där du ordnar panelerna.
 
     ![Skärm bild av panel galleriet och tomt rutnät](./media/azure-portal-dashboards/dashboard-name.png)
 
@@ -118,7 +109,7 @@ Data på instrument panelen visar automatiskt aktivitet under de senaste 24 timm
 
 1. Välj tids kornig het som ska visas. Du kan visa var som helst från en minut till en månad.
 
-1. Välj **Tillämpa**.
+1. Välj **Använd**.
 
 ## <a name="delete-a-tile"></a>Ta bort en panel
 

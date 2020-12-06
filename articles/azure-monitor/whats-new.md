@@ -5,17 +5,81 @@ ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 11/11/2020
-ms.openlocfilehash: bf15e380eb1a88acc39ca63165d18d04a260b35d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 12/04/2020
+ms.openlocfilehash: 91aa76fd3d9dbb54316f32fdb319e92ca2283b1d
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185903"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745782"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Vad är nytt i Azure Monitor-dokumentationen?
 
 Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya eller som har uppdaterats markant. Den kommer att uppdateras den första veckan i varje månad för att inkludera artikel uppdateringar från föregående månad.
+
+## <a name="november-2020"></a>November 2020
+
+### <a name="general"></a>Allmänt
+- [Azure Monitor tjänst gränser](service-limits.md) – uppdaterat för stöd för Azure Arc.
+
+### <a name="agents"></a>Agenter
+- [Översikt över Azure Monitoring agents](platform/agents-overview.md) – uppdaterat för stöd för Azure Arc.
+- [Installera Azure Monitor Agent](platform/azure-monitor-agent-install.md) – ny artikel.
+- [Översikt över Azure Monitor Agent](platform/azure-monitor-agent-overview.md) – uppdaterad för stöd för Azure Arc.
+- [Exempel på Resource Manager-mallar för agenter](samples/resource-manager-agent.md) – uppdaterat för stöd för Azure Arc.
+
+### <a name="alerts"></a>Aviseringar
+- [Skapa och hantera åtgärds grupper i de Azure Portal](platform/action-groups.md) -IP-adresser som har lagts till för Webhooks.
+
+### <a name="application-insights"></a>Application Insights
+- [Java-kodad program övervakning Azure Monitor Application Insights](app/java-in-process-agent.md) -tillagt konfigurations exempel.
+- [Reagera plugin-program för Application Insights JavaScript SDK](app/javascript-react-plugin.md) – tillagt avsnittet om att använda reakta hookar.
+- [Uppgradera från Application Insights Java 2. x SDK](app/java-standalone-upgrade-from-2x.md) – ny artikel.
+- [Viktig information för Microsoft. ApplicationInsights. SnapshotCollector](app/snapshot-collector-release-notes.md) – ny artikel.
+
+### <a name="autoscale"></a>Automatisk skalning
+- [Kom igång med autoskalning i Azure](platform/autoscale-get-started.md) -tillagt avsnitt om att flytta autoskalning till en annan region.
+
+### <a name="data-collection"></a>Datainsamling
+- [Konfigurera data insamling för Azure Monitor Agent (för hands version)](platform/data-collection-rule-azure-monitor-agent.md) – uppdaterad för stöd för Azure Arc.
+- [Data insamlings regler i Azure Monitor (för hands version)](platform/data-collection-rule-overview.md) – uppdaterade för stöd för Azure Arc.
+- [Exempel på Resource Manager-mallar för data insamlings regler](samples/resource-manager-data-collection-rules.md) – ny artikel.
+
+### <a name="insights-and-solutions"></a>Insikter och lösningar
+- [Anslut Azure till ITSM-verktyg med hjälp av Secure export](platform/it-service-management-connector-secure-webhook-connections.md) -Added-avsnittet om hur du ansluter till ServiceNow.
+
+### <a name="logs"></a>Loggar
+- [Integrera Log Analytics och Excel](log-query/log-excel.md) – ny artikel.
+- Avsnittet [Log Analytics data säkerhet](platform/data-security.md) – tillagt på ytterligare säkerhetsfunktioner.
+- [Log Analytics integration med Power BI](log-query/log-powerbi.md) nya artikeln.
+- [Standard kolumner i Azure Monitor logg poster](platform/log-standard-columns.md) – tillagd _SubscriptionId kolumn.
+
+Nya och uppdaterade artiklar från struktur om logg frågans innehåll.
+
+- [Log Analytics-självstudie](log-query/log-analytics-tutorial.md)
+- [Logg frågor i Azure Monitor](log-query/log-query-overview.md)
+- [Översikt över Log Analytics i Azure Monitor](log-query/log-analytics-overview.md)
+- [Exempel på frågor för Azure Datautforskaren och Azure Monitor](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor)
+- [Självstudie: använda Kusto-frågor i Azure Datautforskaren och Azure Monitor](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor)
+
+
+
+### <a name="virtual-machines"></a>Virtuella datorer
+
+- [Aktivera Azure Monitor for VMS översikt](insights/vminsights-enable-overview.md) – tillagda regioner som stöds.
+
+Nya artiklar om Azure Monitor for VMs gäst hälsa (för hands version)
+
+- [Azure Monitor for VMs gäst hälsa (för hands version)](insights/vminsights-health-overview.md)
+- [Azure Monitor for VMs varningar om gäst hälsa (för hands version)](insights/vminsights-health-alerts.md)
+- [Konfigurera övervakning i Azure Monitor for VMs gäst hälsa (för hands version)](insights/vminsights-health-configure.md)
+- [Konfigurera övervakning i Azure Monitor for VMs gäst hälsa med hjälp av data insamlings regler (för hands version)](insights/vminsights-health-configure-dcr.md)
+- [Aktivera Azure Monitor for VMs gäst hälsa (för hands version)](insights/vminsights-health-enable.md)
+- [Felsöka Azure Monitor for VMs gäst hälsa (för hands version)](insights/vminsights-health-troubleshoot.md)
+
+
+
+
 
 ## <a name="october-2020"></a>Oktober 2020
 
@@ -43,7 +107,7 @@ Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya
 ### <a name="autoscale"></a>Automatisk skalning
 - [Kom igång med autoskalning i Azure](platform/autoscale-get-started.md) -tillagt avsnitt om att flytta autoskalning till en annan region.
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Containrar
 - [Konfigurera PV-övervakning med Azure Monitor för behållare](insights/container-insights-persistent-volumes.md) – ny artikel.
 - [Hantera Azure Monitor för behållare agent](insights/container-insights-manage-agent.md) – stöd för Azure Arc-aktiverade Kubernetes-kluster.
 - [Mått varningar från Azure Monitor för behållare](insights/container-insights-metric-alerts.md) – stöd för Azure Arc-aktiverade Kubernetes-kluster har lagts till.
@@ -98,7 +162,7 @@ Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya
 - [Använd program ändrings analys i Azure Monitor för att hitta problem med webb-app](app/change-analysis.md) -tillagd virtuell dator och aktivitets logg.
 
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Containrar
 - [Konfigurera Azure Arc-aktiverade Kubernetes-kluster med Azure Monitor för behållare](insights/container-insights-enable-arc-enabled-clusters.md) – ytterligare vägledning för att aktivera övervakning med tjänstens huvud namn.
 - [Distributions & hPa mått med Azure Monitor för behållare](insights/container-insights-deployment-hpa-metrics.md) – ny artikel.
 
@@ -177,7 +241,7 @@ Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya
 - [Data insamlings regler i Azure Monitor (för hands version)](platform/data-collection-rule-overview.md) – ny artikel.
 
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Containrar
 - [Distributions & hPa mått med Azure Monitor för behållare](insights/container-insights-deployment-hpa-metrics.md) – ny artikel.
 
 ### <a name="insights"></a>Insikter
@@ -222,7 +286,7 @@ Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya
 - [Exempel på Resource Manager-mallar för Application Insights resurser](samples/resource-manager-app-resource.md) – ny artikel.
 - [Felsök problem med Azure Application Insights profiler](app/profiler-troubleshooting.md) – en anteckning om fel som kör profiler för ASP.net Core appar på Azure App Service. 
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Containrar
 - [Logga aviseringar från Azure Monitor för behållare](insights/container-insights-log-alerts.md) – ny artikel.
 - [Mått varningar från Azure Monitor för behållare](insights/container-insights-metric-alerts.md) – ny artikel.
 
@@ -285,7 +349,7 @@ Nya och uppdaterade artiklar från omstrukturering av Azure Monitor for VMs inne
 - [Övervaka dina appar utan kod ändringar – Auto-Instrumentation för Azure Monitor Application Insights](app/codeless-overview.md) nya artikeln.
 - [FELSÖKA SDK-inläsnings fel för JavaScript-webbprogram](app/javascript-sdk-load-failure.md) – ny artikel.
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Containrar
 - [Så här slutar du övervaka ditt hybrid Kubernetes-kluster](insights/container-insights-optout-hybrid.md) för Arc-aktiverad Kubernetes.
 - [Konfigurera Azure Arc-aktiverat Kubernetes-kluster med Azure Monitor för behållare](insights/container-insights-enable-arc-enabled-clusters.md) – ny artikel.
 - [Konfigurera Azure Red Hat OpenShift v4. x med Azure Monitor för behållare](insights/container-insights-azure-redhat4-setup.md) – uppdaterade krav.
@@ -392,7 +456,7 @@ Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms
 
 
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Containrar
 - [Så här aktiverar du Azure Monitor för behållare](insights/container-insights-onboard.md) – uppdaterad brand Väggs konfigurations tabell.
 - [Uppdatera Azure Monitor för behållare för mått](insights/container-insights-update-metrics.md) – uppdatering för att använda hanterade identiteter för att samla in mått.
 - [Övervaknings kostnad för Azure Monitor för behållare](insights/container-insights-cost.md) – ny artikel.
@@ -455,7 +519,7 @@ Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms
 - [Ta bort Application Insights i Visual Studio](app/remove-application-insights.md) – ny artikel.
 - [Telemetri-sampling i Azure Application Insights](app/sampling.md) -Fix i fast priss exempel i python.
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Containrar
 
 - [Konfigurera Azure Red Hat OpenShift v4. x med Azure Monitor för behållare](insights/container-insights-azure-redhat4-setup.md) – ny artikel.
 - [Åtgärda ServiceNow-synkroniseringsproblem manuellt](platform/itsmc-resync-servicenow.md) – ny artikel.
@@ -503,7 +567,7 @@ Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms
 - [Övervaka python-program med Azure Monitor (för hands version)](app/opencensus-python.md) – tillagda standard mått.
 - [Käll kart stöd för JavaScript-program – Azure Monitor Application Insights](app/source-map-support.md) – ny artikel.
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Containrar
 
 - [Azure Monitor vanliga frågor och svar](faq.md) – uppdatering för Azure Monitor för behållare.
 - [Konfigurera GPU-övervakning med Azure Monitor för behållare](insights/container-insights-gpu-monitoring.md) – ny artikel.

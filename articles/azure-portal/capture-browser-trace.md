@@ -1,20 +1,14 @@
 ---
-title: Avbilda en webb läsar spårning för fel sökning | Microsoft Docs
+title: Samla in en webbläsarspårning för felsökning
 description: Samla in nätverks information från en webb läsar spårning för att felsöka problem med Azure Portal.
-services: azure-portal
-keywords: ''
-author: mgblythe
-ms.author: mblythe
 ms.date: 05/11/2020
 ms.topic: troubleshooting
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: aac7357939ab2d14949c967630840ed6d267d251
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 504a32fb63022f97e8049c7c1ccc7721bbac31ab
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145743"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746003"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Samla in en webbläsarspårning för felsökning
 
@@ -30,19 +24,19 @@ Google Chrome och Microsoft Edge (krom) är båda baserade på [projektet krom �
 
 1. I portalen navigerar du till steget precis innan problemet uppstår.
 
-1. Tryck på F12 eller Välj ![ skärm bild som visar ikonen för webb läsar inställningar.](media/capture-browser-trace/chromium-icon-settings.png) > **Fler verktyg**  >  **Utvecklarverktyg** .
+1. Tryck på F12 eller Välj ![ skärm bild som visar ikonen för webb läsar inställningar.](media/capture-browser-trace/chromium-icon-settings.png) > **Fler verktyg**  >  **Utvecklarverktyg**.
 
 1. Som standard sparas endast spårnings information för den sida som för tillfället är inläst. Ange följande alternativ så att webbläsaren behåller all spårnings information, även om din återskapnings kräver mer än en sida:
 
-    1. Välj fliken **nätverk** och välj sedan **bevara logg** .
+    1. Välj fliken **nätverk** och välj sedan **bevara logg**.
 
           ![Skärm bild som visar alternativet för att bevara loggen på fliken nätverk.](media/capture-browser-trace/chromium-network-preserve-log.png)
 
-    1. Välj konsol **Inställningar** på fliken **konsol** och välj sedan **bevara logg** . Välj **konsol inställningar** igen för att stänga fönstret inställningar.
+    1. Välj konsol **Inställningar** på fliken **konsol** och välj sedan **bevara logg**. Välj **konsol inställningar** igen för att stänga fönstret inställningar.
 
           ![Skärm bild som visar alternativet för att bevara loggen på fliken konsol.](media/capture-browser-trace/chromium-console-preserve-log.png)
 
-1. Välj fliken **nätverk** och välj sedan **stoppa registrering av nätverks logg** och **Rensa** .
+1. Välj fliken **nätverk** och välj sedan **stoppa registrering av nätverks logg** och **Rensa**.
 
     ![Skärm bild av "stoppa registrering av nätverks logg" och "Rensa"](media/capture-browser-trace/chromium-stop-clear-session.png)
 
@@ -76,19 +70,19 @@ Följande steg visar hur du använder utvecklarverktyg i Microsoft Edge (EdgeHTM
 
 1. I portalen navigerar du till steget precis innan problemet uppstår.
 
-1. Tryck på F12 eller Välj ![ skärm bild av ikonen för webb läsar inställningar.](media/capture-browser-trace/edge-icon-settings.png) > **Fler verktyg**  >  **Utvecklarverktyg** .
+1. Tryck på F12 eller Välj ![ skärm bild av ikonen för webb läsar inställningar.](media/capture-browser-trace/edge-icon-settings.png) > **Fler verktyg**  >  **Utvecklarverktyg**.
 
 1. Som standard sparas endast spårnings information för den sida som för tillfället är inläst. Ange följande alternativ så att webbläsaren behåller all spårnings information, även om din återskapnings kräver mer än en sida:
 
-    1. Välj fliken **nätverk** och avmarkera sedan alternativet **Rensa poster vid navigera** .
+    1. Välj fliken **nätverk** och avmarkera sedan alternativet **Rensa poster vid navigera**.
 
           ![Skärm bild av "Rensa poster vid navigering"](media/capture-browser-trace/edge-network-clear-entries.png)
 
-    1. Välj fliken **konsol** och välj sedan **bevara logg** .
+    1. Välj fliken **konsol** och välj sedan **bevara logg**.
 
           ![Skärm bild av "bevara loggen"](media/capture-browser-trace/edge-console-preserve-log.png)
 
-1. Välj fliken **nätverk** och välj sedan **stoppa profilering** och **ta bort session** .
+1. Välj fliken **nätverk** och välj sedan **stoppa profilering** och **ta bort session**.
 
     ![Skärm bild av "stoppa profilering av sessionen" och "Rensa session"](media/capture-browser-trace/edge-stop-clear-session.png)
 
@@ -106,7 +100,7 @@ Följande steg visar hur du använder utvecklarverktyg i Microsoft Edge (EdgeHTM
 
 1. Stoppa steg inspelaren och spara inspelningen.
 
-1. Gå tillbaka i fönstret med webbläsarens utvecklarverktyg, Välj fliken **konsol** och expandera fönstret. Placera markören i början av konsolens utdata och dra och välj hela innehållet i utdata. Högerklicka på och välj sedan **Kopiera** , och spara konsolens utdata till en textfil.
+1. Gå tillbaka i fönstret med webbläsarens utvecklarverktyg, Välj fliken **konsol** och expandera fönstret. Placera markören i början av konsolens utdata och dra och välj hela innehållet i utdata. Högerklicka på och välj sedan **Kopiera**, och spara konsolens utdata till en textfil.
 
     ![Skärm bild som markerar meny alternativet Kopiera.](media/capture-browser-trace/edge-console-select.png)
 
@@ -118,11 +112,11 @@ Följande steg visar hur du använder utvecklarverktyg i Apple Safari. Mer infor
 
 1. Aktivera utvecklarverktyg i Apple Safari:
 
-    1. Välj **Safari** och välj sedan **Inställningar** .
+    1. Välj **Safari** och välj sedan **Inställningar**.
 
         ![Skärm bild av Safari-inställningar](media/capture-browser-trace/safari-preferences.png)
 
-    1. Välj fliken **Avancerat** och välj sedan **Visa utveckla meny i meny raden** .
+    1. Välj fliken **Avancerat** och välj sedan **Visa utveckla meny i meny raden**.
 
         ![Skärm bild av avancerade inställningar för Safari](media/capture-browser-trace/safari-show-develop-menu.png)
 
@@ -132,21 +126,21 @@ Följande steg visar hur du använder utvecklarverktyg i Apple Safari. Mer infor
 
 1. I portalen navigerar du till steget precis innan problemet uppstår.
 
-1. Välj **utveckla** och välj sedan **Visa webb kontroll** .
+1. Välj **utveckla** och välj sedan **Visa webb kontroll**.
 
     ![Skärm bild av "Visa webb kontroll"](media/capture-browser-trace/safari-show-web-inspector.png)
 
 1. Som standard sparas endast spårnings information för den sida som för tillfället är inläst. Ange följande alternativ så att webbläsaren behåller all spårnings information, även om din återskapnings kräver mer än en sida:
 
-    1. Välj fliken **nätverk** och välj sedan **bevara logg** .
+    1. Välj fliken **nätverk** och välj sedan **bevara logg**.
 
           ![Skärm bild som visar alternativet för att bevara loggen.](media/capture-browser-trace/safari-network-preserve-log.png)
 
-    1. Välj fliken **konsol** och välj sedan **bevara logg** .
+    1. Välj fliken **konsol** och välj sedan **bevara logg**.
 
           ![Skärm bild som visar den bevarade loggen på fliken konsol.](media/capture-browser-trace/safari-console-preserve-log.png)
 
-1. Välj fliken **nätverk** och välj sedan **Rensa nätverks objekt** .
+1. Välj fliken **nätverk** och välj sedan **Rensa nätverks objekt**.
 
     ![Skärm bild av "Rensa nätverks objekt"](media/capture-browser-trace/safari-clear-session.png)
 
@@ -176,19 +170,19 @@ Följande steg visar hur du använder utvecklarverktyg i Firefox. Mer informatio
 
 1. I portalen navigerar du till steget precis innan problemet uppstår.
 
-1. Tryck på F12 eller Välj ![ skärm bild av webb läsar Inställningar ikon för ](media/capture-browser-trace/firefox-icon-settings.png)  >  **webbutvecklare**  >  **Växla verktyg** .
+1. Tryck på F12 eller Välj ![ skärm bild av webb läsar Inställningar ikon för ](media/capture-browser-trace/firefox-icon-settings.png)  >  **webbutvecklare**  >  **Växla verktyg**.
 
 1. Som standard sparas endast spårnings information för den sida som för tillfället är inläst. Ange följande alternativ så att webbläsaren behåller all spårnings information, även om din återskapnings kräver mer än en sida:
 
-    1. Välj fliken **nätverk** och välj sedan **Spara loggar** .
+    1. Välj fliken **nätverk** och välj sedan **Spara loggar**.
 
           ![Skärm bild som visar alternativet Behåll loggar.](media/capture-browser-trace/firefox-network-persist-logs.png)
 
-    1. Välj konsol **Inställningar** på fliken **konsol** och välj sedan **Spara loggar** .
+    1. Välj konsol **Inställningar** på fliken **konsol** och välj sedan **Spara loggar**.
 
           ![Skärm bild av "beständiga loggar"](media/capture-browser-trace/firefox-console-persist-logs.png)
 
-1. Välj fliken **nätverk** och välj sedan **Rensa** .
+1. Välj fliken **nätverk** och välj sedan **Rensa**.
 
     ![Skärm bild av "Rensa"](media/capture-browser-trace/firefox-clear-session.png)
 

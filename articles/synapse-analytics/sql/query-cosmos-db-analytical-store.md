@@ -6,15 +6,15 @@ author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: a7e9cdb18d109abeef7d7d7237444ac55f9e7da1
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 129534727248ff05b5d38da60dead7903d9a5815
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576357"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744473"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Fråga Azure Cosmos DB data med en server lös SQL-pool i för hands versionen av Azure Synapse Link
 
@@ -71,7 +71,7 @@ OPENROWSET(
     )  [ < with clause > ] AS alias
 ```
 
-Den Azure Cosmos DB anslutnings strängen innehåller inte någon nyckel i det här fallet. Anslutnings strängen har följande format:
+Den Azure Cosmos DB anslutnings strängen innehåller inte nyckel i det här fallet. Anslutnings strängen har följande format:
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>'
 ```
@@ -98,12 +98,13 @@ Om du vill följa med i den här artikeln som demonstrerar hur du frågar Azure 
 
 * Ett Azure Cosmos DB databas konto som är [Azure Synapse-länk aktiverat](../../cosmos-db/configure-synapse-link.md).
 * En Azure Cosmos DB databas med namnet `covid` .
-* Två Azure Cosmos DB behållare med namnet `EcdcCases` och `Cord19` lästs in med föregående exempel data uppsättningar.
+* Två Azure Cosmos DB behållare med namnet `Ecdc` och `Cord19` lästs in med föregående exempel data uppsättningar.
+
+Du kan använda följande anslutnings sträng för testnings syfte: `Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==` . Observera att den här anslutningen inte garanterar prestanda eftersom det här kontot kan finnas i fjärrregionen jämfört med din Synapse SQL-slutpunkt.
 
 ## <a name="explore-azure-cosmos-db-data-with-automatic-schema-inference"></a>Utforska Azure Cosmos DB data med automatisk schema härledning
 
 Det enklaste sättet att utforska data i Azure Cosmos DB är att använda funktionen för automatiskt schema härledning. Genom att utelämna- `WITH` satsen från `OPENROWSET` -instruktionen kan du instruera den serverbaserade SQL-poolen att automatiskt identifiera (härleda) schemat för den Azure Cosmos DB behållarens analys arkiv.
-
 
 ### <a name="openrowset-with-key"></a>[OpenRowSet med nyckel](#tab/openrowset-key)
 
@@ -111,8 +112,8 @@ Det enklaste sättet att utforska data i Azure Cosmos DB är att använda funkti
 SELECT TOP 10 *
 FROM OPENROWSET( 
        'CosmosDB',
-       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       EcdcCases) as documents
+       'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
+       Ecdc) as documents
 ```
 
 ### <a name="openrowset-with-credential"></a>[OpenRowSet med autentiseringsuppgift](#tab/openrowset-credential)
@@ -120,20 +121,20 @@ FROM OPENROWSET(
 ```sql
 /*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
     CREATE CREDENTIAL MyCosmosDbAccountCredential
-    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 */
 SELECT TOP 10 *
 FROM OPENROWSET(
       PROVIDER = 'CosmosDB',
-      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
-      OBJECT = 'EcdcCases',
+      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      OBJECT = 'Ecdc',
       SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
 ---
 
-I föregående exempel instruerade vi den serverbaserade SQL-poolen att ansluta till `covid` databasen i det Azure Cosmos DB konto `MyCosmosDbAccount` som autentiserats med hjälp av Azure Cosmos DBS nyckeln (provdocka i föregående exempel). Vi har sedan till gång till `EcdcCases` behållarens analys Arkiv i `West US 2` regionen. Eftersom det inte finns någon projektion av vissa egenskaper, `OPENROWSET` returnerar funktionen alla egenskaper från Azure Cosmos DB objekt.
+I föregående exempel instruerade vi den serverbaserade SQL-poolen att ansluta till `covid` databasen i det Azure Cosmos DB konto `MyCosmosDbAccount` som autentiserats med hjälp av Azure Cosmos DBS nyckeln (provdocka i föregående exempel). Vi har sedan till gång till `Ecdc` behållarens analys Arkiv i `West US 2` regionen. Eftersom det inte finns någon projektion av vissa egenskaper, `OPENROWSET` returnerar funktionen alla egenskaper från Azure Cosmos DB objekt.
 
 Förutsatt att objekten i Azure Cosmos DB-behållaren har `date_rep` , `cases` , och `geo_id` egenskaper, visas resultatet av den här frågan i följande tabell:
 
@@ -149,7 +150,7 @@ Om du behöver utforska data från den andra behållaren i samma Azure Cosmos DB
 SELECT TOP 10 *
 FROM OPENROWSET( 
        'CosmosDB',
-       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
        Cord19) as cord19
 ```
 
@@ -174,21 +175,21 @@ Dessa enkla JSON-dokument i Azure Cosmos DB kan representeras som en uppsättnin
 SELECT TOP 10 *
 FROM OPENROWSET(
       'CosmosDB',
-      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       EcdcCases
+      'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
+       Ecdc
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 ### <a name="openrowset-with-credential"></a>[OpenRowSet med autentiseringsuppgift](#tab/openrowset-credential)
 ```sql
 /*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
     CREATE CREDENTIAL MyCosmosDbAccountCredential
-    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 */
 SELECT TOP 10 *
 FROM OPENROWSET(
       PROVIDER = 'CosmosDB',
-      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
-      OBJECT = 'EcdcCases',
+      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      OBJECT = 'Ecdc',
       SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
@@ -209,14 +210,14 @@ När du har identifierat schemat kan du förbereda en vy ovanpå dina Azure Cosm
 
 ```sql
 CREATE CREDENTIAL MyCosmosDbAccountCredential
-WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 GO
-CREATE OR ALTER VIEW EcdcCases
+CREATE OR ALTER VIEW Ecdc
 AS SELECT *
 FROM OPENROWSET(
       PROVIDER = 'CosmosDB',
-      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
-      OBJECT = 'EcdcCases',
+      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      OBJECT = 'Ecdc',
       SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
@@ -241,41 +242,28 @@ Till exempel har [kabeln-19-](https://azure.microsoft.com/services/open-datasets
 }
 ```
 
-De kapslade objekten och matriserna i Azure Cosmos DB representeras som JSON-strängar i frågeresultatet när `OPENROWSET` funktionen läser dem. Ett alternativ för att läsa värdena från dessa komplexa typer som SQL-kolumner är att använda SQL JSON-funktioner:
+De kapslade objekten och matriserna i Azure Cosmos DB representeras som JSON-strängar i frågeresultatet när `OPENROWSET` funktionen läser dem. Du kan ange sökvägar till kapslade värden i objekten när du använder- `WITH` satsen:
 
 ```sql
-SELECT
-    title = JSON_VALUE(metadata, '$.title'),
-    authors = JSON_QUERY(metadata, '$.authors'),
-    first_author_name = JSON_VALUE(metadata, '$.authors[0].first')
-FROM
-    OPENROWSET(
-      'CosmosDB',
-      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       Cord19
-    WITH ( metadata varchar(MAX) ) AS docs;
+SELECT TOP 10 *
+FROM OPENROWSET( 
+       'CosmosDB',
+       'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
+       Cord19)
+WITH (  paper_id    varchar(8000),
+        title        varchar(1000) '$.metadata.title',
+        metadata     varchar(max),
+        authors      varchar(max) '$.metadata.authors'
+) AS docs;
 ```
 
 Resultatet av den här frågan kan se ut som i följande tabell:
 
-| title | författaren | first_autor_name |
+| paper_id | title | metadata | författaren |
 | --- | --- | --- |
-| Extra information ett eko-epidemi... |   `[{"first":"Julien","last":"Mélade","suffix":"","affiliation":{"laboratory":"Centre de Recher…` | Julien |  
-
-Som alternativ kan du också ange sökvägar till kapslade värden i objekten när du använder- `WITH` satsen:
-
-```sql
-SELECT
-    *
-FROM
-    OPENROWSET(
-      'CosmosDB',
-      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       Cord19
-    WITH ( title varchar(1000) '$.metadata.title',
-           authors varchar(max) '$.metadata.authors'
-    ) AS docs;
-```
+| bb11206963e831f... | Extra information ett eko-epidemi... | `{"title":"Supplementary Informati…` | `[{"first":"Julien","last":"Mélade","suffix":"","af…`| 
+| bb1206963e831f1... | Användning av convalescent serum i immun-E... | `{"title":"The Use of Convalescent…` | `[{"first":"Antonio","last":"Lavazza","suffix":"", …` |
+| bb378eca9aac649... | Tylosema esculentum (Marama) knöl och B... | `{"title":"Tylosema esculentum (Ma…` | `[{"first":"Walter","last":"Chingwaru","suffix":"",…` | 
 
 Lär dig mer om att analysera [komplexa data typer i Azure Synapse-länk](../how-to-analyze-complex-schema.md) och [kapslade strukturer i en server lös SQL-pool](query-parquet-nested-types.md).
 
@@ -315,7 +303,7 @@ SELECT
 FROM
     OPENROWSET(
       'CosmosDB',
-      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+      'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
        Cord19
     ) WITH ( title varchar(1000) '$.metadata.title',
              authors varchar(max) '$.metadata.authors' ) AS docs
@@ -365,7 +353,7 @@ SELECT *
 FROM OPENROWSET(
       'CosmosDB',
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       EcdcCases
+       Ecdc
     ) as rows
 ```
 
@@ -400,7 +388,7 @@ SELECT geo_id, cases = SUM(cases)
 FROM OPENROWSET(
       'CosmosDB'
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       EcdcCases
+       Ecdc
     ) WITH ( geo_id VARCHAR(50) '$.geo_id.string',
              cases INT '$.cases.int32'
     ) as rows
@@ -416,7 +404,7 @@ SELECT geo_id, cases = SUM(cases_int) + SUM(cases_bigint) + SUM(cases_float)
 FROM OPENROWSET(
       'CosmosDB',
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       EcdcCases
+       Ecdc
     ) WITH ( geo_id VARCHAR(50) '$.geo_id.string', 
              cases_int INT '$.cases.int32',
              cases_bigint BIGINT '$.cases.int64',
@@ -430,18 +418,18 @@ I det här exemplet lagras antalet fall som `int32` -, `int64` -eller- `float64`
 ## <a name="known-issues"></a>Kända problem
 
 - Frågan fungerar som en server lös SQL-pool för [Azure Cosmos DB full Fidelity schema](#full-fidelity-schema) är ett tillfälligt beteende som ändras baserat på förhands gransknings feedback. Förlita dig inte på schemat som `OPENROWSET` funktionen utan `WITH` -satsen tillhandahåller under den offentliga för hands versionen eftersom frågekörning kan justeras med väldefinierat schema baserat på kundfeedback. Kontakta [produkt teamet för Azure Synapse-länken](mailto:cosmosdbsynapselink@microsoft.com)om du vill ge feedback.
-- En server lös SQL-pool returnerar inte ett kompileringsfel om `OPENROWSET` kolumn sorteringen inte har UTF-8-kodning. Du kan enkelt ändra standard sortering för alla `OPENROWSET` funktioner som körs i den aktuella databasen med hjälp av instruktionen T-SQL `alter database current collate Latin1_General_100_CI_AI_SC_UTF8` .
+- En server utan SQL-pool returnerar en kompileringsfel om `OPENROWSET` kolumn sorteringen inte har UTF-8-kodning. Du kan enkelt ändra standard sorteringen för alla `OPENROWSET` funktioner som körs i den aktuella databasen med hjälp av instruktionen T-SQL `alter database current collate Latin1_General_100_CI_AS_SC_UTF8` .
 
 Möjliga fel och fel söknings åtgärder visas i följande tabell.
 
 | Fel | Rotorsak |
 | --- | --- |
-| Syntaxfel:<br/> -Felaktig syntax nära "OpenRowSet"<br/> - `...` är inte ett känt alternativ för OpenRowSet-providern.<br/> -Felaktig syntax nära `...` | Möjliga rotor orsaker:<br/> – Använder inte CosmosDB som första parameter.<br/> – Använder en stränglitteral i stället för en identifierare i den tredje parametern.<br/> – Anger inte den tredje parametern (container Name). |
+| Syntaxfel:<br/> -Felaktig syntax nära `Openrowset`<br/> - `...` är inte ett känt `BULK OPENROWSET` Provider-alternativ.<br/> -Felaktig syntax nära `...` | Möjliga rotor orsaker:<br/> – Använder inte CosmosDB som första parameter.<br/> – Använder en stränglitteral i stället för en identifierare i den tredje parametern.<br/> – Anger inte den tredje parametern (container Name). |
 | Ett fel uppstod i CosmosDB-anslutningssträngen. | -Kontot, databasen eller nyckeln har inte angetts. <br/> – Det finns ett alternativ i en anslutnings sträng som inte känns igen.<br/> -Ett semikolon ( `;` ) placeras i slutet av en anslutnings sträng. |
 | Det gick inte att matcha CosmosDB Sök väg med felet "felaktigt konto namn" eller "ogiltigt databas namn". | Det angivna konto namnet, databas namnet eller behållaren kan inte hittas, eller så har inte analytisk lagring Aktiver ATS för den angivna samlingen.|
 | Det gick inte att matcha CosmosDB-sökvägen med felet "felaktigt hemligt värde" eller "hemlighet är null eller tomt". | Konto nyckeln är inte giltig eller saknas. |
 | Kolumnen `column name` av typen `type name` är inte kompatibel med den externa data typen `type name` . | Den angivna kolumn typen i `WITH` satsen matchar inte typen i Azure Cosmos DB containern. Försök att ändra kolumn typen som den beskrivs i avsnittet [Azure Cosmos dB till SQL-typ mappningar](#azure-cosmos-db-to-sql-type-mappings)eller Använd `VARCHAR` typen. |
-| Kolumnen innehåller `NULL` värden i alla celler. | Eventuellt ett kolumn namn eller ett Sök vägs uttryck i- `WITH` satsen. Kolumn namnet (eller Sök vägs uttrycket efter kolumn typen) i- `WITH` satsen måste överensstämma med ett egenskaps namn i Azure Cosmos DB samlingen. Jämförelse är *SKIFT läges känsligt*. Till exempel `productCode` och `ProductCode` är olika egenskaper. |
+| Kolumnen innehåller `NULL` värden i alla celler. | Eventuellt ett kolumn namn eller ett Sök vägs uttryck i- `WITH` satsen. Kolumn namnet (eller Sök vägs uttrycket efter kolumn typen) i- `WITH` satsen måste överensstämma med ett egenskaps namn i Azure Cosmos DB samlingen. Jämförelse är *SKIFT* läges känslig. Till exempel `productCode` och `ProductCode` är olika egenskaper. |
 
 Du kan rapportera förslag och problem på [feedback-sidan för Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 

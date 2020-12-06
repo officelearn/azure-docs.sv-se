@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 08/27/2019
-ms.openlocfilehash: e8d952c76fa71cb57d2edd7c9aa361c7249e0622
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: af110a66bc7ef5737f3d2d97a85ca07525b1d9e7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96582976"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744711"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Lands- och regionkoder för säljsamarbete
 
@@ -277,4 +277,4 @@ Om en kontakt omfattar mer än ett land/region, anger du var och en av de två b
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [alternativet Co-Sälj i Partner Center](./commercial-marketplace-co-sell.md).
+- Lär dig mer om [alternativet Co-Sälj på den kommersiella Marketplace](./commercial-marketplace-co-sell.md).

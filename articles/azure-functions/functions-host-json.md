@@ -3,12 +3,12 @@ title: host.jssom referens för Azure Functions 2. x
 description: Referens dokumentation för Azure Functions host.jsi filen med v2-körningen.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: c12a9244cdc1a76f678578e281532c73bc9385ba
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 96d6b884e9e2c835316af01140c6fc7208ee5ab9
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917247"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746088"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>host.json-referens för Azure Functions 2.x och senare 
 
@@ -150,7 +150,7 @@ Den fullständiga JSON-strukturen finns i det tidigare [exemplet host.jsi filen]
 > [!NOTE]
 > Logg sampling kan orsaka att vissa körningar inte visas på bladet Application Insights övervakning. Om du vill undvika logg sampling lägger `excludedTypes: "Request"` du till `samplingSettings` värdet.
 
-| Egenskap | Standardvärde | Beskrivning |
+| Egenskap | Standard | Description |
 | --------- | --------- | --------- | 
 | samplingSettings | saknas | Se [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Aktiverar insamling av Live-mått. |
@@ -164,7 +164,7 @@ Den fullständiga JSON-strukturen finns i det tidigare [exemplet host.jsi filen]
 
 Mer information om de här inställningarna finns [i sampling i Application Insights](../azure-monitor/app/sampling.md). 
 
-|Egenskap | Standardvärde | Beskrivning |
+|Egenskap | Standard | Description |
 | --------- | --------- | --------- | 
 | isEnabled | true | Aktiverar eller inaktiverar sampling. | 
 | maxTelemetryItemsPerSecond | 20 | Mål antalet för telemetri som loggats per sekund på varje server värd. Om din app körs på många värdar kan du minska det här värdet så att det ligger kvar i den övergripande trafik hastigheten. | 
@@ -180,7 +180,7 @@ Mer information om de här inställningarna finns [i sampling i Application Insi
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights. httpAutoCollectionOptions
 
-|Egenskap | Standardvärde | Beskrivning |
+|Egenskap | Standard | Description |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Aktiverar eller inaktiverar utökad HTTP-begäran om HTTP-utlösare: inkommande begäran korrelations rubriker, stöd för flera instrument nycklar, HTTP-metod, sökväg och svar. |
 | enableW3CDistributedTracing | true | Aktiverar eller inaktiverar stöd för W3C Distributed tracing Protocol (och aktiverar ett äldre korrelations schema). Aktive ras som standard om `enableHttpTriggerExtendedInfoCollection` är sant. Om `enableHttpTriggerExtendedInfoCollection` är False gäller den här flaggan enbart utgående begär Anden, inte inkommande begär Anden. |
@@ -190,7 +190,7 @@ Mer information om de här inställningarna finns [i sampling i Application Insi
 
 Mer information om ögonblicks bilder finns i [fel sökning av ögonblicks bilder av undantag i .net-appar](../azure-monitor/app/snapshot-debugger.md) och [Felsöka problem som aktiverar Application Insights Snapshot debugger eller visning av ögonblicks bilder](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
-|Egenskap | Standardvärde | Beskrivning |
+|Egenskap | Standard | Description |
 | --------- | --------- | --------- | 
 | agentEndpoint | null | Slut punkten som används för att ansluta till tjänsten Application Insights Snapshot Debugger. Om värdet är null används en standard slut punkt. |
 | captureSnapshotMemoryWeight | 0,5 | Vikten som ges till den aktuella processens minnes storlek vid kontroll om det finns tillräckligt med minne för att ta en ögonblicks bild. Det förväntade värdet är ett större än 0-bråk (0 < CaptureSnapshotMemoryWeight < 1). |
@@ -218,6 +218,28 @@ Mer information om ögonblicks bilder finns i [fel sökning av ögonblicks bilde
 ## <a name="cosmosdb"></a>cosmosDb
 
 Du hittar konfigurations inställningen i [Cosmos DB utlösare och bindningar](functions-bindings-cosmosdb-v2-output.md#host-json).
+
+## <a name="customhandler"></a>customHandler
+
+Konfigurations inställningar för en anpassad hanterare. Mer information finns i [Azure Functions anpassade hanterare](functions-custom-handlers.md#configuration).
+
+```json
+"customHandler": {
+  "description": {
+    "defaultExecutablePath": "server",
+    "workingDirectory": "handler",
+    "arguments": [ "--port", "%FUNCTIONS_CUSTOMHANDLER_PORT%" ]
+  },
+  "enableForwardingHttpRequest": false
+}
+```
+
+|Egenskap | Standard | Description |
+| --------- | --------- | --------- |
+| defaultExecutablePath | saknas | Den körbara fil som ska startas som anpassad hanterare. Det är en obligatorisk inställning när du använder anpassade hanterare och dess värde är i förhållande till Function-programroten. |
+| workingDirectory | *function-app-rot* | Den arbets katalog där processen för anpassad hanterare ska startas. Det är en valfri inställning och dess värde är i förhållande till Function-programmets rot. |
+| ogiltiga | saknas | En matris med kommando rads argument som ska skickas till den anpassade hanterings processen. |
+| enableForwardingHttpRequest | falskt | Om det här alternativet anges vidarebefordras alla funktioner som enbart består av en HTTP-utlösare och HTTP-utdata till den ursprungliga HTTP-begäran i stället för den anpassade hanterarens [nytto Last](functions-custom-handlers.md#request-payload). |
 
 ## <a name="durabletask"></a>durableTask
 
@@ -282,7 +304,7 @@ Konfigurations inställningar för [övervakaren av värd hälsa](https://github
 }
 ```
 
-|Egenskap  |Standardvärde | Beskrivning |
+|Egenskap  |Standard | Description |
 |---------|---------|---------| 
 |enabled|true|Anger om funktionen är aktive rad. | 
 |healthCheckInterval|10 sekunder|Tidsintervallet mellan de regelbundna hälso kontrollerna i bakgrunden. | 
@@ -314,7 +336,7 @@ Styr loggnings beteenden för Function-appen, inklusive Application Insights.
 }
 ```
 
-|Egenskap  |Standardvärde | Beskrivning |
+|Egenskap  |Standard | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definierar vilken nivå av fil loggning som är aktive rad.  Alternativen är `never` , `always` , `debugOnly` . |
 |logLevel|saknas|Objekt som definierar logg kategori filtrering för funktioner i appen. Version 2. x och senare följer ASP.NET Core layout för filtrering av loggnings kategorier. Med den här inställningen kan du filtrera loggning för vissa funktioner. Mer information finns i [logg filtrering](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) i ASP.net Core-dokumentationen. |
@@ -337,7 +359,7 @@ Den här inställningen är underordnad [loggning](#logging). Den styr konsol lo
 }
 ```
 
-|Egenskap  |Standardvärde | Beskrivning |
+|Egenskap  |Standard | Description |
 |---------|---------|---------| 
 |isEnabled|falskt|Aktiverar eller inaktiverar konsol loggning.| 
 
@@ -371,7 +393,7 @@ Kontrollerar princip alternativen för [återförsök](./functions-bindings-erro
 }
 ```
 
-|Egenskap  |Standardvärde | Beskrivning |
+|Egenskap  |Standard | Description |
 |---------|---------|---------| 
 |strategi|null|Krävs. Återförsöksstrategin som ska användas. Giltiga värden är `fixedDelay` eller `exponentialBackoff` .|
 |maxRetryCount|null|Krävs. Maximalt antal tillåtna försök per funktions körning. `-1` innebär ett nytt försök på obestämd tid.|
@@ -403,7 +425,7 @@ Konfigurations inställningar för beteendet singleton lock. Mer information fin
 }
 ```
 
-|Egenskap  |Standardvärde | Beskrivning |
+|Egenskap  |Standard | Description |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Den period som funktions nivå lås utförs för. Lås automatisk förnyelse.| 
 |listenerLockPeriod|00:01:00|Den period som lyssnarens lås tas för.| 

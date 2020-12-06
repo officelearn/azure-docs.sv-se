@@ -1,20 +1,15 @@
 ---
-title: Så här skapar du en support förfrågan för Azure | Microsoft Docs
+title: Skapa en supportbegäran för Azure
 description: Kunder som behöver hjälp kan använda Azure Portal för att hitta självbetjänings lösningar och för att skapa och hantera support förfrågningar.
-services: Azure Supportability
-author: mgblythe
-manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
-ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/25/2020
-ms.author: mblythe
-ms.openlocfilehash: f937b03b2f838f69f56a4b132d0ea7a7e298b532
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 11ca7925ce1664b5586ab8ec0fb523a2d562ee80
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372131"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745595"
 ---
 # <a name="create-an-azure-support-request"></a>Skapa en Azure-supportbegäran
 
@@ -35,7 +30,7 @@ Support ärendets upplevelse fokuserar på tre huvudsakliga mål:
 
 Azure ger obegränsad support för prenumerations hantering, bland annat fakturering, kvot justeringar och konto överföringar. För teknisk support behöver du en Support plan. Mer information finns i [Jämföra supportplaner](https://azure.microsoft.com/support/plans).
 
-## <a name="getting-started"></a>Komma igång
+## <a name="getting-started"></a>Kom igång
 
 Du kan få **Hjälp + Support** i Azure Portal. Den finns på Azure Portal-menyn, i den globala rubriken eller på resurs-menyn för en tjänst. Innan du kan skicka en förfrågan till en supportbegäran måste du ha rätt behörighet.
 
@@ -73,7 +68,7 @@ Vi vägleder dig genom några steg för att samla in information om ditt problem
 
 Det första steget i support förfrågnings processen samlar in grundläggande information om ditt problem och ditt support avtal.
 
-På fliken **grundläggande** i den **nya support förfrågan**använder du selectrs för att tala om för oss om problemet. Först ska du identifiera några allmänna kategorier för ärende typen och välja den relaterade prenumerationen. Välj tjänsten, till exempel **virtuell dator som kör Windows**. Välj resursen, till exempel namnet på den virtuella datorn. Beskriv problemet med dina egna ord och välj sedan **problem typ** och **problem under typ** för att få mer information.
+På fliken **grundläggande** i den **nya support förfrågan** använder du selectrs för att tala om för oss om problemet. Först ska du identifiera några allmänna kategorier för ärende typen och välja den relaterade prenumerationen. Välj tjänsten, till exempel **virtuell dator som kör Windows**. Välj resursen, till exempel namnet på den virtuella datorn. Beskriv problemet med dina egna ord och välj sedan **problem typ** och **problem under typ** för att få mer information.
 
 ![Bladet Grundläggande inställningar](./media/how-to-create-azure-support-request/basics2lower.png)
 
@@ -87,7 +82,7 @@ Sedan samlar vi in ytterligare information om problemet. Att tillhandahålla gru
 
 1. Om möjligt ska du meddela oss när problemet har inletts och hur du kan återskapa det. Du kan ladda upp en fil, till exempel en loggfil eller utdata från diagnostiken. Mer information om fil uppladdningar finns i [rikt linjer för fil uppladdning](how-to-manage-azure-support-request.md#file-upload-guidelines).
 
-1. När vi har all information om problemet väljer du hur du får support. I avsnittet **support metod** i **detalj**väljer du allvarlighets graden för påverkan. Den högsta allvarlighets graden beror på [support avtalet](https://azure.microsoft.com/support/plans).
+1. När vi har all information om problemet väljer du hur du får support. I avsnittet **support metod** i **detalj** väljer du allvarlighets graden för påverkan. Den högsta allvarlighets graden beror på [support avtalet](https://azure.microsoft.com/support/plans).
 
     Som standard är alternativet **dela diagnostisk information** valt. På så sätt kan Azure-supporten samla in [diagnostikinformation](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) från dina Azure-resurser. I vissa fall finns det en andra fråga som inte är markerad som standard, till exempel att begära åtkomst till en virtuell dators minne.
 

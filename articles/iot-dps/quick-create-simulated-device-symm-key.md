@@ -1,6 +1,6 @@
 ---
-title: Snabb start – Använd symmetrisk nyckel för att etablera simulerad enhet till Azure IoT Hub med C
-description: I den här snabb starten ska du använda C-enhetens SDK för att skapa en simulerad enhet som använder symmetrisk nyckel med Azure-IoT Hub Device Provisioning Service (DPS)
+title: Snabb start – Använd symmetrisk nyckel för att etablera enheter till Azure IoT Hub med C
+description: I den här snabb starten ska du använda C-enhetens SDK för att etablera en enhet som använder symmetrisk nyckel med Azure-IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/14/2020
@@ -9,20 +9,20 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ab998756f219cd7bc155f98c2d29454be8018825
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7df7c9ab6bfbc8a39050b78a76114ae2a0a9d9b7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968221"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746513"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Snabbstart: Etablera en simulerad enhet med symmetriska nycklar
+# <a name="quickstart-provision-a-device-with-symmetric-keys"></a>Snabb start: etablera en enhet med symmetriska nycklar
 
-I den här snabbstarten får lära dig att skapa och köra en enhetssimulator på en Windows-utvecklingsdator. Du konfigurerar den här simulerade enheten för att använda en symmetrisk nyckel för att autentisera med hjälp av en enhetsetableringstjänstinstans och för att tilldelas till en IoT-hubb. Exempelkoden från [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) används för att simulera en startsekvens för enheten som initierar etablering. Enheten identifieras baserat på enskild registrering med etableringstjänstinstansen och tilldelas till en IoT-hubb.
+I den här snabb starten får du lära dig hur du kör enhets etablerings kod på en Windows-utvecklings dator för att ansluta den till en IoT Hub som en IoT-enhet. Du konfigurerar enheten så att den använder en symmetrisk nyckel autentisering med en enhets etablerings tjänst instans och tilldelas till en IoT-hubb. Exempel kod från [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) kommer att användas för att etablera enheten. Enheten identifieras baserat på enskild registrering med etableringstjänstinstansen och tilldelas till en IoT-hubb.
 
 Även om den här artikeln visar etablering med en enskild registrering kan du använda registrerings grupper. Det finns vissa skillnader när du använder registrerings grupper. Du måste till exempel använda en härledd enhets nyckel med ett unikt registrerings-ID för enheten. Även om registreringsgrupper för symmetrisk nyckel inte är begränsade till äldre enheter finns det ett exempel för registreringsgrupper i avsnittet om [hur du etablerar äldre enheter med symmetrisk nyckelattestering](how-to-legacy-device-symm-key.md). Mer information finns i avsnittet om [gruppregistreringar för symmetrisk nyckelattestering](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Om du inte är bekant med processen för automatisk etablering, granskar du [etablerings](about-iot-dps.md#provisioning-process) översikten. 
+Om du inte är bekant med processen för autoetablering, granskar du [etablerings](about-iot-dps.md#provisioning-process) översikten. 
 
 Se även till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub-enhetsetableringstjänsten med Azure-portalen) innan du fortsätter med den här snabbstarten. Den här snabbstarten kräver att du redan har skapat en Device Provisioning Service-instans.
 
@@ -32,7 +32,7 @@ Den här artikeln riktar sig till en Windows-arbetsstation. Du kan dock utföra 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande förutsättningar gäller för en Windows-utvecklings miljö. För Linux eller macOS, se lämpligt avsnitt i [förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) i SDK-dokumentationen.
 
@@ -46,7 +46,7 @@ Följande förutsättningar gäller för en Windows-utvecklings miljö. För Lin
 
 I det här avsnittet förbereder du en utvecklingsmiljö som används för att skapa [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). 
 
-SDK innehåller exempelkod för en simulerad enhet. Den här simulerade enheten försöker etablera under enhetens startsekvens.
+SDK: t inkluderar etablerings exempel koden för enheter. Den här koden försöker etablering under enhetens startsekvens.
 
 1. Ladda ned [cmake build-systemet](https://cmake.org/download/).
 
@@ -73,7 +73,7 @@ SDK innehåller exempelkod för en simulerad enhet. Den här simulerade enheten 
     cd cmake
     ```
 
-5. Kör följande kommando som skapar en version av SDK:t som är specifik för plattformen i din utvecklingsklient. En Visual Studio-lösning för den simulerade enheten genereras i `cmake`-katalogen. 
+5. Kör följande kommando som skapar en version av SDK:t som är specifik för plattformen i din utvecklingsklient. En Visual Studio-lösning för enhets etablerings koden kommer att skapas i `cmake` katalogen. 
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -123,7 +123,7 @@ SDK innehåller exempelkod för en simulerad enhet. Den här simulerade enheten 
 
 <a id="firstbootsequence"></a>
 
-## <a name="simulate-first-boot-sequence-for-the-device"></a>Simulera första startsekvens för enheten
+## <a name="run-the-provisioning-code-for-the-device"></a>Kör etablerings koden för enheten
 
 I det här avsnittet uppdaterar du exempelkoden för att skicka enhetens startsekvens till din instans av enhetsetableringstjänsten. Den här startsekvensen medför att enheten identifieras och tilldelas till en IoT-hubb som är länkad till instansen av enhetsetableringstjänsten.
 
@@ -158,7 +158,7 @@ I det här avsnittet uppdaterar du exempelkoden för att skicka enhetens startse
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Leta upp anropet till `prov_dev_set_symmetric_key_info()` i **prov\_dev\_client\_sample.c** som har kommenterats bort.
+6. Hitta anropet till `prov_dev_set_symmetric_key_info()` i **\_ test av dev- \_ klienten \_ . c** som är kommenterad.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -176,9 +176,9 @@ I det här avsnittet uppdaterar du exempelkoden för att skicka enhetens startse
 
 7. Högerklicka på projektet **prov\_dev\_client\_sample** och välj **Set as Startup Project** (Ange som startprojekt). 
 
-8. På Visual Studio-menyn väljer du **Felsök**  >  **Start utan fel sökning** för att köra lösningen. I prompten för att återskapa projektet väljer du **Ja** för att återskapa projektet innan det körs.
+8. På Visual Studio-menyn väljer du **Felsök**  >  **Start utan fel sökning** för att köra lösningen. I rutan återskapa projekt-prompten väljer du **Ja** för att återskapa projektet innan det körs.
 
-    Följande utdata är ett exempel på när den simulerade enheten lyckas med starten och ansluter till etableringstjänstinstansen för att tilldelas en IoT-hubb:
+    Följande utdata är ett exempel på enheten som ansluter till etablerings tjänst instansen som ska tilldelas till en IoT-hubb:
 
     ```cmd
     Provisioning API Version: 1.2.8
@@ -194,7 +194,7 @@ I det här avsnittet uppdaterar du exempelkoden för att skicka enhetens startse
     Press enter key to exit:
     ```
 
-9. I portalen navigerar du till den IoT-hubb som din simulerade enhet har tilldelats och väljer fliken **IoT-enheter** . Vid lyckad etablering av den simulerade till hubben visas dess enhets-ID på bladet **IoT-enheter** med *status* **aktive rad**. Du kan behöva klicka på knappen **Uppdatera** längst upp. 
+9. I portalen navigerar du till den IoT-hubb som din enhet har tilldelats och väljer fliken **IoT-enheter** . Vid lyckad etablering av enheten till hubben visas dess enhets-ID på bladet **IoT-enheter** med *status* **aktive rad**. Du kan behöva klicka på knappen **Uppdatera** längst upp. 
 
     ![Enheten är registrerad på IoT-hubben](./media/quick-create-simulated-device-symm-key/hub-registration.png) 
 
@@ -209,7 +209,7 @@ Om du planerar att fortsätta att arbeta med och utforska enhets klient exemplet
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat en simulerad enhet på Windows-datorn och allokerat den till IoT-hubben med hjälp av symmetrisk nyckel med Azure-IoT Hub Device Provisioning Service på portalen. Om du vill lära dig hur du registrerar enheten program mässigt fortsätter du till snabb starten för program mässig registrering av X. 509-enheter. 
+I den här snabb starten körde du enhets etablerings kod på Windows-datorn.  Enheten autentiserades och etablerades i IoT-hubben med hjälp av en symmetrisk nyckel. Om du vill lära dig hur du etablerar en X. 509-certifikats enhet fortsätter du till snabb starten för X. 509-enheter. 
 
 > [!div class="nextstepaction"]
-> [Azure snabb start – registrera X. 509-enheter till Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)
+> [Azure snabb start – etablera en X. 509-enhet med hjälp av Azure IoT C SDK](quick-create-simulated-device-x509.md)

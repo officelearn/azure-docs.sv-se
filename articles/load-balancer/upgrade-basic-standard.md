@@ -7,37 +7,54 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: dd0617536147787f436e5817f3f2367a19ba6aa4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f97facd8d184be05cbfd79af92dbcaab3a022ebd
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009287"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746309"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Uppgradera offentliga Azure-Load Balancer
 [Azure standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet genom zon redundans. Mer information om Load Balancer SKU finns i [jämförelse tabell](./skus.md#skus).
 
-Det finns tre steg i en uppgradering:
+Det finns två steg i en uppgradering:
 
-1. Migrera konfigurationen
-2. Lägg till virtuella datorer i backend-pooler för Standard Load Balancer
-
-Den här artikeln beskriver migrering av konfiguration. Att lägga till virtuella datorer i backend-pooler kan variera beroende på din speciella miljö. Några [övergripande rekommendationer finns](#add-vms-to-backend-pools-of-standard-load-balancer)dock.
+1. Ändra metod för IP-allokering från dynamisk till statisk.
+2. Kör PowerShell-skriptet för att slutföra migreringen av uppgraderingen och trafiken.
 
 ## <a name="upgrade-overview"></a>Översikt över uppgradering
 
 Det finns ett Azure PowerShell-skript tillgängligt som gör följande:
 
 * Skapar en standard-SKU-Load Balancer i resurs gruppen och platsen som du anger.
+* Uppgraderar den offentliga IP-adressen från Basic SKU till standard-SKU på plats.
 * Kopierar sömlöst konfigurationerna av Basic SKU-Load Balancer till det nya Standard Load Balancer.
 * Skapar en standard regel för utgående trafik som möjliggör utgående anslutning.
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
 * Skript stöder endast offentlig Load Balancer uppgradering. Information om interna grundläggande Load Balancer-uppgraderingar finns på [den här sidan](./upgrade-basicinternal-standard.md) .
-* Standard Load Balancer har en ny offentlig adress. Det är omöjligt att flytta IP-adresserna som är kopplade till den befintliga Basic-Load Balancer sömlöst till Standard Load Balancer eftersom de har olika SKU: er.
-* Om standard belastnings utjämning skapas i en annan region kan du inte associera de virtuella datorerna i den gamla regionen med den nya Standard Load Balancer. Du kan undvika den här begränsningen genom att skapa en ny virtuell dator i den nya regionen.
+* Du måste ändra tilldelnings metoden för den offentliga IP-adressen till "static" innan du kör skriptet. 
 * Om din Load Balancer inte har någon IP-konfiguration för klient delen eller en backend-pool, kommer du förmodligen att träffa ett fel som kör skriptet. Kontrol lera att de inte är tomma.
+
+### <a name="change-allocation-method-of-the-public-ip-address-to-static"></a>Ändra tilldelnings metod för den offentliga IP-adressen till statisk
+
+* * * Här är våra rekommenderade steg:
+
+    1. Logga in på [Azure-portalen](https://portal.azure.com) för att genomföra alla uppgifter i den här snabbstarten.
+ 
+    1. Välj **alla resurser** på den vänstra menyn och välj sedan den **grundläggande offentliga IP-adress som är associerad med Basic-Load Balancer** från resurs listan.
+   
+    1. Under **Inställningar** väljer du **konfigurationer**.
+   
+    1. Under **tilldelning** väljer du **statisk**.
+    1. Välj **Spara**.
+    >[!NOTE]
+    >För virtuella datorer som har offentliga IP-adresser måste du skapa standard-IP-adresser först där samma IP-adress inte garanteras. Ta bort associationen från de virtuella IP-adresserna och koppla dem till de nyligen skapade standard-IP-adresserna. Sedan kommer du att kunna följa instruktionerna för att lägga till virtuella datorer i backend-poolen med Standard Load Balancer. 
+
+* **Skapa nya virtuella datorer som ska läggas till i backend-pooler för den nyligen skapade offentliga Standard Load Balancer**.
+    * Du hittar mer information om hur du skapar en virtuell dator och associerar den med Standard Load Balancer [här](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
+
 
 ## <a name="download-the-script"></a>Hämta skriptet
 
@@ -76,39 +93,14 @@ Kör skriptet så här:
    * **oldRgName: [sträng]: krävs** – det här är resurs gruppen för din befintliga Basic-Load Balancer som du vill uppgradera. Om du vill hitta strängvärdet navigerar du till Azure Portal, väljer din grundläggande Load Balancer källa och klickar på **översikten** för belastningsutjämnaren. Resurs gruppen finns på sidan.
    * **oldLBName: [sträng]: krävs** – det här är namnet på den befintliga Basic-saldo som du vill uppgradera. 
    * **newrgName: [sträng]: krävs** – det här är resurs gruppen där standard Load Balancer skapas. Det kan vara en ny resurs grupp eller en befintlig. Om du väljer en befintlig resurs grupp, Observera att namnet på Load Balancer måste vara unikt inom resurs gruppen. 
-   * **newlocation: [sträng]: krävs** – det här är den plats där standard Load Balancer skapas. Vi rekommenderar att du ärver samma plats för de valda Basic-Load Balancer till Standard Load Balancer för bättre Association med andra befintliga resurser.
    * **newLBName: [sträng]: obligatorisk** – det här är namnet på den standard Load Balancer som ska skapas.
 1. Kör skriptet med lämpliga parametrar. Det kan ta fem till sju minuter att slutföra.
 
     **Exempel**
 
    ```azurepowershell
-   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newLbName "LBForUpgrade"
    ```
-
-### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>Lägg till virtuella datorer i backend-pooler för Standard Load Balancer
-
-Börja med att kontrol lera att skriptet har skapat en ny standard offentlig Load Balancer med den exakta konfigurationen som migrerats från din grundläggande offentliga Load Balancer. Du kan kontrol lera detta från Azure Portal.
-
-Se till att skicka en liten mängd trafik genom Standard Load Balancer som ett manuellt test.
-  
-Här följer några exempel på hur du lägger till virtuella datorer till backend-pooler för den nyligen skapade offentliga standard Load Balancer kan konfigureras och våra rekommendationer för var och en:
-
-* **Flytta befintliga virtuella datorer från backend-pooler för gamla grundläggande offentliga Load Balancer till backend-pooler för nyligen skapade standard offentliga Load Balancer**.
-    1. Logga in på [Azure-portalen](https://portal.azure.com) för att genomföra alla uppgifter i den här snabbstarten.
- 
-    1. Välj **alla resurser** på den vänstra menyn och välj sedan det **nyligen skapade standard Load Balancer** från resurs listan.
-   
-    1. Under **Inställningar** väljer du **backend-pooler**.
-   
-    1. Välj den backend-pool som matchar backend-poolen för Basic-Load Balancer, Välj följande värde: 
-      - **Virtuell dator**: list rutan och välj de virtuella datorerna från den matchande backend-poolen för Basic-Load Balancer.
-    1. Välj **Spara**.
-    >[!NOTE]
-    >För virtuella datorer som har offentliga IP-adresser måste du skapa standard-IP-adresser först där samma IP-adress inte garanteras. Ta bort associationen från de virtuella IP-adresserna och koppla dem till de nyligen skapade standard-IP-adresserna. Sedan kommer du att kunna följa instruktionerna för att lägga till virtuella datorer i backend-poolen med Standard Load Balancer. 
-
-* **Skapa nya virtuella datorer som ska läggas till i backend-pooler för den nyligen skapade offentliga Standard Load Balancer**.
-    * Du hittar mer information om hur du skapar en virtuell dator och associerar den med Standard Load Balancer [här](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>Skapa en utgående regel för utgående anslutning
 
@@ -122,9 +114,13 @@ Följ [instruktionerna](./quickstart-load-balancer-standard-public-powershell.md
 
 Ja. Se [varningar/begränsningar](#caveatslimitations).
 
+### <a name="how-long-does-the-upgrade-take"></a>Hur lång tid tar uppgraderingen?
+
+Det tar vanligt vis ungefär 5-10 minuter innan skriptet har slutförts och det kan ta längre tid beroende på hur komplex din Load Balancer-konfiguration är. Därför bör du hålla nedtid i åtanke och planera för redundans vid behov.
+
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>Växlar Azure PowerShell-skriptet också över trafiken från min grundläggande Load Balancer till den nyligen skapade Standard Load Balancer?
 
-Nej. Azure PowerShell-skriptet migrerar bara konfigurationen. Den faktiska trafikmigreringen är ditt ansvar och i din kontroll.
+Ja. Azure PowerShell-skriptet uppgraderar inte bara den offentliga IP-adressen, kopierar konfigurationen från Basic till Standard Load Balancer, men migrerar även den virtuella datorn till bakom den nya offentliga standard Load Balancer. 
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Jag har stött på problem med att använda det här skriptet. Hur kan jag få hjälp?
   

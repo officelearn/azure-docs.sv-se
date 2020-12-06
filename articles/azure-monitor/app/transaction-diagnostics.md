@@ -4,12 +4,12 @@ description: Application Insights slut punkt till slut punkt för transaktions d
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 552e80d6c90a18180ab41dce72e995b6804a91bc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7623b7131e6344a67c468d0436884ebfef9b0058
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002059"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746105"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Enhetlig transaktions-diagnostik mellan komponenter
 
@@ -80,9 +80,7 @@ Möjliga orsaker:
 
 * Är de andra komponenterna instrumenterade med Application Insights?
 * Använder de den senaste stabila Application Insights SDK?
-* Om dessa komponenter är separata Application Insights-resurser har du nödvändig åtkomst till sin telemetri?
-
-Om du har åtkomst och komponenterna är instrumenterade med de senaste Application Insights SDK: erna kan du kontakta oss via den övre högra feedback-kanalen.
+* Om de här komponenterna är separata Application Insights-resurser, har du nödvändig [åtkomst](resources-roles-access-control.md) om du har åtkomst och komponenterna är instrumenterade med de senaste Application Insights SDK: erna, berätta för oss via den övre högra feedback kanalen.
 
 *Jag ser duplicerade rader för beroenden. Förväntas detta?*
 

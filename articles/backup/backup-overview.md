@@ -4,12 +4,12 @@ description: Ger en översikt över den Azure Backup tjänsten och hur den bidra
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 537605498fe166b24bd4e24673cfa1542bc449ea
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 805fa81362b9f90c1d6ba468caaf4b6745e42c62
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172479"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746122"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Vad är Azure Backup-tjänsten?
 
@@ -43,7 +43,7 @@ Azure Backup ger följande viktiga fördelar:
 - **Hämta programkonsekventa säkerhets kopieringar**: en programkonsekvent säkerhets kopiering innebär att en återställnings punkt har alla data som krävs för att återställa säkerhets kopian. Azure Backup ger programkonsekventa säkerhets kopieringar som säkerställer att ytterligare korrigeringar inte krävs för att återställa data. Återställning av konsekventa programdata minskar tiden för återställning, så att du snabbt kan återgå till körläge.
 - **Behåll korta och långsiktiga data**: du kan använda [Recovery Services valv](backup-azure-recovery-services-vault-overview.md) för kortsiktig och långsiktig data kvarhållning.
 - **Automatisk lagringshantering** – hybridmiljöer kräver ofta heterogen lagring – vissa lokalt och vissa i molnet. Med Azure Backup kostar det inget att använda lokala lagrings enheter. Azure Backup allokerar och hanterar lagringen av säkerhetskopiorna automatiskt och tillämpar en modell där du betalar baserat på din användning. Så du betalar bara för den lagring som du använder. [Läs mer](https://azure.microsoft.com/pricing/details/backup) om prissättning.
-- **Flera lagringsalternativ** – Azure Backup erbjuder två typer av replikering för att din lagring och dina data ska ha hög tillgänglighet.
+- **Flera lagrings alternativ** – Azure Backup erbjuder tre typer av replikering för att hålla lagringen/data hög tillgängliga.
   - [Lokalt redundant lagring (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replikerar dina data tre gånger (det skapas tre kopior av dina data) i en lagringsskalningsenhet i ett datacenter. Alla datakopior finns i samma region. LRS är ett billigt alternativ för att skydda dina data mot fel i den lokala maskinvaran.
   - [Geo-redundant lagring (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) är standardalternativet och det som rekommenderas vid replikering. GRS replikerar dina data till en sekundär region (hundratals mil bort från den primära platsen för datakällan). GRS kostar mer än LRS, men GRS ger en högre nivå av hållbarhet för dina data, även om det finns ett regionalt avbrott.
   - [Zone-redundant lagring (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replikerar dina data i [tillgänglighets zoner](../availability-zones/az-overview.md#availability-zones), vilket garanterar data placering och återhämtning i samma region. ZRS har ingen stillestånds tid. Så dina kritiska arbets belastningar som kräver [data placering](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/)och får inte ha någon avbrotts tid kan säkerhets kopie ras i ZRS.

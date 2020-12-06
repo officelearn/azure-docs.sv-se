@@ -1,19 +1,16 @@
 ---
 title: Hantera en Azure-supportbegäran
 description: Beskriver hur du kan visa support förfrågningar, skicka meddelanden, ändra allvarlighets grad för begäran, dela diagnostikinformation med Azure-support, öppna en stängd supportbegäran igen och ladda upp filer.
-author: mgblythe
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
-ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.author: mblythe
-ms.openlocfilehash: f3b4806bf46750d74a54f68bd2ab58e402e75091
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9dd703dc0a3f5e8f85b1022fa2a71ff9a8c295d
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85852382"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745578"
 ---
 # <a name="manage-an-azure-support-request"></a>Hantera en Azure-supportbegäran
 
@@ -21,7 +18,7 @@ När du har [skapat en support förfrågan för Azure](how-to-create-azure-suppo
 
 ## <a name="view-support-requests"></a>Visa supportförfrågningar
 
-Visa information och status för support förfrågningar genom att gå till **Hjälp + Support**förfrågningar  >   **alla support förfrågningar**.
+Visa information och status för support förfrågningar genom att gå till **Hjälp + Support** förfrågningar  >   **alla support förfrågningar**.
 
 :::image type="content" source="media/how-to-manage-azure-support-request/all-requests-lower.png" alt-text="Alla support förfrågningar":::
 
@@ -45,17 +42,17 @@ På den här sidan kan du söka efter, filtrera och sortera support förfrågnin
 
 1. På sidan **support förfrågan** väljer du **ändra**.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Alla support förfrågningar":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Ändra allvarlighets grad för support ärende":::
 
 1. Azure Portal visar en av två skärmar, beroende på om din begäran redan har tilldelats till en support tekniker:
 
     - Om din begäran inte har tilldelats ser du en skärm som liknar följande. Välj en ny allvarlighets grad och välj sedan **ändra**.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Alla support förfrågningar":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Välj en ny allvarlighets grad":::
 
-    - Om din begäran har tilldelats ser du en skärm som liknar följande. Välj **OK**och skapa sedan ett [nytt meddelande](#send-a-message) för att begära en ändring av allvarlighets graden.
+    - Om din begäran har tilldelats ser du en skärm som liknar följande. Välj **OK** och skapa sedan ett [nytt meddelande](#send-a-message) för att begära en ändring av allvarlighets graden.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Alla support förfrågningar":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Det går inte att välja en ny allvarlighets grad":::
 
 ## <a name="share-diagnostic-information-with-azure-support"></a>Dela diagnostisk information med Azure-support
 
@@ -67,9 +64,9 @@ När du skapar en support förfrågan är som standard alternativet **dela diagn
 
     1. På sidan **alla support förfrågningar** väljer du support förfrågan.
     
-    1. På sidan **support förfrågan** väljer du **bevilja behörighet**och väljer sedan **Ja** och **OK**.
+    1. På sidan **support förfrågan** väljer du **bevilja behörighet** och väljer sedan **Ja** och **OK**.
     
-        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Alla support förfrågningar":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Bevilja behörighet för diagnostikinformation":::
 
 ## <a name="upload-files"></a>Ladda upp filer
 
@@ -79,7 +76,7 @@ Du kan använda fil överförings alternativet för att ladda upp diagnostikfile
 
 1. På sidan **supportbegäran** bläddrar du för att hitta filen och väljer sedan **Ladda upp**. Upprepa processen om du har flera filer.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Alla support förfrågningar":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Ladda upp filen":::
 
 ### <a name="file-upload-guidelines"></a>Rikt linjer för fil uppladdning
 
@@ -95,26 +92,26 @@ Följ dessa rikt linjer när du använder fil överförings alternativet:
 |-------------|-------|-------------|-------|----------|------------|---------|
 | .7z         | . dat  | .hwl        | . ODX  | . rar     | .tdb       | .xlam   |
 | . a          | . db   | . ICS        | . oft  | . RDL     | .tdf       | .xlr    |
-| . ABC        | . TAKT  | . ini        | . Old  | .rdlc    | . text      | .xls    |
+| . ABC        | . DMP  | . ini        | . Old  | .rdlc    | . text      | .xls    |
 | . adm        | .do_  | .java       | . One  | .re_     | .thmx      | .xlsb   |
 | . aspx       | .doc  | .jpg        | . OSD  | . reg     | .tif       | .xlsm   |
-| . ATF        | .docm | . LDF        | . GENOMFÖR  | . ta bort  | . TRC       | .xlsx   |
-| . b          | .docx | . brevhuvuden | . P1   | . ren     | . TDD       | .xlt    |
+| .ATF        | .docm | . LDF        | . Ut  | . ta bort  | . TRC       | .xlsx   |
+| . b          | .docx | . brevhuvuden | . P1   | . ren     | . TTD       | .xlt    |
 | .ba_        | .dotm | . lnk        | .pcap | . Byt namn  | .tx_       | .xltx   |
 | . bak        | .dotx | .lo_        | . pdb  | .rft     | .txt       | .xml    |
 | .bat        | .dtsx | . log        | .pdf  | . rpt     | .uccapilog | . XMLA   |
 | . blg        | . EDS  | .lpk        | .piz  | . RTE     | .uccplog   | .xps    |
 | .CA_        | . EMF  | . manifest   | .pmls | .rtf     | .udcx      | . xsd    |
-| . FÖRA        | . eml  | . Master     | .png  | . kör     | .vb_       | . xsn    |
+| . CAB        | . eml  | . Master     | .png  | . kör     | .vb_       | . xsn    |
 | . Cap        | .emz  | .mdmp       | .potx | .saz     | .vbs_      | . xxx    |
 | .catx       | . err  | . MOF        | .ppt  | .sql     | . vcf       | .z_     |
-| . KONFIGURATION        | . etl  | .mp3        | .pptm | .sqlplan | . vsd       | .z01    |
+| . CFG        | . etl  | .mp3        | .pptm | .sqlplan | . vsd       | .z01    |
 | . komprimerad | . evt  | .mpg        | .pptx | .stp     | .wdb       | .z02    |
-| . Konfigurationsfil     | . evtx | .ms_        | . prn  | .svclog  | . WKS       | . Zi     |
-| .cpk        | . PRISET   | . msg        | . polyesterstapelfibrer  |   -       | .wma       | .zi_    |
+| . Config     | . evtx | .ms_        | . prn  | .svclog  | . WKS       | . Zi     |
+| .cpk        | . EX   | . msg        | . polyesterstapelfibrer  |   -       | .wma       | .zi_    |
 | . cpp        | .ex_  | .msi        | . pst  |  -        | .wmv       | .zip    |
 | .cs         | .ex0  | . mso        | . pub  | -         | . wmz       | .zip_   |
-| . SKV        | . FRD  | . msu        | -      |-          | . WPS       | .zipp   |
+| . CSV        | .FRD  | . msu        | -      |-          | . WPS       | .zipp   |
 | .cvr        | .gif  | . NFO        | -      |-          | .wpt       | . zippa |
 | -            | . GUID | -            | -      | -         | . WSDL      | .zippy  |
 | -            | . gz   | -            | -      | -         | . wsp       | .zipx   |

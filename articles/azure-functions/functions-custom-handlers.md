@@ -1,18 +1,18 @@
 ---
-title: Azure Functions anpassade hanterare (förhands granskning)
+title: Azure Functions anpassade hanterare
 description: Lär dig hur du använder Azure Functions med valfri språk-eller körnings version.
 author: anthonychu
 ms.author: antchu
-ms.date: 8/18/2020
+ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: 402ce1e9e92ab87689abe9c18a503a479d7421f9
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 099f90ba8c5d9dabb6c4c505e50d8c077e3eaf0f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164558"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746037"
 ---
-# <a name="azure-functions-custom-handlers-preview"></a>Azure Functions anpassade hanterare (förhands granskning)
+# <a name="azure-functions-custom-handlers"></a>Azure Functions anpassade hanterare
 
 Varje Functions-App körs av en språkspecifik hanterare. Även om Azure Functions stöder många [språk hanterare](./supported-languages.md) som standard, finns det fall där du kanske vill använda andra språk eller körningar.
 
@@ -20,10 +20,12 @@ Anpassade hanterare är lätta webb servrar som tar emot händelser från Functi
 
 Anpassade hanterare passar bäst för situationer där du vill:
 
-- Implementera en Function-app på ett språk som inte stöds för närvarande, till exempel Go och Rust.
+- Implementera en Function-app på ett språk som inte stöds för närvarande, till exempel Go eller Rust.
 - Implementera en Function-app i en körning som inte stöds för närvarande, till exempel DENO.
 
 Med anpassade hanterare kan du använda [utlösare och indata och utdata-bindningar](./functions-triggers-bindings.md) via [tilläggs paket](./functions-bindings-register.md).
+
+Kom igång med Azure Functions anpassade hanterare med [snabb starter i go och Rust](create-first-function-vs-code-other.md).
 
 ## <a name="overview"></a>Översikt
 
@@ -36,7 +38,7 @@ I följande diagram visas relationen mellan Functions-värden och en webb server
 1. Webb servern kör den enskilda funktionen och returnerar en [svars nytto Last](#response-payload) till Functions-värden.
 1. Funktions värden skickar data från svaret till funktionens utgående bindningar för bearbetning.
 
-En Azure Functions-app som implementeras som en anpassad hanterare måste konfigurera *host.jspå*, *local.settings.jspå*och *function.jspå* filer enligt några få konventioner.
+En Azure Functions-app som implementeras som en anpassad hanterare måste konfigurera *host.jspå*, *local.settings.jspå* och *function.jspå* filer enligt några få konventioner.
 
 ## <a name="application-structure"></a>Program struktur
 
@@ -127,7 +129,7 @@ För anpassade hanterare, ange `FUNCTIONS_WORKER_RUNTIME` till `Custom` i *local
 
 När den används med en anpassad hanterare är *function.jsi* innehållet inte annorlunda än hur du definierar en funktion under någon annan kontext. Det enda kravet är att *function.jspå* filer måste finnas i en mapp med namnet som matchar funktions namnet.
 
-Följandefunction.jskonfigurerar en funktion som har en utlösare för kön och en utgående bindning * för* kö. Eftersom den finns i en mapp med namnet *MyQueueFunction*definierar den en funktion med namnet *MyQueueFunction*.
+Följandefunction.jskonfigurerar en funktion som har en utlösare för kön och en utgående bindning *för* kö. Eftersom den finns i en mapp med namnet *MyQueueFunction* definierar den en funktion med namnet *MyQueueFunction*.
 
 **MyQueueFunction/function.jspå**
 
@@ -226,7 +228,7 @@ Scenariot som implementeras i det här exemplet innehåller en funktion med namn
 
 #### <a name="implementation"></a>Implementering
 
-I en mapp med namnet *order*konfigurerar *function.js* filen för http-utlöst funktion.
+I en mapp med namnet *order* konfigurerar *function.js* filen för http-utlöst funktion.
 
 **order/function.jspå**
 
@@ -415,7 +417,7 @@ Följande exempel visar hur du konfigurerar en HTTP-utlöst funktion utan ytterl
 
 #### <a name="implementation"></a>Implementering
 
-I en mapp med namnet *Hej*konfigurerar *function.jsfilen för* http-utlöst funktion.
+I en mapp med namnet *Hej* konfigurerar *function.jsfilen för* http-utlöst funktion.
 
 **Hej/function.jspå**
 
@@ -583,3 +585,7 @@ Anpassade hanterare körs i samma miljö som en typisk Azure Functions app. Test
 Om du behöver hjälp med anpassade hanterare i en Function-app kan du skicka en begäran via vanliga Support kanaler. På grund av de många möjliga språken som används för att bygga anpassade hanterings appar är stödet dock inte obegränsat.
 
 Support är tillgängligt om functions-värden har problem med att starta eller kommunicera med den anpassade hanterings processen. För problem som är specifika för den egna bearbetningen av din anpassade hanterings process, till exempel problem med det valda språket eller ramverket, kan support teamet inte tillhandahålla hjälp i det här sammanhanget.
+
+## <a name="next-steps"></a>Nästa steg
+
+Kom igång med att skapa en Azure Functions app i Go eller Rust med den [anpassade hanterings](create-first-function-vs-code-other.md)guiden.

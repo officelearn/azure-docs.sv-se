@@ -1,18 +1,15 @@
 ---
 title: Skapa en Azure Portal instrument panel med hjälp av en Azure Resource Manager mall
 description: Lär dig hur du skapar en Azure Portal instrument panel med hjälp av en Azure Resource Manager mall.
-author: mgblythe
-ms.service: azure-portal
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 06/15/2020
-ms.openlocfilehash: fd2d7006e0c13f7e652b4edd973a36f94f2e2265
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 55ac24e48c1c976eca1e6e8e51cf6e88361ec630
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85560490"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745734"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Snabb start: skapa en instrument panel i Azure Portal med en ARM-mall
 
@@ -106,7 +103,7 @@ Kontrol lera att instrument panelen har skapats och att du kan se data från den
 
 Om du vill ta bort den virtuella datorn och tillhör ande instrument panel tar du bort resurs gruppen som innehåller dem.
 
-1. Sök efter **SimpleWinVmResourceGroup**i Azure Portal och välj den sedan i Sök resultaten.
+1. Sök efter **SimpleWinVmResourceGroup** i Azure Portal och välj den sedan i Sök resultaten.
 
 1. På sidan **SimpleWinVmResourceGroup** väljer du **ta bort resurs grupp**, anger namnet på den resurs grupp som ska bekräftas och väljer sedan **ta bort**.
 

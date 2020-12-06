@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 6c475971f604c951280d0351d593cd5d96879d31
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: c09f8c5ae4a742e6caa489ee29043f500617bb24
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992411"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746496"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Azure DDoS Protection vanliga vanliga frågor och svar
 
@@ -29,7 +29,7 @@ Distribuerad denial of service eller DDoS är en typ av attack där en angripare
 Azure DDoS Protection standard, kombinerat med bästa praxis för program design, innehåller förbättrade DDoS-funktioner för att skydda mot DDoS-attacker. Den justeras automatiskt för att hjälpa till att skydda dina Azure-resurser i ett virtuellt nätverk. Det är enkelt att aktivera skydd på nya eller befintliga virtuella nätverk och det krävs inga program-eller resurs ändringar. Det har flera fördelar jämfört med den grundläggande tjänsten, inklusive loggning, avisering och telemetri. Mer information finns i [Azure DDoS Protection standard översikt](ddos-protection-overview.md) . 
 
 ## <a name="what-about-protection-at-the-service-layer-layer-7"></a>Vad gäller skydd på tjänst skiktet (Layer 7)?
-Kunder kan använda Azure DDoS Protection-tjänsten i kombination med [Application Gateway WAF SKU](../web-application-firewall/ag/ag-overview.md) för skydd både på nätverks nivå (Layer 3 och 4, som erbjuds av Azure DDoS Protection-tjänst) och på program nivå (Layer 7 som erbjuds av Application Gateway WAF SKU).
+Kunder kan använda Azure DDoS Protection tjänst i kombination med en brand vägg för webbaserade program (WAF) för att skydda både på nätverks nivå (Layer 3 och 4, som erbjuds av Azure DDoS Protection standard) och på program nivå (Layer 7, som erbjuds av en WAF). WAF-erbjudanden omfattar Azure [Application Gateway WAF SKU](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) samt WebApplication-brandväggar från tredje part som är tillgängliga på [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
 
 ## <a name="are-services-unsafe-in-azure-without-the-service"></a>Är tjänsterna osäkra i Azure utan tjänsten?
 Tjänster som körs på Azure skyddas av Azure DDoS Protection Basic som är på plats för att skydda Azures infrastruktur. Skyddet som skyddar infrastrukturen har dock ett mycket högre tröskelvärde än de flesta program har kapacitet att hantera och ger inte telemetri eller avisering, så medan en trafik volym kan uppfattas som oskadlig av plattformen, kan den vara förödande till programmet som tar emot den. 
@@ -41,6 +41,9 @@ Offentliga IP-adresser i ARM-baserade virtuella nätverk är för närvarande de
 
 ## <a name="are-classicrdfe-protected-resources-supported"></a>Stöds klassiska/RDFE-skyddade resurser?
 Endast ARM-baserade skyddade resurser stöds i för hands versionen. Virtuella datorer i klassiska/RDFE-distributioner stöds inte. Stöd är för närvarande inte planerat för klassiska/RDFE-resurser. Mer information finns i [Azure DDoS Protection standard referens arkitekturer](ddos-protection-reference-architectures.md) .
+
+## <a name="can-i-protect-my-paas-resources-using-ddos-protection"></a>Kan jag skydda mina PaaS-resurser med hjälp av DDoS Protection?
+Offentliga IP-adresser som är kopplade till flera klienter, enkla VIP PaaS-tjänster stöds inte för närvarande. Exempel på resurser som inte stöds är lagrings-VIP, Event Hub VIP-och App/Cloud Services-program. Mer information finns i [Azure DDoS Protection standard referens arkitekturer](ddos-protection-reference-architectures.md) .
 
 ## <a name="can-i-protect-my-on-premise-resources-using-ddos-protection"></a>Kan jag skydda lokala resurser med DDoS Protection?
 Du måste ha de offentliga slut punkterna för din tjänst som är kopplade till ett VNet i Azure aktiverade för DDoS-skydd. Exempel design är:

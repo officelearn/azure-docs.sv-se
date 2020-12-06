@@ -5,12 +5,12 @@ description: Lär dig att dynamiskt skapa en permanent volym med Azure Files fö
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 08752f8aaa76d83e13eeea86db3048a6d29a4d99
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2ad2affee34348e8c2fc7b734c8b49d0aec8db40
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126404"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744917"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Skapa och använda en beständig volym dynamiskt med Azure Files i Azure Kubernetes service (AKS)
 
@@ -26,7 +26,7 @@ Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konf
 
 ## <a name="create-a-storage-class"></a>Skapa en lagrings klass
 
-En lagrings klass används för att definiera hur en Azure-filresurs skapas. Ett lagrings konto skapas automatiskt i [resurs gruppen nod][node-resource-group] för användning med lagrings klassen för att lagra Azure-filresurserna. Välj följande [Azure Storage-redundans][storage-skus] för *skuName* :
+En lagrings klass används för att definiera hur en Azure-filresurs skapas. Ett lagrings konto skapas automatiskt i [resurs gruppen nod][node-resource-group] för användning med lagrings klassen för att lagra Azure-filresurserna. Välj följande [Azure Storage-redundans][storage-skus] för *skuName*:
 
 * *Standard_LRS* -standard lokalt redundant lagring (LRS)
 * *Standard_GRS* -standard Geo-redundant lagring (GRS)
@@ -55,6 +55,7 @@ mountOptions:
   - gid=0
   - mfsymlinks
   - cache=strict
+  - actimeo=30
 parameters:
   skuName: Standard_LRS
 ```
@@ -86,7 +87,7 @@ spec:
 ```
 
 > [!NOTE]
-> Om du använder *Premium_LRS* SKU för lagrings klassen måste det lägsta värdet för *lagring* vara *100Gi* .
+> Om du använder *Premium_LRS* SKU för lagrings klassen måste det lägsta värdet för *lagring* vara *100Gi*.
 
 Skapa ett beständigt volym anspråk med kommandot [kubectl Apply][kubectl-apply] :
 
@@ -105,7 +106,7 @@ my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        R
 
 ## <a name="use-the-persistent-volume"></a>Använd beständig volym
 
-Följande YAML skapar en pod som använder beständiga volym anspråk *My-azurefile* för att montera Azure-filresursen på */mnt/Azure* -sökvägen. För Windows Server-behållare anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"* .
+Följande YAML skapar en pod som använder beständiga volym anspråk *My-azurefile* för att montera Azure-filresursen på */mnt/Azure* -sökvägen. För Windows Server-behållare anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"*.
 
 Skapa en fil med namnet `azure-pvc-files.yaml` och kopiera i följande yaml. Kontrol lera att *claimName* matchar den PVC som skapades i det sista steget.
 
@@ -165,7 +166,7 @@ Volumes:
 
 ## <a name="mount-options"></a>Monteringsalternativ
 
-Standardvärdet för *fileMode* och *dirMode* är *0777* för Kubernetes version 1.13.0 och senare. Om du dynamiskt skapar den permanenta volymen med en lagrings klass kan monterings alternativ anges för objektet lagrings klass. I följande exempel anges *0777* :
+Standardvärdet för *fileMode* och *dirMode* är *0777* för Kubernetes version 1.13.0 och senare. Om du dynamiskt skapar den permanenta volymen med en lagrings klass kan monterings alternativ anges för objektet lagrings klass. I följande exempel anges *0777*:
 
 ```yaml
 kind: StorageClass
@@ -180,6 +181,7 @@ mountOptions:
   - gid=0
   - mfsymlinks
   - cache=strict
+  - actimeo=30
 parameters:
   skuName: Standard_LRS
 ```

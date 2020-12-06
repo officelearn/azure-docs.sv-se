@@ -5,14 +5,13 @@ author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
 ms.topic: how-to
-ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: afdb8b2b677321239f240e74d49711195ac186c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5b5e8c11bfe164aaa3539742dac8c4d267c69e1
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763915"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745612"
 ---
 # <a name="classic-deployment-model"></a>Klassisk distributionsmodell
 
@@ -38,7 +37,7 @@ Följ instruktionerna nedan om du vill skapa en supportbegäran med **Hjälp + S
 
    ![Skapa en ny supportbegäran i Azure Portal](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. I **typ av ärende**väljer du **tjänst-och prenumerations gränser (kvoter)**.
+1. I **typ av ärende** väljer du **tjänst-och prenumerations gränser (kvoter)**.
 
    ![Välj kvoter som typ av problem](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
@@ -54,11 +53,11 @@ Följ instruktionerna nedan om du vill skapa en supportbegäran med **Hjälp + S
 
    ![Ange information för att hjälpa din begäran tillsammans](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. I **kvot information**väljer du **klassisk** och väljer en **plats**.
+1. I **kvot information** väljer du **klassisk** och väljer en **plats**.
 
    ![Lägg till information inklusive distributions modell och plats](./media/resource-manager-core-quotas-request/quota-details-classic.png)
 
-1. För **SKU-serien**väljer du en eller flera SKU-familjer att öka.
+1. För **SKU-serien** väljer du en eller flera SKU-familjer att öka.
 
    ![Ange SKU-serien som ska ökas](./media/resource-manager-core-quotas-request/sku-family-classic.png)
 
@@ -70,7 +69,7 @@ Följ instruktionerna nedan om du vill skapa en supportbegäran med **Hjälp + S
 
 Följ anvisningarna nedan om du vill skapa en supportbegäran med hjälp av **användnings** -och kvoter i Azure Portal.
 
-1. Sök efter och välj **prenumerationer**i [Azure Portal](https://portal.azure.com).
+1. Sök efter och välj **prenumerationer** i [Azure Portal](https://portal.azure.com).
 
    ![Gå till prenumerationer i Azure Portal](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
 
@@ -94,7 +93,7 @@ Följ anvisningarna nedan om du vill skapa en supportbegäran med hjälp av **an
 
    ![Ange information om din begäran](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. I **kvot information**väljer du **klassisk** och en **plats**.
+1. I **kvot information** väljer du **klassisk** och en **plats**.
 
    ![Välj kvot information, inklusive distributions modell och plats](./media/resource-manager-core-quotas-request/quota-details-classic.png)
 

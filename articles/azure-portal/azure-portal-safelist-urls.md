@@ -1,20 +1,14 @@
 ---
 title: Lägga till Azure-portalens URL:er i listan över säkra URL:er i brandväggen eller proxyservern
 description: 'Lägg till dessa URL: er till proxyservern kringgå för kommunikation med Azure Portal och dess tjänster'
-services: azure-portal
-keywords: ''
-author: mgblythe
-ms.author: mblythe
 ms.date: 04/10/2020
 ms.topic: conceptual
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 16acedc8fad97c1752d71c8643b1655015484e5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d9c8222ee85c0c16ec1e1926335ac06e0389797
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330867"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745884"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Lägga till Azure-portalens URL:er i listan över säkra URL:er i brandväggen eller proxyservern
 

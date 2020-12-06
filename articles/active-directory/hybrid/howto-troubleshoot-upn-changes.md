@@ -11,16 +11,16 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46ecc2cba96b07d9105020e69ae3198a3765be7c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 59b304505c29f424d85d5b1e16dc83c060ac2ac1
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172239"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744606"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planera och Felsök ändringar av UPN-namn i Azure Active Directory
 
-Ett UPN (User Principal Name) är ett attribut som är en Internet kommunikations standard för användar konton. Ett UPN består av ett UPN-prefix (användar kontots namn) och ett UPN-suffix (ett DNS-domännamn). Prefixet ansluter till suffixet med hjälp av symbolen "@". Exempelvis someone@example.com. Ett UPN måste vara unikt bland alla säkerhets objekt i en katalog skog. 
+Ett UPN (User Principal Name) är ett attribut som är en Internet kommunikations standard för användar konton. Ett UPN består av ett UPN-prefix (användar kontots namn) och ett UPN-suffix (ett DNS-domännamn). Prefixet ansluter till suffixet med hjälp av \@ symbolen "". Exempelvis someone@example.com. Ett UPN måste vara unikt bland alla säkerhets objekt i en katalog skog. 
 
 **I den här artikeln förutsätter vi att du använder UPN som användar-ID. IT-adresser planerar för ändringar i UPN och återställer från problem som kan uppstå vid ändringar i UPN.**
 

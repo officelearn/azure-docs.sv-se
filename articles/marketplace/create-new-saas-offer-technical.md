@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: d84e1508dec4d4a5802f7a2ac8c0e6ada5a8044c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 28c0be40387f411286230f94c19fa23a80e650af
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128699"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746411"
 ---
 # <a name="how-to-add-technical-details-for-your-saas-offer"></a>Så här lägger du till teknisk information för ditt SaaS-erbjudande
 
 Den här artikeln beskriver hur du anger teknisk information som hjälper Microsofts kommersiella marknads plats att ansluta till din lösning. Med den här anslutningen kan vi tillhandahålla ditt erbjudande för kunden om de väljer att förvärva och hantera dem. Mer information om de här inställningarna finns i [teknisk information](plan-saas-offer.md#technical-information).
 
 > [!NOTE]
-> Om du väljer att bearbeta transaktioner oberoende av visas inte det här alternativet. Gå istället till [hur du marknadsför ditt SaaS-erbjudande](create-new-saas-offer-marketing.md).
+> Om du väljer att bearbeta transaktioner oberoende av visas inte det här alternativet. Gå istället till [hur du säljer ditt SaaS-erbjudande](create-new-saas-offer-marketing.md).
 
 ## <a name="technical-configuration"></a>Teknisk konfiguration
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 8a8b04501bf81f41fb87de8fc0ce42eb4e7fda93
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 8469cad02009d054bd8ba97fb4aabfdae84ef842
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370456"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744626"
 ---
 # <a name="configure-a-solution-template-plan"></a>Konfigurera en plan för lösnings mal len
 
@@ -28,7 +28,7 @@ Du kan konfigurera varje plan så att den blir synlig för alla eller bara för 
 
 Gör något av följande under **plan synlighet** på fliken **tillgänglighet** :
 
-- Om du vill göra planen offentlig väljer du knappen **offentlig** alternativ (kallas även för en _alternativ knapp_ ).
+- Om du vill göra planen offentlig väljer du knappen **offentlig** alternativ (kallas även för en _alternativ knapp_).
 - Om du vill göra planen privat väljer du alternativet **privat** alternativ och lägger sedan till Azure-prenumerations-ID: n manuellt eller med en CSV-fil.
 
     > [!NOTE]
@@ -89,11 +89,11 @@ När du har skapat ett eller flera planer ser du ditt plan namn, plan-ID, plan t
 
 De åtgärder som är tillgängliga i kolumnen **åtgärd** på fliken **plan översikt** varierar beroende på status för din plan och kan innehålla följande:
 
-- Om plan status är **utkast** , kommer länken i kolumnen **åtgärd** att säga **ta bort utkast**.
+- Om plan status är **utkast**, kommer länken i kolumnen **åtgärd** att säga **ta bort utkast**.
 - Om plan status är **Live** kommer länken i kolumnen **åtgärd** att antingen **sluta säljas planen** eller **synkronisera den privata mål gruppen**. Länken **Synkronisera privat publik** kommer bara att publicera ändringar i dina privata mål grupper utan att publicera några andra uppdateringar som du har gjort i erbjudandet.
 - Om du vill skapa ett annat schema för det här erbjudandet väljer du **+ Skapa ny plan** längst upp på fliken **plan översikt** . Upprepa sedan stegen i [så här skapar du planer för ditt erbjudande för Azure-program](create-new-azure-apps-offer-plans.md). Annars, om du är klar med att skapa planer, går du till nästa avsnitt: nästa steg.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Testa och publicera Azure Application erbjudandet](create-new-azure-apps-offer-test-publish.md).
-- Lär dig [hur du marknadsför ditt Azure Applications erbjudande](create-new-azure-apps-offer-marketing.md) genom samförsäljningen med Microsoft och återförsäljs via CSP-program.
+- Lär dig [hur du säljer ditt Azure Applications erbjudande](create-new-azure-apps-offer-marketing.md) genom medförsäljning med Microsoft och som återförsäljs via CSP-program.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 8d28a1f2040cfec7b81081754a6abd3bc3e14439
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 5d13a6a77ede6277eebc7fdab7cd42165cb602fa
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511482"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746377"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure privat länk för Azure Data Factory
 
@@ -37,7 +37,7 @@ Du kan också installera en integration runtime med egen värd på en lokal dato
 
 Flera kommunikations kanaler krävs mellan Azure Data Factory och det virtuella kund nätverket, som du ser i följande tabell:
 
-| Domain | Port | Beskrivning |
+| Domain | Port | Description |
 | ---------- | -------- | --------------- |
 | `adf.azure.com` | 443 | Ett kontroll plan, som krävs för Data Factory redigering och övervakning. |
 | `*.{region}.datafactory.azure.net` | 443 | Krävs av integration runtime med egen värd för att ansluta till tjänsten Data Factory. |
@@ -96,20 +96,26 @@ Mer information om hur du konfigurerar en egen DNS-server för att stödja priva
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Konfigurera en privat länk för Azure Data Factory
 Du kan skapa privata slut punkter med hjälp av [Azure Portal](../private-link/create-private-endpoint-portal.md).
 
+Du kan välja om du vill ansluta den lokala integrerings körningen till Azure Data Factory via en offentlig slut punkt eller privat slut punkt. 
+
+![Skärm bild som blockerar offentlig åtkomst till Integration Runtime med egen värd.](./media/data-factory-private-link/disable-public-access-shir.png)
+
+
 Du kan också gå till Azure Data Factory i Azure Portal och skapa en privat slut punkt, som du ser här:
 
 ![Skärm bild av fönstret "privat slut punkts anslutningar" för att skapa en privat slut punkt.](./media/data-factory-private-link/create-private-endpoint.png)
 
+I **resurs** steget väljer du **Microsoft. DataFactory/factors** as **resurs typ**. Och om du vill skapa en privat slut punkt för kommando kommunikation mellan den lokala integrerings körningen och Azure Data Factory tjänsten väljer du **DataFactory** som **mål under resurs**.
 
-Om du vill blockera offentlig åtkomst till Azure Data Factory och bara tillåta åtkomst via privat länk inaktiverar du nätverks åtkomst till Azure Data Factory i Azure Portal, som du ser här:
-
-![Skärm bild av fönstret "nätverks åtkomst" för att skapa en privat slut punkt.](./media/data-factory-private-link/disable-network-access.png)
+![Skärm bild av fönstret "privat slut punkts anslutningar" för att välja resurs.](./media/data-factory-private-link/private-endpoint-resource.png)
 
 > [!NOTE]
 > Inaktive ring av offentlig nätverks åtkomst gäller endast för integration runtime med egen värd, inte för att Azure Integration Runtime och SQL Server Integration Services (SSIS) Integration Runtime.
 
+Om du vill skapa en privat slut punkt för att redigera och övervaka data fabriken i det virtuella nätverket väljer du **Portal** som **mål under resurs**.
+
 > [!NOTE]
-> Du kan fortfarande komma åt Azure Data Factory Portal via ett offentligt nätverk när du har inaktiverat offentlig nätverks åtkomst.
+> Du kan fortfarande komma åt Azure Data Factory Portal via ett offentligt nätverk när du har skapat en privat slut punkt för portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 

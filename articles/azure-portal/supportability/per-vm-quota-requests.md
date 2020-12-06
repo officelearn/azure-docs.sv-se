@@ -5,14 +5,13 @@ author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
 ms.topic: how-to
-ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 26fc916a2bacc0f6ae9791a53b642e93bb031466
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5db3e538a64e275313e1e0ab01f6cc6350eabb77
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077991"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745442"
 ---
 # <a name="standard-quota-increase-limits-by-vm-series"></a>Standardkvot: Öka gränserna med virtuella datorserier
 
@@ -23,7 +22,7 @@ Azure Resource Manager stöder två typer av vCPU-kvoter för virtuella datorer:
 
 Standard kvoten för vCPU för att betala per användning och reserverade instanser av virtuella datorer tillämpas på två nivåer för varje prenumeration i varje region:
 
-* Den första nivån är den *totala regionala virtuella processorer-gränsen*för alla VM-serier.
+* Den första nivån är den *totala regionala virtuella processorer-gränsen* för alla VM-serier.
 * Den andra nivån är *virtuella processorer-gränsen per VM-serien*, till exempel dv3-serien virtuella processorer.
 
 När du distribuerar en ny virtuell dator, får den totala nya och befintliga vCPU-användningen för alla VM-instanser för virtuella datorer inte överskrida den godkända kvot gränsen för vCPU. Om kvoten överskrids tillåts inte distributionen av virtuella datorer.
@@ -49,15 +48,15 @@ Så här begär du en ökad standard vCPU-kvot per VM-serien från **Hjälp + Su
 
    ![Länken Hjälp + Support](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-1. I **Hjälp + Support**väljer du **ny supportbegäran**.
+1. I **Hjälp + Support** väljer du **ny supportbegäran**.
 
     ![Skapa en ny supportbegäran](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. För **typ av problem**väljer du **begränsningar för tjänsten och prenumerationen (kvoter)**.
+1. För **typ av problem** väljer du **begränsningar för tjänsten och prenumerationen (kvoter)**.
 
    ![Välj en typ av problem](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
-1. För **prenumeration**väljer du den prenumeration vars kvot du vill öka.
+1. För **prenumeration** väljer du den prenumeration vars kvot du vill öka.
 
    ![Välj en prenumeration för ökad kvot](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
@@ -69,21 +68,21 @@ Så här begär du en ökad standard vCPU-kvot per VM-serien från **Hjälp + Su
 
    ![Länken "Tillhandahåll information"](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. I **kvot informationen**utför du följande steg:
+1. I **kvot informationen** utför du följande steg:
 
    ![TProvide ytterligare kvot information](./media/resource-manager-core-quotas-request/quota-details-deployment-rm-locations.png)
 
-   1. För **distributions modell**väljer du lämplig modell.
+   1. För **distributions modell** väljer du lämplig modell.
 
-   1. För **platser**väljer du en plats. Välj **standard**under **typer**i **Välj en typ**för den valda platsen.
+   1. För **platser** väljer du en plats. Välj **standard** under **typer** i **Välj en typ** för den valda platsen.
 
       ![Kvot information – kvot typer](./media/resource-manager-core-quotas-request/quota-details-select-standard-type.png)
 
-      Under **typer**kan du begära både standard-och plats kvot typer från ett enda support ärende via stöd för flera markeringar.
+      Under **typer** kan du begära både standard-och plats kvot typer från ett enda support ärende via stöd för flera markeringar.
 
       Mer information om hur du ökar kvot gränserna finns i [Azure-virtuella datorer för skalnings uppsättningar för virtuella datorer](../../virtual-machine-scale-sets/use-spot.md).
 
-   1. I **standard**väljer du SKU-serien för ökade kvoter.
+   1. I **standard** väljer du SKU-serien för ökade kvoter.
 
       ![Kvot information – SKU-serien](./media/resource-manager-core-quotas-request/quota-details-standard-select-series.png)
 
@@ -91,7 +90,7 @@ Så här begär du en ökad standard vCPU-kvot per VM-serien från **Hjälp + Su
 
       ![Välj en ny vCPU-gräns](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
 
-1. Om du vill begära en kvot ökning för mer än en plats väljer du en annan plats i **platser**och väljer sedan en lämplig VM-typ. Du kan sedan ange en gräns som gäller för den ytterligare platsen.
+1. Om du vill begära en kvot ökning för mer än en plats väljer du en annan plats i **platser** och väljer sedan en lämplig VM-typ. Du kan sedan ange en gräns som gäller för den ytterligare platsen.
 
    ![Ange ytterligare platser i kvot information](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
 
@@ -104,7 +103,7 @@ Så här begär du en kvot ökning för standard vCPU per VM-serien från **pren
 > [!NOTE]
 > Du kan också begära en ökad kvot gräns för flera regioner genom ett enda support ärende. Mer information finns i steg 7.
 
-1. Sök efter och välj **prenumerationer**i [Azure Portal](https://portal.azure.com).
+1. Sök efter och välj **prenumerationer** i [Azure Portal](https://portal.azure.com).
 
    ![Prenumerationer i Azure Portals sökning](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
 
@@ -116,7 +115,7 @@ Så här begär du en kvot ökning för standard vCPU per VM-serien från **pren
 
    ![Länken "användning + kvoter"](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
 
-1. Välj **begär ökning**längst upp till höger.
+1. Välj **begär ökning** längst upp till höger.
 
    ![Välj för att öka kvoten](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
 
@@ -124,21 +123,21 @@ Så här begär du en kvot ökning för standard vCPU per VM-serien från **pren
 
    ![Välj en kvot typ](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-1. I **kvot informationen**utför du följande steg:
+1. I **kvot informationen** utför du följande steg:
 
-   1. För **distributions modell**väljer du lämplig modell och för **platser**väljer du en plats.
+   1. För **distributions modell** väljer du lämplig modell och för **platser** väljer du en plats.
 
       ![Ange kvot information](./media/resource-manager-core-quotas-request/quota-details-deployment-rm-locations.png)
 
-   1. För den valda platsen, under **typer**, väljer du **Välj en typ**och väljer sedan **standard**.
+   1. För den valda platsen, under **typer**, väljer du **Välj en typ** och väljer sedan **standard**.
 
       ![Välj standard typ](./media/resource-manager-core-quotas-request/quota-details-select-standard-type.png)
 
-      Under **typer**kan du begära både standard-och plats kvot typer från ett enda support ärende via stöd för flera markeringar.
+      Under **typer** kan du begära både standard-och plats kvot typer från ett enda support ärende via stöd för flera markeringar.
 
       Mer information om hur du ökar kvot gränserna finns i [Azure-virtuella datorer för skalnings uppsättningar för virtuella datorer](../../virtual-machine-scale-sets/use-spot.md).
 
-   1. För **standard**väljer du den SKU-serie vars kvoter du vill öka.
+   1. För **standard** väljer du den SKU-serie vars kvoter du vill öka.
 
       ![Kvot information – SKU-serien](./media/resource-manager-core-quotas-request/quota-details-standard-select-series.png)
 
@@ -146,7 +145,7 @@ Så här begär du en kvot ökning för standard vCPU per VM-serien från **pren
 
       ![Välj en ny vCPU-gräns](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
 
-1. Om du vill begära en kvot ökning för mer än en plats väljer du en annan plats i **platser**och väljer sedan en lämplig VM-typ.
+1. Om du vill begära en kvot ökning för mer än en plats väljer du en annan plats i **platser** och väljer sedan en lämplig VM-typ.
 
    I det här steget förinstalleras den SKU-serie som du har valt för tidigare platser. Ange de kvot gränser som du vill använda för ytterligare serier.
 

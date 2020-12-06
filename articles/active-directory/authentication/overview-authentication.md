@@ -6,24 +6,24 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
 ms.date: 07/13/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92ac495381f63e01d64c9a3d02777dca37ebb343
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f85b78480e7258780f8dd396431edeb968189e4c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837999"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741260"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>Vad är Azure Active Directory autentisering?
 
 En av huvud funktionerna i en identitets plattform är att verifiera, eller *autentisera*, autentiseringsuppgifter när en användare loggar in på en enhet, ett program eller en tjänst. I Azure Active Directory (Azure AD) omfattar autentiseringen mer än bara verifieringen av ett användar namn och lösen ord. Azure AD-autentisering innehåller följande komponenter för att förbättra säkerheten och minska behovet av support support:
 
 * Återställning av lösenord för självbetjäning
-* Azure AD-Multi-Factor Authentication
+* Azure AD-multifaktorautentisering
 * Hybrid integrering för att skriva lösen ords ändringar tillbaka till en lokal miljö
 * Hybrid integrering som tillämpar principer för lösen ords skydd för en lokal miljö
 * Lösenordsfri autentisering
@@ -50,7 +50,7 @@ Lösen ords återställning via självbetjäning fungerar i följande scenarier:
 
 När en användare uppdaterar eller återställer sitt lösen ord med hjälp av lösen ords återställning via självbetjäning, kan lösen ordet också skrivas tillbaka till en lokal Active Directory miljö. Tillbakaskrivning av lösen ord ser till att en användare omedelbart kan använda sina uppdaterade autentiseringsuppgifter med lokala enheter och program.
 
-## <a name="azure-ad-multi-factor-authentication"></a>Azure AD-Multi-Factor Authentication
+## <a name="azure-ad-multi-factor-authentication"></a>Azure AD-multifaktorautentisering
 
 Multifaktorautentisering är en process där en användare under inloggningen uppmanas att ange ytterligare en typ av identifiering, till exempel att ange en kod på sin mobiltelefon eller ange ett fingeravtryck.
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/26/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e661bd24acbb15ced9f5bb0a0fba7eec51eae06
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7099de23b825fa7af203dff9696bb53e23a099c8
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363546"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741124"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Felsöka lösen ords återställning via självbetjäning i Azure Active Directory
 
@@ -135,7 +135,7 @@ För att du ska kunna hjälpa dig, ber vi dig att ange så mycket information so
     :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Support koden finns längst ned till höger i webbläsarfönstret.":::
 
   * Om du är på en sida utan support kod längst ned väljer du F12 och söker efter SID och CID och skickar dessa två resultat till support teknikern.
-* **Datum, tid och**tidszon: inkludera det exakta datumet och tiden *med tids zonen* då felet inträffade.
+* **Datum, tid och** tidszon: inkludera det exakta datumet och tiden *med tids zonen* då felet inträffade.
 * **Användar-ID**: Vem var den användare som såg felet? Ett exempel är *user \@ contoso.com*.
    * Är detta en federerad användare?
    * Är detta en direkt autentiserings användare?

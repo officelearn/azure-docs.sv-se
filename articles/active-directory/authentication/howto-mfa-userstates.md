@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 08/17/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 240fb04068f255128f33e79748762305e4d6b704
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 749829f641119273813d3c8ca826daf8b4dc4d11
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94838782"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96742671"
 ---
 # <a name="enable-per-user-azure-ad-multi-factor-authentication-to-secure-sign-in-events"></a>Aktivera Azure AD-Multi-Factor Authentication per användare för att säkra inloggnings händelser
 
@@ -43,7 +43,7 @@ En användares tillstånd visar om en administratör har registrerat dem i Azure
 
 | Stat | Beskrivning | Äldre autentisering påverkas | Webbläsarbaserade appar som påverkas | Modern autentisering påverkas |
 |:---:| --- |:---:|:--:|:--:|
-| Inaktiverad | Standard läget för en användare som inte har registrerats i Azure AD-Multi-Factor Authentication per användare. | Nej | Nej | Nej |
+| Inaktiverad | Standard läget för en användare som inte har registrerats i Azure AD-Multi-Factor Authentication per användare. | Inga | Inga | Inga |
 | Enabled | Användaren är registrerad i Azure AD-Multi-Factor Authentication per användare, men kan fortfarande använda sitt lösen ord för äldre autentisering. Om användaren ännu inte har registrerat MFA-autentiseringsmetoderna får användaren en uppfråga om att registrera sig nästa gången de loggar in med modern autentisering (till exempel via en webbläsare). | Nej. Äldre autentisering fortsätter att fungera tills registrerings processen har slutförts. | Ja. När sessionen har gått ut krävs Azure AD Multi-Factor Authentication registrering.| Ja. När åtkomst-token har gått ut krävs Azure AD Multi-Factor Authentication registrering. |
 | Enforced | Användaren registreras per användare i Azure AD Multi-Factor Authentication. Om användaren ännu inte har registrerat autentiseringsmetoder får han eller hon ett meddelande om att registrera sig nästa gången de loggar in med modern autentisering (till exempel via en webbläsare). Användare som slutför registreringen i det *aktiverade* läget flyttas automatiskt till *tvingande* tillstånd. | Ja. Appar kräver applösenord. | Ja. Azure AD Multi-Factor Authentication krävs vid inloggning. | Ja. Azure AD Multi-Factor Authentication krävs vid inloggning. |
 
@@ -85,7 +85,7 @@ Om du vill ändra användar tillstånd med hjälp av [Azure AD PowerShell](/powe
 
 * *Aktiverad*
 * *Enforced*
-* *Inaktiverad*  
+* *Disabled* (Inaktiverat)  
 
 I allmänhet ska du inte flytta användare direkt till *tvingande* tillstånd om de inte redan har registrerats för MFA. Om du gör det slutar äldre autentiserings-appar att fungera eftersom användaren inte har varit i Azure AD Multi-Factor Authentication registrering och fått ett [applösenord](howto-mfa-app-passwords.md). I vissa fall kan det här problemet vara önskvärt, men påverkar användar upplevelsen tills användaren registrerar sig.
 

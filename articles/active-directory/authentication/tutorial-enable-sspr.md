@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59de3123dc991d0314cd9046d83712d17da53d9f
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 924ff6091e7eb6633d36f75fd6d53745139454d7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837829"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741073"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Självstudie: gör det möjligt för användare att låsa upp kontot eller återställa lösen ord med hjälp av Azure Active Directory självbetjäning för återställning av lösen ord
 
@@ -149,4 +149,4 @@ I den här självstudien har du aktiverat lösen ords återställning via själv
 > * Testa SSPR-processen som en användare
 
 > [!div class="nextstepaction"]
-> [Aktivera Azure AD Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)
+> [Aktivera Azure AD-multifaktorautentisering](./tutorial-enable-azure-mfa.md)

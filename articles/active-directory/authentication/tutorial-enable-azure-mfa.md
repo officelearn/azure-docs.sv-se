@@ -1,21 +1,21 @@
 ---
-title: Aktivera Azure AD Multi-Factor Authentication
+title: Aktivera Azure AD-multifaktorautentisering
 description: I den här självstudien får du lära dig hur du aktiverar Azure AD-Multi-Factor Authentication för en grupp användare och testar den sekundära faktorn vid en inloggnings händelse.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62818ae5be079dc154e6d6faef4a8ebaae8fcd9d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 32228e90e3cfc064cd5be9cd0655f321ab3e2809
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837880"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741158"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-ad-multi-factor-authentication"></a>Självstudie: säkra användar inloggnings händelser med Azure AD Multi-Factor Authentication
 

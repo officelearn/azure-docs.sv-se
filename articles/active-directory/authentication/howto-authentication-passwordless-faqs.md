@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/19/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5cc6847332765419001eadc5944905f55a425ef
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 98cb990ede7c4d6e261bba05b0b8c97d758e6c32
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964799"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743538"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad-preview"></a>Vanliga frågor och svar om distribution av hybrid FIDO2 säkerhets nycklar i Azure AD (för hands version)
 
@@ -234,7 +234,7 @@ HTTP-begäran är en standard-PRT-begäran (Primary Refresh token). Denna PRT-be
 
 Azure AD kombinerar den krypterade klient nyckeln och meddelande bufferten till PRT-svaret som ytterligare egenskaper. Nytto lasten krypteras med Azure AD-enhetens sessionsnyckel.
 
-| Fält              | Typ   | Beskrivning  |
+| Fält              | Typ   | Description  |
 |--------------------|--------|--------------|
 | tgt_client_key     | sträng | Base64-kodad klient nyckel (hemlighet). Den här nyckeln är den klient hemlighet som används för att skydda TGT. I det här lösen ords scenariot genereras klient hemligheten av servern som en del av varje TGT-begäran och returneras sedan till klienten i svaret. |
 | tgt_key_type       | int    | Den lokala AD DS-nyckel typen som används för både klient nyckeln och Kerberos-sessionsnyckeln som ingår i KERB_MESSAGE_BUFFER. |

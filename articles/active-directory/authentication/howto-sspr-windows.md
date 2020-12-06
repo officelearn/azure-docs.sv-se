@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/17/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1cd40b8df0251aee7692df24e9bc3f7186c155d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 478ae6146caeb8a27cdaf13b7f33e421b8121afc
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966516"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741498"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Aktivera Azure Active Directory lösen ords återställning via självbetjäning på Windows inloggnings skärm
 
@@ -75,25 +75,25 @@ Att distribuera konfigurations ändringen för att aktivera SSPR från inloggnin
 #### <a name="create-a-device-configuration-policy-in-intune"></a>Skapa en princip för enhetskonfiguration i Intune
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och välj **Intune**.
-1. Skapa en ny enhets konfigurations profil genom att gå till **enhetens konfigurations**  >  **profiler**och välj sedan **+ Skapa profil**
+1. Skapa en ny enhets konfigurations profil genom att gå till **enhetens konfigurations**  >  **profiler** och välj sedan **+ Skapa profil**
    - För **plattform** väljer du *Windows 10 och senare*
-   - För **profil typ**väljer du *anpassad*
-1. Välj **skapa**och ange sedan ett beskrivande namn för profilen, t. ex. *Windows 10-INLOGGNINGs skärmen SSPR*
+   - För **profil typ** väljer du *anpassad*
+1. Välj **skapa** och ange sedan ett beskrivande namn för profilen, t. ex. *Windows 10-INLOGGNINGs skärmen SSPR*
 
     Du kan också ange en meningsfull beskrivning av profilen och sedan välja **Nästa**.
-1. Under *konfigurations inställningar*väljer du **Lägg till** och anger följande OMA-URI-inställning för att aktivera länken Återställ lösen ord:
+1. Under *konfigurations inställningar* väljer du **Lägg till** och anger följande OMA-URI-inställning för att aktivera länken Återställ lösen ord:
       - Ange ett beskrivande namn som förklarar vad inställningen gör, till exempel *Lägg till SSPR länk*.
       - Du kan också ange en meningsfull beskrivning av inställningen.
       - **OMA-URI** inställt på `./Vendor/MSFT/Policy/Config/Authentication/AllowAadPasswordReset`
       - **Datatyp** inställt på **Integer**
       - **Värde** inställt på **1**
 
-    Välj **Lägg till**och sedan **Nästa**.
+    Välj **Lägg till** och sedan **Nästa**.
 1. Principen kan tilldelas till vissa användare, enheter eller grupper. Tilldela profilen som du vill för din miljö, helst till en test grupp enheter först och välj sedan **Nästa**.
 
     Mer information finns i [Tilldela användar-och enhets profiler i Microsoft Intune](/mem/intune/configuration/device-profile-assign).
 
-1. Konfigurera tillämplighets regler som önskade för din miljö, t. ex. för att *Tilldela profil om OS-versionen är Windows 10 Enterprise*och välj sedan **Nästa**.
+1. Konfigurera tillämplighets regler som önskade för din miljö, t. ex. för att *Tilldela profil om OS-versionen är Windows 10 Enterprise* och välj sedan **Nästa**.
 1. Granska din profil och välj sedan **skapa**.
 
 ### <a name="enable-for-windows-10-using-the-registry"></a>Aktivera för Windows 10 med hjälp av registret

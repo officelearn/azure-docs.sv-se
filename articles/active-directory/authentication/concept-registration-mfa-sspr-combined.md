@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/04/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 12/04/2020
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22f43c5f9848670b9df4b061c5abb6cc30912172
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c8dce284c0fffe10fe077fcb6c6713ba65c45751
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839802"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743912"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Kombinerad säkerhets informations registrering för Azure Active Directory översikt
 
 Före kombinerad registrering har användare registrerat autentiseringsmetoder för Azure AD Multi-Factor Authentication och återställning av lösen ord för självbetjäning (SSPR) separat. Personer har förvirrat att liknande metoder användes för Multi-Factor Authentication och SSPR, men de var tvungna att registrera sig för båda funktionerna. Med kombinerad registrering kan användarna registrera sig en gång och få fördelarna med både Multi-Factor Authentication-och SSPR.
 
 > [!NOTE]
-> Från den 15 augusti 2020 aktive ras alla nya Azure AD-klienter automatiskt för kombinerad registrering.
+> Från den 15 augusti 2020 aktive ras alla nya Azure AD-klienter automatiskt för kombinerad registrering. Från och med december 14 2020 kommer alla Azure AD-klienter med en användare automatiskt att aktive ras för kombinerad registrering.
 
 Den här artikeln beskriver hur kombinerad säkerhets registrering är. Information om hur du kommer igång med kombinerad säkerhets registrering finns i följande artikel:
 
@@ -53,15 +53,15 @@ Kombinerad registrering stöder följande autentiseringsmetoder och åtgärder:
 
 | Metod | Registrera dig | Ändra | Ta bort |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Ja (högst 5) | Nej | Ja |
-| Annan Authenticator-app | Ja (högst 5) | Nej | Ja |
-| Maskinvaru-token | Nej | Nej | Ja |
+| Microsoft Authenticator | Ja (högst 5) | Inga | Ja |
+| Annan Authenticator-app | Ja (högst 5) | Inga | Ja |
+| Maskinvaru-token | Inga | Inga | Ja |
 | Telefon | Ja | Ja | Ja |
 | Alternativ telefon | Ja | Ja | Ja |
 | Arbetstelefon | Ja | Ja | Ja |
 | E-post | Ja | Ja | Ja |
-| Säkerhetsfrågor | Ja | Nej | Ja |
-| Applösenord | Ja | Nej | Ja |
+| Säkerhetsfrågor | Ja | Inga | Ja |
+| Applösenord | Ja | Inga | Ja |
 | FIDO2 säkerhets nycklar<br />*Endast hanterat läge från sidan [säkerhets information](https://mysignins.microsoft.com/security-info)*| Ja | Ja | Ja |
 
 > [!NOTE]

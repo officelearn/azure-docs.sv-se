@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/20/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 12/04/2020
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c67f72a7f0d77284dbb34104754793b36bb8d4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 29a577b50a561cb5b829e453c523e0bd18a70e1a
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94838152"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741685"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Aktivera kombinerad säkerhets informations registrering i Azure Active Directory
 
 Före kombinerad registrering har användare registrerat autentiseringsmetoder för Azure AD Multi-Factor Authentication och återställning av lösen ord för självbetjäning (SSPR) separat. Personer förväxlade över att liknande metoder användes för Azure AD Multi-Factor Authentication och SSPR, men de var tvungna att registrera sig för båda funktionerna. Med kombinerad registrering kan användarna registrera sig en gång och få fördelarna med både Azure AD Multi-Factor Authentication och SSPR.
 
 > [!NOTE]
-> Från den 15 augusti 2020 aktive ras alla nya Azure AD-klienter automatiskt för kombinerad registrering.
+> Från den 15 augusti 2020 aktive ras alla nya Azure AD-klienter automatiskt för kombinerad registrering. Från och med december 14 2020 kommer alla Azure AD-klienter med en användare automatiskt att aktive ras för kombinerad registrering.
 
 För att se till att du förstår funktionerna och effekterna innan du aktiverar den nya upplevelsen, se de [kombinerade principerna för registrering av säkerhets information](concept-registration-mfa-sspr-combined.md).
 

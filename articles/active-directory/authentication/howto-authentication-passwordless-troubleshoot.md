@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/19/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 690d4761657b8bf6e5ba63ddfbce7163584e64e2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ea034974e85febcffeb2494d87b666a39e524eb1
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174042"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743283"
 ---
 # <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Fel sökning för Hybrid distributioner av FIDO2-säkerhetsnycklar i Azure AD (för hands version)
 
@@ -62,7 +62,7 @@ Kontrol lera att tillräckligt många domänkontrollanter har korrigerats för a
 
 Om du kan se en DOMÄNKONTROLLANT med den här funktionen kan användarens lösen ord ha ändrats sedan de loggade in, eller så finns det ett annat problem. Samla in loggar enligt beskrivningen i följande avsnitt för Microsoft Support-teamet för fel sökning.
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 Det finns två områden för att felsöka [problem med Windows-klienter](#windows-client-issues)eller [distributions problem](#deployment-issues).
 

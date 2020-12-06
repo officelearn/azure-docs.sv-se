@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe8a916f4c3ce8869b6b487e33dcdecc061f8cbf
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8633ae0d23650eb12ee2e1fdcd355864dfd8b6c3
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839598"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743640"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Användning av autentiseringsmetoder & insikter (för hands version)
 
@@ -65,7 +65,7 @@ Om du klickar på de användare som är **registrerade**, **användare aktiverad
 
 Rapporten registrerings information visar följande information för varje användare:
 
-- Namn
+- Name
 - Användarnamn
 - Registrerings status (alla, registrerad, ej registrerad)
 - Aktive rad status (all, aktive rad, inte aktive rad)
@@ -80,7 +80,7 @@ Om du klickar på registreringar eller återställer diagram går du till åters
 
 I rapporten Återställ detaljer visas registrerings-och återställnings händelser från de senaste 30 dagarna, inklusive:
 
-- Namn
+- Name
 - Användarnamn
 - Funktion (all, registrering, återställning)
 - Autentiseringsmetod (app-meddelande, app-kod, telefonsamtal, Office-samtal, SMS, e-post, säkerhets frågor)

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aa093411e40b2fc60c52c2a22434658bab78e59
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 978f404aa9b99819460e46ea89df19d27431b8b8
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839258"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743147"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Planera en Azure AD Multi-Factor Authentication-distribution
 
@@ -29,7 +29,7 @@ Den här distributions guiden visar hur du planerar och testar en distribution a
 Om du snabbt vill se Azure AD Multi-Factor Authentication i praktiken och återgå till att förstå ytterligare distributions överväganden:
 
 > [!div class="nextstepaction"]
-> [Aktivera Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md)
+> [Aktivera Azure AD-multifaktorautentisering](tutorial-enable-azure-mfa.md)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -287,7 +287,7 @@ Om du har en distribuerad NPS-instans och redan använder, [integrerar du din be
 
 Välj vad som ska hända när användare som inte är registrerade med MFA försöker autentisera sig. Använd register inställningen `REQUIRE_USER_MATCH` i register Sök vägen `HKLM\Software\Microsoft\AzureMFA` för att styra funktions sättet. Den här inställningen har ett enda konfigurations alternativ.
 
-| Tangent | Värde | Standardvärde |
+| Tangent | Värde | Standard |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | Inte angivet (motsvarar sant) |
 
@@ -357,7 +357,7 @@ Rapporter för Azure AD MFA
 
 Azure AD Multi-Factor Authentication ger rapporter via Azure Portal:
 
-| Rapport | Plats | Beskrivning |
+| Rapport | Plats | Description |
 | --- | --- | --- |
 | Användnings-och bedrägeri varningar | Inloggnings program för Azure AD > | Innehåller information om allmän användning, användar Sammanfattning och användar information. samt en historik över bedrägeri aviseringar som skickats under det angivna datum intervallet. |
 
@@ -370,4 +370,4 @@ Hitta lösningar på vanliga problem med Azure AD MFA i [artikeln om fel söknin
 Om du vill se hur Azure AD Multi-Factor Authentication i praktiken, slutför du följande självstudie:
 
 > [!div class="nextstepaction"]
-> [Aktivera Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md)
+> [Aktivera Azure AD-multifaktorautentisering](tutorial-enable-azure-mfa.md)

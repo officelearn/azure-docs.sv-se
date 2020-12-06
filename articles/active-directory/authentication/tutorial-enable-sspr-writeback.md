@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 3723bfdad91fcbcb8c135c29c49d5eb9237c5b86
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fc5291544f1cd64caa7e4ab1dd7d541604706920
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966482"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741175"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Självstudie: Aktivera Azure Active Directory självbetjäning för återställning av lösen ord till en lokal miljö
 
@@ -29,7 +29,7 @@ Tillbakaskrivning av lösen ord kan användas för att synkronisera lösen ords 
 >
 > Om IT-teamet inte har aktiverat möjligheten att återställa ditt eget lösen ord kan du kontakta supportavdelningen för ytterligare hjälp.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera de behörigheter som krävs för tillbakaskrivning av lösen ord
@@ -71,13 +71,13 @@ Utför följande steg för att ställa in rätt behörigheter för tillbakaskriv
 
 1. I din lokala AD DS-miljö öppnar du **Active Directory användare och datorer** med ett konto som har rätt *domän administratörs* behörighet.
 1. I menyn **Visa** ser du till att **avancerade funktioner** är aktiverade.
-1. I den vänstra rutan högerklickar du på det objekt som representerar roten för domänen och väljer **Egenskaper**  >  **Security**  >  **Avancerad**säkerhet.
+1. I den vänstra rutan högerklickar du på det objekt som representerar roten för domänen och väljer **Egenskaper**  >  **Security**  >  **Avancerad** säkerhet.
 1. På fliken **behörigheter** väljer du **Lägg till**.
-1. För **huvud**konto väljer du det konto som behörigheter ska tillämpas på (kontot som används av Azure AD Connect).
+1. För **huvud** konto väljer du det konto som behörigheter ska tillämpas på (kontot som används av Azure AD Connect).
 1. I list rutan **gäller väljer du** **underordnade användar objekt**.
-1. Under *behörigheter*väljer du kryss rutan för följande alternativ:
+1. Under *behörigheter* väljer du kryss rutan för följande alternativ:
     * **Återställa lösenord**
-1. Under *Egenskaper*väljer du rutorna för följande alternativ. Bläddra igenom listan för att hitta de här alternativen, som kanske redan är inställda som standard:
+1. Under *Egenskaper* väljer du rutorna för följande alternativ. Bläddra igenom listan för att hitta de här alternativen, som kanske redan är inställda som standard:
     * **Skriv lockoutTime**
     * **Skriv pwdLastSet**
 
@@ -119,7 +119,7 @@ När tillbakaskrivning av lösen ord är aktiverat i Azure AD Connect, konfigure
 Utför följande steg för att aktivera tillbakaskrivning av lösen ord i SSPR:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett globalt administratörs konto.
-1. Sök efter och välj **Azure Active Directory**, Välj **lösen ords återställning**och välj sedan **lokal integrering**.
+1. Sök efter och välj **Azure Active Directory**, Välj **lösen ords återställning** och välj sedan **lokal integrering**.
 1. Ange alternativet för **Skriv tillbaka lösen ord till din lokala katalog?** till *Ja*.
 1. Ange alternativet för **Tillåt att användare låser upp konton utan att återställa sitt lösen ord?** till *Ja*.
 
@@ -132,7 +132,7 @@ Utför följande steg för att aktivera tillbakaskrivning av lösen ord i SSPR:
 Om du inte längre vill använda funktionen SSPR tillbakaskrivning som du har konfigurerat som en del av den här självstudien utför du följande steg:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Sök efter och välj **Azure Active Directory**, Välj **lösen ords återställning**och välj sedan **lokal integrering**.
+1. Sök efter och välj **Azure Active Directory**, Välj **lösen ords återställning** och välj sedan **lokal integrering**.
 1. Ange alternativet för **Skriv tillbaka lösen ord till din lokala katalog?** till *Nej*.
 1. Ange alternativet för **Tillåt att användare låser upp konton utan att återställa sina lösen ord?** till *Nej*.
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/26/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9664518a7e8ec505a2823cdd5f17d6fa8a7db8b
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 6a3044127aacb5910a270d40d94d3255031a71a2
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925806"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741311"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Felsöka tillbakaskrivning av lösen ord för självbetjänings återställning i Azure Active Directory
 
@@ -51,8 +51,8 @@ Mer information finns i [anslutnings kraven för Azure AD Connect](../hybrid/how
 
 Utför följande steg för att starta om tjänsten Azure AD Connect Sync för att lösa anslutnings problem eller andra tillfälliga problem med tjänsten:
 
-1. Som administratör på den server som kör Azure AD Connect väljer du **Start** .
-1. Ange *Services. msc* i Sök fältet och välj **RETUR** .
+1. Som administratör på den server som kör Azure AD Connect väljer du **Start**.
+1. Ange *Services. msc* i Sök fältet och välj **RETUR**.
 1. Sök efter posten för *Microsoft Azure AD-synkronisering* .
 1. Högerklicka på tjänst posten, Välj **starta om** och vänta tills åtgärden har slutförts.
 
@@ -66,15 +66,15 @@ Om det inte går att lösa problemet med att starta om tjänsten Azure AD Connec
 
 Fortsätt med att felsöka problem genom att utföra följande steg för att inaktivera och sedan återaktivera funktionen för tillbakaskrivning av lösen ord:
 
-1. Som administratör på den server som kör Azure AD Connect öppnar du **guiden Azure AD Connect konfiguration** .
+1. Som administratör på den server som kör Azure AD Connect öppnar du **guiden Azure AD Connect konfiguration**.
 1. I **Anslut till Azure AD** anger du dina autentiseringsuppgifter som global administratör för Azure AD.
 1. I **Anslut till AD DS** anger du dina lokala Active Directory Domain Services admin-autentiseringsuppgifter.
-1. Välj **Nästa** -knappen i **identifiera dina användare unikt** .
+1. Välj **Nästa** -knappen i **identifiera dina användare unikt**.
 1. I **valfria funktioner** avmarkerar du kryss rutan **tillbakaskrivning av lösen ord** .
 1. Välj **Nästa** genom de återstående dialog sidorna utan att ändra något förrän du kommer till sidan **klart att konfigurera** .
-1. Kontrol lera att alternativet för **att konfigurera** lösen ord visar alternativet för *tillbakaskrivning av lösen ord* som *inaktiverat* . Klicka på den **gröna knappen för att** Spara ändringarna.
+1. Kontrol lera att alternativet för **att konfigurera** lösen ord visar alternativet för *tillbakaskrivning av lösen ord* som *inaktiverat*. Klicka på den **gröna knappen för att** Spara ändringarna.
 1. I **klart** avmarkerar du alternativet **Synkronisera nu** och väljer sedan **Slutför** för att stänga guiden.
-1. Öppna **konfigurations guiden för Azure AD Connect** .
+1. Öppna **konfigurations guiden för Azure AD Connect**.
 1. Upprepa steg 2-8, den här gången väljer du alternativet för *tillbakaskrivning av lösen ord* på sidan **valfria funktioner** för att återaktivera tjänsten.
 
 De här stegen återupprättar anslutningen till Azure AD och löser anslutnings problemen.
@@ -101,32 +101,32 @@ Om du inte kan lösa problemet genom att installera den senaste versionen av Azu
 
 Azure AD Connect kräver tillbakaskrivning av AD DS- **lösenord** för att utföra tillbakaskrivning av lösen ord. Om du vill kontrol lera om Azure AD Connect har behörighet för ett angivet AD DS-användarkonto, använder du funktionen **Windows gällande behörighet** :
 
-1. Logga in på Azure AD Connect-servern och starta **Synchronization Service Manager** genom att välja **Starta**  >  **synkroniseringstjänst** .
-1. På fliken **anslutningar** väljer du den lokala **Active Directory Domain Services** anslutningen och väljer sedan **Egenskaper** .
+1. Logga in på Azure AD Connect-servern och starta **Synchronization Service Manager** genom att välja **Starta**  >  **synkroniseringstjänst**.
+1. På fliken **anslutningar** väljer du den lokala **Active Directory Domain Services** anslutningen och väljer sedan **Egenskaper**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Starta om Azure AD Sync tjänsten med hjälp av det grafiska användar gränssnittet" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Synchronization Service Manager som visar hur du redigerar egenskaper" border="false":::
   
 1. I popup-fönstret väljer du **Anslut till Active Directory skog** och anteckna egenskapen **användar namn** . Den här egenskapen är det AD DS-konto som används av Azure AD Connect för att utföra en katalog synkronisering.
 
     För att Azure AD Connect ska kunna utföra tillbakaskrivning av lösen ord måste AD DS-kontot ha behörighet att återställa lösen ord. Du kontrollerar behörigheterna för det här användar kontot i följande steg.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Starta om Azure AD Sync tjänsten med hjälp av det grafiska användar gränssnittet" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Hitta synkroniseringstjänsten Active Directory-användarkonto" border="false":::
   
 1. Logga in på en lokal domänkontrollant och starta programmet **Active Directory användare och datorer** .
 1. Välj **Visa** och se till att alternativet **avancerade funktioner** är aktiverat.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Starta om Azure AD Sync tjänsten med hjälp av det grafiska användar gränssnittet" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Active Directory användare och datorer Visa avancerade funktioner" border="false":::
   
-1. Leta efter det AD DS-användarkonto som du vill verifiera. Högerklicka på konto namnet och välj **Egenskaper** .  
-1. Gå till fliken **säkerhet** i popup-fönstret och välj **Avancerat** .  
+1. Leta efter det AD DS-användarkonto som du vill verifiera. Högerklicka på konto namnet och välj **Egenskaper**.  
+1. Gå till fliken **säkerhet** i popup-fönstret och välj **Avancerat**.  
 1. I popup-fönstret **avancerade säkerhets inställningar för administratör** går du till fliken **gällande åtkomst** .
-1. Välj **Välj en användare** , Välj det AD DS-konto som används av Azure AD Connect och välj sedan **Visa gällande åtkomst** .
+1. Välj **Välj en användare**, Välj det AD DS-konto som används av Azure AD Connect och välj sedan **Visa gällande åtkomst**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Starta om Azure AD Sync tjänsten med hjälp av det grafiska användar gränssnittet" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Fliken gällande åtkomst visar synkroniseringsschemat" border="false":::
   
-1. Rulla nedåt och leta efter **Återställ lösen ord** . Om posten är markerad har AD DS-kontot behörighet att återställa lösen ordet för det valda Active Directory användar kontot.  
+1. Rulla nedåt och leta efter **Återställ lösen ord**. Om posten är markerad har AD DS-kontot behörighet att återställa lösen ordet för det valda Active Directory användar kontot.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Starta om Azure AD Sync tjänsten med hjälp av det grafiska användar gränssnittet" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Verifierar att Sync-kontot har behörigheten Återställ lösen ord" border="false":::
 
 ## <a name="common-password-writeback-errors"></a>Vanliga fel vid tillbakaskrivning av lösen ord
 
@@ -135,7 +135,7 @@ Följande specifika problem kan uppstå med tillbakaskrivning av lösen ord. Om 
 | Fel | Lösning |
 | --- | --- |
 | Tjänsten för återställning av lösen ord startar inte lokalt. Fel 6800 visas i händelse loggen för Azure AD Connect datorns program. <br> <br> Efter onboarding, federerad autentisering, direktautentisering eller lösen ords-hash-synkroniserade användare kan inte återställa sina lösen ord. | När tillbakaskrivning av lösen ord är aktive rad anropar Synkroniseringsmotorn tillbakaskrivning för att utföra konfigurationen (onboarding) genom att kommunicera med Cloud onboarding-tjänsten. Eventuella fel som påträffas vid onboarding eller vid start av Windows Communication Foundation (WCF) för att tillbakaskrivning av lösen ord resulterar i fel i händelse loggen på din Azure AD Connect dator. <br> <br> Under omstarten av Azure AD Sync (ADSync)-tjänsten, om tillbakaskrivning har kon figurer ATS, startar WCF-slutpunkten. Men om starten av slut punkten Miss lyckas loggar vi in händelse 6800 och låter synkroniseringstjänsten starta. Förekomsten av den här händelsen innebär att slut punkten för tillbakaskrivning av lösen ord inte startades. Händelse logg information för den här händelsen 6800, tillsammans med händelse logg poster som genereras av PasswordResetService-komponenten, anger varför du inte kan starta slut punkten. Granska de här händelse logg felen och försök att starta om Azure AD Connect om tillbakaskrivning av lösen ord fortfarande inte fungerar. Om problemet kvarstår kan du försöka inaktivera och sedan återaktivera tillbakaskrivning av lösen ord.
-| När en användare försöker återställa ett lösen ord eller låsa upp ett konto med tillbakaskrivning av lösen ord aktiverat, Miss lyckas åtgärden. <br> <br> Dessutom visas en händelse i händelse loggen för Azure AD Connect som innehåller: "Synkroniseringsmotorn returnerade ett fel HR = 800700CE, meddelande = fil namnet eller tillägget är för långt för att upplåsningen har utförts. | Hitta Active Directory kontot för Azure AD Connect och Återställ lösen ordet så att det inte innehåller fler än 256 tecken. Öppna sedan **synkroniseringstjänsten** från **Start** -menyn. Bläddra till **anslutningar** och hitta **Active Directory-anslutningen** . Markera den och välj sedan **Egenskaper** . Bläddra till sidan **autentiseringsuppgifter** och ange det nya lösen ordet. Välj **OK** för att stänga sidan. |
+| När en användare försöker återställa ett lösen ord eller låsa upp ett konto med tillbakaskrivning av lösen ord aktiverat, Miss lyckas åtgärden. <br> <br> Dessutom visas en händelse i händelse loggen för Azure AD Connect som innehåller: "Synkroniseringsmotorn returnerade ett fel HR = 800700CE, meddelande = fil namnet eller tillägget är för långt för att upplåsningen har utförts. | Hitta Active Directory kontot för Azure AD Connect och Återställ lösen ordet så att det inte innehåller fler än 256 tecken. Öppna sedan **synkroniseringstjänsten** från **Start** -menyn. Bläddra till **anslutningar** och hitta **Active Directory-anslutningen**. Markera den och välj sedan **Egenskaper**. Bläddra till sidan **autentiseringsuppgifter** och ange det nya lösen ordet. Välj **OK** för att stänga sidan. |
 | I det sista steget i Azure AD Connect installationen visas ett fel som anger att tillbakaskrivning av lösen ord inte kunde konfigureras. <br> <br> Händelse loggen för Azure AD Connect program innehåller fel 32009 med texten "Det gick inte att hämta auth-token". | Det här felet uppstår i följande två fall: <br><ul><li>Du har angett ett felaktigt lösen ord för det globala administratörs kontot som angavs i början av installations processen för Azure AD Connect.</li><li>Du försökte använda en federerad användare för det globala administratörs kontot som angavs i början av installations processen för Azure AD Connect.</li></ul> Åtgärda problemet genom att se till att du inte använder ett federerat konto för den globala administratör som du angav i början av installations processen och att det angivna lösen ordet är korrekt. |
 | Händelse loggen för Azure AD Connect datorn innehåller fel 32002 som genereras genom att PasswordResetService körs. <br> <br> Felet läser: "fel vid anslutning till Service Bus. Token-providern kunde inte tillhandahålla en säkerhetstoken. " | Din lokala miljö kan inte ansluta till Azure Service Bus slut punkten i molnet. Det här felet orsakas vanligt vis av en brand Väggs regel som blockerar en utgående anslutning till en viss port eller webb adress. Mer information finns i [krav för anslutning](../hybrid/how-to-connect-install-prerequisites.md) . När du har uppdaterat reglerna startar du om Azure AD Connect Server och tillbakaskrivning av lösen ord ska börja fungera igen. |
 | Efter en viss tid kan federerade, direktautentisering, direktautentisering eller lösen ords-hash-synkroniserade användare inte återställa sina lösen ord. | I vissa sällsynta fall går det inte att starta om tjänsten för tillbakaskrivning av lösen ord när Azure AD Connect har startats om. I dessa fall kontrollerar du först om tillbakaskrivning av lösen ord är aktiverat lokalt. Du kan kontrol lera genom att använda antingen Azure AD Connect guiden eller PowerShell. Om funktionen verkar vara aktive rad kan du prova att aktivera eller inaktivera funktionen igen. Om detta fel söknings steg inte fungerar kan du prova med att avinstallera och installera om Azure AD Connect. |
@@ -213,22 +213,22 @@ Om du inte hittar svaret på ett problem är våra support team alltid tillgäng
 
 För att du ska kunna hjälpa dig, ber vi dig att ange så mycket information som möjligt när du öppnar ett ärende. Den här informationen omfattar följande:
 
-* **Allmän beskrivning av felet** : Vad är felet? Vad var det beteende som har märkts? Hur kan vi återskapa felet? Ange så mycket information som möjligt.
-* **Sida** : vilken sida var du på när du noterade felet? Ta med URL: en om du kan och en skärm bild av sidan.
-* **Support kod** : Vad var den support kod som genererades när användaren såg felet?
+* **Allmän beskrivning av felet**: Vad är felet? Vad var det beteende som har märkts? Hur kan vi återskapa felet? Ange så mycket information som möjligt.
+* **Sida**: vilken sida var du på när du noterade felet? Ta med URL: en om du kan och en skärm bild av sidan.
+* **Support kod**: Vad var den support kod som genererades när användaren såg felet?
    * Du hittar den här koden genom att återskapa felet och sedan välja länken **support kod** längst ned på skärmen och skicka support teknikern till det GUID som det resulterar i.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Starta om Azure AD Sync tjänsten med hjälp av det grafiska användar gränssnittet":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Support koden finns längst ned till höger i webbläsarfönstret.":::
 
   * Om du är på en sida utan support kod längst ned väljer du F12 och söker efter SID och CID och skickar dessa två resultat till support teknikern.
 * **Datum, tid och** tidszon: inkludera det exakta datumet och tiden *med tids zonen* då felet inträffade.
-* **Användar-ID** : Vem var den användare som såg felet? Ett exempel är *user \@ contoso.com* .
+* **Användar-ID**: Vem var den användare som såg felet? Ett exempel är *user \@ contoso.com*.
    * Är detta en federerad användare?
    * Är detta en direkt autentiserings användare?
    * Är detta en lösen ords-hash-synkroniserad användare?
    * Är det här en endast molnbaserad användare?
-* **Licensiering** : har användaren en Azure AD-licens tilldelad?
-* **Program händelse logg** : om du använder tillbakaskrivning av lösen ord och felet finns i den lokala infrastrukturen inkluderar du en zippad kopia av program händelse loggen från Azure AD Connect-servern.
+* **Licensiering**: har användaren en Azure AD-licens tilldelad?
+* **Program händelse logg**: om du använder tillbakaskrivning av lösen ord och felet finns i den lokala infrastrukturen inkluderar du en zippad kopia av program händelse loggen från Azure AD Connect-servern.
 
 ## <a name="next-steps"></a>Nästa steg
 

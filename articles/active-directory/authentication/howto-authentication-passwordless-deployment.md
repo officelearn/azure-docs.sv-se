@@ -7,16 +7,16 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: baselden
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4c06e53d3ddfb5f344a759e31d83cb22ce6d4d3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a786907c5c954aa45de266b6d92dd47867a8445d
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174144"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743623"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planera distribution av lösenordsskyddad autentisering i Azure Active Directory
 
@@ -292,7 +292,7 @@ Följ stegen som är anpassade till den valda metoden nedan.
 
 ### <a name="required-administrative-roles"></a>Administrativa roller som krävs
 
-| Azure AD-roll | Beskrivning |
+| Azure AD-roll | Description |
 | --- | --- |
 | Global administratör|Minst privilegie rad roll kan implementera kombinerad registrerings upplevelse. |
 | Administratör för autentisering | Minst privilegie rad roll kan implementera och hantera autentiseringsmetoder. |

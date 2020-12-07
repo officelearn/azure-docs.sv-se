@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 1ab6f5e9c7b602ce124116c02584c5a48a3f597f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7c1b9ad033ade3b577dc4a06e84801dab3b7eb70
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999985"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763969"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Konfigurera en App Service-app i Azure Portal
 
@@ -29,7 +29,7 @@ I appens vänstra meny väljer du **konfigurations**  >  **program inställninga
 
 ![Programinställningar](./media/configure-common/open-ui.png)
 
-För ASP.NET-och ASP.NET Core-utvecklare ställer du in appinställningar i App Service som att ställa in dem i `<appSettings>` *Web.config* eller *appsettings.jspå*, men värdena i App Service åsidosätter dem i *Web.config* eller *appsettings.jspå*. Du kan behålla utvecklings inställningarna (till exempel lokalt MySQL-lösenord) i *Web.config* eller *appsettings.jspå*, men produktions hemligheter (till exempel Azure MySQL-databasens lösen ord) är säkert i App Service. Samma kod använder utvecklings inställningarna när du felsöker lokalt, och den använder dina produktions hemligheter när de distribueras till Azure.
+För ASP.NET-och ASP.NET Core-utvecklare ställer du in appinställningar i App Service som att ställa in dem i `<appSettings>` *Web.config* eller *appsettings.jspå*, men värdena i App Service åsidosätter dem i *Web.config* eller *appsettings.jspå*. Du kan behålla utvecklings inställningarna (till exempel lokalt MySQL-lösenord) i *Web.config* eller *appsettings.jspå* och produktions hemligheter (till exempel Azure MySQL Database-lösenord) som är säkert i App Service. Samma kod använder utvecklings inställningarna när du felsöker lokalt, och den använder dina produktions hemligheter när de distribueras till Azure.
 
 Andra språk stackar, på samma sätt, får också appens inställningar som miljövariabler vid körning. För språkspecifika steg, se:
 

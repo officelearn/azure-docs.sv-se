@@ -1,15 +1,15 @@
 ---
 title: Använd Visual Studio Code för att ansluta till Azure blockchain-tjänsten
 description: Ansluta till ett Azure blockchain service Consortium-nätverk med Azure blockchain Development Kit for Ethereum-tillägget i Visual Studio Code
-ms.date: 04/22/2020
+ms.date: 12/04/2020
 ms.topic: quickstart
 ms.reviewer: caleteet
-ms.openlocfilehash: 8b502966317c5d07e89de4ae70ff72b899e963e6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6e94d93d91f25c15743c4c467e31de49fd9da41d
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82084846"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763340"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>Snabb start: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk
 
@@ -24,7 +24,6 @@ I den här snabb starten installerar och använder du tillägget Azure blockchai
 * [Azure blockchain Development Kit för Ethereum-tillägg](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
 * [Node.js 10.15. x eller högre](https://nodejs.org)
 * [Git 2.10. x eller högre](https://git-scm.com)
-* [Python-2.7.15](https://www.python.org/downloads/release/python-2715/) Lägg till python.exe i din sökväg. Att ha python-version 2.7.15 i din sökväg krävs för Azure blockchain Development Kit.
 * [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
 * [Ganache CLI-6.0.0](https://github.com/trufflesuite/ganache-cli)
 
@@ -40,7 +39,7 @@ Mer information om Node-Gyp finns i [nod-Gyp-lagringsplatsen på GitHub](https:/
 
 Azure blockchain Development Kit verifierar att utvecklings miljö kraven är uppfyllda. För att verifiera utvecklings miljön:
 
-Från kommando paletten VS Code väljer du **Azure blockchain: Visa välkomst sida**.
+Från kommando paletten VS Code väljer du **blockchain: Visa välkomst sida**.
 
 Azure blockchain Development Kit kör ett verifierings skript som tar ungefär en minut att slutföra. Du kan visa utdata genom att välja **Terminal > ny terminal**. I meny raden i terminalen väljer du fliken **utdata** och **Azure-blockchain** i list rutan. Lyckad verifiering ser ut som på följande bild:
 

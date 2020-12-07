@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: e2432ca4cecb3c36d2fae19907c1ad17d9ef2505
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 16a21acabfd199ba16068e507919b564f01a76d5
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833511"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763918"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Distribuera till App Service med GitHub-åtgärder
 
@@ -35,7 +35,7 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 Filen har tre delar:
 
-|Section  |Uppgifter  |
+|Avsnitt  |Aktiviteter  |
 |---------|---------|
 |**Autentisering** | 1. definiera ett huvud namn för tjänsten eller en publicerings profil. <br /> 2. skapa en GitHub-hemlighet. |
 |**Skapa** | 1. Konfigurera miljön. <br /> 2. Bygg webb programmet. |
@@ -55,7 +55,7 @@ Du kan snabbt komma igång med GitHub-åtgärder med hjälp av App Service Deplo
 
 Detta kommer att spara arbets flödes filen på lagrings platsen. Arbets flödet som används för att skapa och distribuera din app startar omedelbart.
 
-## <a name="set-up-a-work-manually"></a>Konfigurera ett arbete manuellt
+## <a name="set-up-a-workflow-manually"></a>Konfigurera ett arbets flöde manuellt
 
 Du kan också distribuera ett arbets flöde utan att använda distributions Center. För att göra det måste du först generera autentiseringsuppgifter för distributionen. 
 

@@ -7,13 +7,13 @@ ms.date: 11/23/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
-ms.openlocfilehash: 55f187781a0f11417b0c918034dcfe3362be4468
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: mvc, contperfq2
+ms.openlocfilehash: 847fc5345708dc313f706fcb0d370b0d1761aa41
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457662"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763714"
 ---
 # <a name="what-is-azure-iot-central"></a>Vad är Azure IoT Central?
 
@@ -34,7 +34,7 @@ Den här artikeln beskriver IoT Central:
 
 IoT Central-dokumentationen avser fyra personer som interagerar med ett IoT Central-program:
 
-- En _Solution Builder_ ansvarar för att [definiera de typer av enheter](howto-set-up-template.md) som ansluter till programmet och anpassar programmet för-operatorn.
+- En _Solution Builder_ ansvarar för att [skapa ett program](quick-deploy-iot-central.md), [Konfigurera regler och åtgärder](quick-configure-rules.md), [definiera integreringar med andra tjänster](howto-export-data.md)och ytterligare anpassa programmet för operatörer och enhets utvecklare.
 - En _operatör_ [hanterar enheterna](howto-manage-devices.md) som är anslutna till programmet.
 - En _administratör_ ansvarar för administrativa uppgifter, till exempel hantering av [användar roller och behörigheter](howto-administer.md) i programmet.
 - En _enhets utvecklare_ [skapar den kod som körs på en enhet](concepts-telemetry-properties-commands.md) eller [IoT Edge modul](concepts-iot-edge.md) som är ansluten till ditt program.

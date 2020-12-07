@@ -7,12 +7,12 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: 82373dcd9e1d55e0c4a5867ddaff6875ee57da5a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cf8b0e1fda03a74d30ec77c911d705bf12cf0126
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147511"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763816"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Felsök problem med långsam program prestanda i Azure App Service
 Den här artikeln hjälper dig att felsöka problem med långsam program prestanda i [Azure App Service](./overview.md).
@@ -82,7 +82,7 @@ Varje App Service app tillhandahåller en utöknings bar hanterings slut punkt s
 - Käll kods redigerare som [Azure-DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Hanterings verktyg för anslutna resurser, till exempel en MySQL-databas som är ansluten till en app.
 
-[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) är en webbplats för prestanda övervakning som också är tillgänglig. Om du vill använda Application Insights återbygger du koden med ett SDK. Du kan också installera ett tillägg som ger åtkomst till ytterligare data. Med SDK kan du skriva kod för att övervaka användning och prestanda för din app i detalj. Mer information finns i [övervaka prestanda i webb program](../azure-monitor/app/web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) är en webbplats för prestanda övervakning som också är tillgänglig. Om du vill använda Application Insights återbygger du koden med ett SDK. Du kan också installera ett tillägg som ger åtkomst till ytterligare data. Med SDK kan du skriva kod för att övervaka användning och prestanda för din app i detalj. Mer information finns i [övervaka prestanda i webb program](../azure-monitor/app/app-insights-overview.md).
 
 <a name="collect"></a>
 
@@ -121,7 +121,7 @@ Detaljerade anvisningar om hur du konfigurerar programmet för loggning finns i 
 #### <a name="use-the-diagnostics-tool"></a>Använda verktyget diagnostik
 App Service ger en intelligent och interaktiv upplevelse som hjälper dig att felsöka din app utan att det krävs någon konfiguration. När du stöter på problem med din app, pekar diagnostikverktyget ut vad som är fel för att hjälpa dig med rätt information för att enklare och snabbare felsöka och lösa problemet.
 
-Om du vill komma åt App Service diagnostik navigerar du till din App Service app eller App Service-miljön i [Azure Portal](https://portal.azure.com). Klicka på **diagnostisera och lös problem**i det vänstra navigerings fältet.
+Om du vill komma åt App Service diagnostik navigerar du till din App Service app eller App Service-miljön i [Azure Portal](https://portal.azure.com). Klicka på **diagnostisera och lös problem** i det vänstra navigerings fältet.
 
 #### <a name="use-the-kudu-debug-console"></a>Använda fel söknings konsolen kudu
 App Service levereras med en fel söknings konsol som du kan använda för att felsöka, utforska, ladda upp filer, samt JSON-slutpunkter för att få information om din miljö. Den här konsolen kallas *kudu-konsolen* eller *SCM-instrumentpanelen* för din app.

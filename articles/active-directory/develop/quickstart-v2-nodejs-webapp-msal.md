@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: ac400efe66ab740f5fb87977ac531cbe465e3f91
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: e860a33ba44743dcc5a96d7656f22fd952a1d0b8
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95995171"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762575"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i en Node-webbapp med hjälp av kod flödet för autentisering
 
@@ -42,15 +42,14 @@ I den här snabb starten används Microsoft Authentication Library för Node.js 
 > #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 >
 > 1. Logga in på [Azure-portalen](https://portal.azure.com).
-> 1. Om ditt konto ger dig åtkomst till fler än en klient väljer du ditt konto längst upp till höger och anger sedan din portal-session till den Azure AD-klient som du vill använda.
-> 1. Välj [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Välj **ny registrering**.
-> 1. När sidan **Registrera ett program** visas anger du ett namn för programmet.
+> 1. Om du har åtkomst till flera klienter använder du filtret för **katalog + prenumeration** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: i den översta menyn för att välja den klient som du vill registrera ett program i.
+> 1. Under **Hantera** väljer du **Appregistreringar**  >  **ny registrering**.
+> 1. Ange ett **namn** för ditt program. Användare av appen kan se det här namnet och du kan ändra det senare.
 > 1. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
 > 1. Ange **omdirigerings-URI** -värdet till `http://localhost:3000/redirect` .
 > 1. Välj **Register** (Registrera). 
 > 1. På sidan **Översikt över** appar noterar du **programmets (klient) ID-** värde för senare användning.
-> 1. Under **certifikat & hemligheter** väljer du **ny klient hemlighet**.  Lämna beskrivningen Tom och standard förfallo datum och klicka sedan på **Lägg till**.
+> 1. Under **Hantera** väljer du **certifikat & hemligheter**  >  **ny klient hemlighet**.  Lämna beskrivningen Tom och standard förfallo datum och välj sedan **Lägg till**.
 > 1. Notera **värdet** för **klient hemligheten** för senare användning.
 
 #### <a name="step-2-download-the-project"></a>Steg 2: Ladda ned projektet

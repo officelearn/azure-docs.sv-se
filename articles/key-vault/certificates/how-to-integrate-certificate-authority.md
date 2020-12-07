@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 4d29d7401cf944e8d999db847ce2e1266169ea34
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4635bcc51d2ab626b16ddcf02e772bf3df3cad4d
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448416"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763748"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrera nyckelvalv med DigiCert-certifikatutfärdare
 
@@ -127,6 +127,9 @@ Certifikatet har nu utfärdats av DigiCert CA i angivet Key Vault via den här i
 Om certifikatet som utfärdats är inaktiverat i Azure Portal kan du fortsätta att visa **certifikat åtgärden** för att granska DigiCert-felmeddelandet för det certifikatet.
 
  ![Certifikat åtgärd](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
+
+Fel meddelande: utför en sammanslagning för att slutföra den här certifikatbegäran.
+Du måste slå samman CSR-filen som signerats av certifikat utfärdaren för att slutföra den här begäran. Lär dig mer [här](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request)
 
 Mer information finns i [certifikat åtgärderna i Key Vault REST API referens](/rest/api/keyvault). Information om hur du etablerar behörigheter finns i [valv – skapa eller uppdatera](/rest/api/keyvault/vaults/createorupdate) och [valv – uppdatera åtkomst princip](/rest/api/keyvault/vaults/updateaccesspolicy).
 

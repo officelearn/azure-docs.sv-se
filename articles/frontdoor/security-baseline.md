@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 87e7f959dd932c874604df43fa61112d181ac581
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 53324709e2d3dd11160ee0b7837d86d9e9594571
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531708"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763935"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Azures säkerhets bas linje för Azures front dörr
 
@@ -206,7 +206,7 @@ Vi rekommenderar att kunden skapar en process för att avbilda attributet och ä
 
 ### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Aktivera loggning av nätverksaktiviteter i Azure
 
-**Vägledning**: Azure klient-dörren är inte avsedd att distribueras till virtuella nätverk. på grund av att de här kunderna inte kan aktivera flödes loggning för nätverks säkerhets grupper, dirigera trafik via en brand vägg eller utför paket avbildningar.
+**Vägledning**: Azure-front dörren är inte avsedd att distribueras till virtuella nätverk. på grund av att de här kunderna inte kan aktivera flödes loggning för nätverks säkerhets grupper, dirigera trafik via en brand vägg eller utför paket avbildningar.
 
 Azures front dörr loggar all nätverks trafik som den bearbetar för kund åtkomst. Aktivera funktionen för nätverks flödes loggar och konfigurera loggarna så att de skickas till ett lagrings konto för långsiktig kvarhållning och granskning.
 

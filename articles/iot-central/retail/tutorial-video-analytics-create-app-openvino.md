@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 10/06/2020
-ms.openlocfilehash: af967c58cdeb2c750178141193a711a66af7477c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: fbe1e84525eed47127a08abc9fb7ec5d1144d02f
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426749"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763627"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-openvinotrade"></a>Självstudie: skapa ett program för video analys – identifiering av objekt och motion i Azure IoT Central (openman &trade; )
 
@@ -24,10 +24,10 @@ Som Solution Builder får du lära dig hur du skapar ett video analys program me
 
 [!INCLUDE [iot-central-video-analytics-part1](../../../includes/iot-central-video-analytics-part1.md)]
 
-- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt)
+- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt) – den här filen hjälper dig att registrera de olika konfigurations alternativ som du behöver när du arbetar med de här självstudierna.
 - [deployment.openvino.amd64.jspå](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deployment.openvino.amd64.json)
 - [LvaEdgeGatewayDcm.jspå](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/LvaEdgeGatewayDcm.json)
-- [state.jspå](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json)
+- [state.js](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json) du behöver bara hämta den här filen om du planerar att använda Intel NUC-enheten i den andra själv studie kursen.
 
 [!INCLUDE [iot-central-video-analytics-part2](../../../includes/iot-central-video-analytics-part2.md)]
 
@@ -39,7 +39,7 @@ Så här förbereder du distributions manifestet:
 
 1. Öppna filen *deployment.openvino.amd64.js* som du sparade i mappen *lva-konfiguration* med hjälp av en text redigerare.
 
-1. Hitta `LvaEdgeGatewayModule` inställningarna och ändra avbildnings namnet enligt följande kodfragment:
+1. Sök efter `LvaEdgeGatewayModule` inställningarna och se till att avbildningens namn är så som visas i följande kodfragment:
 
     ```json
     "LvaEdgeGatewayModule": {
@@ -47,7 +47,7 @@ Så här förbereder du distributions manifestet:
             "image": "mcr.microsoft.com/lva-utilities/lva-edge-iotc-gateway:1.0-amd64",
     ```
 
-1. Lägg till namnet på ditt Media Services-konto i `env` noden i `LvaEdgeGatewayModule` avsnittet. Du har gjort en anteckning om det här konto namnet i *scratchpad.txt* -filen:
+1. Lägg till namnet på ditt Media Services-konto i `env` noden i `LvaEdgeGatewayModule` avsnittet. Du antecknade Media Services konto namnet i *scratchpad.txt* -filen:
 
     ```json
     "env": {
@@ -55,7 +55,7 @@ Så här förbereder du distributions manifestet:
             "value": "lvaEdge"
         },
         "amsAccountName": {
-            "value": "<YOUR_AZURE_MEDIA_ACCOUNT_NAME>"
+            "value": "<YOUR_AZURE_MEDIA_SERVICES_ACCOUNT_NAME>"
         }
     }
     ```
@@ -64,7 +64,16 @@ Så här förbereder du distributions manifestet:
 
     `azureMediaServicesArmId`Är **resurs-ID: t** som du antecknade i *scratchpad.txt* -filen när du skapade Media Services-kontot.
 
-    Du har gjort en anteckning om `aadTenantId` , `aadServicePrincipalAppId` och `aadServicePrincipalSecret` i *scratchpad.txt* -filen när du skapade tjänstens huvud namn för ditt Media Services-konto:
+    I följande tabell visas värdena från **anslutning till Media Services API (JSON)** i *scratchpad.txt* -filen som du bör använda i distributions manifestet:
+
+    | Distributionsmanifest       | Scratchpad  |
+    | ------------------------- | ----------- |
+    | aadTenantId               | AadTenantId |
+    | aadServicePrincipalAppId  | AadClientId |
+    | aadServicePrincipalSecret | AadSecret   |
+
+    > [!CAUTION]
+    > Använd föregående tabell för att kontrol lera att du lägger till rätt värden i distributions manifestet, annars fungerar inte enheten.
 
     ```json
     {

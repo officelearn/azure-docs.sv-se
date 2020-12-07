@@ -4,12 +4,12 @@ description: Sammanfattar stöd för haveri beredskap för virtuella Azure-dator
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: f0aebd09c06677aeba7cddda246e3e37992e0d9e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8123dbc18ad2fc162b9b92ae40920417e6b874ce
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485288"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763289"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Supportmatris för haveriberedskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -102,7 +102,7 @@ Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,
 CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10 </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, [7,8](https://support.microsoft.com/help/4564347/), [7,9 före-ga-versionen](https://support.microsoft.com/help/4578241/), 7,9 ga-version stöds från korrigerings filen för snabb korrigering * * i 9,37. * * </br> 8,0, 8,1, [8,2](https://support.microsoft.com/en-us/help/4570609), [8,3](https://support.microsoft.com/help/4597409/)
 Ubuntu 14,04 LTS-Server | Innehåller stöd för alla 14,04. *x* -versioner; [Kernel-versioner som stöds](#supported-ubuntu-kernel-versions-for-azure-virtual-machines); 
 Ubuntu 16,04 LTS-Server | Innehåller stöd för alla 16,04. *x* -versioner; [Kernel-version som stöds](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu-servrar som använder lösenordsbaserad autentisering och loggar in och Cloud-Init-paketet för att konfigurera virtuella datorer i molnet kan ha lösenordsbaserad inloggning inaktive rad vid redundansväxling (beroende på cloudinit-konfigurationen). Lösenordsbaserade inloggningar kan återaktiveras på den virtuella datorn genom att återställa lösen ordet från support > fel sökning > Inställningar-menyn (av den misslyckade virtuella datorn i Azure Portal.
-Ubuntu 18,04 LTS-Server | Innehåller stöd för alla 18,04. *x* -versioner; [Kernel-version som stöds](#supported-ubuntu-kernel-versions-for-azure-virtual-machines) |
+Ubuntu 18,04 LTS-Server | Innehåller stöd för alla 18,04. *x* -versioner; [Kernel-version som stöds](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu-servrar som använder lösenordsbaserad autentisering och loggar in och Cloud-Init-paketet för att konfigurera virtuella datorer i molnet kan ha lösenordsbaserad inloggning inaktive rad vid redundansväxling (beroende på cloudinit-konfigurationen). Lösenordsbaserade inloggningar kan återaktiveras på den virtuella datorn genom att återställa lösen ordet från support > fel sökning > Inställningar-menyn (av den misslyckade virtuella datorn i Azure Portal.
 Ubuntu 20,04 LTS-Server | Innehåller stöd för alla 20,04. *x* -versioner; [Kernel-version som stöds](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Debian 7 | Innehåller stöd för alla 7. *x* versioner som [stöds kernel-versioner](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | Innehåller stöd för alla 8. *x* versioner som [stöds kernel-versioner](#supported-debian-kernel-versions-for-azure-virtual-machines)

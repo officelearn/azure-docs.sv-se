@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 7246375468b3419c3d52ee3d5a51a95aa20050a9
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 2f3e4bf640b8da31a7fa4d818b94b0372d3026b8
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877237"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763437"
 ---
 Exempel programmet innehåller två simulerade enheter och en IoT Edge Gateway. Följande självstudier visar två metoder för att experimentera med och förstå funktionerna i gatewayen:
 
@@ -36,6 +36,6 @@ För att kunna slutföra den här själv studie serien behöver du:
 
 ## <a name="initial-setup"></a>Första konfigurationen
 
-I de här självstudierna uppdaterar och använder du flera konfigurationsfiler. De ursprungliga versionerna av dessa filer är tillgängliga i [lva-Gateway GitHub-](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway) lagringsplatsen. Databasen innehåller också en Scratchpad-textfil där du kan hämta och använda för att registrera konfigurations värden från de tjänster som du distribuerar.
+I de här självstudierna uppdaterar och använder du flera konfigurationsfiler. De ursprungliga versionerna av dessa filer är tillgängliga i [lva-Gateway GitHub-](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway) lagringsplatsen. Lagrings platsen innehåller en [Scratchpad](https://github.com/Azure/live-video-analytics/blob/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt) -textfil där du kan hämta och använda för att registrera konfigurations värden från de tjänster som du distribuerar. Den här filen hjälper dig att slutföra senare steg i självstudierna.
 
 Skapa en mapp med namnet *lva-Configuration* på den lokala datorn för att spara kopior av filerna. Högerklicka på var och en av följande länkar och välj **Spara som** för att spara filen i mappen *lva* :

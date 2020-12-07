@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 85fd5a4246e891ef6640438b07e12a9c32ad12fa
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ac75a5b0b59a06855b7ee88d971c269ca915e429
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094556"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763175"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Azure Digitals dubblare hög tillgänglighet och haveri beredskap
 
@@ -28,7 +28,7 @@ Du kan också se avsnittet [*metod tips*](#best-practices) för allmän Azure-v�
 
 ## <a name="intra-region-ha"></a>HA inom region
  
-Azure Digitals dubbla är en del regions hektar genom att implementera redundans inom tjänsten. **Det krävs inget ytterligare arbete för utvecklare av en Azure digital-lösning för att dra nytta av dessa HA-funktioner.** Även om Azures digitala dubbla enheter erbjuder en rimlig hög drifts garanti, kan tillfälliga problem fortfarande förväntas, som med alla distribuerade dator plattformar. Lämpliga principer för återförsök bör vara inbyggda i komponenterna som samverkar med ett moln program för att hantera tillfälliga fel.
+Azure Digitals dubbla är en del regions hektar genom att implementera redundans inom tjänsten. Detta återspeglas i [service avtalet för tjänsten](https://azure.microsoft.com/support/legal/sla/digital-twins) för drift tid. **Det krävs inget ytterligare arbete för utvecklare av en Azure digital-lösning för att dra nytta av dessa HA-funktioner.** Även om Azures digitala dubbla enheter erbjuder en rimlig hög drifts garanti, kan tillfälliga problem fortfarande förväntas, som med alla distribuerade dator plattformar. Lämpliga principer för återförsök bör vara inbyggda i komponenterna som samverkar med ett moln program för att hantera tillfälliga fel.
 
 ## <a name="cross-region-dr"></a>DR mellan regioner
 

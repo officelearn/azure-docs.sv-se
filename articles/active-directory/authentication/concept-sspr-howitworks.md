@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 12/07/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaa8b586b7d1ae073d0746569d61de837eec3b7d
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 620b696be0b9a06cf0d68145b06e3cacf2bedff2
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743878"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762558"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Självbetjäning av lösenordsåterställning i Azure AD
 
@@ -69,11 +69,8 @@ Kom igång med SSPR genom att följa de här självstudierna:
 > [!div class="nextstepaction"]
 > [Självstudie: Aktivera självbetjäning för återställning av lösen ord (SSPR)](tutorial-enable-sspr.md)
 
-## <a name="registration-options"></a>Registrerings alternativ
 
-Innan användarna kan återställa eller ändra sina lösen ord med hjälp av SSPR måste de själva registrera sig och de autentiseringsmetoder som ska användas. Som anges i föregående avsnitt måste en användare registreras för SSPR och ha en lämplig licens.
-
-### <a name="require-users-to-register-when-they-sign-in"></a>Kräv att användare registrerar sig när de loggar in
+## <a name="require-users-to-register-when-they-sign-in"></a>Kräv att användare registrerar sig när de loggar in
 
 Du kan aktivera alternativet för att kräva att en användare slutför SSPR-registreringen om de loggar in på alla program som använder Azure AD. Det här arbets flödet innehåller följande program:
 
@@ -92,7 +89,7 @@ När du inte behöver registrering uppmanas användarna inte att logga in, men d
 >
 > Detta avbrott i registreringen för SSPR bryter inte användarens anslutning om de redan är inloggade.
 
-### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Ange antalet dagar innan användare uppmanas att bekräfta sin autentiseringsinformation
+## <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Ange antalet dagar innan användare uppmanas att bekräfta sin autentiseringsinformation
 
 För att se till att autentiseringsmetoderna är korrekta när de behövs för att återställa eller ändra lösen ordet, kan du kräva att användarna bekräftar sin information som registrerats efter en viss tids period. Det här alternativet är bara tillgängligt om du aktiverar alternativet **Kräv att användare registrerar sig vid inloggning** .
 

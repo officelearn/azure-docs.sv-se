@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 23173432db9364f25901e6e9b285d390c6a63a34
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: f798e65b1517430bc67af793ebb517c586d5d58f
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426553"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763884"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Självstudie: skapa en IoT Edge-instans för video analys (Linux VM)
 
@@ -51,15 +51,15 @@ Använd informationen i följande tabell för att slutföra det **anpassade dist
 | Prenumeration | Välj din Azure-prenumeration. |
 | Resursgrupp | *lva-RG* – resurs gruppen du skapade i föregående självstudie. |
 | Region       | *East US* |
-| DNS-etikett-prefix | Välj ett unikt DNS-prefix för den virtuella datorn. |
+| DNS-etikett-prefix | Välj ett unikt DNS-prefix för den virtuella datorn. Måste vara alla alfabetiska tecken, inga siffror eller specialtecken. |
 | Administratörens användar namn | *AzureUser* |
 | Adminlösenord | Ange ett lösen ord. Anteckna lösen ordet i *scratchpad.txt* -filen. du kan använda det senare. |
 | Omfångs-ID | Det **omfångs-ID** du antecknade i *scratchpad.txt* -filen i den föregående själv studie kursen när du lade till gateway-enheten. |
 | Enhets-ID | *Gateway – 001* – den gateway-enhet som du skapade i föregående självstudie. |
-| Enhets nyckel | Enhetens primära nyckel du antecknade i *scratchpad.txt* -filen i den föregående själv studie kursen när du lade till gateway-enheten. |
+| Enhets nyckel | **Enhetens primära nyckel** du antecknade i *scratchpad.txt* -filen i den föregående själv studie kursen när du lade till gateway-enheten. |
 | IoT Central app-värd | **URL:** en för programmet som du antecknade i *scratchpad.txt* -filen i föregående självstudie. Till exempel *Traders.azureiotcentral.com*. |
-| API-token för IoT Central app | Operatörens API-token du antecknade i föregående självstudie. |
-| Etablerings nyckel för IoT Central Device | Den primära gruppens signatur-token för delad åtkomst du antecknade i *scratchpad.txt* -filen i föregående självstudie. |
+| API-token för IoT Central app | **Operatörens API-token** du antecknade i *scratchpad.txt* -filen i föregående självstudie. |
+| Etablerings nyckel för IoT Central Device | Den **primära nyckeln för SAS-IoT-enheter** som du antecknade i *scratchpad.txt* -filen i föregående självstudie. |
 | Storlek på virtuell dator | *Standard_DS1_v2* |
 | Ubuntu OS-version | *18,04 – LTS* |
 | Plats | *[resourceGroup (). location]* |

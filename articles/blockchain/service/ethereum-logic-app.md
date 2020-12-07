@@ -4,12 +4,12 @@ description: Använd Ethereum blockchain-anslutningen med Azure Logic Apps för 
 ms.date: 08/31/2020
 ms.topic: how-to
 ms.reviewer: caleteet
-ms.openlocfilehash: 4364d2f616c8eaadedf12baf4bf77810eec69fdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 411337908553e58c252a0ed1a42d17f76195c720
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230542"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763799"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Använd Ethereum blockchain-anslutningen med Azure Logic Apps
 
@@ -30,7 +30,7 @@ Azure Logic Apps hjälper dig att schemalägga och automatisera affärs processe
     Mer information om hur du skapar Logic Apps finns i [skapa automatiserade arbets flöden med Azure Logic Apps](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 1. När Azure har distribuerat din app väljer du din Logic app-resurs.
-1. I Logic Apps designer väljer du **Tom Logic app**under **mallar**.
+1. I Logic Apps designer väljer du **Tom Logic app** under **mallar**.
 
 Varje logikapp måste börja med en utlösare som utlöses när en specifik händelse sker eller när ett särskilt villkor uppfylls. Varje gång utlösaren körs skapar Logic Apps-motorn en logikappinstans som startar och kör ditt arbetsflöde.
 
@@ -47,7 +47,7 @@ Om arbets flödet:
 Använd händelse utlösare för Ethereum blockchain när du vill att en Logic app ska köras efter att ett smart kontrakts händelse inträffar. Till exempel vill du skicka ett e-postmeddelande när ett smart kontrakts funktion anropas.
 
 1. I Logic Apps designer väljer du Ethereum blockchain-anslutningen.
-1. Välj **när ett smart kontrakt händelse inträffar**på fliken **utlösare** .
+1. Välj **när ett smart kontrakt händelse inträffar** på fliken **utlösare** .
 1. Ändra eller [skapa en API-anslutning](#create-an-api-connection) till Azure blockchain-tjänsten.
 1. Ange information om det smarta kontrakt som du vill söka efter händelser i.
 
@@ -194,7 +194,7 @@ Azure blockchain-tjänstens RPC-slutpunkt krävs för att ansluta till ett block
 Du kan använda Ethereum-kontots privata nyckel för att autentisera när du skickar en transaktion till blockchain. Ditt Ethereum-kontos offentliga och privata nycklar genereras från ett 12-ord. Azure blockchain Development Kit för Ethereum genererar en genom gång när du ansluter till en Azure blockchain service Consortium-medlem. Du kan hämta slut punkts adressen genom att använda tillägget Development Kit.
 
 1. Öppna Command-paletten (F1) i Visual Studio Code.
-1. Välj **Azure-blockchain: Hämta privat nyckel**.
+1. Välj **blockchain: Hämta privat nyckel**.
 1. Välj den välliggande du sparade när du anslöt till konsortiet medlem.
 
     ![Med ett alternativ för att välja kommando rads verktyget](./media/ethereum-logic-app/private-key.png)

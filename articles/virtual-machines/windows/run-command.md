@@ -9,12 +9,12 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: 3c5e19a948298dead5ab3fc1183fb11b09acf455
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2388d4be0f7d51f9d5897998049b445595648c0a
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976138"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763986"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Kör PowerShell-skript i din virtuella Windows-dator med hjälp av kommandot kör
 
@@ -85,7 +85,7 @@ Gå till en virtuell dator i [Azure Portal](https://portal.azure.com) och välj 
 
 ![Lista med kommandon](./media/run-command/run-command-list.png)
 
-Välj ett kommando som ska köras. Några av kommandona kan ha valfria eller obligatoriska indataparametrar. För dessa kommandon visas parametrarna som textfält så att du kan ange indatavärdena. Du kan visa skriptet som körs genom att expandera **visnings skript**för varje kommando. **RunPowerShellScript** skiljer sig från de andra kommandona, eftersom det gör att du kan ange ett eget anpassat skript.
+Välj ett kommando som ska köras. Några av kommandona kan ha valfria eller obligatoriska indataparametrar. För dessa kommandon visas parametrarna som textfält så att du kan ange indatavärdena. Du kan visa skriptet som körs genom att expandera **visnings skript** för varje kommando. **RunPowerShellScript** skiljer sig från de andra kommandona, eftersom det gör att du kan ange ett eget anpassat skript.
 
 > [!NOTE]
 > De inbyggda kommandona kan inte redige ras.
@@ -104,7 +104,7 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 ## <a name="limiting-access-to-run-command"></a>Begränsa åtkomst till Kör kommando
 
-Det krävs behörighet för att Visa körnings kommandon eller Visa information om ett kommando `Microsoft.Compute/locations/runCommands/read` . Den inbyggda [läsar](../../role-based-access-control/built-in-roles.md#reader) rollen och högre nivåer har den här behörigheten.
+Att Visa körnings kommandon eller Visa information om ett kommando kräver `Microsoft.Compute/locations/runCommands/read` behörighet på prenumerations nivå. Den inbyggda [läsar](../../role-based-access-control/built-in-roles.md#reader) rollen och högre nivåer har den här behörigheten.
 
 Du måste ha behörighet för att köra ett kommando `Microsoft.Compute/virtualMachines/runCommand/action` . Rollen [virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) och högre nivåer har den här behörigheten.
 

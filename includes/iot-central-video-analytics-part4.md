@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: de916fcbe0623185821e2f5da15a8f9cf71dfd4e
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 0b3ccc31c9159b5d7b1615add89e8fdc308bf8df
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426792"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763459"
 ---
 ### <a name="publish-the-device-template"></a>Publicera enhetsmallen
 
@@ -41,6 +41,12 @@ Så här migrerar du en **Gateway – 001-** enhet:
 
 Efter några sekunder slutförs migreringen. Enheten använder nu **lva Edge Gateway v2** -enhets mal len med det anpassade distributions manifestet.
 
+Det finns nu inga enheter som använder den ursprungliga **lva Edge Gateway** Device-mallen. Ta bort den här enhets mal len:
+
+1. Gå till sidan **enhetsspecifika mallar** och välj enhets mal len **lva Edge Gateway** .
+
+1. Välj **ta bort** för att ta bort enhets mal len.
+
 ### <a name="get-the-device-credentials"></a>Hämta autentiseringsuppgifter för enheten
 
 Du behöver de autentiseringsuppgifter som tillåter att enheten ansluter till ditt IoT Central-program. Hämta autentiseringsuppgifterna för enheten:
@@ -49,7 +55,7 @@ Du behöver de autentiseringsuppgifter som tillåter att enheten ansluter till d
 
 1. Välj **Anslut**.
 
-1. På sidan **enhets anslutning** gör du en anteckning i *scratchpad.txt* -filen för **ID-omfånget** , **enhets-ID: t** och enhetens **primär nyckel**. Du använder dessa värden senare.
+1. På sidan **enhets anslutning** gör du en anteckning i *scratchpad.txt* -filen för **ID-omfånget**, **enhets-ID: t** och enhetens **primär nyckel**. Du använder dessa värden senare.
 
 1. Se till att anslutnings metoden är inställd på **signatur för delad åtkomst**.
 

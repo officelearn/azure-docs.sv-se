@@ -7,18 +7,18 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 11/24/2020
-ms.openlocfilehash: fe335b00df23ff132ad61b27efd733d195ee3bfb
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7ee203595a796529ae0aefe8b0c52a689ac29968
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96031497"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762337"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Självstudie: skapa en Azure Load Balancer över flera regioner med hjälp av Azure Portal
 
 En belastningsutjämnare för flera regioner säkerställer att en tjänst är tillgänglig globalt över flera Azure-regioner. Om en region Miss lyckas dirigeras trafiken till nästa närmaste felfria regionala belastnings utjämning.  
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en belastningsutjämnare för flera regioner.
@@ -27,6 +27,10 @@ I de här självstudierna får du lära dig att
 > * Testa belastningsutjämnaren.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+> [!IMPORTANT]
+> Azure Load Balancer över flera regioner är för närvarande en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -37,8 +41,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 
 ## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
 
-> [!IMPORTANT]
-> Belastningsutjämnare för flera regioner är för närvarande en för hands version och dold i för hands versionen av portalen.  Logga in för **https://preview.portal.azure.com/?feature.globallb=true** att visa och distribuera funktionen.
+[Logga in](https://preview.portal.azure.com) på Azure Preview Portal.
 
 ## <a name="create-cross-region-load-balancer"></a>Skapa en belastningsutjämnare för flera regioner
 
@@ -52,7 +55,7 @@ I det här avsnittet ska du skapa en belastningsutjämnare för flera regioner o
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och ange **CreateCRLBTutorial-RG** i text rutan.|
-    | Name                   | Ange **myLoadBalancer – CR**                                   |
+    | Namn                   | Ange **myLoadBalancer – CR**                                   |
     | Region         | Välj **USA, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
     | SKU           | Välj **standard** |

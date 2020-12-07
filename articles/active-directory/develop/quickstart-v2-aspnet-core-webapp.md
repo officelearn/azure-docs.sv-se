@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 98d2b4ed4b0d3cef2cde156dc05ebb314edff365
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 085ebcc147082ac78de9f8b97c810dee5bb1e96a
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592268"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762813"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snabb start: lägga till inloggning med Microsoft i ett ASP.NET Core-webbprogram
 
@@ -50,7 +50,7 @@ Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 > 1. Logga in på [Azure-portalen](https://portal.azure.com).
 > 1. Om du har åtkomst till flera klienter använder du filtret för **katalog + prenumeration** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: i den översta menyn för att välja den klient som du vill registrera ett program i.
 > 1. Sök efter och välj **Azure Active Directory**.
-> 1. Under **Hantera** väljer du **Appregistreringar** och sedan **ny registrering**.
+> 1. Under **Hantera** väljer du **Appregistreringar**  >  **ny registrering**.
 > 1. Ange ett **namn** för programmet, till exempel `AspNetCore-Quickstart` . Användare av appen kan se det här namnet och du kan ändra det senare.
 > 1. Ange en **omdirigerings-URI** för `https://localhost:44321/`
 > 1. Välj **Register** (Registrera).
@@ -101,7 +101,7 @@ Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 >    - Ersätt `common` med något av följande:
 >       - Om ditt program bara har stöd **för konton i den här organisations katalogen** ersätter du det här värdet med **katalogen (klient) ID** (ett GUID) eller **klient namn** (till exempel `contoso.onmicrosoft.com` ). Du hittar **klient-ID: t för katalogen (klient)** på appens **översikts** sida.
 >       - Om ditt program stöder **Konton i valfri organisationskatalog** ersätter du värdet med `organizations`
->       - Om programmet har stöd för **alla Microsoft-konto användare** , lämna det här värdet som `common`
+>       - Om programmet har stöd för **alla Microsoft-konto användare**, lämna det här värdet som `common`
 >
 > I den här snabb starten ska du inte ändra andra värden i *appsettings.js* i filen.
 >

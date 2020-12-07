@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 383cd286f89bde13f5e557792e980f0455e00917
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 472c1770e2793d8da4e8fc76fafbf3b9073b746d
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877254"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763434"
 ---
 ## <a name="deploy-and-configure-azure-media-services"></a>Distribuera och konfigurera Azure Media Services
 
@@ -34,7 +34,15 @@ Skapa [Media Services kontot i Azure Portal](https://portal.azure.com/?r=1#creat
 
 Anteckna ditt **Media Services** konto namn i *scratchpad.txt* -filen.
 
-När distributionen är klar går du till sidan **Egenskaper** för ditt **Media Services** konto. Anteckna **resurs-ID: t** i *scratchpad.txt* -filen, du använder det här värdet senare när du konfigurerar IoT Edge-modulen.
+När distributionen är klar öppnar du en Cloud Shell och kör följande kommando för att hämta **resurs-ID** för ditt Media Service-konto:
+
+```azurecli
+az resource list --resource-group lva-rg --resource-type microsoft.media/mediaservices --output table --query "[].{ResourceID:id}"
+```
+
+:::image type="content" source="media/iot-central-video-analytics-part2/get-resource-id.png" alt-text="Använd Cloud Shell för att hämta resurs-ID":::
+
+Anteckna **resurs-ID: t** i *scratchpad.txt* -filen, du använder det här värdet senare när du konfigurerar IoT Edge-modulen.
 
 Konfigurera sedan en Azure Active Directory tjänstens huvud namn för din Media Services-resurs. Välj **API-åtkomst** och sedan **tjänstens huvud namns autentisering**. Skapa en ny Azure Active Directory-app med samma namn som din Media Services resurs och skapa en hemlighet med en beskrivning *IoT Edge åtkomst*.
 
@@ -66,15 +74,15 @@ Så här skapar du ett nytt video analys program:
 1. Du kan också välja ett eget **program namn**. Det här programmet baseras på ett fiktivt detalj handels lager med namnet Northwind Traders. I självstudien används **program namnet** *Northwind Traders video analys*.
 
     > [!NOTE]
-    > Om du använder ett eget **program namn**måste du fortfarande använda ett unikt värde för programmets **URL**.
+    > Om du använder ett eget **program namn** måste du fortfarande använda ett unikt värde för programmets **URL**.
 
-1. Om du har en Azure-prenumeration väljer du **katalog**, **Azure-prenumeration**och **USA** som **plats**. Om du inte har någon prenumeration kan du aktivera den **kostnads fria utvärderings versionen på 7 dagar** och slutföra den kontakt information som krävs. I den här självstudien används tre enheter – två kameror och en IoT Edge enhet – så om du inte använder den kostnads fria utvärderings versionen debiteras du för användning.
+1. Om du har en Azure-prenumeration väljer du **katalog**, **Azure-prenumeration** och **USA** som **plats**. Om du inte har någon prenumeration kan du aktivera den **kostnads fria utvärderings versionen på 7 dagar** och slutföra den kontakt information som krävs. I den här självstudien används tre enheter – två kameror och en IoT Edge enhet – så om du inte använder den kostnads fria utvärderings versionen debiteras du för användning.
 
     Mer information om kataloger, prenumerationer och platser finns i [snabb start för att skapa ett program](../articles/iot-central/core/quick-deploy-iot-central.md).
 
 1. Välj **Skapa**.
 
-    :::image type="content" source="./media/iot-central-video-analytics-part2/new-application.png" alt-text="Konfigurera Azure A D-appen för Azure Media Services":::
+    :::image type="content" source="./media/iot-central-video-analytics-part2/new-application.png" alt-text="Sidan Skapa program i Azure IoT Central":::
 
 ### <a name="retrieve-the-configuration-data"></a>Hämta konfigurations data
 
@@ -82,14 +90,14 @@ Senare i den här självstudien när du konfigurerar IoT Edge Gateway, behöver 
 
 I avsnittet **Administration** väljer **du ditt program** och noterar **programmets URL** och **program-ID: t** i *scratchpad.txt* -filen:
 
-:::image type="content" source="./media/iot-central-video-analytics-part2/administration.png" alt-text="Konfigurera Azure A D-appen för Azure Media Services":::
+:::image type="content" source="./media/iot-central-video-analytics-part2/administration.png" alt-text="Skärm bild som visar fönstret Administration på en video analys sida med programmet U R L och program I D markerat.":::
 
 Välj **API-token** och generera en ny token med namnet **LVAEdgeToken** för **operatörs** rollen:
 
-:::image type="content" source="./media/iot-central-video-analytics-part2/token.png" alt-text="Konfigurera Azure A D-appen för Azure Media Services":::
+:::image type="content" source="./media/iot-central-video-analytics-part2/token.png" alt-text="Generera token":::
 
 Anteckna token i *scratchpad.txt* -filen för senare. När dialog rutan stängs kan du inte Visa token igen.
 
-I avsnittet **Administration** väljer du **enhets anslutning**och väljer sedan **SAS-IoT-Devices**.
+I avsnittet **Administration** väljer du **enhets anslutning** och väljer sedan **SAS-IoT-Devices**.
 
-Anteckna **primär nyckeln** för enheter i *scratchpad.txts * filen. Du använder den här *primära gruppen signatur för delad åtkomst* senare när du konfigurerar IoT Edge-enheten.
+Anteckna **primär nyckeln** för enheter i *scratchpad.txts* filen. Du använder den här *primära gruppen signatur för delad åtkomst* senare när du konfigurerar IoT Edge-enheten.

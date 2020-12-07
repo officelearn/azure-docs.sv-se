@@ -1,17 +1,17 @@
 ---
 title: Själv studie kurs om att skapa, skapa & distribuera smarta avtal – Azure blockchain service
 description: Självstudie om hur du använder Azure blockchain Development Kit för Ethereum-tillägget i Visual Studio Code för att skapa, bygga och distribuera ett smart kontrakt på Azure blockchain-tjänsten.
-ms.date: 04/22/2020
+ms.date: 11/30/2020
 ms.topic: tutorial
 ms.reviewer: caleteet
-ms.openlocfilehash: dc23c680dfb2ed33cae2a251af16e1b1f25c6ac7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7605a0c118a40e52210582d2411569795fb25ee
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82086665"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763697"
 ---
-# <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>Självstudie: skapa, skapa och distribuera smarta avtal i Azure blockchain-tjänsten
+# <a name="tutorial-create-build-and-deploy-smart-contracts-on-azure-blockchain-service"></a>Självstudie: skapa, skapa och distribuera smarta avtal i Azure blockchain-tjänsten
 
 I den här självstudien använder du tillägget Azure blockchain Development Kit for Ethereum i Visual Studio Code för att skapa, bygga och distribuera ett smart kontrakt på Azure blockchain-tjänsten. Du kan också använda utvecklings paketet för att köra en smart kontrakts funktion via en transaktion.
 
@@ -24,14 +24,13 @@ Du använder Azure blockchain Development Kit för att Ethereum:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [snabb start: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk](connect-vscode.md)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 * [Azure blockchain Development Kit för Ethereum-tillägg](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
 * [Node.js 10.15. x eller högre](https://nodejs.org/download)
 * [Git 2.10. x eller högre](https://git-scm.com)
-* [Python-2.7.15](https://www.python.org/downloads/release/python-2715/) Lägg till python.exe i din sökväg. Python-2.7.15 i din sökväg krävs för Azure blockchain Development Kit.
 * [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
 * [Ganache CLI-6.0.0](https://github.com/trufflesuite/ganache-cli)
 
@@ -47,7 +46,7 @@ Mer information om Node-Gyp finns i [nod-Gyp-lagringsplatsen på GitHub](https:/
 
 Azure blockchain Development Kit för Ethereum använder Project-mallar och Truffle-verktyg för att hjälpa Autogenerera, bygga och distribuera kontrakt. Innan du börjar måste du slutföra den nödvändiga [snabb starten: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk](connect-vscode.md). Snabb starten guidar dig genom installationen och konfigurationen av Azure blockchain Development Kit för Ethereum.
 
-1. Från kommando paletten VS Code väljer du **Azure blockchain: nytt projekt för massivhet**.
+1. Från kommando paletten VS Code väljer du **blockchain: nytt fast projekt**.
 1. Välj **skapa Basic-projekt**.
 1. Skapa en ny mapp med namnet `HelloBlockchain` och **Välj ny projekt Sök väg**.
 
@@ -76,7 +75,7 @@ Truffle använder migrations skript för att distribuera dina kontrakt till ett 
 
 1. Du distribuerar ditt smarta kontrakt genom att högerklicka på **HelloBlockchain. sol** och välja **distribuera kontrakt** på menyn.
 1. Välj ditt Azure blockchain Consortium-nätverk i kommando paletten. Konsortiet blockchain-nätverk har lagts till i projektets Truffle-konfigurationsfil när du skapade projektet.
-1. Välj **skapa**åtgärds kort. Välj ett fil namn och spara filen i projektmappen i projektmappen. Exempelvis `myblockchainmember.env`. Den här filen används för att generera en privat Ethereum-nyckel för din blockchain-medlem.
+1. Välj **skapa** åtgärds kort. Välj ett fil namn och spara filen i projektmappen i projektmappen. Exempelvis `myblockchainmember.env`. Den här filen används för att generera en privat Ethereum-nyckel för din blockchain-medlem.
 
 Azure blockchain Development Kit använder Truffle för att köra migrations skriptet för att distribuera kontrakten till blockchain.
 

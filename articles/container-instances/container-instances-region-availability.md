@@ -4,12 +4,12 @@ description: Tillgänglighet för beräknings-och minnes resurser för tjänsten
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2a833c93c80d932305f47b6e292e5e5df4d0cb95
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8651a1cc2c2ba41e2c28e9f63dc78c091a6af61d
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576622"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763901"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Resurs tillgänglighet för Azure Container Instances i Azure-regioner
 
@@ -31,26 +31,26 @@ Följande regioner och maximala resurser är tillgängliga för behållar gruppe
 
 | Region | Maximal CPU | Högsta mängd minne (GB) | Max-CPU för VNET | Största mängd minne i VNET (GB) | Lagring (GB) | GPU SKU: er (för hands version) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
-| Australien, östra | 4 | 16 | 4 | 16 | 50 | E.t. |
-| Brasilien, södra | 4 | 16 | 2 | 8 | 50 | E.t. |
-| Kanada, centrala | 4 | 16 | 4 | 16 | 50 | E.t. |
+| Australien, östra | 4 | 16 | 4 | 16 | 50 | Saknas |
+| Brasilien, södra | 4 | 16 | 2 | 8 | 50 | Saknas |
+| Kanada, centrala | 4 | 16 | 4 | 16 | 50 | Saknas |
 | Indien, centrala | 4 | 16 | Saknas | Saknas | 50 | V100 |
-| Central US | 4 | 16 | 4 | 16 | 50 | E.t. |
-| Asien, östra | 4 | 16 | 4 | 16 | 50 | E.t. |
+| Central US | 4 | 16 | 4 | 16 | 50 | Saknas |
+| Asien, östra | 4 | 16 | 4 | 16 | 50 | Saknas |
 | East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
-| USA, östra 2 | 4 | 16 | 4 | 16 | 50 | E.t. |
-| Frankrike, centrala | 4 | 16 | 4 | 16 | 50 | E.t. |
-| Japan, östra | 2 | 8 | 4 | 16 | 50 | E.t. |
-| Sydkorea, centrala | 4 | 16 | Saknas | Saknas | 50 | E.t. |
+| USA, östra 2 | 4 | 16 | 4 | 16 | 50 | Saknas |
+| Frankrike, centrala | 4 | 16 | 4 | 16 | 50 | Saknas |
+| Japan, östra | 2 | 8 | 4 | 16 | 50 | Saknas |
+| Sydkorea, centrala | 4 | 16 | Saknas | Saknas | 50 | Saknas |
 | USA, norra centrala | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 |
 | Norra Europa | 4 | 16 | 4 | 16 | 50 | K80 |
-| USA, södra centrala | 4 | 16 | 4 | 16 | 50 | E.t. |
+| USA, södra centrala | 4 | 16 | 4 | 16 | 50 | Saknas |
 | Sydostasien | 4 | 16 | 4 | 16 | 50 | P100, V100 |
-| Indien, södra | 4 | 16 | Saknas | Saknas | 50 | E.t. |
-| Storbritannien, södra | 4 | 16 | 4 | 16 | 50 | E.t. |
-| USA, västra centrala| 4 | 16 | 4 | 16 | 50 | E.t. |
+| Indien, södra | 4 | 16 | Saknas | Saknas | 50 | Saknas |
+| Storbritannien, södra | 4 | 16 | 4 | 16 | 50 | Saknas |
+| USA, västra centrala| 4 | 16 | 4 | 16 | 50 | Saknas |
 | Europa, västra | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
-| USA, västra | 4 | 16 | 4 | 16 | 50 | E.t. |
+| USA, västra | 4 | 16 | 4 | 16 | 50 | Saknas |
 | USA, västra 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 
 Följande maximala resurser är tillgängliga för en behållar grupp som distribueras med [GPU-resurser](container-instances-gpu.md) (för hands version).
@@ -81,9 +81,9 @@ Följande regioner och maximalt antal resurser är tillgängliga för behållar 
 
 | Region | 1B/2B Max CPU | 1B/2B Max minne (GB) |3B Max CPU | 3B Max minne (GB) | Lagring (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Australien, östra | 2 | 8 | 2 | 3.5 | 20 |
+| Australien, östra | 2 | 8 | 2 | 8 | 20 |
 | Brasilien, södra | 4 | 16 | 4 | 16 | 20 |
-| Kanada, centrala | 2 | 3.5 | 2 | 3.5 | 20 |
+| Kanada, centrala | 2 | 8 | 2 | 3.5 | 20 |
 | Indien, centrala | 2 | 3.5 | 2 | 3.5 | 20 |
 | Central US | 2 | 3.5 | 2 | 3.5 | 20 |
 | Asien, östra | 2 | 3.5 | 2 | 3.5 | 20 |
@@ -92,15 +92,15 @@ Följande regioner och maximalt antal resurser är tillgängliga för behållar 
 | Japan, östra | 4 | 16 | 4 | 16 | 20 |
 | Sydkorea, centrala | 4 | 16 | 4 | 16 | 20 |
 | USA, norra centrala | 4 | 16 | 4 | 16 | 20 |
-| Norra Europa | 2 | 3.5 | 2 | 8 | 20 |
-| USA, södra centrala | 2 | 3.5 | 2 | 3.5 | 20 |
+| Norra Europa | 2 | 8 | 2 | 8 | 20 |
+| USA, södra centrala | 2 | 3.5 | 2 | 8 | 20 |
 | Sydostasien | Saknas | Saknas | 2 | 3.5 | 20 |
 | Indien, södra | 2 | 3.5 | 2 | 3.5 | 20 |
 | Storbritannien, södra | 2 | 8 | 2 | 3.5 | 20 |
-| USA, västra centrala | 4 | 16 | 4 | 16 | 20 |
+| USA, västra centrala | 4 | 16 | 2 | 8 | 20 |
 | Europa, västra | 4 | 16 | 4 | 16 | 20 |
 | USA, västra | 4 | 16 | 2 | 8 | 20 |
-| USA, västra 2 | 2 | 3.5 | 2 | 3.5 | 20 |
+| USA, västra 2 | 2 | 8 | 2 | 3.5 | 20 |
 
 
 ### <a name="windows-server-2019-ltsc"></a>Windows Server 2019 LTSC

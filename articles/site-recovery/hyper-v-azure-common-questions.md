@@ -3,12 +3,12 @@ title: Vanliga frågor om haveri beredskap för Hyper-V med Azure Site Recovery
 description: I den här artikeln sammanfattas vanliga frågor om hur du konfigurerar haveri beredskap för lokala virtuella Hyper-V-datorer till Azure med hjälp av Azure Site Recovery-platsen.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: c168ba9ff14e57f238069e8ca5b0c34a8fb58015
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4f5ee71fc56cad247b57f94bf08a68bed8775f9
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87799896"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754359"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Vanliga frågor – Haveriberedskap för Hyper-V till Azure
 
@@ -164,6 +164,10 @@ När du replikerar dina lokala virtuella datorer/fysiska servrar till Premium St
 ### <a name="how-often-can-i-replicate-to-azure"></a>Hur ofta kan jag replikera till Azure?
 
 Virtuella Hyper-V-datorer kan replikeras var 30: e sekund (med undantag för Premium Storage) eller 5 minuter.
+
+### <a name="can-azure-site-recovery-and-hyper-v-replica-be-configured-together-on-a-hyper-v-machine"></a>Kan Azure Site Recovery och Hyper-V-replikering konfigureras tillsammans på en Hyper-V-dator?
+
+Ja, både Azure Site Recovery-och Hyper-V-replikering kan konfigureras tillsammans för en dator. Men datorn måste skyddas som en fysisk dator och kommer att replikeras till Azure med hjälp av en konfiguration/Processerver. Lär dig mer om att skydda fysiska datorer [här](https://docs.microsoft.com/azure/site-recovery/physical-azure-architecture).
 
 ### <a name="can-i-extend-replication"></a>Kan jag utöka replikeringen?
 Utökad eller länkad replikering stöds inte. Begär den här funktionen i [feedback-forumet](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

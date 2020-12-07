@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 12/07/2020
 ms.author: alexeyo
-ms.openlocfilehash: a304628e05054124fde6ffe5c2b63177991d8cfd
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 9b923ba208dd2a5111a59f67401b1e4f080b7187
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345405"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754172"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Kvoter och gränser för Speech-tjänster
 
@@ -37,12 +37,12 @@ I tabellerna nedan, utan att raden "justerbar" **inte** är justerbar för alla 
 | Kvot | Kostnads fri (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
 | REST API gräns | Batch-avskrift är inte tillgängligt för F0 | 300 förfrågningar per minut |
-| Max fil storlek för ljud inspelning | E.t. | 1 GB |
-| Maximal BLOB-storlek för indata (kan innehålla fler än en fil, till exempel i ett zip-arkiv, se till att observera fil storleks begränsningen ovan) | E.t. | 2,5 GB |
-| Maximal storlek på BLOB-behållare | E.t. | 5 GB |
-| Högsta antal blobbar per behållare | E.t. | 10000 |
-| Maximalt antal filer per avskrifts förfrågan (när flera innehålls-URL: er används som inmatade) | E.t. | 1000  |
-| Maximalt antal jobb som körs samtidigt | E.t. | 2000  |
+| Max fil storlek för ljud inspelning | Saknas | 1 GB |
+| Maximal BLOB-storlek för indata (kan innehålla fler än en fil, till exempel i ett zip-arkiv, se till att observera fil storleks begränsningen ovan) | Saknas | 2,5 GB |
+| Maximal storlek på BLOB-behållare | Saknas | 5 GB |
+| Högsta antal blobbar per behållare | Saknas | 10000 |
+| Maximalt antal filer per avskrifts förfrågan (när flera innehålls-URL: er används som inmatade) | Saknas | 1000  |
+| Maximalt antal jobb som körs samtidigt | Saknas | 2000  |
 
 #### <a name="model-customization"></a>Modell anpassning
 | Kvot | Kostnads fri (F0)<sup>1</sup> | Standard (S0) |
@@ -104,25 +104,25 @@ Gränser för samtidiga förfrågningar för **bas** -och **anpassade** modeller
 Det befintliga värdet för begränsnings parametern för samtidiga förfrågningar är **inte** synligt via Azure Portal, Command-Line-verktyg eller API-begäranden. Du kan kontrol lera det befintliga värdet genom att skapa en support förfrågan för Azure.
 
 >[!NOTE]
->[Tal behållare](speech-container-howto.md) kräver ingen ökning av gränsen för samtidiga förfrågningar, eftersom behållare endast begränsas av CPU: er för den maskin vara som de är värd för.
+>[Tal behållare](speech-container-howto.md) kräver ingen ökning av gränsen för samtidiga förfrågningar, eftersom behållare endast begränsas av CPU: er för den maskin vara som de är värd för. Tal behållare har dock sina egna kapacitets begränsningar som bör tas med i beräkningen. Se frågan *"kan hjälpa dig med kapacitets planering och kostnads uppskattning för lokal-behållare från tal till text?"* från [vanliga frågor och svar om tal behållare](speech-container-faq.md).
 
 #### <a name="have-the-required-information-ready"></a>Ha nödvändig information som är klar:
-- För **bas modell** :
+- För **bas modell**:
   - Tal resurs-ID
   - Region
-- För **anpassad modell** : 
+- För **anpassad modell**: 
   - Region
   - ID för anpassad slut punkt
 
-- **Så här hämtar du information (bas modell)** :  
+- **Så här hämtar du information (bas modell)**:  
   - Gå till [Azure Portal](https://portal.azure.com/)
   - Välj den tal resurs för vilken du vill öka gränsen för samtidiga begär Anden
-  - Välj *Egenskaper* ( *resurs hanterings* grupp) 
+  - Välj *Egenskaper* (*resurs hanterings* grupp) 
   - Kopiera och spara värdena för följande fält:
     - **Resurs-ID**
     - **Plats** (din slut punkts region)
 
-- **Så här hämtar du information (anpassad modell)** :
+- **Så här hämtar du information (anpassad modell)**:
   - Gå till [tal Studio](https://speech.microsoft.com/) Portal
   - Logga in vid behov
   - Gå till Custom Speech
@@ -139,7 +139,7 @@ Påbörja ökningen av gränsen för samtidiga förfrågningar för din resurs e
 - Se till att du har [nödvändig information](#have-the-required-information-ready)
 - Gå till [Azure Portal](https://portal.azure.com/)
 - Välj den tal resurs för vilken du vill öka (eller kontrol lera) gränsen för samtidiga begär Anden
-- Välj *ny supportbegäran* ( *support + fel söknings* grupp) 
+- Välj *ny supportbegäran* (*support + fel söknings* grupp) 
 - Ett nytt fönster visas med automatiskt ifylld information om din Azure-prenumeration och Azure-resurs
 - Ange *Sammanfattning* (till exempel "öka STT för samtidighet")
 - Välj "kvot-eller prenumerations problem" i *problem typ*
@@ -191,7 +191,7 @@ Påbörja ökningen av gränsen för samtidiga förfrågningar för din resurs e
 - Se till att du har [nödvändig information](#prepare-the-required-information)
 - Gå till [Azure Portal](https://portal.azure.com/)
 - Välj den tal resurs för vilken du vill öka (eller kontrol lera) gränsen för samtidiga begär Anden
-- Välj *ny supportbegäran* ( *support + fel söknings* grupp) 
+- Välj *ny supportbegäran* (*support + fel söknings* grupp) 
 - Ett nytt fönster visas med automatiskt ifylld information om din Azure-prenumeration och Azure-resurs
 - Ange *Sammanfattning* (till exempel "öka storleks gränsen för den anpassade slut punkten för tal)
 - Välj "kvot-eller prenumerations problem" i *problem typ*

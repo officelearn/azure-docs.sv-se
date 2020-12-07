@@ -1,14 +1,17 @@
 ---
 title: Ange omfattning för identifiering av VMware VM med Azure Migrate
 description: Beskriver hur du ställer in identifierings omfånget för utvärdering av virtuella VMware-datorer och migrering med Azure Migrate.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 8c61f544e3222dba83123aa1be5e53a19e671035
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dc5bd178c837deea7a22fb3be5ba438085c0e748
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314036"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753560"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>Ange identifierings omfång för virtuella VMware-datorer
 

@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate-replikeringsinstallation
 description: Lär dig mer om Azure Migrate Replication-enhet för agent-baserad VMWare-migrering.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec277bcc3e361561f54e72c54526d65487c113b4
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532128"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754104"
 ---
 # <a name="replication-appliance"></a>Replikeringsfil
 
@@ -136,7 +139,7 @@ Processerver | Processervern tar emot replikeringsdata, optimerar och krypterar 
 Enheten uppgraderas manuellt från Azure Migrate Hub. Vi rekommenderar att du alltid kör den senaste versionen.
 
 1. I Azure Migrate > servrar > Azure Migrate: Server utvärdering, infrastruktur servrar, klickar du på **konfigurations servrar**.
-2. I **konfigurations servrar**visas en länk i **agent version** när det finns en ny version av Replikerings enheten. 
+2. I **konfigurations servrar** visas en länk i **agent version** när det finns en ny version av Replikerings enheten. 
 3. Ladda ned installations programmet till replikeringstjänsten och installera uppgraderingen. Installations programmet identifierar den version som är aktuell som körs på enheten.
  
 ## <a name="next-steps"></a>Nästa steg

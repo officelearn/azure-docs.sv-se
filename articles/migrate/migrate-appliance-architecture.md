@@ -1,14 +1,17 @@
 ---
 title: Programarkitektur för Azure Migrate
 description: Innehåller en översikt över Azure Migrate-installationen som används i Server utvärdering och migrering.
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: d38796d4c4a1149d096f5bb06f7a11bc71b33cc5
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 42d4a722be25eec4b3e27012350346018fdba0f3
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428166"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754121"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Programarkitektur för Azure Migrate
 
@@ -48,7 +51,7 @@ Enheten har ett antal komponenter.
 
 Under installationen av installationen registrerar du enheten med Azure Migrate och de åtgärder som sammanfattas i tabellen sker.
 
-**Åtgärd** | **Detaljer** | **Behörigheter**
+**Åtgärd** | **Information** | **Behörigheter**
 --- | --- | ---
 **Registrera käll leverantörer** | Dessa resurs leverantörer registreras i den prenumeration du väljer under installationen av installationen: Microsoft. OffAzure, Microsoft. Migrate och Microsoft. nyckel valv.<br/><br/> När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. | Om du vill registrera resurs leverantörer behöver du en deltagar-eller ägar roll för prenumerationen.
 **Skapa Azure AD-App – kommunikation** | Azure Migrate skapar en Azure Active Directory (Azure AD)-app för kommunikation (autentisering och auktorisering) mellan de agenter som körs på produkten och deras respektive tjänster som körs på Azure.<br/><br/> Den här appen har inte behörighet att göra Azure Resource Manager-anrop eller Azure RBAC-åtkomst på vilken resurs som helst. | Du behöver [dessa behörigheter](./tutorial-discover-vmware.md#prepare-an-azure-user-account) för att Azure Migrate ska kunna skapa appen.

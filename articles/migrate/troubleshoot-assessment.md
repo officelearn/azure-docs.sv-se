@@ -1,18 +1,17 @@
 ---
 title: Felsök utvärderings-och beroende visualisering i Azure Migrate
-description: Få hjälp med fel sökning av utvärdering och beroende visualisering i Azure Migrate.
-ms.service: azure-migrate
-ms.topic: troubleshooting
-author: musa-57
+description: Få hjälp med utvärderings-och beroende visualisering i Azure Migrate.
+author: rashi-ms
+ms.author: rajosh
 ms.manager: abhemraj
-ms.author: hamusa
+ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 4da0f40c25d322953fea968396ef33924877c2e1
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: cefcd4ce287eecfe2c764d88d5d2233cc8ac0a5c
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505231"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753453"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Felsöka utvärdering/beroendevisualisering
 
@@ -23,7 +22,7 @@ Den här artikeln hjälper dig att felsöka problem med utvärderings-och beroen
 
 Åtgärda problem med utvärderings beredskap enligt följande:
 
-**Problem** | **Löser**
+**Problem** | **Åtgärda**
 --- | ---
 Start typen stöds inte | Azure har inte stöd för virtuella datorer med en EFI-starttyp. Vi rekommenderar att du konverterar start typen till BIOS innan du kör en migrering. <br/><br/>Du kan använda migrering av Azure Migrate Server för att hantera migrering av sådana virtuella datorer. Den kommer att konvertera start typen för den virtuella datorn till BIOS under migreringen.
 Villkorligt Windows-operativsystem som stöds | Operativ systemet har passerat sitt slutdatum och måste ha ett anpassat support avtal (CSA) för [support i Azure](/troubleshoot/azure/virtual-machines/server-software-support). Överväg att uppgradera innan du migrerar till Azure. [Läs]() informationen om hur du [förbereder datorer som kör Windows Server 2003](prepare-windows-server-2003-migration.md) för migrering till Azure.
@@ -83,7 +82,7 @@ För att visa hur detta kan påverka rekommendationerna, tar vi ett exempel:
 
 Vi har en lokal virtuell dator med fyra kärnor och åtta GB minne, med 50% processor användning och 50% minnes användning och en angiven bekvämlighets faktor på 1,3.
 
--  Om utvärderingen är **lokalt** , rekommenderas en Azure VM-SKU med fyra kärnor och 8 GB minne.
+-  Om utvärderingen är **lokalt**, rekommenderas en Azure VM-SKU med fyra kärnor och 8 GB minne.
 - Om utvärderingen är prestanda beroende av, baserat på effektiv processor-och minnes användning (50% av 4 kärnor * 1,3 = 2,6 kärnor och 50% av 8 GB minne * 1,3 = 5,3-GB minne), rekommenderas billigaste VM-SKU: n för fyra kärnor (närmaste antal kärnor som stöds) och åtta GB minne (närmaste minnes storlek som stöds) rekommenderas.
 - [Läs mer](concepts-assessment-calculation.md#types-of-assessments) om utvärderings storlek.
 
@@ -91,8 +90,8 @@ Vi har en lokal virtuell dator med fyra kärnor och åtta GB minne, med 50% proc
 
 Azure Migrate Server-utvärderingen kan rekommendera en större disk baserat på typen av utvärdering.
 - Disk storlek i Server utvärderingen är beroende av två bedömnings egenskaper: storleks kriterier och lagrings typ.
-- Om storleks kriteriet är **prestanda baserat** och lagrings typen är inställd på **Automatisk** , beaktas IOPS-och data flödes värden för disken när mål disk typen identifieras (standard HDD, standard SSD eller Premium). En disk-SKU från disk typen rekommenderas och rekommendationen tar hänsyn till storleks kraven för den lokala disken.
-- Om storleks kriteriet är **prestanda baserat** och lagrings typen är **Premium** rekommenderas en SKU för Premium-diskar i Azure baserat på IOPS, data flöde och storleks krav för den lokala disken. Samma logik används för att utföra disk storlek när storleks kriteriet är **lokalt** och lagrings typen är **standard HDD** , **standard SSD** eller **Premium**.
+- Om storleks kriteriet är **prestanda baserat** och lagrings typen är inställd på **Automatisk**, beaktas IOPS-och data flödes värden för disken när mål disk typen identifieras (standard HDD, standard SSD eller Premium). En disk-SKU från disk typen rekommenderas och rekommendationen tar hänsyn till storleks kraven för den lokala disken.
+- Om storleks kriteriet är **prestanda baserat** och lagrings typen är **Premium** rekommenderas en SKU för Premium-diskar i Azure baserat på IOPS, data flöde och storleks krav för den lokala disken. Samma logik används för att utföra disk storlek när storleks kriteriet är **lokalt** och lagrings typen är **standard HDD**, **standard SSD** eller **Premium**.
 
 Om du till exempel har en lokal disk med 32 GB minne, men den aggregerade läsnings-och skriv-IOPS för disken är 800 IOPS, rekommenderar Server utvärderingen en Premium disk (på grund av de högre IOPS-kraven) och rekommenderar sedan en disk-SKU som stöder den nödvändiga IOPS och storleken. Den bästa matchningen i det här exemplet är P15 (256 GB, 1100 IOPS). Även om den storlek som krävs av den lokala disken var 32 GB, rekommenderar Server utvärderingen en större disk på grund av det höga IOPS-kravet för den lokala disken.
 
@@ -165,8 +164,8 @@ För virtuella Linux-datorer måste du kontrol lera att installations kommandona
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-- **MMS-agent** : granska de [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)-och [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) -operativsystem som stöds.
-- **Beroende agent** : de Windows- [och Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) -operativsystem som stöds.
+- **MMS-agent**: granska de [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)-och [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) -operativsystem som stöds.
+- **Beroende agent**: de Windows- [och Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) -operativsystem som stöds.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualisera beroenden för > timme
 
@@ -209,7 +208,7 @@ Samla in nätverks trafik loggar enligt följande:
    - I Chrome högerklickar du på och väljer **Spara som har innehåll**. Den här åtgärden komprimerar och exporterar loggarna som en. har-fil.
    - I Microsoft Edge eller Internet Explorer väljer du alternativet **Exportera insamlad trafik** . Den här åtgärden komprimerar och exporterar loggen.
 6. Välj fliken **konsol** för att kontrol lera om det finns varningar eller fel. Så här sparar du konsol loggen:
-   - I Chrome högerklickar du på valfri plats i konsol loggen. Välj **Spara som** , för att exportera och zippa loggen.
+   - I Chrome högerklickar du på valfri plats i konsol loggen. Välj **Spara som**, för att exportera och zippa loggen.
    - I Microsoft Edge eller Internet Explorer högerklickar du på felen och väljer **Kopiera alla**.
 7. Stäng Utvecklarverktyg.
 

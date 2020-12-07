@@ -1,14 +1,17 @@
 ---
 title: Stöd för fysisk server utvärdering i Azure Migrate
 description: Läs mer om stöd för fysisk server-utvärdering med Azure Migrate Server-utvärdering
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 58ecba6bcedc036e31046aef292e482085ad7cc6
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: cfbbc1d218f590241fab804e389acd689c009dac
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148413"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754019"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Support mat ris för fysisk server-utvärdering 
 
@@ -20,7 +23,7 @@ Om du vill utvärdera fysiska servrar skapar du ett Azure Migrate-projekt och l�
 
 ## <a name="limitations"></a>Begränsningar
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
 **Utvärderings gränser** | Du kan identifiera och utvärdera upp till 35 000 fysiska servrar i ett enda [Azure Migrate projekt](migrate-support-matrix.md#azure-migrate-projects).
 **Projekt gränser** | Du kan skapa flera projekt i en Azure-prenumeration. Förutom fysiska servrar kan ett projekt inkludera virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till utvärderings gränserna för var och en.
@@ -70,7 +73,7 @@ I följande tabell sammanfattas port kraven för utvärdering.
 
 Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identifiera beroenden mellan lokala datorer som du vill utvärdera och migrera till Azure. I tabellen sammanfattas kraven för att skapa en agent beroende analys. För närvarande stöds endast agentbaserade beroende analyser för fysiska servrar.
 
-**Krav** | **Detaljer** 
+**Krav** | **Information** 
 --- | --- 
 **Före distribution** | Du bör ha ett Azure Migrate-projekt på plats, med verktyget för Server bedömning som har lagts till i projektet.<br/><br/>  Du kan distribuera beroende visualisering när du har konfigurerat en Azure Migrate-apparat för att identifiera dina lokala datorer<br/><br/> [Lär dig hur](create-manage-projects.md) du skapar ett projekt för första gången.<br/> [Lär dig hur](how-to-assess.md) du lägger till ett utvärderings verktyg i ett befintligt projekt.<br/> Lär dig hur du konfigurerar Azure Migrate-enheten för utvärdering av [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md)eller fysiska servrar.
 **Azure Government** | Beroende visualisering är inte tillgänglig i Azure Government.

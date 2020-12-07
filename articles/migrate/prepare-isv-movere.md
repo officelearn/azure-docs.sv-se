@@ -1,14 +1,17 @@
 ---
 title: Förbereda Azure Migrate att arbeta med ett ISV-verktyg/arbets kraft
 description: Den här artikeln beskriver hur du förbereder Azure Migrate att arbeta med ett ISV-verktyg eller en arbets kraft och hur du börjar använda verktyget.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: 885e64536e516e4fd96233c37a68f6e77fb84e33
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1716db0476169e12822b3f47f7199bf6e2c4ee92
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369156"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753781"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Förbered för att arbeta med ett ISV-verktyg eller en arbets kraft
 
@@ -25,7 +28,7 @@ Ditt Azure-användarkonto behöver följande behörigheter:
 ### <a name="set-permissions-to-register-an-azure-ad-app"></a>Ange behörigheter för att registrera en Azure AD-App
 
 1. I Azure AD kontrollerar du rollen för ditt konto.
-2. Om du har användar rollen väljer du **användar inställningar** till vänster och kontrollerar om användarna kan registrera program. Om det är inställt på **Ja**kan alla användare i Azure AD-klienten registrera en app. Om det är inställt på **Nej**kan endast administratörs användare registrera appar.   
+2. Om du har användar rollen väljer du **användar inställningar** till vänster och kontrollerar om användarna kan registrera program. Om det är inställt på **Ja** kan alla användare i Azure AD-klienten registrera en app. Om det är inställt på **Nej** kan endast administratörs användare registrera appar.   
 3. Om du inte har behörighet kan en administratörs användare ange ditt användar konto med rollen [program administratör](../active-directory/roles/permissions-reference.md#application-administrator) så att du kan registrera appen.
 4. När verktyget är länkat till Azure Migrate kan administratören ta bort rollen från ditt konto.
 
@@ -36,13 +39,13 @@ I din Azure-prenumeration måste ditt konto ha **Microsoft. Authorization/*/Writ
 1. Öppna **Prenumerationer** i Azure-portalen.
 2. Välj relevant prenumeration. Om du inte ser det väljer du **filtret globala prenumerationer**. 
 3. Välj **mina behörigheter**. Välj sedan **Klicka här om du vill visa fullständig åtkomst information för den här prenumerationen**.
-4. **Role assignments**  >  Kontrol lera behörigheterna i**vyn**roll tilldelningar. Om ditt konto inte har behörigheter ber du prenumerations administratören att lägga till dig i rollen som [administratör för användar åtkomst](../role-based-access-control/built-in-roles.md#user-access-administrator) eller [ägar](../role-based-access-control/built-in-roles.md#owner) rollen.
+4. **Role assignments**  >  Kontrol lera behörigheterna i **vyn** roll tilldelningar. Om ditt konto inte har behörigheter ber du prenumerations administratören att lägga till dig i rollen som [administratör för användar åtkomst](../role-based-access-control/built-in-roles.md#user-access-administrator) eller [ägar](../role-based-access-control/built-in-roles.md#owner) rollen.
 
 ## <a name="allow-access-to-urls"></a>Tillåt åtkomst till webbadresser
 
 För ISV-verktyg och Azure Database-Migration Assistant kan du ge åtkomst till de offentliga moln-URL: erna sammanfattade i tabellen. Om du använder en URL-baserad proxy för att ansluta till Internet, måste du kontrol lera att proxyn matchar eventuella CNAME-poster som tas emot vid sökning av URL: erna. 
 
-**URL** | **Detaljer**
+**URL** | **Information**
 --- | ---
 *.portal.azure.com  | Gå till Azure-portalen. 
 *.windows.net<br/> *.msftauth.net<br/> *.msauth.net <br/> *.microsoft.com<br/> *. live.com   | Logga in på din Azure-prenumeration. 

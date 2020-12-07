@@ -2,16 +2,16 @@
 title: Beräkningar av AVS-bedömning i Azure Migrate | Microsoft Docs
 description: Innehåller en översikt över beräkningar av AVS-bedömning i Azure Migrates tjänsten.
 author: rashi-ms
-ms.service: azure-migrate
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.author: mahain
-ms.openlocfilehash: 400c2d91383b5f21fcd40fdbbe279bd83fcef51a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67d4137a21753b221e17a1effde35bc1b89600d3
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576548"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753815"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Översikt över Server utvärdering (migrera till Azure VMware-lösning)
 
@@ -166,7 +166,7 @@ Tillsammans med VM-egenskaper tittar Server utvärderingen på datorns gäst ope
 
 När en dator har marker ATS som klar för AVS, gör AVS-utvärderingen i Server utvärderingen rekommendationer för Node-storlek, vilket innefattar att identifiera lämpliga lokala VM-krav och hitta det totala antalet AVS-noder som krävs. De här rekommendationerna varierar beroende på vilka bedömnings egenskaper som anges.
 
-- Om utvärderingen använder *prestandabaserade storleks*ändringar, Azure Migrate beakta datorns prestanda historik för att göra lämplig storleks rekommendation för AVS. Den här metoden är särskilt användbar om du har överallokerat den lokala virtuella datorn, men användningen är låg och du vill ha rätt storlek på den virtuella datorn i AVS för att spara kostnader. Den här metoden hjälper dig att optimera storlekarna under migreringen.
+- Om utvärderingen använder *prestandabaserade storleks* ändringar, Azure Migrate beakta datorns prestanda historik för att göra lämplig storleks rekommendation för AVS. Den här metoden är särskilt användbar om du har överallokerat den lokala virtuella datorn, men användningen är låg och du vill ha rätt storlek på den virtuella datorn i AVS för att spara kostnader. Den här metoden hjälper dig att optimera storlekarna under migreringen.
 - Om du inte vill tänka på prestanda data för storleks ändring av virtuella datorer och vill ta med de lokala datorerna som de är i AVS-läge kan du ange storleks villkor som *lokalt*. Sedan kommer Server utvärderingen att ändra de virtuella datorerna baserat på den lokala konfigurationen utan att ta hänsyn till användnings data. 
 
 

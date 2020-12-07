@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 7d59c0e751054522f4c54fe059f19aa0a941464e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5b9e9f5cc5184a083f45999eaeb031eb83b17c58
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490012"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754342"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Ytterligare hot skydd i Azure Security Center
 I och med de inbyggda [Azure Defender-skydden](azure-defender.md)erbjuder Azure Security Center även följande hot skydds funktioner.
@@ -41,7 +41,7 @@ Security Center skydds skikt baserat på Azure Resource Manager är för närvar
 
 Security Center erbjuder ett extra skydds lager genom att använda Azure Resource Manager händelser, som anses vara kontroll planet för Azure. Genom att analysera Azure Resource Manager poster Security Center identifiera ovanliga eller potentiellt skadliga åtgärder i Azure-prenumerationens miljö.
 
-En lista över aviseringar om Azure Resource Manager (förhands granskning) finns i [referens tabellen för aviseringar](alerts-reference.md#alerts-azureresourceman).
+En lista över Azure Defender för Resource Manager-aviseringar finns i [referens tabellen för aviseringar](alerts-reference.md#alerts-resourcemanager).
 
 
 >[!NOTE]

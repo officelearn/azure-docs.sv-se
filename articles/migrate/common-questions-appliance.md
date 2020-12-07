@@ -1,14 +1,17 @@
 ---
 title: Vanliga frågor och svar om Azure Migrate
 description: Få svar på vanliga frågor om Azure Migrate-enheten.
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 7be6260a7d3eb25ce2854f6949554e2c66019980
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9badbfe6cfe12d67e07f0889d175ed32bc455321
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337599"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753883"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate utrustning: vanliga frågor
 
@@ -66,9 +69,9 @@ Enheten behöver åtkomst till Azure-URL: er. [Granska](migrate-appliance.md#url
 
 I följande artiklar finns information om data som Azure Migrates apparaten samlar in på virtuella datorer:
 
-- **Virtuell VMware-dator** : [Granska](migrate-appliance.md#collected-data---vmware) insamlade data.
-- **Virtuell Hyper-V-dator** : [Granska](migrate-appliance.md#collected-data---hyper-v) insamlade data.
-- **Fysiska eller virtuella servrar** : [Granska](migrate-appliance.md#collected-data---physical) insamlade data.
+- **Virtuell VMware-dator**: [Granska](migrate-appliance.md#collected-data---vmware) insamlade data.
+- **Virtuell Hyper-V-dator**: [Granska](migrate-appliance.md#collected-data---hyper-v) insamlade data.
+- **Fysiska eller virtuella servrar**:[Granska](migrate-appliance.md#collected-data---physical) insamlade data.
 
 ## <a name="how-is-data-stored"></a>Hur lagras data?
 

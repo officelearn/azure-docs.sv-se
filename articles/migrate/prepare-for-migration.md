@@ -1,15 +1,17 @@
 ---
 title: Förbered datorer för migrering med Azure Migrate
 description: Lär dig hur du förbereder lokala datorer för migrering med Azure Migrate.
-ms.topic: tutorial
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
 ms.date: 06/08/2020
-ms.custom: MVC
-ms.openlocfilehash: ed5a1b6dc47c91815cc88200ddd1b1246603f806
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 979f40e13aab71f02a316e4ddf60306170166845
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275412"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753934"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Förbered lokala datorer för migrering till Azure
 
@@ -101,7 +103,7 @@ Konfigurera den här inställningen manuellt på följande sätt:
 1. På den lokala datorn (inte värd servern) öppnar du en upphöjd kommando tolk.
 2. Ange **DiskPart**.
 3. Ange **San**. Om enhets beteckningen för gäst operativ systemet inte underhålls, returneras **offline all** eller **offline delad** .
-4. Ange **San-princip = OnlineAll**i **DiskPart** -prompten. Den här inställningen säkerställer att diskarna är online och att du kan läsa och skriva till båda diskarna.
+4. Ange **San-princip = OnlineAll** i **DiskPart** -prompten. Den här inställningen säkerställer att diskarna är online och att du kan läsa och skriva till båda diskarna.
 5. Under testmigreringen kan du kontrol lera att enhets beteckningarna bevaras.
 
 
@@ -136,12 +138,12 @@ I följande tabell sammanfattas de steg som utförs automatiskt för de operativ
 | Action                                      | Agent \- baserad VMware-migrering | Migrering utan agent | Hyper\-V   |
 |---------------------------------------------|-------------------------------|----------------------------|------------|
 | Installera Hyper- \- V Linux Integration Services | Ja                           | Ja                        | Krävs inte |
-| Aktivera loggning av Azures serie konsol         | Ja                           | Ja                        | Inga         |
-| Uppdatera enhets mappnings fil                      | Ja                           | Inga                         | Inga         |
-| Uppdatera fstab-poster                        | Ja                           | Ja                        | Inga         |
-| Ta bort udev-regel                            | Ja                           | Ja                        | Inga         |
-| Uppdatera nätverks gränssnitt                   | Ja                           | Ja                        | Inga         |
-| Aktivera SSH                                  | Inga                            | Inga                         | Inga         |
+| Aktivera loggning av Azures serie konsol         | Ja                           | Ja                        | Nej         |
+| Uppdatera enhets mappnings fil                      | Ja                           | Nej                         | Nej         |
+| Uppdatera fstab-poster                        | Ja                           | Ja                        | Nej         |
+| Ta bort udev-regel                            | Ja                           | Ja                        | Nej         |
+| Uppdatera nätverks gränssnitt                   | Ja                           | Ja                        | Nej         |
+| Aktivera SSH                                  | Nej                            | Nej                         | Nej         |
 
 Lär dig mer om hur du [kör en virtuell Linux-dator på Azure](../virtual-machines/linux/create-upload-generic.md)och få instruktioner för några av de populära Linux-distributionerna.
 

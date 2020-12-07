@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 11/25/2020
-ms.openlocfilehash: af7ac49fd6c1a31a8363c4ba0bf925787613ecc2
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 846c5519dced06ed16f5a0d12b0bb25443961f93
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030415"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753917"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Undantag och fel koder för designern
 
@@ -279,7 +279,7 @@ Om modellen tränas med någon av de specialiserade inlärnings modulerna anslut
 ## <a name="error-0014"></a>Fel 0014  
  Undantag uppstår om antalet unika kolumn värden är större än tillåtet.  
 
- Det här felet uppstår när en kolumn innehåller för många unika värden.  Du kan till exempel se det här felet om du anger att en kolumn ska hanteras som kategoriska data, men det finns för många unika värden i kolumnen som tillåter bearbetning. Du kan också se det här felet om det uppstår ett matchnings fel mellan antalet unika värden i två indata.   
+ Det här felet uppstår när en kolumn innehåller för många unika värden, t. ex. en ID-kolumn eller text kolumn. Du kanske ser det här felet om du anger att en kolumn ska hanteras som kategoriska-data, men det finns för många unika värden i kolumnen för att tillåta bearbetning. Du kan också se det här felet om det uppstår ett matchnings fel mellan antalet unika värden i två indata.   
 
 Felet för unika värden är större än vad som tillåts om **båda** uppfyller följande villkor:
 
@@ -292,7 +292,9 @@ Felet för unika värden är större än vad som tillåts om **båda** uppfyller
 
 För kolumner som du tänker använda för gruppering eller kategorisering, vidta åtgärder för att minska antalet unika värden i kolumner. Du kan minska på olika sätt beroende på kolumnens datatyp. 
 
-I det här scenariot är det vanligt att kolumnen som påträffar felet är meningslös som en funktion för att träna modeller. Därför kan du använda [Redigera metadata](../algorithm-module-reference/edit-metadata.md) för att markera kolumnen som **rensad** och den kommer inte att användas vid inlärning av en modell. 
+För ID-kolumner som inte är meningsfulla funktioner under träna en modell kan du använda [Redigera metadata](../algorithm-module-reference/edit-metadata.md) för att markera kolumnen som **klar** och den kommer inte att användas vid inlärningen av en modell. 
+
+För text kolumner kan du använda [funktionen hashing](../algorithm-module-reference/feature-hashing.md) eller [extrahera N-gram-funktioner från text-modulen](../algorithm-module-reference/extract-n-gram-features-from-text.md) för att Förbearbeta text kolumner.
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  

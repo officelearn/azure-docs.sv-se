@@ -1,15 +1,18 @@
 ---
 title: Om Azure Migrate
 description: Läs mer om tjänsten Azure Migrate.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 5a003fc740d08c24af301a6c7ad06cc342530c56
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: b42aa3bfaeaa454b5d870dbae3bce539b682028f
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95746888"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754087"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -30,7 +33,7 @@ Azure Migrate tillhandahåller en central hubb för att utvärdera och migrera t
 
 Azure Migrate Hub innehåller följande verktyg:
 
-**Verktyg** | **Utvärdera och migrera** | **Detaljer**
+**Verktyg** | **Utvärdera och migrera** | **Information**
 --- | --- | ---
 **Azure Migrate: Server utvärdering** | Utvärdera servrar. | Identifiera och utvärdera lokala virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska servrar som förbereder migrering till Azure.
 **Azure Migrate: Server-migrering** | Migrera servrar. | Migrera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, andra virtualiserade datorer och virtuella datorer i offentliga moln till Azure.
@@ -80,7 +83,7 @@ Server utvärderingen använder en förenklad [Azure Migrate](migrate-appliance.
 
 Med verktyget Azure Migrate: Migreringsverktyg kan du migrera till Azure:
 
-**Migrera** | **Detaljer**
+**Migrera** | **Information**
 --- | ---
 Lokala virtuella VMware-datorer | Migrera virtuella datorer till Azure med hjälp av en agent utan agent eller en agent-baserad migrering.<br/><br/> Vid migrering utan Agent använder Server Migration samma Azure Migrate-enhet som också kan användas av Server utvärdering för identifiering och utvärdering av virtuella VMware-datorer.<br/><br/> Vid certifikatbaserad migrering använder Server Migration en replikeringsfil.
 Lokala virtuella Hyper-V-datorer | Migrera virtuella datorer till Azure.<br/><br/> Server-migreringen använder leverantörs agenter som är installerade på Hyper-V-värden för migreringen.

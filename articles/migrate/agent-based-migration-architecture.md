@@ -1,17 +1,17 @@
 ---
 title: Agent-baserad migrering i Azure Migrate Server-migrering
 description: Innehåller en översikt över den agentbaserade virtuella VMware-migreringen i Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: raynew
-ms.openlocfilehash: 90e499b436a3ae44fa29cec1138d939a106a4db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1389b03d87beb24cba50fec0a782de8b7f935557
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357173"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753900"
 ---
 # <a name="agent-based-migration-architecture"></a>Agentbaserad migreringsarkitektur
 
@@ -119,8 +119,8 @@ VMware-trafik som replikeras till Azure går genom en speciell processerver. Du 
 - Dessutom kan du begränsa bandbredden på processervern på följande sätt:
 
     1. Öppna snapin-modulen Azure Backup MMC på processervern. Det finns en genväg på Skriv bordet eller i mappen C:\Program Files\Microsoft Azure Recovery Services Agent\bin. 
-    2. Välj **ändra egenskaper**i snapin-modulen.
-    3. Under **begränsning**väljer du **Aktivera användnings begränsning för Internet bandbredd för säkerhets kopierings åtgärder**. Ange gränserna för arbets tid och ledig tid. Giltiga intervall är mellan 512 och 1 023 Mbit/s.
+    2. Välj **ändra egenskaper** i snapin-modulen.
+    3. Under **begränsning** väljer du **Aktivera användnings begränsning för Internet bandbredd för säkerhets kopierings åtgärder**. Ange gränserna för arbets tid och ledig tid. Giltiga intervall är mellan 512 och 1 023 Mbit/s.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate-installation
 description: Innehåller en sammanfattning av stödet för den Azure Migrate-enheten.
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f3357fcc070ca4ca2212cf0424e4baf8208a3ca1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008709"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754138"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -98,7 +101,7 @@ Azure Migrate-utrustningen behöver anslutning till Internet.
 
 ### <a name="public-cloud-urls"></a>Offentliga moln-URL: er
 
-**URL** | **Detaljer**  
+**URL** | **Information**  
 --- | --- |
 *.portal.azure.com  | Gå till Azure-portalen.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *. live.com <br/> *. office.com | Logga in på din Azure-prenumeration.
@@ -115,7 +118,7 @@ download.microsoft.com/download | Tillåt hämtning från Microsoft Download.
 
 ### <a name="government-cloud-urls"></a>Offentliga moln-URL: er
 
-**URL** | **Detaljer**  
+**URL** | **Information**  
 --- | --- |
 *. portal.azure.us  | Gå till Azure-portalen.
 graph.windows.net | Logga in på din Azure-prenumeration.
@@ -180,7 +183,7 @@ IPv6-adresser | vm.Guest.Net
 Läs data flöde (MB per sekund) | net. Received. Average
 Skriv data flöde (MB per sekund) | net. överföring. genomsnitt
 **Information om lager Sök väg** | 
-Name | fönster. GetType (). Namn
+Namn | fönster. GetType (). Namn
 Typ av underordnat objekt | fönster. ChildType
 Referens information | fönster. MoRef
 Överordnad information | Container. parent
@@ -227,7 +230,7 @@ Här är de funktions data som installationen samlar in från varje virtuell dat
 
 **Data**  | **PowerShell-cmdlet** | **Egenskap**
 --- | --- | ---
-Name  | Get-WindowsFeature  | Name
+Namn  | Get-WindowsFeature  | Namn
 Funktions typ | Get-WindowsFeature  | FeatureType
 Överordnad  | Get-WindowsFeature  | Överordnad
 
@@ -237,7 +240,7 @@ Här är SQL Server-metadata som enheten samlar in från virtuella datorer som k
 
 **Data**  | **Registerplats**  | **Nyckel**
 --- | --- | ---
-Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
+Namn  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
 Utgåva  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Utgåva 
 Service Pack  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | SP
 Version  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Version 
@@ -248,7 +251,7 @@ Här är de operativ Systems data som installations programmet samlar in varje v
 
 Data  | WMI-klass  | Egenskap för WMI-klass
 --- | --- | ---
-Name  | Win32_operatingsystem  | Caption
+Namn  | Win32_operatingsystem  | Caption
 Version  | Win32_operatingsystem  | Version
 Arkitektur  | Win32_operatingsystem  | OSArchitecture
 
@@ -258,7 +261,7 @@ Här är de installerade program data som installationen samlar in från varje v
 
 Data  | Kommando
 --- | --- 
-Name | RPM, dpkg-fråga, fäst
+Namn | RPM, dpkg-fråga, fäst
 Version | RPM, dpkg-fråga, fäst
 Leverantör | RPM, dpkg-fråga, fäst
 
@@ -268,7 +271,7 @@ Här är de operativ Systems data som installations programmet samlar in varje v
 
 **Data**  | **Kommando** 
 --- | --- | ---
-Name <br/> version | Samlas in från en eller flera av följande filer:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Namn <br/> version | Samlas in från en eller flera av följande filer:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Arkitektur | uname
 
 

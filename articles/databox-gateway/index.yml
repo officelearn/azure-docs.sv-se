@@ -1,0 +1,75 @@
+### YamlMime:Landing
+title: Dokumentation om Azure Data Box Gateway – Onlineöverföring
+summary: Använd Azure Data Box Gateway-enheter för dataöverföring över nätverket för molnarkivering eller haveriberedskap, eller för att bearbeta data i molnskala.
+metadata:
+  title: Dokumentation om Azure Data Box Gateway – Onlineöverföring
+  description: Dokumentation om Data Box Gateway för dataöverföring med hög prestanda till Azure via nätverk.
+  services: databox
+  ms.service: databox
+  ms.subservice: gateway
+  ms.topic: landing-page
+  ms.collection: collection
+  author: v-dalc
+  ms.author: alkohli
+  ms.date: 10/29/2020
+  ms.openlocfilehash: 811d0555e6fd39f372b4742501a3114bbc9a25b4
+  ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 12/03/2020
+  ms.locfileid: "96579965"
+landingContent:
+- title: Om Data Box Gateway
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Data Box Gateway?
+      url: data-box-gateway-overview.md
+  - linkListType: architecture
+    links:
+    - text: Välja dataöverföringsalternativ
+      url: /azure/storage/common/storage-choose-data-transfer-solution
+    - text: Använda nätverks- eller offlineöverföring
+      url: /azure/storage/common/storage-solution-large-dataset-low-network#offline-transfer-or-network-transfer
+  - linkListType: whats-new
+    links:
+    - text: Viktig information 2007 – Aktuell
+      url: data-box-gateway-2007-release-notes.md
+- title: Krav och begränsningar
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Krav
+      url: data-box-gateway-system-requirements.md
+    - text: Begränsningar
+      url: data-box-gateway-limits.md
+- title: Distribuera
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Förbered distributionen
+      url: data-box-gateway-deploy-prep.md
+    - text: Etablera i Hyper-V
+      url: data-box-gateway-deploy-provision-hyperv.md
+    - text: Ansluta, konfigurera och aktivera
+      url: data-box-gateway-deploy-connect-setup-activate.md
+    - text: Överföra data
+      url: data-box-gateway-deploy-add-shares.md
+- title: Hantera
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Hantera resurser
+      url: data-box-gateway-manage-shares.md
+    - text: Hantera via PowerShell
+      url: data-box-gateway-connect-powershell-interface.md
+- title: Felsök
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Felsök
+      url: data-box-gateway-troubleshoot.md
+    - text: Övervaka
+      url: data-box-gateway-monitor.md
+    - text: Öppna supportbegäran
+      url: ../databox-online/azure-stack-edge-contact-microsoft-support.md

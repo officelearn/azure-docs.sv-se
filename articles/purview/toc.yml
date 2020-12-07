@@ -1,0 +1,153 @@
+items:
+  - name: Dokumentation om Azure Purview
+    href: index.yml
+  - name: Översikt
+    items:
+      - name: Vad är Azure Purview?
+        href: overview.md
+  - name: Snabbstarter
+    expanded: true
+    items:
+      - name: Skapa ett Purview-konto – Microsoft Azure-portalen
+        href: create-catalog-portal.md
+      - name: Skapa ett Purview-konto – Azure PowerShell
+        href: create-catalog-powershell.md
+  - name: Självstudier
+    items:
+      - name: Startpaket
+        items:
+          - name: Genomsöka data
+            href: tutorial-scan-data.md
+          - name: Navigera till hemsidan och sök
+            href: tutorial-asset-search.md
+          - name: Bläddra bland tillgångar och visa dataursprung
+            href: tutorial-browse-and-view-lineage.md
+          - name: 'Utforska resursuppsättningar, tillgångar, scheman, klassificeringar'
+            href: tutorial-schemas-and-classifications.md
+          - name: Skapa ordlistetermer
+            href: tutorial-import-create-glossary-terms.md
+      - name: Registrera och genomsöka en lokal SQL Server
+        href: register-scan-on-premises-sql-server.md
+  - name: Begrepp
+    items:
+      - name: Använda Purview Studio
+        href: use-purview-studio.md
+      - name: Bästa metoder för distribution
+        href: deployment-best-practices.md
+      - name: Azure Purview-gränser
+        href: how-to-manage-quotas.md
+      - name: Så identifierar genomsökningar borttagna tillgångar
+        href: concept-detect-deleted-assets.md
+      - name: Förstå resursuppsättningar
+        href: concept-resource-sets.md
+      - name: Dataursprung
+        href: concept-data-lineage.md
+      - name: Datakällor som stöds och filtyper
+        href: sources-and-scans.md
+      - name: Katalogbehörigheter
+        href: catalog-permissions.md
+      - name: Katalogsökning
+        href: concept-search.md
+      - name: Företagsordlistan
+        href: concept-business-glossary.md
+      - name: Datainsikter
+        href: concept-insights.md
+      - name: Vanliga frågor och svar
+        href: frequently-asked-questions.md
+  - name: Anvisningar
+    items:
+      - name: Registrera och genomsöka
+        items:
+          - name: Hantera autentiseringsuppgifter
+            href: manage-credentials.md
+            displayName: Create and manage Credentials
+          - name: Skapa en regeluppsättning för genomsökning
+            href: create-a-scan-rule-set.md
+          - name: Hantera integreringskörningar
+            href: manage-integration-runtimes.md
+          - name: Felsöka anslutningsproblem
+            href: troubleshoot-connections.md
+          - name: Källor
+            items:
+              - name: Hantera datakällor
+                href: manage-data-sources.md
+              - name: Översikt över anslutningsprogram för Purview
+                href: purview-connector-overview.md
+              - name: Azure Blob Storage
+                href: register-scan-azure-blob-storage-source.md
+                displayName: Register and scan azure blob storage
+              - name: Azure Cosmos DB
+                href: register-scan-azure-cosmos-database.md
+                displayName: Register and scan Azure Cosmos DB
+              - name: Azure-datautforskaren
+                href: register-scan-azure-data-explorer.md
+                displayName: Register and scan Azure Data Explorer Kusto
+              - name: Azure Data Lake Storage Gen 1
+                href: register-scan-adls-gen1.md
+                displayName: Register and scan Azure Data Lake Storage Gen 1 ADLS
+              - name: Azure Data Lake Storage Gen 2
+                href: register-scan-adls-gen2.md
+                displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS
+              - name: Azure SQL Database
+                href: register-scan-azure-sql-database.md
+                displayName: Register and scan Azure SQL DB
+              - name: Azure SQL Database med en brandvägg
+                href: scan-sqlresource-firewall.md
+                displayName: Register and scan Azure SQL DB with a firewall
+              - name: Hanterad Azure SQL Database-instans
+                href: register-scan-azure-sql-database-managed-instance.md
+                displayName: Register and scan Azure SQL DB Managed Instance
+              - name: Azure Synapse Analytics
+                href: register-scan-azure-synapse-analytics.md
+              - name: Power BI-klientorganisation – Portalen
+                href: register-scan-power-bi-tenant.md
+              - name: Power BI-klientorganisation – PowerShell
+                href: powershell-register-scan-power-bi.md
+              - name: Lokal SQL-server
+                href: register-scan-on-premises-sql-server.md
+      - name: Företagsordlistan
+        items:
+          - name: 'Skapa, importera och exportera termer från en ordlista'
+            href: how-to-create-import-export-glossary.md
+          - name: Hantera termmallar
+            href: how-to-manage-term-templates.md
+      - name: Klassificera
+        items:
+          - name: Skapa en anpassad klassificering och klassificeringsregel
+            href: create-a-custom-classification-and-classification-rule.md
+          - name: Applicera klassificeringar
+            href: apply-classifications.md
+          - name: Märk innehållet automatiskt
+            href: create-sensitivity-label.md
+      - name: Söka och bläddra
+        items:
+          - name: Bläddra i Data Catalog
+            href: how-to-browse-catalog.md
+          - name: Söka i Data Catalog
+            href: how-to-search-catalog.md
+      - name: Ursprung
+        items:
+          - name: Användarhandboken för ursprung
+            href: catalog-lineage-user-guide.md
+          - name: Azure Data Factory-ursprung
+            href: how-to-link-azure-data-factory.md
+          - name: Azure Data Share-ursprung
+            href: how-to-link-azure-data-share.md
+      - name: Insikter
+        items:
+          - name: Visa tillgångsinsikter
+            href: asset-insights.md
+          - name: Visa ordlisteinsikter
+            href: glossary-insights.md
+          - name: Visa genomsökningsinsikter
+            href: scan-insights.md
+          - name: Visa klassificeringsinsikter
+            href: classification-insights.md
+          - name: Visa insikter för känslighetsetiketter
+            href: sensitivity-insights.md
+          - name: Visa insikter för filnamnstillägg
+            href: file-extension-insights.md
+  - name: Referens
+    items:
+      - name: Klassificeringar som stöds
+        href: supported-classifications.md

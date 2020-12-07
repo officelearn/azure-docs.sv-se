@@ -152,6 +152,8 @@
           href: node-updates-kured.md
         - name: Konfigurera ett AKS-kluster
           href: cluster-configuration.md
+        - name: Anpassad nodkonfiguration (förhandsversion)
+          href: custom-node-configuration.md
         - name: Integrera ACR med ett AKS-kluster
           href: cluster-container-registry-integration.md
         - name: Skapa virtuella noder

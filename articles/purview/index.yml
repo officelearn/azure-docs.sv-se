@@ -1,0 +1,116 @@
+### YamlMime:Landing
+title: Dokumentation om Azure Purview
+summary: Lär dig hur du använder Azure Purview så att din organisation kan hitta, förstå och använda datakällor.
+metadata:
+  title: Dokumentation om Azure Purview
+  description: Lär dig hur du använder Azure Purview där din organisation kan hitta, förstå och använda datakällor. Självstudier, REST API-referens och annan dokumentation visar hur du planerar och konfigurerar ditt datalager, där datakonsumenterna kan identifiera tillgängliga datakällor och få kunskap av experter inom olika ämnen.
+  ms.service: purview
+  ms.topic: landing-page
+  author: hrasheed-msft
+  ms.author: hrasheed
+  ms.date: 11/29/2020
+  ms.openlocfilehash: 378a335653acf31275c312bcf4fa53b36bfa614e
+  ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 12/03/2020
+  ms.locfileid: "96549470"
+landingContent:
+- title: Om Azure Purview
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Purview?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Bästa metoder för distribution
+      url: deployment-best-practices.md
+    - text: Behörigheter för Data Catalog
+      url: catalog-permissions.md
+    - text: Datakällor som stöds och filtyper
+      url: sources-and-scans.md
+- title: Kom igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa ett Purview-konto – Portalen
+      url: create-catalog-portal.md
+    - text: Skapa ett Purview-konto – PowerShell/CLI
+      url: create-catalog-powershell.md
+  - linkListType: tutorial
+    links:
+    - text: Ladda ned ett startpaket
+      url: https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip
+    - text: Köra startpaketet och genomsöka data
+      url: tutorial-scan-data.md
+    - text: Navigera på Purview-hemsidan och söka
+      url: tutorial-asset-search.md
+    - text: Bläddra bland tillgångar och visa dataursprung
+      url: tutorial-browse-and-view-lineage.md
+    - text: Utforska resursuppsättningar, tillgångar, scheman, klassificeringar
+      url: tutorial-schemas-and-classifications.md
+    - text: Skapa ordlistetermer
+      url: tutorial-import-create-glossary-terms.md
+- title: Genomsöka Azure-datakällor
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Köra startpaketet och genomsöka data
+      url: tutorial-scan-data.md
+  - linkListType: how-to-guide
+    links:
+    - text: Genomsöka Azure SQL Database
+      url: register-scan-azure-sql-database.md
+    - text: Genomsöka Azure Data Lake Storage Gen 2
+      url: register-scan-adls-gen2.md
+    - text: Genomsöka Azure Cosmos DB
+      url: register-scan-azure-cosmos-database.md
+    - text: Power BI-klientorganisation
+      url: register-scan-power-bi-tenant.md
+    - text: Registrera och genomsöka Azure Blob Storage
+      url: register-scan-azure-blob-storage-source.md
+- title: Genomsöka datakällor som inte är från Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Genomsöka SQL-server lokalt
+      url: register-scan-on-premises-sql-server.md
+- title: Förstå din dataegendom
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Visa tillgångsinsikter
+      url: asset-insights.md
+    - text: Visa ordlisteinsikter
+      url: glossary-insights.md
+    - text: Visa genomsökningsinsikter
+      url: scan-insights.md
+    - text: Visa klassificeringsinsikter
+      url: classification-insights.md
+- title: Organisera data
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Resursuppsättningar, tillgångar, scheman, klassificeringar
+      url: tutorial-schemas-and-classifications.md
+    - text: Ordlistetermer
+      url: tutorial-import-create-glossary-terms.md
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa, redigera och ta bort anpassade klassificeringar och regler
+      url: create-a-custom-classification-and-classification-rule.md
+    - text: Skapa, importera och exportera en ordlista
+      url: how-to-create-import-export-glossary.md
+- title: Identifiera data
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Bläddra och ursprung
+      url: tutorial-browse-and-view-lineage.md
+  - linkListType: how-to-guide
+    links:
+    - text: Bläddra efter tillgångstyp
+      url: how-to-browse-catalog.md
+    - text: Sök efter tillgångar, termer, anteckningar och kontakter
+      url: how-to-search-catalog.md

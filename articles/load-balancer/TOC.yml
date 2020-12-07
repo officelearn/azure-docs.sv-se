@@ -61,7 +61,7 @@
           href: load-balancer-insights.md
         - name: Mått och diagnostik för Standard Load Balancer
           href: load-balancer-standard-diagnostics.md
-        - name: Azure Monitor-loggar för Basic Load Balancer
+        - name: Azure Monitor-loggar för Load Balancer
           href: load-balancer-monitor-log.md
         - name: Hämta Load Balancer-mått med REST
           href: load-balancer-query-metrics-rest-api.md

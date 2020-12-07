@@ -274,6 +274,8 @@
                   href: log-query/resource-expression.md
                 - name: Gör dina programdataresurser enhetliga
                   href: log-query/unify-app-resource-data.md
+                - name: Fråga Azure Data Explorer från Azure Monitor
+                  href: platform/azure-monitor-data-explorer-proxy.md
         - name: Dataexport
           items:
             - name: Dataexport för arbetsyta
@@ -550,7 +552,7 @@
               href: platform/it-service-management-connector-secure-webhook-connections.md
             - name: Skapa Service Manager-webbapp
               href: platform/itsmc-service-manager-script.md
-            - name: Åtgärda problem med ServiceNow ITSM-synkronisering
+            - name: Felsöka problem med anslutningsprogram för hantering av IT-tjänster (ITSM)
               href: platform/itsmc-resync-servicenow.md
         - name: Migrera klassiska aviseringsregler
           items:

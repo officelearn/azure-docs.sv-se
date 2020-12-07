@@ -134,6 +134,8 @@
           href: how-to-request-real-time-data.md
         - name: Begär realtids- och prognostiserade väderdata
           href: how-to-request-weather-data.md
+        - name: Begär elevationsdata
+          href: how-to-request-elevation-data.md
     - name: Utveckla med webb-SDK
       items:
         - name: Kartkontroll

@@ -54,12 +54,18 @@
     - name: Länka till ditt partner-ID
       displayName: 'partner earned credit, pec, mpn'
       href: ./how-to/partner-earned-credit.md
+    - name: Uppdatera en delegering
+      displayName: upgrade
+      href: ./how-to/update-delegation.md
     - name: Ta bort åtkomst till en delegering
       displayName: 'delete, undelegate'
       href: ./how-to/remove-delegation.md
     - name: Azure Arc-integrering
       displayName: 'server, kubernetes, hybrid, infrastructure'
       href: ./how-to/manage-hybrid-infrastructure-arc.md
+    - name: Azure Migrate-integrering
+      displayName: 'migration, project, on-prem'
+      href: ./how-to/migration-at-scale.md
     - name: Azure Monitor-integrering
       items:
         - name: Använda Azure Monitor-loggar i stor skala

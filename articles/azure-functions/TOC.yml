@@ -4,7 +4,7 @@
   items:
     - name: Om Azure Functions
       href: functions-overview.md
-    - name: Komma igång
+    - name: Kom igång
       href: functions-get-started.md
     - name: Bestående funktioner
       href: durable/durable-functions-overview.md
@@ -369,6 +369,8 @@
               href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Autentisera med en OpenID Connect-provider (förhandsgranskning)
               href: ../app-service/configure-authentication-provider-openid-connect.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Autentisera med Inloggning med Apple (förhandsversion)
+              href: ../app-service/configure-authentication-provider-apple.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Avancerad autentisering
           href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Begränsa IP-adresser

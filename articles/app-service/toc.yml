@@ -223,6 +223,8 @@
               href: configure-authentication-provider-twitter.md
             - name: Autentisera med en OpenID Connect-provider (förhandsgranskning)
               href: configure-authentication-provider-openid-connect.md
+            - name: Autentisera med Inloggning med Apple (förhandsversion)
+              href: configure-authentication-provider-apple.md
         - name: Avancerad autentisering
           href: app-service-authentication-how-to.md
         - name: Begränsa åtkomst

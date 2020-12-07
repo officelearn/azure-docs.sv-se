@@ -145,6 +145,10 @@
           href: tutorial-deploy-ssis-packages-azure-powershell.md
         - name: Anslut till virtuellt nätverk
           href: tutorial-deploy-ssis-virtual-network.md
+    - name: Ursprung
+      items:
+        - name: Skicka Data Factory-ursprungsdata till Azure Purview
+          href: turorial-push-lineage-to-purview.md
     - name: Slutpunkt till slutpunkt-labb
       items:
         - name: Dataintegrering med datafabrik och dataresurs
@@ -688,6 +692,10 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: Skapa ett beroende för utlösare för rullande fönster
           href: tumbling-window-trigger-dependency.md
+    - name: Ursprung
+      items:
+        - name: Ansluta en datafabrik till Azure Purview
+          href: connect-data-factory-to-azure-purview.md
     - name: Scenarier
       items:
         - name: Datamigrering för datasjöar och EDW

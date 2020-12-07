@@ -74,7 +74,9 @@
       items:
         - name: Azure Migrate-support
           href: migrate-support-matrix.md
-        - name: Säkerhetsbaslinje för Azure Migrate
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
           href: security-baseline.md
     - name: Identifiera
       items:

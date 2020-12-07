@@ -5,19 +5,15 @@ metadata:
   title: Dokumentation om Azure Portal
   description: Lär dig att hantera din Azure-prenumeration och dina -resurser med Azure-portalens webbaserade konsol. Azure-portalen är ett alternativ till att använda kommandoradsverktyg.
   services: Azure portal
-  ms.service: azure-portal
-  ms.subservice: 
   ms.topic: landing-page
   ms.collection: collection
-  author: mblythe
-  ms.author: mblythe
   ms.date: 08/05/2020
-  ms.openlocfilehash: 4a491a2924af90afc43ddb4aa097f9967c8f156a
-  ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+  ms.openlocfilehash: c1617f295a101ae645743d60fdbe82a09d936ea2
+  ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/15/2020
-  ms.locfileid: "92089289"
+  ms.lasthandoff: 12/07/2020
+  ms.locfileid: "96749019"
 landingContent:
 - title: Om Azure-portalen
   linkLists:

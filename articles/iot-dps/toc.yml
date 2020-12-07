@@ -13,7 +13,7 @@
           href: quick-setup-auto-provision.md
         - name: Azure CLI
           href: quick-setup-auto-provision-cli.md
-        - name: Azure RM-mall
+        - name: ARM-mall
           href: quick-setup-auto-provision-rm.md
     - name: Etablera en symmetrisk nyckel
       items:

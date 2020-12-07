@@ -1,15 +1,18 @@
 ---
 title: Migrera virtuella VMware-datorer med agent-baserad Azure Migrate Server-migrering
 description: Lär dig hur du kör en agent-baserad migrering av virtuella VMware-datorer med Azure Migrate.
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 46f23953e6572b752f8773bc9db86be946ccf212
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0c3b86fc823e4b563dc747a5604fcb2e04995fed
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493005"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752659"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrera virtuella VMware-datorer till Azure (agent-baserad)
 

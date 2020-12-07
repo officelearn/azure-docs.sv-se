@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
-ms.openlocfilehash: 721e09c2bc0562ba833115361cf33c3daaef380b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c804e13029dcec42a43885cbf0d9b227b3d0338f
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364039"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750810"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Felsöka Hyper-V till Azure-replikering och redundans
 
@@ -34,7 +34,21 @@ Om du får problem när du aktiverar skydd för virtuella Hyper-V-datorer kontro
 6. Se till att den senaste versionen av Integration Services körs på den virtuella gäst datorn.
     - [Kontrol lera](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) att du har den senaste versionen.
     - [Behåll](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integrerings tjänsterna är aktuella.
-    
+
+### <a name="cannot-enable-protection-as-the-virtual-machine-is-not-highly-available-error-code-70094"></a>Det går inte att aktivera skydd eftersom den virtuella datorn inte är hög tillgänglig (felkod 70094)
+
+När du aktiverar replikering för en dator och påträffar ett fel som säger att det inte går att aktivera replikering eftersom datorn inte är hög tillgänglig, så kan du åtgärda problemet genom att försöka med stegen nedan:
+
+- Starta om VMM-tjänsten på VMM-servern.
+- Ta bort den virtuella datorn från klustret och Lägg till den igen.
+
+### <a name="the-vss-writer-ntds-failed-with-status-11-and-writer-specific-failure-code-0x800423f4"></a>VSS Writer NTDS misslyckades med status 11 och Writer-felkod 0x800423F4
+
+När du försöker aktivera replikeringen kan det uppstå ett fel som informerar att det inte gick att aktivera replikering för AST NTDS NTDS. En möjlig orsak till det här problemet är att den virtuella datorns operativ system i Windows Server 2012 och inte Windows Server 2012 R2. Åtgärda problemet genom att prova stegen nedan:
+
+- Uppgradera till Windows Server R2 med 4072650 tillämpad.
+- Se till att Hyper-V-värden också är Windows 2016 eller högre.
+
 ## <a name="replication-issues"></a>Replikeringsproblem
 
 Felsök problem med inledande och fortlöpande replikering så här:
@@ -53,7 +67,7 @@ Felsök problem med inledande och fortlöpande replikering så här:
     - Om du replikerar med VMM i miljön kontrollerar du att dessa tjänster körs:
         - På Hyper-V-värden kontrollerar du att tjänsten hantering av virtuell dator, Microsoft Azure Recovery Services agenten och värd tjänsten för WMI-providern körs.
         - Kontrol lera att tjänsten System Center Virtual Machine Manager körs på VMM-servern.
-4. Kontrollera anslutningen mellan Hyper-V-servern och Azure. Öppna aktivitets hanteraren på Hyper V-värden för att kontrol lera anslutningen. Klicka på **öppna resursövervakare**på fliken **prestanda** . På fliken **nätverk** > **process med nätverks aktivitet**kontrollerar du om cbengine.exe aktivt skickar stora volymer (MB) data.
+4. Kontrollera anslutningen mellan Hyper-V-servern och Azure. Öppna aktivitets hanteraren på Hyper V-värden för att kontrol lera anslutningen. Klicka på **öppna resursövervakare** på fliken **prestanda** . På fliken **nätverk** > **process med nätverks aktivitet** kontrollerar du om cbengine.exe aktivt skickar stora volymer (MB) data.
 5. Kontrol lera om Hyper-V-värdarna kan ansluta till BLOB-URL: en för Azure Storage. Du kan kontrol lera om värdarna kan ansluta genom att markera och markera **cbengine.exe**. Visa **TCP-anslutningar** för att verifiera anslutningen från värden till Azure Storage-blobben.
 6. Kontrol lera prestanda problemen enligt beskrivningen nedan.
     
@@ -135,7 +149,7 @@ En programkonsekvent ögonblicks bild är en tidpunkts ögonblicks bild av progr
 
 ### <a name="common-errors"></a>Vanliga fel
 
-**Felkod** | **Meddelande** | **Detaljer**
+**Felkod** | **Meddelande** | **Information**
 --- | --- | ---
 **0x800700EA** | "Hyper-V kunde inte skapa en ögonblicks bild uppsättning för VSS för virtuell dator: mer data är tillgängliga. (0x800700EA). Generering av ögonblicks bild uppsättning för VSS kan inte utföras om säkerhets kopiering pågår.<br/><br/> Det gick inte att utföra replikering för den virtuella datorn: fler data är tillgängliga. | Kontrol lera om den virtuella datorn har dynamisk disk aktive rad. Det stöds inte.
 **0x80070032** | "Det gick inte att ansluta till den virtuella datorn <./VMname> eftersom versionen inte matchar den version som förväntas av Hyper-v-providern | Kontrol lera om de senaste Windows-uppdateringarna är installerade.<br/><br/> [Uppgradera](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) till den senaste versionen av Integration Services.
@@ -146,7 +160,7 @@ En programkonsekvent ögonblicks bild är en tidpunkts ögonblicks bild av progr
 
 All Hyper-V-replikering loggas i Hyper-V-VMMS\Admin-loggen som finns i **program och tjänster loggar**  >  **Microsoft**  >  **Windows**. Dessutom kan du aktivera en analytisk logg för tjänsten hantering av virtuell dator för Hyper-V enligt följande:
 
-1. Gör de analytiska och fel söknings loggar som visas i Loggboken. Klicka på **Visa**för att  >  **Visa analytiska loggar och fel söknings loggar**i Loggboken för att göra loggarna tillgängliga. Analys loggen visas under **Hyper-V-VMMS**.
+1. Gör de analytiska och fel söknings loggar som visas i Loggboken. Klicka på **Visa** för att  >  **Visa analytiska loggar och fel söknings loggar** i Loggboken för att göra loggarna tillgängliga. Analys loggen visas under **Hyper-V-VMMS**.
 2. I fönstret **åtgärder** klickar du på **Aktivera logg**. 
 
     ![Aktivera logg](media/hyper-v-azure-troubleshoot/enable-log.png)
@@ -157,7 +171,7 @@ All Hyper-V-replikering loggas i Hyper-V-VMMS\Admin-loggen som finns i **program
 
 ### <a name="event-log-locations"></a>Händelse logg platser
 
-**Händelse logg** | **Detaljer** |
+**Händelse logg** | **Information** |
 --- | ---
 **Program-och tjänst loggar/Microsoft/VirtualMachineManager/server/admin** (VMM-Server) | Loggar för att felsöka VMM-problem.
 **Program-och tjänst loggar/MicrosoftAzureRecoveryServices/replikering** (Hyper-V-värd) | Loggar för att felsöka problem med Microsoft Azure Recovery Services agent. 

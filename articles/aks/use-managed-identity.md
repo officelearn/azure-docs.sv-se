@@ -3,14 +3,13 @@ title: Använda hanterade identiteter i Azure Kubernetes-tjänsten
 description: Lär dig hur du använder hanterade identiteter i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/17/2020
-ms.author: thomasge
-ms.openlocfilehash: 96a1eebbdcbf269b06d2ece77987ce7813f1d5f5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/06/2020
+ms.openlocfilehash: e2a80ea869e17665e8a6d4fbd6960c3ccc8c1042
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571070"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751282"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Använda hanterade identiteter i Azure Kubernetes-tjänsten
 
@@ -22,14 +21,13 @@ För närvarande kräver ett Azure Kubernetes service (AKS)-kluster (specifikt K
 
 Du måste ha följande resurs installerad:
 
-- Azure CLI, version 2.8.0 eller senare
+- Azure CLI, version 2.15.1 eller senare
 
 ## <a name="limitations"></a>Begränsningar
 
-* AKS-kluster med hanterade identiteter kan bara aktive ras när klustret skapas.
 * Under kluster **uppgraderings** åtgärder är den hanterade identiteten tillfälligt otillgänglig.
 * Klienterna flyttar/migrerar för hanterade identitets aktiverade kluster stöds inte.
-* Om klustret har `aad-pod-identity` Aktiver ATS ändrar NMI-poddar noderna program varan iptables för att avlyssna anrop till Azure instance metadata-slutpunkten. Den här konfigurationen innebär att alla begär Anden som görs till metadata-slutpunkten fångas upp av NMI även om Pod inte använder `aad-pod-identity` . AzurePodIdentityException CRD kan konfigureras för att informera om `aad-pod-identity` att förfrågningar till slut punkten för metadata från en pod som matchar etiketter som definierats i CRD ska vara proxy utan bearbetning i NMI. Systemets poddar med `kubernetes.azure.com/managedby: aks` etikett i _Kube-systemets_ namnrymd ska undantas i `aad-pod-identity` genom att konfigurera AzurePodIdentityException-CRD. Mer information finns i [inaktivera AAD-Pod-Identity för en specifik POD eller ett program](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
+* Om klustret har `aad-pod-identity` Aktiver ATS ändrar Node-Managed identitet (NMI) poddar program varan iptables för att avlyssna anrop till Azure instance metadata-slutpunkten. Den här konfigurationen innebär att alla begär Anden som görs till metadata-slutpunkten fångas upp av NMI även om Pod inte använder `aad-pod-identity` . AzurePodIdentityException CRD kan konfigureras för att informera om `aad-pod-identity` att förfrågningar till slut punkten för metadata från en pod som matchar etiketter som definierats i CRD ska vara proxy utan bearbetning i NMI. Systemets poddar med `kubernetes.azure.com/managedby: aks` etikett i _Kube-systemets_ namnrymd ska undantas i `aad-pod-identity` genom att konfigurera AzurePodIdentityException-CRD. Mer information finns i [inaktivera AAD-Pod-Identity för en specifik POD eller ett program](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   Om du vill konfigurera ett undantag installerar du [yaml MIC-Exception](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 ## <a name="summary-of-managed-identities"></a>Sammanfattning av hanterade identiteter
@@ -38,12 +36,12 @@ AKS använder flera hanterade identiteter för inbyggda tjänster och tillägg.
 
 | Identitet                       | Namn    | Användningsfall | Standard behörigheter | Ta med din egen identitet
 |----------------------------|-----------|----------|
-| Kontrollplan | inte synlig | Används av AKS för hanterade nätverks resurser inklusive ingångs utjämning och AKS offentliga IP-adresser | Deltagar roll för nod resurs grupp | Förhandsgranskning
+| Kontrollplan | inte synlig | Används av AKS Control plan-komponenter för att hantera kluster resurser, inklusive belastnings utjämning och AKS-hanterade offentliga IP-adresser och åtgärder för automatisk skalnings åtgärd i klustret | Deltagar roll för nod resurs grupp | Förhandsgranskning
 | Kubelet | AKS-kluster namn – agentpoolegenskap | Autentisering med Azure Container Registry (ACR) | NA (för Kubernetes v 1.15 +) | Stöds för närvarande inte
 | Tillägg | AzureNPM | Ingen identitet krävs | NA | Nej
 | Tillägg | AzureCNI nätverks övervakning | Ingen identitet krävs | NA | Nej
-| Tillägg | azurepolicy (Gatekeeper) | Ingen identitet krävs | NA | Nej
-| Tillägg | azurepolicy | Ingen identitet krävs | NA | Nej
+| Tillägg | Azure-policy (Gatekeeper) | Ingen identitet krävs | NA | Nej
+| Tillägg | Azure-princip | Ingen identitet krävs | NA | Nej
 | Tillägg | Calico | Ingen identitet krävs | NA | Nej
 | Tillägg | Instrumentpanel | Ingen identitet krävs | NA | Nej
 | Tillägg | HTTPApplicationRouting | Hanterar nödvändiga nätverks resurser | Läsar roll för nod resurs grupp, deltagar roll för DNS-zon | Nej
@@ -135,44 +133,14 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identi
 > [!NOTE]
 > När systemtilldelade eller användarspecifika identiteter har uppdaterats till hanterad identitet, utför du en `az nodepool upgrade --node-image-only` på noderna för att slutföra uppdateringen av den hanterade identiteten.
 
-## <a name="bring-your-own-control-plane-mi-preview"></a>Ta med ditt eget kontroll plan MI (för hands version)
-En anpassad kontroll plan identitet ger åtkomst till den befintliga identiteten innan klustret skapas. Detta möjliggör scenarier som att använda en anpassad VNET eller outboundType av UDR med en hanterad identitet.
+## <a name="bring-your-own-control-plane-mi"></a>Ta med ditt eget kontroll plan MI
+En anpassad kontroll plan identitet ger åtkomst till den befintliga identiteten innan klustret skapas. Den här funktionen möjliggör scenarier som att använda en anpassad VNET eller outboundType av UDR med en förgenererad hanterad identitet.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+Du måste ha Azure CLI, version 2.15.1 eller senare installerat.
 
-Du måste ha följande resurser installerade:
-- Azure CLI, version 2.9.0 eller senare
-- Tillägget AKS-Preview 0.4.57
-
-Begränsningar för att ta med ditt eget kontroll plan MI (för hands version):
+### <a name="limitations"></a>Begränsningar
 * Azure Government stöds inte för närvarande.
 * Azure Kina 21Vianet stöds inte för närvarande.
-
-```azurecli-interactive
-az extension add --name aks-preview
-az extension list
-```
-
-```azurecli-interactive
-az extension update --name aks-preview
-az extension list
-```
-
-```azurecli-interactive
-az feature register --name UserAssignedIdentityPreview --namespace Microsoft.ContainerService
-```
-
-Det kan ta flera minuter innan statusen visas som **registrerad**. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UserAssignedIdentityPreview')].{Name:name,State:properties.state}"
-```
-
-När statusen visas som registrerad uppdaterar du registreringen av `Microsoft.ContainerService` resurs leverantören med hjälp av [AZ Provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) kommando:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 Om du inte har en hanterad identitet ännu bör du gå vidare och skapa en till exempel genom att använda [AZ Identity CLI][az-identity-create].
 

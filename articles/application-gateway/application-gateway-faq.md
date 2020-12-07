@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 8df24b44d648343c46532eed443717f444bd0058
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dc262e133f6e91271d7e9848bdca9d3a6062fc66
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95975657"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751724"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -466,12 +466,9 @@ Du kan också använda en Resource Manager-mall som installerar och kör den pop
 
 Normalt ser du en okänd status när åtkomst till Server delen blockeras av en nätverks säkerhets grupp (NSG), anpassad DNS eller användardefinierad routning (UDR) i Application Gateway-undernätet. Mer information finns i [backend-hälsa, diagnostikloggning och mått för Application Gateway](application-gateway-diagnostics.md).
 
-### <a name="is-there-any-case-where-nsg-flow-logs-wont-show-allowed-traffic"></a>Finns det några fall där NSG Flow-loggar inte visar tillåten trafik?
+### <a name="are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet"></a>Stöds NSG flödes loggar på NSG: er som är kopplade till Application Gateway v2-undernätet?
 
-Ja. Om konfigurationen matchar följande scenario visas inte tillåten trafik i dina NSG-flödes loggar:
-- Du har distribuerat Application Gateway v2
-- Du har en NSG på Application Gateway-undernätet
-- Du har aktiverat NSG Flow-loggar på den NSG
+På grund av de aktuella plattforms begränsningarna, om du har en NSG på under nätet Application Gateway v2 (Standard_v2, WAF_v2) och om du har aktiverat NSG flödes loggar på den, kan du se icke deterministiskt beteende och det här scenariot stöds inte för närvarande.
 
 ### <a name="does-application-gateway-store-customer-data"></a>Lagrar Application Gateway kund information?
 

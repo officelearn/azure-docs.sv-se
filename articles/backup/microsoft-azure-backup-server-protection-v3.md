@@ -3,12 +3,12 @@ title: Vad Azure Backup Server v3 RTM kan säkerhetskopiera
 description: Den här artikeln innehåller en skydds mat ris som visar alla arbets belastningar, data typer och installationer som Azure Backup som hanterar v3 RTM-skydd.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 21c5fbcdf8aa3454a9af968509cb4cbf76b31f9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1a1a876a9249a32c87c50d7f320a62b9c478caf
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88763617"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752387"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Azure Backup Server v3 RTM-skydds mat ris
 
@@ -19,7 +19,7 @@ I följande matris visas vad som kan skyddas med Azure Backup Server v3 RTM och 
 |Arbetsbelastning|Version|Azure Backup Server</br> installation|Azure Backup Server som stöds|Skydd och återställning|
 |------------|-----------|---------------|--------------|--------------|
 |Klientdatorer (64-bitars och 32-bitars)|Windows 10|Fysisk server<br /><br />Virtuell Hyper-V-dator<br /><br />Virtuell VMware-dator|V3, V2|Volym, dela, mapp, filer, deduplicerade volymer<br /><br />Alla volymer måste vara av NTFS-typ FAT och FAT32 stöds inte.<br /><br />Volymerna måste ha minst 1 GB. Azure Backup Server använder tjänsten Volume Shadow Copy (VSS) för att ta data ögonblicks bilden och ögonblicks bilden fungerar bara om volymen är minst 1 GB.|
-|Klientdatorer (64-bitars och 32-bitars)|Windows 8,1|Fysisk server<br /><br />Virtuell Hyper-V-dator|V3, V2|Files<br /><br />Alla volymer måste vara av NTFS-typ FAT och FAT32 stöds inte.<br /><br />Volymerna måste ha minst 1 GB. Azure Backup Server använder tjänsten Volume Shadow Copy (VSS) för att ta data ögonblicks bilden och ögonblicks bilden fungerar bara om volymen är minst 1 GB.|
+|Klientdatorer (64-bitars och 32-bitars)|Windows 8,1|Fysisk server<br /><br />Virtuell Hyper-V-dator|V3, V2|Filer<br /><br />Alla volymer måste vara av NTFS-typ FAT och FAT32 stöds inte.<br /><br />Volymerna måste ha minst 1 GB. Azure Backup Server använder tjänsten Volume Shadow Copy (VSS) för att ta data ögonblicks bilden och ögonblicks bilden fungerar bara om volymen är minst 1 GB.|
 |Klientdatorer (64-bitars och 32-bitars)|Windows 8,1|Virtuell Windows-dator i VMware (skyddar arbets belastningar som körs på virtuella Windows-datorer i VMware)|V3, V2|Volym, dela, mapp, filer, deduplicerade volymer<br /><br />Alla volymer måste vara av NTFS-typ FAT och FAT32 stöds inte.<br /><br />Volymerna måste ha minst 1 GB. Azure Backup Server använder tjänsten Volume Shadow Copy (VSS) för att ta data ögonblicks bilden och ögonblicks bilden fungerar bara om volymen är minst 1 GB.|
 |Klientdatorer (64-bitars och 32-bitars)|Windows 8|Fysisk server<br /><br />Lokal virtuell Hyper-V-dator|V3, V2|Volym, dela, mapp, filer, deduplicerade volymer<br /><br />Alla volymer måste vara av NTFS-typ FAT och FAT32 stöds inte.<br /><br />Volymerna måste ha minst 1 GB. Azure Backup Server använder tjänsten Volume Shadow Copy (VSS) för att ta data ögonblicks bilden och ögonblicks bilden fungerar bara om volymen är minst 1 GB.|
 |Klientdatorer (64-bitars och 32-bitars)|Windows 8|Virtuell Windows-dator i VMware (skyddar arbets belastningar som körs på virtuella Windows-datorer i VMware)|V3, V2|Volym, dela, mapp, filer, deduplicerade volymer<br /><br />Alla volymer måste vara av NTFS-typ FAT och FAT32 stöds inte.<br /><br />Volymerna måste ha minst 1 GB. Azure Backup Server använder tjänsten Volume Shadow Copy (VSS) för att ta data ögonblicks bilden och ögonblicks bilden fungerar bara om volymen är minst 1 GB.|
@@ -78,7 +78,7 @@ I följande matris visas vad som kan skyddas med Azure Backup Server v3 RTM och 
 |Hyper-V-MABS för skydds agent på Hyper-V-värdservern, kluster eller VM|Windows Server 2008 SP2|Fysisk server<br /><br />Lokal virtuell Hyper-V-dator|Stöds inte|Skydda: Hyper-V-datorer, klusterdelade volymer (CSV)<br /><br />Återställ: Virtuell dator, återställning av filer och mappar på objektnivå, volymer, virtuella hårddiskar|
 |VMwares virtuella datorer|VMware vCenter/vSphere ESX/ESXi licensierad version 5.5/6.0/6.5 |Fysisk server, <br/>Lokal virtuell Hyper-V-dator, <br/> Virtuell Windows-dator i VMware|V3, V2|Virtuella VMware-datorer på klusterdelade volymer (CSV: er), NFS och SAN-lagring<br /> Objekt nivå återställning av filer och mappar är bara tillgängligt för virtuella Windows-datorer, VMware vApps stöds inte.|
 |VMwares virtuella datorer|[VMware vSphere licensierad version 6,7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Fysisk server, <br/>Lokal virtuell Hyper-V-dator, <br/> Virtuell Windows-dator i VMware|V3|Virtuella VMware-datorer på klusterdelade volymer (CSV: er), NFS och SAN-lagring<br /> Objekt nivå återställning av filer och mappar är bara tillgängligt för virtuella Windows-datorer, VMware vApps stöds inte.|
-|Linux|Linux körs som Hyper-V-eller VMware-gäst|Fysisk server, <br/>Lokal virtuell Hyper-V-dator, <br/> Virtuell Windows-dator i VMware|V3, V2|Hyper-V måste köra på Windows Server 2012 R2 eller Windows Server 2016. Skydda: Hela den virtuella datorn<br /><br />Återställ: Hela den virtuella datorn <br/><br/> Endast filkonsekventa ögonblicksbilder stöds. <br/><br/> En fullständig lista över Linux-distributioner och-versioner som stöds finns i artikeln [Linux on distributioner som har godkänts av Azure](../virtual-machines/linux/endorsed-distros.md).|
+|Linux|Linux körs som [Hyper-V-](back-up-hyper-v-virtual-machines-mabs.md) eller [VMware](backup-azure-backup-server-vmware.md) -gäst|Fysisk server, <br/>Lokal virtuell Hyper-V-dator, <br/> Virtuell Windows-dator i VMware|V3, V2|Hyper-V måste köra på Windows Server 2012 R2 eller Windows Server 2016. Skydda: Hela den virtuella datorn<br /><br />Återställ: Hela den virtuella datorn <br/><br/> Endast filkonsekventa ögonblicksbilder stöds. <br/><br/> En fullständig lista över Linux-distributioner och-versioner som stöds finns i artikeln [Linux on distributioner som har godkänts av Azure](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="azure-expressroute-support"></a>Stöd för Azure ExpressRoute
 

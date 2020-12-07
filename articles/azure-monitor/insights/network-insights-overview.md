@@ -1,22 +1,26 @@
 ---
-title: Azure Monitor för nätverk
-description: En översikt över Azure Monitor för nätverk, som ger en omfattande vy över hälsa och mått för alla distribuerade nätverks resurser utan någon konfiguration.
+title: Nätverksinsikter
+description: En översikt över nätverks insikter, som ger en omfattande vy över hälsa och mått för alla distribuerade nätverks resurser utan någon konfiguration.
 ms.subservice: ''
 ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 5a2238f5c1561abb1e11d69aa6d0bfe761097c64
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: d604fe0ad9630bb95d347bcc716697f6d09d1887
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437311"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751775"
 ---
-# <a name="azure-monitor-for-networks"></a>Azure Monitor för nätverk
-Azure Monitor för nätverk ger en omfattande vy över [hälsa](../../service-health/resource-health-checks-resource-types.md) och [mått](../platform/metrics-supported.md) för alla distribuerade nätverks resurser, utan att kräva någon konfiguration. Den ger även till gång till funktioner för nätverks övervakning, t. ex. [anslutnings övervakaren](../../network-watcher/connection-monitor-preview.md), [flödes loggning för nätverks säkerhets grupper (nsg: er)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)och [trafikanalys](../../network-watcher/traffic-analytics.md). Och innehåller [andra funktioner för nätverksdiagnostik.](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics)
+# <a name="network-insights"></a>Nätverksinsikter
 
-Azure Monitor för nätverk är strukturerad kring dessa viktiga komponenter i övervakningen:
+> [!NOTE]
+> *Nätverks insikter* kallas tidigare *Azure Monitor för nätverk*. 
+
+Med nätverks insikter får du en omfattande vy över [hälsa](../../service-health/resource-health-checks-resource-types.md) och [mått](../platform/metrics-supported.md) för alla distribuerade nätverks resurser, utan att kräva någon konfiguration. Den ger även till gång till funktioner för nätverks övervakning, t. ex. [anslutnings övervakaren](../../network-watcher/connection-monitor-preview.md), [flödes loggning för nätverks säkerhets grupper (nsg: er)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)och [trafikanalys](../../network-watcher/traffic-analytics.md). Och innehåller [andra funktioner för nätverksdiagnostik.](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics)
+
+Nätverks insikter är strukturerad kring dessa viktiga komponenter i övervakningen:
 - [Nätverks hälsa och-mått](#networkhealth)
 - [Anslutningsmöjligheter](#connectivity)
 - [Trafik](#traffic)
@@ -24,7 +28,7 @@ Azure Monitor för nätverk är strukturerad kring dessa viktiga komponenter i �
 
 ## <a name="network-health-and-metrics"></a><a name="networkhealth"></a>Nätverks hälsa och-mått
 
-**Översikts** sidan för Azure Monitor för nätverk ger ett enkelt sätt att visualisera inventeringen av dina nätverks resurser, tillsammans med resurs hälsa och aviseringar. Den är uppdelad i fyra viktiga funktions områden: sökning och filtrering, resurs hälsa och mått, aviseringar och beroende vy.
+**Översikts** sidan för nätverks insikter ger ett enkelt sätt att visualisera inventeringen av dina nätverks resurser, tillsammans med resurs hälsa och aviseringar. Den är uppdelad i fyra viktiga funktions områden: sökning och filtrering, resurs hälsa och mått, aviseringar och beroende vy.
 
 [![Skärmbild som visar sidan Översikt](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png#lightbox)
 
@@ -33,17 +37,17 @@ Du kan anpassa vyn resurs hälsa och aviseringar med hjälp av filter som **pren
 
 Du kan använda sökrutan för att söka efter resurser och deras associerade resurser. Till exempel är en offentlig IP-adress associerad med en Application Gateway. En sökning efter den offentliga IP-adressens DNS-namn kommer att returnera både den offentliga IP-adressen och den associerade programgatewayen:
 
-[![Skärm bild som visar Azure Monitor för nätverk Sök resultat.](media/network-insights-overview/search.png)](media/network-insights-overview/search.png#lightbox)
+[![Skärm bild som visar Sök Resultat för nätverks insikter.](media/network-insights-overview/search.png)](media/network-insights-overview/search.png#lightbox)
 
 
 ### <a name="resource-health-and-metrics"></a>Resurs hälsa och-mått
 I följande exempel representerar varje panel en resurs typ. Panelen visar antalet instanser av den resurs typ som har distribuerats i alla valda prenumerationer. Den visar också resursens hälso status. I det här exemplet finns det 105 ER och VPN-anslutningar distribuerade. 103 är felfria och 2 är inte tillgängliga.
 
-![Skärm bild som visar resurs hälsa och-mått i Azure Monitor för nätverk.](media/network-insights-overview/resource-health.png)
+![Skärm bild som visar resurs hälsa och-mått i nätverks insikter.](media/network-insights-overview/resource-health.png)
 
 Om du väljer de otillgängliga återställnings-och VPN-anslutningarna visas en Metric-vy: 
 
-![Skärm bild som visar Metric-vyn i Azure Monitor för nätverk.](media/network-insights-overview/metric-view.png)
+![Skärm bild som visar Metric-vyn i nätverks insikter.](media/network-insights-overview/metric-view.png)
 
 Du kan välja valfritt objekt i diagramvyn. Välj ikonen i kolumnen **hälsa** för att få resurs hälsa för anslutningen. Välj värdet i kolumnen **avisering** för att gå till sidan aviseringar och mått för anslutningen. 
 
@@ -53,19 +57,19 @@ Du kan välja valfritt objekt i diagramvyn. Välj ikonen i kolumnen **hälsa** f
 ### <a name="dependency-view"></a>Beroende vy
 Beroende vy hjälper dig att visualisera hur en resurs har kon figurer ATS. Beroende vy är för närvarande tillgänglig för Azure Application Gateway, Azure Virtual WAN och Azure Load Balancer. För Application Gateway kan du till exempel komma åt beroende vy genom att välja Application Gateway resurs namnet i vyn mått rutnät. Du kan göra samma sak för virtuella WAN-och Load Balancer.
 
-![Sreenshot som visar Application Gateways visning i Azure Monitor för nätverk.](media/network-insights-overview/application-gateway.png)
+![Sreenshot som visar Application Gateway visning i nätverks insikter.](media/network-insights-overview/application-gateway.png)
 
 Beroende vyn för Application Gateway ger en förenklad vy över hur klient delens IP-adresser är anslutna till lyssnare, regler och backend-pool. De anslutande linjerna är färgkodade och ger ytterligare information baserat på Server delens hälso tillstånd. Vyn innehåller också en detaljerad vy över Application Gateway mått och mått för alla relaterade Server dels pooler, till exempel virtuell dators skalnings uppsättning och VM-instanser.
 
-[![Skärm bild som visar beroende visning i Azure Monitor för nätverk.](media/network-insights-overview/dependency-view.png)](media/network-insights-overview/dependency-view.png#lightbox)
+[![Skärm bild som visar beroende visning i nätverks insikter.](media/network-insights-overview/dependency-view.png)](media/network-insights-overview/dependency-view.png#lightbox)
 
 Beroende diagrammet ger enkel navigering till konfigurations inställningar. Högerklicka på en backend-pool för att få åtkomst till annan information. Om till exempel en VM-pool är en virtuell dator kan du direkt komma åt VM-insikter och fel sökning av Azure Network Watcher-anslutning för att identifiera anslutnings problem:
 
-![Skärm bild som visar menyn beroende vy i Azure Monitor för nätverk.](media/network-insights-overview/dependency-view-menu.png)
+![Skärm bild som visar menyn beroende vy i nätverks insikter.](media/network-insights-overview/dependency-view-menu.png)
 
 Sök-och filter fältet i beroende vyn är ett enkelt sätt att söka igenom grafen. Om du till exempel söker efter **AppGWTestRule** i föregående exempel, kommer vyn att skalas ned till alla noder som är anslutna via AppGWTestRule:
 
-![Skärm bild som visar ett exempel på en sökning i Azure Monitor för nätverk.](media/network-insights-overview/search-example.png)
+![Skärm bild som visar ett exempel på en sökning i nätverks insikter.](media/network-insights-overview/search-example.png)
 
 Med olika filter kan du skala ned till en angiven sökväg och tillstånd. Välj till exempel endast **ohälsosamt** i listan **hälso status** om du vill visa alla kanter där tillståndet är skadat.
 
@@ -75,15 +79,15 @@ Välj **Visa detaljerade mått** för att öppna en förkonfigurerad arbets bok 
 
 Fliken **anslutning** är ett enkelt sätt att visualisera alla tester som kon figurer ATS via [anslutnings övervakaren](../../network-watcher/connection-monitor-overview.md) och anslutnings övervakaren (klassisk) för den valda uppsättningen prenumerationer.
 
-![Skärm bild som visar fliken anslutning i Azure Monitor för nätverk.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tab.png)
+![Skärm bild som visar fliken anslutning i nätverks insikter.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tab.png)
 
 Test grupperas efter **paneler** och **destinationer** och visar tillgänglighets status för varje test. Tillgängliga inställningar ger enkel åtkomst till konfigurationer för dina kriterier för tillgänglighet, baserat på misslyckade kontroller (%) och Sökefter (MS). När du har angett värden måste status för varje test uppdateras utifrån urvalskriterierna.
 
-[![Skärm bild som visar anslutnings test i Azure Monitor för nätverk.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png#lightbox)
+[![Skärm bild som visar anslutnings test i nätverks insikter.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png#lightbox)
 
 Du kan välja valfri käll-eller mål panel för att öppna en Metric-vy:
 
-[![Skärm bild som visar anslutnings mått i Azure Monitor för nätverk.](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png#lightbox)
+[![Skärm bild som visar anslutnings mått i nätverks insikter.](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png#lightbox)
 
 
 Du kan välja valfritt objekt i diagramvyn. Välj ikonen i kolumnen för **tillgänglighet** för att gå till Portal sidan anslutnings övervakare och Visa hopp för hopp-topologin och anslutning som påverkar problem som identifieras. Välj värdet i kolumnen **avisering** för att gå till aviseringar. Markera graferna i kolumnerna **kontrollerna misslyckades procent** och **tur och retur tid (MS)** för att gå till sidan mått för den valda anslutnings övervakaren.
@@ -93,11 +97,11 @@ Du kan välja valfritt objekt i diagramvyn. Välj ikonen i kolumnen för **tillg
 ## <a name="traffic"></a><a name="traffic"></a>Trafik
 Fliken **trafik** ger åtkomst till alla NSG: er som kon figurer ATS för [NSG flödes loggar](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) och [trafikanalys](../../network-watcher/traffic-analytics.md) för den valda uppsättningen prenumerationer, grupperat efter plats. Med Sök funktionen på den här fliken kan du identifiera NSG: er som kon figurer ATS för den genomsökta IP-adressen. Du kan söka efter alla IP-adresser i din miljö. I den regionala vyn i vyn visas alla NSG: er tillsammans med NSG flödes loggar och Trafikanalys konfigurations status.
 
-[![Skärm bild som visar fliken trafik i Azure Monitor för nätverk.](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png#lightbox)
+[![Skärm bild som visar fliken trafik i nätverks insikter.](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png#lightbox)
 
 Om du väljer en region panel visas en rutnätsvy. Rutnätet innehåller NSG flödes loggar och Trafikanalys i en vy som är lätt att läsa och konfigurera:  
 
-[![Skärm bild som visar vyn trafik region i Azure Monitor för nätverk.](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png#lightbox)
+[![Skärm bild som visar vyn trafik region i nätverks insikter.](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png#lightbox)
 
 Du kan välja valfritt objekt i diagramvyn. Välj ikonen i kolumnen **konfigurations status för logg** för att redigera NSG Flow-loggen och trafikanalys konfiguration. Välj värdet i kolumnen **avisering** för att gå till trafik aviseringarna som kon figurer ATS för den valda NSG. På samma sätt kan du gå till Trafikanalys visning genom att välja **arbets ytan trafikanalys**.  
 
@@ -112,11 +116,11 @@ Diagnostic Toolkit ger till gång till alla diagnostiska funktioner som är till
 
 Allmän fel söknings vägledning finns i [artikeln](troubleshoot-workbooks.md)om dedikerad insikter om arbets böcker-baserade insikter.
 
-Det här avsnittet hjälper dig att diagnostisera och felsöka vanliga problem som kan uppstå när du använder Azure Monitor för nätverk. 
+Det här avsnittet hjälper dig att diagnostisera och felsöka vanliga problem som kan uppstå när du använder nätverks insikter. 
 
 ### <a name="how-do-i-resolve-performance-problems-or-failures"></a>Hur gör jag för att lösa prestanda problem eller fel?
 
-Information om hur du felsöker eventuella nätverksrelaterade problem som du identifierar med Azure Monitor för nätverk finns i fel söknings dokumentationen för fel söknings resurser. 
+Information om hur du felsöker eventuella nätverksrelaterade problem som du identifierar med nätverks insikter finns i fel söknings dokumentationen för fel söknings resursen. 
 
 Här följer några länkar till fel söknings artiklar för tjänster som används ofta. Mer felsöknings artiklar om dessa tjänster finns i de andra artiklarna i fel söknings avsnittet i innehålls förteckningen för tjänsten.
 * [Azure Virtual Network](../../virtual-network/virtual-network-troubleshoot-peering-issues.md)

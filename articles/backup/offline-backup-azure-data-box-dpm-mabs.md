@@ -3,12 +3,12 @@ title: Säkerhets kopiering offline med Azure Data Box för DPM och MABS
 description: Du kan använda Azure Data Box för att dirigera inledande säkerhets kopierings data offline från DPM och MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 80b3977a9fb886b90c3d48d54f4cda1abfd77df9
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172218"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752557"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Seeding offline med Azure Data Box för DPM och MABS (för hands version)
 
@@ -147,7 +147,7 @@ Ange alternativ källa: *WIM: D: \Sources\Install.wim: 4*
           -AzureRM. Resources   *6.7.3*<br>
           – AzureRM. Storage     *5.2.0*<br>
           – Azure. Storage       *4.6.1*<br>
-     >  - Azure AD-programmet registreras som *AzureOfflineBackup_ \<object GUID of the user> *.
+     >  - Azure AD-programmet registreras som *AzureOfflineBackup_ \<object GUID of the user>*.
 
 13. Välj rätt data Box ordning som du har packat upp, anslutit och olåst Data Box-enhet disken. Välj **Nästa**.
 
@@ -177,7 +177,7 @@ Ange alternativ källa: *WIM: D: \Sources\Install.wim: 4*
 
     Med detta sker den inledande replikeringen av data till DPM/MABS-disken. När skyddet är klart visar grupp status skydds status som **OK** på sidan **skydd** .
 
-17. För att initiera säkerhets kopiering offline till din Azure Data Box enhet högerklickar du på **skydds gruppen**och väljer sedan alternativet för att **skapa återställnings punkt** . Sedan väljer du alternativet **onlineskydd** .
+17. För att initiera säkerhets kopiering offline till din Azure Data Box enhet högerklickar du på **skydds gruppen** och väljer sedan alternativet för att **skapa återställnings punkt** . Sedan väljer du alternativet **onlineskydd** .
 
     ![Skapa återställnings punkt](./media/offline-backup-azure-data-box-dpm-mabs/create-recovery-point.png)
 
@@ -194,7 +194,7 @@ Ange alternativ källa: *WIM: D: \Sources\Install.wim: 4*
 Följ dessa steg när säkerhets kopieringen av data till Azure Data Box Disk har slutförts.
 
 - Följ stegen i [den här artikeln](../databox/data-box-disk-deploy-picked-up.md) för att leverera Azure Data Box-disken till Azure. Om du använde en Azure Data Box 100-TB-enhet följer du [stegen](../databox/data-box-deploy-picked-up.md) nedan för att leverera Azure Data Box till Azure.
-- [Övervaka data Box-enhet jobb](../databox/data-box-disk-deploy-upload-verify.md) i Azure Portal. När Azure Data Box jobbet är *klart*flyttar DPM/Mabs-servern automatiskt data från lagrings kontot till Recovery Services-valvet vid nästa schemalagda säkerhets kopiering. Då markeras säkerhets kopierings jobbet som *jobbet slutfört* om en återställnings punkt har skapats.
+- [Övervaka data Box-enhet jobb](../databox/data-box-disk-deploy-upload-verify.md) i Azure Portal. När Azure Data Box jobbet är *klart* flyttar DPM/Mabs-servern automatiskt data från lagrings kontot till Recovery Services-valvet vid nästa schemalagda säkerhets kopiering. Då markeras säkerhets kopierings jobbet som *jobbet slutfört* om en återställnings punkt har skapats.
 
   > [!NOTE]
   > DPM/MABS-servern utlöser säkerhets kopieringarna vid de tidpunkter som har schemalagts under skapande av skydds grupper. Dessa jobb flaggar dock *väntar på att Azure Data Box jobbet ska slutföras* tills jobbet är klart.
@@ -230,7 +230,7 @@ Kontrol lera om följande fel meddelande visas i DPM/MABS-konsolen vid konfigure
 
 Lös problemet genom att utföra följande steg och försöka utföra princip konfigurationen igen.
 
-1. Logga in på Azures inloggnings sida som visas på DPM/MABS-serverns användar gränssnitt med ett annat konto med administratörs behörighet för den prenumeration som ska importera export jobbet.
+1. Logga in på Azures inloggnings sida som visas på DPM/MABS-serverns användar gränssnitt med ett annat konto med administratörs behörighet för den prenumeration som ska användas för att skapa Data Box-enhet jobb.
 2. Om ingen annan server har offline-dirigering konfigurerad och ingen annan server är beroende av `AzureOfflineBackup_<Azure User Id>` programmet, tar du bort det här programmet från **Azure Portal > Azure Active Directory > Appregistreringar**.
 
    > [!NOTE]

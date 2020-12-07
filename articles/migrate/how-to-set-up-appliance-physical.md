@@ -1,15 +1,17 @@
 ---
 title: Konfigurera en Azure Migrate-apparat för fysiska servrar
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat för fysisk server-utvärdering.
-ms.service: azure-migrate
-ms.topic: article
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 04/15/2020
-ms.openlocfilehash: 1e9d79d16e805eeaf770327a56a4247067c78a35
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 21d40b1962a3e4000876686659b76d019991785d
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314156"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751690"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Konfigurera en installation för fysiska servrar
 
@@ -36,14 +38,14 @@ Så här konfigurerar du den apparat som du:
 
 1. I **Migreringsmål** > **Servrar** > **Azure Migrate: Serverutvärdering** väljer du **Identifiera**.
 2. I **identifiera datorer**  >  **är dina datorer virtualiserade?**, Välj **fysiska eller andra (AWS, GCP, Xen osv.)**.
-3. I **1: generera Azure Migrate projekt nyckel**anger du ett namn för Azure Migrate-installationen som ska konfigureras för identifiering av fysiska eller virtuella servrar. Namnet måste vara alfanumeriskt med 14 tecken eller färre.
+3. I **1: generera Azure Migrate projekt nyckel** anger du ett namn för Azure Migrate-installationen som ska konfigureras för identifiering av fysiska eller virtuella servrar. Namnet måste vara alfanumeriskt med 14 tecken eller färre.
 1. Klicka på **generera nyckel** för att starta skapandet av de nödvändiga Azure-resurserna. Stäng inte sidan identifiera datorer när du skapar resurser.
 1. När Azure-resurserna har skapats skapas en **Azure Migrate projekt nyckel** .
 1. Kopiera nyckeln på samma sätt som du behöver den för att slutföra registreringen av enheten under konfigurationen.
 
 ### <a name="download-the-installer-script"></a>Ladda ned installations skriptet
 
-I **2: Ladda ned Azure Migrate-enheten**klickar du på **Hämta**.
+I **2: Ladda ned Azure Migrate-enheten** klickar du på **Hämta**.
 
    ![Val för identifiering av datorer](./media/tutorial-assess-physical/servers-discover.png)
 
@@ -104,8 +106,8 @@ Konfigurera enheten för första gången.
 1. Öppna en webbläsare på vilken dator som helst som kan ansluta till installationen och öppna URL: en för installations programmets webbapp: **https://*-enhetens namn eller IP-adress*: 44368**.
 
    Alternativt kan du öppna appen från Skriv bordet genom att klicka på genvägen till appen.
-2. Godkänn **licens villkoren**och Läs informationen från tredje part.
-1. I webbappen > **Konfigurera krav**gör du följande:
+2. Godkänn **licens villkoren** och Läs informationen från tredje part.
+1. I webbappen > **Konfigurera krav** gör du följande:
     - **Anslutning**: appen kontrollerar att servern är ansluten till Internet. Om servern använder en proxyserver:
         - Klicka på **Konfigurera proxy** till och ange proxyadress (i formuläret http://ProxyIPAddress eller http://ProxyFQDN) lyssnande port.
         - Ange autentiseringsuppgifter om proxyn kräver autentisering.
@@ -117,7 +119,7 @@ Konfigurera enheten för första gången.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrera enheten med Azure Migrate
 
 1. Klistra in **Azure Migrate projekt nyckeln** som har kopierats från portalen. Om du inte har nyckeln går du till **Server utvärdering> identifiera> hantera befintliga apparater**, väljer det installations namn som du angav vid tidpunkten för att generera nyckeln och kopierar motsvarande nyckel.
-1. Klicka på **Logga**in. En Azure-inloggning visas i en ny flik i webbläsaren. Om den inte visas kontrollerar du att du har inaktiverat blockering av popup-fönster i webbläsaren.
+1. Klicka på **Logga** in. En Azure-inloggning visas i en ny flik i webbläsaren. Om den inte visas kontrollerar du att du har inaktiverat blockering av popup-fönster i webbläsaren.
 1. På fliken nytt loggar du in med ditt användar namn och lösen ord för Azure.
    
    Inloggning med en PIN-kod stöds inte.
@@ -132,20 +134,20 @@ Anslut nu från installationen till de fysiska servrarna som ska identifieras oc
 
 1. I **steg 1: ange autentiseringsuppgifter för identifiering av fysiska och virtuella Linux-eller Virtual-servrar i Windows**, klicka på **Lägg till autentiseringsuppgifter** för att ange ett eget namn för autentiseringsuppgifter, Lägg till **användar namn** och **lösen ord** för en Windows-eller Linux-server. Klicka på **Spara**.
 1. Om du vill lägga till flera autentiseringsuppgifter samtidigt klickar du på **Lägg till fler** för att spara och lägga till fler autentiseringsuppgifter. Flera autentiseringsuppgifter stöds för identifiering av fysiska servrar.
-1. I **steg 2: Ange information om fysiska eller virtuella servrar**klickar du på **Lägg till identifierings källa** för att ange serverns **IP-adress/FQDN** och det egna namnet för autentiseringsuppgifter för att ansluta till servern.
+1. I **steg 2: Ange information om fysiska eller virtuella servrar** klickar du på **Lägg till identifierings källa** för att ange serverns **IP-adress/FQDN** och det egna namnet för autentiseringsuppgifter för att ansluta till servern.
 1. Du kan antingen **lägga till ett enskilt objekt** i taget eller **lägga till flera objekt** i taget. Det finns också ett alternativ för att tillhandahålla Server information via **importera CSV**.
 
     ![Val för att lägga till identifierings källa](./media/tutorial-assess-physical/add-discovery-source-physical.png)
 
-    - Om du väljer **Lägg till enstaka objekt**kan du välja typ av operativ system, ange ett eget namn för autentiseringsuppgifter, lägga till serverns **IP-adress/FQDN** och klicka på **Spara**.
-    - Om du väljer **Lägg till flera objekt**kan du lägga till flera poster samtidigt genom att ange serverns **IP-adress/FQDN** med det egna namnet för autentiseringsuppgifter i text rutan. **Verifiera** de tillagda posterna och klicka på **Spara**.
+    - Om du väljer **Lägg till enstaka objekt** kan du välja typ av operativ system, ange ett eget namn för autentiseringsuppgifter, lägga till serverns **IP-adress/FQDN** och klicka på **Spara**.
+    - Om du väljer **Lägg till flera objekt** kan du lägga till flera poster samtidigt genom att ange serverns **IP-adress/FQDN** med det egna namnet för autentiseringsuppgifter i text rutan. **Verifiera** de tillagda posterna och klicka på **Spara**.
     - Om du väljer **importera CSV** _(vald som standard)_ kan du ladda ned en CSV-mallfil, fylla i filen med serverns **IP-adress/FQDN** och eget namn för autentiseringsuppgifter. Sedan kan du importera filen till enheten, **Verifiera** posterna i filen och klicka på **Spara**.
 
 1. När du klickar på Spara kommer installations programmet att försöka verifiera anslutningen till de servrar som lagts till och visa **verifierings status** i tabellen mot varje server.
     - Om verifieringen Miss lyckas för en server kan du granska felet genom att klicka på **verifieringen misslyckades** i kolumnen Status i tabellen. Åtgärda problemet och verifiera igen.
-    - Klicka på **ta bort**om du vill ta bort en server.
+    - Klicka på **ta bort** om du vill ta bort en server.
 1. Du kan **validera** anslutningen till servrar varje gång innan du påbörjar identifieringen.
-1. Klicka på **Starta identifiering**för att starta identifiering av verifierade servrar. När identifieringen har påbörjats kan du kontrol lera identifierings statusen mot varje server i tabellen.
+1. Klicka på **Starta identifiering** för att starta identifiering av verifierade servrar. När identifieringen har påbörjats kan du kontrol lera identifierings statusen mot varje server i tabellen.
 
 
 Detta startar identifieringen. Det tar ungefär 2 minuter per server för metadata om identifierad server som visas i Azure Portal.

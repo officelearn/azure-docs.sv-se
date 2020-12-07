@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 448707ab84ccca03dc0572d2ebed1b4bd1b6325f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: a1732f42ea95c16cdec7a1d7569c954667e52cb4
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505299"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750908"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Snabb start: Distribuera ditt första Azure våren Cloud-program
 
@@ -33,7 +33,7 @@ Genom att följa den här snabb starten får du lära dig att:
 
 Den program kod som används i den här snabb starten är en enkel app som skapats med en .NET Core Web API Project-mall. När du har slutfört det här exemplet är programmet tillgängligt online och kan hanteras via Azure Portal och Azure CLI.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [.Net Core 3,1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). Azure våren Cloud Service stöder .NET Core 3,1 och senare versioner.
@@ -218,10 +218,10 @@ Följande procedur skapar en instans av Azure våren Cloud med hjälp av Azure P
 
 1. Fyll i formuläret på sidan Azure våren Cloud **create** .  Beakta följande rikt linjer:
 
-   * **Prenumeration** : Välj den prenumeration som du vill fakturera för den här resursen.
-   * **Resurs grupp** : skapa en ny resurs grupp. Det namn som du anger här kommer att användas i senare steg som **\<resource group name\>** .
-   * **Tjänst information/namn** : ange **\<service instance name\>** .  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck.  Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
-   * **Region** : Välj region för din tjänst instans.
+   * **Prenumeration**: Välj den prenumeration som du vill fakturera för den här resursen.
+   * **Resurs grupp**: skapa en ny resurs grupp. Det namn som du anger här kommer att användas i senare steg som **\<resource group name\>** .
+   * **Tjänst information/namn**: ange **\<service instance name\>** .  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck.  Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
+   * **Region**: Välj region för din tjänst instans.
 
    ![ASC-portalen börjar](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
@@ -334,7 +334,7 @@ Den här snabb starten förklarar hur du:
 > * Bygg och distribuera appen med en offentlig slut punkt
 > * Stream-loggar i real tid
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -351,6 +351,9 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4
 ```
 
   ![Sidan Initializr](media/spring-cloud-quickstart-java/initializr-page.png)
+
+> [!NOTE]
+> Vi har identifierat ett problem med våren boot 2,4 på TLS-autentisering mellan dina appar och Eureka och arbetar för närvarande med vår fjäder-community för att lösa problemet. Läs våra [vanliga frågor och svar](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) för att lösa problemet.
 
 1. Klicka på **generera** när alla beroenden har angetts. Ladda ned och packa upp paketet och skapa sedan en webb styrenhet för ett enkelt webb program genom att lägga till följande `src/main/java/com/example/hellospring/HelloController.java` :
 
@@ -387,10 +390,10 @@ Följande procedur skapar en instans av Azure våren Cloud med hjälp av Azure P
     ![ASC-ikon Lägg till](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
 5. Fyll i formuläret på sidan Azure våren Cloud **create** .  Beakta följande rikt linjer:
-    - **Prenumeration** : Välj den prenumeration som du vill fakturera för den här resursen.
-    - **Resurs grupp** : skapa nya resurs grupper för nya resurser är en bra metod. Detta kommer att användas i senare steg som **\<resource group name\>** .
-    - **Tjänst information/namn** : ange **\<service instance name\>** .  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck.  Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
-    - **Plats** : Välj region för din tjänst instans.
+    - **Prenumeration**: Välj den prenumeration som du vill fakturera för den här resursen.
+    - **Resurs grupp**: skapa nya resurs grupper för nya resurser är en bra metod. Detta kommer att användas i senare steg som **\<resource group name\>** .
+    - **Tjänst information/namn**: ange **\<service instance name\>** .  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck.  Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
+    - **Plats**: Välj region för din tjänst instans.
 
     ![ASC-portalen börjar](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 

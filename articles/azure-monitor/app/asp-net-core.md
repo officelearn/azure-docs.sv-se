@@ -4,12 +4,12 @@ description: Övervaka ASP.NET Core webb program för tillgänglighet, prestanda
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 825cd451120f06597922c142dfc6bf8c10f5c700
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 404e820168c64bd47b6e94598ad5bb13faf32a86
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875129"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751350"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core program
 
@@ -31,7 +31,7 @@ Exemplet som vi ska använda här är ett [MVC-program](/aspnet/core/tutorials/f
 > [!NOTE]
 > ASP.NET Core 3. X kräver [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) eller senare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett fungerande ASP.NET Core program. Om du behöver skapa ett ASP.NET Core program följer du den här [ASP.net Core själv studie kursen](/aspnet/core/getting-started/).
 - En giltig Application Insights Instrumentation-nyckel. Den här nyckeln krävs för att skicka telemetri till Application Insights. Om du behöver skapa en ny Application Insights resurs för att hämta en Instrumentation-nyckel, se [skapa en Application Insights resurs](./create-new-resource.md).
@@ -209,7 +209,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Fullständig lista över inställningar i `ApplicationInsightsServiceOptions`
 
-|Inställning | Beskrivning | Default
+|Inställning | Beskrivning | Standardvärde
 |---------------|-------|-------
 |EnablePerformanceCounterCollectionModule  | Aktivera/inaktivera `PerformanceCounterCollectionModule` | true
 |EnableRequestTrackingTelemetryModule   | Aktivera/inaktivera `RequestTrackingTelemetryModule` | true
@@ -261,6 +261,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+> [!NOTE]
+> `services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();` fungerar för enkla initierare. För andra krävs följande: `services.AddSingleton(new MyCustomTelemetryInitializer() { fieldName = "myfieldName" });`
+    
 ### <a name="removing-telemetryinitializers"></a>Tar bort TelemetryInitializers
 
 Telemetri-initierare finns som standard. Om du vill ta bort alla eller vissa telemetri-initierare använder du följande exempel kod *när* du har anropat `AddApplicationInsightsTelemetry()` .

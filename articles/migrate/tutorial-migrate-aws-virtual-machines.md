@@ -1,15 +1,18 @@
 ---
 title: Identifiera, utvärdera och migrera Amazon Web Services (AWS) EC2 virtuella datorer till Azure
 description: I den här artikeln beskrivs hur du migrerar virtuella AWS-datorer till Azure med Azure Migrate.
+author: deseelam
+ms.author: deseelam
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 12785d1e65caf11b24102d2a9c186fe0adcb1fd3
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 10b5f84677deb221bf763870b188ef30ee87e9c2
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302660"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752863"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Upptäck, utvärdera och migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -32,7 +35,7 @@ I den här självstudien får du lära dig hur man:
 > * Kör en testmigrering för att se till att allt fungerar som förväntat.
 > * Kör en fullständig migrering till Azure.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 ## <a name="discover-and-assess"></a>Identifiera och utvärdera
 

@@ -1,15 +1,18 @@
 ---
 title: Migrera datorer som fysiska servrar till Azure med Azure Migrate.
 description: I den här artikeln beskrivs hur du migrerar fysiska datorer till Azure med Azure Migrate.
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: c783cb22ce8a31d346e98c53dee365fa59b73b8a
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: af1c321e5c537fbd3af770cb392c538e6056e075
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302896"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752880"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrera datorer som fysiska servrar till Azure
 
@@ -22,7 +25,7 @@ Den här artikeln visar hur du migrerar datorer som fysiska servrar till Azure m
 - Migrera virtuella datorer som körs i offentliga moln, till exempel Amazon Web Services (AWS) eller Google Cloud Platform (GCP).
 
 
-Den här självstudien är den tredje i en serie som visar hur du bedömer och migrerar fysiska servrar till Azure. I de här självstudierna får du lära dig att
+Den här självstudien är den tredje i en serie som visar hur du bedömer och migrerar fysiska servrar till Azure. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förbered för att använda Azure med Azure Migrate: Server-migrering.

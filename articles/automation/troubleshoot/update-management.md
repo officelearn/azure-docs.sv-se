@@ -2,15 +2,15 @@
 title: Felsöka Azure Automation Uppdateringshantering problem
 description: Den här artikeln beskriver hur du felsöker och löser problem med Azure Automation Uppdateringshantering.
 services: automation
-ms.date: 10/14/2020
+ms.date: 12/04/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 8818047dd4fef9c495c46b353e68841f83e9677c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e8fc2a840ce019282625f286a6d54b132a1806c8
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217226"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751265"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Felsöka problem med Uppdateringshantering
 
@@ -18,6 +18,40 @@ Den här artikeln beskriver problem som du kan köra när du distribuerar Uppdat
 
 >[!NOTE]
 >Om du stöter på problem när du distribuerar Uppdateringshantering på en Windows-dator öppnar du Windows Loggboken och kontrollerar **Operations Manager** händelse loggen under **program-och tjänst loggar** på den lokala datorn. Sök efter händelser med händelse-ID 4502 och händelse information som innehåller `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` .
+
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a>Scenario: Linux-uppdateringar som visas som väntande och som är installerade varierar
+
+### <a name="issue"></a>Problem
+
+För Linux-datorn visar Uppdateringshantering vissa uppdateringar som är tillgängliga under klassificerings **säkerhet** och **andra**. Men när ett uppdaterings schema körs på datorn, till exempel för att installera endast uppdateringar som matchar **säkerhets** klassificeringen, är uppdateringarna som är installerade annorlunda än eller en del av de uppdateringar som visas tidigare och som matchar klassificeringen.
+
+### <a name="cause"></a>Orsak
+
+När en utvärdering av OS-uppdateringar väntar på att din Linux-dator är [färdig, används](https://oval.mitre.org/) den distribution som tillhandahålls av Linux-leverantören av uppdateringshantering för klassificering. Kategorisering görs för Linux-uppdateringar som **säkerhet** eller **andra**, baserat på oval-filerna som gör att uppdateringar löser säkerhets problem eller sårbarheter. Men när uppdaterings schemat körs körs den på Linux-datorn med lämplig Package Manager som YUM, APT eller ZYPPER för att installera dem. Paket hanteraren för Linux-distribution kan ha en annan mekanism för att klassificera uppdateringar, där resultatet kan skilja sig från de som hämtas från OVAL filen genom att Uppdateringshantering.
+
+### <a name="resolution"></a>Lösning
+
+Du kan kontrol lera Linux-datorn manuellt, tillämpliga uppdateringar och deras klassificering per distribution paket hanterare. Du kan ta reda på vilka uppdateringar som klassificeras som **säkerhet** av din paket hanterare genom att köra följande kommandon.
+
+För YUM returnerar följande kommando en icke-noll lista med uppdateringar kategoriserade som **säkerhet** av Red Hat. Observera att om du använder CentOS returneras alltid en tom lista och ingen säkerhets klassificering sker.
+
+```bash
+sudo yum -q --security check-update
+```
+
+För ZYPPER returnerar följande kommando en icke-noll lista över uppdateringar som är kategoriserade som **säkerhet** av SUSE.
+
+```bash
+sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-run
+```
+
+För APT returnerar följande kommando en icke-noll lista över uppdateringar som är kategoriserade som **säkerhet** av kanoniskt läge för Ubuntu Linux distributioner.
+
+```bash
+sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list LANG=en_US.UTF8 sudo apt-get -s dist-upgrade -oDir::Etc::Sourcelist=/tmp/oms-update-security.list
+```
+
+I den här listan kör du kommandot `grep ^Inst` för att hämta alla väntande säkerhets uppdateringar.
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>Scenario: du får felet "Det gick inte att aktivera uppdaterings lösningen"
 
@@ -124,7 +158,7 @@ Det här problemet kan orsakas av lokala konfigurations problem eller av en fela
    | sort by TimeGenerated desc
    ```
 
-8. Om du får ett `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` resultat har den kvot som definierats på din arbets yta nåtts, vilket har stoppat data från att sparas. I arbets ytan går du till **data volym hantering** under **användning och beräknade kostnader**och ändrar eller tar bort kvoten.
+8. Om du får ett `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` resultat har den kvot som definierats på din arbets yta nåtts, vilket har stoppat data från att sparas. I arbets ytan går du till **data volym hantering** under **användning och beräknade kostnader** och ändrar eller tar bort kvoten.
 
 9. Om problemet fortfarande är olöst följer du stegen i [distribuera en Windows-hybrid Runbook Worker](../automation-windows-hrw-install.md) för att installera om hybrid Worker för Windows. För Linux följer du stegen i [distribuera ett Linux-hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
@@ -146,11 +180,11 @@ Den automatiska resurs leverantören är inte registrerad i prenumerationen.
 
 Registrera automatiserings resurs leverantören genom att följa de här stegen i Azure Portal.
 
-1. I listan Azure-tjänster längst ned i portalen väljer du **alla tjänster**och väljer sedan **prenumerationer** i gruppen allmän tjänst.
+1. I listan Azure-tjänster längst ned i portalen väljer du **alla tjänster** och väljer sedan **prenumerationer** i gruppen allmän tjänst.
 
 2. Välj din prenumeration.
 
-3. Under **Inställningar**väljer du **resurs leverantörer**.
+3. Under **Inställningar** väljer du **resurs leverantörer**.
 
 4. Kontrol lera att Microsoft. Automation Resource Provider är registrerad i listan över resurs leverantörer.
 
@@ -178,11 +212,11 @@ Om din prenumeration inte har kon figurer ATS för Automation Resource Provider 
 
 1. I [Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)går du till listan över Azure-tjänster.
 
-2. Välj **alla tjänster**och välj sedan **prenumerationer** i gruppen allmän tjänst.
+2. Välj **alla tjänster** och välj sedan **prenumerationer** i gruppen allmän tjänst.
 
 3. Hitta den prenumeration som definierats i omfånget för din distribution.
 
-4. Under **Inställningar**väljer du **resurs leverantörer**.
+4. Under **Inställningar** väljer du **resurs leverantörer**.
 
 5. Verifiera att Microsoft. Automation Resource Provider är registrerad.
 
@@ -497,7 +531,7 @@ Mer information om underhålls perioder finns i [Installera uppdateringar](../up
 
 ### <a name="issue"></a>Problem
 
-* Du har datorer som visas som `Not assessed` **kompatibla**och du ser ett undantags meddelande nedan.
+* Du har datorer som visas som `Not assessed` **kompatibla** och du ser ett undantags meddelande nedan.
 * Du ser en HRESULT-felkod i portalen.
 
 ### <a name="cause"></a>Orsak

@@ -1,14 +1,17 @@
 ---
 title: Frågor om identifiering, utvärdering och beroende analys i Azure Migrate
 description: Få svar på vanliga frågor om identifiering, utvärdering och beroende analys i Azure Migrate.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: cb1696c521f436280177f0263abd66aa2bfed7dc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4531d68c2fbd0698c33d70a75bb82ac9c7f52f49
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312927"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752251"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Identifiering, utvärdering och beroende analys – vanliga frågor
 
@@ -44,7 +47,7 @@ Det står PercentageOfCoresUtilizedMissing eller PercentageOfMemoryUtilizedMissi
 
 - Om de virtuella datorerna är påslagna under hela den varaktighet för vilken du skapar utvärderingen
 - Om endast minnesräknare saknas och du försöker utvärdera virtuella Hyper-V-datorer kontrollerar du om dynamiskt minne är aktiverat på de virtuella datorerna. Det finns för närvarande ett känt problem som gör att Azure Migrate-installationen inte kan samla in minnesanvändning för sådana virtuella datorer.
-- Om alla prestandaräknare saknas kontrollerar du att utgående anslutningar är tillåtna på port 443 (HTTPS).
+- Om alla prestanda räknare saknas kontrollerar du att utgående anslutningar på portarna 443 (HTTPS) är tillåtna.
 
 Obs! Om någon av prestandaräknarna saknas återgår Azure Migrate: Server Assessment till de allokerade kärnorna/minnet lokalt och rekommenderar lämplig VM-storlek.
 
@@ -54,7 +57,7 @@ Säkerhetsomdömet beräknas för ”prestandabaserade” utvärderingar baserat
 
 - Du profilerade inte din miljö för hela den varaktighet för vilken du skapar utvärderingen. Om du till exempel skapar en utvärdering med en varaktighet på en vecka måste du vänta minst en vecka efter att identifieringen startade, tills alla datapunkter har samlats in. Om du inte kan vänta hela varaktigheten ändrar du varaktigheten för prestanda till en kortare period och ”räknar om” utvärderingen.
  
-- Server Assessment kan inte samla in prestandadata för vissa eller alla virtuella datorer under utvärderingsperioden. Kontrollera att de virtuella datorerna var påslagna under utvärderingen och att utgående anslutningar tillåts på port 443. Om dynamiskt minne är aktiverat för virtuella Hyper-V-datorer saknas minnesräknare, vilket ger ett lågt säkerhetsomdöme. Beräkna om utvärderingen så att de senaste ändringarna återspeglas i säkerhetsomdömet. 
+- Server utvärderingen kan inte samla in prestanda data för vissa eller alla virtuella datorer under utvärderings perioden. Kontrollera att de virtuella datorerna var påslagna under utvärderingen och att utgående anslutningar tillåts på port 443. Om dynamiskt minne är aktiverat för virtuella Hyper-V-datorer saknas minnesräknare, vilket ger ett lågt säkerhetsomdöme. Beräkna om utvärderingen så att de senaste ändringarna återspeglas i säkerhetsomdömet. 
 
 - Få virtuella datorer skapades efter att identifieringen startades i Server Assessment. Om du till exempel skapar en utvärdering för prestandahistoriken för den senaste månaden, men några virtuella datorer skapades i miljön för en vecka sedan. I detta fall kommer prestandadata för de nya virtuella datorerna inte att vara tillgängliga för hela tidsperioden och säkerhetsomdömet blir lågt.
 
@@ -142,7 +145,7 @@ Skillnaderna mellan agent utan visualisering och agentbaserade visualiseringar s
 --- | --- | ---
 Support | Det här alternativet är för närvarande en för hands version och är bara tillgängligt för virtuella VMware-datorer. [Granska](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) operativ system som stöds. | Allmän tillgänglighet (GA).
 Agent | Du behöver inte installera agenter på datorer som du vill kryssa för. | Agenter som ska installeras på varje lokal dator som du vill analysera: [Microsoft Monitoring Agent (MMA)](../azure-monitor/platform/agent-windows.md)och [beroende agenten](../azure-monitor/platform/agents-overview.md#dependency-agent). 
-Förutsättningar | [Granska](concepts-dependency-visualization.md#agentless-analysis) kraven och distributions kraven. | [Granska](concepts-dependency-visualization.md#agent-based-analysis) kraven och distributions kraven.
+Krav | [Granska](concepts-dependency-visualization.md#agentless-analysis) kraven och distributions kraven. | [Granska](concepts-dependency-visualization.md#agent-based-analysis) kraven och distributions kraven.
 Log Analytics | Krävs inte. | Azure Migrate använder [tjänstkarta](../azure-monitor/insights/service-map.md) -lösningen i [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md) för beroende visualisering. [Läs mer](concepts-dependency-visualization.md#agent-based-analysis).
 Så här fungerar det | Fångar upp TCP-anslutningsfel på datorer aktiverade för beroende visualisering. Efter identifieringen samlar den in data i intervall om fem minuter. | Tjänstkarta agenter som installerats på en dator samla in data om TCP-processer och inkommande/utgående anslutningar för varje process.
 Data | Käll datorns Server namn, process, program namn.<br/><br/> Mål datorns Server namn, process, program namn och port. | Käll datorns Server namn, process, program namn.<br/><br/> Mål datorns Server namn, process, program namn och port.<br/><br/> Antalet anslutningar, svars tid och data överförings information samlas in och är tillgängliga för Log Analytics frågor. 

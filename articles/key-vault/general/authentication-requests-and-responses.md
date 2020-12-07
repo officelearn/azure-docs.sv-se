@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 48f223a55e4a1e4db4ac7057065d67ae64fa0f2c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 58616b647affd33e96357e556ab61f85d1c62129
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288472"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752285"
 ---
 # <a name="authentication-requests-and-responses"></a>Autentisering, begäranden och svar
 
@@ -134,3 +134,6 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 -   auktorisering: adressen till OAuth2 som kan användas för att hämta en åtkomsttoken för begäran.  
 
 -   resurs: namnet på resursen ( `https://vault.azure.net` ) som ska användas i auktoriseringsbegäran.
+
+> [!NOTE]
+> Key Vault SDK-klienter för hemligheter, certifikat och nycklar i det första anropet till Key Vault ger inte någon åtkomsttoken för att hämta klient information. Det förväntas ta emot en HTTP 401 med hjälp av Key Vault SDK-klienten där Key Vault visar till programmet WWW-Authenticate-huvudet som innehåller resursen och klienten där den måste gå och fråga efter token. Om allt är korrekt konfigurerat kommer det andra anropet från programmet till Key Vault att innehålla en giltig token och lyckas. 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3fdb3b2b23d07b79a8e9979450bee653d646196c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 552cac01cd492229a19bdbc297665eb7d3ccb401
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182809"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751299"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Konfigurera Starta/stoppa virtuella datorer när de inte används
 
@@ -48,7 +48,7 @@ Du kan aktivera antingen åtgärden för en prenumeration och en resurs grupp, e
 
 2. Lägg till en kommaavgränsad lista över virtuella datorer (utan blank steg) i parameter fältet **VMList** . En exempel lista är `vm1,vm2,vm3` .
 
-3. Ställ in värdet för **WHATIF** -parametern på sant.
+3. Ställ in värdet för fältet **WHATIF** -parameter till sant för att förhandsgranska ändringarna.
 
 4. Konfigurera `External_ExcludeVMNames` variabeln med en kommaavgränsad lista över virtuella datorer (VM1, VM2, VM3), utan blank steg mellan kommaavgränsade värden.
 
@@ -79,7 +79,7 @@ I en miljö som innehåller två eller flera komponenter på flera virtuella dat
 
 3. Lägg till en kommaavgränsad lista över virtuella datorer (utan blank steg) i parameter fältet **VMList** . En exempel lista är `vm1,vm2,vm3` .
 
-4. Ange **WHATIF** till true. 
+4. Ange **WHATIF** till true för att förhandsgranska ändringarna. 
 
 5. Konfigurera `External_ExcludeVMNames` variabeln med en kommaavgränsad lista över virtuella datorer, utan blank steg mellan kommaavgränsade värden.
 

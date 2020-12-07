@@ -3,12 +3,12 @@ title: Säkerhets kopiering offline med hjälp av Azure Data Box
 description: Lär dig hur du kan använda Azure Data Box för att dirigera stora första säkerhets kopierings data offline från MARS-agenten till ett Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 5a4aeebeddcca4adcac511c7c225c8809dd29c93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e789b6c9f4ff2e8cd168e6b5c138d423911d4743
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89180940"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752591"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Backup offline-säkerhetskopiering med Azure Data Box
 
@@ -56,7 +56,7 @@ Processen för att dirigera data från MARS-agenten med hjälp av Azure Data Box
 >[!IMPORTANT]
 >Första säkerhets kopierings data från en enskild server måste finnas i en enskild Azure Data Box instans eller Azure Data Box disk och kan inte delas mellan flera enheter av samma eller olika SKU: er. Men en Azure Data Box enhet kan innehålla första säkerhets kopieringar från flera servrar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="azure-subscription-and-required-permissions"></a>Azure-prenumeration och nödvändiga behörigheter
 
@@ -124,7 +124,7 @@ Offline-säkerhetskopiering med MARS och Azure Data Box kräver att Data Box-enh
 
 1. Se till att avinstallera alla tidigare installationer av MARS-agenten.
 1. Ladda ned den senaste MARS-agenten från [den här webbplatsen](https://aka.ms/azurebackup_agent).
-1. Kör *MARSAgentInstaller.exe*och utför *bara* stegen för att [Installera och registrera agenten](./install-mars-agent.md#install-and-register-the-agent) på det Recovery Services-valv där du vill att dina säkerhets kopior ska lagras.
+1. Kör *MARSAgentInstaller.exe* och utför *bara* stegen för att [Installera och registrera agenten](./install-mars-agent.md#install-and-register-the-agent) på det Recovery Services-valv där du vill att dina säkerhets kopior ska lagras.
 
    > [!NOTE]
    > Recovery Services-valvet måste finnas i samma prenumeration som Azure Data Boxs jobbet.
@@ -216,7 +216,7 @@ För att säkerställa att du kan montera din Data Box-enhet-enhet som ett lokal
     >
     >Om du [konfigurerar en Azure Data Box 100-TB-enhet](#set-up-azure-data-box-devices)anger du `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` som nätverks Sök väg till enheten.
 
-1. Välj **Nästa**och välj **Slutför** på nästa sida för att spara säkerhets kopierings-och bevarande principen med konfigurationen av offline-säkerhetskopiering med hjälp av Azure Data box.
+1. Välj **Nästa** och välj **Slutför** på nästa sida för att spara säkerhets kopierings-och bevarande principen med konfigurationen av offline-säkerhetskopiering med hjälp av Azure Data box.
 
    Följande sida bekräftar att principen har sparats.
 
@@ -277,7 +277,7 @@ Som en lösning för att lösa det här problemet utför du följande steg och f
 
 #### <a name="step-1-of-workaround"></a>Steg 1 i lösningen
 
-Logga in på PowerShell som visas i användar gränssnittet för användar gränssnittet med hjälp av ett annat konto med administratörs behörighet för den prenumeration som ska ha import-eller export jobbet skapat.
+Logga in på PowerShell som visas i användar gränssnittet för användar gränssnittet genom att använda ett annat konto med administratörs åtkomst för den prenumeration som ska användas för att Data Box-enhet jobbet skapas.
 
 #### <a name="step-2-of-workaround"></a>Steg 2 i lösningen
 
@@ -294,7 +294,7 @@ Utför följande åtgärder från den server som du försöker konfigurera för 
 
 1. Gå till fliken **hantera datorns certifikat program**  >  **personliga** och Sök efter certifikatet med namnet `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 
-2. Välj certifikatet, högerklicka på **alla uppgifter**och välj **Exportera** utan privat nyckel i. cer-format.
+2. Välj certifikatet, högerklicka på **alla uppgifter** och välj **Exportera** utan privat nyckel i. cer-format.
 
 3. Gå till säkerhets kopierings programmet för Azure offline som nämns i steg 2. Välj **Inställningar**  >  **nycklar**  >  **Ladda upp offentlig nyckel**. Överför certifikatet som du exporterade i föregående steg.
 
@@ -302,7 +302,7 @@ Utför följande åtgärder från den server som du försöker konfigurera för 
 
 4. På-servern öppnar du registret genom att skriva in **regedit** i körnings fönstret.
 
-5. Gå till registret *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.* Högerklicka på **CloudBackupProvider**och Lägg till ett nytt sträng värde med namnet `AzureADAppCertThumbprint_<Azure User Id>` .
+5. Gå till registret *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.* Högerklicka på **CloudBackupProvider** och Lägg till ett nytt sträng värde med namnet `AzureADAppCertThumbprint_<Azure User Id>` .
 
     >[!NOTE]
     > Hämta användar-ID: t för Azure genom att utföra någon av följande åtgärder:
@@ -312,7 +312,7 @@ Utför följande åtgärder från den server som du försöker konfigurera för 
 
 6. Högerklicka på den sträng som du lade till i föregående steg och välj **ändra**. I värdet anger du tumavtrycket för det certifikat som du exporterade i steg 2. Välj **OK**.
 
-7. Om du vill hämta värdet för tumavtrycket dubbelklickar du på certifikatet. Välj fliken **information** och rulla nedåt tills du ser fältet tumavtryck. Välj **tumavtryck**och kopiera värdet.
+7. Om du vill hämta värdet för tumavtrycket dubbelklickar du på certifikatet. Välj fliken **information** och rulla nedåt tills du ser fältet tumavtryck. Välj **tumavtryck** och kopiera värdet.
 
     ![Tumavtryck för certifikat](./media/offline-backup-azure-data-box/thumbprint-field.png)
 

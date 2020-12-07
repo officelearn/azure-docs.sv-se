@@ -1,15 +1,18 @@
 ---
 title: Identifiera virtuella VMware-datorer med utvärdering av Azure Migrate Server
 description: Lär dig att identifiera lokala virtuella VMware-datorer med verktyget för Azure Migrate Server bedömning
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 8a09f4583bd5cdae977b927be9649897a2d24ee6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ff82b90189e134db7d39b259c2c135489d14595d
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832661"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752795"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Självstudie: identifiera virtuella VMware-datorer med Server utvärdering
 
@@ -37,7 +40,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 Innan du påbörjar den här självstudien måste du kontrol lera att du har dessa krav på plats.
 
 
-**Krav** | **Detaljer**
+**Krav** | **Information**
 --- | ---
 **vCenter Server/ESXi-värd** | Du behöver ett vCenter Server som kör version 5,5, 6,0, 6,5 eller 6,7.<br/><br/> Virtuella datorer måste finnas på en ESXi-värd som kör version 5,5 eller senare.<br/><br/> På vCenter Server tillåter du inkommande anslutningar på TCP-port 443, så att du kan samla in utvärderings data på enheten.<br/><br/> Enheten ansluter som standard till vCenter på port 443. Om vCenter-servern lyssnar på en annan port kan du ändra porten när du ansluter från installations programmet till servern för att starta identifieringen.<br/><br/> På den EXSi-server som är värd för de virtuella datorerna kontrollerar du att inkommande åtkomst är tillåten på TCP-port 443 för identifiering av appar.
 **Enhet** | vCenter Server behöver resurser för att allokera en virtuell dator för Azure Migrates apparaten:<br/><br/> - Windows Server 2016<br/><br/> – 32 GB RAM, åtta virtuella processorer och cirka 80 GB disk lagring.<br/><br/> – En extern virtuell växel och Internet åtkomst på för den virtuella datorn, direkt eller via en proxyserver.

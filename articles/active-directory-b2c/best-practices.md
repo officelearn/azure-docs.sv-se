@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: d8c0a5ce6f3befd41c0e1399363fd73726693837
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1c3c3d38ac0d8334f70f681d8ef86c0d6f86ecfa
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949725"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750228"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Rekommendationer och metod tips för Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Följande metod tips och rekommendationer beskriver några av de viktigaste aspe
 |--|--|
 | Välj användar flöden för de flesta scenarier | Azure AD B2C av identitets erfarenhets ramverket för är tjänstens kärn styrka. Principer beskriver fullständigt identitets upplevelser som registrering, inloggning eller profil redigering. För att hjälpa dig att skapa de vanligaste identitets uppgifterna innehåller Azure AD B2C portalen fördefinierade, konfigurerbara principer som kallas användar flöden. Med användar flöden kan du skapa fantastiska användar upplevelser på några minuter, med bara några få klick. [Lär dig när du ska använda användar flöden jämfört med anpassade principer](custom-policy-overview.md#comparing-user-flows-and-custom-policies).|
 | Appregistreringar | Varje program (webb, ursprunglig) och API som skyddas måste registreras i Azure AD B2C. Om en app har både en webb-och en ursprunglig version av iOS och Android kan du registrera dem som ett program i Azure AD B2C med samma klient-ID. Lär dig hur du [registrerar OIDC-, SAML-, webb-och interna appar](./tutorial-register-applications.md?tabs=applications). Läs mer om [program typer som kan användas i Azure AD B2C](./application-types.md). |
-| Flytta till månatliga aktiva användare fakturering | Azure AD B2C har flyttat från månatlig aktiv autentisering till månatliga aktiva användare (MAU) fakturering. De flesta kunder kommer att hitta den här modellen kostnads effektivt. [Lär dig mer om fakturering av månatliga aktiva användare](https://azure.microsoft.com/updates/mau-billing/). |
+| Flytta till månatliga aktiva användare fakturering | Azure AD B2C har flyttat från månatlig aktiv autentisering till månatliga aktiva användare (MAU) fakturering. De flesta kunder kommer att hitta den här modellen kostnads effektivt. [Lär dig mer om fakturering av månatliga aktiva användare](https://azure.microsoft.com/updates/mau-billing/). [Spara den här länken](b2clogin.md) |
 
 ## <a name="planning-and-design"></a>Planering och design
 
@@ -70,7 +70,7 @@ Testa och automatisera implementeringen av Azure AD B2C.
 | Begränsning |  Azure AD B2C begränsar trafik om för många begär Anden skickas från samma källa under en kort tids period. Använd flera trafik källor vid belastnings testning och hantera `AADB2C90229` fel koden på ett smidigt sätt i dina program. |
 | Automation | Använd en pipeline för kontinuerlig integrering och leverans (CI/CD) för att automatisera testning och distribution, till exempel [Azure DevOps](deploy-custom-policies-devops.md). |
 
-## <a name="operations"></a>Åtgärder
+## <a name="operations"></a>Operations
 
 Hantera din Azure AD B2Cs miljö.
 
@@ -84,7 +84,7 @@ Hantera din Azure AD B2Cs miljö.
 | Konfigurera aktiv avisering och övervakning | [Spåra användar beteende](./analytics-with-application-insights.md) i Azure AD B2C att använda Application Insights. |
 
 ## <a name="support-and-status-updates"></a>Support-och status uppdateringar
-
+## <a name="todays-support-and-status-updates"></a>Support-och status uppdateringar i dag
 Håll dig uppdaterad med tjänstens tillstånd och hitta support alternativ.
 
 | Regelverk | Beskrivning |

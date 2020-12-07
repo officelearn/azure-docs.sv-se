@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 9e613331760a1715c3821bdc7dbbf0469e8bfd97
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 5d160c46b235c6890426cab9de52ec7b827efe4a
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337618"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750721"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Förbereda ett program för distribution i Azure våren Cloud
 
@@ -149,6 +149,9 @@ Start version för våren | Våren Cloud-version
 2.1 | Greenwich. RELEASE
 2.2 | Hoxton.SR8
 2.3 | Hoxton.SR8
+
+> [!NOTE]
+> Vi har identifierat ett problem med våren boot 2,4 på TLS-autentisering mellan dina appar och Eureka och arbetar för närvarande med vår fjäder-community för att lösa problemet. Läs våra [vanliga frågor och svar](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) för att lösa problemet.
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Beroenden för vår start version 2,1
 

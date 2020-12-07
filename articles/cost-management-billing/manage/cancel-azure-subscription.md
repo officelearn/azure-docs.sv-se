@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 12/01/2020
 ms.author: banders
-ms.openlocfilehash: f90d1fe22ae2f46fdc6d764ce98db8e0f48b8b35
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3182da0d04d61d5bad4ce3e41f213ecc3be7ecaf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408030"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444460"
 ---
 # <a name="cancel-your-azure-subscription"></a>Avbryta din Azure-prenumeration
 
@@ -38,6 +38,9 @@ Om du avslutar ett betalt supportavtal för Azure debiteras du för resten av pr
     ![Skärmbild som visar knappen Avbryt](./media/cancel-azure-subscription/cancel_ibiza.png)
 1. Följ anvisningarna och slutför annulleringen.
 
+> [!NOTE]
+> Partner kan pausa eller avbryta en prenumeration om det begärs av en kund eller i fall av utebliven betalning eller bedrägerier. Mer information finns i [Pausa eller avbryta en prenumeration](/partner-center/create-a-new-subscription#suspend-or-cancel-a-subscription).
+
 ## <a name="who-can-cancel-a-subscription"></a>Vem kan avsluta en prenumeration?
 
 I tabellen nedan beskrivs den behörighet som krävs för att avbryta en prenumeration.
@@ -48,7 +51,7 @@ I tabellen nedan beskrivs den behörighet som krävs för att avbryta en prenume
 |[Microsoft Enterprise-avtal](https://azure.microsoft.com/pricing/enterprise-agreement/) och [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Kontoinnehavare och ägare för prenumerationen       |
 |[Azure-plan](https://azure.microsoft.com/offers/ms-azr-0017g/) och [Azure-plan för DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Ägare av prenumerationen      |
 
-## <a name="what-happens-after-i-cancel-my-subscription"></a>Vad händer när jag har sagt upp min prenumeration?
+## <a name="what-happens-after-subscription-cancellation"></a>Vad händer när prenumerationen har avbrutits?
 
 När du har avbrutit stoppas faktureringen omedelbart. Det kan dock ta upp till 10 minuter innan annulleringen visas i portalen. Om du avbryter mitt i en faktureringsperiod skickar vi den sista fakturan på ditt vanliga faktureringsdatum när perioden är slut.
 
@@ -65,7 +68,7 @@ Om du har en kostnadsfri utvärderingsprenumeration behöver du inte vänta 30 d
 1. Välj den prenumeration som du vill ta bort.
 1. Välj **Översikt** och välj sedan **Ta bort prenumeration**.
 
-## <a name="reactivate-subscription"></a>Återaktivera prenumeration
+## <a name="reactivate-a-subscription"></a>Återaktivera en prenumeration
 
 Om du oavsiktligt avbryter prenumerationen med Betala per användning-priser kan du [återaktivera den i Kontocenter](subscription-disabled.md).
 
@@ -73,7 +76,7 @@ Om din prenumeration inte är en prenumeration med Betala per användning-priser
 
 ## <a name="why-dont-i-see-the-cancel-subscription-option-on-the-azure-portal"></a>Varför visas inte alternativet Avsluta prenumeration i Microsoft Azure-portalen? 
 
-Du kanske inte har behörigheterna som krävs för att avsluta en prenumeration. En beskrivning av vilka som kan avsluta olika typer av prenumerationer finns i [Vem kan avsluta en prenumeration?](https://docs.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription#who-can-cancel-a-subscription).
+Du kanske inte har behörigheterna som krävs för att avsluta en prenumeration. En beskrivning av vilka som kan avsluta olika typer av prenumerationer finns i [Vem kan avsluta en prenumeration?](#who-can-cancel-a-subscription).
 
 ## <a name="how-do-i-delete-my-azure-account"></a>Hur gör jag för att ta bort mitt Azure-konto?
 
@@ -85,7 +88,7 @@ Du kanske inte har behörigheterna som krävs för att avsluta en prenumeration.
 
 ## <a name="how-do-i-cancel-a-visual-studio-professional-account"></a>Hur gör jag för att avsluta ett Visual Studio Professional-konto?
 
-Se artikeln [Förnya och avsluta](https://docs.microsoft.com/visualstudio/subscriptions/faq/admin/renewal-cancellation). Om du har några Visual Studio Azure-prenumerationer måste de också avslutas och tas bort.
+Se artikeln [Förnya och avsluta](/visualstudio/subscriptions/faq/admin/renewal-cancellation). Om du har några Visual Studio Azure-prenumerationer måste de också avslutas och tas bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

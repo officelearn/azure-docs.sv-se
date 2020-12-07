@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0004c874a2011a78bb5cfe67ff0a840224d47bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e02323df3a12c4a74de1fb62b36762fc739e9e5
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258973"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750449"
 ---
 # <a name="azure-ad-b2c-session"></a>Azure AD B2C session
 
@@ -96,8 +96,12 @@ Vid en inloggningsbegäran Azure AD B2C:
 1. Invaliderar den Azure AD B2C cookie-baserade sessionen.
 1. Försök att logga ut från federerade identitets leverantörer:
    - OpenId Connect – om den välkända konfigurations slut punkten för identitets leverantör anger en `end_session_endpoint` plats.
-   - SAML – om identitets leverantörens metadata innehåller `SingleLogoutService` platsen.
+   - OAuth2 – om [identitets leverantörens metadata](oauth2-technical-profile.md#metadata) innehåller `end_session_endpoint` platsen.
+   - SAML – om [identitets leverantörens metadata](saml-identity-provider-technical-profile.md#metadata) innehåller `SingleLogoutService` platsen.
 1. Du kan också logga ut från andra program. Mer information finns i avsnittet om [enkel inloggning](#single-sign-out) .
+
+> [!NOTE]
+> Genom att använda [anpassade principer](custom-policy-overview.md)kan du inaktivera utloggningen från federerade identitets leverantörer, genom att ange metadata för den tekniska profilen för identitets leverantören `SingleLogoutEnabled` till `false` .
 
 Utloggningen rensar användarens läge för enkel inloggning med Azure AD B2C, men det är inte säkert att användaren kan logga ut från sin session med social identitetsprovider. Om användaren väljer samma identitetsprovider vid en efterföljande inloggning, kan de autentiseras igen utan att ange sina autentiseringsuppgifter. Om en användare vill logga ut från programmet betyder det inte nödvändigt vis att de vill logga ut från sitt Facebook-konto. Men om lokala konton används avslutas användarens session korrekt.
 

@@ -1,14 +1,17 @@
 ---
 title: Utvärdera lokala servrar med hjälp av en importerad CSV-fil med Azure Migrate Server bedömning
 description: Beskriver hur du identifierar lokala servrar för migrering till Azure med hjälp av en importerad CSV-fil i Azure Migrate Server bedömning
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
-ms.openlocfilehash: 30f17bb6b22d4d19cf225aa52d8284f5306a44ee
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dfa7ee941e2c373b02fe5fb2f2a648a60a677670
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308393"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753118"
 ---
 # <a name="tutorial-assess-servers-using-an-imported-csv-file"></a>Självstudie: utvärdera servrar med en importerad CSV-fil
 
@@ -37,7 +40,7 @@ I den här guiden får du lära dig att:
 > [!NOTE]
 > Självstudier visar den snabbaste sökvägen för att testa ett scenario och använda standard alternativ där det är möjligt. 
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -53,23 +56,23 @@ Om du vill skapa ett Azure Migrate-projekt behöver du ett konto med:
 
 Om du nyligen skapade ett kostnadsfritt Azure-konto är du ägare av prenumerationen. Om du inte är prenumerations ägare kan du arbeta med ägaren för att tilldela behörigheterna på följande sätt:
 
-1. I Azure Portal söker du efter "prenumerationer" och under **tjänster**väljer du **prenumerationer**.
+1. I Azure Portal söker du efter "prenumerationer" och under **tjänster** väljer du **prenumerationer**.
 
     ![Sök i rutan för att söka efter Azure-prenumerationen](./media/tutorial-discover-import/search-subscription.png)
 
 2. På sidan **prenumerationer** väljer du den prenumeration där du vill skapa ett Azure Migrate-projekt. 
 3. I prenumerationen väljer du **åtkomst kontroll (IAM)**  >  **kontrol lera åtkomst**.
-4. I **kontrol lera åtkomst**söker du efter det relevanta användar kontot.
-5. I **Lägg till en roll tilldelning**klickar du på **Lägg till**.
+4. I **kontrol lera åtkomst** söker du efter det relevanta användar kontot.
+5. I **Lägg till en roll tilldelning** klickar du på **Lägg till**.
 
     ![Sök efter ett användar konto för att kontrol lera åtkomst och tilldela en roll](./media/tutorial-discover-import/azure-account-access.png)
 
-6. I **Lägg till roll tilldelning**väljer du rollen deltagare eller ägare och väljer kontot (azmigrateuser i vårt exempel). Klicka sedan på **Spara**.
+6. I **Lägg till roll tilldelning** väljer du rollen deltagare eller ägare och väljer kontot (azmigrateuser i vårt exempel). Klicka sedan på **Spara**.
 
     ![Öppnar sidan Lägg till roll tilldelning för att tilldela kontot en roll](./media/tutorial-discover-import/assign-role.png)
 
-7. I portalen söker du efter användare och under **tjänster**väljer **du användare**.
-8. I **användar inställningar**kontrollerar du att Azure AD-användare kan registrera program (anges till **Ja** som standard).
+7. I portalen söker du efter användare och under **tjänster** väljer **du användare**.
+8. I **användar inställningar** kontrollerar du att Azure AD-användare kan registrera program (anges till **Ja** som standard).
 
     ![Verifiera i användar inställningar som användare kan registrera Active Directory appar](./media/tutorial-discover-import/register-apps.png)
 
@@ -81,9 +84,9 @@ Skapa ett nytt Azure Migrate projekt om du inte har något.
 
 1. I Azure-portalen > **Alla tjänster** söker du efter **Azure Migrate**.
 2. Under **Tjänster** väljer du **Azure Migrate**.
-3. I **Översikt**väljer du **skapa projekt**.
-5. I **skapa projekt**väljer du din Azure-prenumeration och resurs grupp. Skapa en resurs grupp om du inte har någon.
-6. I **projekt information**anger du projekt namnet och geografin som du vill skapa projektet i. Granska stödda geografiska områden för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [offentliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
+3. I **Översikt** väljer du **skapa projekt**.
+5. I **skapa projekt** väljer du din Azure-prenumeration och resurs grupp. Skapa en resurs grupp om du inte har någon.
+6. I **projekt information** anger du projekt namnet och geografin som du vill skapa projektet i. Granska stödda geografiska områden för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [offentliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
 
    ![Rutor för projekt namn och region](./media/tutorial-discover-import/new-project.png)
 

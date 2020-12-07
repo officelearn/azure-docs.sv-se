@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 18979ba8cbc4e68bf79275059c6c1c976578c407
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3e3245053fcc9943814268835fa5ac0f40a6f94c
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953380"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750517"
 ---
 # <a name="secure-your-restful-services"></a>Skydda dina RESTful-tjänster 
 
@@ -358,6 +358,69 @@ Följande är ett exempel på en RESTful-teknisk profil som kon figurer ATS med 
       </Metadata>
       <CryptographicKeys>
         <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_RestApiBearerToken" />
+      </CryptographicKeys>
+      ...
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
+
+## <a name="api-key-authentication"></a>Autentisering med API-nyckel
+
+API-nyckeln är en unik identifierare som används för att autentisera en användare för att komma åt en REST API-slutpunkt. Nyckeln skickas i en anpassad HTTP-rubrik. Till exempel använder [Azure Functions HTTP-utlösaren](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) `x-functions-key` http-huvudet för att identifiera beställaren.  
+
+### <a name="add-api-key-policy-keys"></a>Lägg till princip nycklar för API-nyckel
+
+Om du vill konfigurera en REST API teknisk profil med autentisering med API-nycklar skapar du följande kryptografiska nyckel för att lagra API-nyckeln:
+
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj din Azure AD B2C katalog.
+1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
+1. På sidan Översikt väljer du **ID för identitets miljö**.
+1. Välj **princip nycklar** och välj sedan **Lägg till**.
+1. För **alternativ** väljer du **manuell**.
+1. I **namn** skriver du **RestApiKey**.
+    Prefixet *B2C_1A_* kan läggas till automatiskt.
+1. I rutan **hemlighet** anger du REST API nyckeln.
+1. För **nyckel användning** väljer du **kryptering**.
+1. Välj **Skapa**.
+
+
+### <a name="configure-your-rest-api-technical-profile-to-use-api-key-authentication"></a>Konfigurera din REST API tekniska profil för att använda API-autentiseringsnyckel
+
+När du har skapat den nödvändiga nyckeln konfigurerar du REST API teknisk profils metadata så att de refererar till autentiseringsuppgifterna.
+
+1. Öppna tilläggs princip filen (TrustFrameworkExtensions.xml) i arbets katalogen.
+1. Sök efter den REST API tekniska profilen. Till exempel `REST-ValidateProfile` eller `REST-GetProfile` .
+1. Leta upp `<Metadata>` elementet.
+1. Ändra *AuthenticationType* till `ApiKeyHeader` .
+1. Ändra *AllowInsecureAuthInProduction* till `false` .
+1. `</Metadata>`Lägg till följande XML-kodfragment omedelbart efter det avslutande elementet:
+    ```xml
+    <CryptographicKeys>
+        <Key Id="x-functions-key" StorageReferenceId="B2C_1A_RestApiKey" />
+    </CryptographicKeys>
+    ```
+
+**ID: t** för krypterings nyckeln definierar HTTP-huvudet. I det här exemplet skickas API-nyckeln som **x-Functions-Key**.
+
+Följande är ett exempel på en RESTful-teknisk profil som kon figurer ATS för att anropa en Azure-funktion med API-nyckel autentisering:
+
+```xml
+<ClaimsProvider>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="REST-GetProfile">
+      <DisplayName>Get user extended profile Azure Function web hook</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/GetProfile?code=your-code</Item>
+        <Item Key="SendClaimsIn">Body</Item>
+        <Item Key="AuthenticationType">ApiKeyHeader</Item>
+        <Item Key="AllowInsecureAuthInProduction">false</Item>
+      </Metadata>
+      <CryptographicKeys>
+        <Key Id="x-functions-key" StorageReferenceId="B2C_1A_RestApiKey" />
       </CryptographicKeys>
       ...
     </TechnicalProfile>

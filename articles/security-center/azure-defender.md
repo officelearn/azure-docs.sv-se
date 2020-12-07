@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 41d98750f3c869eff5abf7482a9bb04435407318
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 8bf3959651048a7a568df1d94aa07aa206663d50
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436767"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750993"
 ---
 # <a name="introduction-to-azure-defender"></a>Introduktion till Azure Defender
 
@@ -39,6 +39,8 @@ När du aktiverar Azure Defender från avsnittet **priser och inställningar** i
 - [Azure Defender för Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender för containerregister](defender-for-container-registries-introduction.md)
 - [Azure Defender för Key Vault](defender-for-key-vault-introduction.md)
+- [Azure Defender för Resource Manager](defender-for-resource-manager-introduction.md)
+- [Azure Defender för DNS](defender-for-dns-introduction.md)
 
 Var och en av dessa planer beskrivs separat i Security Center-dokumentationen.
 
@@ -61,9 +63,9 @@ Om du vill utöka skyddet till virtuella datorer och SQL-databaser som finns i a
 
 
 
-## <a name="security-alerts"></a>Säkerhetsaviseringar 
+## <a name="azure-defender-security-alerts"></a>Säkerhets aviseringar för Azure Defender 
 
-När Azure Defender identifierar ett hot i alla områden i miljön genererar den en avisering. De här aviseringarna beskriver information om de resurser som påverkas, föreslagna åtgärds steg och i vissa fall ett alternativ för att utlösa en logisk app som svar.
+När Azure Defender identifierar ett hot i alla områden i miljön genererar den en säkerhets avisering. De här aviseringarna beskriver information om de resurser som påverkas, föreslagna åtgärds steg och i vissa fall ett alternativ för att utlösa en logisk app som svar.
 
 Om en avisering genereras av Security Center eller tas emot av Security Center från en integrerad säkerhets produkt, kan du exportera den. Om du vill exportera aviseringar till Azure Sentinel, SIEM eller andra externa verktyg, följer du anvisningarna i [Stream-aviseringar till en Siem, Soar eller IT-Tjänstehanterings lösning](export-to-siem.md).
 

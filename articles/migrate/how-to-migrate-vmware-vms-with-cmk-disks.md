@@ -1,18 +1,17 @@
 ---
 title: Migrera virtuella VMware-datorer till Azure med Server Side Encryption (SSE) och Kundhanterade nycklar (CMK) med hjälp av Azure Migrate Server-migrering
 description: Lär dig hur du migrerar virtuella VMware-datorer till Azure med Server Side Encryption (SSE) och Kundhanterade nycklar (CMK) med hjälp av Azure Migrate Server-migrering
-author: bsiva
-ms.service: azure-migrate
-ms.manager: carmonm
-ms.topic: article
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
 ms.date: 03/12/2020
-ms.author: raynew
-ms.openlocfilehash: 89b795011460ee2803d07d14b9c2abe9c8ffca55
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8a174c3b2bfb390eb7d691ae1bdcb0e28dde9032
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483359"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751095"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrera virtuella VMware-datorer till virtuella Azure-datorer med kryptering på Server sidan och Kundhanterade nycklar
 
@@ -24,7 +23,7 @@ I exemplen i den här artikeln används [Azure PowerShell](/powershell/azure/new
 
 [Lär dig mer](../virtual-machines/disk-encryption.md) om Server Side Encryption (SSE) med Kundhanterade nycklar (CMK) för hanterade diskar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Gå igenom självstudien](tutorial-migrate-vmware.md) om migrering av virtuella VMware-datorer till Azure med agent lös replikering för att förstå verktygs kraven.
 - [Följ de här anvisningarna](./create-manage-projects.md) för att skapa ett Azure Migrate-projekt och lägga till **Azure Migrate: Migreringsverktyg för Server** i projektet.

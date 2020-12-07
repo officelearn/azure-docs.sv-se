@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a8180088e5a0db613d5f04106fe102f58594bf72
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 268862d6e868342a252ca9d5eb08b9753142e8b1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655059"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750755"
 ---
 # <a name="azure-spring-cloud-faq"></a>Vanliga frågor och svar om Azure våren Cloud
 
@@ -69,6 +69,23 @@ För det snabbaste sättet att komma igång med Azure våren Cloud följer du an
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Vilken Java-körning stöder Azure våren Cloud?
 
 Azure våren Cloud har stöd för Java 8 och 11. Se [Java Runtime och OS-versioner](#java-runtime-and-os-versions)
+
+### <a name="is-spring-boot-24x-supported"></a>Finns det stöd för våren boot 2.4. x?
+Vi har identifierat ett problem med våren boot 2,4 och arbetar för närvarande med vår våren för att lösa problemet. Under tiden kan du inkludera dessa två beroenden för att aktivera TLS-autentisering mellan dina appar och Eureka.
+
+```xml
+<dependency> 
+    <groupId>com.sun.jersey</groupId>
+    <artifactId>jersey-client</artifactId>
+    <version>1.19.4</version>
+</dependency>
+<dependency>
+    <groupId>com.sun.jersey.contribs</groupId>
+    <artifactId>jersey-apache-client4</artifactId>
+    <version>1.19.4</version>
+</dependency>
+```
+
 ::: zone-end
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Var kan jag se mina vår moln program loggar och mått?

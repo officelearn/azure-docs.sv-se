@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 4f5049d1589b741e60db69c782107cab1f047b77
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 1ca2ded69b0279a60d8ed83cf310a58dadf1a337
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436801"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751996"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Ignorera aviseringar från Azure Defender
 
@@ -23,10 +23,10 @@ På den här sidan förklaras hur du kan använda undertrycks regler för varnin
 
 |Aspekt|Information|
 |----|:----|
-|Versions tillstånd:|Förhandsgranskning<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Versions tillstånd:| Allmänt tillgänglig |
 |Priset|Kostnadsfri<br>(De flesta säkerhets aviseringar är bara tillgängliga med Azure Defender)|
 |Nödvändiga roller och behörigheter:|**Säkerhets administratör** och **ägare** kan skapa/ta bort regler.<br>**Säkerhets läsare** och **läsare** kan visa regler.|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 

@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 11/30/2020
 ms.author: banders
-ms.openlocfilehash: 2aae71836a4eaba845e4752edf708607977763fa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8c3ab3f4f9bc56e9651a98e5c011cad65f21fd9d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014304"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349000"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Få faktureringsägarskap för Azure-prenumerationer från andra konton
 
@@ -28,7 +28,7 @@ För att kunna begära faktureringsägarskap måste du vara **fakturaavsnittsäg
 1. Logga in på [Azure-portalen](https://portal.azure.com) som fakturaavsnittsägare eller -deltagare för ett faktureringskonto för Microsoft-kundavtal.
 1. Sök efter **Kostnadshantering + fakturering**.  
     ![Skärmbild som visar en sökning i Azure-portalen efter kostnadshantering och fakturering](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
-1. På sidan för faktureringsomfång väljer du det faktureringskonto som ska användas för att betala för användningen av prenumerationerna. Faktureringskontot bör vara ett **Microsoft-kundavtal**.  
+1. På sidan för faktureringsomfång väljer du **Faktureringsomfattningar**. Välj sedan det faktureringskonto som ska användas för att betala för användningen av prenumerationerna. Faktureringskontot bör vara ett **Microsoft-kundavtal**.  
     [![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/mca-request-billing-ownership/list-of-scopes.png)](./media/mca-request-billing-ownership/list-of-scopes.png#lightbox)
     > [!NOTE]
     > Azure-portalen kommer ihåg det senaste faktureringsomfånget som du använder och visar omfånget nästa gång du kommer till sidan Kostnadshantering + fakturering. Sidan för faktureringsomfång visas inte om du har besökt sidan Kostnadshantering + fakturering. I så fall kontrollerar du att du befinner dig i [rätt omfång](#check-for-access). Annars [byter du omfång](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) och väljer faktureringskontot för ett Microsoft-kundavtal.

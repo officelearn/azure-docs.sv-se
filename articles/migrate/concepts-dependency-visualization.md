@@ -2,13 +2,16 @@
 title: Beroende analys i Azure Migrate Server-utvärdering
 description: Beskriver hur du använder beroende analys för utvärdering med Azure Migrate Server bedömning.
 ms.topic: conceptual
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.date: 09/15/2020
-ms.openlocfilehash: a284d549f13595e0ce8a5d06cc017602e559b648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f198d47191e7893e74b072ae8fd10546e3a6ee7
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530258"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752217"
 ---
 # <a name="dependency-analysis"></a>Beroende analys
 
@@ -78,7 +81,7 @@ Skillnaderna mellan agent utan visualisering och agentbaserade visualiseringar s
 **Log Analytics** | Krävs inte. | Azure Migrate använder [tjänstkarta](../azure-monitor/insights/service-map.md) -lösningen i [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md) för beroende analys.<br/><br/> Du kopplar en Log Analytics arbets yta till ett Azure Migrate-projekt. Arbets ytan måste ligga i regionerna östra USA, Sydostasien eller Västeuropa. Arbets ytan måste vara i en region där [tjänstkarta stöds](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
 **Process** | Fångar in TCP-anslutningsfel. Efter identifieringen samlar den in data i intervall om fem minuter. | Tjänstkarta agenter som installerats på en dator samla in data om TCP-processer och inkommande/utgående anslutningar för varje process.
 **Data** | Käll datorns Server namn, process, program namn.<br/><br/> Mål datorns Server namn, process, program namn och port. | Käll datorns Server namn, process, program namn.<br/><br/> Mål datorns Server namn, process, program namn och port.<br/><br/> Antalet anslutningar, svars tid och data överförings information samlas in och är tillgängliga för Log Analytics frågor. 
-**Visuella** | Beroende karta för enskild server kan visas över en varaktighet på en timme till 30 dagar. | Beroende karta för en enskild server.<br/><br/> Beroende karta för en grupp med servrar.<br/><br/>  Kartan kan endast visas över en timme.<br/><br/> Lägga till och ta bort servrar i en grupp från MAP-vyn.
+**Visualisering** | Beroende karta för enskild server kan visas över en varaktighet på en timme till 30 dagar. | Beroende karta för en enskild server.<br/><br/> Beroende karta för en grupp med servrar.<br/><br/>  Kartan kan endast visas över en timme.<br/><br/> Lägga till och ta bort servrar i en grupp från MAP-vyn.
 Dataexport | De senaste 30 dagarna kan hämtas i CSV-format. | Data kan frågas med Log Analytics.
 
 

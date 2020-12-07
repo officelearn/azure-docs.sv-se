@@ -1,14 +1,17 @@
 ---
 title: Utvärderingar av virtuella Azure-datorer i Azure Migrate Server-utvärdering
 description: Lär dig mer om utvärderingar i Azure Migrate Server bedömning
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: d08e3c1c0035ee2bb56ee54f1ffb7ffb439d61b6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f8a4f29114f7e0a2ed7868f01e05e25c8a0d0ce1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319320"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752234"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Översikt över Server utvärdering (migrera till virtuella Azure-datorer)
 
@@ -112,7 +115,7 @@ Beräkningarna sker i föregående ordning. En dator server flyttas till ett sen
 
 Här är what's som ingår i en Azure VM-utvärdering i Server utvärderingen:
 
-**Egenskap** | **Detaljer**
+**Egenskap** | **Information**
 --- | ---
 **Målplats** | Den plats som du vill migrera till. Server utvärderingen stöder för närvarande följande Azure-regioner:<br/><br/> Östra Australien, sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, centrala Indien, centrala USA, Kina, östra, Kina, norra, Asien, östra, östra USA, östra USA 2, centrala Tyskland, Tyskland nordöstra, Östra Japan, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Storbritannien, västra US gov, Arizona , Västra centrala USA, Västeuropa, västra Indien, västra USA och västra USA 2.
 **Mål lagrings disk (i storlek)** | Den typ av disk som ska användas för lagring i Azure. <br/><br/> Ange mål lagrings disken som Premium-hanterad, Standard SSD-hanterad eller Standard HDD-hanterad.
@@ -166,7 +169,7 @@ För en Azure VM-utvärdering, tillsammans med att granska VM-egenskaper, tittar
 
 Server utvärderingen använder följande logik för att identifiera Azure-beredskap baserat på operativ systemet:
 
-**Operativsystem** | **Detaljer** | **Status för Azure-beredskap**
+**Operativsystem** | **Information** | **Status för Azure-beredskap**
 --- | --- | ---
 Windows Server 2016 och alla SPs | Azure ger fullständig support. | Redo för Azure.
 Windows Server 2012 R2 och alla SPs | Azure ger fullständig support. | Redo för Azure.

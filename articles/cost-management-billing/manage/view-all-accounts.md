@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/30/2020
 ms.author: banders
-ms.openlocfilehash: 0049efda603532099cc9bf24dc9d9411b5aaa389
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 3df6b694f3a40cef17c6e0114464ad4aa2fa30ce
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132133"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344342"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Faktureringskonton och omfång på Azure-portalen
 
@@ -33,6 +33,12 @@ Information om hur du avgör typen av ditt faktureringskonto finns i [Kontroller
 
 ## <a name="scopes-for-billing-accounts"></a>Omfång för faktureringskonton
 Ett omfång är en nod i ett faktureringskonto som du använder för att visa och hantera fakturering. Det är där du hanterar faktureringsdata, betalningar och fakturor samt sköter allmän kontohantering.
+
+Om du inte har åtkomst att visa eller hantera faktureringskonton har du förmodligen inte åtkomstbehörighet. Du kan be din administratör för faktureringskonton att ge dig åtkomst. Mer information finns i följande artiklar:
+
+- [Microsoft Online Services-programåtkomst](manage-billing-access.md)
+- [Microsoft-kundavtalsåtkomst](understand-mca-roles.md)
+- [Enterprise-avtalsåtkomst](understand-ea-roles.md)
 
 ### <a name="microsoft-online-services-program"></a>Microsoft Online Services-programmet
 

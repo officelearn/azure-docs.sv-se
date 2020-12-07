@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/25/2020
-ms.openlocfilehash: f9a7623fd27178e8b9c213a1759bb09863d16c72
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7063452d23d2975cf0c26a89e7a08a422de54942
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030704"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751945"
 ---
 # <a name="train-model-module"></a>Träna modell modul
 
@@ -63,7 +63,9 @@ I Azure Machine Learning är det vanligt vis en tre stegs process att skapa och 
 1.  Skicka pipelinen. Om du har stora mängder data kan det ta en stund.
 
     > [!IMPORTANT] 
-    > Om du har en ID-kolumn som är ID för varje rad kan **träna modell** få ett fel som "antalet unika värden i kolumnen: {column_name} är större än tillåtet." Detta beror på att ID-kolumnen träffar tröskelvärdet för unika värden och kan orsaka slut på minne. Vanligt vis är ID-kolumnen meningslös under träningen. Du kan använda [Redigera metadata](edit-metadata.md) för att markera kolumnen som **rensad funktion** och den används inte i träning. Mer fel information finns i [fel koden för designer](././designer-error-codes.md) .
+    > Om du har en ID-kolumn som är ID för varje rad, eller en text kolumn som innehåller för många unika värden, kan **träna modell** få ett fel meddelande som "antalet unika värden i kolumnen: {column_name} är större än tillåtet.
+    >
+    > Detta beror på att kolumnen träffar tröskelvärdet för unika värden och kan orsaka slut på minne. Du kan använda [Redigera metadata](edit-metadata.md) för att markera kolumnen som **rensad funktion** och den används inte i utbildningen eller [extrahera N-gram-funktioner från text-modulen](extract-n-gram-features-from-text.md) för att Förbearbeta text kolumnen. Mer fel information finns i [fel koden för designer](././designer-error-codes.md) .
 
 ## <a name="results"></a>Resultat
 

@@ -4,12 +4,12 @@ description: Lär dig hur du felsöker och löser vanliga problem när du använ
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: aefb33325c1a5bf8e94d47106147d4c7c4f0f1ca
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d157dd6b3347c8fbfd8712fa20d52cedb425f47f
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684176"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751486"
 ---
 # <a name="aks-troubleshooting"></a>AKS-felsökning
 
@@ -24,41 +24,36 @@ Det finns också en [fel söknings guide](https://github.com/feiskyer/kubernetes
 
  [Begär flera kärnor](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
-## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Vad är den maximala inställningen för poddar per nod för AKS?
-
-Den maximala inställningen för poddar per nod är 30 som standard om du distribuerar ett AKS-kluster i Azure Portal.
-Den maximala inställningen för poddar per nod är 110 som standard om du distribuerar ett AKS-kluster i Azure CLI. (Kontrol lera att du använder den senaste versionen av Azure CLI). Den här inställningen kan ändras med hjälp av `–-max-pods` flaggan i `az aks create` kommandot.
-
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Jag får ett insufficientSubnetSize-fel när jag distribuerar ett AKS-kluster med avancerade nätverksfunktioner. Vad ska jag göra?
 
 Det här felet anger att ett undernät som används för ett kluster inte längre har tillgängliga IP-adresser i CIDR för lyckad resurs tilldelning. För Kubernetes-kluster är kravet tillräckligt med IP-utrymme för varje nod i klustret. För Azure CNI-kluster är kravet tillräckligt med IP-utrymme för varje nod och Pod i klustret.
 Läs mer om [utformningen av Azure-cni för att tilldela IP-adresser till poddar](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-Dessa fel finns också i AKS- [diagnostik](./concepts-diagnostics.md) som proaktivt utsätter problem som en otillräcklig under näts storlek.
+Dessa fel finns också i AKS- [diagnostik](concepts-diagnostics.md), som proaktivt utsätter problem som en otillräcklig under näts storlek.
 
 Följande tre (3) ärenden orsakar ett otillräckligt näts storleks fel:
 
-1. AKS Scale eller AKS Nodepool Scale
-   1. Om du använder Kubernetes inträffar detta när `number of free IPs in the subnet` är **mindre än** `number of new nodes requested` .
-   1. Om du använder Azure-CNI sker detta när `number of free IPs in the subnet` är **mindre än** `number of nodes requested times (*) the node pool's --max-pod value` .
+1. Skala AKS Scale eller AKS Node pool
+   1. Om du använder Kubernetes när `number of free IPs in the subnet` är **mindre än** `number of new nodes requested` .
+   1. Om du använder Azure-CNI när `number of free IPs in the subnet` är **mindre än** `number of nodes requested times (*) the node pool's --max-pod value` .
 
-1. AKS Upgrade eller AKS Nodepool Upgrade
-   1. Om du använder Kubernetes inträffar detta när `number of free IPs in the subnet` är **mindre än** `number of buffer nodes needed to upgrade` .
-   1. Om du använder Azure-CNI sker detta när `number of free IPs in the subnet` är **mindre än** `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
+1. Uppgradering av AKS-eller AKS Node-pool
+   1. Om du använder Kubernetes när `number of free IPs in the subnet` är **mindre än** `number of buffer nodes needed to upgrade` .
+   1. Om du använder Azure-CNI när `number of free IPs in the subnet` är **mindre än** `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
    
-   Som standard anger AKS-kluster värdet för maximal spänning (Upgrade buffer) för ett (1), men det här uppgraderings beteendet kan anpassas genom att ange [Max värdet för överspänning för en nod](upgrade-cluster.md#customize-node-surge-upgrade) som ökar antalet tillgängliga IP-adresser som krävs för att slutföra en uppgradering.
+   Som standard anger AKS-kluster värdet för maximal överspänning (Upgrade buffer) för ett (1), men det här uppgraderings beteendet kan anpassas genom att ange [Max värdet för överspänning för en nod, vilket ökar antalet tillgängliga IP-adresser som krävs för att slutföra en uppgradering.
 
-1. AKS Create eller AKS Nodepool Add
-   1. Om du använder Kubernetes inträffar detta när `number of free IPs in the subnet` är **mindre än** `number of nodes requested for the node pool` .
-   1. Om du använder Azure-CNI sker detta när `number of free IPs in the subnet` är **mindre än** `number of nodes requested times (*) the node pool's --max-pod value` .
+1. AKS Create eller AKS Node pool Add
+   1. Om du använder Kubernetes när `number of free IPs in the subnet` är **mindre än** `number of nodes requested for the node pool` .
+   1. Om du använder Azure-CNI när `number of free IPs in the subnet` är **mindre än** `number of nodes requested times (*) the node pool's --max-pod value` .
 
 Följande åtgärder kan vidtas genom att skapa nya undernät. Behörighet att skapa ett nytt undernät krävs för att undvika åtgärder på grund av möjligheten att uppdatera ett befintligt undernäts CIDR-intervall.
 
 1. Återskapa ett nytt undernät med ett större CIDR-intervall tillräckligt för åtgärds mål:
    1. Skapa ett nytt undernät med ett nytt intervall som inte överlappar.
-   1. Skapa en ny nodepool i det nya under nätet.
-   1. Töm poddar från den gamla nodepool i det gamla under nätet som ska ersättas.
-   1. Ta bort det gamla under nätet och det gamla nodepool.
+   1. Skapa en ny Node-pool i det nya under nätet.
+   1. Töm poddar från den gamla Node-poolen som finns i det gamla under nätet som ska ersättas.
+   1. Ta bort det gamla under nätet och den gamla Node-poolen.
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mitt Pod fastnar i CrashLoopBackOff-läge. Vad ska jag göra?
 
@@ -89,10 +84,6 @@ Dessa tids gränser kan vara relaterade till intern trafik mellan noder som bloc
 ## <a name="im-trying-to-enable-kubernetes-role-based-access-control-kubernetes-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Jag försöker aktivera Kubernetes-rollbaserad åtkomst kontroll (Kubernetes RBAC) i ett befintligt kluster. Hur kan jag göra det?
 
 Att aktivera Kubernetes-rollbaserad åtkomst kontroll (Kubernetes RBAC) i befintliga kluster stöds inte för tillfället, det måste anges när du skapar nya kluster. Kubernetes RBAC är aktiverat som standard när du använder CLI, Portal eller en API-version senare än `2020-03-01` .
-
-## <a name="i-created-a-cluster-with-kubernetes-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Jag skapade ett kluster med Kubernetes RBAC aktiverat och nu ser jag många varningar på Kubernetes-instrumentpanelen. Instrument panelen som används för att fungera utan varningar. Vad ska jag göra?
-
-Orsaken till varningarna är att klustret har Kubernetes RBAC aktiverat och åtkomst till instrument panelen är nu begränsad som standard. I allmänhet är den här metoden en bra idé eftersom standard exponeringen för instrument panelen för alla användare av klustret kan leda till säkerhetshot. Om du fortfarande vill aktivera instrument panelen följer du stegen i [det här blogg inlägget](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Jag kan inte hämta loggar med kubectl-loggar eller så kan jag inte ansluta till API-servern. Jag får "fel från servern: fel vid uppringning av Server del: slå TCP...". Vad ska jag göra?
 
@@ -182,11 +173,11 @@ Använd följande lösningar för det här problemet:
 
 ## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>Jag får `"AADSTS7000215: Invalid client secret is provided."` när jag använder AKS-API. Vad ska jag göra?
 
-Detta beror vanligt vis på förfallo datum för autentiseringsuppgifter för tjänstens huvud namn. [Uppdatera autentiseringsuppgifterna för ett AKS-kluster.](update-credentials.md)
+Det här problemet beror på att autentiseringsuppgifterna för tjänstens huvud namn har gått ut. [Uppdatera autentiseringsuppgifterna för ett AKS-kluster.](update-credentials.md)
 
 ## <a name="i-cant-access-my-cluster-api-from-my-automationdev-machinetooling-when-using-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>Jag kan inte komma åt mitt kluster-API från min Automation/dev Machine/verktygs uppsättning när du använder tillåtna IP-intervall för API-servern. Hur gör jag för att åtgärda det här problemet?
 
-Detta måste `--api-server-authorized-ip-ranges` omfatta de IP-adresser eller IP-adressintervall för Automation/dev/verktygs system som används. Se avsnittet "så här hittar du min IP" i [säker åtkomst till API-servern med hjälp av behöriga IP-adressintervall](api-server-authorized-ip-ranges.md).
+För att lösa det här problemet, se till att `--api-server-authorized-ip-ranges` inkludera de IP-adresser eller IP-intervall för Automation/dev/verktygs system som används. Se avsnittet "så här hittar du min IP" i [säker åtkomst till API-servern med hjälp av behöriga IP-adressintervall](api-server-authorized-ip-ranges.md).
 
 ## <a name="im-unable-to-view-resources-in-kubernetes-resource-viewer-in-azure-portal-for-my-cluster-configured-with-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>Jag kan inte Visa resurser i Kubernetes Resource Viewer i Azure Portal för mitt kluster konfigurerat med tillåtna IP-intervall för API-servern. Hur gör jag för att åtgärda det här problemet?
 
@@ -208,11 +199,11 @@ Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The
 
 Dessa begränsnings fel beskrivs i detalj [här](../azure-resource-manager/management/request-limits-and-throttling.md) och [här](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)
 
-Omkommandoering från AKS Engineering-teamet är att se till att du kör version minst 1.18. x som innehåller många förbättringar. Mer information finns i dessa förbättringar [här](https://github.com/Azure/AKS/issues/1413) [.](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247)
+Rekommendationen från AKS Engineering team är att se till att du kör version minst 1.18. x, som innehåller många förbättringar. Mer information finns i dessa förbättringar [här](https://github.com/Azure/AKS/issues/1413) [.](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247)
 
 Med tanke på att dessa begränsnings fel mäts på prenumerations nivå kan de fortfarande inträffa om:
-- Det finns program från tredje part som gör GET-begäranden (t. ex. övervaka program osv...). Rekommendationen är att minska frekvensen för dessa anrop.
-- Det finns många AKS-kluster/-nodepools i VMSS. Den vanliga rekommendationen är att ha mindre än 20-30 kluster i en specifik prenumeration.
+- Det finns program från tredje part som gör GET-begäranden (till exempel övervakning av program och så vidare). Rekommendationen är att minska frekvensen för dessa anrop.
+- Det finns flera AKS-kluster/Node-pooler som använder virtuella datorers skalnings uppsättningar. Försök att dela antalet kluster i olika prenumerationer, i synnerhet om du förväntar dig att de ska vara mycket aktiva (till exempel en aktiv kluster autoskalning) eller har flera klienter (till exempel rancher, terraform och så vidare).
 
 ## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>Mitt klusters etablerings status har ändrats från klar till misslyckades med eller utan att jag utför en åtgärd. Vad ska jag göra?
 
@@ -220,46 +211,13 @@ Om klustrets etablerings status ändras från *klar* till *misslyckad* eller uta
 
 [Skicka en supportbegäran](https://azure.microsoft.com/support/options/#submit)om klustrets etablerings status är kvar som *misslyckad* eller om programmen i klustret slutar fungera.
 
+## <a name="my-watch-is-stale-or-azure-ad-pod-identity-nmi-is-returning-status-500"></a>Min Watch är inaktuell eller Azure AD Pod Identity NMI returnerar status 500
+
+Om du använder Azure-brandväggen som i det här [exemplet](limit-egress-traffic.md#restrict-egress-traffic-using-azure-firewall)kan du stöta på det här problemet eftersom de långsamma TCP-anslutningarna via brand vägg som använder program regler för närvarande har ett fel (som ska lösas i Q1CY21) som gör att go `keepalives` avslutas i brand väggen. Tills det här problemet har lösts kan du minska genom att lägga till en nätverks regel (i stället för program regel) till IP-AKS för API-servern.
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Azure Storage-och AKS-felsökning
 
-### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-disk"></a>Vilka är de rekommenderade stabila versionerna av Kubernetes för Azure disk? 
-
-| Kubernetes-version | Rekommenderad version |
-|--|:--:|
-| 1.12 | 1.12.9 eller senare |
-| 1.13 | 1.13.6 eller senare |
-| 1,14 | 1.14.2 eller senare |
-
-
-### <a name="waitforattach-failed-for-azure-disk-parsing-devdiskazurescsi1lun1-invalid-syntax"></a>WaitForAttach misslyckades för Azure-disken: parsning av "/dev/disk/Azure/SCSI1/lun1": ogiltig syntax
-
-I Kubernetes version 1,10 kan MountVolume. WaitForAttach Miss lyckas med en ommontering av Azure-disk.
-
-I Linux kan du se ett felaktigt format fel för DevicePath. Exempel:
-
-```console
-MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
-  Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
-```
-
-I Windows kan du se fel numret för DevicePath (LUN). Exempel:
-
-```console
-Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
-1102-dynamic-pvc-6c526c51-4a18-11e8-ab5c-000d3af7b38e) lun:(4)
-```
-
-Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
-
-| Kubernetes-version | Fast version |
-|--|:--:|
-| 1,10 | 1.10.2 eller senare |
-| 1,11 | 1.11.0 eller senare |
-| 1,12 och senare | E.t. |
-
-
-### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Det gick inte att ställa in UID och GID i mountOptions för Azure disk
+### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Det gick inte att ställa in UID och `GID` i mountOptions för Azure disk
 
 Azure-disken använder ext4, xfs-filsystem som standard och mountOptions, till exempel UID = x, GID = x kan inte ställas in vid monterings tiden. Om du till exempel försökte ange mountOptions UID = 999, GID = 999, ser du ett fel som:
 
@@ -290,7 +248,7 @@ spec:
   >[!NOTE]
   > Eftersom GID och UID monteras som rot eller 0 som standard. Om GID eller UID anges som icke-rot, till exempel 1000, används Kubernetes för `chown` att ändra alla kataloger och filer under den disken. Den här åtgärden kan ta lång tid och kan göra det mycket långsamt att montera disken.
 
-* Använd `chown` i initContainers för att ange GID och UID. Exempel:
+* Använd `chown` i initContainers för att ange `GID` och `UID` . Exempel:
 
 ```yaml
 initContainers:
@@ -313,7 +271,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.9 eller senare |
 | 1.13 | 1.13.6 eller senare |
 | 1,14 | 1.14.2 eller senare |
-| 1,15 och senare | E.t. |
+| 1,15 och senare | Saknas |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden har en föråldrad disk lista kan du minska genom att koppla bort alla icke-befintliga diskar från den virtuella datorn som en Mass åtgärd. **En separat från koppling av icke-befintliga diskar kan Miss lyckas.**
 
@@ -332,7 +290,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.10 eller senare |
 | 1.13 | 1.13.8 eller senare |
 | 1,14 | 1.14.4 eller senare |
-| 1,15 och senare | E.t. |
+| 1,15 och senare | Saknas |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden är i ett felaktigt tillstånd kan du minska genom att manuellt uppdatera VM-statusen med hjälp av någon av följande:
 
@@ -387,8 +345,8 @@ parameters:
 
 Några ytterligare användbara *mountOptions* -inställningar:
 
-* *mfsymlinks* kommer att göra Azure Files montering (CIFS) stöder symboliska länkar
-* *nobrl* förhindrar sändning av byte intervall lås begär anden till servern. Den här inställningen är nödvändig för vissa program som slutar med en CIFS-format som är obligatoriska byte intervall lås. De flesta CIFS-servrar har ännu inte stöd för begäran om att låsa byte intervall lås. Om du inte använder *nobrl* kan program som slutar med CIFS-format som är obligatoriska byte intervall lås orsaka fel meddelanden som liknar:
+* `mfsymlinks` kommer att göra Azure Files montering (CIFS) stöder symboliska länkar
+* `nobrl` förhindrar överföring av byte intervall lås begär anden till servern. Den här inställningen är nödvändig för vissa program som slutar med en CIFS-format som är obligatoriska byte intervall lås. De flesta CIFS-servrar har ännu inte stöd för begäran om att låsa byte intervall lås. Om du inte använder *nobrl* kan program som slutar med CIFS-format som är obligatoriska byte intervall lås orsaka fel meddelanden som liknar:
     ```console
     Error: SQLITE_BUSY: database is locked
     ```
@@ -404,7 +362,7 @@ fixing permissions on existing directory /var/lib/postgresql/data
 
 Det här felet orsakas av Azure Files-plugin-programmet som använder CIFS/SMB-protokollet. När du använder CIFS/SMB-protokollet, kunde inte fil-och katalog behörigheter ändras efter montering.
 
-Lös problemet genom att använda under *Sök väg* tillsammans med Azures disk-plugin-programmet. 
+Lös problemet genom att använda `subPath` tillsammans med Azures disk-plugin-programmet. 
 
 > [!NOTE] 
 > För ext3/4-disk typen finns en förlorad + found katalog efter att disken formaterats.
@@ -441,7 +399,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 |--|:--:|
 | 1.12 | 1.12.6 eller senare |
 | 1.13 | 1.13.4 eller senare |
-| 1,14 och senare | E.t. |
+| 1,14 och senare | Saknas |
 
 ### <a name="azure-files-mount-fails-because-of-storage-account-key-changed"></a>Azure Files monteringen Miss lyckas på grund av att lagrings konto nyckeln har ändrats
 
@@ -474,7 +432,7 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 
 Det här felet beror på ett konkurrens villkor för en överordnad kluster autoskalning. I sådana fall slutar kluster autoskalning med ett annat värde än det som faktiskt finns i klustret. Inaktivera och återaktivera [klustrets autoskalning][cluster-autoscaler]för att komma ur det här läget.
 
-### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Långsam disk bilaga, GetAzureDiskLun tar 10 till 15 minuter och du får ett fel meddelande
+### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Långsam disk bilaga, `GetAzureDiskLun` tar 10 till 15 minuter och du får ett fel meddelande
 
 På Kubernetes-versioner som är **äldre än 1.15.0** kan du få ett fel meddelande som **fel WaitForAttach inte kan hitta LUN för disk**.  Lösningen på det här problemet är att vänta cirka 15 minuter och försöka igen.
 
@@ -483,13 +441,13 @@ På Kubernetes-versioner som är **äldre än 1.15.0** kan du få ett fel meddel
 
 Från och med Kubernetes [1,16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) kan [endast en definierad delmängd av etiketter med Kubernetes.io-prefix](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) användas av kubelet till noder. AKS kan inte ta bort aktiva etiketter för din räkning utan medgivande, eftersom det kan orsaka avbrott i arbets belastningar som påverkas.
 
-Det innebär att du kan göra följande för att undvika detta:
+Det innebär att du kan åtgärda problemet genom att:
 
 1. Uppgradera ditt kluster kontroll plan till 1,16 eller högre
 2. Lägg till en ny nodepoool på 1,16 eller högre utan de kubernetes.io-etiketter som inte stöds
-3. Ta bort den äldre nodepool
+3. Ta bort den äldre Node-poolen
 
-AKS undersöker möjligheten att söka efter aktiva etiketter på en nodepool för att förbättra den här lösningen.
+AKS undersöker kapaciteten för att ligga över aktiva etiketter i en Node-pool för att förbättra den här lösningen.
 
 
 

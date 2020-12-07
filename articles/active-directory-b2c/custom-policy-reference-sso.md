@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/07/2020
+ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4824b64236270c422f22809e9eeb191ee3be27fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e47eda29b0ad1c47edad08195b2ffd0fe3835af
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85202576"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750484"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Hantering av enkel inloggning i Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Azure AD B2C har definierat ett antal SSO-användarsessioner som kan användas:
 
 |Replikeringsprovider  |Omfång  |
 |---------|---------|
-|[NoopSSOSessionProvider](#noopssosessionprovider)     |  Inget       |       
+|[NoopSSOSessionProvider](#noopssosessionprovider)     |  Ingen       |       
 |[DefaultSSOSessionProvider](#defaultssosessionprovider)    | Azure AD B2C intern sessionshanteraren.      |       
 |[ExternalLoginSSOSessionProvider](#externalloginssosessionprovider)     | Mellan Azure AD B2C och OAuth1, OAuth2 eller OpenId Connect Identity Provider.        |         |
 |[OAuthSSOSessionProvider](#oauthssosessionprovider)     | Mellan ett OAuth2-eller OpenId Connect-program för förlitande part och Azure AD B2C.        |        
@@ -110,9 +110,6 @@ Den här providern används för att utelämna skärmen "Välj identitetsprovide
 <TechnicalProfile Id="SM-SocialLogin">
   <DisplayName>Session Management Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.ExternalLoginSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-  <Metadata>
-    <Item Key="AlwaysFetchClaimsFromProvider">true</Item>
-  </Metadata>
   <PersistedClaims>
     <PersistedClaim ClaimTypeReferenceId="AlternativeSecurityId" />
   </PersistedClaims>
@@ -123,7 +120,7 @@ Den här providern används för att utelämna skärmen "Välj identitetsprovide
 
 | Attribut | Krävs | Beskrivning|
 | --- | --- | --- |
-| AlwaysFetchClaimsFromProvider | Inga | Används inte för närvarande, kan ignoreras. |
+| AlwaysFetchClaimsFromProvider | Nej | Används inte för närvarande, kan ignoreras. |
 
 ### <a name="oauthssosessionprovider"></a>OAuthSSOSessionProvider
 
@@ -165,8 +162,8 @@ Följande `SM-Saml-issuer` tekniska profil används av den [tekniska profilen f�
 
 | Attribut | Krävs | Beskrivning|
 | --- | --- | --- |
-| IncludeSessionIndex | Inga | Används inte för närvarande, kan ignoreras.|
-| RegisterServiceProviders | Inga | Anger att leverantören ska registrera alla SAML-tjänstleverantörer som har utfärdat en kontroll. Möjliga värden: `true` (standard) eller `false` .|
+| IncludeSessionIndex | Nej | Används inte för närvarande, kan ignoreras.|
+| RegisterServiceProviders | Nej | Anger att leverantören ska registrera alla SAML-tjänstleverantörer som har utfärdat en kontroll. Möjliga värden: `true` (standard) eller `false` .|
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,12 +7,12 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 992fb4422974dad7a48e5fea953ac4530bb52d5c
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: a517f7a796b6543c8d60f0d1ebdba16afa0bc4b7
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122596"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751435"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Använd egenskaper i en Azure IoT Central-lösning
 
@@ -32,7 +32,7 @@ Följande skärm bild visar en egenskaps definition i ett Azure IoT Central-prog
 
 I följande tabell visas konfigurations inställningarna för en egenskaps funktion.
 
-| Field           | Beskrivning                                                                                                                                                                                                                        |
+| Fält           | Beskrivning                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Visningsnamn    | Visnings namnet för egenskap svärdet som används på instrument paneler och formulär.                                                                                                                                                              |
 | Namn            | Egenskapens namn. Azure IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. Det här fältet måste vara alfanumeriskt.                                                 |
@@ -79,7 +79,7 @@ I det här exemplet visas två egenskaper. Dessa egenskaper relaterar till egens
 
 * `@type` anger typen av funktion: `Property` . I föregående exempel visas även den semantiska typen `Temperature` för båda egenskaperna.
 * `name` för egenskapen.
-* `schema` anger egenskapens datatyp. Det här värdet kan vara en primitiv typ, till exempel Double, Integer, Boolean eller String. Komplexa objekt typer, matriser och Maps stöds också.
+* `schema` anger egenskapens datatyp. Det här värdet kan vara en primitiv typ, till exempel Double, Integer, Boolean eller String. Komplexa objekt typer och Maps stöds också.
 * `writable` Som standard är egenskaperna skrivskyddade. Du kan markera en egenskap som skrivbar genom att använda det här fältet.
 
 Valfria fält, till exempel visnings namn och beskrivning, gör att du kan lägga till mer information i gränssnittet och funktionerna.

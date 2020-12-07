@@ -1,14 +1,17 @@
 ---
 title: Konfigurera en Azure Migrate-apparat för Hyper-V
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat för att utvärdera och migrera virtuella Hyper-V-datorer.
-ms.topic: article
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 03/23/2020
-ms.openlocfilehash: a12785ea3791366badb907498796a73c2c993623
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5c5fdd1423d806bcc4d2f124310112a3e407e416
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008318"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751129"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Konfigurera en installation för virtuella Hyper-V-datorer
 

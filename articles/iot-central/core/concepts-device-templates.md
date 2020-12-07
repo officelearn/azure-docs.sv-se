@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: e82a377d62184c8ae1d2e8f076b228e36005887a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1a352849cb5bb8563a7e09500f081139a24e97ea
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992683"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750704"
 ---
 # <a name="what-are-device-templates"></a>Vad är enhetsmallar?
 
@@ -225,7 +225,7 @@ I det här exemplet visas två egenskaper (en skrivskyddad och en skrivbar), en 
 
 - `@type` för att ange typen av funktion: `Telemetry` , `Property` , eller `Command` .  I vissa fall innehåller typen en semantisk typ som gör det möjligt för IoT Central att göra vissa antaganden om hur värdet ska hanteras.
 - `name` för telemetri-värdet.
-- `schema` för att ange data typen för Telemetrin eller egenskapen. Det här värdet kan vara en primitiv typ, till exempel Double, Integer, Boolean eller String. Komplexa objekt typer, matriser och Maps stöds också.
+- `schema` för att ange data typen för Telemetrin eller egenskapen. Det här värdet kan vara en primitiv typ, till exempel Double, Integer, Boolean eller String. Komplexa objekt typer och Maps stöds också.
 
 Valfria fält, till exempel visnings namn och beskrivning, gör att du kan lägga till mer information i gränssnittet och funktionerna.
 

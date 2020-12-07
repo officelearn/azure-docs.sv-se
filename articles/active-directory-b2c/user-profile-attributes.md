@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/20/2020
+ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 98c33d4b9e749e804f70d9dccb7198884c80dfe7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 85030285810433dc77d1f466d160c50d1f89770e
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952714"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750415"
 ---
 # <a name="user-profile-attributes"></a>Attribut för användarprofil
 
@@ -51,7 +51,7 @@ I tabellen nedan visas de egenskaper för [användar resurs typ](/graph/api/reso
 |displayName     |Sträng|Användarens visnings namn. Maxlängd 256.|Ja|Ja|Bestående, utdata|
 |facsimileTelephoneNumber<sup>1</sup>|Sträng|Telefonnumret till användarens företags Fax maskin.|Ja|Nej|Bestående, utdata|
 |förnamn       |Sträng|Användarens förnamn (förnamn). Maxlängd 64.|Ja|Ja|Bestående, utdata|
-|Befattning        |Sträng|Användarens jobb titel. Maxlängd 128.|Ja|Ja|Bestående, utdata|
+|jobTitle        |Sträng|Användarens jobb titel. Maxlängd 128.|Ja|Ja|Bestående, utdata|
 |immutableId     |Sträng|En identifierare som vanligt vis används för användare som migrerats från lokala Active Directory.|Nej|Nej|Bestående, utdata|
 |legalAgeGroupClassification|Sträng|Juridisk ålders grupps klassificering. Skrivskyddad och beräknas utifrån egenskaperna ageGroup och consentProvidedForMinor. Tillåtna värden: null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult och vuxen.|Ja|Nej|Bestående, utdata|
 |legalCountry<sup>1</sup>  |Sträng|Land/region för juridiskt syfte.|Nej|Nej|Bestående, utdata|
@@ -64,9 +64,9 @@ I tabellen nedan visas de egenskaper för [användar resurs typ](/graph/api/reso
 |password        |Sträng|Lösen ordet för det lokala kontot när användaren skapas.|Nej|Nej|Beständiga|
 |passwordPolicies     |Sträng|Princip för lösen ordet. Det är en sträng som består av ett annat princip namn, avgränsat med kommatecken. t. ex. "DisablePasswordExpiration, DisableStrongPassword".|Nej|Nej|Bestående, utdata|
 |physicalDeliveryOfficeName (officeLocation)|Sträng|Arbets platsen på användarens arbets plats. Maxlängd 128.|Ja|Nej|Bestående, utdata|
-|Post nummer      |Sträng|Post numret för användarens post adress. Post numret är speciellt för användarens land/region. I USA i Amerika innehåller det här attributet post numret. Maxlängd 40.|Ja|Nej|Bestående, utdata|
+|postalCode      |Sträng|Post numret för användarens post adress. Post numret är speciellt för användarens land/region. I USA i Amerika innehåller det här attributet post numret. Maxlängd 40.|Ja|Nej|Bestående, utdata|
 |preferredLanguage    |Sträng|Det föredragna språket för användaren. Bör följa ISO 639-1-koden. Exempel: "en-US".|Nej|Nej|Bestående, utdata|
-|refreshTokensValidFromDateTime|DateTime|Alla uppdateringstoken som utfärdats före den här tiden är ogiltiga och program får ett fel meddelande när en ogiltig uppdateringstoken används för att hämta en ny åtkomsttoken. Om detta händer måste programmet skaffa en ny uppdateringstoken genom att göra en begäran till behörighets slut punkten. Skrivskyddad.|Nej|Nej|Utdata|
+|refreshTokensValidFromDateTime|DateTime|Alla uppdateringstoken som utfärdats före den här tiden är ogiltiga och program får ett fel meddelande när en ogiltig uppdateringstoken används för att hämta en ny åtkomsttoken. Om detta händer måste programmet skaffa en ny uppdateringstoken genom att göra en begäran till behörighets slut punkten. Skrivskyddad.|Nej|Nej|Resultat|
 |signInNames ([identiteter](manage-user-accounts-graph-api.md#identities-property)) |Sträng|Det unika inloggnings namnet för den lokala konto användaren av valfri typ i katalogen. Använd detta för att få en användare med inloggnings värde utan att ange den lokala konto typen.|Nej|Nej|Indata|
 |signInNames. userName ([identiteter](manage-user-accounts-graph-api.md#identities-property)) |Sträng|Unikt användar namn för den lokala konto användaren i katalogen. Använd detta för att skapa eller hämta en användare med ett särskilt inloggnings användar namn. Om du anger detta i PersistedClaims under korrigerings åtgärden tas andra typer av signInNames bort. Om du vill lägga till en ny typ av signInNames måste du också behålla befintlig signInNames.|Nej|Nej|Indata, bestående, utdata|
 |signInNames. telefonnummer ([identiteter](manage-user-accounts-graph-api.md#identities-property)) |Sträng|Det unika telefonnumret för den lokala konto användaren i katalogen. Använd detta för att skapa eller hämta en användare med ett särskilt inloggnings telefonnummer. Om du anger detta i PersistedClaims under korrigerings åtgärden tas andra typer av signInNames bort. Om du vill lägga till en ny typ av signInNames måste du också behålla befintlig signInNames.|Nej|Nej|Indata, bestående, utdata|
@@ -75,16 +75,22 @@ I tabellen nedan visas de egenskaper för [användar resurs typ](/graph/api/reso
 |streetAddress   |Sträng|Gatuadressen till användarens arbets plats. Maxlängd 1024.|Ja|Ja|Bestående, utdata|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|Sträng|Användarens sekundära telefonnummer, som används för Multi-Factor Authentication.|Ja|Nej|Bestående, utdata|
 |strongAuthenticationEmailAddress<sup>1</sup>|Sträng|SMTP-adressen för användaren. Exempel: " bob@contoso.com " Detta attribut används för inloggning med användar namn princip för att lagra användarens e-postadress. E-postadressen används sedan i ett flöde för återställning av lösen ord.|Ja|Nej|Bestående, utdata|
-|strongAuthenticationPhoneNumber<sup>1</sup>|Sträng|Användarens primära telefonnummer, som används för Multi-Factor Authentication.|Ja|Nej|Bestående, utdata|
+|strongAuthenticationPhoneNumber<sup>2</sup>|Sträng|Användarens primära telefonnummer, som används för Multi-Factor Authentication.|Ja|Nej|Bestående, utdata|
 |surname         |Sträng|Användarens efter namn (familje namn eller efter namn). Maxlängd 64.|Ja|Ja|Bestående, utdata|
 |telephoneNumber (första posten i businessPhones)|Sträng|Det primära telefonnumret till användarens arbets plats.|Ja|Nej|Bestående, utdata|
 |userPrincipalName    |Sträng|Användarens huvudnamn (UPN). UPN är ett inloggnings namn för användaren som baseras på Internet standard RFC 822. Domänen måste finnas i klientens samling med verifierade domäner. Den här egenskapen krävs när ett konto skapas. Inte kan ändras.|Nej|Nej|Indata, bestående, utdata|
 |usageLocation   |Sträng|Krävs för användare som ska tilldelas licenser på grund av juridiskt krav för att kontrol lera tillgängligheten för tjänster i länder/regioner. Kan inte ha värdet null. En lands-/regionkod i två bokstäver (ISO standard 3166). Exempel: "US", "JP" och "GB".|Ja|Nej|Bestående, utdata|
 |userType        |Sträng|Ett sträng värde som kan användas för att klassificera användar typer i din katalog. Värdet måste vara medlem. Skrivskyddad.|Skrivskyddad|Nej|Bestående, utdata|
-|userState (externalUserState)<sup>2</sup>|Sträng|För Azure AD B2B-konto anger du om inbjudan är PendingAcceptance eller accepterad.|Nej|Nej|Bestående, utdata|
+|userState (externalUserState)<sup>3</sup>|Sträng|För Azure AD B2B-konto anger du om inbjudan är PendingAcceptance eller accepterad.|Nej|Nej|Bestående, utdata|
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Visar tidsstämpeln för den senaste ändringen av egenskapen UserState.|Nej|Nej|Bestående, utdata|
-|<sup>1 </sup> Stöds inte av Microsoft Graph<br><sup>2 </sup> Ska inte användas med Azure AD B2C||||||
 
+<sup>1 </sup> Stöds inte av Microsoft Graph<br><sup>2 </sup> Mer information finns i [attribut för MFA-telefonnummer](#mfa-phone-number-attribute)<br><sup>3 </sup> Ska inte användas med Azure AD B2C
+
+## <a name="mfa-phone-number-attribute"></a>Attribut för MFA-telefonnummer
+
+När du använder en telefon för Multi-Factor Authentication (MFA) används mobil telefonen för att verifiera användar identiteten. Om du vill [lägga till](https://docs.microsoft.com/graph/api/authentication-post-phonemethods) ett nytt telefonnummer program mässigt, [Uppdatera](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update), [Hämta](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)eller [ta bort](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete) telefonnumret, använder du [metoden MS Graph API Phone Authentication](https://docs.microsoft.com/graph/api/resources/phoneauthenticationmethod).
+
+I Azure AD B2C [anpassade principer](custom-policy-overview.md)är telefonnumret tillgängligt via `strongAuthenticationPhoneNumber` anspråks typ.
 
 ## <a name="extension-attributes"></a>Attribut för tillägg
 
@@ -108,7 +114,7 @@ Följande data typer stöds när du definierar en egenskap i ett schema tillägg
 |--------------|---------|
 |Boolesk    | Möjliga värden: **True** eller **false**. |
 |DateTime   | Måste anges i formatet ISO 8601. Kommer att lagras i UTC.   |
-|Heltal    | 32-bitars värde.               |
+|Integer    | 32-bitars värde.               |
 |Sträng     | högst 256 tecken.     |
 
 ## <a name="next-steps"></a>Nästa steg

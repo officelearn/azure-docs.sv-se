@@ -1,14 +1,17 @@
 ---
 title: Konfigurera en Azure Migrate-apparat för VMware
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat för att utvärdera och migrera virtuella VMware-datorer.
-ms.topic: article
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: f20bb77c29d98ab4e3549bfed43d47d1f1f7dc0c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cc479f8e4dc87155721b25fab2ba522880b0ac4f
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013640"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751065"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Konfigurera en installation för virtuella VMware-datorer
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: f4803cc9871b71e65e4d94ed37d3f9771be1cae0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 42e7f2ced0de00b088e3344c914fc71da84e4e8f
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454954"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750738"
 ---
 # <a name="what-is-azure-private-link"></a>Vad är Azure Privat Link? 
 Med Azures privata länk kan du få åtkomst till Azure PaaS-tjänster (till exempel Azure Storage och SQL Database) och Azure-värdbaserade/partner tjänster som ägs av en [privat slut punkt](private-endpoint-overview.md) i det virtuella nätverket.
@@ -70,6 +70,7 @@ Azure Private-länken ger följande fördelar:
 | Azure Monitor <br/>(Log Analytics & Application Insights) | Alla offentliga regioner      |  | Allmän tillgänglighet (GA)   <br/> [Lär dig hur du skapar en privat slut punkt för Azure Monitor.](../azure-monitor/platform/private-link-security.md)   | 
 | Azure Batch | Alla offentliga regioner utom: Tyskland, centrala, Tyskland NORDÖSTRA <br/> Alla myndighets regioner  | | Allmän tillgänglighet (GA) <br/> [Lär dig hur du skapar en privat slut punkt för Azure Batch.](../batch/private-connectivity.md) |
 |Azure Data Factory | Alla offentliga regioner<br/> Alla myndighets regioner<br/>Alla regioner i Kina    | Autentiseringsuppgifter måste lagras i ett Azure Key Vault| Allmän tillgänglighet (GA)   <br/> [Lär dig hur du skapar en privat slut punkt för Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
+|Azure Managed Disks | Alla offentliga regioner<br/> Alla myndighets regioner<br/>Alla regioner i Kina    | [Klicka här för kända begränsningar](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#limitations) | Allmän tillgänglighet (GA)   <br/> [Lär dig hur du skapar en privat slut punkt för Azure Data Factory.](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)   |
 
 
 
@@ -97,7 +98,7 @@ Pris information finns i [priser för privata Azure-länkar](https://azure.micro
 ## <a name="faqs"></a>Vanliga frågor och svar  
 Vanliga frågor och svar om [Azures privata länkar](private-link-faq.md).
  
-## <a name="limits"></a>Gränser  
+## <a name="limits"></a>Begränsningar  
 För gränser, se [gränser för privata Azure-länkar](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits).
 
 ## <a name="service-level-agreement"></a>Serviceavtal

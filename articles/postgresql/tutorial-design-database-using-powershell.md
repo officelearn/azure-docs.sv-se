@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 70edf224494fdf1395d59d1c591d0369b9b20557
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cf84a8abcc0f1c890a51bf07056ac31d37107e53
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018094"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749121"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>Självstudie: utforma en Azure Database for PostgreSQL-enskild server med PowerShell
 
@@ -100,7 +100,7 @@ New-AzPostgreSqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup 
 ```
 
 > [!NOTE]
-> Anslutningar till Azure Database for PostgreSQL kommunicera via port 3306. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 3306 inte tillåts. I det här scenariot kan du bara ansluta till servern om din IT-avdelning öppnar port 3306.
+> Anslutningar till Azure Database for PostgreSQL kommunicera via port 5432. Om du försöker ansluta inifrån ett företags nätverk kanske utgående trafik via port 5432 inte tillåts. I det här scenariot kan du bara ansluta till servern om din IT-avdelning öppnar port 5432.
 
 ## <a name="get-the-connection-information"></a>Hämta anslutningsinformationen
 

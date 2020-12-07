@@ -4,12 +4,12 @@ description: Ser du inte data i Azure Application Insights? Prova här.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 9c053796dd887722d1d767229621c0a1ae004b5c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c3f0350152ece32829291012d583be87a90227cf
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083175"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748948"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Fel sökning av inga data Application Insights för .NET/.NET Core
 
@@ -39,12 +39,40 @@ ms.locfileid: "93083175"
 
 * Se [fel sökning statusövervakare](./monitor-performance-live-website-now.md#troubleshoot).
 
+## <a name="filenotfoundexception-could-not-load-file-or-assembly-microsoftaspnet-telemetrycorrelation"></a>FileNotFoundException: det gick inte att läsa in filen eller sammansättningen "Microsoft. ASPNET TelemetryCorrelation
+
+Mer information om det här felet finns i [GitHub Issue 1610] ( https://github.com/microsoft/ApplicationInsights-dotnet/issues/1610) .
+
+När du uppgraderar från SDK: er som är äldre än (2,4) måste du se till att följande ändringar tillämpas på `web.config` och `ApplicationInsights.config` :
+
+1. Två http-moduler i stället för en. I `web.config` bör du ha två http-moduler. Ordningen är viktig för vissa scenarier:
+
+    ``` xml
+    <system.webServer>
+      <modules>
+          <add name="TelemetryCorrelationHttpModule" type="Microsoft.AspNet.TelemetryCorrelation.TelemetryCorrelationHttpModule, Microsoft.AspNet.TelemetryCorrelation" preCondition="integratedMode,managedHandler" />
+          <add name="ApplicationInsightsHttpModule" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" preCondition="managedHandler" />
+      </modules>
+    </system.webServer>
+    ```
+
+2. `ApplicationInsights.config`Förutom `RequestTrackingTelemetryModule` bör du ha följande modul för telemetri:
+
+    ``` xml
+    <TelemetryModules>
+      <Add Type="Microsoft.ApplicationInsights.Web.AspNetDiagnosticTelemetryModule, Microsoft.AI.Web"/>
+    </TelemetryModules>
+    ```
+
+*Om det inte **går att uppgradera korrekt kan det leda till oväntade undantag eller telemetri som inte samlas in.** _
+
+
 ## <a name="no-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>Alternativet Lägg till Application Insights i Visual Studio
-*När jag högerklickar på ett befintligt projekt i Solution Explorer visas inga Application Insights alternativ.*
+_When jag högerklickar på ett befintligt projekt i Solution Explorer, ser jag inga Application Insights alternativ. *
 
 * Alla typer av .NET-projekt stöds inte av verktygen. Webb-och WCF-projekt stöds. För andra projekt typer, till exempel Skriv bords-eller tjänst program, kan du fortfarande [lägga till en Application Insights SDK i projektet manuellt](./windows-desktop.md).
 * Kontrol lera att du har [Visual Studio 2013 Update 3 eller senare](/visualstudio/releasenotes/vs2013-update3-rtm-vs). Det levereras förinstallerat med Developer Analytics-verktyg, som tillhandahåller Application Insights SDK.
-* Välj **verktyg** , **tillägg och uppdateringar** och kontrol lera att **Developer Analytics tools** är installerat och aktiverat. Om så är fallet klickar du på **uppdateringar** för att se om det finns en tillgänglig uppdatering.
+* Välj **verktyg**, **tillägg och uppdateringar** och kontrol lera att **Developer Analytics tools** är installerat och aktiverat. Om så är fallet klickar du på **uppdateringar** för att se om det finns en tillgänglig uppdatering.
 * Öppna dialog rutan nytt projekt och välj ASP.NET-webbprogram. Om du ser det Application Insights alternativet installeras-verktygen. Annars kan du prova att avinstallera och sedan installera om Developer Analytics-verktygen.
 
 ## <a name="adding-application-insights-failed"></a><a name="q02"></a>Det gick inte att lägga till Application Insights
@@ -65,7 +93,7 @@ Löser
 ## <a name="i-get-an-error-instrumentation-key-cannot-be-empty"></a><a name="emptykey"></a>Jag får ett fel meddelande om Instrumentation-nyckeln kan inte vara tom
 Det verkar som om något gick fel när du installerade Application Insights eller kanske ett loggnings kort.
 
-I Solution Explorer högerklickar du på projektet och väljer **Application Insights > konfigurera Application Insights** . Du får en dialog ruta som bjuder in dig för att logga in på Azure och antingen skapa en Application Insights resurs eller att använda en befintlig.
+I Solution Explorer högerklickar du på projektet och väljer **Application Insights > konfigurera Application Insights**. Du får en dialog ruta som bjuder in dig för att logga in på Azure och antingen skapa en Application Insights resurs eller att använda en befintlig.
 
 ## <a name="nuget-packages-are-missing-on-my-build-server"></a><a name="NuGetBuild"></a> "NuGet-paket saknas" på min build-Server
 *Allt bygger på OK när jag felsöker på min utvecklings dator, men jag får ett NuGet-fel på Build-servern.*
@@ -84,7 +112,7 @@ Sannolika orsaker:
 Löser
 
 * Se till att Visual Studio-versionen är 2013 uppdatering 3 eller senare.
-* Välj **verktyg** , **tillägg och uppdateringar** och kontrol lera att **Developer Analytics tools** är installerat och aktiverat. Om så är fallet klickar du på **uppdateringar** för att se om det finns en tillgänglig uppdatering.
+* Välj **verktyg**, **tillägg och uppdateringar** och kontrol lera att **Developer Analytics tools** är installerat och aktiverat. Om så är fallet klickar du på **uppdateringar** för att se om det finns en tillgänglig uppdatering.
 * Högerklicka på ditt projekt i Solution Explorer. Om du ser kommandot **Application Insights > konfigurera Application Insights** använder du det för att ansluta projektet till resursen i Application Insightss tjänsten.
 
 Annars stöds inte projekt typen direkt av Developer Analytics-verktygen. Om du vill se din telemetri loggar du in på [Azure Portal](https://portal.azure.com), väljer Application Insights i det vänstra navigerings fältet och väljer ditt program.
@@ -128,7 +156,7 @@ Löser
   ![Skärm bild som visar hur du kör programmet i fel söknings läge i Visual Studio.](./media/asp-net-troubleshoot-no-data/output-window.png)
 * Öppna [diagnostisk sökning](./diagnostic-search.md)i Application Insights-portalen. Data visas vanligt vis här först.
 * Klicka på knappen Uppdatera. Bladet uppdateras regelbundet, men du kan också göra det manuellt. Uppdaterings intervallet är längre för större tidsintervall.
-* Kontrol lera Instrumentation Keys-matchningar. På huvud bladet för din app i Application Insights portal går du till kombinations rutan **Essentials** och tittar på **Instrumentation-tangenten** . Öppna sedan ApplicationInsights.config i projektet i Visual Studio och leta upp `<instrumentationkey>` . Kontrol lera att de två nycklarna är lika. Om inte:  
+* Kontrol lera Instrumentation Keys-matchningar. På huvud bladet för din app i Application Insights portal går du till kombinations rutan **Essentials** och tittar på **Instrumentation-tangenten**. Öppna sedan ApplicationInsights.config i projektet i Visual Studio och leta upp `<instrumentationkey>` . Kontrol lera att de två nycklarna är lika. Om inte:  
   * I portalen klickar du på Application Insights och letar efter app-resursen med rätt nyckel. eller
   * I Visual Studio Solution Explorer högerklickar du på projektet och väljer Application Insights, konfigurera. Återställ appen för att skicka telemetri till rätt resurs.
   * Om du inte hittar matchande nycklar kontrollerar du att du använder samma inloggnings uppgifter i Visual Studio som i portalen.
@@ -239,9 +267,9 @@ PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-Applica
 ```
 
 Du kan ändra dessa parametrar efter behov:
-- **MaxCollectSec** . Ange den här parametern för att förhindra att PerfView körs på obestämd tid och påverkar serverns prestanda.
-- **OnlyProviders** . Ange den här parametern om du endast vill samla in loggar från SDK. Du kan anpassa listan baserat på dina speciella undersökningar. 
-- **NoGui** . Ange den här parametern om du vill samla in loggar utan det grafiska användar gränssnittet.
+- **MaxCollectSec**. Ange den här parametern för att förhindra att PerfView körs på obestämd tid och påverkar serverns prestanda.
+- **OnlyProviders**. Ange den här parametern om du endast vill samla in loggar från SDK. Du kan anpassa listan baserat på dina speciella undersökningar. 
+- **NoGui**. Ange den här parametern om du vill samla in loggar utan det grafiska användar gränssnittet.
 
 
 Om du vill ha mer information läser du

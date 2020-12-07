@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: sumuth
 ms.date: 10/23/2020
-ms.openlocfilehash: 3f32d3d7cc498126d0fbdb709aaf0424d335793f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a7dc6a6b11d3bfacf0aac5472a872ffaa7acc92b
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534132"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748713"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql---flexible-server-preview"></a>Snabb start: Använd en ARM-mall för att skapa en Azure Database for MySQL-flexibel Server (för hands version)
 
@@ -53,14 +53,12 @@ Skapa en _mysql-flexible-server-template.jspå_ filen och kopiera det här JSON-
     "serverEdition": {
       "type": "String"
     },
-    "vCores": {
-      "type": "Int"
-    },
     "storageSizeMB": {
       "type": "Int"
     },
-    "standbyCount": {
-      "type": "Int"
+    "haEnabled": {
+      "type": "string",
+      "defaultValue": "Disabled"
     },
     "availabilityZone": {
       "type": "String"
@@ -85,11 +83,11 @@ Skapa en _mysql-flexible-server-template.jspå_ filen och kopiera det här JSON-
     }
   },
   "variables": {
-    "api": "2020-02-14-privatepreview",
+    "api": "2020-07-01-preview",
     "firewallRules": "[parameters('firewallRules').rules]",
     "publicNetworkAccess": "[if(empty(parameters('vnetData')), 'Enabled', 'Disabled')]",
-    "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"vnetId\": \"\", \"vnetName\": \"\", \"vnetResourceGroup\": \"\", \"subnetName\": \"\" }'), parameters('vnetData'))]",
-    "finalVnetData": "[json(concat('{ \"DelegatedVnetID\": \"', variables('vnetDataSet').vnetId, '\", \"DelegatedVnetName\": \"', variables('vnetDataSet').vnetName, '\", \"DelegatedVnetResourceGroup\": \"', variables('vnetDataSet').vnetResourceGroup, '\", \"DelegatedSubnetName\": \"', variables('vnetDataSet').subnetName, '\"}'))]"
+    "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"subnetArmResourceId\": \"\" }'), parameters('vnetData'))]",
+    "finalVnetData": "[json(concat('{ \"subnetArmResourceId\": \"', variables('vnetDataSet').subnetArmResourceId, '\"}'))]"
   },
   "resources": [
     {
@@ -99,8 +97,7 @@ Skapa en _mysql-flexible-server-template.jspå_ filen och kopiera det här JSON-
       "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_D4ds_v4",
-        "tier": "[parameters('serverEdition')]",
-        "capacity": "[parameters('vCores')]"
+        "tier": "[parameters('serverEdition')]"        
       },
       "tags": "[parameters('tags')]",
       "properties": {
@@ -108,8 +105,8 @@ Skapa en _mysql-flexible-server-template.jspå_ filen och kopiera det här JSON-
         "administratorLogin": "[parameters('administratorLogin')]",
         "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
         "publicNetworkAccess": "[variables('publicNetworkAccess')]",
-        "VnetInjArgs": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
-        "standbyCount": "[parameters('standbyCount')]",
+        "DelegatedSubnetArguments": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
+        "haEnabled": "[parameters('haEnabled')]",
         "storageProfile": {
           "storageMB": "[parameters('storageSizeMB')]",
           "backupRetentionDays": "[parameters('backupRetentionDays')]"
@@ -184,7 +181,7 @@ Följ de här stegen för att kontrol lera om servern har skapats i Azure.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **Azure Database for MySQL servrar** .
+1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **Azure Database for MySQL servrar**.
 1. I listan databas väljer du den nya servern. **Översikts** sidan för din nya Azure Database for MySQL-server visas.
 
 ### <a name="powershell"></a>PowerShell
@@ -217,10 +214,10 @@ Så här tar du bort resursgruppen:
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **resurs grupper** .
+1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **resurs grupper**.
 1. I listan resurs grupp väljer du namnet på din resurs grupp.
-1. På sidan **Översikt** i resurs gruppen väljer du **ta bort resurs grupp** .
-1. I bekräftelse dialog rutan skriver du namnet på din resurs grupp och väljer sedan **ta bort** .
+1. På sidan **Översikt** i resurs gruppen väljer du **ta bort resurs grupp**.
+1. I bekräftelse dialog rutan skriver du namnet på din resurs grupp och väljer sedan **ta bort**.
 
 ### <a name="powershell"></a>PowerShell
 

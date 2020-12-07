@@ -3,12 +3,12 @@ title: IP-adresser som används av Application Insights och Log Analytics | Micr
 description: Undantag för Server brand väggen krävs av Application Insights
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: c1ccb40a9b8d8080da416aeb920ed016a231f697
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 10328efa9b8b9cdbe1e57e1e982653aea7e39574
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547941"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748883"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-adresser som används av Application Insights och Log Analytics
 Tjänsten [Azure Application Insights](./app-insights-overview.md) använder ett antal IP-adresser. Du kan behöva känna till de här adresserna om appen som du övervakar ligger bakom en brand vägg.
@@ -46,6 +46,10 @@ Statusövervakare konfiguration – behövs bara när du gör ändringar.
 
 ## <a name="availability-tests"></a>Tillgänglighetstester
 Det här är listan över adresser från vilka [webb testerna för tillgänglighet](./monitor-web-app-availability.md) körs. Om du vill köra webbtester på din app, men webb servern är begränsad till att betjäna vissa klienter, måste du tillåta inkommande trafik från våra tillgänglighets test servrar.
+
+
+> [!NOTE]
+> För resurser som finns i privata virtuella nätverk som inte kan tillåta direkt inkommande kommunikation med tillgänglighets test agenter i offentliga Azure är det enda alternativet att [skapa och vara värd för dina egna tester för anpassad tillgänglighet](availability-azure-functions.md).
 
 ### <a name="service-tag"></a>Tjänsttagg
 

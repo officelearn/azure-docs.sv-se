@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 87e33940d927fc9116c03345011e21398384d484
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3ec9718d313e7e8d757eb41c230225bdcf9ebd49
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024423"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749053"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -54,7 +54,7 @@ Det finns tre olika samplings metoder:
 * **Provtagnings sampling** sker i Application Insights tjänstens slut punkt. Den tar bort vissa av Telemetrin som kommer från din app, enligt en samplings frekvens som du anger. Det minskar inte telemetri trafik som skickas från din app, men hjälper dig att hålla dig inom din månads kvot. Den största fördelen med inmatnings sampling är att du kan ange samplings frekvensen utan att distribuera om appen. Provtagnings samplingen fungerar enhetligt för alla servrar och klienter, men gäller inte när någon annan typ av sampling är i drift.
 
 > [!IMPORTANT]
-> Om anpassningsbara eller fasta samplings metoder är i drift inaktive ras inmatnings sampling.
+> Om anpassningsbara eller fasta samplings metoder är aktiverade för en typ av telemetri, inaktive ras inmatnings sampling för Telemetrin. Typer av telemetri som undantas från sampling på SDK-nivå kommer dock fortfarande att vara beroende av inmatnings samplingen vid den pris uppsättning som angetts i portalen.
 
 ## <a name="adaptive-sampling"></a>Anpassningsbar sampling
 

@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 66401e048413163af0d96da80a0415ee8f9cbb19
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 95f59b73682e461a350410b38e3a021226cd7db6
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601534"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748696"
 ---
 # <a name="basic-concepts"></a>Grundläggande begrepp
 
@@ -99,6 +99,15 @@ Exempel på JWT som genereras för en SGX-enklaven:
 }.[Signature]
 ```
 Anspråk som "EXP", "IAT", "ISS", "NBF" definieras av [JWT RFC](https://tools.ietf.org/html/rfc7517) och återstående genereras av Azure-attestering. Mer information finns i [anspråk som utfärdats av Azure-attestering](claim-sets.md) .
+
+## <a name="encryption-of-data-at-rest"></a>Kryptering av data i vila
+
+Azure-attesteringen behåller sina data i Azure Storage för att skydda kund information. Azure Storage tillhandahåller kryptering av data i vila när de är skrivna i Data Center och dekrypterar dem för att kunderna ska kunna komma åt dem. Krypteringen sker med hjälp av en Microsoft-hanterad krypterings nyckel. 
+
+Förutom att skydda data i Azure Storage utnyttjar Azure attestering också Azure Disk Encryption (ADE) för att kryptera virtuella datorer i tjänsten. För Azure-attestering som körs i en enklaven i Azures miljö för konfidentiella data behandling stöds inte ADE-tillägget för närvarande. I sådana fall, för att förhindra att data lagras i minnet, är växlings filen inaktive rad. 
+
+Inga kund uppgifter sparas på de lokala Azure attesterings instansens lokala hård diskar.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

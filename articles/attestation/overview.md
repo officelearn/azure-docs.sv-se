@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 2ee906b406f5fd09fc870626f1905541a4270c66
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6a587ecbe7ff67908b22d4f2429cfdd0c511e07d
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670535"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748781"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (förhandsversion)
 
-Microsoft Azure attestering (för hands version) är en lösning för att intyga betrodda körnings miljöer (TEEs) som [Intel® Software Guard-tillägg](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) Enclaves och [virtualiseringsbaserad säkerhet](/windows-hardware/design/device-experiences/oem-vbs) (VBS) enclaves. Enklaven-attestering är en process för att verifiera att en enklaven är säker och pålitlig.
+Microsoft Azure attestering (för hands version) är en enhetlig lösning för att fjärrverifiera tillförlitlighet för en plattform och integritet för de binärfiler som körs inuti den. Tjänsten har stöd för attestering av de plattformar som stöds av Trusted Platform Module (TPM) tillsammans med möjligheten att intyga status för betrodda körnings miljöer (TEEs) som [Intel® Software Guard-tillägg](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) Enclaves och [virtualiseringsbaserad säkerhet](/windows-hardware/design/device-experiences/oem-vbs) (VBS) enclaves. 
 
 Attestering är en process för att demonstrera att binärfiler för program vara korrekt instansierades på en betrodd plattform. Fjärranslutna förlitande parter kan sedan få förtroende för att endast sådan avsedd program vara körs på betrodd maskin vara. Azure-attestering är en enhetlig kund riktad tjänst och ramverk för attestering.
 
@@ -34,12 +34,6 @@ Azure-attestering tillhandahåller omfattande attesterings tjänster för flera 
 SGX syftar på isolering av maskin varu klass, vilket stöds på vissa modeller för Intel-processorer. SGX gör det möjligt att köra kod i sanerade utrymmen som kallas SGX-enclaves. Åtkomst-och minnes behörigheter hanteras sedan av maskin vara för att säkerställa en minimal attack yta med korrekt isolering.
 
 Klient program kan utformas för att dra nytta av SGX-enclaves genom att delegera säkerhets känsliga uppgifter som ska äga rum inuti dessa enclaves. Dessa program kan sedan använda Azure-attestering för att rutinmässigt upprätta förtroende i enklaven och dess möjlighet att komma åt känsliga data.
-
-### <a name="vbs-attestation"></a>VBS-attestering
-
-VBS är en programvarubaserad arkitektur för ett enklaven minnes skydd baserat på Hyper-V. Den förhindrar värd administratörs kod, samt lokala och moln tjänst administratörer från att komma åt data i en VBS-enklaven eller påverka dess körning.
-
-I likhet med SGX-tekniken stöder Azure attestering verifierar VBS-enclaves mot konfigurerade principer och utfärdar en certifierings instruktion som bevis på giltighet.
 
 ### <a name="open-enclave"></a>Öppna enklaven
 [Open enklaven](https://openenclave.io/sdk/) (OE) är en samling bibliotek som är riktade till att skapa en enda enhetlig enclaving-abstraktion för utvecklare för att skapa tee-baserade program. Den erbjuder en universell säker app-modell som minimerar plattforms information. Microsoft visar den som en viktig steg-vid-bricka mot democratizing maskinvarubaserade enklaven-tekniker som SGX och ökar sin upptagning på Azure.
@@ -65,19 +59,15 @@ Kunder med Azure-attestering har utgivit ett krav för att Microsoft ska kunna u
 
 Azure-attestering är det bästa valet för att intyga TEEs eftersom det ger följande fördelar: 
 
-- Enhetligt ramverk för att intyga flera TEEs, till exempel SGX enclaves och VBS enclaves
+- Enhetligt ramverk för att intyga flera miljöer, till exempel TPM, SGX enclaves och VBS enclaves 
 - Tjänst för flera innehavare som gör det möjligt att konfigurera anpassade leverantörer och principer för utfärdande av token
 - Erbjuder standardproviders som kan attestera utan konfiguration från användare
 - Skyddar dess data vid användning med implementering i en SGX-enklaven
-- Hög tillgänglig tjänst som erbjuder Serviceavtal (SLA)
+- Tjänst med hög tillgänglighet 
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr-support"></a>Support för affärs kontinuitet och haveri beredskap (BCDR)
 
 [Verksamhets kontinuitet och haveri beredskap](../best-practices-availability-paired-regions.md) (BCDR) för Azure-attestering gör det möjligt att minska tjänst störningar som orsakas av betydande tillgänglighets problem eller katastrof händelser i en region.
-
-Nedan visas de regioner som för närvarande stöds av BCDR
-- USA, östra 2 => tillsammans med centrala USA.
-- Centrala USA => paras ihop med USA, östra 2.
 
 Kluster som distribueras i två regioner kommer att fungera oberoende under normala förhållanden. Om det uppstår ett fel eller avbrott i en region sker följande:
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 86ee81f3802b7ec7f8189123192c20143a08cf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1758cca902eb77ffc66824cb56b8add9446fabf9
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090254"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749155"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Bygg din första app utan server genom att använda Azure Logic Apps och Azure Functions i Visual Studio
 
@@ -32,7 +32,7 @@ Om du vill bygga en app utan server i Visual Studio behöver du:
     > När du installerar Visual Studio 2019 eller 2017 ser du till att du väljer arbets belastningen **Azure Development** .
 
   * [Microsoft Azure SDK för .net (version 2.9.1 eller senare)](https://azure.microsoft.com/downloads/). 
-  Läs mer om [Azure SDK för .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
+  Läs mer om [Azure SDK för .NET](/dotnet/azure/intro).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation).
 
@@ -119,14 +119,14 @@ Innan du kan öppna din Logic app i Logic App Designer i Visual Studio måste du
 
 Om du vill redigera din Logic app efter distributionen öppnar du din Logic app med hjälp av Logic Apps designer i Visual Studio.
 
-1. I Solution Explorer väljer du **Öppna med Logic App Designer**från snabb menyn i azuredeploy.jspå filen.
+1. I Solution Explorer väljer du **Öppna med Logic App Designer** från snabb menyn i azuredeploy.jspå filen.
 
    ![Öppna azuredeploy.jspå i Logic App Designer](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
 
    > [!TIP]
    > Om du inte har det här kommandot i Visual Studio 2019 kontrollerar du att du har de senaste uppdateringarna för Visual Studio.
 
-1. När rutan **Egenskaper för Logic app** visas, under **prenumeration**, väljer du din Azure-prenumeration om den inte redan är vald. Under **resurs grupp**väljer du den resurs grupp och plats där du distribuerade lösningen. Välj sedan **OK**.
+1. När rutan **Egenskaper för Logic app** visas, under **prenumeration**, väljer du din Azure-prenumeration om den inte redan är vald. Under **resurs grupp** väljer du den resurs grupp och plats där du distribuerade lösningen. Välj sedan **OK**.
 
    ![Egenskaper för Logic app](./media/logic-apps-serverless-get-started-vs/logic-app-properties.png)
 
@@ -146,11 +146,11 @@ Distributions mal len distribuerar alla Azure-funktioner som du har i din lösni
 
 För logi Kap par som redan har distribuerats i Azure kan du fortfarande redigera, hantera, Visa körnings historik för och inaktivera dessa appar från Visual Studio.
 
-1. Öppna **Cloud Explorer**från menyn **Visa** i Visual Studio.
+1. Öppna **Cloud Explorer** från menyn **Visa** i Visual Studio.
 
-1. Under **alla prenumerationer**väljer du den Azure-prenumeration som är associerad med de Logic Apps som du vill hantera och väljer sedan **Använd**.
+1. Under **alla prenumerationer** väljer du den Azure-prenumeration som är associerad med de Logic Apps som du vill hantera och väljer sedan **Använd**.
 
-1. Under **Logic Apps**väljer du din Logic app. Från den appens snabb meny väljer du **Öppna med Logic app Editor**.
+1. Under **Logic Apps** väljer du din Logic app. Från den appens snabb meny väljer du **Öppna med Logic app Editor**.
 
    > [!TIP]
    > Om du inte har det här kommandot i Visual Studio 2019 kontrollerar du att du har de senaste uppdateringarna för Visual Studio.

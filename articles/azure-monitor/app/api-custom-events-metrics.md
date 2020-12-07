@@ -4,12 +4,12 @@ description: Infoga några rader kod i din enhet eller Skriv bords app, webb sid
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e9f175e2585a5254922c9e859cf5ece2afbbc3e3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d1ed05cd7337a7e82a02b25a2f29d54567b9f9a3
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011362"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748900"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API för Application Insights för anpassade händelser och mått
 
@@ -530,6 +530,9 @@ Om [sampling](./sampling.md) är i drift, Visar egenskapen itemCount ett värde 
 ## <a name="trackdependency"></a>TrackDependency
 
 Använd TrackDependency-anropet för att spåra svars tiderna och framgångs frekvensen för anrop till en extern kod. Resultaten visas i beroende diagram i portalen. Kodfragmentet nedan måste läggas till överallt där ett beroende anrop görs.
+
+> [!NOTE]
+> För .NET och .NET Core kan du alternativt använda `TelemetryClient.StartOperation` metoden (Extension) som fyller de `DependencyTelemetry` egenskaper som behövs för korrelationen och andra egenskaper som start tid och varaktighet, så att du inte behöver skapa en anpassad timer som i exemplen nedan. Mer information finns [i artikeln om utgående beroende spårning](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking#outgoing-dependencies-tracking).
 
 *C#*
 

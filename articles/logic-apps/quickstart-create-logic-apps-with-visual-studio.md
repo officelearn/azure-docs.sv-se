@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/27/2020
-ms.openlocfilehash: 1301af3bd17ce44720d77aa1b812b78bbe57ffc9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ff195f7a0071c06d5309f95f77e32ae75f584f82
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101399"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749172"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snabbstart: Skapa automatiserade uppgifter, processer och arbetsflöden med Azure Logic Apps – Visual Studio
 
@@ -37,7 +37,7 @@ I den här snabb starten skapar du samma Logic-app med Visual Studio som Azure P
     > [!IMPORTANT]
     > När du installerar Visual Studio 2019 eller 2017 ser du till att du väljer arbets belastningen **Azure Development** .
 
-  * [Microsoft Azure SDK för .net (2.9.1 eller senare)](https://azure.microsoft.com/downloads/). Läs mer om [Azure SDK för .NET](/dotnet/azure/dotnet-tools?tabs=vs).
+  * [Microsoft Azure SDK för .net (2.9.1 eller senare)](https://azure.microsoft.com/downloads/). Läs mer om [Azure SDK för .NET](/dotnet/azure/intro).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
@@ -96,11 +96,11 @@ Kom igång genom att skapa ett [projekt för en Azure-resursgrupp](../azure-reso
 
 1. Starta Visual Studio. Logga in med ditt Azure-konto.
 
-1. Gå till **Arkiv** -menyn och välj **Nytt** > **Projekt** . (Tangent bord: CTRL + SKIFT + N)
+1. Gå till **Arkiv**-menyn och välj **Nytt** > **Projekt**. (Tangent bord: CTRL + SKIFT + N)
 
    ![Gå till Arkiv-menyn och välj Nytt > Projekt](./media/quickstart-create-logic-apps-with-visual-studio/create-new-visual-studio-project.png)
 
-1. Under **Installerad** väljer du **Visual C#** eller **Visual Basic** . Välj **moln**  >  **resurs grupp i Azure** . Namnge projektet, t.ex.:
+1. Under **Installerad** väljer du **Visual C#** eller **Visual Basic**. Välj **moln**  >  **resurs grupp i Azure**. Namnge projektet, t.ex.:
 
    ![Skapa ett projekt för en Azure-resursgrupp](./media/quickstart-create-logic-apps-with-visual-studio/create-azure-cloud-service-project.png)
 
@@ -111,11 +111,11 @@ Kom igång genom att skapa ett [projekt för en Azure-resursgrupp](../azure-reso
 
    Följ dessa steg om du använder Visual Studio 2019:
 
-   1. I rutan **skapa ett nytt projekt** väljer du **Azure Resource Group** -projektet för Visual C# eller Visual Basic. Välj **Nästa** .
+   1. I rutan **skapa ett nytt projekt** väljer du **Azure Resource Group** -projektet för Visual C# eller Visual Basic. Välj **Nästa**.
 
-   1. Ange ett namn för den Azure-resurs grupp som du vill använda och annan projekt information. Välj **Skapa** .
+   1. Ange ett namn för den Azure-resurs grupp som du vill använda och annan projekt information. Välj **Skapa**.
 
-1. Välj **Logic app** -mallen i listan Mall. Välj **OK** .
+1. Välj **Logic app** -mallen i listan Mall. Välj **OK**.
 
    ![Välj Logic App-mallen](./media/quickstart-create-logic-apps-with-visual-studio/select-logic-app-template.png)
 
@@ -127,7 +127,7 @@ Kom igång genom att skapa ett [projekt för en Azure-resursgrupp](../azure-reso
 
 När du har ett Azure-resurs grupps projekt skapar du din Logic app med den **tomma Logic app** -mallen.
 
-1. Öppna snabb menyn **LogicApp.jspå** filen i Solution Explorer. Välj **Öppna med Logic App Designer** . (Tangent bord: Ctrl + L)
+1. Öppna snabb menyn **LogicApp.jspå** filen i Solution Explorer. Välj **Öppna med Logic App Designer**. (Tangent bord: Ctrl + L)
 
    ![Öppna filen LogicApp.json med Logic App Designer](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
@@ -140,15 +140,15 @@ När du har ett Azure-resurs grupps projekt skapar du din Logic app med den **to
 
    ![Välj Azure-prenumeration, resursgrupp och plats för resurser](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
-   | Inställning | Exempelvärde | Beskrivning |
+   | Inställning | Exempelvärde | Description |
    | ------- | ------------- | ----------- |
    | Användar konto | Fabrikam <br> sophia-owen@fabrikam.com | Det konto som du använde när du loggade in i Visual Studio |
    | **Prenumeration** | Betala per användning <br> (sophia-owen@fabrikam.com) | Namnet på din Azure-prenumeration och det associerade kontot |
    | **Resursgrupp** | MyLogicApp-RG <br> (USA, västra) | Azures resurs grupp och plats för att lagra och distribuera din Logic Apps resurser |
-   | **Plats** | **Samma som resurs grupp** | Plats typen och en bestämd plats för att distribuera din Logic app. Plats typen är antingen en Azure-region eller en befintlig [integrerings tjänst miljö (ISE)](connect-virtual-network-vnet-isolated-environment.md). <p>I den här snabb starten ska du se till att plats typen är **region** och att platsen är inställd på **samma som resurs gruppen** . <p>**Obs!** när du har skapat ett resurs grupps projekt kan du [ändra plats typen och platsen](manage-logic-apps-with-visual-studio.md#change-location), men olika platstyp påverkar din Logic app på olika sätt. |
+   | **Plats** | **Samma som resurs grupp** | Plats typen och en bestämd plats för att distribuera din Logic app. Plats typen är antingen en Azure-region eller en befintlig [integrerings tjänst miljö (ISE)](connect-virtual-network-vnet-isolated-environment.md). <p>I den här snabb starten ska du se till att plats typen är **region** och att platsen är inställd på **samma som resurs gruppen**. <p>**Obs!** när du har skapat ett resurs grupps projekt kan du [ändra plats typen och platsen](manage-logic-apps-with-visual-studio.md#change-location), men olika platstyp påverkar din Logic app på olika sätt. |
    ||||
 
-1. Logic Apps designer öppnar en sida som visar en introduktions video och ofta använda utlösare. Rulla ned förbi videon och utlösarna till **mallar** och välj **Tom Logic app** .
+1. Logic Apps designer öppnar en sida som visar en introduktions video och ofta använda utlösare. Rulla ned förbi videon och utlösarna till **mallar** och välj **Tom Logic app**.
 
    ![Välj Tom logikapp](./media/quickstart-create-logic-apps-with-visual-studio/choose-blank-logic-app-template.png)
 
@@ -172,11 +172,11 @@ Lägg sedan till en RSS- [utlösare](../logic-apps/logic-apps-overview.md#logic-
 
 Innan du kan köra och testa din Logic-app distribuerar du appen till Azure från Visual Studio.
 
-1. I Solution Explorer, på projektets snabb meny, väljer du **distribuera**  >  **ny** . Om du uppmanas logga in med ditt Azure-konto ska du göra det.
+1. I Solution Explorer, på projektets snabb meny, väljer du **distribuera**  >  **ny**. Om du uppmanas logga in med ditt Azure-konto ska du göra det.
 
    ![Skapa en distribution av den logiska appen](./media/quickstart-create-logic-apps-with-visual-studio/create-logic-app-deployment.png)
 
-1. Behåll standard prenumerationen för Azure, resurs gruppen och andra inställningar för den här distributionen. Välj **Distribuera** .
+1. Behåll standard prenumerationen för Azure, resurs gruppen och andra inställningar för den här distributionen. Välj **Distribuera**.
 
    ![Distribuera logikappen till Azure-resursgruppen](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-deployment.png)
 
@@ -184,7 +184,7 @@ Innan du kan köra och testa din Logic-app distribuerar du appen till Azure frå
 
    ![Ange distributionsnamn för logikapp](./media/quickstart-create-logic-apps-with-visual-studio/edit-parameters-deployment.png)
 
-   När distributionen startar visas appens distributionsstatus i Visual Studios **utdatafönster** . Om statusen inte visas ska du öppna listan **Show output from** (Visa utdata från) och välja Azure-resursgruppen.
+   När distributionen startar visas appens distributionsstatus i Visual Studios **utdatafönster**. Om statusen inte visas ska du öppna listan **Show output from** (Visa utdata från) och välja Azure-resursgruppen.
 
    ![Status för distribution](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
 
@@ -206,13 +206,13 @@ När du har ett befintligt Azure Resource Group-projekt kan du lägga till en ny
 
 1. Öppna filen i Solution Explorer `<logic-app-name>.json` .
 
-1. I menyn **Visa** väljer du **annan Windows**  >  **JSON-disposition** .
+1. I menyn **Visa** väljer du **annan Windows**  >  **JSON-disposition**.
 
-1. Om du vill lägga till en resurs i mallfilen väljer du **Lägg till resurs** längst upp i fönstret JSON-disposition. Eller i fönstret JSON-disposition öppnar du snabb menyn **resurser** och väljer **Lägg till ny resurs** .
+1. Om du vill lägga till en resurs i mallfilen väljer du **Lägg till resurs** längst upp i fönstret JSON-disposition. Eller i fönstret JSON-disposition öppnar du snabb menyn **resurser** och väljer **Lägg till ny resurs**.
 
    ![Fönstret JSON-disposition](./media/quickstart-create-logic-apps-with-visual-studio/json-outline-window-add-resource.png)
 
-1. I dialog rutan **Lägg till resurs** i sökrutan söker du efter `logic app` och väljer **Logic app** . Namnge din Logic app och välj **Lägg till** .
+1. I dialog rutan **Lägg till resurs** i sökrutan söker du efter `logic app` och väljer **Logic app**. Namnge din Logic app och välj **Lägg till**.
 
    ![Lägg till resurs](./media/quickstart-create-logic-apps-with-visual-studio/add-logic-app-resource.png)
 
@@ -224,7 +224,7 @@ När du är klar med din Logic-app tar du bort resurs gruppen som innehåller di
 
 1. På Azure Portal-menyn väljer du **resurs grupper** eller söker efter och väljer **resurs grupper** från vilken sida som helst. Välj din Logic Apps resurs grupp.
 
-1. På sidan **Översikt** väljer du **ta bort resurs grupp** . Ange resurs gruppens namn som bekräftelse och välj **ta bort** .
+1. På sidan **Översikt** väljer du **ta bort resurs grupp**. Ange resurs gruppens namn som bekräftelse och välj **ta bort**.
 
    ![”Resursgrupper” > ”Översikt” > ”Ta bort resursgrupp”](./media/quickstart-create-logic-apps-with-visual-studio/clean-up-resources.png)
 

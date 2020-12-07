@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: sumuth
 ms.date: 10/23/2020
-ms.openlocfilehash: 3eccb3fb4f4c65896f3956e265509258525c1ac9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 542528bb0a3f76705e61f28338ccf1460159871d
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535764"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749087"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---flexible-server"></a>Snabb start: Använd en ARM-mall för att skapa en Azure Database for PostgreSQL-flexibel Server
 
@@ -55,14 +55,11 @@ Skapa en _postgres-flexible-server-template.jspå_ filen och kopiera följande J
     "serverEdition": {
       "type": "String"
     },
-    "vCores": {
-      "type": "Int"
-    },
     "storageSizeMB": {
       "type": "Int"
     },
-    "standbyCount": {
-      "type": "Int"
+    "haEnabled": {
+      "type": "string"
     },
     "availabilityZone": {
       "type": "String"
@@ -90,8 +87,8 @@ Skapa en _postgres-flexible-server-template.jspå_ filen och kopiera följande J
     "api": "2020-02-14-privatepreview",
     "firewallRules": "[parameters('firewallRules').rules]",
     "publicNetworkAccess": "[if(empty(parameters('vnetData')), 'Enabled', 'Disabled')]",
-    "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"vnetId\": \"\", \"vnetName\": \"\", \"vnetResourceGroup\": \"\", \"subnetName\": \"\" }'), parameters('vnetData'))]",
-    "finalVnetData": "[json(concat('{ \"DelegatedVnetID\": \"', variables('vnetDataSet').vnetId, '\", \"DelegatedVnetName\": \"', variables('vnetDataSet').vnetName, '\", \"DelegatedVnetResourceGroup\": \"', variables('vnetDataSet').vnetResourceGroup, '\", \"DelegatedSubnetName\": \"', variables('vnetDataSet').subnetName, '\"}'))]"
+    "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"subnetArmResourceId\": \"\" }'), parameters('vnetData'))]",
+    "finalVnetData": "[json(concat('{ \"subnetArmResourceId\": \"', variables('vnetDataSet').subnetArmResourceId, '\"}'))]"
   },
   "resources": [
     {
@@ -100,9 +97,8 @@ Skapa en _postgres-flexible-server-template.jspå_ filen och kopiera följande J
       "name": "[parameters('serverName')]",
       "location": "[parameters('location')]",
       "sku": {
-        "name": "GP_D4s_v3",
-        "tier": "[parameters('serverEdition')]",
-        "capacity": "[parameters('vCores')]"
+        "name": "Standard_D4ds_v4",
+        "tier": "[parameters('serverEdition')]"        
       },
       "tags": "[parameters('tags')]",
       "properties": {
@@ -110,8 +106,8 @@ Skapa en _postgres-flexible-server-template.jspå_ filen och kopiera följande J
         "administratorLogin": "[parameters('administratorLogin')]",
         "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
         "publicNetworkAccess": "[variables('publicNetworkAccess')]",
-        "VnetInjArgs": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
-        "standbyCount": "[parameters('standbyCount')]",
+        "DelegatedSubnetArguments": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
+        "haEnabled": "[parameters('haEnabled')]",
         "storageProfile": {
           "storageMB": "[parameters('storageSizeMB')]",
           "backupRetentionDays": "[parameters('backupRetentionDays')]"
@@ -120,15 +116,9 @@ Skapa en _postgres-flexible-server-template.jspå_ filen och kopiera följande J
       }
     },
     {
-      "condition": "[greater(length(variables('firewallRules')), 0)]",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2019-08-01",
       "name": "[concat('firewallRules-', copyIndex())]",
-      "copy": {
-        "name": "firewallRulesIterator",
-        "count": "[if(greater(length(variables('firewallRules')), 0), length(variables('firewallRules')), 1)]",
-        "mode": "Serial"
-      },
       "dependsOn": [
         "[concat('Microsoft.DBforPostgreSQL/flexibleServers/', parameters('serverName'))]"
       ],
@@ -149,7 +139,13 @@ Skapa en _postgres-flexible-server-template.jspå_ filen och kopiera följande J
             }
           ]
         }
-      }
+      },
+      "copy": {
+        "name": "firewallRulesIterator",
+        "count": "[if(greater(length(variables('firewallRules')), 0), length(variables('firewallRules')), 1)]",
+        "mode": "Serial"
+      },
+      "condition": "[greater(length(variables('firewallRules')), 0)]"
     }
   ]
 }
@@ -187,7 +183,7 @@ Följ de här stegen för att kontrol lera om servern har skapats i Azure.
 
 # <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
-1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **Azure Database for PostgreSQL flexibla servrar (för hands version)** .
+1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **Azure Database for PostgreSQL flexibla servrar (för hands version)**.
 1. I listan databas väljer du den nya servern för att se **översikts** sidan för att hantera servern.
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
@@ -224,7 +220,7 @@ Så här tar du bort resursgruppen:
 
 I [portalen](https://portal.azure.com)väljer du den resurs grupp som du vill ta bort.
 
-1. Välj **Ta bort resursgrupp** .
+1. Välj **Ta bort resursgrupp**.
 1. Bekräfta borttagningen genom att skriva namnet på resurs gruppen
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)

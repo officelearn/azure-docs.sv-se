@@ -274,6 +274,8 @@
                   href: log-query/resource-expression.md
                 - name: Gör dina programdataresurser enhetliga
                   href: log-query/unify-app-resource-data.md
+                - name: Översikt över korstjänstfråga mellan Azure Monitor och Azure Data Explorer
+                  href: platform/azure-data-explorer-monitor-cross-service-query.md
                 - name: Fråga Azure Data Explorer från Azure Monitor
                   href: platform/azure-monitor-data-explorer-proxy.md
         - name: Dataexport

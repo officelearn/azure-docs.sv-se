@@ -87,10 +87,12 @@
       href: supported-map-styles.md
     - name: Zoomningsnivåer och rutnät
       href: zoom-levels-and-tile-grid.md
-    - name: Mobility Service-datastruktur
+    - name: Mobilitetstjänster
       href: mobility-service-data-structure.md
     - name: Begrepp för vädertjänster
       href: weather-services-concepts.md
+    - name: Vanliga frågor och svar om vädertjänster
+      href: weather-services-faq.md
 - name: Anvisningar
   items:
     - name: Hantera Maps-konton

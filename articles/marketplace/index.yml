@@ -10,12 +10,12 @@ metadata:
   author: mingshen-ms
   ms.author: mingshen
   ms.date: 09/02/2020
-  ms.openlocfilehash: d3c1c87f85c048a6572eb48f0d1709fb9f0d21df
-  ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+  ms.openlocfilehash: 95903c1068d64545ae025fb5899a80014b8f26f2
+  ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 12/03/2020
-  ms.locfileid: "96572753"
+  ms.lasthandoff: 12/06/2020
+  ms.locfileid: "96746394"
 landingContent:
 - title: Arbeta i den kommersiella marknadsplatsen
   linkLists:
@@ -45,7 +45,7 @@ landingContent:
     links:
     - text: Kundleads från ditt Marketplace-erbjudande
       url: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
-    - text: Alternativet för säljsamarbete i Partner Center
+    - text: Alternativet Säljsamarbete i den kommersiella marknadsplatsen
       url: commercial-marketplace-co-sell.md
     - text: Deltagande i partnersäljsamarbete
       url: ./marketplace-co-sell.md

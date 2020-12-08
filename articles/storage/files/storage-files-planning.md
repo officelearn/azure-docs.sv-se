@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 650ee1fc9e0e1941a7a3655bca1c75950ab878dd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 98cc72f85499481ba3841ce82fe307740d5e9fab
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492122"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842721"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 [Azure Files](storage-files-introduction.md) kan distribueras på två huvudsakliga sätt: genom att montera Server lös Azure-filresurser direkt eller genom att cachelagra Azure-filresurser lokalt med hjälp av Azure File Sync. Vilket distributions alternativ du väljer ändrar de saker du behöver tänka på när du planerar för distributionen. 
@@ -114,23 +114,6 @@ Mer information finns i [Avancerat skydd mot Azure Storage](../common/azure-defe
 
 ## <a name="storage-tiers"></a>Lagringsnivåer
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
-
-I allmänhet är Azure Files funktioner och samverkan med andra tjänster identiska mellan Premium-filresurser och standard fil resurser (inklusive transaktions optimerings-, frekventa och häftiga fil resurser), men det finns några viktiga skillnader:
-- **Faktureringsmodell**
-    - Premium-filresurser faktureras med hjälp av en etablerad fakturerings modell, vilket innebär att du betalar fast pris för hur mycket lagrings utrymme du tillhandahåller i stället för hur mycket lagrings utrymme du använder. Det finns inga ytterligare kostnader för transaktioner och metadata i vila.
-    - Standard fil resurser faktureras med hjälp av en modell där du betalar per användning, vilket omfattar en bas kostnad för lagring för hur mycket lagrings utrymme du faktiskt använder och sedan ytterligare en transaktions kostnad baserat på hur du använder resursen. Med standard fil resurser kommer din faktura att öka om du använder (Läs/skriv/montera) Azure-filresursen mer.
-- **Alternativ för redundans**
-    - Premium-filresurser är bara tillgängliga för lokalt redundant (LRS) och zon redundant lagring (ZRS).
-    - Standard fil resurser är tillgängliga för lokalt redundant, zon redundant, Geo-redundant (GRS) och GZRS-lagring (geo-Zone redundant).
-- **Maximal storlek på fil resurs**
-    - Premium-filresurser kan tillhandahållas för upp till 100 TiB utan ytterligare arbete.
-    - Som standard kan standard fil resurser bara omfatta upp till 5 TiB, även om resurs gränsen kan ökas till 100 TiB av väljer till den *stora fil resursens* lagrings konto flagga. Standard fil resurser kan bara omfatta upp till 100 TiB för lokalt redundanta eller zon redundanta lagrings konton. Mer information om hur du ökar fil resurs storlekarna finns i [Aktivera och skapa stora fil resurser](./storage-files-how-to-create-large-file-share.md).
-- **Regional tillgänglighet**
-    - Premium-filresurser är tillgängliga i de flesta Azure-regioner med undantag av några regioner. Zone-redundant support är tillgänglig i en delmängd regioner. För att ta reda på om Premium-filresurser är tillgängliga i din region, se sidan [produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) för Azure. För att ta reda på vilka regioner som stöder ZRS, se [zon-redundant lagring](../common/storage-redundancy.md#zone-redundant-storage). För att hjälpa oss att prioritera nya regioner och funktioner på Premium-nivå kan du fylla i den här [undersökningen](https://aka.ms/pfsfeedback).
-    - Standard fil resurser är tillgängliga i alla Azure-regioner.
-- Azure Kubernetes service (AKS) stöder Premium-filresurser i version 1,13 och senare.
-
-När en fil resurs har skapats som antingen en Premium-eller standard fil resurs kan du inte automatiskt konvertera den till den andra nivån. Om du vill växla till den andra nivån måste du skapa en ny fil resurs på den nivån och manuellt kopiera data från den ursprungliga resursen till den nya resurs som du har skapat. Vi rekommenderar att `robocopy` du använder för Windows eller `rsync` MacOS och Linux för att utföra den kopian.
 
 ### <a name="understanding-provisioning-for-premium-file-shares"></a>Förstå etablering för Premium-filresurser
 Premium-filresurser tillhandahålls baserat på en fast GiB/IOPS/data flödes kvot. Alla resurs storlekar erbjuds minst bas linje/data flöde och tillåts överföras till burst. För varje GiB utfärdas resursen minst IOPS/data flöde och en IOPS och 0,1 MiB/s genom strömning upp till de maximala gränserna per resurs. Den minsta tillåtna etableringen är 100 GiB med lägsta IOPS/data flöde. 

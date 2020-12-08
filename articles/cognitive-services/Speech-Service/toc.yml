@@ -37,6 +37,8 @@
           href: how-to-automatic-language-detection.md
         - name: Använda API för batch-transkription
           href: batch-transcription.md
+        - name: Migrera från v2.0 till v3.0
+          url: migrate-v2-to-v3.md
         - name: Utvärdera uttal
           href: how-to-pronunciation-assessment.md
     - name: Självstudier

@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 12/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 1a1e9c394f3665845b1f2bbbd605322b43f5f25d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 25356e7101293fc27d4107b3a618cfc481aee969
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787235"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779591"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Så här implementerar du haveriberedskap med hjälp av säkerhetskopiering och återställning i Azure API Management
 
@@ -61,28 +61,28 @@ Alla aktiviteter som du gör på resurser som använder Azure Resource Manager m
     > [!NOTE]
     > Om Azure Active Directory standard katalogen inte är synlig för ditt konto, kontakta administratören för Azure-prenumerationen för att ge de behörigheter som krävs för ditt konto.
 
-3. Klicka på **Ny programregistrering** .
+3. Klicka på **Ny programregistrering**.
 
     Fönstret **skapa** visas till höger. Det är här som du anger information om AAD-appen.
 
 4. Ange ett namn på programmet.
-5. För program typ väljer du **intern** .
-6. Ange en plats hållares URL, till exempel `http://resources` för **omdirigerings-URI** , eftersom det är ett obligatoriskt fält, men värdet används inte senare. Klicka i kryss rutan för att spara programmet.
-7. Klicka på **Skapa** .
+5. För program typ väljer du **intern**.
+6. Ange en plats hållares URL, till exempel `http://resources` för **omdirigerings-URI**, eftersom det är ett obligatoriskt fält, men värdet används inte senare. Klicka i kryss rutan för att spara programmet.
+7. Klicka på **Skapa**.
 
 ### <a name="add-an-application"></a>Lägga till ett program
 
-1. När programmet har skapats klickar du på **API-behörigheter** .
-2. Klicka på **+ Lägg till en behörighet** .
-4. Tryck på **Välj Microsoft API: er** .
-5. Välj **Azure Service Management** .
-6. Tryck på **Välj** .
+1. När programmet har skapats klickar du på **API-behörigheter**.
+2. Klicka på **+ Lägg till en behörighet**.
+4. Tryck på **Välj Microsoft API: er**.
+5. Välj **Azure Service Management**.
+6. Tryck på **Välj**.
 
     ![Lägga till behörigheter](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
-7. Klicka på **delegerade behörigheter** bredvid det nyligen tillagda programmet, markera kryss rutan för **åtkomst till Azure Service Management (för hands version)** .
-8. Tryck på **Välj** .
-9. Klicka på **bevilja behörigheter** .
+7. Klicka på **delegerade behörigheter** bredvid det nyligen tillagda programmet, markera kryss rutan för **åtkomst till Azure Service Management (för hands version)**.
+8. Tryck på **Välj**.
+9. Klicka på **bevilja behörigheter**.
 
 ### <a name="configuring-your-app"></a>Konfigurera din app
 
@@ -115,7 +115,7 @@ namespace GetTokenResourceManagerRequests
 
 Ersätt `{tenant id}` , `{application id}` och `{redirect uri}` Använd följande instruktioner:
 
-1. Ersätt `{tenant id}` med klient-ID: t för det Azure Active Directory program som du har skapat. Du kan komma åt ID: t genom att klicka på **Appregistreringar**  ->  **slut punkter** .
+1. Ersätt `{tenant id}` med klient-ID: t för det Azure Active Directory program som du har skapat. Du kan komma åt ID: t genom att klicka på **Appregistreringar**  ->  **slut punkter**.
 
     ![Slutpunkter][api-management-endpoint]
 
@@ -169,26 +169,6 @@ Ange värdet för `Content-Type` begär ande rubriken till `application/json` .
 
 Backup är en tids krävande åtgärd som kan ta mer än en minut att slutföra. Om begäran lyckades och säkerhets kopierings processen började visas, får du en `202 Accepted` svars status kod med ett `Location` sidhuvud. Gör GET-begäranden till URL: en i `Location` rubriken för att ta reda på status för åtgärden. När säkerhets kopieringen pågår fortsätter du att ta emot status koden 202. Svars koden `200 OK` visar att säkerhets kopieringen har slutförts.
 
-#### <a name="constraints-when-making-backup-or-restore-request"></a>Begränsningar när du gör en säkerhets kopierings-eller återställnings förfrågan
-
--   Den **behållare** som anges i begär ande texten **måste finnas** .
--   När säkerhets kopiering pågår, **Undvik hanterings ändringar i tjänsten** , till exempel SKU-uppgradering eller nedgradering, ändring i domän namn med mera.
--   Återställning av en **säkerhets kopia garanteras endast i 30 dagar** sedan den skapades.
--   **Ändringar** som görs i tjänst konfigurationen (till exempel API: er, principer och utvecklarens Portal utseende) medan säkerhets kopieringen pågår **kan uteslutas från säkerhets kopian och kommer att gå förlorade** .
--   **Tillåt** åtkomst från kontroll planet till Azure Storage konto om [brand väggen][azure-storage-ip-firewall] är aktive rad. Kunden bör öppna uppsättningen [Azure API Management Control plan-IP-adresser][control-plane-ip-address] på deras lagrings konto för att säkerhetskopiera eller återställa från. Detta beror på att begär Anden Azure Storage inte SNATed till en offentlig IP-adress från beräknings > (kontroll plan för Azure API Management). Lagrings förfrågan mellan regioner kommer att vara SNATed.
-
-#### <a name="what-is-not-backed-up"></a>Vad säkerhets kopie ras inte
--   **Användnings data** som används för att skapa analys rapporter **ingår inte** i säkerhets kopian. Använd [Azure API Management REST API][azure api management rest api] för att regelbundet hämta analys rapporter för förvaring.
--   [TLS/SSL-certifikat för anpassad domän](configure-custom-domain.md)
--   [Anpassat CA-certifikat](api-management-howto-ca-certificates.md) som innehåller mellanliggande eller rot certifikat som har överförts av kunden
--   Inställningar för integrering av [virtuella nätverk](api-management-using-with-vnet.md) .
--   [Hanterad identitets](api-management-howto-use-managed-service-identity.md) konfiguration.
--   [Azure Monitor diagnostik](api-management-howto-use-azure-monitor.md) Inställningarna.
--   [Protokoll och krypterings](api-management-howto-manage-protocols-ciphers.md) inställningar.
--   Innehåll i [Developer-portalen](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management) .
-
-Den frekvens med vilken du utför säkerhets kopiering av tjänster påverkar återställnings punkt målet. För att minimera det rekommenderar vi att du implementerar regelbundna säkerhets kopieringar och utför säkerhets kopieringar på begäran när du har gjort ändringar i API Managements tjänsten.
-
 ### <a name="restore-an-api-management-service"></a><a name="step2"> </a>Återställa en API Management-tjänst
 
 Om du vill återställa en API Management tjänst från en tidigare skapad säkerhets kopia gör du följande HTTP-begäran:
@@ -222,12 +202,34 @@ Restore är en tids krävande åtgärd som kan ta upp till 30 minuter att slutf�
 > [!IMPORTANT]
 > **SKU: n** för den tjänst som återställs till **måste matcha** SKU: n för den säkerhetskopierade tjänsten som återställs.
 >
-> **Ändringar** som gjorts i tjänst konfigurationen (till exempel API: er, principer, utvecklings portalens utseende) medan återställnings åtgärden pågår **kan skrivas över** .
+> **Ändringar** som gjorts i tjänst konfigurationen (till exempel API: er, principer, utvecklings portalens utseende) medan återställnings åtgärden pågår **kan skrivas över**.
 
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
 > Säkerhets kopierings-och återställnings åtgärder kan också utföras med PowerShell [_Backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) och [_restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) kommandon.
+
+## <a name="constraints-when-making-backup-or-restore-request"></a>Begränsningar när du gör en säkerhets kopierings-eller återställnings förfrågan
+
+-   Den **behållare** som anges i begär ande texten **måste finnas**.
+-   När säkerhets kopiering pågår, **Undvik hanterings ändringar i tjänsten** , till exempel SKU-uppgradering eller nedgradering, ändring i domän namn med mera.
+-   Återställning av en **säkerhets kopia garanteras endast i 30 dagar** sedan den skapades.
+-   **Ändringar** som gjorts i tjänst konfigurationen (till exempel API: er, principer och utvecklares Portal utseende) medan säkerhets kopieringen pågår **kan uteslutas från säkerhets kopian och kommer att gå förlorade**.
+-   Om Azure Storage-kontot är aktive rad för [brand vägg][azure-storage-ip-firewall] måste kunden **tillåta** att [Azure API Management kontroll plan IP-adresser][control-plane-ip-address] på lagrings kontot för säkerhets kopiering eller återställning från fungerar. Azure Storage kontot kan finnas i valfri Azure-region förutom det där API Managements tjänsten finns. Om API Management tjänsten t. ex. är i västra USA kan Azure Storage-kontot ligga i västra USA 2 och kunden måste öppna kontroll planens IP-13.64.39.16 (API Management kontroll planens IP-adress för USA, västra) i brand väggen. Detta beror på att begär anden till Azure Storage inte SNATed till en offentlig IP-adress från Compute (Azure API Management Control plan) i samma Azure-region. Lagrings förfrågan mellan regioner kommer att SNATed till den offentliga IP-adressen.
+-   [Resurs delning mellan ursprung (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) bör **inte** aktive ras på BLOB service i Azure Storage kontot.
+-   **SKU: n** för den tjänst som återställs till **måste matcha** SKU: n för den säkerhetskopierade tjänsten som återställs.
+
+## <a name="what-is-not-backed-up"></a>Vad säkerhets kopie ras inte
+-   **Användnings data** som används för att skapa analys rapporter **ingår inte** i säkerhets kopian. Använd [Azure API Management REST API][azure api management rest api] för att regelbundet hämta analys rapporter för förvaring.
+-   [TLS/SSL-certifikat för anpassad domän](configure-custom-domain.md)
+-   [Anpassat CA-certifikat](api-management-howto-ca-certificates.md), som innehåller mellanliggande eller rot certifikat som har överförts av kunden
+-   Inställningar för integrering av [virtuella nätverk](api-management-using-with-vnet.md) .
+-   [Hanterad identitets](api-management-howto-use-managed-service-identity.md) konfiguration.
+-   [Azure Monitor diagnostik](api-management-howto-use-azure-monitor.md) Inställningarna.
+-   [Protokoll och krypterings](api-management-howto-manage-protocols-ciphers.md) inställningar.
+-   Innehåll i [Developer-portalen](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management) .
+
+Den frekvens med vilken du utför säkerhets kopiering av tjänster påverkar återställnings punkt målet. För att minimera det rekommenderar vi att du implementerar regelbundna säkerhets kopieringar och utför säkerhets kopieringar på begäran när du har gjort ändringar i API Managements tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 

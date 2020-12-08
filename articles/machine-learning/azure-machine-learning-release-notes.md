@@ -9,18 +9,82 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 03825e0f091df01b98355dd6789eb5c9cb2897b0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4998469fa353fef9e8a91d078349150d9f739ac2
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444533"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779421"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
 I den här artikeln får du lära dig mer om Azure Machine Learning-versioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) -referens.
 
 Se [listan över kända problem](resource-known-issues.md) för att lära dig om kända buggar och lösningar.
+
+## <a name="2020-12-07"></a>2020-12-07
+
+### <a name="azure-machine-learning-sdk-for-python-v1190"></a>Azure Machine Learning SDK för python v-1.19.0
++ **Fel korrigeringar och förbättringar**
+  + **azureml-automl-core**
+    + Stöd för test data har lagts till i AutoMLStep.
+    + Lade till den initiala kärn implementeringen av funktionen för inmatning av test uppsättning.
+    + Flyttade referenser till sklearn. externals. joblib till är beroende av direkt på joblib.
+    + presentera en ny AutoML-aktivitets typ för "bild instans segmentering".
+  + **azureml-automl-runtime**
+    + Lade till den initiala kärn implementeringen av funktionen för inmatning av test uppsättning.
+    + När alla strängar i en text kolumn har en längd på exakt 1 tecken fungerar inte TfIdf Word-gram-upplärda eftersom dess tokenizer ignorerar strängarna med färre än 2 tecken. Den aktuella kod ändringen gör att AutoML kan hantera det här användnings fallet.
+    + presentera en ny AutoML-aktivitets typ för "bild instans segmentering".
+  + **azureml-contrib-automl-DNN-NLP**
+    + Första PR för nytt DNN-NLP-paket
+  + **azureml-contrib-automl-DNN-vision**
+    + presentera en ny AutoML-aktivitets typ för "bild instans segmentering".
+  + **azureml-contrib-automl-pipeline – steg**
+    + Det nya paketet ansvarar för att skapa steg som krävs för många modeller träna/härlednings scenario. – Den flyttar också träna/härlednings koden till azureml. träna. automl. Runtime-paketet så att eventuella framtida korrigeringar blir tillgängliga automatiskt genom de miljö versioner som granskas.
+  + **azureml-contrib-dataset**
+    + presentera en ny AutoML-aktivitets typ för "bild instans segmentering".
+  + **azureml-core**
+    + Lade till den initiala kärn implementeringen av funktionen för inmatning av test uppsättning.
+    + Åtgärda XREF-varningar för dokumentation i azureml-Core-paketet
+    + Dokument Strängs korrigeringar för Command Support-funktionen i SDK
+    + Lägger till kommando egenskap i RunConfiguration. Funktionen gör det möjligt för användare att köra ett faktiskt kommando eller körbara filer på Compute-AzureML SDK.
+    + Användare kan ta bort ett tomt experiment med ID för det experimentet.
+  + **azureml-dataprep**
+    + Stöd för data uppsättning har lagts till för Spark byggd med Scala 2,12. Detta lägger till i det befintliga 2,11-stödet.
+  + **azureml-mlflow**
+    + AzureML-MLflow lägger till säkra skydd i fjärrskript för att undvika tidig avslutning av skickade körningar.
+  + **azureml-pipeline-core**
+    + En bugg har åtgärd ATS i att ange en standard-pipeline för pipeline-slutpunkt som skapats via UI
+  + **azureml-pipeline-steps**
+    + Stöd för test data har lagts till i AutoMLStep.
+  + **azureml-tensorboard**
+    + Åtgärda XREF-varningar för dokumentation i azureml-Core-paketet
+  + **azureml-train-automl-client**
+    + Stöd för test data har lagts till i AutoMLStep.
+    + Lade till den initiala kärn implementeringen av funktionen för inmatning av test uppsättning.
+    + presentera en ny AutoML-aktivitets typ för "bild instans segmentering".
+  + **azureml-train-automl-runtime**
+    + Lade till den initiala kärn implementeringen av funktionen för inmatning av test uppsättning.
+    + Åtgärda beräkningen av de råa förklaringarna för den bästa AutoML-modellen om AutoML-modellerna tränas med validation_size-inställningen.
+    + Flyttade referenser till sklearn. externals. joblib till är beroende av direkt på joblib.
+  + **azureml-train-core**
+    + HyperDriveRun.get_children_sorted_by_primary_metric () bör bli snabbare nu
+    + Förbättrad fel hantering i HyperDrive SDK.
+    +  Föråldrade alla uppskattnings klasser i förmån att använda ScriptRunConfig för att konfigurera experiment körningar. Inaktuella klasser är:
+        + MMLBaseEstimator
+        + Uppskattning
+        + PyTorch 
+        + TensorFlow 
+        + Chainer 
+        + SKLearn
+    + Föråldrade användningen av Nccl och gloo som giltiga indatatyper för uppskattnings klasser i förmån att använda PyTorchConfiguration med ScriptRunConfig.
+    + Föråldrade användningen av MPI som en giltig Indatatyp för uppskattnings klasser i förmån att använda MpiConfiguration med ScriptRunConfig.
+    + Lägger till kommando egenskap i runconfiguration. Funktionen gör det möjligt för användare att köra ett faktiskt kommando eller körbara filer på Compute-AzureML SDK.
+
+    +  Föråldrade alla uppskattnings klasser i förmån att använda ScriptRunConfig för att konfigurera experiment körningar. Inaktuella klasser är: + MMLBaseEstimator + uppskattar + PyTorch + TensorFlow + Chainer + SKLearn
+    + Föråldrade användningen av Nccl och gloo som en giltig typ av inmatare för uppskattnings klasser som prioriteras med hjälp av PyTorchConfiguration med ScriptRunConfig. 
+    + Föråldrade användningen av MPI som en giltig typ av inmatare för uppskattnings klasser som prioriteras med hjälp av MpiConfiguration med ScriptRunConfig.
+
 
 
 ## <a name="2020-11-09"></a>2020-11-09
@@ -47,12 +111,6 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
     + Det länkade tjänst-API: t är raffinerat. I stället för att tillhandahålla resurs-ID har vi tre separata parametrar sub_id, rg och namn som definieras i konfigurationen.
     + För att göra det möjligt för kunder att själv lösa problem med token som är skadade kan du aktivera synkronisering av tidstoken för synkronisering till en offentlig metod.
     + Den här ändringen gör att en tom sträng kan användas som ett värde för en script_param
-  + **azureml-pipeline-core**
-    + SDK för att stödja SynapseCompute-typ och SynapseSparkStep. Kunder kan köra experiment och pipeline-körningar på Synapse Spark-pool.
-  + **azureml-pipeline-steps**
-    + SDK för att stödja SynapseCompute-typ och SynapseSparkStep. Kunder kan köra experiment och pipeline-körningar på Synapse Spark-pool.
-  + **azureml – Synapse**
-    + Lägg till Synapse Magic och SparkMonitor för att aktivera användar sändning Syanpse-jobb och Visa jobb förloppet i Notebook.
   + **azureml-train-automl-client**
     +  Förbättrad hantering av kort tids serier genom att tillåta utfyllnad av dem med Gaussisk brus.
   + **azureml-train-automl-runtime**
@@ -90,7 +148,6 @@ Läs mer om [etiketter för bild instans segment](how-to-label-images.md).
     + Ett problem har åtgärd ATS där VotingRegressor förutsägelser kan vara felaktigt efter omanpassning av modellen.
   + **azureml-core**
     + Ytterligare information som lagts till om relationen mellan AKS distributions konfiguration och Azure Kubernetes service-koncept.
-    + Kunden kan använda Linked service SDK för att länka Synapse-arbetsytan till AML-arbetsytan. CRUD stöds.
     + Stöd för miljöns klient etiketter. Användaren kan etikettera miljöer och referera dem efter etikett.
   + **azureml-dataprep**
     + Bättre fel meddelande vid användning av Spark med Scala 2,12 som inte stöds.
@@ -797,7 +854,7 @@ Nu kan du skapa, redigera och dela Machine Learning-anteckningsböcker och filer
 
 Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     
-| Webbaserat verktyg  |     Description  |
+| Webbaserat verktyg  |     Beskrivning  |
 |---|---|
 | Azure ML Studio-anteckningsböcker   |     Första redigering i klass för notebook-filer och stöd för alla åtgärder som är tillgängliga i Azure ML python SDK. | 
 
@@ -1309,7 +1366,7 @@ Från Studio kan du träna, testa, distribuera och hantera Azure Machine Learnin
 
 Få åtkomst till följande webbaserade redigerings verktyg från Studio:
 
-| Webbaserat verktyg | Description | 
+| Webbaserat verktyg | Beskrivning | 
 |-|-|-|
 | Notebook VM (för hands version) | Helt hanterad molnbaserad arbets Station | 
 | [Automatisk maskin inlärning](tutorial-first-experiment-automated-ml.md) (för hands version) | Ingen kod upplevelse för automatisering av maskin inlärnings modell utveckling | 

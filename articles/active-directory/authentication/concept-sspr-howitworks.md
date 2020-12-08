@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 620b696be0b9a06cf0d68145b06e3cacf2bedff2
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: e5bcc6503af5f5f685ee589ed7671b4715834fef
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96762558"
+ms.locfileid: "96779370"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Självbetjäning av lösenordsåterställning i Azure AD
 
@@ -89,7 +89,7 @@ När du inte behöver registrering uppmanas användarna inte att logga in, men d
 >
 > Detta avbrott i registreringen för SSPR bryter inte användarens anslutning om de redan är inloggade.
 
-## <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Ange antalet dagar innan användare uppmanas att bekräfta sin autentiseringsinformation
+## <a name="reconfirm-authentication-information"></a>Bekräfta autentiseringsinformation
 
 För att se till att autentiseringsmetoderna är korrekta när de behövs för att återställa eller ändra lösen ordet, kan du kräva att användarna bekräftar sin information som registrerats efter en viss tids period. Det här alternativet är bara tillgängligt om du aktiverar alternativet **Kräv att användare registrerar sig vid inloggning** .
 

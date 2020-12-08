@@ -8,24 +8,26 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 031b3bfd30e0272589c5c7ee2c546b9459767b33
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5e5c59d611cb7f4b5333b9919488e6fc083611cd
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183200"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779251"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Självstudie: övervaka publicerade API: er
 
 Med Azure Monitor kan du visualisera, fråga, cirkulera, arkivera och vidta åtgärder för mått eller loggar som kommer från Azure API Management-tjänsten.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Visa mått för din API 
 > * Konfigurera en varnings regel 
 > * Visa aktivitetsloggar
 > * Aktivera och Visa resurs loggar
+
+Du kan också använda API Management inbyggda [analyser](howto-use-analytics.md) för att övervaka användning och prestanda för dina API: er.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -90,7 +92,7 @@ Så här konfigurerar du ett exempel på en varnings regel baserat på ett begä
 
 1. Ange ett namn och en beskrivning av varnings regeln och välj allvarlighets grad. 
 1. Välj **Skapa varningsregel**.
-1. Testa nu varnings regeln genom att anropa konferens-API: et utan en API-nyckel. Ett exempel:
+1. Testa nu varnings regeln genom att anropa konferens-API: et utan en API-nyckel. Exempel:
 
     ```bash
     curl GET https://apim-hello-world.azure-api.net/conference/speakers HTTP/1.1 

@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: dccb734ef4eaa9f22b70488918f14ad94f723453
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: abd30c22aa2b4df20cdb795013768cd175cfef4c
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437141"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780747"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Hämta loggar från IoT Edge-distributioner
 
@@ -33,7 +33,7 @@ Det krävs inte, för bästa kompatibilitet med den här funktionen, det rekomme
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` ska följa [formatet på syslog-allvarlighets](https://wikipedia.org/wiki/Syslog#Severity_level) grad och `{Timestamp}` ska formateras som `yyyy-mm-dd hh:mm:ss.fff zzz` .
+`{Log Level}` ska följa [formatet på syslog-allvarlighets](https://wikipedia.org/wiki/Syslog#Severity_level) grad och `{Timestamp}` ska formateras som `yyyy-MM-dd hh:mm:ss.fff zzz` .
 
 [Klassen logga in IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) fungerar som en kanonisk implementering.
 
@@ -63,7 +63,7 @@ Den här metoden accepterar en JSON-nyttolast med följande schema:
     }
 ```
 
-| Namn | Typ | Description |
+| Namn | Typ | Beskrivning |
 |-|-|-|
 | Schema | sträng | Ange till `1.0` |
 | objekt | JSON-matris | En matris med `id` och `filter` tupler. |
@@ -172,7 +172,7 @@ Den här metoden godkänner en JSON-nyttolast som liknar **GetModuleLogs**, med 
     }
 ```
 
-| Namn | Typ | Description |
+| Namn | Typ | Beskrivning |
 |-|-|-|
 | sasURL | sträng (URI) | [URL för signatur för delad åtkomst med skriv åtkomst till Azure Blob Storage-behållare](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
 
@@ -186,7 +186,7 @@ En lyckad begäran om att ladda upp loggar returnerar **"status": 200** följt a
     }
 ```
 
-| Namn | Typ | Description |
+| Namn | Typ | Beskrivning |
 |-|-|-|
 | status | sträng | En av `NotStarted` ,,, `Running` `Completed` `Failed` eller `Unknown` . |
 | meddelande | sträng | Meddelande om fel, tom sträng annars. |
@@ -289,7 +289,7 @@ Den här metoden accepterar en JSON-nyttolast med följande schema:
     }
 ```
 
-| Namn | Typ | Description |
+| Namn | Typ | Beskrivning |
 |-|-|-|
 | Schema | sträng | Ange till `1.0` |
 | sasURL | sträng (URI) | [URL för signatur för delad åtkomst med skriv åtkomst till Azure Blob Storage container](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
@@ -310,7 +310,7 @@ En lyckad begäran om att ladda upp loggar returnerar **"status": 200** följt a
     }
 ```
 
-| Namn | Typ | Description |
+| Namn | Typ | Beskrivning |
 |-|-|-|
 | status | sträng | En av `NotStarted` ,,, `Running` `Completed` `Failed` eller `Unknown` . |
 | meddelande | sträng | Meddelande om fel, tom sträng annars. |
@@ -368,7 +368,7 @@ En lyckad begäran om att ladda upp loggar returnerar **"status": 200** följt a
     }
 ```
 
-| Namn | Typ | Description |
+| Namn | Typ | Beskrivning |
 |-|-|-|
 | status | sträng | En av `NotStarted` ,,, `Running` `Completed` `Failed` eller `Unknown` . |
 | meddelande | sträng | Meddelande om fel, tom sträng annars. |

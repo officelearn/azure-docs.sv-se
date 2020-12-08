@@ -2,18 +2,18 @@
 title: inkludera fil
 description: inkludera fil
 services: active-directory
-author: rolyon
+author: barclayn
 ms.service: active-directory
 ms.topic: include
-ms.date: 05/26/2020
+ms.date: 12/07/2020
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: ee02200f1fb32d430a858d218e27534561ebc24a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbcd4b459faa3bf67f591cc7afab0bf0027062e1
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83868065"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842266"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Skapa en eller flera åtkomst granskningar
 
@@ -27,7 +27,7 @@ ms.locfileid: "83868065"
 
     ![Start datum, frekvens, varaktighet, slut, antal gånger och slutdatum](./media/active-directory-privileged-identity-management-access-reviews/start-end-dates.png)
 
-1. Om du vill göra åtkomst granskningen återkommande ändrar du **frekvens** inställningen från **en gång** till **varje vecka**, **varje månad**, varje kvartal, **varje** **kvartal**eller varje **halvår**. Använd skjutreglaget **varaktighet** eller text rutan för att definiera hur många dagar varje granskning av den återkommande serien ska vara öppen för inmatade i granskare. Den längsta tid som du kan ange för en månatlig granskning är till exempel 27 dagar för att undvika överlappande granskningar.
+1. Om du vill göra åtkomst granskningen återkommande ändrar du **frekvens** inställningen från **en gång** till **varje vecka**, **varje månad**, varje kvartal, **varje** **kvartal** eller varje **halvår**. Använd skjutreglaget **varaktighet** eller text rutan för att definiera hur många dagar varje granskning av den återkommande serien ska vara öppen för inmatade i granskare. Den längsta tid som du kan ange för en månatlig granskning är till exempel 27 dagar för att undvika överlappande granskningar.
 
 1. Använd **End** -inställningen för att ange hur du ska avsluta gransknings serien för återkommande åtkomst. Serien kan sluta på tre sätt: den körs kontinuerligt för att starta recensioner på obestämd tid, fram till ett visst datum eller efter att ett definierat antal förekomster har slutförts. En annan användar administratör eller en annan global administratör kan stoppa serien när den har skapats genom att ändra datumet i **Inställningar**, så att det slutar på det datumet.
 
@@ -43,7 +43,7 @@ ms.locfileid: "83868065"
 
     ![Fönstret granska medlemskap visar Azure AD-roller som du kan välja](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
 
-    Om du skapar en åtkomst granskning av **Azures resurs roller**visar följande bild ett exempel på listan granska medlemskap.
+    Om du skapar en åtkomst granskning av **Azures resurs roller** visar följande bild ett exempel på listan granska medlemskap.
 
     ![Rutan granska medlemskap visar de Azure-resurstilldelningar du kan välja](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
 
@@ -53,6 +53,7 @@ ms.locfileid: "83868065"
 
     - **Valda användare** – Använd det här alternativet om du inte vet vem som behöver åtkomst. Med det här alternativet kan du tilldela granskningen till en resurs ägare eller grupp hanterare för att slutföra.
     - **Medlemmar (Self)** – Använd det här alternativet om du vill att användarna ska granska sina egna roll tilldelningar.
+    - **(För hands version)-hanteraren** – Använd det här alternativet om du vill att användarens chef ska granska roll tilldelningen. När du väljer (för hands version) Manager kan du också välja att ange en återställnings granskare. Återställnings granskare uppmanas att granska en användare när användaren inte har angett någon chef i katalogen.
 
 ### <a name="upon-completion-settings"></a>Vid slut för ande inställningar
 
@@ -82,3 +83,6 @@ ms.locfileid: "83868065"
 1. Ange **e-postaviseringar** för att **tillåta** att Azure AD skickar e-postmeddelanden till granskare när en åtkomst granskning startar och till administratörer när en granskning har slutförts.
 
 1. Ställ in **påminnelser** för att **tillåta** att Azure AD skickar påminnelser om åtkomst granskningar till granskare som inte har slutfört sin granskning.
+1. Innehållet i e-postmeddelandet som skickas till granskare genereras automatiskt baserat på gransknings informationen, till exempel gransknings namn, resurs namn, förfallo datum osv. Om du behöver ett sätt att kommunicera ytterligare information, till exempel ytterligare instruktioner eller kontakt information, kan du ange den här informationen i det **extra innehållet för e-postmeddelandet i e-** postmeddelandet som ska ingå i inbjudan och påminnelse e-postmeddelanden som skickas till tilldelade granskare. Det markerade avsnittet nedan visar var den här informationen kommer att visas.
+
+    ![Innehållet i e-postmeddelandet som skickas till granskare med högdagrar](./media/active-directory-privileged-identity-management-access-reviews/email-info.png)

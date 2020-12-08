@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 42e7f2ced0de00b088e3344c914fc71da84e4e8f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: adc08e978be699ea6ea3dd00beae1762d48644c0
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750738"
+ms.locfileid: "96781070"
 ---
 # <a name="what-is-azure-private-link"></a>Vad är Azure Privat Link? 
 Med Azures privata länk kan du få åtkomst till Azure PaaS-tjänster (till exempel Azure Storage och SQL Database) och Azure-värdbaserade/partner tjänster som ägs av en [privat slut punkt](private-endpoint-overview.md) i det virtuella nätverket.
@@ -51,7 +51,7 @@ Azure Private-länken ger följande fördelar:
 |Azure Cosmos DB|  Alla offentliga regioner<br/> Alla myndighets regioner</br> Alla regioner i Kina | |Allmän tillgänglighet (GA) <br/> [Lär dig hur du skapar en privat slut punkt för Cosmos DB.](./tutorial-private-endpoint-cosmosdb-portal.md)|
 |  Azure Database for PostgreSQL-enskild server         | Alla offentliga regioner <br/> Alla myndighets regioner<br/>Alla regioner i Kina     | Stöds för Generell användning och minnesoptimerade pris nivåer | Allmän tillgänglighet (GA) <br/> [Lär dig hur du skapar en privat slut punkt för Azure Database for PostgreSQL.](../postgresql/concepts-data-access-and-security-private-link.md)      |
 |  Azure Database for MySQL         | Alla offentliga regioner<br/> Alla myndighets regioner<br/>Alla regioner i Kina      |  | Allmän tillgänglighet (GA) <br/> [Lär dig hur du skapar en privat slut punkt för Azure Database for MySQL.](../mysql/concepts-data-access-security-private-link.md)     |
-|  Azure-databas för MariaDB         | Alla offentliga regioner<br/> Alla myndighets regioner<br/>Alla regioner i Kina     |  | Allmän tillgänglighet (GA) <br/> [Lär dig hur du skapar en privat slut punkt för Azure Database for MariaDB.](../mariadb/concepts-data-access-security-private-link.md)      |
+|  Azure Database for MariaDB         | Alla offentliga regioner<br/> Alla myndighets regioner<br/>Alla regioner i Kina     |  | Allmän tillgänglighet (GA) <br/> [Lär dig hur du skapar en privat slut punkt för Azure Database for MariaDB.](../mariadb/concepts-data-access-security-private-link.md)      |
 |  Azure Key Vault         | Alla offentliga regioner<br/> Alla myndighets regioner      |  | Allmän tillgänglighet (GA)   <br/> [Lär dig hur du skapar en privat slut punkt för Azure Key Vault.](../key-vault/general/private-link-service.md)   |
 |Azure Kubernetes-tjänst – Kubernetes-API | Alla offentliga regioner      |  | Allmän tillgänglighet (GA)   <br/> [Lär dig hur du skapar en privat slut punkt för Azure Kubernetes-tjänsten.](../aks/private-clusters.md)   |
 |Azure Search | Alla offentliga regioner <br/> Alla myndighets regioner | Stöds med tjänsten i privat läge | Allmän tillgänglighet (GA)   <br/> [Lär dig hur du skapar en privat slut punkt för Azure Search.](../search/service-create-private-endpoint.md)    |
@@ -70,7 +70,7 @@ Azure Private-länken ger följande fördelar:
 | Azure Monitor <br/>(Log Analytics & Application Insights) | Alla offentliga regioner      |  | Allmän tillgänglighet (GA)   <br/> [Lär dig hur du skapar en privat slut punkt för Azure Monitor.](../azure-monitor/platform/private-link-security.md)   | 
 | Azure Batch | Alla offentliga regioner utom: Tyskland, centrala, Tyskland NORDÖSTRA <br/> Alla myndighets regioner  | | Allmän tillgänglighet (GA) <br/> [Lär dig hur du skapar en privat slut punkt för Azure Batch.](../batch/private-connectivity.md) |
 |Azure Data Factory | Alla offentliga regioner<br/> Alla myndighets regioner<br/>Alla regioner i Kina    | Autentiseringsuppgifter måste lagras i ett Azure Key Vault| Allmän tillgänglighet (GA)   <br/> [Lär dig hur du skapar en privat slut punkt för Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
-|Azure Managed Disks | Alla offentliga regioner<br/> Alla myndighets regioner<br/>Alla regioner i Kina    | [Klicka här för kända begränsningar](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#limitations) | Allmän tillgänglighet (GA)   <br/> [Lär dig hur du skapar en privat slut punkt för Azure Data Factory.](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)   |
+|Azure Managed Disks | Alla offentliga regioner<br/> Alla myndighets regioner<br/>Alla regioner i Kina    | [Klicka här för kända begränsningar](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#limitations) | Allmän tillgänglighet (GA)   <br/> [Lär dig hur du skapar en privat slut punkt för Azure Managed Disks.](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)   |
 
 
 

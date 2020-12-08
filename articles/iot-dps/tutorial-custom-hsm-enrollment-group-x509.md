@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f6026680dd566bf7a13c83b37883341bff8b4570
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 6845923d65b5fbe5a9f010474330ce2bbed948e1
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355182"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780101"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Självstudie: etablera flera X. 509-enheter med hjälp av registrerings grupper
 
@@ -26,7 +26,7 @@ Azure IoT Device Provisioning Service stöder två typer av registreringar:
 
 Den här självstudien liknar de tidigare självstudierna som demonstrerar hur du använder registrerings grupper för att etablera uppsättningar med enheter. Men X. 509-certifikat kommer att användas i den här självstudien i stället för symmetriska nycklar. Granska de föregående självstudierna i det här avsnittet för en enkel metod med hjälp av [symmetriska nycklar](./concepts-symmetric-key-attestation.md).
 
-I den här självstudien visas det [anpassade HSM-exemplet](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) som tillhandahåller en stub-implementering för samverkan med maskinvarubaserad säker lagring. En [modul för maskin varu säkerhet (HSM)](./concepts-service.md#hardware-security-module) används för säker, maskinvarubaserad lagring av enhets hemligheter. En HSM kan användas med symmetrisk nyckel, X. 509-certifikat eller TPM-attestering för att tillhandahålla säker lagring för hemligheter. Maskin vara-baserad lagring av enhets hemligheter rekommenderas starkt.
+I den här självstudien visas det [anpassade HSM-exemplet](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) som tillhandahåller en stub-implementering för samverkan med maskinvarubaserad säker lagring. En [modul för maskin varu säkerhet (HSM)](./concepts-service.md#hardware-security-module) används för säker, maskinvarubaserad lagring av enhets hemligheter. En HSM kan användas med symmetrisk nyckel, X. 509-certifikat eller TPM-attestering för att tillhandahålla säker lagring för hemligheter. Maskinvarubaserad lagring av enhets hemligheter krävs inte, men det är starkt rekommenderat att skydda känslig information som enhets certifikatets privata nyckel.
 
 Om du inte är bekant med processen för autoetablering, granskar du [etablerings](about-iot-dps.md#provisioning-process) översikten. Kontrol lera också att du har slutfört stegen i [konfigurera IoT Hub Device Provisioning service med Azure Portal](quick-setup-auto-provision.md) innan du fortsätter med den här självstudien. 
 
@@ -225,7 +225,9 @@ Så här skapar du certifikat kedjan:
 
 ## <a name="configure-the-custom-hsm-stub-code"></a>Konfigurera anpassad HSM stub-kod
 
-De specifika värdena för att interagera med faktisk säker maskinvarubaserad lagring varierar beroende på maskin varan. Därför kommer den certifikat kedja som används av enheten i den här självstudien att hårdkodad i den anpassade HSM-stub-koden. I ett verkligt scenario lagras certifikat kedjan i den faktiska HSM-maskinvaran för att ge bättre säkerhet för känslig information. Metoder som liknar de stub-metoder som visas i det här exemplet implementeras sedan för att läsa hemligheter från den maskinbaserade lagringen.
+De specifika värdena för att interagera med faktisk säker maskinvarubaserad lagring varierar beroende på maskin varan. Därför kommer den certifikat kedja som används av enheten i den här självstudien att hårdkodad i den anpassade HSM-stub-koden. I ett verkligt scenario lagras certifikat kedjan i den faktiska HSM-maskinvaran för att ge bättre säkerhet för känslig information. Metoder som liknar de stub-metoder som visas i det här exemplet implementeras sedan för att läsa hemligheter från den maskinbaserade lagringen. 
+
+Även om HSM-maskinvara inte krävs, rekommenderar vi inte att du har känslig information, t. ex. certifikatets privata nyckel, som är incheckad i käll koden. Detta visar nyckeln till alla som kan visa koden. Detta görs endast i den här artikeln för att hjälpa till med inlärning.
 
 Så här uppdaterar du den anpassade HSM stub-koden för den här självstudien:
 
@@ -287,7 +289,7 @@ Så här uppdaterar du den anpassade HSM stub-koden för den här självstudien:
 
 ## <a name="verify-ownership-of-the-root-certificate"></a>Verifiera ägarskap för rot certifikatet
 
-1. Använd anvisningarna från [registrera den offentliga delen av ett X. 509-certifikat och få en verifierings kod](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), ladda upp rot certifikatet och få en verifierings kod från DPS.
+1. Använd anvisningarna från [registrera den offentliga delen av ett X. 509-certifikat och hämta en verifierings kod](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), överför rot certifikatet ( `./certs/azure-iot-test-only.root.ca.cert.pem` ) och få en verifierings kod från DPS.
 
 2. När du har en verifierings kod från DPS för rot certifikatet kör du följande kommando från certifikat skriptets arbets katalog för att generera ett verifierings certifikat.
  
@@ -297,7 +299,7 @@ Så här uppdaterar du den anpassade HSM stub-koden för den här självstudien:
     ./certGen.sh create_verification_certificate 1B1F84DE79B9BD5F16D71E92709917C2A1CA19D5A156CB9F    
     ```    
 
-    Det här skriptet skapar ett certifikat som signerats av rot certifikatet med ämnes namnet inställt på verifierings koden. Med det här certifikatet kan DPS verifiera att du har åtkomst till rot certifikatets privata nyckel. Lägg märke till platsen för verifierings certifikatet i utdata från skriptet.
+    Det här skriptet skapar ett certifikat som signerats av rot certifikatet med ämnes namnet inställt på verifierings koden. Med det här certifikatet kan DPS verifiera att du har åtkomst till rot certifikatets privata nyckel. Lägg märke till platsen för verifierings certifikatet i utdata från skriptet. Det här certifikatet har genererats i `.pfx` format.
 
     ```output
     Leaf Device PFX Certificate Generated At:

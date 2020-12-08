@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa4b625afb641209d3920c8663ed810ee27e1ad
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 427cf2614f81a086dcb174db06cd636df4876c7e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89228655"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778503"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>Vad är Azure Active Directory-övervakning?
 
@@ -40,6 +40,22 @@ För närvarande kan du dirigera loggarna till:
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
+## <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Licensiering och krav för Azure AD-rapportering och-övervakning
+
+Du behöver en Azure AD Premium-licens för att få åtkomst till Azure AD-inloggnings loggarna.
+
+Detaljerad information om funktioner och licensiering i [Azure Active Directory prissättnings guide](https://azure.microsoft.com/pricing/details/active-directory/).
+
+För att distribuera Azure AD-övervakning och-rapportering behöver du en användare som är global administratör eller säkerhets administratör för Azure AD-klienten.
+
+Beroende på den slutliga destinationen för dina loggdata behöver du något av följande:
+
+* Ett Azure-lagringskonto som du har ListKeys-behörigheter för. Vi rekommenderar att du använder ett allmänt lagringskonto och inte ett blob-lagringskonto. Information om lagringspriser hittar du i [Priskalkylatorn för Azure Storage](https://azure.microsoft.com/pricing/calculator/?service=storage).
+
+* Ett Azure Event Hubs-namnområde som kan integreras med SIEM-lösningar från tredje part.
+
+* En Azure Log Analytics-arbetsyta för att skicka loggar till Azure Monitor loggar.
+
 ## <a name="diagnostic-settings-configuration"></a>Konfiguration av diagnostikinställningar
 
 Du konfigurerar övervakningsinställningarna för Azure AD-aktivitetsloggarna genom att först logga in på [Azure-portalen](https://portal.azure.com) och sedan välja **Azure Active Directory**. Härifrån kan du komma åt konfigurationssidan Diagnostikinställningar på två sätt:
@@ -48,7 +64,7 @@ Du konfigurerar övervakningsinställningarna för Azure AD-aktivitetsloggarna g
 
     ![Diagnostikinställningar](./media/overview-monitoring/diagnostic-settings.png)
     
-* Välj **Granskningsloggar** eller **Inloggningar**och välj sedan **Exportinställningar**. 
+* Välj **Granskningsloggar** eller **Inloggningar** och välj sedan **Exportinställningar**. 
 
     ![Exportinställningar](./media/overview-monitoring/export-settings.png)
 

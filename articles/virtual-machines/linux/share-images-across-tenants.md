@@ -1,6 +1,6 @@
 ---
 title: Dela Galleri bilder över klienter
-description: Lär dig att dela VM-avbildningar i Azure-klienter med hjälp av delade avbildnings gallerier med hjälp av Linux-exempel
+description: Lär dig hur du delar VM-avbildningar i Azure-klienter med hjälp av delade avbildnings gallerier med Azure CLI.
 author: axayjo
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -10,14 +10,14 @@ ms.date: 05/04/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a5e71f09179d414be84896a49a66480f19a0665d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f0192a6eb60c72c9f7ac605db492f4e5f97b76ed
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843595"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779268"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants---linux-examples"></a>Dela Galleri VM-avbildningar i Azure-klienter – Linux-exempel
+# <a name="share-gallery-vm-images-across-azure-tenants-using-the-azure-cli"></a>Dela Galleri VM-avbildningar över Azure-klienter med hjälp av Azure CLI
 
 Med delade avbildnings gallerier kan du dela avbildningar med Azure RBAC. Du kan använda Azure RBAC för att dela avbildningar i din klient organisation och till och med personer utanför din klient organisation. Mer information om det här enkla delnings alternativet finns i avsnittet [dela galleriet](./shared-images-portal.md#share-the-gallery).
 

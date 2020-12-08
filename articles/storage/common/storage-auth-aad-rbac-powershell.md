@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 19262441df87b96bbb43a010ca47861ec2b236d3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 852375cc7948fc7f6bd106380b3194f2dc84b8ca
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488766"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778928"
 ---
 # <a name="use-powershell-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Använd PowerShell för att tilldela en Azure-roll för åtkomst till blob-och Queue-data
 
@@ -59,6 +59,9 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 ## <a name="assign-an-azure-role-to-a-security-principal"></a>Tilldela en Azure-roll till ett säkerhets objekt
 
 Använd kommandot [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) om du vill tilldela en Azure-roll till ett säkerhets objekt. Kommandots format kan variera beroende på tilldelningens omfattning. För att kunna köra kommandot måste du ha ägar-eller deltagar rollen tilldelad till motsvarande omfång. I följande exempel visas hur du tilldelar en roll till en användare i olika scope, men du kan använda samma kommando för att tilldela en roll till alla säkerhets objekt.
+
+> [!NOTE]
+> När du skapar ett Azure Storage-konto tilldelas du inte automatiskt behörigheter för åtkomst till data via Azure AD. Du måste uttryckligen tilldela dig själv en Azure-roll för Azure Storage. Du kan tilldela den på nivån för din prenumeration, resurs grupp, lagrings konto eller behållare eller kö.
 
 ### <a name="container-scope"></a>Container omfång
 

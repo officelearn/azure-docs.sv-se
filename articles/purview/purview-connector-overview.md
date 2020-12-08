@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
-ms.openlocfilehash: 88fb9c823df6ae5df345911ccce1c579009fba02
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 26efa840bacd3ee542816cf861cf2ef586b0582f
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555138"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780220"
 ---
 # <a name="supported-data-stores"></a>Datalager som stöds
 
@@ -28,9 +28,10 @@ Avdelningens kontroll har stöd för följande data lager. Klicka på varje data
 ||[Azure Data Lake Storage Gen1](register-scan-adls-gen1.md)|Ja| Ja| Ja| Ja| Ja| Ja|
 ||[Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)|Ja| Ja| Ja| Ja| Ja| Ja|
 ||[Azure SQL Database](register-scan-azure-sql-database.md)|Ja| Ja| Nej| Ja| Ja| Ja|
-||[Azure SQL Database Hanterad instans](register-scan-azure-sql-database-managed-instance.md)|Ja| Ja| Nej| Ja| Ja| Ja|
+||[Hanterad Azure SQL Database-instans](register-scan-azure-sql-database-managed-instance.md)|Ja| Ja| Nej| Ja| Ja| Ja|
 ||[Azure Synapse Analytics (tidigare SQL DW)](register-scan-azure-synapse-analytics.md)|Ja| Ja| Nej| Ja| Ja| Ja|
 |Databas|[SQL Server](register-scan-on-premises-sql-server.md)|Ja| Ja| Nej| Ja| Ja| Ja|
+||[Teradata (förhandsversion)](register-scan-teradata-source.md)|Ja| Ja| Nej| Nej| Nej| Ja|
 |Power BI|[Power BI](register-scan-power-bi-tenant.md)|Ja| Ja| Nej| Nej| Nej| Ja|
 
 ## <a name="next-steps"></a>Nästa steg

@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/03/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b836c28443790466084b1840edcf08dc09dcf4cc
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 2999fb8b3c3687c68e7eb38a60f128e24028871f
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518285"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779710"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -311,7 +311,7 @@ Mer information om den här funktionen finns i [inaktivera och ta bort externa i
 **Tjänste kategori:** Åtkomst granskningar  
 **Produkt kapacitet:** Identitets styrning
  
-I Azure AD Access-granskningar kan administratörer som skapar recensioner nu skriva ett anpassat meddelande till granskarna. Granskarna ser meddelandet i det e-postmeddelande som de får för att bekräfta granskningen. Mer information om hur du använder den här funktionen finns i steg 6 i avsnittet [Avancerade inställningar](../governance/create-access-review.md#advanced-settings) .
+I Azure AD Access-granskningar kan administratörer som skapar recensioner nu skriva ett anpassat meddelande till granskarna. Granskarna ser meddelandet i det e-postmeddelande som de får för att bekräfta granskningen. Mer information om hur du använder den här funktionen finns i steg 14 i avsnittet [skapa en eller flera åtkomst granskningar](../governance/create-access-review.md#create-one-or-more-access-reviews) .
 
 ---
 

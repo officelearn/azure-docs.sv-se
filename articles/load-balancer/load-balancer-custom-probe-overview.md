@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 605692d15a08246dd574b0724a550b4543a237a3
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: a008d7b26738b9552a7a43ab026391bd9afe0aa8
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695528"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780951"
 ---
 # <a name="load-balancer-health-probes"></a>Hälsoavsökningar för Load Balancer
 
@@ -66,7 +66,7 @@ De angivna värdena för timeout och intervall avgör om en instans ska markeras
 
 Vi kan illustrera beteendet ytterligare med ett exempel. Om du har angett antalet avsöknings svar till 2 och intervallet till 5 sekunder, så innebär det att tids gräns felen för avsökningen måste observeras inom 10 sekunders intervall.  Eftersom den tid då en avsökning skickas inte synkroniseras när programmet kan ändra tillstånd, kan vi binda tiden till att identifiera genom två scenarier:
 
-1. Om ditt program börjar skapa ett tids gräns avsöknings svar precis innan den första avsökningen kommer, tar identifieringen av dessa händelser 10 sekunder (2 x 5 sekunder) plus varaktigheten för programmet som börjar signalera en timeout till när den första avsökningen anländer.  Du kan anta att identifieringen tar något över 10 sekunder.
+1. Om ditt program börjar skapa ett tids gräns avsöknings svar precis innan den första avsökningen kommer, tar identifieringen av dessa händelser 10 sekunder (2 x 5 sekunder) plus programmets varaktighet, vilket börjar signalera en timeout till när den första avsökningen kommer.  Du kan anta att identifieringen tar något över 10 sekunder.
 2. Om ditt program börjar skapa ett tids gräns avsöknings svar strax efter det att den första avsökningen har infallit, börjar inte identifieringen av dessa händelser förrän nästa avsökning kommer (och tids gränsen) plus ytterligare 10 sekunder (2 x 5 sekunder).  Du kan anta att den här identifieringen tar strax under 15 sekunder.
 
 I det här exemplet tar plattformen en liten stund att reagera på den här ändringen när identifieringen har skett.  Det innebär en beroende på 

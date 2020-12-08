@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: kenwith
 ms.reviewer: arajpathak7
 ms.custom: contperfq2
-ms.openlocfilehash: 5fc0156b9b832f44fd38292ef2b9a25e39401610
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 487bf3c83be16ee80838b3bbe8bf8532eb6ffe12
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348669"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780067"
 ---
 # <a name="understand-oidc-based-single-sign-on"></a>Förstå OIDC-baserad enkel inloggning
 I [snabb starts serien](view-applications-portal.md) för program hantering har du lärt dig hur du använder Azure AD som identitets leverantör (IdP) för ett program. Den här artikeln går till mer information om appar som använder OpenID Connect standard för att implementera enkel inloggning. 
@@ -34,6 +34,8 @@ Det är bra att lägga till en app som använder OIDC-standarden för enkel inlo
 Lägga till en OIDC-baserad app i Azure Active Directory
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
+
+Läs mer om användar-och administratörs medgivande i [förstå användar-och administratörs medgivande](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent).
 
 ## <a name="next-steps"></a>Nästa steg
 

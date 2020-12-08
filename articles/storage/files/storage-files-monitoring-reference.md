@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: f6dc523050fdcdbf54a6b9864f0a752698a85eed
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 3a3f4faf8278553153ae2186ea74d20702c603b3
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628942"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780934"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Azure Files övervaknings data referens
 
@@ -68,7 +68,7 @@ Azure Files stöder följande dimensioner för mått i Azure Monitor.
 ## <a name="resource-logs-preview"></a>Resurs loggar (förhands granskning)
 
 > [!NOTE]
-> Azure Storage loggar i Azure Monitor finns i offentlig för hands version och är tillgänglig för för hands testning i alla offentliga moln regioner. För att registrera dig i för hands versionen, se [den här sidan](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).  Den här för hands versionen aktiverar loggar för blobbar (inklusive Azure Data Lake Storage Gen2), filer, köer, tabeller, Premium Storage-konton i generell användning v1-och General-Purpose v2-lagrings konton. Klassiska lagrings konton stöds inte.
+> Azure Storage loggar i Azure Monitor finns i offentlig för hands version och är tillgänglig för för hands testning i alla offentliga moln regioner. Den här för hands versionen aktiverar loggar för blobbar (inklusive Azure Data Lake Storage Gen2), filer, köer, tabeller, Premium Storage-konton i generell användning v1-och General-Purpose v2-lagrings konton. Klassiska lagrings konton stöds inte.
 
 I följande tabell visas egenskaperna för Azure Storage resurs loggar när de samlas in i Azure Monitor loggar eller Azure Storage. Egenskaperna beskriver åtgärden, tjänsten och typen av auktorisering som användes för att utföra åtgärden.
 

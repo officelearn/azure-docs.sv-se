@@ -4,15 +4,15 @@ description: Lär dig hur du migrerar samförsäljnings lösningar från OCP GTM
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
-ms.date: 12/04/2020
-ms.openlocfilehash: 6af7095dbb57c5ceb17989b2d6106a42e1d23fb9
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+author: vamahtan
+ms.author: vamahtan
+ms.date: 12/07/2020
+ms.openlocfilehash: 6ad58283ad9078088f241a67426657eb7a538e10
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96772088"
+ms.locfileid: "96781138"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migrering av samförsäljnings lösningar från OCP GTM till den kommersiella marknaden
 
@@ -79,7 +79,8 @@ Välj det här alternativet om lösningen redan har publicerats på den kommersi
 1. Identifiera det befintliga erbjudandet.
     1. Välj **Jag vill slå samman lösningen med ett liknande erbjudande på den kommersiella Marketplace** (se **åtgärd krävs** avbildning [ovan](#beginmigration)).
     1. På fliken **åtgärd 1** visas Live Marketplace för kommersiella marknads platser som din OCP GTM-lösning kan associeras med. Välj Live-erbjudandet i listan om du har ett. Om det inte finns någon lista över erbjudanden att välja bland, anger du adressen till kunden (URL) från Microsoft AppSource eller Azure Marketplace.
-        [![Fliken åtgärd 1 i sammanslagnings processen.](media/co-sell-migrate/action-1-merge.png)](media/co-sell-migrate/action-1-merge.png#lightbox)    1. Välj **Fortsätt**.
+        [![Fliken åtgärd 1 i sammanslagnings processen.](media/co-sell-migrate/action-1-merge.png)](media/co-sell-migrate/action-1-merge.png#lightbox)
+    1. Välj **Fortsätt**.
 1. Begär sammanfogningen.
     1. Fliken **åtgärd 2** visar riktningar för att begära sammanslagningen av din OCP GTM-lösning med den som du har identifierat. Om du vill begära sammanslagningen väljer du **spara & kontakta supporten** så öppnas sidan partner support i en webbläsare.
     1. Välj **Ange problem information** och ange följande: [ ![ fliken åtgärd 2 i sammanslagnings processen.](media/co-sell-migrate/action-2-merge.png)](media/co-sell-migrate/action-2-merge.png#lightbox)
@@ -93,7 +94,7 @@ Välj det här alternativet om du kan ha en OCP GTM-lösning som ännu inte har 
 1. Välj **Jag vill migrera den här lösningen från OCP GTM till den kommersiella marknads platsen** (se **åtgärd krävs** avbildning [ovan](#beginmigration)) och **Fortsätt** sedan.
 1. På fliken **åtgärd 1** väljer du [erbjudande typen](publisher-guide-by-offer-type.md)och **fortsätter** sedan.
 
-    [![Fliken åtgärd 1 i flyttnings processen.](media/co-sell-migrate/action-1-migrate.png)](media/co-sell-migrate/action-1-migrate.png#lightbox)    1. Välj **Fortsätt**.
+    [![Fliken åtgärd 1 i flyttnings processen.](media/co-sell-migrate/action-1-migrate.png)](media/co-sell-migrate/action-1-migrate.png#lightbox)
 
 1. På fliken **åtgärd 2** väljer du [utgivar profilen](partner-center-portal/create-account.md) i listan som tillhandahålls. Om du inte har ett utgivar konto skapar du ett i [partner Center](https://partner.microsoft.com/solutions/migration)och väljer det här.
 

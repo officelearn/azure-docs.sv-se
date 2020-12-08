@@ -7,12 +7,12 @@ ms.date: 12/04/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 7c09105312bc648c95d24de7582b95baf61bdc10
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: ec3fc490466f5fce36b67b2f3744e4ee5cc0ae79
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744813"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96781104"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-ruby"></a>Snabb start: Azure Blob Storage klient bibliotek för ruby
 
@@ -56,7 +56,7 @@ Följande kod i *exempel. RB* -filen instansierar ett nytt [BlobService](https:/
 account_name = "accountname"
 account_key = "accountkey"
 
-    blob_client = Azure::Storage::Blob::BlobService.create(
+blob_client = Azure::Storage::Blob::BlobService.create(
     storage_account_name: account_name,
     storage_access_key: account_key
 )
@@ -192,6 +192,7 @@ Se följande ytterligare resurser för ruby-utveckling:
 
 - Visa och ladda ned [Ruby-klientbibliotekets källkod](https://github.com/Azure/azure-storage-ruby) för Azure Storage på GitHub.
 - Utforska [Azure-exempel](/samples/browse/?products=azure&languages=ruby) som skrivits med hjälp av ruby-klient biblioteket.
+- [Exempel: Komma igång med Azure Storage i ruby](https://github.com/Azure-Samples/storage-blob-ruby-getting-started)
 
 ## <a name="next-steps"></a>Nästa steg
 

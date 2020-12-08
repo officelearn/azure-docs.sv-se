@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 0c5b06fd14f526ca90b1b922be281af55ba00116
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 22d6cacc36363b17f9bc32d354982eb71974b31d
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995224"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779761"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Anvisningar: Loggar in valfri Azure Active Directory-användare med programmönstret för flera klienter
 
@@ -116,6 +116,8 @@ Den här medgivande upplevelsen påverkas av de behörigheter som har begärts a
 * En app-only-behörighet beviljas direkt till appens identitet. Du kan till exempel ge ett program appens behörighet att läsa listan över användare i en klient organisation, oavsett vem som är inloggad i programmet.
 
 Vissa behörigheter kan skickas till av en vanlig användare, medan andra kräver en klient administratörs medgivande.
+
+Mer information om användar-och administratörs medgivande finns i [Konfigurera arbets flödet för administratörs medgivande](../manage-apps/configure-admin-consent-workflow.md).
 
 ### <a name="admin-consent"></a>Administratörsmedgivande
 

@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/19/2020
-ms.openlocfilehash: 043020abd44bc1f8e671cf386149d6a818136de9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6ee72a25fc8435159ae75ac3296742eda58617b6
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014371"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779948"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Skapa en privat slut punkt för en säker anslutning till Azure Kognitiv sökning
 
@@ -22,7 +22,7 @@ I den här artikeln använder du Azure Portal för att skapa en ny Azure Kogniti
 Privata slut punkter tillhandahålls av en [privat Azure-länk](../private-link/private-link-overview.md), som en separat tjänst. Mer information om kostnader finns på sidan med [priser](https://azure.microsoft.com/pricing/details/private-link/).
 
 > [!Important]
-> Stöd för privata slut punkter för Azure Kognitiv sökning kan konfigureras med hjälp av Azure Portal eller [hanterings REST API version 2020-03-13](/rest/api/searchmanagement/). När tjänstens slut punkt är privat är vissa Portal funktioner inaktiverade. Du kan visa och hantera information om service nivå, men Portal åtkomst till index data och de olika komponenterna i tjänsten, till exempel index, indexerare och färdigheter definitioner, är begränsad av säkerhets skäl.
+> Stöd för privata slut punkter för Azure Kognitiv sökning kan konfigureras med hjälp av Azure Portal eller [hanterings REST API version 2020-03-13](/rest/api/searchmanagement/). När tjänstens slut punkt är privat är vissa Portal funktioner inaktiverade. Du kan visa och hantera information om service nivå, men Portal åtkomst till index data och de olika komponenterna i tjänsten, till exempel index, indexerare och färdigheter definitioner, är begränsad av säkerhets skäl. Som ett alternativ till portalen kan du använda [vs Code-tillägget](https://aka.ms/vscode-search) för att interagera med de olika komponenterna i tjänsten.
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>Varför ska jag använda en privat slut punkt för säker åtkomst?
 
@@ -46,7 +46,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät som �
     | ------- | ----- |
     | Prenumeration | Välj din prenumeration|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK** |
-    | Name | Ange *MyVirtualNetwork* |
+    | Namn | Ange *MyVirtualNetwork* |
     | Region | Välj önskad region |
     |||
 
@@ -123,7 +123,7 @@ I det här avsnittet ska du skapa en ny Azure Kognitiv sökning-tjänst med en p
     | Namn på virtuell dator | Ange *myVm*. |
     | Region | Välj **USA, västra** eller vilken region du använder. |
     | Alternativ för tillgänglighet | Lämna standard **ingen redundans för infrastruktur krävs**. |
-    | Bild | Välj **Windows Server 2019 Data Center**. |
+    | Avbildning | Välj **Windows Server 2019 Data Center**. |
     | Storlek | Lämna standard **ds1 v2** som standard. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett användar namn som du väljer. |

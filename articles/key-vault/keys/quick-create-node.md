@@ -1,31 +1,31 @@
 ---
-title: Snabb start – Azure Key Vault hemligt klient bibliotek för Java Script (version 4)
-description: Lär dig hur du skapar, hämtar och tar bort hemligheter från ett Azure Key Vault med hjälp av Java Script Client library
+title: Snabb start – Azure Key Vault nyckel klient bibliotek för Java Script (version 4)
+description: Lär dig hur du skapar, hämtar och tar bort nycklar från ett Azure Key Vault med hjälp av Java Script Client library
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 12/6/2020
 ms.service: key-vault
-ms.subservice: secrets
+ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 8e04fcea53869fe15ebbeb3c7709cff842893931
+ms.openlocfilehash: 1d842a4eaf0ff4afbc61ca58847747c3da57b1da
 ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780798"
+ms.locfileid: "96841942"
 ---
-# <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>Snabb start: Azure Key Vault hemligt klient bibliotek för Java Script (version 4)
+# <a name="quickstart-azure-key-vault-key-client-library-for-javascript-version-4"></a>Snabb start: Azure Key Vault nyckel klient bibliotek för Java Script (version 4)
 
-Kom igång med det Azure Key Vault hemliga klient biblioteket för Java Script. [Azure Key Vault](../general/overview.md) är en moln tjänst som tillhandahåller en säker lagring för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Du kan skapa och hantera Azure-nyckelvalv via Azure Portal. I den här snabb starten får du lära dig hur du skapar, hämtar och tar bort hemligheter från ett Azure Key Vault med hjälp av Java Script Client library
+Kom igång med klient biblioteket för Azure Key Vaults nyckel för Java Script. [Azure Key Vault](../general/overview.md) är en moln tjänst som tillhandahåller en säker lagring för kryptografiska nycklar. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Du kan skapa och hantera Azure-nyckelvalv via Azure Portal. I den här snabb starten får du lära dig hur du skapar, hämtar och tar bort nycklar från ett Azure Key Vault med hjälp av JavaScript-nyckelns klient bibliotek
 
 Key Vault klient biblioteks resurser:
 
-[API-referens dokumentation](/javascript/api/overview/azure/key-vault-index)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault)  |  [Paket (NPM)](https://www.npmjs.com/package/@azure/keyvault-secrets)
+[API-referens dokumentation](/javascript/api/overview/azure/key-vault-index)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault)  |  [Paket (NPM)](https://www.npmjs.com/package/@azure/keyvault-keys)
 
-Mer information om Key Vault och hemligheter finns i:
+Mer information om Key Vault och nycklar finns i:
 - [Översikt över Key Vault](../general/overview.md)
-- [Översikt över hemligheter](about-secrets.md).
+- [Översikt över nycklar](about-keys.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -69,10 +69,10 @@ npm init -y
 
 ## <a name="install-key-vault-packages"></a>Installera Key Vault-paket
 
-I konsol fönstret installerar du [biblioteket Azure Key Vault hemligheter](https://www.npmjs.com/package/@azure/keyvault-secrets) för Node.js.
+I konsol fönstret installerar du [biblioteket Azure Key Vault nycklar](https://www.npmjs.com/package/@azure/keyvault-keys) för Node.js.
 
 ```azurecli
-npm install @azure/keyvault-secrets
+npm install @azure/keyvault-keys
 ```
 
 Installera [Azure. Identity](https://www.npmjs.com/package/@azure/identity) -paketet för att autentisera till en Key Vault
@@ -101,15 +101,15 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 ## <a name="grant-access-to-your-key-vault"></a>Bevilja åtkomst till ditt nyckel valv
 
-Skapa en åtkomst princip för nyckel valvet som ger hemliga behörigheter till ditt användar konto
+Skapa en åtkomst princip för nyckel valvet som beviljar nyckel behörigheter till ditt användar konto
 
 ```azurecli
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --key-permissions delete get list create purge
 ```
 
 ## <a name="code-examples"></a>Kodexempel
 
-I kod exemplen nedan visas hur du skapar en-klient, ställer in en hemlighet, hämtar en hemlighet och tar bort en hemlighet. 
+I kod exemplen nedan visas hur du skapar en-klient, ställer in en nyckel, hämtar en nyckel och tar bort en nyckel. 
 
 ### <a name="set-up-the-app-framework"></a>Konfigurera app Framework
 
@@ -147,7 +147,7 @@ Lägg till följande direktiv överst i koden:
 
 ```javascript
 const { DefaultAzureCredential } = require("@azure/identity");
-const { SecretClient } = require("@azure/keyvault-secrets");
+const { KeyClient } = require("@azure/keyvault-keys");
 ```
 
 ### <a name="authenticate-and-create-a-client"></a>Autentisera och skapa en klient
@@ -163,42 +163,40 @@ const keyVaultName = process.env["KEY_VAULT_NAME"];
 const KVUri = "https://" + keyVaultName + ".vault.azure.net";
 
 const credential = new DefaultAzureCredential();
-const client = new SecretClient(KVUri, credential);
+const client = new KeyClient(KVUri, credential);
 ```
 
-### <a name="save-a-secret"></a>Spara en hemlighet
+### <a name="save-a-key"></a>Spara en nyckel
 
-Nu när ditt program är autentiserat kan du ange en hemlighet i ditt nyckel valv med hjälp av [metoden setSecret](/javascript/api/@azure/keyvault-secrets/secretclient?#setsecret-string--string--setsecretoptions-) som kräver ett namn för hemligheten – vi använder "hemlig hemlighet" i det här exemplet.  
+Nu när ditt program är autentiserat kan du ange en nyckel i ditt nyckel valv med hjälp av [metoden createKey](/javascript/api/@azure/keyvault-keys/keyclient?#createKey_string__KeyType__CreateKeyOptions_) som metodens parametrar accepterar ett nyckel namn och [nyckel typen](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keytype)
 
 ```javascript
-await client.setSecret(secretName, secretValue);
+await client.createKey(keyName, keyType);
 ```
 
-### <a name="retrieve-a-secret"></a>Hämta en hemlighet
+### <a name="retrieve-a-key"></a>Hämta en nyckel
 
-Du kan nu hämta det tidigare angivna värdet med [metoden getSecret](/javascript/api/@azure/keyvault-secrets/secretclient?#getsecret-string--getsecretoptions-).
+Du kan nu hämta det tidigare angivna värdet med [metoden getKey](/javascript/api/@azure/keyvault-keys/keyclient?#getKey_string__GetKeyOptions_).
 
 ```javascript
-const retrievedSecret = await client.getSecret(secretName);
+const retrievedKey = await client.getKey(keyName);
  ```
 
-Din hemlighet sparas nu som `retrievedSecret.value` .
+### <a name="delete-a-key"></a>Ta bort en nyckel
 
-### <a name="delete-a-secret"></a>Ta bort en hemlighet
-
-Slutligen tar vi bort och rensar hemligheten från nyckel valvet med metoderna [beginDeleteSecret](https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?#beginDeleteSecret_string__BeginDeleteSecretOptions_) och [purgeDeletedSecret](https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?#purgeDeletedSecret_string__PurgeDeletedSecretOptions_) .
+Slutligen tar vi bort och rensar nyckeln från nyckel valvet med metoderna [beginDeleteKey](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#beginDeleteKey_string__BeginDeleteKeyOptions_) och [purgeDeletedKey](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#purgeDeletedKey_string__PurgeDeletedKeyOptions_) .
 
 ```javascript
-const deletePoller = await client.beginDeleteSecret(secretName);
+const deletePoller = await client.beginDeleteKey(keyName);
 await deletePoller.pollUntilDone();
-await client.purgeDeletedSecret(secretName);
+await client.purgeDeletedKey(keyName);
 ```
 
 ## <a name="sample-code"></a>Exempelkod
 
 ```javascript
 const { DefaultAzureCredential } = require("@azure/identity");
-const { SecretClient } = require("@azure/keyvault-secrets");
+const { KeyClient } = require("@azure/keyvault-keys");
 
 const readline = require('readline');
 
@@ -220,33 +218,28 @@ async function main() {
   const KVUri = "https://" + keyVaultName + ".vault.azure.net";
 
   const credential = new DefaultAzureCredential();
-  const client = new SecretClient(KVUri, credential);
+  const client = new KeyClient(KVUri, credential);
 
-  const secretName = "mySecret";
-  var secretValue = await askQuestion("Input the value of your secret > ");
-
-  console.log("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
-  await client.setSecret(secretName, secretValue);
+  const keyName = "myKey";
+  
+  console.log("Creating a key in " + keyVaultName + " called '" + keyName + "` ...");
+  await client.createKey(keyName, "RSA");
 
   console.log("Done.");
 
-  console.log("Forgetting your secret.");
-  secretValue = "";
-  console.log("Your secret is '" + secretValue + "'.");
+  console.log("Retrieving your key from " + keyVaultName + ".");
 
-  console.log("Retrieving your secret from " + keyVaultName + ".");
+  const retrievedKey = await client.getKey(keyName);
 
-  const retrievedSecret = await client.getSecret(secretName);
+  console.log("Your key version is '" + retrievedKey.properties.version + "'.");
 
-  console.log("Your secret is '" + retrievedSecret.value + "'.");
-
-  console.log("Deleting your secret from " + keyVaultName + " ...");
-  const deletePoller = await client.beginDeleteSecret(secretName);
+  console.log("Deleting your key from " + keyVaultName + " ...");
+  const deletePoller = await client.beginDeleteKey(keyName);
   await deletePoller.pollUntilDone();
   console.log("Done.");
   
-  console.log("Purging your secret from {keyVaultName} ...");
-  await client.purgeDeletedSecret(secretName);
+  console.log("Purging your key from {keyVaultName} ...");
+  await client.purgeDeletedKey(keyName);
   
 }
 
@@ -256,35 +249,29 @@ main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
 
 ## <a name="test-and-verify"></a>Testa och verifiera
 
-1. Kör följande kommandon för att köra appen.
+Kör följande kommandon för att köra appen.
 
-    ```azurecli
-    npm install
-    npm index.js
-    ```
+```azurecli
+npm install
+npm index.js
+```
 
-1. När du uppmanas till det anger du ett hemligt värde. Till exempel mySecretPassword.
+En variant av följande utdata visas:
 
-    En variant av följande utdata visas:
-
-    ```azurecli
-    Input the value of your secret > mySecretPassword
-    Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
-    Forgetting your secret.
-    Your secret is ''.
-    Retrieving your secret from <your-unique-keyvault-name>.
-    Your secret is 'mySecretPassword'.
-    Deleting your secret from <your-unique-keyvault-name> ... done.  
-    Purging your secret from <your-unique-keyvault-name> ... done.   
-    ```
-
+```azurecli
+Creating a key in <your-unique-keyvault-name> called 'myKey' ... done.
+Retrieving your key from mykeyvault.
+Your key version is '8532359bced24e4bb2525f2d2050738a'.
+Deleting your key from <your-unique-keyvault-name> ... done.  
+Purging your key from <your-unique-keyvault-name> ... done.   
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du ett nyckel valv, lagrat en hemlighet och hämtat hemligheten. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
+I den här snabb starten skapade du ett nyckel valv, lagrat en nyckel och hämtat nyckeln. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
 
 - Läs en [Översikt över Azure Key Vault](../general/overview.md)
-- Läs en [Översikt över Azure Key Vault hemligheter](about-secrets.md)
+- Läs en [Översikt över Azure Key Vault nycklar](about-keys.md)
 - Så här [säkrar du åtkomst till ett nyckel valv](../general/secure-your-key-vault.md)
 - Se [Azure Key Vault Developer ' s guide](../general/developers-guide.md)
 - Granska [Azure Key Vault bästa praxis](../general/best-practices.md)

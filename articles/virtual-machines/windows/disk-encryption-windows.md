@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: ad40515475a10f41fd7ab1d8d44f89673877f054
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: df74a15a84ba04addb75b021d3b77b06cfe2ea48
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488328"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96781121"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Azure Disk Encryption-scenarier på virtuella Windows-datorer
 
@@ -267,6 +267,7 @@ Azure Disk Encryption fungerar inte för följande scenarier, funktioner och tek
 - Använda ADE på en virtuell dator som har diskar som är krypterade med [kryptering på Server sidan med Kundhanterade nycklar](../disk-encryption.md) (SSE + CMK). Att använda SSE + CMK till en datadisk på en virtuell dator som är krypterad med ADE är ett scenario som inte stöds.
 - Migrering av en virtuell dator som är krypterad med ADE eller **som har varit** krypterad med ade, till kryptering på [Server sidan med Kundhanterade nycklar](../disk-encryption.md).
 - [Azure VM-storlekar utan lokal temporär disk](../azure-vms-no-temp-disk.md); Mer specifikt, DV4, Dsv4, Ev4 och Esv4.
+- Kryptera virtuella datorer i kluster för växling vid fel.
 
 ## <a name="next-steps"></a>Nästa steg
 

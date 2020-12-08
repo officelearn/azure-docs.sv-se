@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/03/2019
+ms.date: 12/08/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e1c780d1eb9535343373701e6dfe4899a9cba366
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: b5f4f3d2b3eda9f00049cee26ae95850d65257d6
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803933"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778877"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Snabb start: skapa ett nyckel valv med hjälp av Azure Portal
 
@@ -41,7 +41,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 5. Ange följande information i avsnittet **Skapa nyckelvalv** avsnittet Ange följande information:
     - **Namn**: Ett unikt namn krävs. I den här snabb starten använder vi **contoso-vault2**. 
     - **Prenumeration**: Välj en prenumeration.
-    - Under **resurs grupp**väljer du **Skapa ny** och anger ett resurs grupp namn.
+    - Under **resurs grupp** väljer du **Skapa ny** och anger ett resurs grupp namn.
     - Välj en plats i listrutan **Plats**.
     - Lämna standardvärdena för de andra alternativen.
 6. När du har angett den här informationen väljer du **Skapa**.
@@ -67,7 +67,7 @@ När du inte behöver resursgruppen längre så tar du bort den. Då tas även n
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat en Key Vault och lagrat en hemlighet i den. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
+I den här snabb starten skapade du en Key Vault med hjälp av Azure Portal. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
 
 - Läs en [Översikt över Azure Key Vault](overview.md)
 - Se [Azure Key Vault Developer ' s guide](developers-guide.md)

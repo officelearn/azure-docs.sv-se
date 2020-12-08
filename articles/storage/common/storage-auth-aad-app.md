@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6dacb1cd910c6569d94f365b34a15494dde70a4c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d6a152096ce4e16849542c26d1c7a675a972b89
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787694"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779081"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Hämta en token från Azure AD för att auktorisera begär Anden från ett klient program
 
@@ -35,18 +35,18 @@ Om du vill autentisera ett säkerhets objekt från ditt Azure Storage-program m�
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registrera ditt program med en Azure AD-klient
 
-Det första steget i att använda Azure AD för att ge åtkomst till lagrings resurser är att registrera klient programmet med en Azure AD-klient från [Azure Portal](https://portal.azure.com). När du registrerar klient programmet anger du information om programmet till Azure AD. Azure AD tillhandahåller sedan ett klient-ID (kallas även ett *program-ID* ) som du använder för att associera ditt program med Azure AD vid körning. Mer information om klient-ID finns i [program-och tjänst huvud objekt i Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). Registrera ditt Azure Storage program genom att följa stegen i [snabb start: registrera ett program med Microsoft Identity Platform](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). 
+Det första steget i att använda Azure AD för att ge åtkomst till lagrings resurser är att registrera klient programmet med en Azure AD-klient från [Azure Portal](https://portal.azure.com). När du registrerar klient programmet anger du information om programmet till Azure AD. Azure AD tillhandahåller sedan ett klient-ID (kallas även ett *program-ID*) som du använder för att associera ditt program med Azure AD vid körning. Mer information om klient-ID finns i [program-och tjänst huvud objekt i Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). Registrera ditt Azure Storage program genom att följa stegen i [snabb start: registrera ett program med Microsoft Identity Platform](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). 
 
 Följande bild visar vanliga inställningar för att registrera ett webb program. Observera att i det här exemplet är omdirigerings-URI: n inställd på `http://localhost:5000/signin-oidc` för att testa exempel programmet i utvecklings miljön. Du kan ändra den här inställningen senare under **autentiseringsinställningarna** för ditt registrerade program i Azure Portal:
 
 :::image type="content" source="media/storage-auth-aad-app/app-registration.png" alt-text="Skärm bild som visar hur du registrerar ditt lagrings program med Azure AD":::
 
 > [!NOTE]
-> Om du registrerar ditt program som ett internt program kan du ange en giltig URI för **omdirigerings-URI: n** . För interna program behöver det här värdet inte vara en riktig URL. För webb program måste omdirigerings-URI: n vara en giltig URI, eftersom den anger den URL till vilken tokens anges.
+> Om du registrerar ditt program som ett internt program kan du ange en giltig URI för **omdirigerings-URI: n**. För interna program behöver det här värdet inte vara en riktig URL. För webb program måste omdirigerings-URI: n vara en giltig URI, eftersom den anger den URL till vilken tokens anges.
 
-När du har registrerat ditt program visas program-ID: t (eller klient-ID) under **Inställningar** :
+När du har registrerat ditt program visas program-ID: t (eller klient-ID) under **Inställningar**:
 
-:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Skärm bild som visar hur du registrerar ditt lagrings program med Azure AD":::
+:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Skärm bild som visar klient-ID":::
 
 Mer information om hur du registrerar ett program med Azure AD finns i [integrera program med Azure Active Directory](../../active-directory/develop/quickstart-register-app.md).
 
@@ -54,18 +54,18 @@ Mer information om hur du registrerar ett program med Azure AD finns i [integrer
 
 Ge sedan dina program behörigheter för att anropa Azure Storage API: er. Det här steget gör att ditt program kan auktorisera begär anden till Azure Storage med Azure AD.
 
-1. På sidan **API-behörigheter** för ditt registrerade program väljer du **Lägg till en behörighet** .
-1. Under fliken **Microsoft API: er** väljer du **Azure Storage** .
-1. I rutan **begär API-behörigheter** under **vilken typ av behörighet kräver ditt program?** , Observera att den tillgängliga behörighets typen är **delegerad behörighet** . Det här alternativet är valt som standard.
+1. På sidan **API-behörigheter** för ditt registrerade program väljer du **Lägg till en behörighet**.
+1. Under fliken **Microsoft API: er** väljer du **Azure Storage**.
+1. I rutan **begär API-behörigheter** under **vilken typ av behörighet kräver ditt program?**, Observera att den tillgängliga behörighets typen är **delegerad behörighet**. Det här alternativet är valt som standard.
 1. Under **behörigheter** markerar du kryss rutan bredvid **user_impersonation** och väljer sedan knappen **Lägg till behörigheter** .
 
-    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Skärm bild som visar hur du registrerar ditt lagrings program med Azure AD":::
+    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Skärm bild som visar behörigheter för Storage API":::
 
-1. Ge sedan administratörs medgivande för dessa behörigheter genom att klicka på **bevilja administrativt medgivande för standard katalogen** .
+1. Ge sedan administratörs medgivande för dessa behörigheter genom att klicka på **bevilja administrativt medgivande för standard katalogen**.
 
 Fönstret **API-behörigheter** visar nu att ditt registrerade Azure AD-program har åtkomst till både Microsoft Graph-och Azure Storage-API: er och att detta medgivande beviljas för standard katalogen. Behörigheter beviljas till Microsoft Graph automatiskt när du först registrerar din app med Azure AD.
 
-:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Skärm bild som visar hur du registrerar ditt lagrings program med Azure AD":::
+:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Skärm bild som visar API-behörigheter för registrerad app":::
 
 ### <a name="create-a-client-secret"></a>Skapa en klient hemlighet
 
@@ -81,13 +81,13 @@ Programmet behöver en klient hemlighet för att bevisa sin identitet när en to
 
 ### <a name="enable-implicit-grant-flow"></a>Aktivera implicit beviljande av flöde
 
-Konfigurera sedan det implicita tilldelnings flödet för ditt program. Följ de här stegen:
+Konfigurera sedan det implicita tilldelnings flödet för ditt program. Gör så här:
 
 1. Navigera till din app-registrering i Azure Portal.
 1. I avsnittet **Hantera** väljer du **autentiserings** inställningen.
 1. I avsnittet **implicit bidrag** markerar du kryss rutan för att aktivera ID-tokens, som du ser i följande bild:
 
-    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Skärm bild som visar hur du registrerar ditt lagrings program med Azure AD":::
+    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Skärm bild som visar hur du aktiverar inställningar för implicit beviljande av flöde":::
 
 ## <a name="client-libraries-for-token-acquisition"></a>Klient bibliotek för hämtning av token
 
@@ -131,6 +131,8 @@ Nu ska du uttryckligen tilldela rollen **Storage BLOB data Contributor** till de
 
 > [!NOTE]
 > När du skapar ett Azure Storage-konto tilldelas du inte automatiskt behörigheter för åtkomst till data via Azure AD. Du måste uttryckligen tilldela dig själv en Azure-roll för Azure Storage. Du kan tilldela den på nivån för din prenumeration, resurs grupp, lagrings konto eller behållare eller kö.
+>
+> Innan du tilldelar dig själv en roll för data åtkomst kommer du att kunna komma åt data i ditt lagrings konto via Azure Portal eftersom Azure Portal även kan använda konto nyckeln för data åtkomst. Mer information finns i [Välj hur du godkänner åtkomst till BLOB-data i Azure Portal](../blobs/authorize-data-operations-portal.md).
 
 ### <a name="create-a-web-application-that-authorizes-access-to-blob-storage-with-azure-ad"></a>Skapa ett webb program som tillåter åtkomst till Blob Storage med Azure AD
 
@@ -140,7 +142,7 @@ Ett slutfört exempel webb program som hämtar en token och använder den för a
 
 #### <a name="add-references-and-using-statements"></a>Lägg till referenser och using-instruktioner  
 
-Installera klient biblioteket för Azure Storage från Visual Studio. Öppna menyn **Verktyg** . Välj **NuGet-pakethanterare** och sedan **Package Manager-konsolen** . Skriv följande kommandon i konsol fönstret för att installera de nödvändiga paketen från Azure Storage-klient biblioteket för .NET:
+Installera klient biblioteket för Azure Storage från Visual Studio. Öppna menyn **Verktyg**. Välj **NuGet-pakethanterare** och sedan **Package Manager-konsolen**. Skriv följande kommandon i konsol fönstret för att installera de nödvändiga paketen från Azure Storage-klient biblioteket för .NET:
 
 # <a name="net-v12-sdk"></a>[.NET V12 SDK](#tab/dotnet)
 

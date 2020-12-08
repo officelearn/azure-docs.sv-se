@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: df0620308fab2e813fe3802dc7effb9dc1ce226c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17bdae658c7095c44a7ae9f30fd85a6c45bf1546
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285391"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779999"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>Skala ut din Azure-Arc Enabled PostgreSQL Scale Server Group genom att lägga till fler arbetsnoder
 Det här dokumentet beskriver hur du skalar ut en Azure Arc-aktiverad PostgreSQL-Server grupp. Det gör du genom att ta dig igenom ett scenario. **Om du inte vill köra genom scenariot och bara vill läsa om hur du skalar ut, hoppar du till stycket [skala ut](#scale-out)**.
@@ -31,7 +31,7 @@ Om du redan är bekant med skalnings modellen för Azure Arc Enabled PostgreSQL 
 - [Utforma en databas för flera innehavare](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
 - [Utforma en instrument panel för real tids analys](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-> \* I dokumenten ovan hoppar du över avsnitten **Logga**in på Azure Portal, & **skapa en Azure Database for PostgreSQL-till-skala (citus)**. Implementera de återstående stegen i din Azure Arc-distribution. Dessa avsnitt är speciella för Azure Database for PostgreSQL disscale (citus) som erbjuds som en PaaS-tjänst i Azure-molnet, men andra delar av dokumenten är direkt tillämpliga på den Azure Arc-aktiverade PostgreSQL-skalan.
+> \* I dokumenten ovan hoppar du över avsnitten **Logga** in på Azure Portal, & **skapa en Azure Database for PostgreSQL-till-skala (citus)**. Implementera de återstående stegen i din Azure Arc-distribution. Dessa avsnitt är speciella för Azure Database for PostgreSQL disscale (citus) som erbjuds som en PaaS-tjänst i Azure-molnet, men andra delar av dokumenten är direkt tillämpliga på den Azure Arc-aktiverade PostgreSQL-skalan.
 
 ## <a name="scenario"></a>Scenario
 Det här scenariot avser den PostgreSQL-Server grupp som skapades som ett exempel i dokumentationen om att [skapa en Azure-Arc-aktiverad postgresql för storskalig Server grupp](create-postgresql-hyperscale-server-group.md) .
@@ -249,8 +249,7 @@ Notera körnings tiden.
     * [Utforma en databas för flera innehavare](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [Utforma en instrument panel för real tids analys](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
- > \* I dokumenten ovan hoppar du över avsnitten **Logga**in på Azure Portal, & **skapa en Azure Database for PostgreSQL-till-skala (citus)**. Implementera de återstående stegen i din Azure Arc-distribution. Dessa avsnitt är speciella för Azure Database for PostgreSQL disscale (citus) som erbjuds som en PaaS-tjänst i Azure-molnet, men andra delar av dokumenten är direkt tillämpliga på den Azure Arc-aktiverade PostgreSQL-skalan.
+ > \* I dokumenten ovan hoppar du över avsnitten **Logga** in på Azure Portal, & **skapa en Azure Database for PostgreSQL-till-skala (citus)**. Implementera de återstående stegen i din Azure Arc-distribution. Dessa avsnitt är speciella för Azure Database for PostgreSQL disscale (citus) som erbjuds som en PaaS-tjänst i Azure-molnet, men andra delar av dokumenten är direkt tillämpliga på den Azure Arc-aktiverade PostgreSQL-skalan.
 
 - [Lagrings konfiguration och Kubernetes lagrings koncept](storage-configuration.md)
-- [Expandera beständiga volym anspråk](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Resurs modell för Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

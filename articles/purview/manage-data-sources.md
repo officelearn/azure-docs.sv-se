@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: ef54c40715c874364beb188d8850a9ce953aa112
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 382c79cf77cb22d3cad1af41d6daa662fb00df4c
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554621"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96781172"
 ---
 # <a name="manage-data-sources-in-azure-purview-preview"></a>Hantera data källor i Azure avdelningens kontroll (för hands version)
 
@@ -28,6 +28,7 @@ I den här artikeln får du lära dig hur du registrerar nya data källor, hante
 * Azure Synapse Analytics (tidigare SQL DW)
 * Azure Cosmos DB
 * Power BI
+* Teradata (förhandsversion)
 
 ## <a name="register-a-new-source"></a>Registrera en ny källa
 
@@ -80,5 +81,5 @@ Du kan ta bort källor från en hierarki genom att välja *ingen* för den över
 Lär dig hur du registrerar och genomsöker olika data Källor:
 
 * [Azure Data Lake Storage Gen 2](register-scan-adls-gen2.md)
-* [Power BI-klient](register-scan-power-bi-tenant.md)
+* [Power BI klient](register-scan-power-bi-tenant.md)
 * [Azure SQL Database](register-scan-azure-sql-database.md)

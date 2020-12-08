@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: c56d83e551265f3fb4de106cb8fa77efd6dcbabc
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7f56ff94c4dcf276accc56e8d1076266099d635d
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452126"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780713"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Planera ett konsult tjänst erbjudande i den kommersiella marknads platsen
 
@@ -27,10 +27,24 @@ Konsult tjänst erbjudanden publiceras som **kontakta mig** -listor. Det innebä
 
 ## <a name="primary-products-and-online-stores"></a>Primära produkter och onlinebutiker
 
-Varje konsult tjänst erbjudande bör fokuseras på en Microsoft-produkt som kallas **primär produkt**. Den primära produkt du väljer i Partner Center avgör om ditt erbjudande ska publiceras till Microsoft AppSource eller Azure Marketplace.
+Varje konsult tjänst måste fokusera på någon av dessa Microsoft-produkter, som kallas **primär produkt** för erbjudandet:
 
-* Om den primära produkten av konsult tjänsten är Azure visas erbjudandet i Azure Marketplace.
-* Om den primära produkten inte är Azure, visas erbjudandet i AppSource.
+|Primär produkt                               |                   |
+|-------------------------------|-------------------|
+|Azure                          |Dynamics 365-automatisering av Project service |
+|Dynamics 365 Business Central  |Dynamics 365-försäljning |
+|Dynamics 365-handel          |Dynamics 365-hantering av leverans kedjan |
+|Dynamics 365 Customer Insights |Microsoft 365 |
+|Dynamics 365-kundtjänster  |Power Apps |
+|Dynamics 365-fälttjänster     |Power Automate |
+|Dynamics 365-ekonomi           |Power BI |
+|Dynamics 365-marknadsföring         |Power Virtual Agents |
+|    |    |
+
+Den primära produkt du väljer i Partner Center avgör om ditt erbjudande ska publiceras till Microsoft AppSource eller Azure Marketplace.
+
+* Om den primära produkten av konsult tjänsten är Azure visas erbjudandet på Azure Marketplace.
+* Om den primära produkten inte är Azure, visas erbjudandet på AppSource.
 
 Mer information om skillnaderna mellan AppSource och Azure Marketplace finns i onlinebutiker för [kommersiella Marketplace](./overview.md#commercial-marketplace-online-stores).
 
@@ -75,7 +89,7 @@ När du skapar ett konsult tjänst erbjudande i Partner Center, anger du text, b
 6. Land/region
 7. Erbjudandets namn
 8. Sammanfattning av Sök Resultat
-9. Description
+9. Beskrivning
 10. Skärm bilder/videor
 11. Stöd dokument
 
@@ -91,6 +105,7 @@ För att hjälpa till att skapa ett erbjudande enklare kan du förbereda några 
 |Komma igång med Azure IoT i tillverkning |IoT för produktion: 2 dagars utvärdering |
 |Workshop på smarta popups |Smarta popup-användare: 1 – veckas workshop |
 |SQL Server migrering av PoC enligt contoso |SQL-migrering: 3 – veckor proof of Concept |
+| | |
 
 **Sammanfattning av Sök Resultat**: Beskriv syftet eller målet med ditt erbjudande på högst 200 tecken. Den här sammanfattningen används i Sök resultaten på den kommersiella Marketplace-listan. Den bör inte vara identisk med rubriken. Överväg att ta med dina främsta SEO-Nyckelord.
 
@@ -105,6 +120,7 @@ När du skriver beskrivningen följer du dessa kriterier enligt tjänst typen:
 |Implementering |Lägg till en detaljerad agenda för implementeringar som är längre än en dag och Beskriv vilka tekniska förändringar, tekniska artefakter eller andra artefakter som en kund kan förväntar sig som ett resultat av ärendet. |
 |Konceptbevis |Beskriv vilka tekniska förändringar, tekniska artefakter eller andra artefakter som en kund kan förväntar sig som ett resultat av ärendet. |
 |Workshop |Ta med en detaljerad dag-, vecko-eller månads Agenda beroende på ditt erbjudandes varaktighet. Tydliggör inlärnings målen eller andra slut produkter i din workshop. |
+| | |
 
 Här följer några tips om hur du skriver beskrivningen:
 
@@ -142,6 +158,11 @@ Följ dessa rikt linjer för dina logo typer:
 **Marketplace-Media – skärm bilder**: Lägg till minst en och upp till fem bilder som demonstrerar ditt erbjudande. Alla bilder måste vara 1280 x 720 bild punkter i storlek och i. PNG-format.
 
 **Marketplace-Media – videor** (valfritt): du kan lägga till upp till fyra videor som demonstrerar ditt erbjudande. Videorna måste finnas på YouTube eller Vimeo och ha en miniatyr bild (1280 x 720 PNG-fil).
+
+## <a name="pricing-and-availability"></a>Priser och tillgänglighet
+
+Ditt konsult tjänst erbjudande kan göras tillgängligt i ett eller flera länder eller regioner. I Partner Center kan du bestämma priset för varje marknad du väljer. En fullständig lista över marknader och valutor som stöds finns i [geografisk tillgänglighet och valuta support för den kommersiella marknads platsen](./marketplace-geo-availability-currencies.md).
+
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,18 +4,17 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/19/2020
 ms.author: glenga
-ms.openlocfilehash: ca8da227c97a44abe14354a5c530d508ce357884
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a5c113849296275432acf1f5603377a1909a2c04
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88703733"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842277"
 ---
 ## <a name="run-the-function-locally"></a>Köra funktionen lokalt
 
 Azure Functions Core Tools integreras med Visual Studio Code så att du kan köra och felsöka ett Azure Functions-projekt lokalt. Mer information om hur du felsöker i Visual Studio Code finns i [Felsöka PowerShell Azure Functions lokalt](../articles/azure-functions/functions-debug-powershell-local.md). 
-
-1. Tryck på F5 för att starta projektet för Function-appen. Utdata från Core Tools visas på panelen **Terminal**.
+1. Du anropar funktionen genom att trycka på <kbd>F5</kbd> för att starta projektet för Function-appen. Utdata från Core Tools visas på panelen **Terminal**. Om du har problem med att köra i Windows måste du kontrol lera att standard terminalen för Visual Studio Code inte är inställd på **Wsl bash**.
 
 1. På panelen **Terminal** kopierar du URL-slutpunkten för den HTTP-utlösta funktionen.
 

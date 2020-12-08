@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 18eb952d06d83b4604625a795be3c8512c3f90d7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 30859593e240c4143dc298cff446ce8bc116a993
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576595"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780594"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Hantera och öka kvoter för resurser med Azure Machine Learning
 
@@ -67,10 +67,10 @@ Följande begränsningar för till gångar gäller per arbets yta.
 
 Dessutom är den maximala **körnings tiden** 30 dagar och det maximala antalet mått som **loggas per körning** är 1 000 000.
 
-#### <a name="azure-machine-learning-compute"></a>Azure Machine Learning Compute
-[Azure Machine Learning Compute](concept-compute-target.md#azure-machine-learning-compute-managed) har en standard kvot gräns för både antalet kärnor och antalet unika beräknings resurser som tillåts per region i en prenumeration. Den här kvoten är separat från den virtuella datorns kärn kvot från föregående avsnitt.
+### <a name="azure-machine-learning-compute"></a>Azure Machine Learning-beräkning
+[Azure Machine Learning Compute](concept-compute-target.md#azure-machine-learning-compute-managed) har en standard kvot gräns för både antalet kärnor (delas av varje VM-familj och kumulativa totala kärnor) samt antalet unika beräknings resurser som tillåts per region i en prenumeration. Den här kvoten är separat från den virtuella datorns kärn kvot som anges i föregående avsnitt, eftersom den endast gäller för de hanterade beräknings resurserna för Azure Machine Learning.
 
-[Begär en kvot ökning](#request-quota-increases) för att höja gränserna i det här avsnittet upp till den maximala gränsen som visas i tabellen.
+[Begär en kvot ökning](#request-quota-increases) för att höja gränserna för olika kärn kvoter för virtuella datorer, totalt antal kvoter och resurser för prenumerationer i det här avsnittet.
 
 Tillgängliga resurser:
 + **Dedikerade kärnor per region** har en standard gräns på 24 till 300, beroende på typ av prenumerations erbjudande. Du kan öka antalet dedikerade kärnor per prenumeration för varje VM-serie. Specialiserade VM-familjer som NCv2-, NCv3-eller ND-serien börjar med standardvärdet noll kärnor.
@@ -79,12 +79,19 @@ Tillgängliga resurser:
 
 + **Kluster per region** har en standard gräns på 200. De delas mellan ett utbildnings kluster och en beräknings instans. (En beräknings instans betraktas som ett kluster med en nod i kvot syfte.)
 
-I följande tabell visas ytterligare gränser som du inte kan överskrida.
+> [!TIP]
+> Om du vill veta mer om vilken VM-familj som ska begära en kvot ökning för kontrollerar du [storleken på virtuella datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). För instanser av GPU-VM börjar du med ett "N" i sitt familje namn (t. ex. NCv3-serien)
 
-| **Resurs** | **Maximal gräns** |
+I följande tabell visas ytterligare gränser i plattformen. Kontakta AzureML produkt team **genom ett support** ärende för att begära ett undantag.
+
+| **Resurs eller åtgärd** | **Maximal gräns** |
 | --- | --- |
 | Arbets ytor per resurs grupp | 800 |
-| Noder i en AmlCompute-resurs (Single Azure Machine Learning Compute) | 100 noder |
+| Noder i en enskild Azure Machine Learning beräknings **kluster** konfiguration (AmlCompute) som en icke-kommunikations aktive rad pool (dvs. kan inte köra MPI-jobb) | 100 noder men konfigurerbara upp till 65000 noder |
+| Noder i ett enda parallellt körnings steg **körs** på ett Azure Machine Learning Compute (AmlCompute)-kluster | 100 noder, men kan konfigurera upp till 65000 noder om klustret har kon figurer ATS för skalning enligt ovan |
+| Noder i en enskild Azure Machine Learning beräknings **kluster** konfiguration (AmlCompute) som en kommunikations aktive rad pool | 300 noder men konfigurerbara upp till 4000 noder |
+| Noder i en enskild Azure Machine Learning beräknings **kluster** konfiguration (AmlCompute) som en kommunikations aktive rad pool på en VM-serie med RDMA-aktiverad | 100 noder |
+| Noder i en enda MPI **körs** på ett Azure Machine Learning Compute-kluster (AmlCompute) | 100 noder, men kan höjas till 300 noder |
 | Processer för GPU-MPI per nod | 1-4 |
 | GPU-arbetare per nod | 1-4 |
 | Jobbets livs längd | 21 dagar<sup>1</sup> |
@@ -115,7 +122,7 @@ Du kan inte höja gränserna för virtuella datorer över värdena som visas i f
 
 Mer information finns i [container instances gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits).
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 Azure Storage har en gräns på 250 lagrings konton per region, per prenumeration. Den här gränsen omfattar både standard-och Premium lagrings konton.
 
 Om du vill öka gränsen gör du en begäran via [supporten för Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Azure Storages teamet granskar ditt ärende och kan godkänna upp till 250 lagrings konton för en region.

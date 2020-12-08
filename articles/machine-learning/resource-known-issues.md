@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
 ms.date: 11/09/2020
-ms.openlocfilehash: 46763bddd0f173ccf73edc54e5f2688d3bf6efc0
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 55ac11b7888a8e351b52554f76fb44af35633c16
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445412"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780985"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Kända problem och felsökning i Azure Machine Learning
 
@@ -143,13 +143,13 @@ Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjä
 
     Du kan också använda init-skript om du behåller problem med att installera mot python-bibliotek. Den här metoden stöds inte officiellt. Mer information finns i [kluster omfång init-skript](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-* **Import fel i Databricks: det går inte att importera namnet `Timedelta` från `pandas._libs.tslibs`** : om du ser det här felet när du använder automatisk maskin inlärning, kör du två följande rader i din bärbara dator:
+* **Import fel i Databricks: det går inte att importera namnet `Timedelta` från `pandas._libs.tslibs`**: om du ser det här felet när du använder automatisk maskin inlärning, kör du två följande rader i din bärbara dator:
     ```
     %sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
     %sh /databricks/python/bin/pip install pandas==0.23.4
     ```
 
-* **Import fel i Databricks: det finns ingen modul med namnet ' Pandas. Core. index '** : om du ser det här felet när du använder automatisk maskin inlärning:
+* **Import fel i Databricks: det finns ingen modul med namnet ' Pandas. Core. index '**: om du ser det här felet när du använder automatisk maskin inlärning:
 
     1. Kör det här kommandot för att installera två paket i Azure Databricks klustret:
     
@@ -162,7 +162,7 @@ Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjä
     
     Om de här stegen inte löser problemet kan du försöka med att starta om klustret.
 
-* **Databricks FailToSendFeather** : om du ser ett `FailToSendFeather` fel när du läser data på Azure Databricks kluster kan du läsa följande lösningar:
+* **Databricks FailToSendFeather**: om du ser ett `FailToSendFeather` fel när du läser data på Azure Databricks kluster kan du läsa följande lösningar:
     
     * Uppgradera `azureml-sdk[automl]` paketet till den senaste versionen.
     * Lägg till `azureml-dataprep` version 1.1.8 eller senare.
@@ -173,11 +173,11 @@ Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjä
 > [!WARNING]
 > Det finns inte stöd för att flytta Azure Machine Learning arbets ytan till en annan prenumeration eller flytta den ägande prenumerationen till en ny klient. Detta kan orsaka fel.
 
-* **Azure Portal** : 
+* **Azure Portal**: 
   * Om du går direkt till din arbets yta från en resurs länk från SDK eller Azure Portal kan du inte Visa standard **översikts** sidan med prenumerations information i tillägget. I det här scenariot kan du inte heller byta till en annan arbets yta. Om du vill visa en annan arbets yta går du direkt till [Azure Machine Learning Studio](https://ml.azure.com) och söker efter namnet på arbets ytan.
   * Alla till gångar (data uppsättningar, experiment, beräkningar och så vidare) är bara tillgängliga i [Azure Machine Learning Studio](https://ml.azure.com). De är *inte* tillgängliga från Azure Portal.
 
-* **Webbläsare som stöds i Azure Machine Learning Studio-webb portalen** : Vi rekommenderar att du använder den senaste webbläsaren som är kompatibel med operativ systemet. Följande webbläsare stöds:
+* **Webbläsare som stöds i Azure Machine Learning Studio-webb portalen**: Vi rekommenderar att du använder den senaste webbläsaren som är kompatibel med operativ systemet. Följande webbläsare stöds:
   * Microsoft Edge (den nya Microsoft Edge, senaste versionen. Inte Microsoft Edge Legacy)
   * Safari (senaste versionen, endast Mac)
   * Chrome (senaste versionen)
@@ -185,9 +185,9 @@ Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjä
 
 ## <a name="set-up-your-environment"></a>Konfigurera din miljö
 
-* **Problem med att skapa AmlCompute** : det är en sällsynt risk att vissa användare som har skapat sin Azure Machine Learning-arbetsyta från Azure Portal innan ga-versionen kanske inte kan skapa AmlCompute på arbets ytan. Du kan antingen utlösa en supportbegäran mot tjänsten eller skapa en ny arbets yta via portalen eller SDK för att häva blockeringen direkt.
+* **Problem med att skapa AmlCompute**: det är en sällsynt risk att vissa användare som har skapat sin Azure Machine Learning-arbetsyta från Azure Portal innan ga-versionen kanske inte kan skapa AmlCompute på arbets ytan. Du kan antingen utlösa en supportbegäran mot tjänsten eller skapa en ny arbets yta via portalen eller SDK för att häva blockeringen direkt.
 
-* **Azure Container Registry stöder för närvarande inte Unicode-tecken i resurs grupp namn** : det är möjligt att ACR-begärandena inte kan utföras eftersom resurs gruppens namn innehåller Unicode-tecken. För att undvika det här problemet rekommenderar vi att du skapar en ACR i en resurs grupp med en annan resurs.
+* **Azure Container Registry stöder för närvarande inte Unicode-tecken i resurs grupp namn**: det är möjligt att ACR-begärandena inte kan utföras eftersom resurs gruppens namn innehåller Unicode-tecken. För att undvika det här problemet rekommenderar vi att du skapar en ACR i en resurs grupp med en annan resurs.
 
 ## <a name="work-with-data"></a>Arbeta med data
 
@@ -199,7 +199,7 @@ Om du använder fil resurs för andra arbets belastningar, till exempel data öv
 
 ### <a name="passing-data-as-input"></a>Skicka data som indata
 
-*  **TypeError: FileNotFound: det finns ingen sådan fil eller katalog** : det här felet uppstår om fil Sök vägen som du anger inte är den plats där filen finns. Du måste kontrol lera att det sätt som du refererar till filen är konsekvent med var du monterade data uppsättningen på beräknings målet. För att säkerställa ett deterministiskt tillstånd rekommenderar vi att du använder den abstrakta sökvägen när du monterar en data uppsättning till ett beräknings mål. I följande kod monterar du till exempel data uppsättningen under roten i fil systemet för beräknings målet `/tmp` . 
+*  **TypeError: FileNotFound: det finns ingen sådan fil eller katalog**: det här felet uppstår om fil Sök vägen som du anger inte är den plats där filen finns. Du måste kontrol lera att det sätt som du refererar till filen är konsekvent med var du monterade data uppsättningen på beräknings målet. För att säkerställa ett deterministiskt tillstånd rekommenderar vi att du använder den abstrakta sökvägen när du monterar en data uppsättning till ett beräknings mål. I följande kod monterar du till exempel data uppsättningen under roten i fil systemet för beräknings målet `/tmp` . 
     
     ```python
     # Note the leading / in '/tmp/dataset'
@@ -211,7 +211,10 @@ Om du använder fil resurs för andra arbets belastningar, till exempel data öv
     Om du inte tar med det inledande snedstrecket "/" måste du ange prefix för arbets katalogen t. ex. `/mnt/batch/.../tmp/dataset` på beräknings målet för att ange var du vill att data uppsättningen ska monteras.
 
 ### <a name="mount-dataset"></a>Montera data uppsättning
-* **Det gick inte att initiera data uppsättningen: väntan på att monterings punkten ska bli klar har nått tids** gränsen: försök igen med logik har lagts till i `azureml-sdk >=1.12.0` för att åtgärda problemet. Om du har tidigare azureml-SDK-versioner uppgraderar du till den senaste versionen. Om du redan är på `azureml-sdk>=1.12.0` , återskapar du din miljö så att du har den senaste korrigeringen med korrigeringen.
+* **Det gick inte att initiera data uppsättningen: väntar på att en tids gräns för monterings punkten skulle bli klar**: 
+  * Om du inte har några utgående regler för [nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) och använder `azureml-sdk>=1.12.0` , uppdatera `azureml-dataset-runtime` och det är beroenden som de senaste för den speciella del versionen, eller om du använder den i en körning, måste du återskapa din miljö så att den kan ha den senaste korrigeringen med korrigeringen. 
+  * Om du använder `azureml-sdk<1.12.0` uppgraderar du till den senaste versionen.
+  * Om du har utgående NSG-regler kontrollerar du att det finns en utgående regel som tillåter all trafik för tjänst tag gen `AzureResourceMonitor` .
 
 ### <a name="data-labeling-projects"></a>Data märknings projekt
 
@@ -233,7 +236,7 @@ Begränsningar och kända problem för data avvikelse Övervakare:
 * Data uppsättnings övervakare fungerar bara på data uppsättningar som innehåller 50 rader eller mer.
 * Kolumner eller funktioner i data uppsättningen klassificeras som kategoriska eller numeriska baserat på villkoren i följande tabell. Om funktionen inte uppfyller dessa villkor, t. ex. en kolumn av typen String med >100 unika värden, släpps funktionen från vår algoritm för data avvikelser, men är fortfarande profilerad. 
 
-    | Funktions typ | Datatyp | Condition (Väderförhållanden) | Begränsningar | 
+    | Funktions typ | Datatyp | Villkor | Begränsningar | 
     | ------------ | --------- | --------- | ----------- |
     | Kategoriska | sträng, bool, int, Float | Antalet unika värden i funktionen är mindre än 100 och mindre än 5% av antalet rader. | Null behandlas som sin egen kategori. | 
     | Numeriska | int, Float | Värdena i funktionen är av en numerisk datatyp och uppfyller inte villkoret för en kategoriska-funktion. | Funktionen utelämnas om >15% av värdena är null. | 
@@ -305,7 +308,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="train-models"></a>Inlärningsmodeller
 
-* **ModuleErrors (ingen modul med namnet)** : om du kör i ModuleErrors när du skickar experiment i Azure ml, innebär det att utbildnings skriptet förväntar sig att ett paket ska installeras men inte läggs till. När du har angett paket namnet installerar Azure ML paketet i den miljö som används för att köra din utbildning. 
+* **ModuleErrors (ingen modul med namnet)**: om du kör i ModuleErrors när du skickar experiment i Azure ml, innebär det att utbildnings skriptet förväntar sig att ett paket ska installeras men inte läggs till. När du har angett paket namnet installerar Azure ML paketet i den miljö som används för att köra din utbildning. 
 
     Om du använder uppskattningar för att skicka experiment kan du ange ett paket namn via `pip_packages` eller `conda_packages` parameter i uppskattningen baserat på från vilken källa du vill installera paketet. Du kan också ange en YML-fil med alla dina beroenden med `conda_dependencies_file` eller lista alla dina pip-krav i en txt-fil med hjälp av `pip_requirements_file` parametern. Om du har ett eget Azure ML-miljö objekt som du vill åsidosätta standard avbildningen som används av uppskattaren kan du ange den miljön via- `environment` parametern för den uppskattade konstruktorn.
 
@@ -317,15 +320,15 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     > [!Note]
     > Om du tror att ett visst paket är tillräckligt vanligt för att läggas till i Azure ML-underhållna bilder och miljöer kan du generera ett GitHub-problem i [azureml-behållare](https://github.com/Azure/AzureML-Containers). 
  
-* **NameError (namn har inte definierats), AttributeError (objektet har inget attribut)** : det här undantaget bör komma från dina utbildnings skript. Du kan titta på loggfilerna från Azure Portal för att få mer information om det angivna namnet inte är definierat eller ett attributvärde. Från SDK kan du använda `run.get_details()` för att titta på fel meddelandet. Detta visar även alla loggfiler som genererats för din körning. Se till att ta en titt på ditt utbildnings skript och åtgärda felet innan du skickar om körningen. 
+* **NameError (namn har inte definierats), AttributeError (objektet har inget attribut)**: det här undantaget bör komma från dina utbildnings skript. Du kan titta på loggfilerna från Azure Portal för att få mer information om det angivna namnet inte är definierat eller ett attributvärde. Från SDK kan du använda `run.get_details()` för att titta på fel meddelandet. Detta visar även alla loggfiler som genererats för din körning. Se till att ta en titt på ditt utbildnings skript och åtgärda felet innan du skickar om körningen. 
 
-* **Horovod har stängts av** : i de flesta fall, om du stöter på "AbortedError: Horovod har stängts av" det här undantaget innebär det ett underliggande undantag i en av de processer som orsakade att Horovod stängdes. Varje rang i MPI-jobbet hämtar en egen dedikerad loggfilen i Azure ML. De här loggarna heter `70_driver_logs`. Vid distribuerad träning får loggnamnen suffixet `_rank` så att du enklare kan se skillnad på loggarna. Om du vill hitta det exakta fel som orsakade Horovod stänger du igenom alla loggfiler och letar efter `Traceback` i slutet av driver_log-filerna. Med en av de här filerna får du det faktiska underliggande undantaget. 
+* **Horovod har stängts av**: i de flesta fall, om du stöter på "AbortedError: Horovod har stängts av" det här undantaget innebär det ett underliggande undantag i en av de processer som orsakade att Horovod stängdes. Varje rang i MPI-jobbet hämtar en egen dedikerad loggfilen i Azure ML. De här loggarna heter `70_driver_logs`. Vid distribuerad träning får loggnamnen suffixet `_rank` så att du enklare kan se skillnad på loggarna. Om du vill hitta det exakta fel som orsakade Horovod stänger du igenom alla loggfiler och letar efter `Traceback` i slutet av driver_log-filerna. Med en av de här filerna får du det faktiska underliggande undantaget. 
 
-* **Körning eller experimentering** : experiment kan arkiveras med hjälp av metoden [experiment. Archive](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truearchive--) eller från fliken experiment i Azure Machine Learning Studio-klienten via "arkivera experiment"-knappen. Den här åtgärden döljer experimentet från List frågor och vyer, men tar inte bort den.
+* **Körning eller experimentering**: experiment kan arkiveras med hjälp av metoden [experiment. Archive](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truearchive--) eller från fliken experiment i Azure Machine Learning Studio-klienten via "arkivera experiment"-knappen. Den här åtgärden döljer experimentet från List frågor och vyer, men tar inte bort den.
 
     Permanent borttagning av enskilda experiment eller körningar stöds för närvarande inte. Mer information om hur du tar bort arbets ytans till gångar finns i [Exportera eller ta bort data för Machine Learning service-arbetsytan](how-to-export-delete-data.md).
 
-* **Mått dokumentet är för stort** : Azure Machine Learning har interna gränser för mått objekts storlek som kan loggas samtidigt från en utbildnings körning. Om du ser felet ”Måttdokumentet är för stort” när ett mått med listor som värdetyp kan du prova att dela upp listan i mindre segment, till exempel:
+* **Mått dokumentet är för stort**: Azure Machine Learning har interna gränser för mått objekts storlek som kan loggas samtidigt från en utbildnings körning. Om du ser felet ”Måttdokumentet är för stort” när ett mått med listor som värdetyp kan du prova att dela upp listan i mindre segment, till exempel:
 
     ```python
     run.log_list("my metric name", my_metric[:N])
@@ -336,7 +339,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="automated-machine-learning"></a>Automatiserad maskininlärning
 
-* **Den senaste uppgraderingen av AutoML-beroenden till nyare versioner kommer att vara en ny kompatibilitet** : från och med version 1.13.0 av SDK, läses inte modeller in i äldre SDK: er på grund av inkompatibilitet mellan de äldre versioner som vi har fäst i våra tidigare paket och de nyare versionerna som vi fäster nu. Du får ett fel meddelande som:
+* **Den senaste uppgraderingen av AutoML-beroenden till nyare versioner kommer att vara en ny kompatibilitet**: från och med version 1.13.0 av SDK, läses inte modeller in i äldre SDK: er på grund av inkompatibilitet mellan de äldre versioner som vi har fäst i våra tidigare paket och de nyare versionerna som vi fäster nu. Du får ett fel meddelande som:
   * Modulen hittades inte: t. ex. `No module named 'sklearn.decomposition._truncated_svd` ,
   * Import fel: t. ex. `ImportError: cannot import name 'RollingOriginValidator'` ,
   * Fel i attribut: t. ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
@@ -356,9 +359,9 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     pip install --upgrade scikit-learn==0.20.3
   ```
  
-* **Prognosticering R2-poängen är alltid noll** : det här problemet uppstår om de angivna tränings data har tids serier som innehåller samma värde för de sista `n_cv_splits`  +  `forecasting_horizon` data punkterna. Om det här mönstret förväntas i din tids serie kan du växla det primära måttet till normaliserat rot genomsnitts fel i roten.
+* **Prognosticering R2-poängen är alltid noll**: det här problemet uppstår om de angivna tränings data har tids serier som innehåller samma värde för de sista `n_cv_splits`  +  `forecasting_horizon` data punkterna. Om det här mönstret förväntas i din tids serie kan du växla det primära måttet till normaliserat rot genomsnitts fel i roten.
  
-* **TensorFlow** : från och med version 1.5.0 av SDK installerar automatiserad Machine Learning inte TensorFlow-modeller som standard. Installera TensorFlow och Använd det med dina automatiserade ML-experiment genom att installera TensorFlow = = 1.12.0 via CondaDependecies. 
+* **TensorFlow**: från och med version 1.5.0 av SDK installerar automatiserad Machine Learning inte TensorFlow-modeller som standard. Installera TensorFlow och Använd det med dina automatiserade ML-experiment genom att installera TensorFlow = = 1.12.0 via CondaDependecies. 
  
    ```python
    from azureml.core.runconfig import RunConfiguration
@@ -366,18 +369,18 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
    run_config = RunConfiguration()
    run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['tensorflow==1.12.0'])
   ```
-* **Experiment diagram** : binära klassificerings diagram (precision-återkallande, Roc, kurva osv.) som visas i automatiserade ml experiment-iterationer återges inte korrekt i användar gränssnittet sedan 4/12. Diagram observationer visar för närvarande inversa resultat, där modeller med bättre prestanda visas med lägre resultat. En lösning är under undersökning.
+* **Experiment diagram**: binära klassificerings diagram (precision-återkallande, Roc, kurva osv.) som visas i automatiserade ml experiment-iterationer återges inte korrekt i användar gränssnittet sedan 4/12. Diagram observationer visar för närvarande inversa resultat, där modeller med bättre prestanda visas med lägre resultat. En lösning är under undersökning.
 
-* **Databricks avbryter en automatiserad maskin inlärnings körning** : när du använder automatiserade funktioner för maskin inlärning på Azure Databricks, för att avbryta en körning och starta en ny experiment körning, startar du om Azure Databricks klustret.
+* **Databricks avbryter en automatiserad maskin inlärnings körning**: när du använder automatiserade funktioner för maskin inlärning på Azure Databricks, för att avbryta en körning och starta en ny experiment körning, startar du om Azure Databricks klustret.
 
-* **Databricks >10 iterationer för automatisk maskin inlärning** : i automatiserade inställningar för maskin inlärning, om du har fler än 10 iterationer, anger du `show_output` `False` när du skickar in körningen.
+* **Databricks >10 iterationer för automatisk maskin inlärning**: i automatiserade inställningar för maskin inlärning, om du har fler än 10 iterationer, anger du `show_output` `False` när du skickar in körningen.
 
-* **Databricks-widget för Azure Machine Learning SDK och automatisk maskin inlärning** : widgeten Azure Machine Learning SDK stöds inte i en Databricks Notebook eftersom antecknings böckerna inte kan parsa HTML-widgetar. Du kan visa widgeten i portalen genom att använda den här python-koden i din Azure Databricks Notebook-cell:
+* **Databricks-widget för Azure Machine Learning SDK och automatisk maskin inlärning**: widgeten Azure Machine Learning SDK stöds inte i en Databricks Notebook eftersom antecknings böckerna inte kan parsa HTML-widgetar. Du kan visa widgeten i portalen genom att använda den här python-koden i din Azure Databricks Notebook-cell:
 
     ```
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
-* **automl_setup Miss lyckas** : 
+* **automl_setup Miss lyckas**: 
     * I Windows kör du automl_setup från en Anaconda-prompt. Använd den här länken för att [Installera Miniconda](https://docs.conda.io/en/latest/miniconda.html).
     * Se till att Conda 64-bit är installerad, i stället för 32-bitars genom att köra `conda info` kommandot. `platform`Ska vara `win-64` för Windows eller `osx-64` Mac.
     * Se till att Conda 4.4.10 eller senare är installerat. Du kan kontrol lera versionen med kommandot `conda -V` . Om du har installerat en tidigare version kan du uppdatera den med hjälp av kommandot: `conda update conda` .
@@ -385,36 +388,36 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
       *  Om `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` felet uppstår installerar du build Essentials med hjälp av kommandot `sudo apt-get install build-essential` .
       * Skicka ett nytt namn som den första parametern till automl_setup för att skapa en ny Conda-miljö. Visa befintliga Conda-miljöer med `conda env list` och ta bort dem med `conda env remove -n <environmentname>` .
       
-* **automl_setup_linux. sh Miss lyckas** : om automl_setup_linus. sh Miss lyckas på Ubuntu Linux med felet: `unable to execute 'gcc': No such file or directory`-
+* **automl_setup_linux. sh Miss lyckas**: om automl_setup_linus. sh Miss lyckas på Ubuntu Linux med felet: `unable to execute 'gcc': No such file or directory`-
   1. Se till att de utgående portarna 53 och 80 är aktiverade. På en virtuell Azure-dator kan du göra detta från Azure Portal genom att välja den virtuella datorn och klicka på nätverk.
   2. Kör kommandot: `sudo apt-get update`
   3. Kör kommandot: `sudo apt-get install build-essential --fix-missing`
   4. Kör `automl_setup_linux.sh` igen
 
-* **konfiguration. ipynb Miss lyckas** :
+* **konfiguration. ipynb Miss lyckas**:
   * För lokala Conda kontrollerar du först att automl_setup har körts.
   * Kontrol lera att subscription_id är korrekt. Hitta subscription_id i Azure Portal genom att välja alla tjänster och sedan prenumerationer. Tecknen "<" och ">" ska inte tas med i subscription_id svärdet. Har till exempel `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` det giltiga formatet.
   * Se till att deltagar-eller ägar åtkomst till prenumerationen.
   * Kontrol lera att regionen är en av de regioner som stöds:,,,,,, `eastus2` `eastus` `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` `southcentralus` .
   * Se till att du har åtkomst till regionen med hjälp av Azure Portal.
   
-* **import AutoMLConfig Miss lyckas** : paket ändringar i den automatiserade Machine Learning-versionen 1.0.76, som kräver att den tidigare versionen avinstallerades innan du uppdaterar till den nya versionen. Om `ImportError: cannot import name AutoMLConfig` felet inträffar efter att du har uppgraderat från en SDK-version före v-1.0.76 till v 1.0.76 eller senare, löser du felet genom att köra: `pip uninstall azureml-train automl` och sedan `pip install azureml-train-auotml` . Skriptet automl_setup. cmd gör detta automatiskt. 
+* **import AutoMLConfig Miss lyckas**: paket ändringar i den automatiserade Machine Learning-versionen 1.0.76, som kräver att den tidigare versionen avinstallerades innan du uppdaterar till den nya versionen. Om `ImportError: cannot import name AutoMLConfig` felet inträffar efter att du har uppgraderat från en SDK-version före v-1.0.76 till v 1.0.76 eller senare, löser du felet genom att köra: `pip uninstall azureml-train automl` och sedan `pip install azureml-train-auotml` . Skriptet automl_setup. cmd gör detta automatiskt. 
 
-* **Workspace.from_config Miss lyckas** : om anropen ws = Workspace.from_config () Miss lyckas –
+* **Workspace.from_config Miss lyckas**: om anropen ws = Workspace.from_config () Miss lyckas –
   1. Se till att konfigurationen. ipynb Notebook har körts.
   2. Om antecknings boken körs från en mapp som inte finns under den mapp där `configuration.ipynb` kördes, kopierar du mappen aml_config och filen config.jsden innehåller till den nya mappen. Workspace.from_config läser config.jsför mappen Notebook eller den överordnade mappen.
   3. Om en ny prenumeration, resurs grupp, arbets yta eller region används, se till att du kör `configuration.ipynb` antecknings boken igen. Att ändra config.jsdirekt fungerar bara om arbets ytan redan finns i den angivna resurs gruppen under den angivna prenumerationen.
   4. Ändra arbets ytan, resurs gruppen eller prenumerationen om du vill ändra region. `Workspace.create` kommer inte att skapa eller uppdatera en arbets yta om den redan finns, även om den angivna regionen är annorlunda.
   
-* **Exempel på antecknings bok Miss lyckas** : om en exempel antecknings bok Miss lyckas med ett fel där egenskapen, metoden eller biblioteket inte finns:
+* **Exempel på antecknings bok Miss lyckas**: om en exempel antecknings bok Miss lyckas med ett fel där egenskapen, metoden eller biblioteket inte finns:
   * Kontrol lera att rätt kernel har valts i Jupyter Notebook. Kerneln visas i det övre högra hörnet på antecknings sidan. Standardvärdet är azure_automl. Observera att kärnan sparas som en del av antecknings boken. Så om du växlar till en ny Conda-miljö måste du välja den nya kerneln i antecknings boken.
       * För Azure Notebooks bör det vara python 3,6. 
       * För lokala Conda-miljöer bör det vara namnet på den Conda-miljö som du angav i automl_setup.
   * Se till att antecknings boken är för den SDK-version som du använder. Du kan kontrol lera SDK-versionen genom att köra `azureml.core.VERSION` i en Jupyter Notebook-cell. Du kan hämta tidigare versioner av exempel antecknings böckerna från GitHub genom att klicka på `Branch` knappen, välja `Tags` fliken och sedan välja versionen.
 
-* **Numpy-importen Miss lyckas i Windows** : vissa Windows-miljöer ser ett fel vid inläsning av numpy med den senaste python-versionen 3.6.8. Om du ser det här problemet kan du prova med python version 3.6.7.
+* **Numpy-importen Miss lyckas i Windows**: vissa Windows-miljöer ser ett fel vid inläsning av numpy med den senaste python-versionen 3.6.8. Om du ser det här problemet kan du prova med python version 3.6.7.
 
-* **Numpy-importen Miss lyckas** : kontrol lera TensorFlow-versionen i den automatiserade ml Conda-miljön. Versioner som stöds är < 1,13. Avinstallera TensorFlow från miljön om versionen är >= 1,13 du kan kontrol lera versionen av TensorFlow och avinstallera enligt följande:
+* **Numpy-importen Miss lyckas**: kontrol lera TensorFlow-versionen i den automatiserade ml Conda-miljön. Versioner som stöds är < 1,13. Avinstallera TensorFlow från miljön om versionen är >= 1,13 du kan kontrol lera versionen av TensorFlow och avinstallera enligt följande:
   1. Starta ett kommando gränssnitt, aktivera Conda-miljön där automatiserade ml-paket är installerade.
   2. Ange `pip freeze` och leta efter `tensorflow` , om den hittas, ska den version som visas vara < 1,13
   3. Om den listade versionen inte är en version som stöds går du till `pip uninstall tensorflow` kommando tolken och anger y för bekräftelse.

@@ -4,12 +4,12 @@ description: Lär dig hur du felsöker vanliga problem när du distribuerar, kö
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ac75fff3b088a7d595de2b27c92126ce592aff47
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d8e7fb85e369f5f278436370944eafeb1fb6a50e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746922"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779523"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Felsöka vanliga problem med Azure Container Instances
 
@@ -99,7 +99,7 @@ Det här felet indikerar att på grund av en kraftig belastning i den region dä
 ## <a name="issues-during-container-group-runtime"></a>Problem under container Group runtime
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Containern avslutas och startar om kontinuerligt (ingen tidskrävande process)
 
-Behållar grupper som standard till en [omstarts princip](container-instances-restart-policy.md) av **Always** , så behållare i behållar gruppen startar alltid om när de körts till slutförd. Du kan behöva ändra detta till **onFailure** eller **aldrig** om du tänker köra uppgiftsbaserade behållare. Om du anger **onFailure** och fortfarande ser kontinuerliga omstarter kan det bero på ett problem med att programmet eller skriptet körs i din behållare.
+Behållar grupper som standard till en [omstarts princip](container-instances-restart-policy.md) av **Always**, så behållare i behållar gruppen startar alltid om när de körts till slutförd. Du kan behöva ändra detta till **onFailure** eller **aldrig** om du tänker köra uppgiftsbaserade behållare. Om du anger **onFailure** och fortfarande ser kontinuerliga omstarter kan det bero på ett problem med att programmet eller skriptet körs i din behållare.
 
 När du kör behållar grupper utan tids krävande processer kan du se upprepade avslutningar och starta om med bilder som Ubuntu eller Alpine. Att ansluta via [exec](container-instances-exec.md) fungerar inte eftersom behållaren inte har någon process som håller den igång. Lös problemet genom att inkludera ett start kommando som följer med distribution av behållare grupp för att hålla behållaren igång.
 
@@ -187,7 +187,7 @@ Ett annat sätt att minska effekten av image-hämtningen på din behållares sta
 
 #### <a name="cached-images"></a>Cachelagrade avbildningar
 
-Azure Container Instances använder en mekanism för cachelagring som hjälper till att påskynda behållarens start tid för avbildningar som bygger på vanliga [Windows bas avbildningar](container-instances-faq.md#what-windows-base-os-images-are-supported), inklusive `nanoserver:1809` , `servercore:ltsc2019` och `servercore:1809` . Vanliga Linux-avbildningar som `ubuntu:1604` och `alpine:3.6` är också cachelagrade. Om du vill ha en uppdaterad lista över cachelagrade avbildningar och taggar kan du använda API: n [lista med cachelagrade avbildningar][list-cached-images] .
+Azure Container Instances använder en mekanism för cachelagring som hjälper till att påskynda behållarens start tid för avbildningar som bygger på vanliga [Windows bas avbildningar](container-instances-faq.md#what-windows-base-os-images-are-supported), inklusive `nanoserver:1809` , `servercore:ltsc2019` och `servercore:1809` . Vanliga Linux-avbildningar som `ubuntu:1604` och `alpine:3.6` är också cachelagrade. Undvik att använda taggen för både Windows-och Linux-avbildningar `latest` . Läs Container Registry [metod tips för Image-Taggar](../container-registry/container-registry-image-tag-version.md) för vägledning. Om du vill ha en uppdaterad lista över cachelagrade avbildningar och taggar kan du använda API: n [lista med cachelagrade avbildningar][list-cached-images] .
 
 > [!NOTE]
 > Användning av Windows Server 2019-baserade avbildningar i Azure Container Instances är en för hands version.

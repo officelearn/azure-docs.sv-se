@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: d33c368c271c4d1809834e2eeac8c4b5c0ba0441
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 16ae2f9e74202aff47e58a22dbe21a28d8280a7e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011147"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780730"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Övervaknings data referens för Azure Blob Storage
 
@@ -38,7 +38,7 @@ Azure Storage tillhandahåller följande kapacitets mått i Azure Monitor.
 
 Den här tabellen visar [Blob Storage-mått](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
 
-| Metric | Beskrivning |
+| Mått | Beskrivning |
 | ------------------- | ----------------- |
 | BlobCapacity | Summan av Blob Storage som används i lagrings kontot. <br/><br/> Enhet: byte <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 <br/> Dimensioner: **BlobType** och **BlobTier** ([definition](#metrics-dimensions)) |
 | BlobCount    | Antalet BLOB-objekt som lagras i lagrings kontot. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 <br/> Dimensioner: **BlobType** och **BlobTier** ([definition](#metrics-dimensions)) |
@@ -64,7 +64,7 @@ Azure Storage stöder följande dimensioner för mått i Azure Monitor.
 
 ### <a name="dimensions-specific-to-blob-storage"></a>Dimensioner som är speciella för Blob Storage
 
-| Dimensions namn | Description |
+| Dimensions namn | Beskrivning |
 | ------------------- | ----------------- |
 | **BlobType** | Typ av BLOB för BLOB-mått. De värden som stöds är **BlockBlob**, **PageBlob** och **Azure Data Lake Storage**. Bifogade blobbar ingår i **BlockBlob**. |
 | **BlobTier** | Azure Storage erbjuder olika åtkomst nivåer, vilket gör att du kan lagra BLOB-Datadata på det mest kostnads effektiva sättet. Läs mer i [Azure Storage BLOB-nivå](../blobs/storage-blob-storage-tiers.md). De värden som stöds är: <br/> <li>Frekvent **: frekvent** nivå</li> <li>Låg **frekvent: låg** frekvent nivå</li> <li>**Arkiv**: Arkiv lag ring</li> <li>**Premium**: Premium-nivån för Block-Blob</li> <li>**P4/P6/P10/p15/P20/P30/P40/P50/P60**: nivå typer för Premium Page-BLOB</li> <li>**Standard**: nivå typ för standard sid-BLOB</li> <li>Inte i **nivå**: nivå typ för generell användning v1 lagrings konto</li> |
@@ -74,7 +74,7 @@ För mått som stöder dimensioner måste du ange dimension svärdet för att se
 ## <a name="resource-logs-preview"></a>Resurs loggar (förhands granskning)
 
 > [!NOTE]
-> Azure Storage loggar i Azure Monitor finns i offentlig för hands version och är tillgänglig för för hands testning i alla offentliga moln regioner. För att registrera dig i för hands versionen, se [den här sidan](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).  Den här för hands versionen aktiverar loggar för blobbar (inklusive Azure Data Lake Storage Gen2), filer, köer, tabeller, Premium Storage-konton i generell användning v1-och General-Purpose v2-lagrings konton. Klassiska lagrings konton stöds inte.
+> Azure Storage loggar i Azure Monitor finns i offentlig för hands version och är tillgänglig för för hands testning i alla offentliga moln regioner. Den här för hands versionen aktiverar loggar för blobbar (inklusive Azure Data Lake Storage Gen2), filer, köer, tabeller, Premium Storage-konton i generell användning v1-och General-Purpose v2-lagrings konton. Klassiska lagrings konton stöds inte.
 
 I följande tabell visas egenskaperna för Azure Storage resurs loggar när de samlas in i Azure Monitor loggar eller Azure Storage. Egenskaperna beskriver åtgärden, tjänsten och typen av auktorisering som användes för att utföra åtgärden.
 

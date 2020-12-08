@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e2d577261a1cea0bad9aab549b3669f8fdef5751
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96f316b1ca6a7684630c1ab14d722651c1f3ffbc
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715857"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778912"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Använd Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data
 
@@ -39,12 +39,14 @@ När du har bestämt lämplig omfattning för en roll tilldelning navigerar du t
 
 1. Tilldela rätt Azure Storage Azure-roll för att bevilja åtkomst till ett säkerhets objekt i Azure AD.
 
-1. Tilldela rollen Azure Resource Manager [läsare](../../role-based-access-control/built-in-roles.md#reader) till användare som behöver åtkomst till behållare eller köer via Azure Portal med sina autentiseringsuppgifter för Azure AD. 
+1. Tilldela rollen Azure Resource Manager [läsare](../../role-based-access-control/built-in-roles.md#reader) till användare som behöver åtkomst till behållare eller köer via Azure Portal med sina autentiseringsuppgifter för Azure AD.
 
 I följande avsnitt beskrivs var och en av de här stegen i detalj.
 
 > [!NOTE]
-> Som ägare till ditt Azure Storage-konto tilldelas du inte automatiskt behörigheter för åtkomst till data. Du måste uttryckligen tilldela dig själv en Azure-roll för Azure Storage. Du kan tilldela den på nivån för din prenumeration, resurs grupp, lagrings konto eller en behållare eller kö.
+> När du skapar ett Azure Storage-konto tilldelas du inte automatiskt behörigheter för åtkomst till data via Azure AD. Du måste uttryckligen tilldela dig själv en Azure-roll för Azure Storage. Du kan tilldela den på nivån för din prenumeration, resurs grupp, lagrings konto eller behållare eller kö.
+>
+> Innan du tilldelar dig själv en roll för data åtkomst kommer du att kunna komma åt data i ditt lagrings konto via Azure Portal eftersom Azure Portal även kan använda konto nyckeln för data åtkomst. Mer information finns i [Välj hur du godkänner åtkomst till BLOB-data i Azure Portal](../blobs/authorize-data-operations-portal.md).
 >
 > Du kan inte tilldela en roll som är begränsad till en behållare eller kö om ditt lagrings konto har ett hierarkiskt namn område aktiverat.
 
@@ -64,11 +66,11 @@ Proceduren som visas här tilldelar en behållare en roll som är begränsad til
 1. Klicka på knappen **Lägg till roll tilldelning** för att lägga till en ny roll.
 1. I fönstret **Lägg till roll tilldelning** väljer du den Azure Storages roll som du vill tilldela. Sök sedan efter det säkerhets objekt som du vill tilldela rollen.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Skärm bild som visar inställningar för åtkomst kontroll för behållare":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Skärm bild som visar hur du tilldelar en Azure-roll":::
 
 1. Klicka på **Spara**. Identiteten som du har tilldelat rollen visas i listan under den rollen. Följande bild visar till exempel att användaren lade till nu har Läs behörighet till data i behållaren med namnet *Sample-container*.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Skärm bild som visar inställningar för åtkomst kontroll för behållare":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Skärm bild som visar en lista över användare som har tilldelats en roll":::
 
 Du kan följa liknande steg för att tilldela en roll som är begränsad till lagrings kontot, resurs gruppen eller prenumerationen.
 

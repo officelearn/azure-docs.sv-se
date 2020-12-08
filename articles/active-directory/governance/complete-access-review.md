@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/07/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23266043d5efd65a4e6e79dd515a54a2c321b077
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6491de18e65c5071ac0972e7ff49d1253cbd402
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87798842"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779558"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Slutför en åtkomst granskning av grupper och program i åtkomst granskningar för Azure AD
 
@@ -42,15 +42,23 @@ Du kan följa förloppet när granskarna har slutfört granskningarna.
 
 1. Logga in på Azure Portal och öppna [sidan identitets styrning](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-1. Klicka på **åtkomst granskningar**på den vänstra menyn.
+1. Klicka på **åtkomst granskningar** på den vänstra menyn.
 
 1. I listan klickar du på en åtkomst granskning.
 
-    Om du vill visa en serie åtkomst granskningar navigerar du till åtkomst granskningen och hittar kommande förekomster i schemalagda recensioner.
+    Om du vill visa framtida instanser av åtkomst granskningar går du till åtkomst granskningen och väljer schemalagda granskningar.
 
     På sidan **Översikt** kan du se förloppet. Ingen åtkomst behörighet har ändrats i katalogen förrän granskningen har slutförts.
 
     ![Status för åtkomst granskningar](./media/complete-access-review/overview-progress.png)
+    
+    Om du visar en åtkomst granskning som granskar gäst åtkomst över Microsoft 365 grupper (för hands version), visar översikts bladet varje grupp i granskningen.  
+
+   ![granska gäst åtkomst över Microsoft 365 grupper](./media/complete-access-review/review-guest-access-across-365-groups.png)
+
+    Klicka på en grupp för att se förloppet för granskningen i gruppen.
+
+   ![granska gäst åtkomst över Microsoft 365 grupper i detalj](./media/complete-access-review/progress-group-review.png)
 
 1. Om du vill stoppa en åtkomst granskning innan det har nått det schemalagda slutdatumet klickar du på knappen **stoppa** .
 
@@ -74,11 +82,11 @@ En konfigurerad automatisk granskning, eller om du väljer **tillämpa** , har i
 
 Klicka på **resultat** sidan om du vill visa resultatet för en enstaka åtkomst granskning. Om du bara vill visa en användares åtkomst går du till rutan Sök och anger visnings namnet eller User Principal Name för en användare vars åtkomst granskades.
 
-![Hämta resultat för en åtkomst granskning](./media/complete-access-review/retrieve-results.png)
+![Hämta resultat för en åtkomst granskning](./media/complete-access-review/retrieve-results.png) 
 
 Om du vill visa förloppet för en aktiv åtkomst granskning som är återkommande klickar du på **resultat** sidan.
 
-Om du vill visa resultatet från en slutförd instans av en åtkomst granskning som är återkommande klickar du på **gransknings historik**och väljer sedan den aktuella instansen i listan över slutförda åtkomst gransknings instanser, baserat på instansens start-och slutdatum. Resultatet från den här instansen kan hämtas från **resultat** sidan.
+Om du vill visa resultatet från en slutförd instans av en åtkomst granskning som är återkommande klickar du på **gransknings historik** och väljer sedan den aktuella instansen i listan över slutförda åtkomst gransknings instanser, baserat på instansens start-och slutdatum. Resultatet från den här instansen kan hämtas från **resultat** sidan.
 
 Om du vill hämta alla resultat från en åtkomst granskning klickar du på knappen **Ladda ned** . Den resulterande CSV-filen kan visas i Excel eller i andra program som öppnar CSV-filer med UTF-8.
 

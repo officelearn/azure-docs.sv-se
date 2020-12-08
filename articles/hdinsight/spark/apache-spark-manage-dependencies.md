@@ -8,19 +8,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: dafb4485ae9b10d89fa36bd790dcf3a799054de3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2cd50b1b35b87b1a11301ddc36ac355bef20dc4
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90064181"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780624"
 ---
 # <a name="manage-spark-application-dependencies"></a>Hantera Spark-programberoenden
 
 I den här artikeln får du lära dig hur du hanterar beroenden för dina Spark-program som körs på HDInsight. Vi omfattar både Scala och PySpark i Spark-program och kluster omfång.
 
 Använd snabb Länkar för att gå till avsnittet baserat på ditt användar ärende:
-* [Ställ in jar-beroenden för Spark-jobb med Jupyter Notebook](#use-jupyter-notebook)
+* [Konfigurera en spark-jobb jar-beroenden med Jupyter Notebook](#use-jupyter-notebook)
 * [Konfigurera ett Spark-jobb jar-beroenden med hjälp Azure Toolkit for IntelliJ](#use-azure-toolkit-for-intellij)
 * [Konfigurera jar-beroenden för Spark-kluster](#jar-libs-for-cluster)
 * [Hantera Jar-beroenden säkert](#safely-manage-jar-dependencies)
@@ -42,7 +42,7 @@ Du använder `%%configure` Magic för att konfigurera antecknings boken för att
 
 **Exempel på paket från maven-lagringsplatsen eller Spark-paket**
 
-När du har hittat paketet från maven-lagringsplatsen samlar du in **värdena för**, **ArtifactId**och **version**. Sammanfoga de tre värdena, avgränsade med kolon (**:**).
+När du har hittat paketet från maven-lagringsplatsen samlar du in **värdena för**, **ArtifactId** och **version**. Sammanfoga de tre värdena, avgränsade med kolon (**:**).
 
    ![Sammanfoga paket schema](./media/apache-spark-manage-dependencies/spark-package-schema.png "Sammanfoga paket schema")
 
@@ -103,7 +103,7 @@ HDInsight-kluster har inbyggda jar-beroenden och uppdateringar för dessa JAR-ve
 
 ## <a name="python-packages-for-one-spark-job"></a>Python-paket för ett Spark-jobb
 ### <a name="use-jupyter-notebook"></a>Använd Jupyter Notebook
-HDInsight Jupyter Notebook PySpark kernel stöder inte installation av python-paket från PyPi-eller Anaconda-paketets lagrings plats direkt. Om du har `.zip` , `.egg` eller `.py` beroenden och vill referera till dem för en spark-session, följer du stegen nedan:
+HDInsight Jupyter Notebook PySpark-kernel stöder inte installation av python-paket från PyPi eller Anaconda-paketets lagrings plats direkt. Om du har `.zip` , `.egg` eller `.py` beroenden och vill referera till dem för en spark-session, följer du stegen nedan:
 
 1. Kör nedan exempel skript åtgärder för att `.zip` Kopiera `.egg` eller `.py` filer från primär lagring `wasb://mycontainer@mystorageaccount.blob.core.windows.net/libs/*` till kluster lokalt fil system `/usr/libs/pylibs` . Steget krävs eftersom Linux använder `:` sig av för att avgränsa Sök vägs listan, men HDInsight stöder bara lagrings Sök vägar med schema som `wasb://` . Sökvägen till fjärrlagringsplatsen fungerar inte som den ska när du använder `sys.path.insert` .
 

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: ecd5fd4f5af883d26f904181796a78f61669b37a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dcf7c8db955b2e85ad7d1c047c714eb2c5968455
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187365"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780815"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>Snabb start: Azure Key Vault hemligt klient bibliotek för .NET (SDK v4)
 
@@ -32,11 +32,11 @@ Mer information om Key Vault och hemligheter finns i:
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/dotnet)
 * [.NET Core 3,1 SDK eller senare](https://dotnet.microsoft.com/download/dotnet-core)
 * [Azure CLI](/cli/azure/install-azure-cli)
-* En Key Vault – du kan skapa en med hjälp av [Azure Portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md)eller [Azure PowerShell](../general/quick-create-powershell.md).
+* En Key Vault – du kan skapa en med hjälp av [Azure Portal](../general/quick-create-portal.md) [Azure CLI](../general/quick-create-cli.md)eller [Azure PowerShell](../general/quick-create-powershell.md)
 
 Den här snabb starten använder `dotnet` och Azure CLI
 
-## <a name="setup"></a>Installation
+## <a name="setup"></a>Konfiguration
 
 Den här snabb starten använder Azure Identity Library med Azure CLI för att autentisera användare till Azure-tjänster. Utvecklare kan också använda Visual Studio eller Visual Studio Code för att autentisera sina anrop. mer information finns i [autentisera klienten med klient biblioteket för Azure Identity](/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true).
 
@@ -54,6 +54,13 @@ Den här snabb starten använder Azure Identity Library med Azure CLI för att a
 
 2. Logga in med dina autentiseringsuppgifter för kontot i webbläsaren.
 
+### <a name="grant-access-to-your-key-vault"></a>Bevilja åtkomst till ditt nyckel valv
+
+Skapa en åtkomst princip för nyckel valvet som ger hemliga behörigheter till ditt användar konto
+
+```console
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
+```
 
 ### <a name="create-new-net-console-app"></a>Skapa ny .NET-konsol program
 
@@ -90,15 +97,6 @@ I den här snabb starten måste du också installera Azure SDK-klient biblioteke
 ```dotnetcli
 dotnet add package Azure.Identity
 ```
-
-#### <a name="grant-access-to-your-key-vault"></a>Bevilja åtkomst till ditt nyckel valv
-
-Skapa en åtkomst princip för nyckel valvet som ger hemliga behörigheter till ditt användar konto
-
-```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
-```
-
 #### <a name="set-environment-variables"></a>Ange miljövariabler
 
 Det här programmet använder Key Vault-namnet som en miljö variabel som kallas `KEY_VAULT_NAME` .
@@ -133,7 +131,7 @@ Lägg till följande direktiv överst i *program.cs*:
 
 I den här snabb starten används inloggad användare för att autentisera till nyckel valv, vilket är önskad metod för lokal utveckling. För program som distribueras till Azure ska hanterad identitet tilldelas App Service eller virtuell dator. mer information finns i [Översikt över hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-I det här exemplet expanderas namnet på nyckel valvet till Key Vault-URI: n i formatet "https:// \<your-key-vault-name\> . Vault.Azure.net". Det här exemplet använder klassen  ["DefaultAzureCredential ()"](/dotnet/api/azure.identity.defaultazurecredential) , som gör att du kan använda samma kod i olika miljöer med olika alternativ för att tillhandahålla identitet. Mer information finns i [Azure Credential Authentication](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?#defaultazurecredential). 
+I det här exemplet expanderas namnet på nyckel valvet till Key Vault-URI: n i formatet "https:// \<your-key-vault-name\> . Vault.Azure.net". Det här exemplet använder klassen ["DefaultAzureCredential ()"](/dotnet/api/azure.identity.defaultazurecredential) från [Azure Identity Library](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme), som gör att du kan använda samma kod i olika miljöer med olika alternativ för att tillhandahålla identitet. Mer information om autentisering till Key Vault finns i [Developer ' s guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 [!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 
@@ -155,16 +153,20 @@ Du kan nu hämta det tidigare angivna värdet med metoden [GetSecretAsync](/dotn
 
 ```csharp
 var secret = await client.GetSecretAsync(secretName);
-``````
+```
 
 Din hemlighet sparas nu som `secret.Value` .
 
 ### <a name="delete-a-secret"></a>Ta bort en hemlighet
 
-Slutligen tar vi bort hemligheten från nyckel valvet med [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) -metoden.
+Slutligen tar vi bort hemligheten från ditt nyckel valv med metoderna [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) och [PurgeDeletedSecretAsync](/dotnet/api/azure.security.keyvault.keys.keyclient.purgedeletedsecretasync) .
 
 ```csharp
-await client.StartDeleteSecretAsync(secretName);
+var operation = await client.StartDeleteSecretAsync("mySecret");
+// You only need to wait for completion if you want to purge or recover the key.
+await operation.WaitForCompletionAsync();
+
+await client.PurgeDeletedKeyAsync("mySecret");
 ```
 
 ## <a name="sample-code"></a>Exempelkod
@@ -229,52 +231,18 @@ await client.StartDeleteSecretAsync(secretName);
 
 1. När du uppmanas till det anger du ett hemligt värde. Till exempel mySecretPassword.
 
-    En variant av följande utdata visas:
+En variant av följande utdata visas:
 
-    ```console
-    Input the value of your secret > mySecretPassword
-    Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
-    Forgetting your secret.
-    Your secret is ''.
-    Retrieving your secret from <your-unique-keyvault-name>.
-    Your secret is 'mySecretPassword'.
-    Deleting your secret from <your-unique-keyvault-name> ... done.    
-    ```
-
-## <a name="clean-up-resources"></a>Rensa resurser
-
-När det inte längre behövs kan du använda Azure CLI eller Azure PowerShell för att ta bort nyckel valvet och motsvarande resurs grupp.
-
-### <a name="delete-a-key-vault"></a>Ta bort en Key Vault
-
-```azurecli
-az keyvault delete --name <your-unique-keyvault-name>
+```console
+Input the value of your secret > mySecretPassword
+Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
+Forgetting your secret.
+Your secret is ''.
+Retrieving your secret from <your-unique-keyvault-name>.
+Your secret is 'mySecretPassword'.
+Deleting your secret from <your-unique-keyvault-name> ... done.    
+Purging your secret from <your-unique-keyvault-name> ... done.
 ```
-
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name>
-```
-
-### <a name="purge-a-key-vault"></a>Rensa en Key Vault
-
-```azurecli
-az keyvault purge --location eastus --name <your-unique-keyvault-name>
-```
-
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location eastus
-```
-
-### <a name="delete-a-resource-group"></a>Ta bort en resursgrupp
-
-```azurecli
-az group delete -g "myResourceGroup"
-```
-
-```azurepowershell
-Remove-AzResourceGroup -Name "myResourceGroup"
-```
-
 
 ## <a name="next-steps"></a>Nästa steg
 

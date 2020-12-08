@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 8e9013db93f5cd67448b5af8c415db0862e5d332
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ccc545b15f16879582c671b082cab40f6b11aa08
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842727"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778979"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Ge åtkomst till blob-och Queue-data med hanterade identiteter för Azure-resurser
 
@@ -50,6 +50,11 @@ Mer information om klient biblioteket för Azure Identity för .NET finns i [kli
 
 När ett Azure AD-säkerhetsobjekt försöker komma åt BLOB-eller Queue data, måste säkerhets objektets behörigheter ha behörighet till resursen. Om säkerhetsobjektet är en hanterad identitet i Azure eller ett Azure AD-användarkonto som kör kod i utvecklings miljön, måste säkerhets objekt tilldelas en Azure-roll som ger åtkomst till BLOB-eller Queue-data i Azure Storage. Information om hur du tilldelar behörigheter via Azure RBAC finns i avsnittet **tilldela Azure-roller för åtkomst behörighet** i [auktorisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
+> [!NOTE]
+> När du skapar ett Azure Storage-konto tilldelas du inte automatiskt behörigheter för åtkomst till data via Azure AD. Du måste uttryckligen tilldela dig själv en Azure-roll för Azure Storage. Du kan tilldela den på nivån för din prenumeration, resurs grupp, lagrings konto eller behållare eller kö.
+>
+> Innan du tilldelar dig själv en roll för data åtkomst kommer du att kunna komma åt data i ditt lagrings konto via Azure Portal eftersom Azure Portal även kan använda konto nyckeln för data åtkomst. Mer information finns i [Välj hur du godkänner åtkomst till BLOB-data i Azure Portal](../blobs/authorize-data-operations-portal.md).
+
 ### <a name="authenticate-the-user-in-the-development-environment"></a>Autentisera användaren i utvecklings miljön
 
 När din kod körs i utvecklings miljön kan autentiseringen hanteras automatiskt, eller så kan det krävas en webb läsar inloggning, beroende på vilka verktyg du använder. Microsoft Visual Studio stöder till exempel enkel inloggning (SSO), så att det aktiva Azure AD-användarkontot används automatiskt för autentisering. Mer information om SSO finns i [enkel inloggning till program](../../active-directory/manage-apps/what-is-single-sign-on.md).
@@ -71,7 +76,7 @@ I följande exempel används Azure CLI för att skapa ett nytt huvud namn för t
 ```azurecli-interactive
 az ad sp create-for-rbac \
     --name <service-principal> \
-    --role "Storage Blob Data Reader" \
+    --role "Storage Blob Data Contributor" \
     --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 

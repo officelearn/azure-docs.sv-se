@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om Azure Kubernetes service (AKS)
 description: Hitta svar på några vanliga frågor om Azure Kubernetes service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 1ca342c1ea4134f4d9d8f1dbcae4e61bf2a75eaf
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 94cbaf417413b3e11071fb8c7237cbb3ac7b9a37
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751402"
+ms.locfileid: "96780356"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor om Azure Kubernetes Service (AKS)
 
@@ -215,7 +215,7 @@ Från v 1.2.0 Azure CNI har transparent läge som standard för enskilda innehav
 
 ### <a name="bridge-mode"></a>Bridge-läge
 
-Som namnet antyder skapar Bridge-läget Azure-CNI, i en "just-Time-Time", en L2-brygga med namnet "azure0". Alla värd sidans Pod `veth` par-gränssnitt kommer att anslutas till den här bryggan. Så Pod-Pod intra VM-kommunikation sker via den här bryggan. Bryggan i fråga är en virtuell Layer 2-enhet som inte kan ta emot eller överföra något om du inte binder en eller flera riktiga enheter till den. Därför måste eth0 för den virtuella Linux-datorn konverteras till en underordnad "azure0"-brygga. Detta skapar en komplex nätverkstopologi i den virtuella Linux-datorn och som en symptom-CNI behövde ta hand om andra nätverksfunktioner som DNS-Server uppdatering och så vidare.
+Som namnet antyder skapar Bridge-läget Azure-CNI, i en "just-Time-Time", en L2-brygga med namnet "azure0". Alla värd sidans Pod `veth` par-gränssnitt kommer att anslutas till den här bryggan. Så Pod-Pod intra VM-kommunikation och återstående trafik går genom den här bryggan. Bryggan i fråga är en virtuell Layer 2-enhet som inte kan ta emot eller överföra något om du inte binder en eller flera riktiga enheter till den. Därför måste eth0 för den virtuella Linux-datorn konverteras till en underordnad "azure0"-brygga. Detta skapar en komplex nätverkstopologi i den virtuella Linux-datorn och som en symptom-CNI behövde ta hand om andra nätverksfunktioner som DNS-Server uppdatering och så vidare.
 
 :::image type="content" source="media/faq/bridge-mode.png" alt-text="Topologi för brygga läge":::
 
@@ -229,19 +229,11 @@ root@k8s-agentpool1-20465682-1:/#
 ```
 
 ### <a name="transparent-mode"></a>Transparent läge
-Transparent läge tar en rak metod för att konfigurera Linux-nätverk. I det här läget ändrar inte Azure-CNI några egenskaper för eth0-gränssnittet i den virtuella Linux-datorn. Den här minimala metoden för att ändra egenskaperna för Linux-nätverk hjälper till att minska problem med komplexa hörn fall som kluster kan riktas mot Bridge-läge. I transparent läge skapar Azure-CNI och lägger till Pod-adresspar på värd sidan `veth` som läggs till i värd nätverket. Intra VM Pod-to-Pod-kommunikation sker via IP-vägar som CNI ska lägga till. I stort sett Pod-till-Pod-intra VM är lägre nivå 3-nätverks trafik.
+Transparent läge tar en rak metod för att konfigurera Linux-nätverk. I det här läget ändrar inte Azure-CNI några egenskaper för eth0-gränssnittet i den virtuella Linux-datorn. Den här minimala metoden för att ändra egenskaperna för Linux-nätverk hjälper till att minska problem med komplexa hörn fall som kluster kan riktas mot Bridge-läge. I transparent läge skapar Azure-CNI och lägger till Pod-adresspar på värd sidan `veth` som läggs till i värd nätverket. Intra VM Pod-to-Pod-kommunikation sker via IP-vägar som CNI ska lägga till. I stort sett Pod-till-Pod-kommunikationen är över Layer 3 och Pod-trafiken dirigeras av L3-routningsregler.
 
 :::image type="content" source="media/faq/transparent-mode.png" alt-text="Topologi för transparent läge":::
 
 Nedan visas ett exempel på en IP Route-installation av transparent läge, varje Pod-gränssnitt kommer att få en statisk väg ansluten så att trafik med mål-IP-adress som Pod skickas direkt till Pod värdens `veth` gränssnitts gränssnitt.
-
-### <a name="benefits-of-transparent-mode"></a>Förmåner för genomskinligt läge
-
-- Ger en minskning `conntrack` av DNS-parallellt konkurrens villkor och undvikande av 5-sec problem med DNS-latens utan att behöva konfigurera en lokal DNS-DNS-svars tid (du kan fortfarande använda lokala DNS-noder för prestanda skäl).
-- Eliminerar det inledande 5-s DNS-latens CNI Bridge-läget i dag på grund av "just-in-Time"-installationen.
-- Ett av hörn fallen i Bridge-läge är att Azure-CNI inte kan fortsätta uppdatera den anpassade DNS-servern som visar användare som ska läggas till i VNET eller NIC. Detta resulterar i att CNI-plockningen bara är den första instansen av listan DNS-server. Löst i transparent läge eftersom CNI inte ändrar några eth0-egenskaper. Se mer [här](https://github.com/Azure/azure-container-networking/issues/713).
-- Ger bättre hantering av UDP-trafik och minskning av UDP-dataöversvämmade Storm när ARP-timeout. I Bridge-läge, när Bridge inte känner till en MAC-adress för mål Pod i pod-till-Pod-kommunikation i flera virtuella datorer, resulterar detta i storm av paketet på alla portar. Löst i transparent läge eftersom det inte finns några L2-enheter i sökvägen. Läs mer [här](https://github.com/Azure/azure-container-networking/issues/704).
-- Transparent läge fungerar bättre i intra VM Pod-to-Pod-kommunikation med avseende på data flöde och svars tid jämfört med Bridge-läge.
 
 ```bash
 10.240.0.216 dev azv79d05038592 proto static
@@ -254,6 +246,15 @@ Nedan visas ett exempel på en IP Route-installation av transparent läge, varje
 169.254.169.254 via 10.240.0.1 dev eth0 proto dhcp src 10.240.0.4 metric 100
 172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
 ```
+
+### <a name="benefits-of-transparent-mode"></a>Förmåner för genomskinligt läge
+
+- Ger en minskning `conntrack` av DNS-parallellt konkurrens villkor och undvikande av 5-sec problem med DNS-latens utan att behöva konfigurera en lokal DNS-DNS-svars tid (du kan fortfarande använda lokala DNS-noder för prestanda skäl).
+- Eliminerar det inledande 5-s DNS-latens CNI Bridge-läget i dag på grund av "just-in-Time"-installationen.
+- Ett av hörn fallen i Bridge-läge är att Azure-CNI inte kan fortsätta uppdatera den anpassade DNS-servern som visar användare som ska läggas till i VNET eller NIC. Detta resulterar i att CNI-plockningen bara är den första instansen av listan DNS-server. Löst i transparent läge eftersom CNI inte ändrar några eth0-egenskaper. Läs mer [här](https://github.com/Azure/azure-container-networking/issues/713).
+- Ger bättre hantering av UDP-trafik och minskning av UDP-dataöversvämmade Storm när ARP-timeout. I Bridge-läge, när Bridge inte känner till en MAC-adress för mål Pod i pod-till-Pod-kommunikation i flera virtuella datorer, resulterar detta i storm av paketet på alla portar. Löst i transparent läge eftersom det inte finns några L2-enheter i sökvägen. Läs mer [här](https://github.com/Azure/azure-container-networking/issues/704).
+- Transparent läge fungerar bättre i intra VM Pod-to-Pod-kommunikation med avseende på data flöde och svars tid jämfört med Bridge-läge.
+
 
 <!-- LINKS - internal -->
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/03/2020
+ms.date: 12/07/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: a6b72c9e6cc366d04937598f653f8ba887ce1b85
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
-ms.translationtype: HT
+ms.openlocfilehash: 640098e118db87214d7364132a5119e35cb94c0a
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952190"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778724"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>Självstudie: Konfigurera nätverk för Azure Stack Edge Pro med GPU
 
@@ -115,7 +115,7 @@ Följ dessa steg om du vill aktivera Compute och konfigurera Compute Network.
     > [!IMPORTANT]
     > Vi rekommenderar starkt att du anger minst 1 IP-adress för Azure Stack Edge Pro Hub-tjänsten för att få åtkomst till Compute-moduler. Alternativt kan du ange ytterligare IP-adresser för andra tjänster/IoT Edge moduler (1 per tjänst/modul) som behöver nås från utanför klustret. IP-adresserna för tjänsten kan uppdateras senare. 
     
-1. Välj **Tillämpa**.
+1. Välj **Använd**.
 
     ![Compute-sidan i lokalt användar gränssnitt 3](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-3.png)
 
@@ -143,7 +143,7 @@ Detta är en valfri konfiguration.
 
     1. I rutan **webbproxy-URL** anger du webb adressen i följande format: `http://host-IP address or FQDN:Port number` . Du kan inte använda HTTPS-adresser.
 
-    2. Under **autentisering**väljer du **ingen** eller **NTLM**. Om du aktiverar beräknings-och användnings IoT Edge modul på din Azure Stack Edge Pro-enhet rekommenderar vi att du ställer in webbproxy-autentisering på **ingen**. **NTLM** stöds inte.
+    2. Under **autentisering** väljer du **ingen** eller **NTLM**. Om du aktiverar beräknings-och användnings IoT Edge modul på din Azure Stack Edge Pro-enhet rekommenderar vi att du ställer in webbproxy-autentisering på **ingen**. **NTLM** stöds inte.
 
     3. Om du använder autentisering anger du ett användar namn och lösen ord.
 

@@ -6,12 +6,12 @@ ms.date: 11/10/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-ms.openlocfilehash: b32977ac1c8cfe0c461bcd1628c08a0ca215ba93
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 7eebbe5605c0b4d70ea15c1605cff5416965e535
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506200"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780781"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Snabb start: skapa en python-app i Azure App Service på Linux
 
@@ -74,23 +74,11 @@ Klona exempel lagrings platsen med följande kommando och navigera till mappen e
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
-
-Navigera sedan till mappen:
-
-```terminal
-cd python-docs-hello-world
-```
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-django
-```
-
-Navigera sedan till mappen:
-
-```terminal
-cd python-docs-hello-django
 ```
 ::: zone-end
 
@@ -101,7 +89,11 @@ Har du problem? [Berätta för oss](https://aka.ms/FlaskCLIQuickstartHelp).
 ## <a name="run-the-sample"></a>Kör exemplet
 
 ::: zone pivot="python-framework-flask"
-1. Se till att du befinner dig i mappen *python-dok-Hello-World* . 
+1. Navigera till i mappen *python-dok-Hello-World* :
+
+    ```terminal
+    cd python-docs-hello-world
+    ```
 
 1. Skapa en virtuell miljö och installera beroenden:
 
@@ -115,7 +107,11 @@ Har du problem? [Berätta för oss](https://aka.ms/FlaskCLIQuickstartHelp).
     flask run
     ```
     
-    Som standard förutsätter servern att appens inmatnings modul är i *app.py* , som används i exemplet. (Om du använder ett annat Modulnamn anger du `FLASK_APP` miljövariabeln till det namnet.)
+    Som standard förutsätter servern att appens inmatnings modul är i *app.py*, som används i exemplet.
+
+    Om du använder ett annat Modulnamn anger du `FLASK_APP` miljövariabeln till det namnet.
+
+    Om du får fel meddelandet "Det gick inte att hitta något kolv program. Du angav inte miljövariabeln FLASK_APP, och det gick inte att hitta en wsgi.py-eller app.py-modul i den aktuella katalogen. kontrol lera att du är i `python-docs-hello-world` mappen som innehåller exemplet.
 
 1. Öppna en webbläsare och gå till exempel appen på `http://localhost:5000/` . Appen visar meddelandet **Hej, World!**.
 
@@ -125,7 +121,11 @@ Har du problem? [Berätta för oss](https://aka.ms/FlaskCLIQuickstartHelp).
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
-1. Se till att du är i mappen *python-dok-Hello-django* . 
+1. Navigera till mappen *python-dok-Hello-django* :
+
+    ```terminal
+    cd python-docs-hello-django
+    ```
 
 1. Skapa en virtuell miljö och installera beroenden:
 
@@ -150,7 +150,7 @@ Har du problem? [Berätta för oss](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="deploy-the-sample"></a>Distribuera exemplet
 
-Distribuera koden i din lokala mapp ( *python-dok-Hello-World* ) med hjälp av `az webapp up` kommandot:
+Distribuera koden i din lokala mapp (*python-dok-Hello-World*) med hjälp av `az webapp up` kommandot:
 
 ```azurecli
 az webapp up --sku F1 --name <app-name>
@@ -158,7 +158,7 @@ az webapp up --sku F1 --name <app-name>
 
 - Om `az` kommandot inte känns igen kontrollerar du att Azure CLI är installerat enligt beskrivningen i [Konfigurera din första miljö](#set-up-your-initial-environment).
 - Om `webapp` kommandot inte känns igen, eftersom din Azure CLI-version är 2.0.80 eller högre. Om inte, [installerar du den senaste versionen](/cli/azure/install-azure-cli).
-- Ersätt `<app_name>` med ett namn som är unikt för alla Azure ( *giltiga tecken är `a-z` , `0-9` och `-`* ). Ett utmärkt mönster är att använda en kombination av företagets namn och en app-ID.
+- Ersätt `<app_name>` med ett namn som är unikt för alla Azure (*giltiga tecken är `a-z` , `0-9` och `-`*). Ett utmärkt mönster är att använda en kombination av företagets namn och en app-ID.
 - `--sku F1`Argumentet skapar webb programmet på den kostnads fria pris nivån. Utelämna det här argumentet om du vill använda en snabbare Premium-nivå, vilket innebär en timkostnad.
 - Du kan också inkludera argumentet `--location <location-name>` där `<location_name>` är en tillgänglig Azure-region. Du kan hämta en lista över tillåtna regioner för ditt Azure-konto genom att köra [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) kommandot.
 - Om du ser felet "Det gick inte att automatiskt identifiera körnings stacken för appen" måste du kontrol lera att du kör kommandot i mappen *python-dok-Hello-World* (kolv) eller *python-django-Hello-* folder (django) som innehåller *requirements.txt* -filen. (Mer information finns i [Felsöka problem med automatisk identifiering med AZ webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)

@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
 ms.date: 06/16/2020
-ms.openlocfilehash: aac85fdab157d581285af91c4c818258a5f1790b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 092e07ed01fb870cdcd9a3fd63d46d30cef96007
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124789"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780849"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Användardefinierade JavaScript-funktioner i Azure Stream Analytics
  
-Azure Stream Analytics stödjer användardefinierade JavaScript-funktioner. Med den omfattande uppsättningen **sträng** -, **regexp** -, **matematik** -, **matris** -och **datum** metoder som Java Script tillhandahåller, blir det enklare att skapa komplexa data transformationer med Stream Analytics jobb.
+Azure Stream Analytics stödjer användardefinierade JavaScript-funktioner. Med den omfattande uppsättningen **sträng**-, **regexp**-, **matematik**-, **matris**-och **datum** metoder som Java Script tillhandahåller, blir det enklare att skapa komplexa data transformationer med Stream Analytics jobb.
 
 ## <a name="overview"></a>Översikt
 
@@ -41,11 +41,11 @@ Här är några saker som du inte kan göra med en användardefinierad JavaScrip
 > [!NOTE]
 > De här stegen fungerar på Stream Analytics jobb som kon figurer ATS för att köras i molnet. Om Stream Analytics jobbet är konfigurerat för att köras på Azure IoT Edge ska du i stället använda Visual Studio och [skriva den användardefinierade funktionen med C#](stream-analytics-edge-csharp-udf.md).
 
-Om du vill skapa en användardefinierad JavaScript-funktion i Stream Analytics jobb väljer du **funktioner** under **jobb sto pol Ogin** . Välj sedan **JavaScript UDF** från List menyn **+ Lägg till** . 
+Om du vill skapa en användardefinierad JavaScript-funktion i Stream Analytics jobb väljer du **funktioner** under **jobb sto pol Ogin**. Välj sedan **JavaScript UDF** från List menyn **+ Lägg till** . 
 
 ![Lägg till Java Script UDF](./media/javascript/stream-analytics-jsudf-add.png)
 
-Du måste ange följande egenskaper och välja **Spara** .
+Du måste ange följande egenskaper och välja **Spara**.
 
 |Egenskap|Beskrivning|
 |--------|-----------|
@@ -57,11 +57,11 @@ Du måste ange följande egenskaper och välja **Spara** .
 
 Du kan testa och felsöka din JavaScript UDF-logik i valfri webbläsare. Det finns för närvarande inte stöd för att felsöka och testa logiken för dessa användardefinierade funktioner i Stream Analytics Portal. När funktionen fungerar som förväntat kan du lägga till den i Stream Analytics-jobbet som nämnts ovan och sedan anropa den direkt från din fråga. Du kan testa din fråge logik med Java Script UDF med [Stream Analytics verktyg för Visual Studio](./stream-analytics-tools-for-visual-studio-install.md).
 
-JavaScript-körningsfel betraktas som allvarliga och exponeras via aktivitetsloggen. För att hämta loggen i Azure Portal går du till jobbet och väljer **aktivitetsloggen** .
+JavaScript-körningsfel betraktas som allvarliga och exponeras via aktivitetsloggen. För att hämta loggen i Azure Portal går du till jobbet och väljer **aktivitetsloggen**.
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Anropa en användardefinierad JavaScript-funktion i en fråga
 
-Du kan enkelt anropa JavaScript-funktionen i din fråga med hjälp av funktions Ali Aset prefixet med **UDF** . Här är ett exempel på en JavaScript UDF som konverterar hexadecimala värden till heltal som anropas i en Stream Analytics fråga.
+Du kan enkelt anropa JavaScript-funktionen i din fråga med hjälp av funktions Ali Aset prefixet med **UDF**. Här är ett exempel på en JavaScript UDF som konverterar hexadecimala värden till heltal som anropas i en Stream Analytics fråga.
 
 ```SQL
     SELECT
@@ -96,7 +96,7 @@ Här är konverteringarna från JavaScript till Stream Analytics:
 JavaScript | Stream Analytics
 --- | ---
 Antal | Bigint (om talet är avrundat och mellan long.MinValue och long.MaxValue, i annat fall stöds det inte)
-Date | DateTime
+Datum | DateTime
 Sträng | nvarchar(MAX)
 Objekt | Post
 Matris | Matris
@@ -184,6 +184,35 @@ INTO
     output
 FROM
     input A
+```
+
+### <a name="tolocalestring"></a>toLocaleString()
+Metoden **toLocaleString** i Java Script kan användas för att returnera en språk känslig sträng som representerar datum/tid-data från där den här metoden anropas.
+Även om Azure Stream-analys endast tar emot UTC-datum tid som systemstämpel, kan den här metoden användas för att konvertera systemets tidstämpel till en annan språk version och tidszon.
+Den här metoden följer samma implementerings beteende som den som finns tillgänglig i Internet Explorer.
+
+**Definiera en användardefinierad JavaScript-funktion:**
+
+```javascript
+function main(datetime){
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return event.toLocaleDateString('de-DE', options);
+}
+```
+
+**Exempel fråga: Skicka ett datetime-värde som indatavärde**
+```SQL
+SELECT
+    udf.toLocaleString(input.datetime) as localeString
+INTO
+    output
+FROM
+    input
+```
+
+Utdata från den här frågan blir indata-datetime i **de-de** med de angivna alternativen.
+```
+Samstag, 28. Dezember 2019
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -10,16 +10,18 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 9ea4ec748ca37f93e9711970b10746a009543d00
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c0253dc3c9dc029cd964fb32b148be1405e7fbad
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656606"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780186"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: Konfigurera OIDC-baserad enkel inloggning (SSO) för ett program i din Azure Active Directory (Azure AD)-klient
 
 Kom igång med förenklade användar inloggningar genom att konfigurera enkel inloggning (SSO) för ett program som du har lagt till i din Azure Active Directory (Azure AD)-klient. När du har konfigurerat SSO kan användarna logga in i ett program genom att använda sina autentiseringsuppgifter för Azure AD. SSO ingår i den kostnads fria versionen av Azure AD.
+
+Mer information om OIDC-baserad SSO finns i [förstå OIDC-baserad enkel inloggning](configure-oidc-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -52,7 +54,7 @@ Så här konfigurerar du enkel inloggning för ett program:
    > [!IMPORTANT]
     > Om du redan har en prenumeration på programmet kommer verifieringen av användar information och klient-och katalog information att ske. Om programmet inte kan verifiera användaren kommer du att omdirigera dig för att registrera dig för program tjänsten eller på fel sidan.
 
-3. Efter en lyckad autentisering visas en dialog ruta där du tillfrågas om administrativt medgivande. Välj **medgivande för din organisations räkning** och välj sedan **Godkänn**. 
+3. Efter en lyckad autentisering visas en dialog ruta där du tillfrågas om administrativt medgivande. Välj **medgivande för din organisations räkning** och välj sedan **Godkänn**. Läs mer om användar-och administratörs medgivande i [förstå användar-och administratörs medgivande](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent).
 
     :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Skärm bild som visar medgivande skärmen för en app." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
@@ -62,6 +64,11 @@ Så här konfigurerar du enkel inloggning för ett program:
 > [!TIP]
 > Du kan automatisera hantering av appar med hjälp av Graph API, se [Automatisera program hantering med Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
+Här är en video som går igenom ytterligare information om hur man lägger till en OIDC-baserad app i Azure AD.
+
+Lägga till en OIDC-baserad app i Azure Active Directory
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -890,8 +890,6 @@
               items:
                 - name: Djup diagnostik för webbappar och tjänster
                   href: app/devops.md
-                - name: Övervaka prestanda i webbprogram
-                  href: app/web-monitor-performance.md
                 - name: 'Avgränsa utveckling, testning och produktion'
                   href: app/separate-resources.md
                 - name: Hur kan jag ... i Application Insights?

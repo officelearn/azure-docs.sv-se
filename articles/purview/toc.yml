@@ -28,6 +28,8 @@ items:
             href: tutorial-import-create-glossary-terms.md
       - name: Registrera och genomsöka en lokal SQL Server
         href: register-scan-on-premises-sql-server.md
+      - name: 'Anropa REST-API:erna för katalogen'
+        href: tutorial-using-rest-apis.md
   - name: Begrepp
     items:
       - name: Använda Purview Studio
@@ -133,6 +135,10 @@ items:
             href: how-to-link-azure-data-factory.md
           - name: Azure Data Share-ursprung
             href: how-to-link-azure-data-share.md
+      - name: Övervaka
+        items:
+          - name: Övervaka med Azure Monitor
+            href: how-to-monitor-with-azure-monitor.md
       - name: Insikter
         items:
           - name: Visa tillgångsinsikter

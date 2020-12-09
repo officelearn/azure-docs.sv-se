@@ -5,14 +5,14 @@ services: networking
 author: nayak-mahesh
 ms.service: virtual-network
 ms.topic: article
-ms.date: 08/05/2020
+ms.date: 12/07/2020
 ms.author: kumud
-ms.openlocfilehash: 72168a56bfb4e08c7f44c84c773d9f6599cfa607
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb828d239266691766f55c1b156831afab7cc5bc
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848898"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854688"
 ---
 # <a name="azure-network-round-trip-latency-statistics"></a>Azure Network tur och retur latens-statistik
 
@@ -22,9 +22,9 @@ Azure övervakar kontinuerligt svars tiden (hastighet) för kärn områdena i si
 
 Fördröjnings mätningarna samlas in från ThousandEyes-agenter, som finns i Azures moln regioner över hela världen, som kontinuerligt skickar nätverks avsökningar mellan sig i intervall på 1 minut. Statistiken för månatlig latens beräknas från medelvärdet av de insamlade exemplen för månaden.
 
-## <a name="september-2020-round-trip-latency-figures"></a>Svars tid i september 2020
+## <a name="november-2020-round-trip-latency-figures"></a>Svars tid för 2020 november
 
-De månatliga genomsnittliga fördröjningarna mellan Azure-regioner under de senaste 30 dagarna (från och med den 30 september 2020) visas nedan. Följande mätningar drivs av [ThousandEyes](https://thousandeyes.com).
+De månatliga genomsnittliga fördröjningarna mellan Azure-regioner under de senaste 30 dagarna (från och med den 30 november 2020) visas nedan. Följande mätningar drivs av [ThousandEyes](https://thousandeyes.com).
 
 [![Statistik över svars tider i Azure mellan regioner](media/azure-network-latency/azure-network-latency.png)](media/azure-network-latency/azure-network-latency.png#lightbox)
 

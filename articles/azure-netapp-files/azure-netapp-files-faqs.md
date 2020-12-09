@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 5409f9177116add1fd794ec1e72f276daf34e029
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1537a87999f9a8eecf83a2431b2f53d3ceaedacb
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659156"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854707"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor och svar om Azure NetApp Files
 
@@ -60,7 +60,7 @@ Nej, Azure NetApp Files stöder för närvarande inte Dual Stack (IPv4 och IPv6)
 
 Data trafik mellan NFSv 4.1-klienter och Azure NetApp Files volymer kan krypteras med hjälp av Kerberos med AES-256-kryptering. Mer information finns i [Konfigurera nfsv 4.1 Kerberos-kryptering för Azure NetApp Files](configure-kerberos-encryption.md) .   
 
-Data trafik mellan NFSv3-eller SMBv3-klienter till Azure NetApp Files volymer är inte krypterad. Men trafiken från en virtuell Azure-dator (som kör en NFS-eller SMB-klient) till Azure NetApp Files är lika säker som vilken annan Azure-VM-till-VM-trafik som helst. Den här trafiken är lokal i Azure Data Center-nätverket. 
+Data trafik mellan NFSv3-eller SMB3-klienter till Azure NetApp Files volymer är inte krypterad. Men trafiken från en virtuell Azure-dator (som kör en NFS-eller SMB-klient) till Azure NetApp Files är lika säker som vilken annan Azure-VM-till-VM-trafik som helst. Den här trafiken är lokal i Azure Data Center-nätverket. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>Kan lagringen krypteras i vila?
 

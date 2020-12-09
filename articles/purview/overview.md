@@ -7,23 +7,27 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 11/30/2020
-ms.openlocfilehash: e7ad561cf9ce9983f41fa166eb744c90f126e01e
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 9ead9a564c11901775ac7c471cd53fe65b3fdef9
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555977"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855115"
 ---
-# <a name="what-is-azure-purview"></a>Vad är Azure avdelningens kontroll?
+# <a name="what-is-azure-purview"></a>Vad är Azure Purview?
 
 > [!IMPORTANT]
 > Azure avdelningens kontroll är för närvarande en för hands version. Kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versioner innehåller ytterligare juridiska villkor som gäller för Azure-funktioner som är beta, för hands version eller på annat sätt ännu inte har publicerats i allmän tillgänglighet.
 
-Azure avdelningens kontroll är en ny moln tjänst som används av data användare. Du kan använda Azure-avdelningens kontroll för att centralt hantera data styrning över din datafastighet, och sträcker sig över både moln-och lokal miljöer. Med den här tjänsten kan affärsanalytiker söka efter relevanta data med hjälp av meningsfulla affärs villkor.
+Azure avdelningens kontroll är en enhetlig data styrnings tjänst som hjälper dig att hantera och styra din lokala, flera moln-och SaaS-data (Software-as-a-Service). Skapa enkelt en holistisk, aktuell karta över dina data landskap med automatiserad data identifiering, känslig data klassificering och härkomst från slut punkt till slut punkt. Ge data konsumenter möjlighet att hitta värdefulla, pålitliga data.
 
-Med avdelningens kontroll UI eller Apache Atlas API, kan tekniska användare visa metadata och härkomst för data till gångar i en central katalog.
+Azure avdelningens kontroll data map ger grunden för data identifiering och effektiv data styrning. Avdelningens kontroll data Map är en inbyggd PaaS-tjänst i molnet som samlar in metadata om företags data som finns i analys-och drift system lokalt och i molnet. Avdelningens kontroll data mappning hålls automatiskt uppdaterad med det inbyggda automatiserade skannings-och klassificerings systemet. Företags användare kan konfigurera och använda avdelningens kontroll-datakartan via ett intuitivt användar gränssnitt och utvecklare kan interagera med data mappningen med hjälp av Apache Atlas 2,0-API: er med öppen källkod.
 
-Sak expert experter, data ägare och säkerhets administratörer kan kommentera data till gångar för att dela sin kommun kunskap. De gör detta med användar gränssnittet eller i skala genom automatisk klassificering och automatiskt märkta principer, baserat på metadata och innehålls granskning.
+Azure avdelningens kontroll data map ger avdelningens kontroll Data Catalog och avdelningens kontroll data insikter som enhetliga upplevelser i avdelningens kontroll Studio.
+ 
+Med avdelningens kontroll-Data Catalog kan affärs-och teknik användare enkelt & enkelt hitta relevanta data med hjälp av en Sök funktion med filter som baseras på olika objektiva villkor, klassificeringar, känslighets etiketter med mera. För ämnes experter, data chefer och befäl, avdelningens kontroll-Data Catalog tillhandahåller funktioner för data hantering som affärs glansig hantering och möjlighet att automatisera märkning av data till gångar med ord lista. Data konsumenter och producenter kan också visuellt spåra härkomst av data till gångar som börjar från operativ systemen lokalt, via rörelse, transformering & berikning med olika data lagrings & bearbetnings system i molnet för att konsumeras i ett analys system som Power BI.
+
+Med avdelningens kontroll data insikter kan data ansvariga och säkerhets ansvariga få en överblick över fågel ögonen och snabbt förstå vilka data som genomsöks, där känsliga data är och hur de flyttas.
 
 ## <a name="discovery-challenges-for-data-consumers"></a>Det är svårt för datakonsumenterna att hitta rätt
 

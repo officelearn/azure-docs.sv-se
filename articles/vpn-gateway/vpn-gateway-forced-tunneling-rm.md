@@ -1,49 +1,39 @@
 ---
 title: Konfigurera Tvingad tunnel trafik för plats-till-plats-anslutningar
-description: Omdirigera eller tvinga all Internet-baserad trafik tillbaka till din lokala plats.
+description: Hur du omdirigerar (tvingar) all Internet-baserad trafik tillbaka till din lokala plats.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 12/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 00f98a5086b9a9bf21054138cf01d26a550338da
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c12297019b49d7b3cb644ae9c7a904e4ca697f0b
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673843"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855047"
 ---
-# <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Konfigurera framtvingad tunneling med distributionsmodellen Azure Resource Manager
+# <a name="configure-forced-tunneling"></a>Konfigurera tvingad tunneltrafik
 
-Med tvingad tunneltrafik kan du omdirigera eller ”tvinga” all Internetbunden trafik tillbaka till din lokala plats via en plats-till-plats-VPN-tunnel för kontroll och granskning. Detta är ett kritiskt säkerhets krav för de flesta företagets IT-principer. Utan Tvingad tunnel trafik passerar Internet-bindningen från dina virtuella datorer i Azure alltid från Azures nätverks infrastruktur direkt till Internet, utan alternativet att låta dig inspektera eller granska trafiken. Otillåten Internet åtkomst kan potentiellt leda till information som avslöjas eller andra typer av säkerhets överträdelser.
+Med tvingad tunneltrafik kan du omdirigera eller ”tvinga” all Internetbunden trafik tillbaka till din lokala plats via en plats-till-plats-VPN-tunnel för kontroll och granskning. Detta är ett kritiskt säkerhets krav för de flesta företagets IT-principer. Om du inte konfigurerar Tvingad tunnel trafik går Internet-baserad trafik från dina virtuella datorer i Azure alltid från Azures nätverks infrastruktur direkt till Internet, utan alternativet att låta dig inspektera eller granska trafiken. Otillåten Internet åtkomst kan potentiellt leda till information som avslöjas eller andra typer av säkerhets överträdelser.
 
-
-
-[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
-
-Den här artikeln beskriver hur du konfigurerar Tvingad tunnel trafik för virtuella nätverk som skapats med Resource Manager-distributions modellen. Tvingad tunnel trafik kan konfigureras med hjälp av PowerShell, inte via portalen. Om du vill konfigurera Tvingad tunnel trafik för den klassiska distributions modellen väljer du klassisk artikel i följande listruta:
-
-> [!div class="op_single_selector"]
-> * [PowerShell – Klassisk](vpn-gateway-about-forced-tunneling.md)
-> * [PowerShell – Resource Manager](vpn-gateway-forced-tunneling-rm.md)
-> 
-> 
+Tvingad tunnel trafik kan konfigureras med hjälp av Azure PowerShell. Den kan inte konfigureras med hjälp av Azure Portal. Den här artikeln hjälper dig att konfigurera Tvingad tunnel trafik för virtuella nätverk som skapats med Resource Manager-distributions modellen. Om du vill konfigurera Tvingad tunnel trafik för den klassiska distributions modellen, se [Tvingad tunnel trafik – klassisk](vpn-gateway-about-forced-tunneling.md).
 
 ## <a name="about-forced-tunneling"></a>Om Tvingad tunnel trafik
 
-Följande diagram illustrerar hur Tvingad tunnel trafik fungerar. 
+Följande diagram illustrerar hur Tvingad tunnel trafik fungerar.
 
-![Tvingad tunnel trafik](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
+:::image type="content" source="./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png" alt-text="Diagrammet visar Tvingad tunnel trafik.":::
 
-I exemplet ovan tvingas inte frontend-undernätet att tunnlas. Arbets belastningarna i klient delens undernät kan fortsätta att acceptera och svara på kund förfrågningar direkt från Internet. Mellanlagrings-och backend-undernät framtvingas med tunnel. Utgående anslutningar från dessa två undernät till Internet tvingas eller omdirigeras tillbaka till en lokal plats via en av S2S VPN-tunnlarna.
+I det här exemplet tvingas inte klient dels under nätet tunnel. Arbets belastningarna i klient delens undernät kan fortsätta att acceptera och svara på kund förfrågningar direkt från Internet. Mellanlagrings-och backend-undernät framtvingas med tunnel. Alla utgående anslutningar från dessa två undernät till Internet tvingas eller omdirigeras tillbaka till en lokal plats via en plats-till-plats (S2S) VPN-tunnlar.
 
 På så sätt kan du begränsa och kontrol lera Internet åtkomst från dina virtuella datorer eller moln tjänster i Azure, samtidigt som du fortsätter att aktivera din tjänst arkitektur för flera nivåer som krävs. Om det inte finns några Internet-riktade arbets belastningar i dina virtuella nätverk kan du även använda Tvingad tunnel trafik till hela virtuella nätverk.
 
 ## <a name="requirements-and-considerations"></a>Krav och överväganden
 
-Tvingad tunnel trafik i Azure konfigureras via användardefinierade vägar för virtuella nätverk. Att omdirigera trafik till en lokal plats uttrycks som en standard väg till Azure VPN-gatewayen. Mer information om användardefinierade Routning och virtuella nätverk finns i [användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md).
+Tvingad tunnel trafik i Azure konfigureras med hjälp av anpassade användar definierade vägar för virtuella nätverk. Att omdirigera trafik till en lokal plats uttrycks som en standard väg till Azure VPN-gatewayen. Mer information om användardefinierade Routning och virtuella nätverk finns i [anpassade användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md#user-defined).
 
 * Varje undernät för virtuellt nätverk har en inbyggd system routningstabell. Tabellen system routning har följande tre grupper av vägar:
   
@@ -70,9 +60,9 @@ Installera den senaste versionen av Azure Resource Managers PowerShell-cmdletar.
 >
 >
 
-### <a name="to-log-in"></a>Logga in
+### <a name="to-sign-in"></a>Logga in
 
-[!INCLUDE [To log in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
+[!INCLUDE [Sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ## <a name="configure-forced-tunneling"></a>Konfigurera tvingad tunneltrafik
 

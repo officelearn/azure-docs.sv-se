@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: 6585718a549c0e0a6eac1ab50788798e1021fef9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b05ed6e1239721bcf3c1cf33d3ee63a992fd9843
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446823"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853240"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Använd azureiotsolutions.com-webbplatsen för att distribuera din lösnings Accelerator
 
@@ -22,7 +22,7 @@ Du kan distribuera Azure IoT Solution Accelerators till din Azure-prenumeration 
 ![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
 
 > [!TIP]
-> Om du behöver mer kontroll över distributions processen kan du använda [CLI för att distribuera en lösnings Accelerator](iot-accelerators-remote-monitoring-deploy-cli.md).
+> Om du behöver mer kontroll över distributions processen kan du använda CLI för att distribuera en lösnings Accelerator.
 
 Du kan distribuera lösnings acceleratorerna i följande konfigurationer:
 
@@ -64,9 +64,4 @@ Om du är maskin varu tillverkare klickar du på **en partner** för att lära d
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ta en titt på snabbstarterna om du vill prova någon av IoT-lösningsacceleratorerna:
-
-* [Testa en fjärrövervakningslösning](quickstart-remote-monitoring-deploy.md)
-* [Testa en lösning för ansluten fabrik](quickstart-connected-factory-deploy.md)
-* [Testa en lösning för förutsägande underhåll](quickstart-predictive-maintenance-deploy.md)
-* [Testa en enhetssimuleringslösning](quickstart-device-simulation-deploy.md)
+Du kan prova en av IoT-lösningens acceleratorer genom att titta på snabb starten: [testa en ansluten fabriks lösning](quickstart-connected-factory-deploy.md).

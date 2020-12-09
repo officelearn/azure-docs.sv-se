@@ -1,18 +1,18 @@
 ---
-title: Geografisk tillgänglighet och valuta support för Microsofts kommersiella marknads platser
+title: Geografisk tillgänglighet och valuta support för Microsofts kommersiella marknads plats
 description: Geografisk tillgänglighet och valuta stöd för transaktioner i den kommersiella marknads platsen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 07/29/2020
-ms.openlocfilehash: bdb746c75a175d906301bcfca0b1472383fceff9
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.date: 12/07/2020
+ms.openlocfilehash: 118fe70abf52a6c96f4f2dc47e3ad23a388f3598
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778078"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853755"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>Geografisk tillgänglighet och valuta support för den kommersiella marknaden
 
@@ -46,22 +46,22 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Brunei                              | BN        | USD          | BND, EUR, SGD, USD |
 | Bulgarien                            | BG        | EUR          | BGN, EUR, USD |
 | Cabo Verde                          | CV        | USD          | CVE, EUR, USD |
-| Kamerun                            | CM        | USD          | XAF, EUR, USD |
-| Kanada                              | CA        | CAD          | CAD, EUR, USD  |
-| Caymanöarna                      | KY        | USD          | KYD, EUR, USD |
+| Kamerun                            | CM        | USD          | EUR, USD, XAF |
+| Kanada                              | CA        | CAD          | CAD, EUR, USD |
+| Caymanöarna                      | KY        | USD          | EUR, KYD, USD |
 | Chile                               | CL        | USD          | CLP, EUR, USD |
 | Porslin\**                            | CN        | Saknas          | Saknas |
 | Colombia                            | CO        | USD          | COP, EUR, USD |
 | Costa Rica                          | CR        | USD          | CRC, EUR, USD |
-| Côte d'Ivoire                       | CI        | USD          | XOF, EUR, USD |
-| Kroatien                             | HR        | EUR          | HRK, EUR, USD |
+| Côte d'Ivoire                       | CI        | USD          | EUR, USD, XOF |
+| Kroatien                             | HR        | EUR          | EUR, HRK, USD |
 | Curaçao                             | FELAKTIG        | USD          | ANG, EUR, USD |
 | Cypern                              | CY        | EUR          | EUR, USD  |
-| Czechia                             | CZ        | EUR          | EUR, USD, CZK |
+| Czechia                             | CZ        | EUR          | CZK, EUR, USD |
 | Danmark                             | DK        | DKK          | DKK, EUR, USD |
 | Dominikanska republiken                  | DO        | USD          | DOP, EUR, USD |
 | Ecuador                             | EC        | USD          | EUR, USD |
-| Egypten                               | EG        | USD          | EGP EUR, USD |
+| Egypten                               | EG        | USD          | EGP, EUR, USD |
 | El Salvador                         | SV        | USD          | EUR, USD |
 | Estland                             | EE        | EUR          | EUR, USD |
 | Etiopien                            | ET        | USD          | ETB, EUR, USD |
@@ -91,7 +91,7 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Kenya                               | KE        | USD          | EUR, KES, USD |
 | Korea (södra)                       | KR        | KRW          | EUR, WON, USD |
 | Kuwait                              | KW        | USD          | EUR, KWD, USD |
-| Kirgizistan                          | KG        | USD          | USD, EUR, KGS |
+| Kirgizistan                          | KG        | USD          | EUR, KGS, USD |
 | Lettland                              | LV        | EUR          | EUR, USD |
 | Libanon                             | LB        | USD          | EUR, LBP, USD |
 | Libyen                               | LY        | USD          | EUR, LYD, USD |
@@ -139,8 +139,8 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Slovenien                            | SI        | EUR          | EUR, USD |
 | Sydafrika                        | ZA        | USD          | EUR, USD, ZAR |
 | Spanien                               | ES        | EUR          | EUR, USD |
-| Sri Lanka                           | LK        | USD          | EUR, USD, LKR |
-| Sverige                              | SE        | SEK          | EUR, USD, SEK |
+| Sri Lanka                           | LK        | USD          | EUR, LKR, USD |
+| Sverige                              | SE        | SEK          | EUR, SEK, USD  |
 | Schweiz                         | CH        | CHF          | CHF, EUR, USD |
 | Taiwan                              | TW        | TWD          | EUR, TWD, USD |
 | Tadzjikistan                          | TJ        | USD          | EUR, TJS, USD |
@@ -151,7 +151,7 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Turkiet                              | TR        | USD          | EUR, TRY, USD |
 | Turkmenistan                        | TM        | USD          | EUR, TMT, USD |
 | Uganda                              | UG        | USD          | EUR, UGX, USD |
-| Ukraina                             | UA        | USD          | EUR, UAH, RUB, USD |
+| Ukraina                             | UA        | USD          | EUR, RUB, UAH, USD |
 | Förenade Arabemiraten                | AE        | USD          | AED, EUR, USD |
 | Storbritannien                      | GB        | GBP          | EUR, GBP, USD |
 | USA                       | USA        | USD          | EUR, USD |

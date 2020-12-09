@@ -5,23 +5,20 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 12/07/2020
 ms.author: daperlov
-ms.openlocfilehash: 3e1c5f3b360960779dd58c8c05b25885df81d2e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 794c9a0768a7b649ce4fb123c85f6cc0120764c8
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276534"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854979"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Delta format i Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du kopierar data till och från en delta Lake som lagras i [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) eller [Azure Blob Storage](connector-azure-blob-storage.md) med delta formatet. Den här kopplingen är tillgänglig som en [infogad data uppsättning](data-flow-source.md#inline-datasets) i mappa data flöden som både en källa och en mottagare.
-
-> [!NOTE]
-> Delta formatet Connector för att mappa data flöden är för närvarande tillgängligt som en offentlig för hands version.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4ALTs]
 
@@ -78,7 +75,7 @@ I tabellen nedan visas de egenskaper som stöds av en delta mottagare. Du kan re
 | Komprimerings typ | Den komprimerings typ som tillhör delta tabellen | nej | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | Komprimerings nivå | Välj om komprimeringen ska slutföras så fort som möjligt eller om den resulterande filen ska komprimeras optimalt. | krävs om `compressedType` har angetts. | `Optimal` eller `Fastest` | compressionLevel |
 | Vakuum | Ange tröskelvärde för kvarhållning i timmar för äldre versioner av tabell. Värdet 0 eller lägre är 30 dagar | ja | Integer | Dammsug |
-| Uppdaterings metod | Ange vilka uppdaterings åtgärder som tillåts på delta Lake. För metoder som inte infogas krävs en föregående Alter Row-omvandling för att markera rader. | ja | `true` eller `false` | bort <br> infognings bara <br> uppdaterings bara <br> upsertable |
+| Uppdaterings metod | Ange vilka uppdaterings åtgärder som tillåts på delta Lake. För metoder som inte infogas krävs en föregående Alter Row-omvandling för att markera rader. | ja | `true` eller `false` | bort <br> infognings bara <br> uppdaterings bara <br> merge |
 
 ### <a name="delta-sink-script-example"></a>Skript exempel för delta mottagare
 

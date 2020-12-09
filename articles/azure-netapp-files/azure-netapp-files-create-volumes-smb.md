@@ -1,6 +1,6 @@
 ---
 title: Skapa en SMB-volym för Azure NetApp Files | Microsoft Docs
-description: Den här artikeln visar hur du skapar en SMBv3-volym i Azure NetApp Files. Läs mer om kraven för Active Directory anslutningar och domän tjänster.
+description: Den här artikeln visar hur du skapar en SMB3-volym i Azure NetApp Files. Läs mer om kraven för Active Directory anslutningar och domän tjänster.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: 682a97738e94c2a8188b4976a229d6a850a5b6ac
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: cd2a293ebcc35d4884211f50783738a502dcc7de
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512009"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854833"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
-Azure NetApp Files stöder skapande av volymer med NFS (NFSv3 och NFSv 4.1), SMBv3 eller Dual Protocol (NFSv3 och SMB). En volyms kapacitetsförbrukning mäts mot dess pools etablerade kapacitet. Den här artikeln visar hur du skapar en SMBv3-volym.
+Azure NetApp Files stöder skapande av volymer med NFS (NFSv3 och NFSv 4.1), SMB3 eller Dual Protocol (NFSv3 och SMB). En volyms kapacitetsförbrukning mäts mot dess pools etablerade kapacitet. Den här artikeln visar hur du skapar en SMB3-volym.
 
 ## <a name="before-you-begin"></a>Innan du börjar 
 Du måste redan ha konfigurerat en kapacitetspool.   

@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: db9ba3efe60af830c0e15310b6127c18130f00b9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e1409b43f0ce1fc0d8c622dda79e857ac6abdd33
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076257"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854571"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Använd Time Series Insights för att visualisera telemetri som skickas från Device simulering Solution Accelerator
 
@@ -21,9 +21,9 @@ Med Device simulering Solution Accelerator kan du generera telemetri från simul
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill följa stegen i den här instruktions guiden behöver du en aktiv Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du vill följa stegen i den här instruktions guiden behöver du en aktiv Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Stegen i den här instruktions guiden förutsätter att du har distribuerat lösnings Accelerator för enhets simulering till din Azure-prenumeration. Om du inte har distribuerat Solution Accelerator följer du stegen i snabb starten för att [distribuera och köra en molnbaserad lösning för enhets simulering](quickstart-device-simulation-deploy.md) .
+Stegen i den här instruktions guiden förutsätter att du har distribuerat lösnings Accelerator för enhets simulering till din Azure-prenumeration. Om du inte redan har distribuerat enhets simuleringen kan du läsa [distribuera enhets simulering](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) på GitHub.
 
 Den här artikeln förutsätter att namnet på din lösnings Accelerator är **contoso-simulering**. Ersätt **contoso-simulering** med namnet på din Solution Accelerator när du utför följande steg.
 
@@ -63,7 +63,7 @@ I följande steg används Azure CLI i Azure Cloud Shell för att skapa konsument
 
 1. Om du vill skapa din Time Series Insights-miljö i samma resurs grupp som Solution Accelerator använder du värdena i följande tabell:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Namn på miljö | Följande skärm bild använder namnet **contoso-TSD**. Välj ditt eget unika namn när du är klar med det här steget. |
     | Prenumeration | I listrutan väljer du din Azure-prenumeration. |
@@ -85,7 +85,7 @@ Skapa en ny händelse källa för att ansluta till din IoT Hub. Använd den kons
 
 1. I Azure Portal navigerar du till din nya tids serie miljö.
 
-1. Klicka på **händelse källor**till vänster:
+1. Klicka på **händelse källor** till vänster:
 
     ![Visa händelse källor](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-sources.png)
 
@@ -95,7 +95,7 @@ Skapa en ny händelse källa för att ansluta till din IoT Hub. Använd den kons
 
 1. Om du vill konfigurera IoT-hubben som en ny händelse källa använder du värdena i följande tabell:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Händelse källans namn | Följande skärm bild använder namnet **contoso-IoT-Hub**. Använd ett eget unikt namn när du har slutfört det här steget. |
     | Källa | **IoT Hub** |
@@ -155,7 +155,7 @@ Time Series Insights Explorer är en webbapp som du kan använda för att visual
 
     ![Lägg till fråga i Time Series Insights Explorer](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-new-query.png)
 
-1. Välj de **senaste 30 minuterna** som tidsintervall, **fuktighet** som **mått**och Iothub- **Device-ID** som **delning efter** värde:
+1. Välj de **senaste 30 minuterna** som tidsintervall, **fuktighet** som **mått** och Iothub- **Device-ID** som **delning efter** värde:
 
     ![Fråga om Time Series Insights Explorer](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query2.png)
 
@@ -171,6 +171,6 @@ Om du inte längre behöver Solution Accelerator tar du bort den från sidan [et
 
 Om du har lagt till Time Series Insightss miljön i Solution Accelerators resurs grupp tas den bort automatiskt när du tar bort lösnings acceleratorn. Annars måste du ta bort Time Series Insightss miljön manuellt från Azure Portal.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om hur du utforskar och frågar data i Time Series Insights Explorer finns i [Azure Time Series Insights Explorer](../time-series-insights/time-series-insights-explorer.md).

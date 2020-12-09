@@ -1,17 +1,17 @@
 ---
 title: Använd Azure Private Link för att ansluta nätverk till Azure Monitor på ett säkert sätt
 description: Använd Azure Private Link för att ansluta nätverk till Azure Monitor på ett säkert sätt
-author: nkiest
-ms.author: nikiest
+author: noakup
+ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 8633aba2f7cda5dec4a48e9f7132283f8235f746
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: a85619b4947808ba1c13df3c1543102eea7273fd
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317528"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853940"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Använd Azure Private Link för att ansluta nätverk till Azure Monitor på ett säkert sätt
 
@@ -43,7 +43,7 @@ Azure Monitor privat länk omfång är en grupperings resurs för att ansluta en
 Innan du konfigurerar dina AMPLS-resurser bör du ta hänsyn till kraven på nätverks isolering. Utvärdera dina virtuella nätverks åtkomst till offentligt Internet och åtkomst begränsningarna för var och en av dina Azure Monitor resurser (det vill säga Application Insights komponenter och Log Analytics arbets ytor).
 
 > [!NOTE]
-> NAV-och-eker-nätverk, eller någon annan topologi av peer-baserade nätverk, kan konfigurera en privat länk mellan hubben (huvud-VNet) och relevanta Azure Monitor resurser, i stället för att skapa en privat länk på varje VNet. Detta är särskilt användbart om Azure Monitor resurser som används av dessa nätverk delas. Men om du vill tillåta varje VNet att få åtkomst till en separat uppsättning övervaknings resurser skapar du en privat länk till en dedikerad AMPLS för varje nätverk.
+> Nav-eker-nätverk, eller någon annan topologi av peer-baserade nätverk, kan konfigurera en privat länk mellan hubben (huvud-VNet) och relevanta Azure Monitor resurser, i stället för att skapa en privat länk på varje VNet. Detta är särskilt användbart om Azure Monitor resurser som används av dessa nätverk delas. Men om du vill tillåta varje VNet att få åtkomst till en separat uppsättning övervaknings resurser skapar du en privat länk till en dedikerad AMPLS för varje nätverk.
 
 ### <a name="evaluate-which-virtual-networks-should-connect-to-a-private-link"></a>Utvärdera vilka virtuella nätverk som ska anslutas till en privat länk
 
@@ -85,6 +85,11 @@ I nedanstående topologi:
 * Workspace2 ansluter till AMPLS A och AMPLS B med 2/5 (40%) möjliga AMPLS-anslutningar.
 
 ![Diagram över AMPLS-gränser](./media/private-link-security/ampls-limits.png)
+
+> [!NOTE]
+> I vissa nätverkstopologier (huvudsakligen hubb-ekrar) kan du snabbt komma åt 10 virtuella nätverk-gränsen för en enda AMPLS. I sådana fall rekommenderar vi att du använder en delad privat länk-anslutning i stället för att separera dem. Skapa en enda privat slut punkt i hubb nätverket, länka den till din AMPLS och peer-koppla de relevanta nätverken till hubb nätverket.
+
+![Hubb-och-eker-Single-PE](./media/private-link-security/hub-and-spoke-with-single-private-endpoint.png)
 
 ## <a name="example-connection"></a>Exempel anslutning
 
@@ -183,9 +188,9 @@ Om du vill tillåta att Log Analytics agent laddar ned lösnings paket lägger d
 
 | Moln miljö | Agentresurs | Portar | Riktning |
 |:--|:--|:--|:--|
-|Azure, offentlig     | scadvisorcontent.blob.core.windows.net         | 443 | Utgående
-|Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Utgående
-|Azure Kina 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Utgående
+|Azure, offentlig     | scadvisorcontent.blob.core.windows.net         | 443 | Outbound (Utgående)
+|Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Outbound (Utgående)
+|Azure Kina 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound (Utgående)
 
 ## <a name="configure-application-insights"></a>Konfigurera Application Insights
 

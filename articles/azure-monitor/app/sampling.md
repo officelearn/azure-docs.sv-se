@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3ec9718d313e7e8d757eb41c230225bdcf9ebd49
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: e9334d222d443679362514481ecd83b90bbda0ac
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749053"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855081"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -34,11 +34,11 @@ I följande tabell sammanfattas de samplings typer som är tillgängliga för va
 |-|-|-|-|
 | ASP.NET | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-aspnet-applications) | [Ja](#configuring-fixed-rate-sampling-for-aspnet-applications) | Endast om ingen annan sampling gäller |
 | ASP.NET Core | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Ja](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Endast om ingen annan sampling gäller |
-| Azure Functions | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-azure-functions) | No | Endast om ingen annan sampling gäller |
-| Java | No | [Ja](#configuring-fixed-rate-sampling-for-java-applications) | Endast om ingen annan sampling gäller |
-| Node.JS | No | [Ja](./nodejs.md#sampling) | Endast om ingen annan sampling gäller
-| Python | No | [Ja](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Endast om ingen annan sampling gäller |
-| Alla andra | Inga | Inga | [Ja](#ingestion-sampling) |
+| Azure Functions | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-azure-functions) | Nej | Endast om ingen annan sampling gäller |
+| Java | Nej | [Ja](#configuring-fixed-rate-sampling-for-java-applications) | Endast om ingen annan sampling gäller |
+| Node.JS | Nej | [Ja](./nodejs.md#sampling) | Endast om ingen annan sampling gäller
+| Python | Nej | [Ja](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Endast om ingen annan sampling gäller |
+| Alla andra | Nej | Nej | [Ja](#ingestion-sampling) |
 
 > [!NOTE]
 > Informationen på de flesta av den här sidan gäller för de aktuella versionerna av Application Insights SDK: er. Mer information om äldre versioner av SDK: er [finns i avsnittet nedan](#older-sdk-versions).
@@ -315,18 +315,12 @@ Som standard är ingen sampling aktive rad i Java-agenten och SDK. För närvara
 
 1. Ladda ned [applicationinsights-agent-3.0.0-Preview. 5. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
 
-1. Om du vill aktivera sampling lägger du till följande i `ApplicationInsights.json` filen:
+1. Om du vill aktivera sampling lägger du till följande i `applicationinsights.json` filen:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "sampling": {
-        "fixedRate": {
-          "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
-        }
-      }
-    }
+  "sampling": {
+    "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
   }
 }
 ```
@@ -559,7 +553,7 @@ Noggrannheten i uppskattningen beror i stor utsträckning på den konfigurerade 
 
 * Provtagnings sampling kan ske automatiskt för en telemetri över en viss volym, om SDK: n inte utför sampling. Den här konfigurationen fungerar, till exempel om du använder en äldre version av ASP.NET SDK eller Java SDK.
 * Om du använder den aktuella ASP.NET eller ASP.NET Core SDK: er (som finns i Azure eller på din egen server) får du anpassningsbara samplingar som standard, men du kan växla till fast pris enligt beskrivningen ovan. Med fast Rate-sampling synkroniserar webbläsarens SDK automatiskt till exempel relaterade händelser. 
-* Om du använder den aktuella Java-agenten kan du konfigurera `ApplicationInsights.json` (för Java SDK, konfigurera `ApplicationInsights.xml` ) för att aktivera fast priss insamling. Sampling är inaktive rad som standard. Med fast Rate-sampling, synkroniserar webbläsarens SDK och servern automatiskt exempel på relaterade händelser.
+* Om du använder den aktuella Java-agenten kan du konfigurera `applicationinsights.json` (för Java SDK, konfigurera `ApplicationInsights.xml` ) för att aktivera fast priss insamling. Sampling är inaktive rad som standard. Med fast Rate-sampling, synkroniserar webbläsarens SDK och servern automatiskt exempel på relaterade händelser.
 
 *Det finns vissa sällsynta händelser som jag alltid vill se. Hur kan jag få dem förbi samplings modulen?*
 

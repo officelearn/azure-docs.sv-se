@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/03/2020
+ms.date: 12/07/2020
 ms.author: alkohli
-ms.openlocfilehash: 90869af032a381cecd3e65f5d5b367156dd047c5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 859eb6abd138f0660407618bba4550daf9158ab9
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576886"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855013"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Använd det lokala webb gränssnittet för att administrera Data Box-enhet och Data Box Heavy
 
@@ -29,15 +29,15 @@ Om det uppstår enhetsproblem kan du skapa ett supportpaket från systemloggarna
 
 Utför följande steg för att generera ett support paket:
 
-1. I det lokala webb gränssnittet går du till **kontakta support**. Du kan också välja **ta med minnesdump**. Välj sedan **skapa support paket**.
+1. I det lokala webb gränssnittet går du till **kontakta support**. Du kan också välja **inkludera minnes dum par**. Välj sedan **skapa support paket**.
 
     En minnesdump är innehållet i enhetens minne, som sparas efter ett systemfel.
 
-    Du bör inte välja alternativet **inkludera minnes dumpning** om det inte finns någon fråga. Det tar lång tid att samla in ett support paket som innehåller en minnesdump, och känsliga data ingår.
+    Du bör inte välja alternativet **inkludera minnes dum par** om inte support ber om något. Det tar lång tid att samla in ett support paket som innehåller minnes dum par och känsliga data ingår.
 
     ![Skapa supportpaket 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-    Ett supportpaket samlas in. Den här åtgärden tar några minuter om du bara inkluderar system loggar. Om du tar med en minnesdump tar det mycket längre tid.
+    Ett supportpaket samlas in. Den här åtgärden tar några minuter om du bara inkluderar system loggar. Om du inkluderar minnes dum par tar det mycket längre tid.
 
     ![Skapa supportpaket 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e3f7b877818056fc73f10d54b94a6b6c26c605e8
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 326fc2cc162a2ab54b40888250fbeef55ad8800a
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911281"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853466"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Skapa video avskrifts granskningar med hjälp av .NET
 
@@ -51,7 +51,7 @@ Lägg till avskriften i en video granskning. Videon måste publiceras online. Du
 
 1. Lägg till ett nytt projekt för en **konsolapp (.NET Framework)** i lösningen.
 
-1. Ge projektet namnet **VideoTranscriptReviews** .
+1. Ge projektet namnet **VideoTranscriptReviews**.
 
 1. Välj det här projektet som det enda startprojektet för lösningen.
 
@@ -81,7 +81,7 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>Lägga till privata egenskaper
 
-Lägg till följande privata egenskaper i namn området **VideoTranscriptReviews** , klass **program** . Uppdatera `AzureEndpoint` fälten och `CMSubscriptionKey` med värdena för slut punkts-URL: en och prenumerations nyckeln. Du hittar dessa på fliken **snabb start** i resursen i Azure Portal.
+Lägg till följande privata egenskaper i namn området **VideoTranscriptReviews**, klass **program**. Uppdatera `AzureEndpoint` fälten och `CMSubscriptionKey` med värdena för slut punkts-URL: en och prenumerations nyckeln. Du hittar dessa på fliken **snabb start** i resursen i Azure Portal.
 
 ```csharp
 namespace VideoReviews
@@ -140,7 +140,7 @@ public static ContentModeratorClient NewClient()
 
 ## <a name="create-a-video-review"></a>Skapa en video granskning
 
-Skapa en video granskning med **ContentModeratorClient. Reviews. CreateVideoReviews** . Mer information finns i [API-referensen](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+Skapa en video granskning med **ContentModeratorClient. Reviews. CreateVideoReviews**. Mer information finns i [API-referensen](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
 **CreateVideoReviews** har följande obligatoriska parametrar:
 1. En sträng som innehåller en MIME-typ, vilket ska vara "Application/JSON." 
@@ -148,9 +148,9 @@ Skapa en video granskning med **ContentModeratorClient. Reviews. CreateVideoRevi
 1. Ett **ilist \<CreateVideoReviewsBodyItem>** -objekt. Varje **CreateVideoReviewsBodyItem** -objekt representerar en video granskning. Den här snabb starten skapar en granskning i taget.
 
 **CreateVideoReviewsBodyItem** har flera egenskaper. Du kan minst ange följande egenskaper:
-- **Innehåll** . URL till den video som ska granskas.
-- **ContentId** . Ett ID som ska tilldelas video granskningen.
-- **Status** . Ställ in värdet på "unpublished". Om du inte anger det används som standard "väntar", vilket innebär att video granskningen publiceras och väntar på mänsklig granskning. När en video granskning har publicerats kan du inte längre lägga till video bild rutor, en avskrift eller ett avskrifts redigerings resultat.
+- **Innehåll**. URL till den video som ska granskas.
+- **ContentId**. Ett ID som ska tilldelas video granskningen.
+- **Status**. Ställ in värdet på "unpublished". Om du inte anger det används som standard "väntar", vilket innebär att video granskningen publiceras och väntar på mänsklig granskning. När en video granskning har publicerats kan du inte längre lägga till video bild rutor, en avskrift eller ett avskrifts redigerings resultat.
 
 > [!NOTE]
 > **CreateVideoReviews** returnerar en ilist \<string> . Var och en av de här strängarna innehåller ett ID för en video granskning. Dessa ID: n är GUID och är inte samma som värdet för egenskapen **ContentId** .
@@ -197,9 +197,9 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 
 ## <a name="add-transcript-to-video-review"></a>Lägg till avskrift till video granskning
 
-Du lägger till en avskrift i en video granskning med **ContentModeratorClient. Rereviews. AddVideoTranscript** . **AddVideoTranscript** har följande obligatoriska parametrar:
+Du lägger till en avskrift i en video granskning med **ContentModeratorClient. Rereviews. AddVideoTranscript**. **AddVideoTranscript** har följande obligatoriska parametrar:
 1. Ditt Content Moderator-Team-ID.
-1. Video gransknings-ID: t som returnerades av **CreateVideoReviews** .
+1. Video gransknings-ID: t som returnerades av **CreateVideoReviews**.
 1. Ett **Stream** -objekt som innehåller avskriften.
 
 Avskriften måste vara i WebVTT-formatet. Mer information finns i [webvtt: webb videons text spår format](https://www.w3.org/TR/webvtt1/).
@@ -229,21 +229,21 @@ static void AddTranscript(ContentModeratorClient client, string review_id, strin
 
 ## <a name="add-a-transcript-moderation-result-to-video-review"></a>Lägg till ett avskrifts redigerings resultat för video granskning
 
-Förutom att lägga till en avskrift till en video granskning lägger du också till resultatet av att kontrol lera avskriften. Det gör du med **ContentModeratorClient. Reviews. AddVideoTranscriptModerationResult** . Mer information finns i [API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b93ce7151f0b10d451ff).
+Förutom att lägga till en avskrift till en video granskning lägger du också till resultatet av att kontrol lera avskriften. Det gör du med **ContentModeratorClient. Reviews. AddVideoTranscriptModerationResult**. Mer information finns i [API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b93ce7151f0b10d451ff).
 
 **AddVideoTranscriptModerationResult** har följande obligatoriska parametrar:
 1. En sträng som innehåller en MIME-typ, vilket ska vara "Application/JSON." 
 1. Namnet på din Content Moderator-grupp.
-1. Video gransknings-ID: t som returnerades av **CreateVideoReviews** .
+1. Video gransknings-ID: t som returnerades av **CreateVideoReviews**.
 1. En IList \<TranscriptModerationBodyItem> . En **TranscriptModerationBodyItem** har följande egenskaper:
-1. **Villkor** . En IList \<TranscriptModerationBodyItemTermsItem> . En **TranscriptModerationBodyItemTermsItem** har följande egenskaper:
-1. **Index** . Det nollbaserade indexet för termen.
-1. **Term** . En sträng som innehåller termen.
-1. **Tidsstämpel** . En sträng som innehåller, i sekunder, den tid i avskriften där villkoren påträffades.
+1. **Villkor**. En IList \<TranscriptModerationBodyItemTermsItem> . En **TranscriptModerationBodyItemTermsItem** har följande egenskaper:
+1. **Index**. Det nollbaserade indexet för termen.
+1. **Term**. En sträng som innehåller termen.
+1. **Tidsstämpel**. En sträng som innehåller, i sekunder, den tid i avskriften där villkoren påträffades.
 
 Avskriften måste vara i WebVTT-formatet. Mer information finns i [webvtt: webb videons text spår format](https://www.w3.org/TR/webvtt1/).
 
-Lägg till följande metod definition i namn området VideoTranscriptReviews, klass program. Den här metoden skickar en avskrift till metoden **ContentModeratorClient. TextModeration. ScreenText** . Det översätter också resultatet till en IList \<TranscriptModerationBodyItem> och skickas till **AddVideoTranscriptModerationResult** .
+Lägg till följande metod definition i namn området VideoTranscriptReviews, klass program. Den här metoden skickar en avskrift till metoden **ContentModeratorClient. TextModeration. ScreenText** . Det översätter också resultatet till en IList \<TranscriptModerationBodyItem> och skickas till **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>
@@ -292,9 +292,9 @@ static void AddTranscriptModerationResult(ContentModeratorClient client, string 
 
 ## <a name="publish-video-review"></a>Publicera video granskning
 
-Du publicerar en video granskning med **ContentModeratorClient. Rereviews. PublishVideoReview** . **PublishVideoReview** har följande obligatoriska parametrar:
+Du publicerar en video granskning med **ContentModeratorClient. Rereviews. PublishVideoReview**. **PublishVideoReview** har följande obligatoriska parametrar:
 1. Namnet på din Content Moderator-grupp.
-1. Video gransknings-ID: t som returnerades av **CreateVideoReviews** .
+1. Video gransknings-ID: t som returnerades av **CreateVideoReviews**.
 
 Lägg till följande metod definition i namn området VideoReviews, klass program.
 
@@ -381,5 +381,3 @@ Följande funktioner visas:
 Hämta [Content moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) och [Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för den här och andra Content moderator snabb starter för .net.
 
 Lär dig hur du genererar [video granskningar](video-reviews-quickstart-dotnet.md) i gransknings verktyget.
-
-Kolla in den detaljerade självstudien om hur du utvecklar en [komplett video redigerings lösning](video-transcript-moderation-review-tutorial-dotnet.md).

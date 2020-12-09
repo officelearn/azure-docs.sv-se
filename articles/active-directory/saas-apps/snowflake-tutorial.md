@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 26ca1fffb3932493dc7182de1b520f8c0a17d59c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 3beb4e7831ce17a46f6daaa1258f284a0caefe8e
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514851"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855144"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Självstudie: Azure Active Directory integrering med snö flingor
 
@@ -27,7 +27,7 @@ Genom att integrera Snowflake med Azure AD får du följande fördelar:
 * Du kan låta dina användare automatiskt loggas in på Snowflake (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -39,16 +39,16 @@ Om du vill konfigurera Azure AD-integrering med Snowflake behöver du följande 
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien kommer du att konfigurera och testa enkel inloggning i Azure AD i en test miljö.
 
-* Snowflake har stöd för **SP- och IDP**-initierad enkel inloggning
-* Snö har stöd för [Automatisk användar etablering och avetablering](snowflake-provisioning-tutorial.md) (rekommenderas)
+- Snowflake har stöd för **SP- och IDP**-initierad enkel inloggning
+- Snö har stöd för [Automatisk användar etablering och avetablering](snowflake-provisioning-tutorial.md) (rekommenderas)
 
 ## <a name="adding-snowflake-from-the-gallery"></a>Lägga till Snowflake från galleriet
 
 För att konfigurera integrering av Snowflake i Azure AD behöver du lägga till Snowflake från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Snowflake från galleriet:**
+**Lägg till snö flingor från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -64,11 +64,11 @@ För att konfigurera integrering av Snowflake i Azure AD behöver du lägga till
 
 4. Skriv **Snowflake** i sökrutan, välj **Snowflake** i resultatpanelen och klicka sedan på knappen **Lägg till** för att lägga till programmet.
 
-     ![Snowflake i resultatlistan](common/search-new-app.png)
+     ![Snowflake i resultatlistan](common/search-new-app-snowflake.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Snowflake baserat på en testanvändare med namnet **Britta Simon**.
+I det här avsnittet ska du konfigurera och testa enkel inloggning i Azure AD med snö flingor baserat på en test användare som kallas **Britta Simon**.
 För att enkel inloggning ska fungera så måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Snowflake upprättas.
 
 Om du vill konfigurera och testa enkel inloggning med Azure AD med hjälp av Snowflake, behöver du utföra följande uppgifter:

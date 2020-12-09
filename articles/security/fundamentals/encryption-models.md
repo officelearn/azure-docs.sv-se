@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a00dc5beb2bde02f71b40f6eb374502136c37c67
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 141daa485fae5aba2db23647fada30ba5b621cd0
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410495"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854622"
 ---
 # <a name="data-encryption-models"></a>Datakrypteringsmodeller
 
@@ -149,22 +149,22 @@ De Azure-tjänster som har stöd för varje krypterings modell:
 | Azure Cognitive Search           | Ja                | Ja                | -                  |
 | Azure Cognitive Services         | Ja                | Ja                | -                  |
 | Azure Machine Learning           | Ja                | Ja                | -                  |
-| Azure Machine Learning Studio (klassisk) | Yes         | För hands version, RSA 2048-bitars | -               |
+| Azure Machine Learning Studio (klassisk) | Ja         | För hands version, RSA 2048-bitars | -               |
 | Content Moderator                | Ja                | Ja                | -                  |
 | Ansikte                             | Ja                | Ja                | -                  |
-| Language Understanding           | Ja                | Ja                | -                  |
+| Språkförståelse           | Ja                | Ja                | -                  |
 | Personanpassning                     | Ja                | Ja                | -                  |
 | QnA Maker                        | Ja                | Ja                | -                  |
 | Speech Services                  | Ja                | Ja                | -                  |
 | Translator Text                  | Ja                | Ja                | -                  |
-| Power BI                         | Yes                | Ja, RSA 4096-bitars  | -                  |
+| Power BI                         | Ja                | Ja, RSA 4096-bitars  | -                  |
 | **Analys**                    |                    |                    |                    |
-| Azure Stream Analytics           | Yes                | Saknas\*              | -                  |
+| Azure Stream Analytics           | Ja                | Ja\*\*            | -                  |
 | Event Hubs                       | Ja                | Ja                | -                  |
 | Funktioner                        | Ja                | Ja                | -                  |
 | Azure Analysis Services          | Ja                | -                  | -                  |
-| Azure Data Catalog               | Yes                | -                  | -                  |
-| Azure HDInsight                  | Yes                | Alla                | -                  |
+| Azure Data Catalog               | Ja                | -                  | -                  |
+| Azure HDInsight                  | Ja                | Alla                | -                  |
 | Azure Monitor Application Insights | Ja                | Ja                | -                  |
 | Azure Monitor Log Analytics      | Ja                | Ja                | -                  |
 | Azure-datautforskaren              | Ja                | Ja                | -                  |
@@ -175,47 +175,47 @@ De Azure-tjänster som har stöd för varje krypterings modell:
 | Container Instances              | Ja                | Ja                | -                  |
 | Container Registry               | Ja                | Ja                | -                  |
 | **Beräkning**                      |                    |                    |                    |
-| Virtual Machines                 | Ja                | Ja                | -                  |
+| Virtuella datorer                 | Ja                | Ja                | -                  |
 | Skalnings uppsättning för virtuell dator        | Ja                | Ja                | -                  |
 | SAP HANA                         | Ja                | Ja                | -                  |
-| App Service                      | Yes                | Ja\*\*            | -                  |
-| Automation                       | Yes                | Ja\*\*            | -                  |
-| Azure Functions                  | Yes                | Ja\*\*            | -                  |
-| Azure Portal                     | Yes                | Ja\*\*            | -                  |
+| App Service                      | Ja                | Ja\*\*            | -                  |
+| Automation                       | Ja                | Ja\*\*            | -                  |
+| Azure Functions                  | Ja                | Ja\*\*            | -                  |
+| Azure Portal                     | Ja                | Ja\*\*            | -                  |
 | Logic Apps                       | Ja                | Ja                | -                  |
-| Azure-hanterade program       | Yes                | Ja\*\*            | -                  |
+| Azure-hanterade program       | Ja                | Ja\*\*            | -                  |
 | Service Bus                      | Ja                | Ja                | -                  |
 | Site Recovery                    | Ja                | Ja                | -                  |
 | **Databaser**                    |                    |                    |                    |
-| SQL Server på virtuella datorer   | Ja                | Ja                | Ja                |
-| Azure SQL Database               | Ja                | Ja, RSA 3072-bitars  | Yes                |
-| Azure SQL Database för MariaDB   | Yes                | -                  | -                  |
+| SQL Server på Virtual Machines   | Ja                | Ja                | Ja                |
+| Azure SQL Database               | Ja                | Ja, RSA 3072-bitars  | Ja                |
+| Azure SQL Database för MariaDB   | Ja                | -                  | -                  |
 | Azure SQL Database för MySQL     | Ja                | Ja                | -                  |
 | Azure SQL Database för PostgreSQL | Ja               | Ja                | -                  |
-| Azure Synapse Analytics          | Yes                | Ja, RSA 3072-bitars  | -                  |
-| SQL Server Stretch Database      | Yes                | Ja, RSA 3072-bitars  | Yes                |
+| Azure Synapse Analytics          | Ja                | Ja, RSA 3072-bitars  | -                  |
+| SQL Server Stretch Database      | Ja                | Ja, RSA 3072-bitars  | Ja                |
 | Table Storage                    | Ja                | Ja                | Ja                |
 | Azure Cosmos DB                  | Ja                | Ja                | -                  |
 | Azure Databricks                 | Ja                | Ja                | -                  |
-| Azure Database Migration Service | Yes                | Saknas\*              | -                  |
+| Azure Database Migration Service | Ja                | EJ TILLÄMPLIGT\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Azure DevOps Services            | Ja                | -                  | Ja                |
 | Azure-lagringsplatser                      | Ja                | -                  | Ja                |
 | **Identitet**                     |                    |                    |                    |
-| Azure Active Directory           | Yes                | -                  | -                  |
+| Azure Active Directory           | Ja                | -                  | -                  |
 | Azure Active Directory Domain Services | Ja          | Ja                | -                  |
 | **Integrering**                  |                    |                    |                    |
 | Service Bus                      | Ja                | Ja                | Ja                |
-| Event Grid                       | Yes                | -                  | -                  |
-| API Management                   | Yes                | -                  | -                  |
+| Event Grid                       | Ja                | -                  | -                  |
+| API Management                   | Ja                | -                  | -                  |
 | **IoT-tjänster**                 |                    |                    |                    |
 | IoT Hub                          | Ja                | Ja                | Ja                |
 | IoT Hub Device Provisioning      | Ja                | Ja                | -                  |
 | **Hantering och styrning**    |                    |                    |                    |
-| Azure Site Recovery              | Yes                | -                  | -                  |
+| Azure Site Recovery              | Ja                | -                  | -                  |
 | Azure Migrate                    | Ja                | Ja                | -                  |
 | **Media**                        |                    |                    |                    |
-| Media Services                   | Ja                | -                  | Ja                |
+| Media Services                   | Ja                | Ja                | Ja                |
 | **Säkerhet**                     |                    |                    |                    |
 | Azure Security Center för IoT    | Ja                | Ja                | -                  |
 | Azure Sentinel                   | Ja                | Ja                | -                  |
@@ -229,8 +229,8 @@ De Azure-tjänster som har stöd för varje krypterings modell:
 | Fil Premium Storage             | Ja                | Ja                | -                  |
 | File Sync                         | Ja                | Ja                | -                  |
 | Queue Storage                    | Ja                | Ja                | Ja                |
-| Avere vFXT                       | Yes                | -                  | -                  |
-| Azure Cache for Redis            | Yes                | Saknas\*              | -                  |
+| Avere vFXT                       | Ja                | -                  | -                  |
+| Azure Cache for Redis            | Ja                | EJ TILLÄMPLIGT\*              | -                  |
 | Azure NetApp Files               | Ja                | Ja                | -                  |
 | Arkivlagring                  | Ja                | Ja                | -                  |
 | StorSimple                       | Ja                | Ja                | Ja                |

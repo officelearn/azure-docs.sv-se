@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b2fb06c838de480bb73501307ab11cb3d6831921
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9f80de5a18e27de4a9f8e85613e3c2eee6c111c
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919326"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853483"
 ---
 # <a name="create-video-reviews-using-net"></a>Skapa video granskningar med .NET
 
@@ -158,7 +158,7 @@ Skapa en video granskning med **ContentModeratorClient. Reviews. CreateVideoRevi
 **CreateVideoReviews** har följande obligatoriska parametrar:
 1. En sträng som innehåller en MIME-typ, vilket ska vara "Application/JSON." 
 1. Namnet på din Content Moderator-grupp.
-1. Ett **ilist \<CreateVideoReviewsBodyItem> ** -objekt. Varje **CreateVideoReviewsBodyItem** -objekt representerar en video granskning. Den här snabb starten skapar en granskning i taget.
+1. Ett **ilist \<CreateVideoReviewsBodyItem>** -objekt. Varje **CreateVideoReviewsBodyItem** -objekt representerar en video granskning. Den här snabb starten skapar en granskning i taget.
 
 **CreateVideoReviewsBodyItem** har flera egenskaper. Du kan minst ange följande egenskaper:
 - **Innehåll**. URL till den video som ska granskas.
@@ -216,7 +216,7 @@ Du lägger till video bild rutor i en video granskning med **ContentModeratorCli
 1. En sträng som innehåller en MIME-typ, vilket ska vara "Application/JSON."
 1. Namnet på din Content Moderator-grupp.
 1. Video gransknings-ID: t som returnerades av **CreateVideoReviews**.
-1. Ett **ilist \<VideoFrameBodyItem> ** -objekt. Varje **VideoFrameBodyItem** -objekt representerar en video bild ruta.
+1. Ett **ilist \<VideoFrameBodyItem>** -objekt. Varje **VideoFrameBodyItem** -objekt representerar en video bild ruta.
 
 **VideoFrameBodyItem** har följande egenskaper:
 - **Tidsstämpel**. En sträng som innehåller, i sekunder, den tid i videon som video ramen togs ifrån.
@@ -549,7 +549,3 @@ Slutligen visas video granskningen i kontot för Content moderator granska verkt
 ## <a name="next-steps"></a>Nästa steg
 
 Hämta [Content moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) och [Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för den här och andra Content moderator snabb starter för .net.
-
-Lär dig hur du lägger till [avskrifts redigering](video-transcript-moderation-review-tutorial-dotnet.md) i video granskningen. 
-
-Kolla in den detaljerade självstudien om hur du utvecklar en [komplett video redigerings lösning](video-transcript-moderation-review-tutorial-dotnet.md).

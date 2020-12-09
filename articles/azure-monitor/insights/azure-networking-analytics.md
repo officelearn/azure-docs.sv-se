@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 4dc5b84ff127aef173deecfd2be705004d92ee0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7df04bd75f3fd11b1caa702655cbd204fc2b4fda
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449921"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854890"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Lösningar för övervakning av Azure-nätverk i Azure Monitor
 
@@ -37,14 +37,20 @@ Den [övervakare av nätverksprestanda](../../networking/network-monitoring-over
 
 Mer information finns i [övervakare av nätverksprestanda](../../networking/network-monitoring-overview.md).
 
-## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway och nätverks säkerhets grupp analys
-Använda lösningarna:
+## <a name="network-security-group-analytics"></a>Analys av nätverks säkerhets grupp
+
 1. Lägg till hanterings lösningen i Azure Monitor och
 2. Aktivera diagnostik för att dirigera diagnostiken till en Log Analytics-arbetsyta i Azure Monitor. Du behöver inte skriva loggarna till Azure Blob Storage.
 
-Du kan aktivera diagnostik och motsvarande lösning för antingen en eller båda av Application Gateway-och nätverks säkerhets grupper.
+Om diagnostikloggar inte är aktiverade är instrument panels bladet för den resursen tomma och visar ett fel meddelande.
 
-Om du inte aktiverar diagnostisk resurs loggning för en viss resurs typ, men installerar lösningen, är instrument panels bladet för den resursen tomma och visar ett fel meddelande.
+## <a name="azure-application-gateway-analytics"></a>Azure Application Gateway-analys
+
+1. Aktivera diagnostik för att dirigera diagnostiken till en Log Analytics-arbetsyta i Azure Monitor.
+2. Använd den detaljerade sammanfattningen för din resurs med hjälp av arbets boks mal len för Application Gateway.
+
+Om diagnostikloggar inte är aktiverade för Application Gateway, fylls bara standard mått data i arbets boken.
+
 
 > [!NOTE]
 > I januari 2017 ändrades det stödda sättet att skicka loggar från programgatewayer och nätverks säkerhets grupper till en Log Analytics-arbetsyta. Om du ser lösningen för **Azure Networking Analytics (inaktuell)** kan du läsa mer i [Migrera från den gamla lösningen för nätverks analys](#migrating-from-the-old-networking-analytics-solution) för steg som du måste följa.
@@ -61,37 +67,15 @@ I följande tabell visas metoder för data insamling och annan information om hu
 | Azure |  |  |&#8226; |  |  |När du loggar |
 
 
-## <a name="azure-application-gateway-analytics-solution-in-azure-monitor"></a>Azure Application Gateway Analytics-lösning i Azure Monitor
-
-![Azure Application Gateway-analys symbol](media/azure-networking-analytics/azure-analytics-symbol.png)
-
-Följande loggar stöds för Application Gateway:
-
-* ApplicationGatewayAccessLog
-* ApplicationGatewayPerformanceLog
-* ApplicationGatewayFirewallLog
-
-Följande mått stöds för Application Gateway: igen
-
-
-* 5 minuters data flöde
-
-### <a name="install-and-configure-the-solution"></a>Installera och konfigurera lösningen
-Använd följande instruktioner för att installera och konfigurera Azure Application Gateway Analytics-lösningen:
-
-1. Aktivera lösningen Azure Application Gateway Analytics från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) eller genom att använda processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](./solutions.md).
-2. Aktivera diagnostikloggning för de [programgatewayer](../../application-gateway/application-gateway-diagnostics.md) som du vill övervaka.
-
-#### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Aktivera Azure Application Gateway-diagnostik i portalen
+### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Aktivera Azure Application Gateway-diagnostik i portalen
 
 1. I Azure Portal navigerar du till den Application Gateway resurs som ska övervakas.
-2. Välj *diagnostikloggar* för att öppna följande sida.
+2. Välj *diagnostikinställningar* för att öppna följande sida.
 
-   ![Skärm bild av sidan diagnostikloggar för en Application Gateway resurs som visar alternativet att aktivera diagnostik.](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
-3. Klicka på *Aktivera diagnostik* för att öppna följande sida.
+   ![Skärm bild av konfiguration av diagnostikinställningar för Application Gateway resurs.](media/azure-networking-analytics/diagnostic-settings-1.png)
 
-   ![Skärm bild av sidan för att konfigurera diagnostikinställningar. Alternativet för att skicka till Log Analytics väljs som är tre logg typer och ett mått.](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
-4. Aktivera diagnostik genom att klicka *på* under *status*.
+   [![Skärm bild av sidan för att konfigurera diagnostikinställningar.](media/azure-networking-analytics/diagnostic-settings-2.png)](media/azure-networking-analytics/application-gateway-diagnostics-2.png#lightbox)
+
 5. Klicka i kryss rutan för *att skicka till Log Analytics*.
 6. Välj en befintlig Log Analytics arbets yta eller skapa en arbets yta.
 7. Klicka på kryss rutan under **loggen** för varje logg typ som ska samlas in.
@@ -109,28 +93,33 @@ $gateway = Get-AzApplicationGateway -Name 'ContosoGateway'
 Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
-### <a name="use-azure-application-gateway-analytics"></a>Använd Azure Application Gateway Analytics
-![bild av Azure Application Gateway Analytics-panel](media/azure-networking-analytics/log-analytics-appgateway-tile.png)
+#### <a name="accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights"></a>Få åtkomst till Azure Application Gateway Analytics via Azure Monitor nätverks insikter
 
-När du klickar på panelen **Azure Application Gateway Analytics** i översikten kan du Visa sammanfattningar av loggarna och sedan gå vidare till information för följande kategorier:
+Application Insights kan nås via fliken insikter i din Application Gateway-resurs.
 
-* Application Gateway åtkomst loggar
-  * Klient-och Server fel för Application Gateway åtkomst loggar
-  * Begär Anden per timme för varje Application Gateway
-  * Misslyckade förfrågningar per timme för varje Application Gateway
-  * Fel per användar agent för Application Gateway
-* Application Gateway prestanda
-  * Värd hälsa för Application Gateway
-  * Högsta och 95 percentil för Application Gateway misslyckade förfrågningar
+![Skärm bild av Application Gateway insikter ](media/azure-networking-analytics/azure-appgw-insights.png
+)
 
-![Skärm bild av instrument panelen för Application Gateway åtkomst loggar som visar paneler med data för gateway-fel, begär Anden och misslyckade förfrågningar.](media/azure-networking-analytics/log-analytics-appgateway01.png)
+Fliken "Visa detaljerade mått" öppnar den förifyllda arbets boken som sammanfattar data från din Application Gateway.
 
-![Skärm bild av instrument panelen för Application Gateway åtkomst loggar som visar paneler med data för fel av användar agent, värd hälsa och misslyckade förfrågningar.](media/azure-networking-analytics/log-analytics-appgateway02.png)
+[![Skärm bild av Application Gateway arbets bok](media/azure-networking-analytics/azure-appgw-workbook.png)](media/azure-networking-analytics/application-gateway-workbook.png#lightbox)
 
-På instrument panelen för **Azure Application Gateway Analytics** granskar du sammanfattnings informationen på ett av bladet och klickar sedan på en för att visa detaljerad information på sidan för loggs ökning.
+## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migrera från Azure Gateway Analytics-lösningen till Azure Monitor-arbetsböcker
 
-På någon av logg Sök sidorna kan du Visa resultat efter tid, detaljerade resultat och logg Sök historik. Du kan också filtrera efter FACET för att begränsa resultaten.
+> [!NOTE]
+> Lösningen för Azure Application Gateway-analys är inaktuell och det rekommenderade sättet att använda analyser är via arbets böcker som exponeras genom Azure Monitor nätverks insikter för Application Gateway resursen.
 
+* Om diagnostikinställningar redan har Aktiver ATS för att lagra loggar i en Log Analytics arbets yta kan Azure Monitor nätverks insikts arbets bok använda data från samma plats. Det krävs ingen ny konfiguration.
+
+* Alla tidigare data är redan tillgängliga i arbets boken från inställningarna för punkt diagnostik har Aktiver ATS. Ingen data överföring krävs.
+
+* Det krävs ingen aktiv växling för att växla till arbets böcker. Både analys-och nätverks insikts arbets boken kan arbeta parallellt.
+
+* Det finns inga ytterligare kostnader som är kopplade till Azure Monitor arbets böcker. Log Analytics arbets ytan kommer att fortsätta faktureras per användning.
+
+* Om du vill rensa Azure Gateway Analytics-lösningen från din arbets yta kan du ta bort lösningen från lösnings resurs sidan.
+
+[![Skärm bild av alternativet ta bort för Azure Application Gateway Analytics-lösning.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
 
 ## <a name="azure-network-security-group-analytics-solution-in-azure-monitor"></a>Azure Network Security Group Analytics-lösning i Azure Monitor
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
-ms.openlocfilehash: c427a206e0422e66cb526a29a462d8b6bdf6818e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 144320ea1b2505d8a43e1885091ec14a847e4ab1
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965943"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853670"
 ---
 # <a name="update-the-network-watcher-extension-to-the-latest-version"></a>Uppdatera Network Watcher-tillägget till den senaste versionen
 
@@ -26,15 +26,111 @@ ms.locfileid: "94965943"
 
 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) är en övervaknings-, diagnostik-och analys tjänst för nätverks prestanda som övervakar Azure-nätverk. Tillägget Network Watcher agent virtuell dator (VM) är ett krav för att samla in nätverks trafik på begäran och använda andra avancerade funktioner på virtuella Azure-datorer. Network Watcher-tillägget används av funktioner som anslutnings övervakaren, anslutnings övervakaren (för hands version), anslutnings fel sökning och paket fångst.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du har Network Watcher tillägget installerat på den virtuella datorn.
 
 ## <a name="latest-version"></a>Senaste version
 
-Den senaste versionen av Network Watcher-tillägget är för närvarande `1.4.1654.1` .
+Den senaste versionen av Network Watcher-tillägget är för närvarande `1.4.1693.1` .
 
-## <a name="update-your-extension"></a>Uppdatera tillägget
+## <a name="update-your-extension-using-a-powershell-script"></a>Uppdatera tillägget med ett PowerShell-skript
+Kunder med stora distributioner som behöver uppdatera flera virtuella datorer på en gång. Information om hur du uppdaterar Välj virtuella datorer manuellt finns i nästa avsnitt. 
+
+```powershell
+<#
+    .SYNOPSIS
+    This script will scan all VMs in the provided subscription and upgrade any out of date AzureNetworkWatcherExtensions
+
+    .DESCRIPTION
+    This script should be no-op if AzureNetworkWatcherExtensions are up to date
+    Requires Azure PowerShell 4.2 or higher to be installed (e.g. Install-Module AzureRM).
+
+    .EXAMPLE
+    .\UpdateVMAgentsInSub.ps1 -SubID F4BC4873-5DAB-491E-B713-1358EF4992F2 -NoUpdate
+
+#>
+[CmdletBinding()]
+param(
+    [Parameter(Mandatory=$true)]
+    [string] $SubID,
+    [Parameter(Mandatory=$false)]
+    [Switch] $NoUpdate = $false,
+    [Parameter(Mandatory=$false)]
+    [string] $MinVersion = "1.4.1654.1"
+)
+
+
+function NeedsUpdate($version)
+{
+    if ($version -eq $MinVersion)
+    {
+        return $false
+    }
+
+    $lessThan = $true;
+    $versionParts = $version -split '\.';
+    $minVersionParts = $MinVersion -split '\.';
+    for ($i = 0; $i -lt $versionParts.Length; $i++)
+    {
+        if ([int]$versionParts[$i] -gt [int]$minVersionParts[$i])
+        {
+            $lessThan = $false;
+            break;
+        }
+    }
+
+    return $lessThan
+}
+
+Write-Host "Scanning all VMs in the subscription: $($SubID)"
+Select-AzSubscription -SubscriptionId $SubID;
+$vms = Get-AzVM;
+$foundVMs = $false;
+Write-Host "Starting VM search, this may take a while"
+
+foreach ($vmName in $vms)
+{
+    # Get Detailed VM info
+    $vm = Get-AzVM -ResourceGroupName $vmName.ResourceGroupName -Name $vmName.name -Status;
+    $isWindows = $vm.OsVersion -match "Windows";
+    foreach ($extension in $vm.Extensions)
+    {
+        if ($extension.Name -eq "AzureNetworkWatcherExtension")
+        {
+            if (NeedsUpdate($extension.TypeHandlerVersion))
+            {
+                $foundVMs = $true;
+                if (-not ($NoUpdate))
+                {
+                    Write-Host "Found VM that needs to be updated: subscriptions/$($SubID)/resourceGroups/$($vm.ResourceGroupName)/providers/Microsoft.Compute/virtualMachines/$($vm.Name) -> Updating " -NoNewline
+                    Remove-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "AzureNetworkWatcherExtension" -Force
+                    Write-Host "... " -NoNewline
+                    $type = if ($isWindows) { "NetworkWatcherAgentWindows" } else { "NetworkWatcherAgentLinux" };
+                    Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -Location $vmName.Location -VMName $vm.Name -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type $type -typeHandlerVersion "1.4"
+                    Write-Host "Done"
+                }
+                else
+                {
+                    Write-Host "Found $(if ($isWindows) {"Windows"} else {"Linux"}) VM that needs to be updated: subscriptions/$($SubID)/resourceGroups/$($vm.ResourceGroupName)/providers/Microsoft.Compute/virtualMachines/$($vm.Name)"
+                }
+            }
+        }
+    }
+}
+
+if ($foundVMs)
+{
+    Write-Host "Finished $(if ($NoUpdate) {"searching"} else {"updating"}) out of date AzureNetworkWatcherExtension on VMs"
+}
+else
+{
+    Write-Host "All AzureNetworkWatcherExtensions up to date"
+}
+
+```
+
+## <a name="update-your-extension-manually"></a>Uppdatera tillägget manuellt
 
 Du måste känna till tilläggs versionen för att kunna uppdatera ditt tillägg.
 
@@ -72,7 +168,7 @@ Du bör se något som liknar följande: ![ PowerShell-skärm bild](./media/netwo
 
 ### <a name="update-your-extension"></a>Uppdatera tillägget
 
-Om din version är tidigare än `1.4.1654.1` , som är den senaste versionen, uppdaterar du tillägget genom att använda något av följande alternativ.
+Om din version är lägre än den senaste versionen som nämns ovan, uppdaterar du tillägget genom att använda något av följande alternativ.
 
 #### <a name="option-1-use-powershell"></a>Alternativ 1: Använd PowerShell
 

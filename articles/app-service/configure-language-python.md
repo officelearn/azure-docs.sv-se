@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: f12ed42755af64f024fdcb0452173134f7b58482
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7589b5c66bf4fa86db243574f551ec585ccccea1
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183744"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855064"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurera en Linux python-app för Azure App Service
 
@@ -101,19 +101,19 @@ Befintliga webb program kan omdistribueras till Azure på följande sätt:
 1. **Käll databas**: Behåll din käll kod i en lämplig databas som GitHub, vilket gör att du kan ställa in kontinuerlig distribution senare i den här processen.
     1. Din *requirements.txt* -fil måste finnas i roten på lagrings platsen för App Service för att automatiskt installera de nödvändiga paketen.    
 
-1. **Databas**: om du har en app som är beroende av en databas bör du även etablera de nödvändiga resurserna på Azure. Se [självstudie: Distribuera en django-webbapp med postgresql – skapa en databas](tutorial-python-postgresql-app.md#create-postgres-database-in-azure) för ett exempel.
+1. **Databas**: om du har en app som är beroende av en databas bör du även etablera de nödvändiga resurserna på Azure. Se [självstudie: Distribuera en django-webbapp med postgresql – skapa en databas](tutorial-python-postgresql-app.md#3-create-postgres-database-in-azure) för ett exempel.
 
-1. **App Service-resurser**: skapa en resurs grupp, App Service Plan och App Service webbapp som värd för ditt program. Du kan enkelt göra detta genom att göra en första distribution av koden via Azure CLI `az webapp up` -kommandot, som visas i [Självstudier: Distribuera en django-webbapp med postgresql – distribuera koden](tutorial-python-postgresql-app.md#deploy-the-code-to-azure-app-service). Ersätt namnen på resurs gruppen, App Service planen och att webbappen passar bättre för ditt program.
+1. **App Service-resurser**: skapa en resurs grupp, App Service Plan och App Service webbapp som värd för ditt program. Du kan enkelt göra detta genom att göra en första distribution av koden via Azure CLI `az webapp up` -kommandot, som visas i [Självstudier: Distribuera en django-webbapp med postgresql – distribuera koden](tutorial-python-postgresql-app.md#4-deploy-the-code-to-azure-app-service). Ersätt namnen på resurs gruppen, App Service planen och att webbappen passar bättre för ditt program.
 
 1. **Miljövariabler**: om programmet kräver miljövariabler bör du skapa motsvarande [app service program inställningar](configure-common.md#configure-app-settings). Dessa App Service inställningar visas i koden som miljövariabler enligt beskrivningen i [Access Environment-variabler](#access-app-settings-as-environment-variables).
-    - Databas anslutningar kan till exempel ofta hanteras via sådana inställningar som visas i [Självstudier: Distribuera en django-webbapp med postgresql-konfigurera variabler för att ansluta databasen](tutorial-python-postgresql-app.md#configure-environment-variables-to-connect-the-database).
+    - Databas anslutningar kan till exempel ofta hanteras via sådana inställningar som visas i [Självstudier: Distribuera en django-webbapp med postgresql-konfigurera variabler för att ansluta databasen](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database).
     - Se [produktions inställningar för django-appar](#production-settings-for-django-apps) för vissa inställningar för typiska django-appar.
 
 1. **App-start**: Läs avsnittet, [Start processen för behållaren](#container-startup-process) senare i den här artikeln för att förstå hur App Service försöker köra appen. App Service använder webb servern Gunicorn som standard, som måste kunna hitta app-objektet eller *wsgi.py* -mappen. Om det behövs kan du [Anpassa Start kommandot](#customize-startup-command).
 
 1. **Kontinuerlig distribution**: Konfigurera kontinuerlig distribution, enligt beskrivningen i [kontinuerlig distribution till Azure App Service om du](deploy-continuous-deployment.md) använder Azure-pipeliner eller kudu-distribution, eller [distribuera till App Service med hjälp av GitHub-åtgärder om du](deploy-github-actions.md) använder GitHub åtgärder.
 
-1. **Anpassade åtgärder**: om du vill utföra åtgärder inom app service behållare som är värd för din app, till exempel Django, kan du [ansluta till behållaren via SSH](configure-linux-open-ssh-session.md). Ett exempel på hur du kör django Database-migreringar finns i [Självstudier: Distribuera en django-webbapp med postgresql-köra Database-migreringar](tutorial-python-postgresql-app.md#run-django-database-migrations).
+1. **Anpassade åtgärder**: om du vill utföra åtgärder inom app service behållare som är värd för din app, till exempel Django, kan du [ansluta till behållaren via SSH](configure-linux-open-ssh-session.md). Ett exempel på hur du kör django Database-migreringar finns i [Självstudier: Distribuera en django-webbapp med postgresql-köra Database-migreringar](tutorial-python-postgresql-app.md#43-run-django-database-migrations).
     - När du använder kontinuerlig distribution kan du utföra dessa åtgärder med hjälp av kommandon efter kompilering enligt beskrivningen ovan under [Anpassa Bygg automatisering](#customize-build-automation).
 
 När de här stegen har slutförts bör du kunna genomföra ändringar i käll lagrings platsen och låta de uppdateringarna distribueras automatiskt till App Service.

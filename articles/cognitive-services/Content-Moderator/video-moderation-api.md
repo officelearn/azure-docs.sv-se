@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cd813c6db9d03b0b7c84497e5b44f6ecdb591437
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 4f98eac4305333ec7225c90da2777b7e02f050a0
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912862"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853540"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analysera video innehåll för stötande material i C #
 
 Den här artikeln innehåller information och kod exempel som hjälper dig att komma igång med [Content moderator SDK för .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) för att skanna video innehåll för vuxna eller vågat innehåll.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 - En version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/)
@@ -37,7 +37,7 @@ Följ instruktionerna i [skapa ett Azure Media Services konto](../../media-servi
 
 ### <a name="create-an-azure-active-directory-application"></a>Skapa ett Azure Active Directory program
 
-Navigera till din nya AMS-prenumeration i Azure Portal och välj **API-åtkomst** på menyn på sidan. Välj **Anslut till Azure Media Services med tjänstens huvud namn** . Observera värdet i fältet **REST API slut punkt** . du kommer att behöva detta senare.
+Navigera till din nya AMS-prenumeration i Azure Portal och välj **API-åtkomst** på menyn på sidan. Välj **Anslut till Azure Media Services med tjänstens huvud namn**. Observera värdet i fältet **REST API slut punkt** . du kommer att behöva detta senare.
 
 I avsnittet **Azure AD-App** väljer du **Skapa nytt** och namnger din nya Azure AD-programregistrering (till exempel "VideoModADApp"). Klicka på **Spara** och vänta några minuter medan programmet har kon figurer ATS. Sedan bör du se din nya app-registrering under avsnittet **Azure AD-App** på sidan.
 
@@ -55,9 +55,9 @@ Azure Media Services Explorer är en användarvänlig klient del för AMS. Anvä
 
 ## <a name="create-the-visual-studio-project"></a>Skapa Visual Studio-projektet
 
-1. I Visual Studio skapar du ett nytt **konsol program (.NET Framework)-** projekt och namnger det **VideoModeration** . 
+1. I Visual Studio skapar du ett nytt **konsol program (.NET Framework)-** projekt och namnger det **VideoModeration**. 
 1. Om det finns andra projekt i din lösning väljer du den här kopian som det enda startprojektet.
-1. Hämta de NuGet-paket som behövs. Högerklicka på projektet i Solution Explorer och välj **Hantera NuGet-paket** . Sök efter och installera följande paket:
+1. Hämta de NuGet-paket som behövs. Högerklicka på projektet i Solution Explorer och välj **Hantera NuGet-paket**. Sök efter och installera följande paket:
     - windowsazure. Media Services
     - windowsazure. Media Services. Extensions
 
@@ -67,7 +67,7 @@ Nu ska du kopiera och klistra in koden från den här guiden i ditt projekt för
 
 ### <a name="update-the-programs-using-statements"></a>Uppdatera programmets using-instruktioner
 
-Lägg till följande `using`-instruktioner överst i _Program.cs_ -filen.
+Lägg till följande `using`-instruktioner överst i _Program.cs_-filen.
 
 ```csharp
 using System;
@@ -84,7 +84,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>Konfigurera resurs referenser
 
-Lägg till följande statiska fält i **program** klassen i _program.cs_ . Dessa fält innehåller den information som krävs för att ansluta till din AMS-prenumeration. Fyll i med de värden du fick i stegen ovan. Observera att `CLIENT_ID` är **programmets ID-** värde för din Azure AD-App och `CLIENT_SECRET` är värdet för "VideoModKey" som du skapade för appen.
+Lägg till följande statiska fält i **program** klassen i _program.cs_. Dessa fält innehåller den information som krävs för att ansluta till din AMS-prenumeration. Fyll i med de värden du fick i stegen ovan. Observera att `CLIENT_ID` är **programmets ID-** värde för din Azure AD-App och `CLIENT_SECRET` är värdet för "VideoModKey" som du skapade för appen.
 
 ```csharp
 // declare constants and globals
@@ -121,7 +121,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 Om du vill använda en lokal videofil (enklaste fallet) lägger du till den i projektet och anger dess sökväg som `INPUT_FILE` värde (relativa sökvägar är relativa till körnings katalogen).
 
-Du måste också skapa _preset.js_ filen i den aktuella katalogen och använda den för att ange ett versions nummer. Till exempel:
+Du måste också skapa _preset.js_ filen i den aktuella katalogen och använda den för att ange ett versions nummer. Exempel:
 
 ```JSON
 {
@@ -159,7 +159,7 @@ RunContentModeratorJob(asset);
 
 ### <a name="create-an-azure-media-context"></a>Skapa en Azure Media-kontext
 
-Lägg till följande metod i klassen **Program** . Detta använder dina AMS-autentiseringsuppgifter för att tillåta kommunikation med AMS.
+Lägg till följande metod i klassen **Program**. Detta använder dina AMS-autentiseringsuppgifter för att tillåta kommunikation med AMS.
 
 ```csharp
 // Creates a media context from azure credentials
@@ -180,7 +180,7 @@ static void CreateMediaContext()
 
 ### <a name="add-the-code-to-create-an-azure-storage-context"></a>Lägg till koden för att skapa en Azure Storage-kontext
 
-Lägg till följande metod i klassen **Program** . Du kan använda lagrings kontexten som skapats från dina autentiseringsuppgifter för lagring för att komma åt Blob Storage.
+Lägg till följande metod i klassen **Program**. Du kan använda lagrings kontexten som skapats från dina autentiseringsuppgifter för lagring för att komma åt Blob Storage.
 
 ```csharp
 // Creates a storage context from the AMS associated storage name and key
@@ -365,9 +365,9 @@ static void StateChanged(object sender, JobStateChangedEventArgs e)
 Analysera JSON-svaret när innehålls redigerings jobbet har slutförts. Den består av följande element:
 
 - Sammanfattning av video information
-- **Bilder** som " **fragment** "
-- **Nyckel rutor** som " **händelser** " med flaggan **reviewRecommended "(= true eller false)** som baseras på **vuxen** och **vågat** resultat
-- **Start** , **varaktighet** , **totalDuration** och **tidstämpel** är i "ticks". Dividera med **tids skala** för att hämta talet i sekunder.
+- **Bilder** som "**fragment**"
+- **Nyckel rutor** som "**händelser**" med flaggan **reviewRecommended "(= true eller false)** som baseras på **vuxen** och **vågat** resultat
+- **Start**, **varaktighet**, **totalDuration** och **tidstämpel** är i "ticks". Dividera med **tids skala** för att hämta talet i sekunder.
  
 > [!NOTE]
 > - `adultScore` representerar potentiell närvaro och förutsägelse Poäng för innehåll som kan anses vara sexuellt explicit eller vuxna i vissa situationer.
@@ -430,9 +430,5 @@ Analysera JSON-svaret när innehålls redigerings jobbet har slutförts. Den bes
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du genererar [video granskningar](video-reviews-quickstart-dotnet.md) från din moderator.
-
-Lägg till [avskrifts redigering](video-transcript-moderation-review-tutorial-dotnet.md) i dina video granskningar.
-
-Kolla in den detaljerade självstudien om hur du skapar en [komplett video-och avskrifts redigerings lösning](video-transcript-moderation-review-tutorial-dotnet.md).
 
 [Hämta Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för den här och andra Content moderator snabb starter för .net.

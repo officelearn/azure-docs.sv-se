@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 56a9861f0e25e1dcdf741cfdf5c8830dd9b6fc1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9fc465b5e5f132264fd36e004fa3ee7623b87a5
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325818"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854996"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestanda och skalning i Durable Functions (Azure Functions)
 
@@ -20,13 +20,13 @@ För att förstå skalnings beteendet måste du förstå lite information om und
 
 ## <a name="history-table"></a>Historik tabell
 
-**Historik** tabellen är en Azure Storage tabell som innehåller historik händelser för alla Dirigerings instanser i en aktivitets hubb. Namnet på den här tabellen är i formatet *TaskHubName*historik. När instanser körs läggs nya rader till i den här tabellen. Partitionsnyckel för den här tabellen härleds från instans-ID: t för dirigeringen. Ett instans-ID är slumpmässigt i de flesta fall, vilket säkerställer optimal distribution av interna partitioner i Azure Storage.
+**Historik** tabellen är en Azure Storage tabell som innehåller historik händelser för alla Dirigerings instanser i en aktivitets hubb. Namnet på den här tabellen är i formatet *TaskHubName* historik. När instanser körs läggs nya rader till i den här tabellen. Partitionsnyckel för den här tabellen härleds från instans-ID: t för dirigeringen. Ett instans-ID är slumpmässigt i de flesta fall, vilket säkerställer optimal distribution av interna partitioner i Azure Storage.
 
 När en Dirigerings instans måste köras läses rätt rader i historik tabellen in i minnet. Dessa *Historik händelser* spelas sedan upp i Orchestrator-funktions koden för att komma tillbaka till sitt tidigare tillstånd. Användningen av körnings historiken för att återskapa tillstånd på det här sättet påverkas av [mönstret för händelse källor](/azure/architecture/patterns/event-sourcing).
 
 ## <a name="instances-table"></a>Instans tabell
 
-**Instans** tabellen är en annan Azure Storage tabell som innehåller status för alla Dirigerings-och enhets instanser i en aktivitets hubb. När instanser skapas läggs nya rader till i den här tabellen. Partitionsnyckel för den här tabellen är Dirigerings instans-ID: t eller enhets nyckeln och rad nyckeln är en fast konstant. Det finns en rad per dirigering eller entitetsinstansen.
+**Instans** tabellen är en annan Azure Storage tabell som innehåller status för alla Dirigerings-och enhets instanser i en aktivitets hubb. När instanser skapas läggs nya rader till i den här tabellen. Partitionsnyckel för den här tabellen är Dirigerings instans-ID: t eller enhets nyckeln och rad nyckeln är en tom sträng. Det finns en rad per dirigering eller entitetsinstansen.
 
 Den här tabellen används för att uppfylla instans förfrågningar från `GetStatusAsync` (.net) och `getStatus` (Java Script) API: er samt [status fråga http API](durable-functions-http-api.md#get-instance-status). Det hålls i enlighet med innehållet i **Historik** tabellen ovan. Användningen av en separat Azure Storage tabell för att effektivt uppfylla instanser av instans frågor på det här sättet påverkas av [mönstret uppdelning av kommando-och frågeåtgärder (CQRS)](/azure/architecture/patterns/cqrs).
 

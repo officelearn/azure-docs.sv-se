@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 77b5b52153c552008406b4b85083bcba5542cebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba85bda1e322d3efd467527b48bd4cd90eb7ce8c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012730"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922626"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Förhindra överanpassning och obalanserade data med automatiserad maskin inlärning
 
@@ -35,7 +35,7 @@ Tänk på följande utbildade modeller och deras motsvarande tåg-och test noggr
 
 Med tanke på modell **A**, finns det en vanlig felbegrepp att om test precisionen för osett-data är lägre än den korrekta inlärningen är modellen överdrivet. Test precisionen bör dock alltid vara mindre än inlärnings precisionen och skillnaden för överanpassning jämfört med lämplig anpassning visas till *hur mycket* mindre exakt. 
 
-När du jämför modeller **a** och **B**är modell **a** en bättre modell eftersom den har högre test precision, och även om test noggrannheten är något lägre vid 95% är det inte en stor skillnad som tyder på överanpassning. Du väljer inte modell **B** eftersom tågets och testernas noggrannhet är närmare tillsammans.
+När du jämför modeller **a** och **B** är modell **a** en bättre modell eftersom den har högre test precision, och även om test noggrannheten är något lägre vid 95% är det inte en stor skillnad som tyder på överanpassning. Du väljer inte modell **B** eftersom tågets och testernas noggrannhet är närmare tillsammans.
 
 Modell **C** är ett tydligt Skift läge vid överanpassning. inlärnings precisionen är mycket hög men test noggrannheten är inte tillgänglig någonstans i närheten. Den här skillnaden är underkänd, men kommer från kännedom om ditt problem och dina data och vilka fel som kan uppstå.
 
@@ -56,7 +56,7 @@ I samband med automatisk ML är de första tre objekten ovan de **bästa metoder
 
 ### <a name="best-practices-you-implement"></a>Metod tips som du implementerar
 
-Att använda **mer data** är det enklaste och bästa möjliga sättet att förhindra överanpassning, och som en extra bonus ökar precisionen ofta. När du använder mer data blir det svårare för modellen att memorera exakta mönster, och det tvingas att uppnå lösningar som är mer flexibla för att hantera fler villkor. Det är också viktigt att känna igen **statistisk kompensation**för att säkerställa att dina utbildnings data inte innehåller isolerade mönster som inte finns i real tids förutsägelse data. Det här scenariot kan vara svårt att lösa eftersom det kanske inte finns överanvändning mellan dina tåg-och test uppsättningar, men det kan finnas överanvändning i jämförelse med Live test-data.
+Att använda **mer data** är det enklaste och bästa möjliga sättet att förhindra överanpassning, och som en extra bonus ökar precisionen ofta. När du använder mer data blir det svårare för modellen att memorera exakta mönster, och det tvingas att uppnå lösningar som är mer flexibla för att hantera fler villkor. Det är också viktigt att känna igen **statistisk kompensation** för att säkerställa att dina utbildnings data inte innehåller isolerade mönster som inte finns i real tids förutsägelse data. Det här scenariot kan vara svårt att lösa eftersom det kanske inte finns överanvändning mellan dina tåg-och test uppsättningar, men det kan finnas överanvändning i jämförelse med Live test-data.
 
 **Mål läckage** är ett liknande problem, där du kanske inte ser överanvändning mellan träna/test-uppsättningar, men i stället visas den i förutsägelse tiden. Mål läckage uppstår när din modell "fuskar" under utbildningen genom att ha åtkomst till data som den inte bör ha vid förutsägelse tiden. Om ditt problem till exempel är att förutsäga på måndagen är ett råvaru pris på fredag, men en av dina funktioner av misstag som innehåller data från torsdagar, som skulle vara data modellen kommer inte att ha vid förutsägelse, eftersom den inte kan se i framtiden. Mål läckage är ett enkelt misstag att sakna, men karakteriseras ofta av onormalt hög precision för ditt problem. Om du försöker förutsäga börs priset och tränat en modell med 95% noggrannhet, finns det troligen mål som läcker i dina funktioner.
 
@@ -84,8 +84,8 @@ Dessutom genererar automatiserade ML-körningar följande diagram automatiskt, s
 Diagram| Beskrivning
 ---|---
 [Förvirring mat ris](how-to-understand-automated-ml.md#confusion-matrix)| Utvärderar de korrekt klassificerade etiketterna mot de faktiska etiketterna i data. 
-[Precision – återkalla](how-to-understand-automated-ml.md#precision-recall-chart)| Utvärderar förhållandet mellan korrekta etiketter mot förhållandet mellan hittade etikett instanser av data 
-[ROC kurvor](how-to-understand-automated-ml.md#roc)| Utvärderar förhållandet mellan korrekta etiketter mot förhållandet falskt positiva etiketter.
+[Precision – återkalla](how-to-understand-automated-ml.md#precision-recall-curve)| Utvärderar förhållandet mellan korrekta etiketter mot förhållandet mellan hittade etikett instanser av data 
+[ROC kurvor](how-to-understand-automated-ml.md#roc-curve)| Utvärderar förhållandet mellan korrekta etiketter mot förhållandet falskt positiva etiketter.
 
 ## <a name="handle-imbalanced-data"></a>Hantera förbalanserade data 
 

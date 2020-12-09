@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 68338341d47b8fa15d0bd88ea23e951210105fc4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: d76ecc55c2e156199b2db789721946fd1f36de27
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340792"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922909"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Hantering av flera innehavare i Security Center
 
@@ -30,10 +30,8 @@ Med hantering av flera innehavare kan du Visa och hantera säkerhets position f�
 
 ## <a name="set-up-cross-tenant-management"></a>konfigurera hantering av flera klientorganisationer.
 
-Konfigurera hantering av flera innehavare genom att delegera åtkomst till resurser av hanterade klienter till din egen klient med [Azure delegerad resurs hantering](../lighthouse/concepts/azure-delegated-resource-management.md).
+Azure-delegerad resurs hantering är en av de viktigaste komponenterna i Azure dataLighthouses. Konfigurera hantering av flera innehavare genom att delegera åtkomst till resurser för hanterade klienter till din egen klient med hjälp av de här anvisningarna från Azure Lighthouse-dokumentationen: [Azure delegerad resurs hantering](../lighthouse/concepts/azure-delegated-resource-management.md).
 
-> [!NOTE]
-> Azure-delegerad resurs hantering är en av de viktigaste komponenterna i Azure dataLighthouses.
 
 ## <a name="how-does-cross-tenant-management-work-in-security-center"></a>Hur fungerar hantering av flera innehavare i Security Center
 

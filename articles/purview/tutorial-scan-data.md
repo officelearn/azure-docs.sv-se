@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 083d820c989870b2a73217eeebf192f0d540ba36
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 802b7d2ca5d96bf385c4b8f0ee0cdaa3db181a1c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602554"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922570"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Självstudie: Genomsök data med Azure avdelningens kontroll (för hands version)
 
@@ -149,7 +149,7 @@ När katalog konfigurationen har slutförts kör du följande skript i PowerShel
 1. Använd följande kommando för att köra start paketet. Ersätt `CatalogName` `TenantID` `SubscriptionID` `newresourcegroupname` `CatalogResourceGroupName` plats hållarna,,, och. För `newresourcegroupname` använder du ett unikt namn för den resurs grupp som ska innehålla datafastigheten.
 
 > [!IMPORTANT]
-> **Newresourcegroupname** kan bara vara alfanumeriska eller siffror. **Inga versaler och specialtecken tillåts.**
+> **Newresourcegroupname** använder bara siffror och gemena bokstäver och måste vara kortare än 17 tecken. **Inga versaler och specialtecken tillåts.** Den här begränsningen kommer från lagrings kontots namngivnings regler.
 
    ```powershell
    .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId <TenantID>`

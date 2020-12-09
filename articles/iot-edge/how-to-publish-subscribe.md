@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: acde6f401404596212b713f248bb6d11c25b4671
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 005830575ba7f45d30fed71a73e7a419e4d98220
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461417"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922594"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicera och prenumerera med Azure IoT Edge
 
@@ -177,7 +177,6 @@ Auktoriseringar för avsnitt om IoT Hub hanteras något annorlunda än användar
 
 - Azure IoT-enheter eller-moduler behöver en uttrycklig auktoriseringsregel för att ansluta till IoT Edge Hub MQTT Broker. En auktoriseringsprincip för standard anslutning anges nedan.
 - Azure IoT-enheter eller-moduler kan komma åt sina egna IoT Hub-ämnen som standard utan någon explicit auktoriseringsregel. Dock måste auktoriseringen härröra från överordnade/underordnade relationer i detta fall och dessa relationer måste anges. IoT Edge moduler anges automatiskt som underordnade till deras IoT Edge enhet, men enheterna måste uttryckligen anges som underordnade till deras IoT Edge Gateway.
-- Azure IoT-enheter eller-moduler kan komma åt ämnen, inklusive information om IoT Hub, för andra enheter eller moduler som tillhandahåller att lämpliga uttryckliga auktoriseringsregler definieras.
 
 Här är en standard princip för auktorisering som kan användas för att aktivera alla Azure IoT-enheter eller-moduler för att **ansluta** till Service Broker:
 
@@ -275,7 +274,7 @@ Om du vill auktorisera utgivaren och prenumeranten redigerar du IoT Edge Hub, an
                },
                {
                   "identities": [
-                     "sub_client"
+                     "<iot_hub_name>.azure-devices.net/sub_client"
                   ],
                   "allow":[
                      {
@@ -284,13 +283,13 @@ Om du vill auktorisera utgivaren och prenumeranten redigerar du IoT Edge Hub, an
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
                   ],
                },
                {
                   "identities": [
-                     "pub_client"
+                     "<iot_hub_name>.azure-devices.net/pub_client"
                   ],
                   "allow":[
                      {
@@ -299,9 +298,9 @@ Om du vill auktorisera utgivaren och prenumeranten redigerar du IoT Edge Hub, an
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
-                  ],
+                  ]
                }
             ]
          }

@@ -11,107 +11,118 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 12/07/2020
 ms.author: memildin
-ms.openlocfilehash: 7252a6ccd77212f75f5db54e5f3fcad7aa2df50a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d03177e3224bbd3f53320871efc6a0d6b3ea479d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013810"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922674"
 ---
-# <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Få överblick över hela organisationen för Azure Security Center
+# <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>Organisera hanterings grupper, prenumerationer och synligheten för hela klienten
+
 Den här artikeln förklarar hur du hanterar din organisations säkerhets position i stor skala genom att använda säkerhets principer för alla Azure-prenumerationer som är kopplade till din Azure Active Directory-klient.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="management-groups"></a>Hanteringsgrupper
-Med Azures hanterings grupper kan du effektivt hantera åtkomst, principer och rapportering av prenumerations grupper, samt hantera hela Azure-egendomen på ett effektivt sätt genom att utföra åtgärder på rot hanterings gruppen. Varje Azure AD-klient får en enda toppnivå hanterings grupp som kallas för rot hanterings gruppen. Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och prenumerationer är dess underordnade element. Med den här gruppen kan globala principer och Azure Role-tilldelningar tillämpas på katalog nivå. 
-
-Rot hanterings gruppen skapas automatiskt när du gör någon av följande åtgärder: 
-1. Välj att använda Azure-hanterings grupper genom att navigera till **hanteringsgrupper** i [Azure Portal](https://portal.azure.com).
-2. Skapa en hanterings grupp via ett API-anrop.
-3. Skapa en hanterings grupp med PowerShell.
-
-En detaljerad översikt över hanterings grupper finns i artikeln [organisera dina resurser med Azures hanterings grupper](../governance/management-groups/overview.md) .
-
-## <a name="create-a-management-group-in-the-azure-portal"></a>Skapa en hanterings grupp i Azure Portal
-Du kan organisera prenumerationer i hanterings grupper och tillämpa dina styrnings principer i hanterings grupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de principer som tillämpas på hanteringsgruppen. Även om hanterings grupper inte krävs för att publicera Security Center, rekommenderar vi starkt att du skapar minst en hanterings grupp så att rot hanterings gruppen skapas. När gruppen har skapats kommer alla prenumerationer i Azure AD-klienten att länkas till den. Instruktioner för PowerShell och mer information finns i [skapa hanterings grupper för resurs-och organisations hantering](../governance/management-groups/create-management-group-portal.md).
-
- 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **alla tjänst**  >  **hanterings grupper**.
-3. På huvud sidan väljer du **ny hanterings grupp.** 
-
-    ![Huvud grupp](./media/security-center-management-groups/main.png) 
-4.  Fyll i fältet hanterings grupp-ID. 
-    - **Hanterings gruppens ID** är katalogens unika identifierare som används för att skicka kommandon i den här hanterings gruppen. Den här identifieraren kan inte redige ras när den används i hela Azure-systemet för att identifiera den här gruppen. 
-    - Fältet visnings namn är det namn som visas i Azure Portal. Ett separat visnings namn är ett valfritt fält när du skapar hanterings gruppen och kan ändras när som helst.  
-
-      ![Skapa](./media/security-center-management-groups/create_context_menu.png)  
-5.  Välj **Spara**
-
-### <a name="view-management-groups-in-the-azure-portal"></a>Visa hanterings grupper i Azure Portal
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Om du vill visa hanterings grupper väljer du **alla tjänster** på huvud menyn i Azure.
-3. Under **Allmänt** väljer du **hanteringsgrupper**.
-
-    ![Skapa en hanteringsgrupp](./media/security-center-management-groups/all-services.png)
-
-## <a name="grant-tenant-level-visibility-and-the-ability-to-assign-policies"></a>Bevilja synlighet på klient nivå och möjlighet att tilldela principer
 
 För att få insyn i säkerhets position för alla prenumerationer som registrerats i Azure AD-klienten, måste en Azure-roll med tillräcklig Läs behörighet tilldelas till rot hanterings gruppen.
 
-### <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Öka åtkomsten för en global administratör i Azure Active Directory
-En Azure Active Directory klient organisations administratör har inte direkt åtkomst till Azure-prenumerationer. Men som katalog administratör har de rätt att höja sig själva till en roll som har åtkomst. En Azure AD-innehavaradministratör måste utökas till användarens åtkomst administratör på rot hanterings gruppens nivå så att de kan tilldela Azure-roller. PowerShell-instruktioner och ytterligare information finns [i öka åtkomsten för en global administratör i Azure Active Directory](../role-based-access-control/elevate-access-global-admin.md). 
+
+## <a name="organize-your-subscriptions-into-management-groups"></a>Organisera dina prenumerationer i hanterings grupper
+
+### <a name="introduction-to-management-groups"></a>Introduktion till hanterings grupper
+
+Med Azures hanterings grupper kan du effektivt hantera åtkomst, principer och rapportering av prenumerations grupper, samt hantera hela Azure-egendomen på ett effektivt sätt genom att utföra åtgärder på rot hanterings gruppen. Du kan organisera prenumerationer i hanterings grupper och tillämpa dina styrnings principer i hanterings grupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de principer som tillämpas på hanteringsgruppen. 
+
+Varje Azure AD-klient får en enda toppnivå hanterings grupp som kallas för **rot hanterings gruppen**. Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och prenumerationer är dess underordnade element. Med den här gruppen kan globala principer och Azure Role-tilldelningar tillämpas på katalog nivå. 
+
+Rot hanterings gruppen skapas automatiskt när du gör någon av följande åtgärder: 
+- Öppna **hanteringsgrupper** i [Azure Portal](https://portal.azure.com).
+- Skapa en hanterings grupp med ett API-anrop.
+- Skapa en hanterings grupp med PowerShell. PowerShell-instruktioner finns i [skapa hanterings grupper för hantering av resurser och organisationer](../governance/management-groups/create-management-group-portal.md).
+
+Hanterings grupper krävs inte för att publicera Security Center, men vi rekommenderar att du skapar minst en så att rot hanterings gruppen skapas. När gruppen har skapats kommer alla prenumerationer i Azure AD-klienten att länkas till den. 
 
 
-1. Logga in på [Azure Portal](https://portal.azure.com) eller [Azure Active Directory administrations Center](https://aad.portal.azure.com).
+En detaljerad översikt över hanterings grupper finns i artikeln [organisera dina resurser med Azures hanterings grupper](../governance/management-groups/overview.md) .
 
-2. Klicka på **Azure Active Directory** i navigerings listan och klicka sedan på **Egenskaper**.
+### <a name="view-and-create-management-groups-in-the-azure-portal"></a>Visa och skapa hanterings grupper i Azure Portal
 
-   ![Egenskaper för Azure AD – skärm bild](./media/security-center-management-groups/aad-properties.png)
+1. Från [Azure Portal](https://portal.azure.com)använder du sökrutan i det övre fältet för att hitta och öppna **hanteringsgrupper**.
 
-3. Under **åtkomst hantering för Azure-resurser** ställer du in växeln på **Ja**.
+    :::image type="content" source="./media/security-center-management-groups/open-management-groups-service.png" alt-text="Åtkomst till dina hanterings grupper":::
 
-   ![Åtkomst hantering för Azure-resurser – skärm bild](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
+    Listan över hanterings grupper visas.
 
-   - När du ställer in växeln på Ja tilldelas du rollen administratör för användar åtkomst i Azure RBAC i rot omfånget (/). Detta ger dig behörighet att tilldela roller i alla Azure-prenumerationer och hanterings grupper som är kopplade till den här Azure AD-katalogen. Den här växeln är bara tillgänglig för användare som har tilldelats rollen som global administratör i Azure AD.
+1. Om du vill skapa en hanterings grupp väljer du **Lägg till hanterings grupp**, anger relevant information och väljer **Spara**.
 
-   - När du ställer in växeln på Nej tas rollen administratör för användar åtkomst i Azure RBAC bort från ditt användar konto. Du kan inte längre tilldela roller i alla Azure-prenumerationer och hanterings grupper som är associerade med den här Azure AD-katalogen. Du kan bara visa och hantera de Azure-prenumerationer och hanterings grupper som du har beviljats åtkomst till.
+    :::image type="content" source="media/security-center-management-groups/add-management-group.png" alt-text="Lägga till en hanterings grupp i Azure":::
 
-4. Spara inställningen genom att klicka på **Spara** .
-
-    - Den här inställningen är inte en global egenskap och gäller endast för den inloggade användaren.
-
-5. Utför de uppgifter du behöver för att göra den utökade åtkomsten. När du är klar väljer du växla tillbaka till **Nej**.
+    - **Hanterings gruppens ID** är katalogens unika identifierare som används för att skicka kommandon i den här hanterings gruppen. Den här identifieraren kan inte redige ras när den används i hela Azure-systemet för att identifiera den här gruppen. 
+    - Fältet visnings namn är det namn som visas i Azure Portal. Ett separat visnings namn är ett valfritt fält när du skapar hanterings gruppen och kan ändras när som helst.  
 
 
-### <a name="assign-azure-roles-to-users"></a>Tilldela Azure-roller till användare
-För att få insyn i alla prenumerationer måste klient organisations administratörerna tilldela rätt Azure-roll till alla användare som de vill bevilja en synlig klient för närvarande, även på rot hanterings gruppens nivå. De rekommenderade rollerna som ska tilldelas är antingen **säkerhets administratör** eller **säkerhets läsare**. I allmänhet krävs rollen som säkerhets administratör för att tillämpa principer på rotnivån, medan säkerhets läsaren räcker för att tillhandahålla synligheten på klient nivå. Mer information om de behörigheter som har beviljats av de här rollerna finns i beskrivningen av den [inbyggda rollen säkerhets administratör](../role-based-access-control/built-in-roles.md#security-admin) eller den [inbyggda rollen säkerhets läsare](../role-based-access-control/built-in-roles.md#security-reader).
+### <a name="add-subscriptions-to-a-management-group"></a>Lägga till prenumerationer i en hanterings grupp
+Du kan lägga till prenumerationer i hanterings gruppen som du skapade.
+
+1. Under **hanteringsgrupper** väljer du hanterings gruppen för din prenumeration.
+
+    :::image type="content" source="./media/security-center-management-groups/management-group-subscriptions.png" alt-text="Välj en hanterings grupp för din prenumeration":::
+
+1. När grupp sidan öppnas väljer du **information**
+
+    :::image type="content" source="./media/security-center-management-groups/management-group-details-page.png" alt-text="Öppna sidan information i en hanterings grupp":::
+
+1. På sidan information om gruppen väljer du **Lägg till prenumeration** och väljer sedan prenumerationer och väljer **Spara**. Upprepa tills du har lagt till alla prenumerationer i omfånget.
+
+    :::image type="content" source="./media/security-center-management-groups/management-group-add-subscriptions.png" alt-text="Lägga till en prenumeration i en hanterings grupp":::
+   > [!IMPORTANT]
+   > Hanterings grupper kan innehålla både prenumerationer och underordnade hanterings grupper. När du tilldelar en användare en Azure-roll till den överordnade hanterings gruppen ärvs åtkomsten av prenumerationerna på den underordnade hanterings gruppen. Principer som anges i den överordnade hanterings gruppen ärvs också av de underordnade. 
 
 
-#### <a name="assign-azure-roles-to-users-through-the-azure-portal"></a>Tilldela Azure-roller till användare via Azure Portal: 
+## <a name="grant-tenant-wide-permissions-to-yourself"></a>Bevilja behörighet för hela klienten själv
 
+En användare med rollen Azure Active Directory **Global administratör** kan ha ansvar för hela företaget, men saknar Azure-behörighet att visa den här informationen i organisationen i Azure Security Center. 
+
+> [!TIP]
+> Om din organisation hanterar resurs åtkomst med [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md)eller något annat PIM-verktyg måste den globala administratörs rollen vara aktiv för den användare som utför ändringarna.
+
+Så här tilldelar du dig själv behörigheter på klient nivå:
+
+1. Som global administratörs användare utan en tilldelning i rot hanterings gruppen för klient organisationen öppnar du Security Center sidan **Översikt** och väljer länken för den sammanslagna länken för **hela klienten** i banderollbilden. 
+
+    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-banner.png" alt-text="Aktivera behörigheter för klient organisations nivå i Azure Security Center":::
+
+1. Välj den nya Azure-roll som ska tilldelas. 
+
+    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-form.png" alt-text="Formulär för att definiera behörigheter för klient organisations nivå som ska tilldelas till din användare":::
+
+    > [!TIP]
+    > I allmänhet krävs rollen som säkerhets administratör för att tillämpa principer på rotnivån, medan säkerhets läsaren räcker för att tillhandahålla synligheten på klient nivå. Mer information om de behörigheter som har beviljats av de här rollerna finns i beskrivningen av den [inbyggda rollen säkerhets administratör](../role-based-access-control/built-in-roles.md#security-admin) eller den [inbyggda rollen säkerhets läsare](../role-based-access-control/built-in-roles.md#security-reader).
+    >
+    > För skillnader mellan dessa roller som är särskilt för Security Center, se tabellen i [roller och tillåtna åtgärder](security-center-permissions.md#roles-and-allowed-actions).
+
+    Vyn i hela organisationen uppnås genom att du beviljar roller på klient organisationens rot hanterings grupps nivå.  
+
+1. Logga ut från Azure Portal och logga sedan in igen.
+
+1. När du har förhöjd åtkomst, öppna eller uppdatera Azure Security Center för att kontrol lera att du har insyn i alla prenumerationer under Azure AD-klienten. 
+
+## <a name="assign-azure-roles-to-other-users"></a>Tilldela Azure-roller till andra användare
+
+### <a name="assign-azure-roles-to-users-through-the-azure-portal"></a>Tilldela Azure-roller till användare via Azure Portal: 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 1. Om du vill visa hanterings grupper väljer du **alla tjänster** på huvud menyn i Azure och väljer sedan **hanteringsgrupper**.
-1.  Välj en hanterings grupp och klicka på **information**.
+1.  Välj en hanterings grupp och välj **information**.
 
-    ![Skärm bild för Hanteringsgrupper information](./media/security-center-management-groups/management-group-details.PNG)
- 
-1. Klicka på **åtkomst kontroll (IAM)** och sedan **roll tilldelningar**.
+    :::image type="content" source="./media/security-center-management-groups/management-group-details.PNG" alt-text="Skärm bild för Hanteringsgrupper information":::
 
-1. Klicka på **Lägg till roll tilldelning**.
-
-1. Välj den roll som ska tilldelas och användaren och klicka sedan på **Spara**.  
+1. Välj **åtkomst kontroll (IAM)** sedan **roll tilldelningar**.
+1. Välj **Lägg till rolltilldelning**.
+1. Välj den roll som ska tilldelas och användaren och välj sedan **Spara**.  
    
    ![Skärm bild för Lägg till säkerhets läsar roll](./media/security-center-management-groups/asc-security-reader.png)
 
-
-#### <a name="assign-azure-roles-to-users-with-powershell"></a>Tilldela Azure-roller till användare med PowerShell: 
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
+### <a name="assign-azure-roles-to-users-with-powershell"></a>Tilldela Azure-roller till användare med PowerShell: 
 1. Installera [Azure PowerShell](/powershell/azure/install-az-ps).
 2. Kör följande kommandon: 
 
@@ -137,59 +148,20 @@ För att få insyn i alla prenumerationer måste klient organisations administra
     Remove-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
-### <a name="open-or-refresh-security-center"></a>Öppna eller uppdatera Security Center
-När du har förhöjd åtkomst, öppna eller uppdatera Azure Security Center för att kontrol lera att du har insyn i alla prenumerationer under Azure AD-klienten. 
-
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
-2. Se till att du väljer alla prenumerationer i prenumerations väljaren som du vill visa i Security Center.
-
-    ![Skärm bild för prenumerations väljare](./media/security-center-management-groups/subscription-selector.png)
-
-1. Välj **alla tjänster** på huvud menyn i Azure och välj sedan **Security Center**.
-2. I **översikten** finns ett prenumerations täcknings diagram.
-
-    ![Skärm bild av prenumerationens täcknings diagram](./media/security-center-management-groups/security-center-subscription-coverage.png)
-
-3. Klicka på **disponering** för att se en lista över prenumerationer som omfattas. 
-
-    ![Skärm bild av prenumerations täcknings lista](./media/security-center-management-groups/security-center-coverage.png)
-
-### <a name="remove-elevated-access"></a>Ta bort utökad åtkomst 
+## <a name="remove-elevated-access"></a>Ta bort utökad åtkomst 
 När Azure-rollerna har tilldelats till användarna bör klient administratören ta bort sig själv från rollen som administratör för användar åtkomst.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) eller [Azure Active Directory administrations Center](https://aad.portal.azure.com).
 
-2. Klicka på **Azure Active Directory** i navigerings listan och klicka sedan på **Egenskaper**.
+2. Välj **Azure Active Directory** i navigerings listan och välj sedan **Egenskaper**.
 
 3. Under **åtkomst hantering för Azure-resurser** anger du växeln till **Nej**.
 
-4. Spara inställningen genom att klicka på **Spara** .
+4. Spara inställningen genom att välja **Spara**.
 
 
-
-## <a name="adding-subscriptions-to-a-management-group"></a>Lägga till prenumerationer i en hanterings grupp
-Du kan lägga till prenumerationer i hanterings gruppen som du skapade. De här stegen är inte obligatoriska för att få insyn i hela klienten och global princip-och åtkomst hantering.
-
-1. Under **hanteringsgrupper** väljer du en hanterings grupp som du vill lägga till din prenumeration i.
-
-    ![Välj en hanterings grupp för att lägga till prenumerationen](./media/security-center-management-groups/management-group-subscriptions.png)
-
-2. Välj **Lägg till befintlig**.
-
-    ![Lägg till befintlig](./media/security-center-management-groups/add-existing.png)
-
-3. Ange prenumeration under **Lägg till befintlig resurs** och klicka på **Spara**.
-
-4. Upprepa steg 1 till 3 tills du har lagt till alla prenumerationer i omfånget.
-
-   > [!NOTE]
-   > Hanterings grupper kan innehålla både prenumerationer och underordnade hanterings grupper. När du tilldelar en användare en Azure-roll till den överordnade hanterings gruppen ärvs åtkomsten av prenumerationerna på den underordnade hanterings gruppen. Principer som anges i den överordnade hanterings gruppen ärvs också av de underordnade. 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du lärt dig hur du får insyn i hela organisationen för Azure Security Center. I följande artiklar kan du lära dig mer om Security Center:
+I den här artikeln har du lärt dig hur du får insyn i hela organisationen för Azure Security Center. Relaterad information finns i:
 
-> [!div class="nextstepaction"]
-> [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md)
-
-> [!div class="nextstepaction"]
-> [Hantera och besvara säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md)
+- [Behörigheter i Azure Security Center](security-center-permissions.md)

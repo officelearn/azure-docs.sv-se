@@ -6,10 +6,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 07/14/2017
 ms.openlocfilehash: ef32372cbaa70f7bca609c2ed1db118f33237e2b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 12/09/2020
 ms.locfileid: "92216206"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Kör U-SQL och Felsök lokalt i Visual Studio Code
@@ -28,11 +28,11 @@ Endast Windows-installationer av Azure Data Lake verktyg för Visual Studio stö
 
    ![Leta upp beroende paketen](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/LocateDependencyPath.png)
 
-   2,1 om du vill installera **BuildTools**klickar du på visualcppbuildtools_full.exe i mappen LocalRunDependency och följer sedan anvisningarna i guiden.   
+   2,1 om du vill installera **BuildTools** klickar du på visualcppbuildtools_full.exe i mappen LocalRunDependency och följer sedan anvisningarna i guiden.   
 
     ![Installera BuildTools](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallBuildTools.png)
 
-   2,2 om du vill installera **Win10SDK 10240**klickar du på sdksetup.exe i mappen LocalRunDependency/Win10SDK_10.0.10240 _2 och följer sedan anvisningarna i guiden.  
+   2,2 om du vill installera **Win10SDK 10240** klickar du på sdksetup.exe i mappen LocalRunDependency/Win10SDK_10.0.10240 _2 och följer sedan anvisningarna i guiden.  
 
     ![Installera Win10SDK 10240](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallWin10SDK.png)
 
@@ -41,16 +41,16 @@ Endast Windows-installationer av Azure Data Lake verktyg för Visual Studio stö
 
 
 ## <a name="start-the-local-run-service-and-submit-the-u-sql-job-to-a-local-account"></a>Starta den lokala körnings tjänsten och skicka U-SQL-jobbet till ett lokalt konto 
-För första gången använder du **ADL: Hämta lokalt kör paket** för att hämta lokala kör paket, om du inte har konfigurerat en [lokal körnings miljö för U-SQL](#set-up-the-u-sql-local-run-environment).
+För första gången använder du **ADL: Hämta lokalt kör paket** för att hämta lokala kör paket, om du inte har konfigurerat en [lokal körnings miljö för U-SQL](#set-up-the-u-sql-local-run-environment).
 
 1. Välj Ctrl + Shift + P för att öppna kommando-paletten och ange sedan **ADL: starta lokal körnings tjänst**.   
 2. Välj **acceptera** för att godkänna licens villkoren för program vara från Microsoft för första gången. 
 
    ![Godkänn licens villkoren för program vara från Microsoft](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/AcceptEULA.png)   
-3. CMD-konsolen öppnas. För första användare måste du ange **3**och sedan hitta sökvägen till den lokala mappen för dina data indata och utdata. Om du inte lyckas definiera sökvägen med omvända snedstreck, kan du försöka med att vidarebefordra snedstreck. Du kan använda standardvärdena för andra alternativ.
+3. CMD-konsolen öppnas. För första användare måste du ange **3** och sedan hitta sökvägen till den lokala mappen för dina data indata och utdata. Om du inte lyckas definiera sökvägen med omvända snedstreck, kan du försöka med att vidarebefordra snedstreck. Du kan använda standardvärdena för andra alternativ.
 
    ![Data Lake verktyg för Visual Studio Code Local Run cmd](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-cmd.png)
-4. Välj Ctrl + Shift + P för att öppna kommando paletten, ange **ADL: skicka jobb**och välj sedan **lokal** för att skicka jobbet till ditt lokala konto.
+4. Välj Ctrl + Shift + P för att öppna kommando paletten, ange **ADL: skicka jobb** och välj sedan **lokal** för att skicka jobbet till ditt lokala konto.
 
    ![Data Lake verktyg för Visual Studio Code Välj lokal](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-select-local.png)
 5. När du har skickat jobbet kan du Visa information om överföringen. Om du vill visa information om sändningen väljer du **jobUrl** i fönstret **utdata** . Du kan också Visa jobbets sändnings status från cmd-konsolen. Ange **7** i cmd-konsolen om du vill veta mer om jobb information.
@@ -62,11 +62,11 @@ För första gången använder du **ADL: Hämta lokalt kör paket** för att hä
 ## <a name="start-a-local-debug-for-the-u-sql-job"></a>Starta en lokal fel sökning för U-SQL-jobbet  
 För användare i första gången:
 
-1. Använd **ADL: Hämta lokala kör paket** för att hämta lokala kör paket, om du inte har [konfigurerat en lokal körnings miljö för U-SQL](#set-up-the-u-sql-local-run-environment).
+1. Använd **ADL: Hämta lokala kör paket** för att hämta lokala kör paket, om du inte har [konfigurerat en lokal körnings miljö för U-SQL](#set-up-the-u-sql-local-run-environment).
 2. Installera .NET Core SDK 2,0 som det föreslås i rutan meddelande om det inte är installerat.
- 
+ 
   ![påminnelse installerar dotNet](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png)
-3. Installera C# för Visual Studio Code som det föreslås i rutan meddelande om det inte är installerat.Klicka på **Installera** för att fortsätta och starta sedan om VSCode.
+3. Installera C# för Visual Studio Code som det föreslås i rutan meddelande om det inte är installerat. Klicka på **Installera** för att fortsätta och starta sedan om VSCode.
 
     ![Påminnelse om att installera C #](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/install-csharp.png)
 

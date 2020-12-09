@@ -158,7 +158,7 @@
     - name: Vanliga frågor och svar
       href: spring-cloud-faq.md
     - name: Referens för REST-API
-      href: /rest/api/azurespringclould/
+      href: /rest/api/azurespringcloud/
     - name: Inbyggda Azure Policy-program
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

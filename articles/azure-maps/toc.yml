@@ -290,7 +290,7 @@
           href: /rest/api/maps/data
         - name: Geoplatstjänst
           href: /rest/api/maps/geolocation
-        - name: Mobilitetstjänsten
+        - name: Mobilitetstjänster
           href: /rest/api/maps/mobility
         - name: Renderingstjänst
           href: /rest/api/maps/render
@@ -306,7 +306,7 @@
           href: /rest/api/maps/timezone
         - name: Trafiktjänst
           href: /rest/api/maps/traffic
-        - name: Vädertjänst
+        - name: Vädertjänster
           href: /rest/api/maps/weather
         - name: Maps Creator-tjänst
           items:

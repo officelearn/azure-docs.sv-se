@@ -280,7 +280,7 @@
     - name: Arbeta med Microsoft Authentication Library
       displayName: MSAL
       items:
-        - Name: Alla plattformar
+        - name: Alla plattformar
           items:
             - name: Autentiseringsflöden som stöds
               href: msal-authentication-flows.md

@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -33,6 +33,6 @@ az webapp log tail --name <app-name> --resource-group <resource-group-name>
 
 Om du inte ser konsolloggarna omedelbart kan du titta efter igen efter 30 sekunder.
 
-Om du vill stoppa logg strömningen när som helst, skriver du **CTRL** + **C** .
+Om du vill stoppa logg strömningen när som helst, skriver du **CTRL** + **C**.
 
 Du kan också granska loggfilerna i en webbläsare på `https://<app-name>.scm.azurewebsites.net/api/logs/docker` .

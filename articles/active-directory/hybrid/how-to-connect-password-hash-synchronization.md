@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7edafd8a4a85e00a02486c646c77ddff5ff3e6b
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 47d7d541ed7d9805641ffdfde381d482c8700006
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737106"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858747"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implement password hash synchronization with Azure AD Connect sync (Implementera synkronisering av lösenordshash med Azure AD Connect-synkronisering)
 Den här artikeln innehåller information som du behöver för att synkronisera dina användar lösen ord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory-instans (Azure AD).
@@ -53,10 +53,10 @@ I följande avsnitt beskrivs i djup hur synkroniseringen av lösen ord för hash
 
 1. Varannan minut begär agenten för Lösenordssynkronisering på AD Connect-servern lagrade lösenords-hashvärden (attributet unicodePwd) från en DOMÄNKONTROLLANT.  Den här begäran är via standard [-MS-DRSR](/openspecs/windows_protocols/ms-drsr/f977faaa-673e-4f66-b9bf-48c640241d47) som används för att synkronisera data mellan domänkontrollanter. Tjänst kontot måste ha replikerade katalog ändringar och replikera katalogen ändrar alla AD-behörigheter (beviljas som standard vid installation) för att hämta lösen ordets hash-värden.
 2. Innan du skickar krypterar DOMÄNKONTROLLANTen MD4 Password hash med hjälp av en nyckel som är en [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) -hash av RPC-sessionsnyckeln och en salt. Den skickar sedan resultatet till agenten för Lösenordssynkronisering via RPC. DOMÄNKONTROLLANTen skickar också saltet till synkroniseringstjänsten med hjälp av DC-replikeringstjänsten, så att agenten kan dekryptera kuvertet.
-3. När agenten för Lösenordssynkronisering har krypterat kuvert används [MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider?view=netcore-3.1) och salt för att generera en nyckel för att dekryptera mottagna data till ursprungligt MD4-format. Agenten för Lösenordssynkronisering har aldrig åtkomst till lösen ordet för klartext. Password hash Sync-agentens användning av MD5 är strikt för replikering av autentiseringsprotokoll med DOMÄNKONTROLLANTen och används bara lokalt mellan DOMÄNKONTROLLANTen och agenten för Lösenordssynkronisering.
+3. När agenten för Lösenordssynkronisering har krypterat kuvert används [MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider) och salt för att generera en nyckel för att dekryptera mottagna data till ursprungligt MD4-format. Agenten för Lösenordssynkronisering har aldrig åtkomst till lösen ordet för klartext. Password hash Sync-agentens användning av MD5 är strikt för replikering av autentiseringsprotokoll med DOMÄNKONTROLLANTen och används bara lokalt mellan DOMÄNKONTROLLANTen och agenten för Lösenordssynkronisering.
 4. Agenten för Lösenordssynkronisering expanderar den 16-bytes binära lösen ords-hashen till 64 byte genom att först konvertera hashen till en hexadecimal sträng på 32 byte och sedan konvertera den här strängen till binär med UTF-16-kodning.
 5. Agenten för Lösenordssynkronisering lägger till ett per användare-salt, som består av en längd på 10 bytes, till 64 byte-binärfilen för att ytterligare skydda den ursprungliga hashen.
-6. Agenten för synkronisering av lösen ords-hash kombinerar sedan MD4-hash plus per användarens salt och indata indata i funktionen [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) . 1000 iterationer av den förkonfigurerade hash-algoritmen för [HMAC-SHA256](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1) används. 
+6. Agenten för synkronisering av lösen ords-hash kombinerar sedan MD4-hash plus per användarens salt och indata indata i funktionen [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) . 1000 iterationer av den förkonfigurerade hash-algoritmen för [HMAC-SHA256](/dotnet/api/system.security.cryptography.hmacsha256) används. 
 7. Agenten för Lösenordssynkronisering tar den resulterande 32-byte-hashen och sammanfogar både per användarens salt och antalet SHA256-iterationer (används av Azure AD) och skickar sedan strängen från Azure AD Connect till Azure AD över TLS.</br> 
 8. När en användare försöker logga in på Azure AD och anger sitt lösen ord, körs lösen ordet genom samma MD4 + salt + PBKDF2 + HMAC-SHA256 process. Om den resulterande hashen matchar hashen som lagras i Azure AD har användaren angett rätt lösen ord och autentiseras.
 
@@ -142,7 +142,7 @@ Om du vill ha stöd för tillfälliga lösen ord i Azure AD för synkroniserade 
 
 #### <a name="account-expiration"></a>Kontots förfallo datum
 
-Om din organisation använder attributet accountExpires som en del av användar konto hantering, synkroniseras inte det här attributet med Azure AD. Det innebär att ett utgånget Active Directory-konto i en miljö som kon figurer ATS för synkronisering av lösen ords-hash fortfarande är aktivt i Azure AD. Vi rekommenderar att om kontot har upphört att gälla ska en arbets flödes åtgärd utlösa ett PowerShell-skript som inaktiverar användarens Azure AD-konto (Använd cmdleten [set-AzureADUser](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0) ). När kontot är påslaget måste Azure AD-instansen vara aktive rad.
+Om din organisation använder attributet accountExpires som en del av användar konto hantering, synkroniseras inte det här attributet med Azure AD. Det innebär att ett utgånget Active Directory-konto i en miljö som kon figurer ATS för synkronisering av lösen ords-hash fortfarande är aktivt i Azure AD. Vi rekommenderar att om kontot har upphört att gälla ska en arbets flödes åtgärd utlösa ett PowerShell-skript som inaktiverar användarens Azure AD-konto (Använd cmdleten [set-AzureADUser](/powershell/module/azuread/set-azureaduser) ). När kontot är påslaget måste Azure AD-instansen vara aktive rad.
 
 ### <a name="overwrite-synchronized-passwords"></a>Skriv över synkroniserade lösen ord
 

@@ -4,12 +4,12 @@ description: Beskriver hur du använder CloudEvents-schemat för händelser i Az
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d794996a699bdd1bb63e7a894346128aa108e95c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: baac7311a23bb4de032a8ab8b2e99a5ad9cae786
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504381"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858288"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Använd CloudEvents v 1.0-schemat med Event Grid
 Förutom dess [standard händelse schema](event-schema.md)har Azure Event Grid inbyggt stöd för händelser i [JSON-implementeringen av CloudEvents v 1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) och [http-protokoll bindning](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) är en [öppen specifikation](https://github.com/cloudevents/spec/blob/v1.0/spec.md) för att beskriva händelse data.
@@ -62,16 +62,20 @@ Rubrik värden för händelser som levereras i CloudEvents-schemat och Event Gri
 
 ## <a name="configure-event-grid-for-cloudevents"></a>Konfigurera Event Grid för CloudEvents
 
-Du kan använda Event Grid för både indata och utdata av händelser i CloudEvents-schemat. Du kan använda CloudEvents för system händelser, t. ex. Blob Storage händelser och IoT Hub händelser och anpassade händelser. Den kan också omvandla dessa händelser till den igen.
+Du kan använda Event Grid för både indata och utdata av händelser i CloudEvents-schemat. I följande tabell beskrivs möjliga omvandlingar:
+
+ Event Grid resurs | Schema för indatamängd       | Leverans schema
+|---------------------|-------------------|---------------------
+| Avsnitt om systemet       | Event Grid schema | Event Grid schema eller CloudEvent-schema
+| Användar ämnen/domäner | Event Grid schema | Event Grid schema
+| Användar ämnen/domäner | CloudEvent-schema | CloudEvent-schema
+| Användar ämnen/domäner | Anpassat schema     | Anpassat schema eller Event Grid schema eller schema för CloudEvent
+| PartnerTopics       | CloudEvent-schema | CloudEvent-schema
 
 
-| Schema för indatamängd       | Schema för utdata
-|--------------------|---------------------
-| CloudEvents-format | CloudEvents-format
-| Event Grid format  | CloudEvents-format
-| Event Grid format  | Event Grid format
+För alla händelse scheman måste Event Grid verifiera vid publicering till ett Event Grid ämne och när en händelse prenumeration skapas.
 
-För alla händelse scheman måste Event Grid verifiera vid publicering till ett event Grid-ämne och när en händelse prenumeration skapas. Mer information finns i [Event Grid säkerhet och autentisering](security-authentication.md).
+Mer information finns i [Event Grid säkerhet och autentisering](security-authentication.md).
 
 ### <a name="input-schema"></a>Schema för indatamängd
 

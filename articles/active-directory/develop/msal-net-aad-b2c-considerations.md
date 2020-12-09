@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: b683eaaf4c93ef0dcf74680e1e174e0f867a7041
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8be41f3fcf4d32ee81d1290c6a50a27f2cd45ee7
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173404"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860974"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Använda MSAL.NET för att logga in användare med sociala identiteter
 
@@ -78,7 +78,7 @@ I föregående kodfragment:
 
 - `policy` är en sträng som innehåller namnet på ditt Azure AD B2C användar flöde eller en anpassad princip (till exempel `PolicySignUpSignIn` ).
 - `ParentActivityOrWindow` krävs för Android (aktiviteten) och är valfritt för andra plattformar som har stöd för ett överordnat användar gränssnitt som Windows på Microsoft Windows och UIViewController i iOS. Mer information om UI-dialogrutan finns i [WithParentActivityOrWindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) på MSAL-wikin.
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)` är en metod som söker efter ett konto för en specifik princip. Ett exempel:
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)` är en metod som söker efter ett konto för en specifik princip. Exempel:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -165,7 +165,7 @@ Vi tillhandahåller en uppdatering av det här [problemet](https://github.com/Az
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Känt problem med Azure AD B2C
 
-MSAL.NET stöder [token cache](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). Nyckeln för cachelagring av token baseras på de anspråk som returneras av identitets leverantören (IdP).
+MSAL.NET stöder [token cache](/dotnet/api/microsoft.identity.client.tokencache). Nyckeln för cachelagring av token baseras på de anspråk som returneras av identitets leverantören (IdP).
 
 För närvarande behöver MSAL.NET två anspråk för att bygga en nyckel för token-cache:
 

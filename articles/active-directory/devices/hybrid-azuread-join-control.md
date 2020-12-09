@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66b216e5e511d2d80378ee7e2d124dccbc7abcb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38754b9e349e27afcff58dac27a616e3e4fb5319
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85252720"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860940"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Kontrollerad verifiering av Azure AD-anslutningshybrid
 
@@ -82,7 +82,7 @@ Använd följande exempel för att skapa ett grupprincip objekt (GPO) för att d
 Om du använder AD FS måste du först konfigurera klient sidans SCP med hjälp av anvisningarna ovan genom att länka GRUPPRINCIPOBJEKTet till dina AD FS-servrar. SCP-objektet definierar källan för auktoritet för enhets objekt. Det kan vara lokalt eller i Azure AD. När klient sidans SCP har kon figurer ATS för AD FS, upprättas källan för enhets objekt som Azure AD.
 
 > [!NOTE]
-> Om du inte kunde konfigurera klient sidans SCP på dina AD FS-servrar anses källan för enhets identiteter vara lokalt. AD FS börjar sedan ta bort enhets objekt från den lokala katalogen efter den angivna perioden som definieras i AD FS-enhetens registrerings attribut "MaximumInactiveDays". ADFS Device Registration-objekt kan hittas med [cmdleten Get-AdfsDeviceRegistration](/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
+> Om du inte kunde konfigurera klient sidans SCP på dina AD FS-servrar anses källan för enhets identiteter vara lokalt. AD FS börjar sedan ta bort enhets objekt från den lokala katalogen efter den angivna perioden som definieras i AD FS-enhetens registrerings attribut "MaximumInactiveDays". ADFS Device Registration-objekt kan hittas med [cmdleten Get-AdfsDeviceRegistration](/powershell/module/adfs/get-adfsdeviceregistration).
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Kontrollerad verifiering av hybrid Azure AD-anslutning på Windows-enheter på nivån
 

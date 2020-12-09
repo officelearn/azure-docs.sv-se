@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 607df39833a5ae787e9acb8d3b4df3c52dd7709d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6d4dd6e64053af41d66e3accbb7fc9b21d951fc6
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173693"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860221"
 ---
 # <a name="conditional-access-programmatic-access"></a>Villkorlig åtkomst: program mässig åtkomst
 
@@ -62,7 +62,7 @@ I det här exemplet finns en mekanism för att utföra en stegvis distribution a
 
 - [Distribuera principer för villkorlig åtkomst till produktions miljöer med arbets flöden för godkännande](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/03-deploy)
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>Övervaka
 
 Det här exemplet innehåller en mekanism för att övervaka ändringar i princip för villkorlig åtkomst över tid och kan utlösa aviseringar när nyckel principer ändras.
 
@@ -96,6 +96,6 @@ Dessa exempel är tillgängliga i vår [GitHub-lagringsplats](https://github.com
 
 - [Översikt över Microsoft Graph](/graph/overview)
 
-- [API för villkorlig åtkomst](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-1.0)
+- [API för villkorlig åtkomst](/graph/api/resources/conditionalaccesspolicy)
 
-- [API för namngiven plats](/graph/api/resources/namedlocation?view=graph-rest-1.0)
+- [API för namngiven plats](/graph/api/resources/namedlocation)

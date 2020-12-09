@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0cab755156cf7220b2303d90c43ba8e78df7c24
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 12613362d9fc67dea14b41ece19a34febb489dda
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548128"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860651"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory version 2-cmdletar för grupp hantering
 
@@ -50,7 +50,7 @@ Kontrol lera att modulen är redo att användas genom att använda följande kom
     Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 ```
 
-Nu kan du börja använda cmdlet: arna i modulen. En fullständig beskrivning av cmdletarna i Azure AD-modulen finns i referens dokumentationen för online för [Azure Active Directory PowerShell version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Nu kan du börja använda cmdlet: arna i modulen. En fullständig beskrivning av cmdletarna i Azure AD-modulen finns i referens dokumentationen för online för [Azure Active Directory PowerShell version 2](/powershell/azure/active-directory/install-adv2).
 
 > [!NOTE]
 > Azure AD PowerShell-cmdletarna fungerar inte med den nya PowerShell 7 eftersom den baseras på .net Core. Vi är medvetna om och det här håller på att bli uppdaterad. Från och med nu rekommenderar vi att du använder Windows PowerShell 5. x-modulen som ska användas för Azure AD PowerShell-åtgärder. 
@@ -338,7 +338,7 @@ Tillbakaskrivning av Microsoft 365s grupp är en offentlig förhands gransknings
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan hitta mer Azure Active Directory PowerShell-dokumentation på [Azure Active Directory-cmdletar](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Du kan hitta mer Azure Active Directory PowerShell-dokumentation på [Azure Active Directory-cmdletar](/powershell/azure/active-directory/install-adv2).
 
 * [Hantera åtkomst till resurser med Azure Active Directory grupper](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Integrera dina lokala identiteter med Azure Active Directory](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)

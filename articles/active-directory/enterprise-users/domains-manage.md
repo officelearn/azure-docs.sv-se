@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dd77b1d82fc427f53a251ef66230b450c1060fd
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 7b8867a137e38e7400da877f4c239e517cbebe05
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547584"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859988"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Hantera anpassade domän namn i Azure Active Directory
 
@@ -73,7 +73,7 @@ Du måste ändra eller ta bort den här resursen i din Azure AD-organisation inn
 
 Du kan **ForceDelete** ett domän namn i [Azure AD Admin Center](https://aad.portal.azure.com) eller använda [Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true). Dessa alternativ använder en asynkron åtgärd och uppdaterar alla referenser från det anpassade domän namnet som " user@contoso.com " till det initiala standard domän namnet som " user@contoso.onmicrosoft.com ."
 
-Om du vill anropa **ForceDelete** i Azure Portal måste du se till att det finns färre än 1000 referenser till domän namnet och alla referenser där Exchange är etablerings tjänsten måste uppdateras eller tas bort i [administrations centret för Exchange](https://outlook.office365.com/ecp/). Detta omfattar Exchange Mail-Enabled säkerhets grupper och distribuerade listor. Mer information finns i [ta bort e-postaktiverade säkerhets grupper](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups&preserve-view=true). **ForceDelete** -åtgärden lyckas inte heller om något av följande stämmer:
+Om du vill anropa **ForceDelete** i Azure Portal måste du se till att det finns färre än 1000 referenser till domän namnet och alla referenser där Exchange är etablerings tjänsten måste uppdateras eller tas bort i [administrations centret för Exchange](https://outlook.office365.com/ecp/). Detta omfattar Exchange Mail-Enabled säkerhets grupper och distribuerade listor. Mer information finns i [ta bort e-postaktiverade säkerhets grupper](/Exchange/recipients/mail-enabled-security-groups#Remove%20mail-enabled%20security%20groups&preserve-view=true). **ForceDelete** -åtgärden lyckas inte heller om något av följande stämmer:
 
 * Du har köpt en domän via Microsoft 365 domän prenumerations tjänster
 * Du är en partner som administreras åt en annan kund organisation
@@ -110,11 +110,11 @@ Om du upptäcker att något av villkoren inte har uppfyllts kan du rensa referen
 
 De flesta hanterings aktiviteter för domän namn i Azure Active Directory kan också slutföras med hjälp av Microsoft PowerShell eller program mässigt med hjälp av Microsoft Graph API.
 
-* [Använda PowerShell för att hantera domän namn i Azure AD](/powershell/module/azuread/?view=azureadps-2.0#domains&preserve-view=true)
+* [Använda PowerShell för att hantera domän namn i Azure AD](/powershell/module/azuread/#domains&preserve-view=true)
 * [Domän resurs typ](/graph/api/resources/domain?view=graph-rest-1.0&preserve-view=true)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Lägga till anpassade domännamn](../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
-* [Ta bort Exchange mail-aktiverade säkerhets grupper i Exchange administrations Center på ett anpassat domän namn i Azure AD](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups&preserve-view=true)
+* [Ta bort Exchange mail-aktiverade säkerhets grupper i Exchange administrations Center på ett anpassat domän namn i Azure AD](/Exchange/recipients/mail-enabled-security-groups#Remove%20mail-enabled%20security%20groups&preserve-view=true)
 * [ForceDelete ett anpassat domän namn med Microsoft Graph-API](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true)

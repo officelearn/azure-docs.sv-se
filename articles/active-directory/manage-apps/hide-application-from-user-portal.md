@@ -12,18 +12,18 @@ ms.date: 03/25/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0a103ac9b8e6d29830b5ecd6732cd19547014b0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ef1abd1d72e4435aa59bbb9a99f3cc423f11268e
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659071"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858306"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Dölj företags program från slutanvändare i Azure Active Directory
 
 Instruktioner för hur du döljer program från slutanvändarens panel för Mina appar eller Microsoft 365 Launcher. När ett program är dolt har användarna fortfarande behörighet till programmet. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Program administratörs behörighet krävs för att dölja ett program från panelen för Mina appar och Microsoft 365 Launcher.
 
@@ -47,7 +47,7 @@ Använd följande steg för att dölja ett program från panelen för appar och 
 
 ## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Använd Azure AD PowerShell för att dölja ett program
 
-Om du vill dölja ett program från panelen Mina appar kan du manuellt lägga till HideApp-taggen till tjänstens huvud namn för programmet. Kör följande [AzureAD PowerShell](/powershell/module/azuread/?view=azureadps-2.0#service_principals) -kommandon för att ange programmets som **synlig för användarna?** -egenskapen till **Nej**. 
+Om du vill dölja ett program från panelen Mina appar kan du manuellt lägga till HideApp-taggen till tjänstens huvud namn för programmet. Kör följande [AzureAD PowerShell](/powershell/module/azuread/#service_principals) -kommandon för att ange programmets som **synlig för användarna?** -egenskapen till **Nej**. 
 
 ```PowerShell
 Connect-AzureAD

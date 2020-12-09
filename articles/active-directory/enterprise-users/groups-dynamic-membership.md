@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd9d1dd62d5f1a5910bfc7db58dfa8e60cb254c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c60d54a905f460eb5c26c2f183cd22b175a5b3c4
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547550"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860821"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -103,7 +103,7 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 | Anställnings |Valfritt sträng värde |(User. Anställningsnr-EQ "value")<br>(User. Anställningsnr-Ne *Null*) |
 | facsimileTelephoneNumber |Valfritt sträng värde eller *Null* |(User. facsimileTelephoneNumber-EQ "value") |
 | förnamn |Valfritt sträng värde eller *Null* |(User. givenName-EQ "value") |
-| Befattning |Valfritt sträng värde eller *Null* |(User. befattning-EQ "value") |
+| jobTitle |Valfritt sträng värde eller *Null* |(User. befattning-EQ "value") |
 | e-post |Valfritt sträng värde eller *Null* (SMTP-adress för användaren) |(User. mail-EQ "värde") |
 | smeknamn för e-post |Valfritt sträng värde (e-postalias för användaren) |(User. smek namn-EQ "värde") |
 | mobil |Valfritt sträng värde eller *Null* |(User. Mobile-EQ "value") |
@@ -111,7 +111,7 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 | onPremisesSecurityIdentifier | Lokal säkerhets identifierare (SID) för användare som synkroniserats från lokalt till molnet. |(User. onPremisesSecurityIdentifier-EQ "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |Ingen DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(User. passwordPolicies-EQ "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Valfritt sträng värde eller *Null* |(User. physicalDeliveryOfficeName-EQ "value") |
-| Post nummer |Valfritt sträng värde eller *Null* |(User. Postnr-EQ "värde") |
+| postalCode |Valfritt sträng värde eller *Null* |(User. Postnr-EQ "värde") |
 | preferredLanguage |ISO 639-1-kod |(User. preferredLanguage-EQ "en-US") |
 | sipProxyAddress |Valfritt sträng värde eller *Null* |(User. sipProxyAddress-EQ "value") |
 | state |Valfritt sträng värde eller *Null* |(User. State-EQ "värde") |
@@ -341,7 +341,7 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Egenskaper för tillägg och anpassade tilläggs egenskaper
 
-Tilläggets attribut och anpassade tilläggs egenskaper stöds som sträng egenskaper i dynamiska medlemskaps regler. [Attributen för tillägg](/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) synkroniseras från den lokala serverns AD och formatet "ExtensionAttributeX", där X är lika med 1-15. Här är ett exempel på en regel som använder attributet Extension som en egenskap:
+Tilläggets attribut och anpassade tilläggs egenskaper stöds som sträng egenskaper i dynamiska medlemskaps regler. [Attributen för tillägg](/graph/api/resources/onpremisesextensionattributes) synkroniseras från den lokala serverns AD och formatet "ExtensionAttributeX", där X är lika med 1-15. Här är ett exempel på en regel som använder attributet Extension som en egenskap:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")

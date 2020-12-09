@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ca5361d8500ecd4ea22a577d0a4dc7ced606eab
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4b45decd2f2cf9c99cffb0e08d4d6a5c5cfafc67
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997655"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858407"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Så här återställer du från LocalDB med en gräns på 10 GB
 Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. Du kan antingen använda SQL Server 2012 Express LocalDB som är installerat som standard med Azure AD Connect eller använda din egen fullständiga SQL. SQL Server Express har en storleksgräns på 10 GB. När du använder LocalDB och gränsen har uppnåtts kan synkroniseringstjänsten för Azure AD Connect inte längre starta eller synkronisera korrekt. Den här artikeln innehåller återställnings stegen.
@@ -55,7 +55,7 @@ Kontrol lera först om synkroniseringstjänsten fortfarande körs eller inte:
 5. Försök starta tjänsten om den inte körs. Om tjänsten har startats kan du hoppa över [databas](#shrink-the-database) steget och gå till [data steget ta bort körnings historik](#delete-run-history-data) . Annars fortsätter du med [att krympa databas](#shrink-the-database) steget.
 
 ### <a name="shrink-the-database"></a>Krymp databasen
-Använd Shrink-åtgärden för att frigöra tillräckligt med DB-utrymme för att starta synkroniseringstjänsten. Den frigör DB-utrymme genom att ta bort blank steg i databasen. Det här steget är bästa ansträngning eftersom det inte garanterar att du alltid kan återställa utrymme. Läs mer om Krympnings åtgärden i den här artikeln [Krymp en databas](/sql/relational-databases/databases/shrink-a-database?view=sql-server-ver15).
+Använd Shrink-åtgärden för att frigöra tillräckligt med DB-utrymme för att starta synkroniseringstjänsten. Den frigör DB-utrymme genom att ta bort blank steg i databasen. Det här steget är bästa ansträngning eftersom det inte garanterar att du alltid kan återställa utrymme. Läs mer om Krympnings åtgärden i den här artikeln [Krymp en databas](/sql/relational-databases/databases/shrink-a-database).
 
 > [!IMPORTANT]
 > Hoppa över det här steget om du kan få synkroniseringstjänsten att köras. Vi rekommenderar inte att du krymper SQL DB eftersom den kan leda till dåliga prestanda på grund av ökad fragmentering.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e21bac5dd78cb9c9f40e6b91ff80fedabb9bc75
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: b7519b6c7e1f3381be77b9a0734ddda250228e7d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602265"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860311"
 ---
 # <a name="continuous-access-evaluation"></a>Utvärdering av kontinuerlig åtkomst
 
@@ -105,7 +105,7 @@ Om du inte använder CAE-kompatibla klienter blir din standardtoken för åtkoms
 
 1. En CAE-kompatibel klient visar autentiseringsuppgifter eller en uppdateringstoken till Azure AD som efterfrågar en åtkomsttoken för en viss resurs.
 1. En åtkomsttoken returneras tillsammans med andra artefakter till klienten.
-1. En administratör [återkallar uttryckligen alla uppdateringstoken för användaren](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). En återkallnings händelse kommer att skickas till resurs leverantören från Azure AD.
+1. En administratör [återkallar uttryckligen alla uppdateringstoken för användaren](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). En återkallnings händelse kommer att skickas till resurs leverantören från Azure AD.
 1. En åtkomsttoken visas för resurs leverantören. Resurs leverantören utvärderar giltigheten hos token och kontrollerar om det finns någon återkallnings händelse för användaren. Resurs leverantören använder den här informationen för att avgöra om du vill bevilja åtkomst till resursen eller inte.
 1. I det här fallet nekar resurs leverantören åtkomst och skickar en 401 + anspråks utmaning tillbaka till klienten.
 1. Den CAE-kompatibla klienten förstår 401 +-anspråks utmaningen. Den kringgår cacheminnena och går tillbaka till steg 1 och skickar dess uppdateringstoken tillsammans med anspråks utmaningen tillbaka till Azure AD. Azure AD kommer sedan att utvärdera alla villkor och uppmana användaren att autentisera om i det här fallet.

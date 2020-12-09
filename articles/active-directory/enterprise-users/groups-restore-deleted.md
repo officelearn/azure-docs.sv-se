@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8a2aed6bf4a6b327ca7dd026f615a5d00af0bd8
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: dfdc96df548a4a3df2b789759889b85835e1382a
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546275"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860736"
 ---
 # <a name="restore-a-deleted-microsoft-365-group-in-azure-active-directory"></a>Återställa en borttagen Microsoft 365 grupp i Azure Active Directory
 
@@ -29,7 +29,7 @@ När du tar bort en Microsoft 365 grupp i Azure Active Directory (Azure AD) beh�
 
 Behörigheterna som krävs för att återställa en grupp kan vara någon av följande:
 
-Roll | Behörigheter
+Role | Behörigheter
 --------- | ---------
 Global administratör, grupp administratör, partner – nivå 2-stöd och Intune-administratör | Kan återställa borttagna Microsoft 365s grupper
 Stöd för användar administratör och partner 1 | Kan återställa borttagna Microsoft 365s grupper förutom de grupper som tilldelats rollen företags administratör
@@ -50,7 +50,7 @@ Användare | Kan återställa borttagna Microsoft 365s grupper som de äger
 
 ## <a name="view-the-deleted-microsoft-365-groups-that-are-available-to-restore-using-powershell"></a>Visa de borttagna Microsoft 365 grupper som är tillgängliga för återställning med hjälp av PowerShell
 
-Du kan använda följande cmdlets för att visa de borttagna grupperna och kontrollera att den eller de grupper som du är intresserad av inte har raderats permanent än. Dessa cmdlets är en del av [Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/). Mer information om den här modulen finns i artikeln [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Du kan använda följande cmdlets för att visa de borttagna grupperna och kontrollera att den eller de grupper som du är intresserad av inte har raderats permanent än. Dessa cmdlets är en del av [Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/). Mer information om den här modulen finns i artikeln [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2).
 
 1.  Kör följande cmdlet för att visa alla borttagna Microsoft 365 grupper i din Azure AD-organisation som fortfarande är tillgängliga för återställning.
    

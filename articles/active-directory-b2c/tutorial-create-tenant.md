@@ -7,19 +7,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/24/2020
+ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c15b3a64b4a0017c5c352e08cebc796537255479
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5229175af618f897caeae7310338cbe51966a48d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447039"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859620"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Självstudie: Skapa en klientorganisation i Azure Active Directory B2C
 
-Innan dina program kan interagera med Azure Active Directory B2C (Azure AD B2C) måste de registreras i en klient som du hanterar.
+Innan dina program kan interagera med Azure Active Directory B2C (Azure AD B2C) måste de registreras i en klient som du hanterar. 
+
+> [!NOTE]
+> Du kan skapa upp till 20 klienter per prenumeration. Den här gränsen hjälper till att skydda mot hot mot dina resurser, till exempel DOS-attacker (Denial-of-Service) och framtvingas i både Azure Portal och den underliggande API: n för skapande av klient organisationer. Om du behöver skapa fler än 20 klienter kontaktar du [Microsoft Support](support-options.md).
 
 I den här artikeln kan du se hur du:
 
@@ -46,8 +49,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
     ![Prenumerations klient, katalog + prenumerations filter med vald prenumerations klient](media/tutorial-create-tenant/portal-01-pick-directory.png)
 
 1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**.
+
+   ![Välj knappen Skapa en resurs](media/tutorial-create-tenant/create-a-resource.png)
+
 1. Sök efter **Azure Active Directory B2C** och välj sedan **skapa**.
-1. Välj **Skapa en ny Azure AD B2C-klient**.
+2. Välj **Skapa en ny Azure AD B2C-klient**.
 
     ![Skapa en ny Azure AD B2C klient som valts i Azure Portal](media/tutorial-create-tenant/portal-02-create-tenant.png)
 
@@ -57,7 +63,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
    - **Första domän namn** – ange ett domän namn för Azure AD B2C klient organisationen.
    - **Land eller region** – Välj land eller region i listan. Det går inte att ändra det här valet senare.
    - **Prenumeration** – välj din prenumeration i listan.
-   - **Resurs grupp** – Välj en resurs grupp som ska innehålla klient organisationen. Eller Välj **Skapa ny**, ange ett **namn** för resurs gruppen, Välj **resurs gruppens plats** och välj sedan **OK**.
+   - **Resurs grupp** – Välj eller Sök efter den resurs grupp som ska innehålla klient organisationen.
 
     ![Skapa klient organisations formulär i med exempel värden i Azure Portal](media/tutorial-create-tenant/review-and-create-tenant.png)
 

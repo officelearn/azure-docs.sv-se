@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e46dabc665d383279a12fc6bd8eb67475d88a2ea
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 82f0408b7e46493f6c3ec62d48a992e87f196f78
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896080"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860617"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Lägg till ett anpassat godkännande arbets flöde till självbetjänings registrering
 
@@ -32,9 +32,9 @@ Den här artikeln innehåller ett exempel på hur du integrerar med ett godkänn
 Du måste registrera ditt godkännande system som ett program i din Azure AD-klient så att det kan autentiseras med Azure AD och ha behörighet att skapa användare. Lär dig mer om [grunderna för autentisering och auktorisering för Microsoft Graph](/graph/auth/auth-concepts).
 
 1. Logga in till [Azure-portalen](https://portal.azure.com) som Azure AD-administratör.
-2. Under **Azure-tjänster** väljer du **Azure Active Directory** .
-3. Välj **Appregistreringar** på den vänstra menyn och välj sedan **ny registrering** .
-4. Ange ett **namn** för programmet, t. ex. _inloggnings godkännanden_ .
+2. Under **Azure-tjänster** väljer du **Azure Active Directory**.
+3. Välj **Appregistreringar** på den vänstra menyn och välj sedan **ny registrering**.
+4. Ange ett **namn** för programmet, t. ex. _inloggnings godkännanden_.
 
    <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
 
@@ -42,15 +42,15 @@ Du måste registrera ditt godkännande system som ett program i din Azure AD-kli
 
    ![Skärm bild som visar knappen Registrera.](media/self-service-sign-up-add-approvals/register-approvals-app.png)
 
-6. Under **Hantera** i den vänstra menyn väljer du **API-behörigheter** och väljer sedan **Lägg till en behörighet** .
-7. Välj **Microsoft Graph** på sidan **begär API-behörigheter** och välj sedan **program behörigheter** .
-8. Under **Välj behörigheter** expanderar du **användare** och markerar sedan kryss rutan **User. readwrite. all** . Med den här behörigheten kan godkännande systemet skapa användaren vid godkännande. Välj sedan **Lägg till behörigheter** .
+6. Under **Hantera** i den vänstra menyn väljer du **API-behörigheter** och väljer sedan **Lägg till en behörighet**.
+7. Välj **Microsoft Graph** på sidan **begär API-behörigheter** och välj sedan **program behörigheter**.
+8. Under **Välj behörigheter** expanderar du **användare** och markerar sedan kryss rutan **User. readwrite. all** . Med den här behörigheten kan godkännande systemet skapa användaren vid godkännande. Välj sedan **Lägg till behörigheter**.
 
    ![Registrera en program sida](media/self-service-sign-up-add-approvals/request-api-permissions.png)
 
-9. På sidan **API-behörigheter** väljer du **bevilja administrativt medgivande för (ditt klient namn)** och väljer sedan **Ja** .
-10. Under **Hantera** i den vänstra menyn väljer du **certifikat & hemligheter** och väljer sedan **ny klient hemlighet** .
-11. Ange en **Beskrivning** av hemligheten, till exempel _godkännande av klient hemlighet_ , och välj varaktigheten för när klient hemligheten **upphör att gälla** . Välj **Lägg till** .
+9. På sidan **API-behörigheter** väljer du **bevilja administrativt medgivande för (ditt klient namn)** och väljer sedan **Ja**.
+10. Under **Hantera** i den vänstra menyn väljer du **certifikat & hemligheter** och väljer sedan **ny klient hemlighet**.
+11. Ange en **Beskrivning** av hemligheten, till exempel _godkännande av klient hemlighet_, och välj varaktigheten för när klient hemligheten **upphör att gälla**. Välj **Lägg till**.
 12. Kopiera värdet för klient hemligheten.
 
     ![Kopiera klient hemligheten för användning i godkännande systemet](media/self-service-sign-up-add-approvals/client-secret-value-copy.png)
@@ -61,7 +61,7 @@ Du måste registrera ditt godkännande system som ett program i din Azure AD-kli
 
 Härnäst ska du [skapa API-kopplingarna](self-service-sign-up-add-api-connector.md#create-an-api-connector) för ditt självbetjänings registrerings användar flöde. Ditt system-API för godkännande kräver två kopplingar och motsvarande slut punkter, precis som exemplen som visas nedan. Dessa API-kopplingar gör följande:
 
-- **Kontrol lera godkännande statusen** . Skicka ett anrop till godkännande systemet omedelbart efter att en användare loggar in med en identitets leverantör för att kontrol lera om användaren har en befintlig godkännandebegäran eller om den redan har nekats. Om ditt godkännande system endast har automatiska godkännande beslut kanske denna API-anslutning inte behövs. Exempel på API-anslutning "kontrol lera godkännande status".
+- **Kontrol lera godkännande statusen**. Skicka ett anrop till godkännande systemet omedelbart efter att en användare loggar in med en identitets leverantör för att kontrol lera om användaren har en befintlig godkännandebegäran eller om den redan har nekats. Om ditt godkännande system endast har automatiska godkännande beslut kanske denna API-anslutning inte behövs. Exempel på API-anslutning "kontrol lera godkännande status".
 
   ![Kontrol lera godkännande status API Connector-konfiguration](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
@@ -76,17 +76,17 @@ Följ stegen i [skapa en API-anslutning](self-service-sign-up-add-api-connector.
 Nu ska du lägga till API-kopplingarna i ett användar flöde för självbetjänings registrering med följande steg:
 
 1. Logga in till [Azure-portalen](https://portal.azure.com/) som Azure AD-administratör.
-2. Under **Azure-tjänster** väljer du **Azure Active Directory** .
-3. På den vänstra menyn väljer du **externa identiteter** .
+2. Under **Azure-tjänster** väljer du **Azure Active Directory**.
+3. På den vänstra menyn väljer du **externa identiteter**.
 4. Välj **användar flöden (förhands granskning)** och välj sedan det användar flöde som du vill aktivera API-kopplingen för.
 5. Välj **API-kopplingar** och välj sedan de API-slutpunkter som du vill anropa i följande steg i användar flödet:
 
-   - **När du har loggat in med en identitetsprovider** : Välj din godkännande status API-koppling, till exempel _kontrol lera godkännande status_ .
-   - **Innan du skapar användaren** : Välj din API-koppling för godkännande förfrågan, t. ex. _begäran om godkännande_ .
+   - **När du har loggat in med en identitetsprovider**: Välj din godkännande status API-koppling, till exempel _kontrol lera godkännande status_.
+   - **Innan du skapar användaren**: Välj din API-koppling för godkännande förfrågan, t. ex. _begäran om godkännande_.
 
    ![Lägga till API: er i användar flödet](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
 
-6. Välj **Spara** .
+6. Välj **Spara**.
 
 ## <a name="control-the-sign-up-flow-with-api-responses"></a>Kontrol lera registrerings flödet med API-svar
 
@@ -207,7 +207,7 @@ De exakta anspråk som skickas till API: n beror på vilken information som saml
 
 API-slutpunkten för **begär ande godkännande** bör returnera ett fortsättnings svar om:
 
-- Användaren kan **_godkännas automatiskt_** .
+- Användaren kan **_godkännas automatiskt_**.
 
 Exempel på fortsättnings svar:
 
@@ -270,7 +270,7 @@ När du har fått manuellt godkännande skapar det anpassade godkännande system
 > [!IMPORTANT]
 > Godkännande systemet bör uttryckligen kontrol lera att `identities` `identities[0]` och `identities[0].issuer` är närvarande och att det är `identities[0].issuer` lika med "Facebook" eller "Google" för att använda den här metoden.
 
-Om användaren har loggat in med ett Google-eller Facebook-konto kan du använda API: et för att [skapa användare](/graph/api/user-post-users?tabs=http&view=graph-rest-1.0).
+Om användaren har loggat in med ett Google-eller Facebook-konto kan du använda API: et för att [skapa användare](/graph/api/user-post-users?tabs=http).
 
 1. Godkännande systemet använder tar emot HTTP-begäran från användar flödet.
 
@@ -330,7 +330,7 @@ Content-type: application/json
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>För en federerad Azure Active Directory användare
 
-Om en användare loggar in med ett federerat Azure Active Directory-konto måste du använda [Inbjudnings-API: et](/graph/api/invitation-post?view=graph-rest-1.0) för att skapa användaren och sedan välja [användar uppdaterings-API](/graph/api/user-update?view=graph-rest-1.0) för att tilldela fler attribut till användaren.
+Om en användare loggar in med ett federerat Azure Active Directory-konto måste du använda [Inbjudnings-API: et](/graph/api/invitation-post) för att skapa användaren och sedan välja [användar uppdaterings-API](/graph/api/user-update) för att tilldela fler attribut till användaren.
 
 1. Godkännande systemet tar emot HTTP-begäran från användar flödet.
 

@@ -1,5 +1,5 @@
 ---
-title: Planera och felsöka ändringar i Azure User princip namn (UPN)
+title: Planera och felsöka ändringar i Azure User Principal Name (UPN)
 description: Förstå kända problem och begränsningar vid ändringar i UPN
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59b304505c29f424d85d5b1e16dc83c060ac2ac1
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 19e40d135316c1c7cd270d2804fff1f487937685
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744606"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858543"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planera och Felsök ändringar av UPN-namn i Azure Active Directory
 
@@ -135,7 +135,7 @@ Användare kan stöta på problem med enkel inloggning med program som är beroe
 Problemen som nämns i det här avsnittet har åtgärd ATS i Windows 10 maj 2020 Update (2004).
 
 **Lösning** <br>
-Tillåt tillräckligt med tid för att UPN-ändringen ska synkroniseras med Azure AD. När du har kontrollerat att det nya UPN visas på Azure AD-portalen ber du användaren att välja panelen "annan användare" för att logga in med sitt nya UPN. Du kan också kontrol lera genom [PowerShell](/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). När du har loggat in med sitt nya UPN kan referenser till det gamla UPN fortfarande visas i Windows-inställningen "åtkomst till arbets plats eller skola".
+Tillåt tillräckligt med tid för att UPN-ändringen ska synkroniseras med Azure AD. När du har kontrollerat att det nya UPN visas på Azure AD-portalen ber du användaren att välja panelen "annan användare" för att logga in med sitt nya UPN. Du kan också kontrol lera genom [PowerShell](/powershell/module/azuread/get-azureaduser). När du har loggat in med sitt nya UPN kan referenser till det gamla UPN fortfarande visas i Windows-inställningen "åtkomst till arbets plats eller skola".
 
 ![Skärm bild av verifierade domäner](./media/howto-troubleshoot-upn-changes/other-user.png)
 

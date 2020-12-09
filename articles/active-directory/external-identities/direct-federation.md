@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a23056445331c82aded878a77d1e0e730e4e2ceb
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5beae56a5d38c4620481c27c3f42c52602984e6b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339480"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860634"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Direkt Federation med AD FS och tredje parts leverantörer för gäst användare (för hands version)
 
@@ -66,7 +66,7 @@ När du till exempel ställer in direkt Federation för _ * fabrikam. com * *, `
 Om du anger URL: en för metadata i inställningarna för identitetsprovider förnyar Azure AD automatiskt signerings certifikatet när det upphör att gälla. Men om certifikatet roteras av någon anledning innan förfallo tiden, eller om du inte anger en URL för metadata, kan inte Azure AD förnya det. I så fall måste du uppdatera signerings certifikatet manuellt.
 
 ### <a name="limit-on-federation-relationships"></a>Gräns för Federations relationer
-För närvarande stöds högst 1 000 Federations relationer. Den här gränsen omfattar både [interna federationar](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) och direkta federationer.
+För närvarande stöds högst 1 000 Federations relationer. Den här gränsen omfattar både [interna federationar](/powershell/module/msonline/set-msoldomainfederationsettings) och direkta federationer.
 
 ### <a name="limit-on-multiple-domains"></a>Begränsa för flera domäner
 Vi stöder för närvarande inte direkt Federation med flera domäner från samma klient organisation.

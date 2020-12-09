@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 12/02/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d808b920ddc6ff6f1d44252c27d67edd9c0dc353
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 826ca9fc20d8bbcf9a5f90ccc895b9f9867a6be1
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575524"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860583"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Återkalla användar åtkomst i Azure Active Directory
 
@@ -60,13 +60,13 @@ För en hybrid miljö med en lokal Active Directory som är synkroniserad med Az
 
 Som administratör i Active Directory ansluter du till ditt lokala nätverk, öppnar PowerShell och vidtar följande åtgärder:
 
-1. Inaktivera användaren i Active Directory. Se [disable-ADAccount](/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
+1. Inaktivera användaren i Active Directory. Se [disable-ADAccount](/powershell/module/addsadministration/disable-adaccount).
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-1. Återställ användarens lösen ord två gånger i Active Directory. Referera till [set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
+1. Återställ användarens lösen ord två gånger i Active Directory. Referera till [set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword).
 
     > [!NOTE]
     > Anledningen till att ändra en användares lösen ord två gånger är att minska risken för pass-The-hash, särskilt om det finns fördröjningar i lokal lösenordsreplikering. Om du på ett säkert sätt kan anta att det här kontot inte komprometteras kan du bara återställa lösen ordet en gång.
@@ -83,18 +83,18 @@ Som administratör i Active Directory ansluter du till ditt lokala nätverk, öp
 
 Som administratör i Azure Active Directory öppnar du PowerShell, kör ``Connect-AzureAD`` och vidtar följande åtgärder:
 
-1. Inaktivera användaren i Azure AD. Referera till [set-AzureADUser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
+1. Inaktivera användaren i Azure AD. Referera till [set-AzureADUser](/powershell/module/azuread/Set-AzureADUser).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
-1. Återkalla användarens Azure AD-uppdateringstoken. Se [återkalla-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+1. Återkalla användarens Azure AD-uppdateringstoken. Se [återkalla-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-1. Inaktivera användarens enheter. Se [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
+1. Inaktivera användarens enheter. Se [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false

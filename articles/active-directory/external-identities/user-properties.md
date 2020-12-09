@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd0a2b44fd54eb716b5e1b8f9eabc923ccd7977f
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4c97958add682a4c49d7832843c0b95ffd2663bf
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285852"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859639"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Egenskaper för en Azure Active Directory B2B-samarbets användare
 
@@ -59,7 +59,7 @@ För gäst användare i läge 2 är **källan** Microsoft- **konto**.
 
 ![Tillstånd 2 gäst användare efter inlösen av erbjudandet](media/user-properties/after-redemption-state2.png)
 
-För gäst användare i läge 3 och State 4 anges egenskapen **Source** till **Azure Active Directory** eller **Windows Server Active Directory** , enligt beskrivningen i nästa avsnitt.
+För gäst användare i läge 3 och State 4 anges egenskapen **Source** till **Azure Active Directory** eller **Windows Server Active Directory**, enligt beskrivningen i nästa avsnitt.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Nyckel egenskaper för Azure AD B2B Collaboration-användare
 ### <a name="usertype"></a>UserType
@@ -110,7 +110,7 @@ Ja. Gäst objekt visas som standard inte i din organisations globala adress list
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Kan jag uppdatera en gäst användares e-postadress?
 
-Om en gäst användare accepterar din inbjudan och senare ändrar sin e-postadress, synkroniseras inte den nya e-postadressen automatiskt med gäst användar objekt i din katalog. E-postegenskapen skapas via [Microsoft Graph-API](/graph/api/resources/user?view=graph-rest-1.0). Du kan uppdatera e-postegenskapen via Microsoft Graph API, administrations Center för Exchange eller [Exchange Online PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). Ändringen visas i Azure AD-objektet gäst användare.
+Om en gäst användare accepterar din inbjudan och senare ändrar sin e-postadress, synkroniseras inte den nya e-postadressen automatiskt med gäst användar objekt i din katalog. E-postegenskapen skapas via [Microsoft Graph-API](/graph/api/resources/user). Du kan uppdatera e-postegenskapen via Microsoft Graph API, administrations Center för Exchange eller [Exchange Online PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser). Ändringen visas i Azure AD-objektet gäst användare.
 
 ## <a name="next-steps"></a>Nästa steg
 

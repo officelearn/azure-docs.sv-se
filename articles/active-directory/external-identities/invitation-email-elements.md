@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1e1bbdfe1cb83f9b479861840081cd0bb138957
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: bb134a2fb784e02f5e00c9e88ab0df1794489e0c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441886"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860600"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementen i e-postinbjudanen B2B – Azure Active Directory
 
@@ -85,8 +85,8 @@ En gäst användare kan följa de här stegen för att visa eller exportera de o
 
 Det språk som visas för gäst användaren i e-postinbjudan avgörs av följande inställningar. De här inställningarna visas i prioritetsordning. Om en inställning inte är konfigurerad, bestämmer nästa inställning i listan språket.
 
-- Egenskapen **messageLanguage** för objektet [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) om API för att skapa inbjudan används
--   Egenskapen **preferredLanguage** som angetts i gästens [användar objekt](/graph/api/resources/user?view=graph-rest-1.0)
+- Egenskapen **messageLanguage** för objektet [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo) om API för att skapa inbjudan används
+-   Egenskapen **preferredLanguage** som angetts i gästens [användar objekt](/graph/api/resources/user)
 -   **Meddelande språket** som anges i egenskaperna för gäst användarens hem klient organisation (endast för Azure AD-klienter)
 -   **Meddelande språket** som anges i egenskaperna för resurs klienten
 

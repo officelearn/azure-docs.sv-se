@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7a77c110c12fd6b42e8defbe43a40579b9c6588
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 681f5a6cecd43eb69adf24544c774cbd22da8a49
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168771"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860549"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Felsöka Azure Active Directory B2B-samarbete
 
@@ -52,7 +52,7 @@ Vanliga fel är:
 
 ### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>Inbjudans administratör har inte tillåtet EmailVerified-användare från att skapas i sin klient organisation
 
-När du bjuder in användare vars organisation använder Azure Active Directory, men där den särskilda användarens konto inte finns (till exempel om användaren inte finns i Azure AD contoso.com). Administratören för contoso.com kan ha en princip på plats som hindrar användare från att skapas. Användaren måste kontakta administratören för att avgöra om externa användare tillåts. Den externa användarens administratör kan behöva tillåta e-postverifierade användare i sin domän (se den här [artikeln](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) om att tillåta e-postverifierade användare).
+När du bjuder in användare vars organisation använder Azure Active Directory, men där den särskilda användarens konto inte finns (till exempel om användaren inte finns i Azure AD contoso.com). Administratören för contoso.com kan ha en princip på plats som hindrar användare från att skapas. Användaren måste kontakta administratören för att avgöra om externa användare tillåts. Den externa användarens administratör kan behöva tillåta e-postverifierade användare i sin domän (se den här [artikeln](/powershell/module/msonline/set-msolcompanysettings) om att tillåta e-postverifierade användare).
 
 ![Fel som anger att klienten inte tillåter e-postverifierade användare](media/troubleshoot/allow-email-verified-users.png)
 

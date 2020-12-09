@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf46de59fe6c7e5b985a23f80d9b5a30f56903db
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 95625886ed11256a40e5993540d7e545134d6dd6
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547261"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860872"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Vad är självbetjänings registrering för Azure Active Directory?
 
@@ -77,13 +77,13 @@ Följande flödes diagram förklarar de olika kombinationerna för dessa paramet
 
 ![flödes schema för självbetjänings registrerings kontroller](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
-Information om den här inställningen kan hämtas av följande PowerShell-cmdlet Get-MsolCompanyInformation. Mer information om detta finns i [Get-MsolCompanyInformation](/powershell/module/msonline/get-msolcompanyinformation?view=azureadps-1.0).
+Information om den här inställningen kan hämtas av följande PowerShell-cmdlet Get-MsolCompanyInformation. Mer information om detta finns i [Get-MsolCompanyInformation](/powershell/module/msonline/get-msolcompanyinformation).
 
 ```powershell
     Get-MsolCompanyInformation | Select AllowEmailVerifiedUsers, AllowAdHocSubscriptions
 ```
 
-Mer information och exempel på hur du använder dessa parametrar finns i [set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
+Mer information och exempel på hur du använder dessa parametrar finns i [set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -91,5 +91,5 @@ Mer information och exempel på hur du använder dessa parametrar finns i [set-M
 * [Hur du installerar och konfigurerar Azure PowerShell](/powershell/azure/)
 * [Azure PowerShell](/powershell/azure/)
 * [Azure Cmdlet-referens](/powershell/azure/get-started-azureps)
-* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
+* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings)
 * [Stäng ditt arbets-eller skol konto i en ohanterad katalog](users-close-account.md)

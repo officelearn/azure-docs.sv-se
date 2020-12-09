@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe19a1fadd54b7146ccb074d82a68ec259100f2
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 5316a1647c96076696b14de157e74e2155a6b368
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093267"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860022"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Självstudie: Konfigurera anslutna Azure Active Directory-hybridenheter manuellt
 
@@ -25,7 +25,7 @@ Med enhetshanteringen i Azure Active Directory (Azure AD) kan du se till att anv
 > [!TIP]
 > Om användning av Azure AD Connect är ett möjligt alternativ för dig kan du läsa relaterade självstudier för [hanterade](hybrid-azuread-join-managed-domains.md) eller [federerade](hybrid-azuread-join-federated-domains.md) domäner. Genom att använda Azure AD Connect kan du avsevärt förenkla konfigurationen av Hybrid Azure AD-anslutningen.
 
-Om du har en lokal Active Directory-miljö och du vill ansluta dina domänanslutna enheter till Azure AD kan du göra det genom att konfigurera Hybrid Azure AD-anslutna enheter. I de här självstudierna får du lära dig att
+Om du har en lokal Active Directory-miljö och du vill ansluta dina domänanslutna enheter till Azure AD kan du göra det genom att konfigurera Hybrid Azure AD-anslutna enheter. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera Azure AD-hybridanslutning manuellt
@@ -35,7 +35,7 @@ Om du har en lokal Active Directory-miljö och du vill ansluta dina domänanslut
 > * Verifiera anslutna enheter
 > * Felsöka din implementering
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I den här självstudien förutsätts att du känner till:
 
@@ -169,7 +169,7 @@ I föregående skript är `$verifiedDomain = "contoso.com"` en platshållare. Er
 
 Mer information om verifierade domännamn finns i [Lägga till ett anpassat domännamn i Azure Active Directory](../fundamentals/add-custom-domain.md).
 
-Om du vill hämta en lista över verifierade företagsdomäner kan du använda cmdleten [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0).
+Om du vill hämta en lista över verifierade företagsdomäner kan du använda cmdleten [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain).
 
 ![Lista över företagsdomäner](./media/hybrid-azuread-join-manual/01.png)
 
@@ -328,7 +328,7 @@ I föregående anspråk är `<verified-domain-name>` en platshållare. Ersätt d
 
 Mer information om verifierade domännamn finns i [Lägga till ett anpassat domännamn i Azure Active Directory](../fundamentals/add-custom-domain.md).  
 
-Om du vill hämta en lista över verifierade företagsdomäner kan du använda cmdleten [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0).
+Om du vill hämta en lista över verifierade företagsdomäner kan du använda cmdleten [Get-MsolDomain](/powershell/module/msonline/get-msoldomain).
 
 ![Lista över företagsdomäner](./media/hybrid-azuread-join-manual/01.png)
 
@@ -561,16 +561,16 @@ Här är tre sätt att hitta och kontrol lera enhets status:
 3. Kontrol lera att både **AzureAdJoined** och **DomainJoined** har angetts till **Ja**.
 4. Du kan använda **DeviceID** och jämföra statusen för tjänsten med hjälp av antingen Azure Portal eller PowerShell.
 
-### <a name="using-the-azure-portal"></a>Använda Azure Portal
+### <a name="using-the-azure-portal"></a>Använda Azure-portalen
 
 1. Gå till sidan enheter med en [direkt länk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
 2. Information om hur du hittar en enhet hittar [du i hantera enhets identiteter med hjälp av Azure Portal](./device-management-azure-portal.md#manage-devices).
 3. Om den **registrerade** kolumnen säger **väntar**, slutförs inte hybrid Azure AD Join. I federerade miljöer kan detta bara inträffa om det inte kunde registreras och AAD Connect har kon figurer ATS för att synkronisera enheterna.
-4. Om den **registrerade** kolumnen innehåller ett **datum/tid**har hybrid Azure AD Join slutförts.
+4. Om den **registrerade** kolumnen innehåller ett **datum/tid** har hybrid Azure AD Join slutförts.
 
 ### <a name="using-powershell"></a>Använda PowerShell
 
-Verifiera enhetens registrerings tillstånd i din Azure-klient med hjälp av **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. Denna cmdlet finns i [Azure Active Directory PowerShell-modulen](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
+Verifiera enhetens registrerings tillstånd i din Azure-klient med hjälp av **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. Denna cmdlet finns i [Azure Active Directory PowerShell-modulen](/powershell/azure/active-directory/install-msonlinev1).
 
 När du använder cmdleten **Get-MSolDevice** för att kontrol lera tjänst informationen:
 

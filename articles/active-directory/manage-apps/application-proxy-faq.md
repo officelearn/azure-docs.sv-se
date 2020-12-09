@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: ef38c5364a0df1df63be825e2c46009174840b72
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e9a03c82fd4bd79e7a47fa34ff7a69870c52f018
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658136"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858390"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Vanliga frågor och svar om Active Directory (Azure AD) Application Proxy
 
@@ -204,5 +204,5 @@ Det här scenariot stöds inte direkt. Alternativen för det här scenariot är:
 1. Publicera både HTTP-och HTTPS-URL: er som separata program med jokertecken, men ge var och en av dem en annan anpassad domän. Den här konfigurationen kommer att fungera eftersom de har olika externa URL: er.
 
 2. Publicera HTTPS-URL: en via ett program med jokertecken. Publicera HTTP-programmen separat med dessa PowerShell-cmdletar för programproxy:
-   - [Application Proxy-programhantering](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
-   - [Application Proxy Connector-hantering](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)
+   - [Application Proxy-programhantering](/powershell/module/azuread/#application_proxy_application_management&preserve-view=true)
+   - [Application Proxy Connector-hantering](/powershell/module/azuread/#application_proxy_connector_management&preserve-view=true)

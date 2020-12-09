@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e85f36f1b970a4848ee132fe37bd1b0f4f4fdc82
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: d8bc1a96109eda9cc2ee1f86cec892cc5ce9308d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489530"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860328"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Gör så här: blockera äldre autentisering till Azure AD med villkorlig åtkomst   
 
@@ -35,7 +35,7 @@ Alex Weinert, chef för identitets säkerhet på Microsoft, i den 12 mars 2020 b
 
 Om din miljö är redo att blockera äldre autentisering för att förbättra din klients skydd kan du uppnå det här målet med villkorlig åtkomst. Den här artikeln förklarar hur du kan konfigurera principer för villkorlig åtkomst som blockerar äldre autentisering för din klient.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du är bekant med de [grundläggande begreppen](overview.md) för villkorlig åtkomst i Azure AD.
 
@@ -119,7 +119,7 @@ Du kan välja alla tillgängliga beviljade kontroller för villkoret **andra kli
 
 ### <a name="sharepoint-online-and-b2b-guest-users"></a>SharePoint Online-och B2B-gäst användare
 
-För att blockera B2B-användare via äldre autentisering till SharePoint Online måste organisationer inaktivera äldre autentisering i SharePoint med hjälp av `Set-SPOTenant` PowerShell-kommandot och ange `-LegacyAuthProtocolsEnabled` parametern till `$false` . Mer information om hur du anger den här parametern finns i referens dokumentet för SharePoint PowerShell gällande [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)
+För att blockera B2B-användare via äldre autentisering till SharePoint Online måste organisationer inaktivera äldre autentisering i SharePoint med hjälp av `Set-SPOTenant` PowerShell-kommandot och ange `-LegacyAuthProtocolsEnabled` parametern till `$false` . Mer information om hur du anger den här parametern finns i referens dokumentet för SharePoint PowerShell gällande [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant)
 
 ## <a name="next-steps"></a>Nästa steg
 

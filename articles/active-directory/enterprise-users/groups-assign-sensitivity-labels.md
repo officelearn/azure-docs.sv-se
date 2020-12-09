@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4931006ba690ff7e059da5de8b0bc816271af30c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 3b40171d87ccffa7c5c4fb72d2e79af015b1d16f
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547907"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859971"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Tilldela känslighets etiketter till Microsoft 365 grupper i Azure Active Directory
 
@@ -68,7 +68,7 @@ Om du vill tillämpa publicerade etiketter på grupper måste du först aktivera
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-Du måste också synkronisera dina känslighets etiketter till Azure AD. Instruktioner finns i [så här aktiverar du känslighets etiketter för behållare och synkronisera etiketter](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
+Du måste också synkronisera dina känslighets etiketter till Azure AD. Instruktioner finns i [så här aktiverar du känslighets etiketter för behållare och synkronisera etiketter](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Tilldela en etikett till en ny grupp i Azure Portal
 

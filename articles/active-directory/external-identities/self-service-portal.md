@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f9cd421224ad134b4df853b06b3bc34333a0613
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8a5b800e78448afcc970010535ba12b543d3cc74
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896114"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860515"
 ---
 # <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>Registrera dig för Azure AD B2B-samarbete via självbetjäning
 
@@ -28,7 +28,7 @@ Som bjudande organisation kanske du inte vet i förväg vilka enskilda externa m
 
 ## <a name="azure-active-directory-b2b-invitation-api"></a>API för inbjudan till Azure Active Directory B2B
 
-Organisationer kan använda [API: et Microsoft Graph Inbjudnings hanteraren](/graph/api/resources/invitation?view=graph-rest-1.0) för att bygga sina egna onboarding-upplevelser för B2B-gäst användare. När du vill erbjuda självbetjäning B2B gäst användar registrering rekommenderar vi att du använder [hantering av Azure AD-rättigheter](../governance/entitlement-management-overview.md). Men om du vill skapa en egen upplevelse kan du använda [API: et för att skapa inbjudan](/graph/api/invitation-post?tabs=http&view=graph-rest-1.0) för att automatiskt skicka den anpassade e-postinbjudan direkt till B2B-användaren, till exempel. Eller så kan din app använda inviteRedeemUrl som returnerades i ett svar för att skapa en egen inbjudan (via din kommunikations mekanism) till den inbjudna användaren.
+Organisationer kan använda [API: et Microsoft Graph Inbjudnings hanteraren](/graph/api/resources/invitation) för att bygga sina egna onboarding-upplevelser för B2B-gäst användare. När du vill erbjuda självbetjäning B2B gäst användar registrering rekommenderar vi att du använder [hantering av Azure AD-rättigheter](../governance/entitlement-management-overview.md). Men om du vill skapa en egen upplevelse kan du använda [API: et för att skapa inbjudan](/graph/api/invitation-post?tabs=http) för att automatiskt skicka den anpassade e-postinbjudan direkt till B2B-användaren, till exempel. Eller så kan din app använda inviteRedeemUrl som returnerades i ett svar för att skapa en egen inbjudan (via din kommunikations mekanism) till den inbjudna användaren.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,18 +1,18 @@
 ---
 title: Villkorlig distribution med mallar
-description: Beskriver hur du villkorligt distribuerar en resurs i en Azure Resource Manager-mall.
+description: Beskriver hur du villkorligt distribuerar en resurs i en Azure Resource Manager-mall (ARM-mall).
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: effa7fe6ee1393e44a124bc087609da5d4898210
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a31bd1fbf755046f331542b4d5952b27a793360
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84259328"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906003"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Villkorlig distribution i ARM-mallar
 
-Ibland behöver du eventuellt distribuera en resurs i en Azure Resource Manager-mall (ARM). Använd- `condition` elementet för att ange om resursen har distribuerats. Värdet för det här elementet matchas till true eller false. När värdet är true skapas resursen. När värdet är false skapas inte resursen. Värdet kan bara användas för hela resursen.
+Ibland behöver du eventuellt distribuera en resurs i en Azure Resource Manager-mall (ARM-mall). Använd- `condition` elementet för att ange om resursen har distribuerats. Värdet för det här elementet matchas till true eller false. När värdet är true skapas resursen. När värdet är false skapas inte resursen. Värdet kan bara användas för hela resursen.
 
 > [!NOTE]
 > Villkorlig distribution överlappar inte [underordnade resurser](child-resource-name-type.md). Om du vill villkorligt distribuera en resurs och dess underordnade resurser måste du tillämpa samma villkor för varje resurs typ.
@@ -36,7 +36,7 @@ Du kan använda villkorlig distribution för att skapa en ny resurs eller använ
 }
 ```
 
-När parametern **newOrExisting** har angetts till **New**utvärderas villkoret som sant. Lagrings kontot har distribuerats. Men när **newOrExisting** är inställt på **befintlig**, utvärderas villkoret till falskt och lagrings kontot distribueras inte.
+När parametern **newOrExisting** har angetts till **New** utvärderas villkoret som sant. Lagrings kontot har distribuerats. Men när **newOrExisting** är inställt på **befintlig**, utvärderas villkoret till falskt och lagrings kontot distribueras inte.
 
 En fullständig exempel mall som använder `condition` -elementet finns i [VM med en ny eller befintlig Virtual Network, lagring och offentlig IP-adress](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
 

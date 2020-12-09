@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 25f3402864e2ba873ce63acb6cedcd3f2ea018f7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9ff923d0231a1b00493a54996c2fcd489012bbe7
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123140"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862045"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Azure AD PowerShell-cmdletar för rapportering
 
@@ -36,7 +36,7 @@ Använd följande om du vill installera den offentliga för hands versionen.
 Install-module AzureADPreview
 ```
 
-Mer information om hur du ansluter till Azure AD med hjälp av PowerShell finns i artikeln [Azure AD PowerShell för Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
+Mer information om hur du ansluter till Azure AD med hjälp av PowerShell finns i artikeln [Azure AD PowerShell för Graph](/powershell/azure/active-directory/install-adv2).  
 
 Med Azure Active Directory (Azure AD)-rapporter kan du få information om aktiviteter kring alla Skriv åtgärder i din riktning (gransknings loggar) och autentiserings data (inloggnings loggar). Även om informationen är tillgänglig med hjälp av MS-Graph API kan du hämta samma data med hjälp av Azure AD PowerShell-cmdlets för rapportering.
 

@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: 297db67b80f9e5ae04e3c10f370ece9b5fdedee3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: azureday1
+ms.openlocfilehash: a8bd2ef1348692bf57f7e5cb7b6606cfcfd324fe
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96020457"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905578"
 ---
 # <a name="tutorial-add-authentication-to-your-web-app-running-on-azure-app-service"></a>Självstudie: Lägg till autentisering i din webbapp som körs på Azure App Service
 
@@ -27,7 +28,7 @@ App Service tillhandahåller stöd för inbyggd autentisering och auktorisering,
 
 Modulen autentisering/auktorisering är aktive rad och konfigurerad via Azure Portal-och app-inställningar. Inga SDK: er, specifika språk eller ändringar av program kod krävs. En rad identitets leverantörer stöds, som innehåller Azure AD, Microsoft-konto, Facebook, Google och Twitter. När modulen autentisering/auktorisering är aktive rad passerar varje inkommande HTTP-begäran genom den innan den hanteras av app-koden. Mer information finns [i autentisering och auktorisering i Azure App Service](overview-authentication-authorization.md).
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >

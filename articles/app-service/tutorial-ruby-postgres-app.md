@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: 7d6c0d13e440beb9a934adba3908cc9a08f396f1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b3c172584c42e1ed1d7ca94b6cd51bedd4e49dae
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997967"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862300"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Skapa en Ruby- och Postgres-app i Azure App Service på Linux
 
@@ -18,7 +18,7 @@ ms.locfileid: "95997967"
 
 :::image type="content" source="./media/tutorial-ruby-postgres-app/complete-checkbox-published.png" alt-text="Skärm bild av ett exempel på en Ruby on-app med titeln uppgifter.":::
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en PostgreSQL-databas i Azure
@@ -30,14 +30,15 @@ I de här självstudierna får du lära dig att
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
-* [Installera Git](https://git-scm.com/)
-* [Installera ruby 2,6](https://www.ruby-lang.org/en/documentation/installation/)
-* [Installera Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
-* [Installera och kör PostgreSQL](https://www.postgresql.org/download/)
+- [Installera Git](https://git-scm.com/)
+- [Installera ruby 2,6](https://www.ruby-lang.org/en/documentation/installation/)
+- [Installera Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
+- [Installera och kör PostgreSQL](https://www.postgresql.org/download/)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="prepare-local-postgres"></a>Förbereda lokala Postgres
 
@@ -103,8 +104,6 @@ Gå till `http://localhost:3000` i en webbläsare. Lägg till några uppgifter p
 ![Ruby on Rails ansluter till Postgres](./media/tutorial-ruby-postgres-app/postgres-connect-success.png)
 
 Om du vill stoppa Rails-servern skriver du `Ctrl + C` i terminalen.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-postgres-in-azure"></a>Skapa Postgres i Azure
 
@@ -292,7 +291,7 @@ git remote add azure <paste-copied-url-here>
 Skicka till Azure-fjärrdatabasen för att distribuera Ruby on Rails-appen. Du uppmanas att ange lösenordet du angav tidigare. Det behövs för att skapa distributionsanvändaren.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 Under distributionen meddelar Azure App Service förloppet till Git.
@@ -303,7 +302,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -422,7 +421,7 @@ Genomför alla ändringar på Git och skicka sedan kodändringarna till Azure.
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 När `git push` har slutförts så kan du gå till Azure-appen och prova de nya funktionerna.

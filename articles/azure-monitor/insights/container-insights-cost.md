@@ -3,14 +3,14 @@ title: Övervaknings kostnad för Azure Monitor för behållare | Microsoft Docs
 description: I den här artikeln beskrivs övervaknings kostnaden för mått & inventerings data som samlas in av Azure Monitor för behållare för att hjälpa kunderna att hantera deras användning och tillhör ande kostnader.
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: a03e94fa7650c56a4d3b3beda3c27283329aebbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81a20f564af68c3da6d63394e4cffe7caed91b46
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84204658"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903231"
 ---
-# <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Förstå övervaknings kostnader för Azure Monitor för behållare
+# <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Förstå övervakningskostnader för containrar i Azure Monitor
 
 Den här artikeln innehåller pris vägledning för Azure Monitor för behållare som hjälper dig att förstå följande:
 
@@ -110,7 +110,7 @@ Om du har aktiverat övervakning av ett AKS-kluster som har kon figurer ATS på 
 
 Du kan se tabeller och volymer med data som genereras per timme i den tilldelade Log Analytics-arbetsytan. Mer information om var och en av dessa tabeller finns i [container poster](container-insights-log-search.md#container-records).
 
-|Tabell | Storleks uppskattning (MB/timme) |
+|Tabeller | Storleks uppskattning (MB/timme) |
 |------|---------------|
 |Prest | 12,9 |
 |InsightsMetrics | 11,3 |
@@ -127,19 +127,21 @@ Med standard [priset](https://azure.microsoft.com/pricing/details/monitor/) för
 
 ## <a name="controlling-ingestion-to-reduce-cost"></a>Styr inmatningen för att minska kostnaderna
 
-Överväg ett scenario där organisationens olika affär senhet delar Kubernetes-infrastruktur och en Log Analytics arbets yta. Med varje affär senhet separerad med ett Kubernetes-namnområde. Du kan visualisera hur mycket data som matas in i varje arbets yta med hjälp av en arbets bok som nyligen släppts. Arbets boken med **behållar insikter** , som finns i [galleriet för arbets böcker](../platform/workbooks-overview.md#getting-started), hjälper dig att visualisera data källan utan att behöva bygga ditt eget bibliotek med frågor från vad vi delar i vår dokumentation. I den här arbets boken finns det diagram med vilka du kan visa fakturerbara data från sådana perspektiv som:
+Överväg ett scenario där organisationens olika affär senhet delar Kubernetes-infrastruktur och en Log Analytics arbets yta. Med varje affär senhet separerad med ett Kubernetes-namnområde. Du kan visualisera hur mycket data som matas in i varje arbets yta med hjälp av runbooken för **data användning** som är tillgängligt i list rutan **Visa arbets böcker** .
+
+[![Visa List rutan med arbets böcker](media/container-insights-cost/workbooks-dropdown.png)](media/container-insights-cost/workbooks-dropdown.png#lightbox)
+
+
+Med den här arbets boken kan du visualisera källan till dina data utan att behöva bygga egna bibliotek med frågor från vad vi delar i vår dokumentation. I den här arbets boken finns det diagram med vilka du kan visa fakturerbara data från sådana perspektiv som:
 
 - Totalt antal fakturerbara data som matats in i GB efter lösning
-
 - Fakturerbara data som matats in av behållar loggar (program loggar)
-
 - Fakturerbara container loggar inmatade data per Kubernetes-namnrymd
-
 - Fakturerbara container loggar data som matats in åtskiljda av kluster namn
-
 - Fakturerbara behållar logg data inmatat av logsource-post
-
 - Fakturerbara diagnostikdata som matats in av loggar för den diagnostiska huvud noden
+
+[![Arbets bok för data användning](media/container-insights-cost/data-usage-workbook.png)](media/container-insights-cost/data-usage-workbook.png#lightbox)
 
 Om du vill veta mer om hur du hanterar rättigheter och behörigheter till arbets boken granskar du [åtkomst kontroll](../platform/workbooks-access-control.md).
 

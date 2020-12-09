@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a62aafd8073b5f1a35ba340c48c80f498be2c2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3a7304ffbb7718205ead48e27989d4a169375997
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834463"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861994"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD
 
@@ -93,7 +93,7 @@ När du har aktiverat Azure AD Privileged Identity Management kan du Visa de anv
 * Exchange-administratör
 * SharePoint-administratör
 
-Om du inte har Azure AD Privileged Identity Management i din organisation kan du använda PowerShell- [API: et](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Börja med den globala administratörs rollen eftersom en global administratör har samma behörigheter i alla moln tjänster som din organisation prenumererar på. Dessa behörigheter beviljas oavsett var de tilldelades: i Microsoft 365 administrations Center, Azure Portal eller av Azure AD-modulen för Microsoft PowerShell.
+Om du inte har Azure AD Privileged Identity Management i din organisation kan du använda PowerShell- [API: et](/powershell/module/azuread/get-azureaddirectoryrolemember). Börja med den globala administratörs rollen eftersom en global administratör har samma behörigheter i alla moln tjänster som din organisation prenumererar på. Dessa behörigheter beviljas oavsett var de tilldelades: i Microsoft 365 administrations Center, Azure Portal eller av Azure AD-modulen för Microsoft PowerShell.
 
 Ta bort alla konton som inte längre behövs i dessa roller. Kategorisera sedan de återstående konton som har tilldelats administratörs roller:
 
@@ -358,13 +358,13 @@ Steg 4 i översikten bör implementeras på sex månader och mer. Slutför din �
 
 Att skydda privilegie rad åtkomst är viktigt för att upprätta säkerhets garantier för företagets till gångar. Det bör dock ingå i ett komplett säkerhets program som tillhandahåller säkerhets garantier som pågår. Det här programmet bör innehålla element som:
 
-* Policy
-* Operations
+* Princip
+* Åtgärder
 * Informations säkerhet
 * Servrar
 * Program
 * Datorer
-* Egenskaper
+* Enheter
 * Cloud Fabric
 
 Vi rekommenderar följande metoder när du hanterar privilegierade åtkomst konton:

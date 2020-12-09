@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: dikamath
-ms.openlocfilehash: 0bc3e0ab5b3017c2d051113a57d79214ffce0836
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3033df2021a8d1780caf9b0b7cd4dbe8de2a6050
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967354"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861416"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Vanliga frågor och svar om Azure VMware-lösningen
 
@@ -169,7 +169,7 @@ Den privata moln program varu paketets uppgraderingar behåller program varan i 
 
 Program varan för det privata molnet uppgraderas enligt ett schema som spårar program varu paketets version från VMware. Det privata molnet kräver ingen stillestånds tid för uppgraderingar.
 
-## <a name="connectivity"></a>Anslutning
+## <a name="connectivity"></a>Anslutningar
 
 #### <a name="what-network-ip-address-planning-is-required-to-incorporate-private-clouds-with-on-premises-environments"></a>Vilken nätverks-IP-adress planering krävs för att inkludera privata moln med lokala miljöer?
 
@@ -188,7 +188,7 @@ I Azure Portal aktiverar du Internet anslutning för ett privat moln. Med NSX-T 
 
 #### <a name="do-i-need-to-restrict-access-from-the-internet-to-vms-on-logical-networks-in-a-private-cloud"></a>Behöver jag begränsa åtkomst från Internet till virtuella datorer i logiska nätverk i ett privat moln?
 
-Nej. Inkommande nätverks trafik från Internet direkt till privata moln är inte tillåten.
+Nej. Inkommande nätverks trafik från Internet direkt till privata moln tillåts inte som standard.  Du kan dock exponera virtuella datorer i Azure VMware-lösningen till Internet via det [offentliga IP-](public-ip-usage.md) alternativet i din Azure Portal för Azure VMware-lösningen privat moln.
 
 #### <a name="do-i-need-to-restrict-internet-access-from-vms-on-logical-networks-to-the-internet"></a>Måste jag begränsa Internet åtkomst från virtuella datorer i logiska nätverk till Internet?
 

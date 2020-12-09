@@ -1,39 +1,39 @@
 ---
 title: ARM-mall vanliga frågor och svar
-description: Vanliga frågor och svar om Azure Resource Manager mallar.
+description: Vanliga frågor och svar om Azure Resource Manager mallar (ARM-mallar).
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: af6a46e16cd888e3ff6a382be2b1a4264fcc2941
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5a23cf031b5d7cf40e2077f2e5287e10de563207
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184016"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903011"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Vanliga frågor om ARM-mallar
 
-I den här artikeln får du svar på vanliga frågor om Azure Resource Manager (ARM) mallar.
+I den här artikeln får du svar på vanliga frågor om Azure Resource Manager mallar (ARM-mallar).
 
 ## <a name="getting-started"></a>Komma igång
 
 * **Vad är ARM-mallar och varför ska jag använda dem?**
 
   ARM-mallar är JSON-filer där du definierar vad du vill distribuera till Azure. Med hjälp av mallar kan du implementera en lösning för infrastruktur som kod för Azure. Din organisation kan regelbundet och tillförlitligt distribuera den infrastruktur som krävs till olika miljöer.
-  
+
   Mer information om hur ARM-mallar hjälper dig att hantera din Azure-infrastruktur finns i [Vad är arm-mallar?](overview.md)
 
 * **Hur gör jag för att kom igång med mallar?**
 
-  Du behöver rätt verktyg för att förenkla redigering av ARM-mallar. Vi rekommenderar att du installerar [Visual Studio Code](https://code.visualstudio.com/) och [Azure Resource Manager Tools-tillägget](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). En snabb introduktion till dessa verktyg finns i [snabb start: skapa Azure Resource Manager mallar med Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+  Du behöver rätt verktyg för att förenkla redigering av ARM-mallar. Vi rekommenderar att du installerar [Visual Studio Code](https://code.visualstudio.com/) och [Azure Resource Manager Tools-tillägget](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). En snabb introduktion till dessa verktyg finns i [snabb start: skapa arm-mallar med Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
   När du är redo att lära dig hur du skapar ARM-mallar startar du [övnings serien för nybörjare på arm-mallarna](template-tutorial-create-first-template.md). De här självstudierna tar dig steg för steg genom processen att skapa en ARM-mall. Du lär dig mer om de olika avsnitten i mallen och hur de fungerar tillsammans. Det här innehållet är också tillgängligt som en [Microsoft Learn modul](/learn/modules/authoring-arm-templates/).
 
 * **Bör jag använda ARM-mallar eller terraform för att distribuera till Azure?**
 
   Använd det alternativ som du gillar bäst. Båda tjänsterna hjälper dig att automatisera distributioner till Azure.
-  
+
   Vi tror att det finns några fördelar med att använda ARM-mallar över andra infrastruktur-som-kod-tjänster. Läs mer om de här fördelarna i [Varför väljer du arm-mallar?](overview.md#why-choose-arm-templates)
 
 ## <a name="build-2020"></a>Build 2020
@@ -59,7 +59,7 @@ I den här artikeln får du svar på vanliga frågor om Azure Resource Manager (
 * **Jag har konfigurerat min miljö via portalen. Finns det något sätt att hämta mallen från en befintlig resurs grupp?**
 
   Ja, du kan [Exportera mallen](export-template-portal.md) från en resurs grupp. Den exporterade mallen är en bra utgångs punkt för att lära dig om mallar, men du vill förmodligen ändra den innan du använder den i en produktions miljö.
-  
+
   När du exporterar mallen kan du välja vilka resurser som du vill inkludera i mallen.
 
 * **Kan jag skapa en resurs grupp i en ARM-mall och distribuera resurser till den?**
@@ -182,11 +182,11 @@ I den här artikeln får du svar på vanliga frågor om Azure Resource Manager (
 
 * **Kan jag integrera ARM-mallar i Azure-pipeliner?**
 
-  Ja. En förklaring av hur du använder mallar och pipeliner finns i [Självstudier: kontinuerlig integrering av Azure Resource Manager mallar med Azure-pipelines](deployment-tutorial-pipeline.md) och [integrera arm-mallar med Azure-pipelines](add-template-to-azure-pipelines.md).
+  Ja. En förklaring av hur du använder mallar och pipeliner finns i [Självstudier: kontinuerlig integrering av arm-mallar med Azure-pipelines](deployment-tutorial-pipeline.md) och [integrera arm-mallar med Azure-pipelines](add-template-to-azure-pipelines.md).
 
 * **Kan jag använda GitHub-åtgärder för att distribuera en mall?**
 
-  Ja, se [distribuera Azure Resource Manager mallar med GitHub-åtgärder](deploy-github-actions.md).
+  Ja, se [distribuera arm-mallar med GitHub-åtgärder](deploy-github-actions.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

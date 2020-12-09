@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 7e7b524f125eda406adc9be2300c94e5944e1819
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c749dbb1cc78bf06dfe665875bc05f75152778b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715959"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862147"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Ge åtkomst till Azure App konfiguration med Azure Active Directory
 Förutom att använda hash-baserade Message Authentication Code (HMAC), kan Azure App konfiguration använda Azure Active Directory (Azure AD) för att auktorisera begär anden till konfigurations instanser för appar.  Med Azure AD kan du använda rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att ge behörighet till ett säkerhets objekt.  Ett säkerhets objekt kan vara en användare, en [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) eller ett [huvud namn för program tjänsten](../active-directory/develop/app-objects-and-service-principals.md).  Mer information om roller och roll tilldelningar finns i [förstå olika roller](../role-based-access-control/overview.md).
@@ -39,7 +39,7 @@ Azure tillhandahåller följande inbyggda Azure-roller för att auktorisera åtk
 - **Läsare**: Använd den här rollen för att ge Läs behörighet till appens konfigurations resurs. Detta ger inte åtkomst till resursens åtkomst nycklar eller data som är lagrade i app-konfigurationen.
 
 > [!NOTE]
-> För närvarande stöder Azure Portal och CLI endast HMAC-autentisering för att komma åt konfigurations data för appar. Azure AD-autentisering stöds inte. Därför kräver användare av Azure Portal och CLI rollen *deltagare* för att hämta åtkomst nycklar för appens konfigurations resurs. Det finns ingen inverkan på åtkomst via portalen och CLI för att bevilja *konfigurations data för program konfigurations data läsare* eller *program konfigurations data* .
+> För närvarande stöder Azure Portal endast HMAC-autentisering för att komma åt konfigurations data för appar. Azure AD-autentisering stöds inte. Därför kräver användare av Azure Portal *deltagar* rollen för att hämta åtkomst nycklarna till appens konfigurations resurs. Det finns ingen inverkan på åtkomst via portalen för att bevilja *program konfigurations data läsare* eller *program konfiguration data ägare* roller.
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du använder [hanterade identiteter](howto-integrate-azure-managed-service-identity.md) för att administrera konfigurations tjänsten för appar.

@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9ed3a4b0827e81b3f779d95a6eab1dc341e69bb1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: de446209104c113b10346645f79b461239c3efab
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019386"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901287"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Läs in data på ett säkert sätt med Synapse SQL
 
@@ -23,11 +23,14 @@ Den här artikeln beskriver och innehåller exempel på mekanismer för säker a
 
 I följande matris beskrivs de autentiseringsmetoder som stöds för varje filtyp och lagrings konto. Detta gäller för käll lagrings platsen och fel filens plats.
 
-|                          |                CSV                |              Parquet               |                ORC                 |
-| :----------------------: | :-------------------------------: | :-------------------------------:  | :-------------------------------:  |
-|  **Azure Blob Storage**  | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD |              SAS/NYCKEL               |              SAS/NYCKEL               |
-| **Azure Data Lake Gen2** | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD | SAS (BLOB-slutpunkt)/MSI (DFS-slutpunkt)/SERVICE huvud namn/nyckel/AAD | SAS (BLOB-slutpunkt)/MSI (DFS-slutpunkt)/SERVICE huvud namn/nyckel/AAD |
+|                          |                CSV                |                      Parquet                       |                        ORC                         |
+| :----------------------: | :-------------------------------: | :------------------------------------------------: | :------------------------------------------------: |
+|  **Azure Blob Storage**  | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD |                      SAS/NYCKEL                       |                      SAS/NYCKEL                       |
+| **Azure Data Lake Gen2** | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD | SAS (BLOB<sup>1</sup>)/MSI (DFS<sup>2</sup>)/service-huvud/nyckel/AAD | SAS (BLOB<sup>1</sup>)/MSI (DFS<sup>2</sup>)/service-huvud/nyckel/AAD |
 
+1:. blob-slutpunkten (**. blob**. Core.Windows.net) i sökvägen till den externa platsen krävs för den här autentiseringsmetoden.
+
+2:. DFS-slutpunkten (**. DFS**. Core.Windows.net) i sökvägen till den externa platsen krävs för den här autentiseringsmetoden.
 
 ## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>A. Lagrings konto nyckel med LF som rad avgränsare (UNIX-typ ny rad)
 
@@ -69,27 +72,40 @@ WITH (
 
 Hanterad identitets autentisering krävs när ditt lagrings konto är kopplat till ett VNet. 
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 1. Installera Azure PowerShell med hjälp av den här [guiden](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Om du har ett konto av typen generell användning v1 eller bloblagring måste du först uppgradera till generell användning v2 med hjälp av den här [guiden](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 3. Du måste ha **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** under Azure Storage konto **brand väggar och inställningar för virtuella nätverk** . Mer information finns i den här [guiden](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions).
+
 #### <a name="steps"></a>Steg
 
-1. I PowerShell **registrerar du SQL Server** med Azure Active Directory:
+1. Om du har en fristående SQL-pool registrerar du SQL Server med Azure Active Directory (AAD) med hjälp av PowerShell: 
 
    ```powershell
    Connect-AzAccount
-   Select-AzSubscription -SubscriptionId your-subscriptionId
-   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   Select-AzSubscription -SubscriptionId <subscriptionId>
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-2. Skapa ett **Allmänt-syfte v2-lagrings konto** med hjälp av den här [guiden](../../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+   Det här steget krävs inte för dedikerade SQL-pooler inom en Synapse-arbetsyta.
+
+1. Om du har en Synapse-arbetsyta registrerar du arbets ytans systemhanterade identitet:
+
+   1. Gå till din Synapse-arbetsyta i Azure Portal
+   2. Gå till bladet hanterade identiteter 
+   3. Kontrol lera att alternativet Tillåt pipeliner är aktiverat
+   
+   ![Registrera arbets ytans system-MSI](./media/quickstart-bulk-load-copy-tsql-examples/msi-register-example.png)
+
+1. Skapa ett **Allmänt-syfte v2-lagrings konto** med hjälp av den här [guiden](../../storage/common/storage-account-create.md).
 
    > [!NOTE]
-   > Om du har ett allmänt v1-eller Blob Storage-konto måste du **först uppgradera till v2** med hjälp av den här [guiden](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+   >
+   > - Om du har ett allmänt v1-eller Blob Storage-konto måste du **först uppgradera till v2** med hjälp av den här [guiden](../../storage/common/storage-account-upgrade.md).
+   > - Information om kända problem med Azure Data Lake Storage Gen2 finns i den här [hand boken](../../storage/blobs/data-lake-storage-known-issues.md).
 
-3. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning**. Tilldela din SQL Server rollen som **ägare av BLOB-dataägare, deltagare eller läsare** i Azure.
+1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning**. Tilldela Azure-rollen **Storage BLOB data Contributor** till den server eller arbets yta som är värd för din dedikerade SQL-pool som du har registrerat med Azure Active Directory (AAD).
 
    > [!NOTE]
    > Endast medlemmar med ägar behörighet kan utföra det här steget. Information om olika inbyggda Azure-roller finns i den här [guiden](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).

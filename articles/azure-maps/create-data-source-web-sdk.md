@@ -1,27 +1,27 @@
 ---
-title: Skapa en data källa för en karta | Microsoft Azure Maps
+title: Skapa en data källa för en karta i Microsoft Azure Maps
 description: 'Ta reda på hur du skapar en data källa för en karta. Lär dig mer om de data källor som Azure Maps Web SDK använder: JSON-källor och vektor paneler.'
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/08/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9c82b74ffdc8672dc3d84a98a036c6083bc6c309
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d09dddbceed773cd723897cc9730198b68be0ff7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895927"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903623"
 ---
 # <a name="create-a-data-source"></a>Skapa en datakälla
 
 Azure Maps Web SDK lagrar data i data källor. Att använda data källor optimerar data åtgärder för frågor och åter givning. Det finns för närvarande två typer av data Källor:
 
-- **Mål-JSON-källa** : hanterar rå data i det lokala JSON-formatet lokalt. Lämpat för små till medel stora data mängder (flera hundra tusentals former).
-- **Vektor panels källa** : läser in data som är formaterade som vektor paneler för den aktuella Map-vyn, baserat på kartans placerings system. Perfekt för stora till enorma data uppsättningar (miljon tals eller miljarder former).
+- **Mål-JSON-källa**: hanterar rå data i det lokala JSON-formatet lokalt. Lämpat för små till medel stora data mängder (flera hundra tusentals former).
+- **Vektor panels källa**: läser in data som är formaterade som vektor paneler för den aktuella Map-vyn, baserat på kartans placerings system. Perfekt för stora till enorma data uppsättningar (miljon tals eller miljarder former).
 
 ## <a name="geojson-data-source"></a>Data källa för interjson
 
@@ -86,7 +86,7 @@ Azure Maps följer [specifikationen Mapbox Vector panel](https://github.com/mapb
 - Information om [documentation](/rest/api/maps/renderv2/getmaptilepreview)  |  [data format](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) för Road panels dokumentation
 - Information om trafik incidenter [dokumentation](/rest/api/maps/traffic/gettrafficincidenttile)  |  [data format](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
 - [documentation](/rest/api/maps/traffic/gettrafficflowtile)  |  [Information om data format](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) för trafikflödets dokumentation
-- Med Azure Maps Creator kan du också skapa och få till gång till anpassade vektor paneler via [Get panel rendering v2](/rest/api/maps/renderv2/getmaptilepreview)
+- Azure Maps Creator (förhands granskning) tillåter också att anpassade vektor paneler skapas och nås via [Get panel rendering v2](/rest/api/maps/renderv2/getmaptilepreview)
 
 > [!TIP]
 > När du använder vektor-eller raster bild rutor från tjänsten Azure Maps Render med webb-SDK kan du ersätta `atlas.microsoft.com` med plats hållaren `{azMapsDomain}` . Plats hållaren ersätts med samma domän som används av kartan och lägger automatiskt till samma autentiseringsinformation. Detta fören klar autentiseringen med Render-tjänsten avsevärt när du använder Azure Active Directory autentisering.

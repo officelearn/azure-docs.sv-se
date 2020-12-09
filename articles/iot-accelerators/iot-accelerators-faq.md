@@ -8,39 +8,48 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 40c1fb314a2dea653740e7f87b5caa14c759fffb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1fd2b8461bd66c826dc4890c331b740c4703f896
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078229"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903997"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Vanliga frågor och svar om IoT-lösningsacceleratorer
 
-Se även de vanliga [vanliga frågorna](iot-accelerators-faq-cf.md) och vanliga frågor och [svar om fjärrövervakning](iot-accelerators-faq-rm-v2.md) .
+Se även de [vanliga frågorna om de anslutna fabriken](iot-accelerators-faq-cf.md).
 
 ### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>Var hittar jag käll koden för lösnings acceleratorerna?
 
 Käll koden lagras i följande GitHub-databaser:
 
-* [Lösnings Accelerator för fjärr övervakning (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [Java (Remote Monitoring Solution Accelerator)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
-* [Lösnings Accelerator för förebyggande underhåll](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Lösnings Accelerator för ansluten fabrik](https://github.com/Azure/azure-iot-connected-factory)
+* [Lösnings Accelerator för enhets simulering](https://github.com/Azure/device-simulation-dotnet)
+
+### <a name="where-can-i-find-the-remote-monitoring-and-predictive-maintenance-solution-accelerators"></a>Var kan jag hitta acceleratorer för fjärrövervakning och förebyggande underhålls lösningar?
+
+Från och med den 10 december 2020 har fjärrövervakning och förebyggande underhålls acceleratorer tagits bort från webbplatsen [Azure IoT Solution Accelerators](https://www.azureiotsolutions.com/Accelerators) och är inte längre tillgängliga för nya distributioner. GitHub-databaserna för båda acceleratorerna har arkiverats. Koden är fortfarande tillgänglig för alla som har åtkomst till, men databaserna tar inga nya bidrag.
+
+### <a name="what-happens-to-my-existing-remote-monitoring-and-predictive-maintenance-deployments"></a>Vad händer med mina befintliga fjärrövervakninger och förebyggande underhålls distributioner?
+
+Befintliga distributioner påverkas inte av att du tar bort fjärrövervakning och förebyggande underhålls lösningar och fortsätter att fungera. Förgrenade databaser påverkas inte heller. Huvud databaserna på GitHub har arkiverats.
+
+### <a name="how-do-i-deploy-device-simulation-solution-accelerator"></a>Hur gör jag för att distribuerar du lösnings Accelerator för enhets simulering?
+
+Information om hur du distribuerar lösnings acceleratorn för enhets simulering finns i GitHub-lagringsplatsen för [enhets simulering](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) .
+
+### <a name="where-can-i-find-information-about-the-removed-solution-accelerators"></a>Var hittar jag information om de borttagna lösnings acceleratorerna?
+
+Se följande sidor på webbplatsen för föregående versioner:
+
+* [Fjärrövervakning](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
+* [Förebyggande underhåll](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
 
 ### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-solution-accelerators"></a>Vilka SDK: er kan jag använda för att utveckla enhets klienter för lösnings acceleratorer?
 
 Du hittar länkar till olika språk (C, .NET, Java, Node.js, python) IoT-enhets-SDK: er i [Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) : er GitHub-databaser.
 
 Om du använder DevKit-enheten kan du hitta resurser och exempel i [IoT DEVKIT SDK](https://github.com/Microsoft/devkit-sdk) GitHub-lagringsplatsen.
-
-### <a name="is-the-new-microservices-architecture-available-for-all-the-three-solution-accelerators"></a>Är den nya mikrotjänster-arkitekturen tillgänglig för alla tre lösnings acceleratorer?
-
-För närvarande använder bara lösningen för fjärrövervakning i arkitekturen för mikrotjänster, eftersom det täcker det bredaste scenariot.
-
-### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>Vilka fördelar tillhandahåller den nya mikrotjänsters arkitekturen med öppen källkod i den nya uppdateringen?
-
-Under de senaste två åren har moln arkitekturen kraftigt utvecklats. Mikrotjänster har utsättts som ett bra mönster för att uppnå skalbarhet och flexibilitet utan att offra utvecklings hastigheten. Det här arkitektur mönstret används i flera Microsoft-tjänster internt med bättre Tillförlitlighets-och skalbarhets resultat. Microsoft placerar dessa lösningar i praxis i lösnings acceleratorer så att kunderna kan dra nytta av dem.
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-azure-ad-tenant-how-do-i-complete-this-task"></a>Jag är tjänst administratör och vill ändra katalog mappningen mellan min prenumeration och en särskild Azure AD-klient. Vill du Hur gör jag för att slutföra den här uppgiften?
 
@@ -63,14 +72,6 @@ Se följande diagram för vägledning:
 
 Om du är säker på att du har en Azure-prenumeration verifierar du klient mappningen för din prenumeration och kontrollerar att rätt klient organisation är markerad i list rutan. Om du har verifierat att klienten är korrekt följer du föregående diagram och validerar mappningen av prenumerationen och den här Azure AD-klienten.
 
-### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Var kan jag hitta information om den tidigare versionen av lösningen för fjärrövervakning?
-
-Den tidigare versionen av lösnings acceleratorn för fjärrövervakning kallades IoT Suite den förkonfigurerade lösningen för fjärrövervakning. Du hittar den arkiverade dokumentationen på [https://docs.microsoft.com/previous-versions/azure/iot-suite/](/previous-versions/azure/iot-suite/) .
-
-### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>Är den nya Solution Accelerator som är tillgänglig i samma geografiska region som den befintliga lösningen?
-
-Ja, den nya fjärr styrningen är tillgänglig i samma geografiska regioner.
-
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Vad är skillnaden mellan att ta bort en resurs grupp i Azure Portal och klicka på ta bort på en lösnings Accelerator i azureiotsolutions.com?
 
 * Om du tar bort Solution Accelerator i [azureiotsolutions.com](https://www.azureiotsolutions.com/)tar du bort alla resurser som distribuerades när du skapade Solution Accelerator. Om du har lagt till ytterligare resurser i resurs gruppen tas även dessa resurser bort.
@@ -88,10 +89,6 @@ Som standard kan du etablera [10 IoT-hubbar per prenumeration](../azure-resource
 
 50. Du kan skapa ett [support ärende för Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att höja den här gränsen, men som standard kan du bara etablera 50 Cosmos DB-instanser per prenumeration.
 
-### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Hur många kostnadsfria Bing Maps-API:er kan jag etablera i en prenumeration?
-
-Två. Du kan bara skapa två interna transaktions kartor på nivå 1 för företags planer i en Azure-prenumeration. Lösningen för fjärrövervakning är etablerad som standard med den interna transaktions nivån 1 plan. Det innebär att du bara kan etablera upp till två lösningar för fjärrövervakning i en prenumeration utan några ändringar.
-
 ### <a name="can-i-create-a-solution-accelerator-if-i-have-microsoft-azure-for-dreamspark"></a>Kan jag skapa en lösnings Accelerator om jag har Microsoft Azure för DreamSpark?
 
 > [!NOTE]
@@ -107,7 +104,5 @@ Se Eric Golpess blogg inlägg [genom att ta bort en Azure AD-klient](/archive/bl
 
 Du kan även utforska andra funktioner och möjligheter i IoT-lösningsacceleratorerna:
 
-* [Utforska funktionerna i lösnings acceleratorn för fjärr styrning](quickstart-remote-monitoring-deploy.md)
-* [Översikt över lösningsacceleratorn Förutsägande underhåll](./iot-accelerators-predictive-walkthrough.md)
 * [Distribuera lösnings Accelerator för ansluten fabrik](quickstart-connected-factory-deploy.md)
 * [IoT-säkerhet från grunden](../iot-fundamentals/iot-security-ground-up.md)

@@ -1,20 +1,24 @@
 ---
 title: Skapa Azure Functions på Linux med en anpassad avbildning
 description: Lär dig hur du skapar en Azure Functions som körs på en anpassad Linux-avbildning.
-ms.date: 03/30/2020
+ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: af63eb68ec82a0725befed723298c079e82bdfdb
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+zone_pivot_groups: programming-languages-set-functions-full
+ms.openlocfilehash: 2ee26bdc713cb2b5b2a158797e3ae7ace31c97b8
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327108"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904099"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Skapa en funktion i Linux med en anpassad container
 
 I den här självstudien skapar du och distribuerar din kod till Azure Functions som en anpassad Docker-behållare med hjälp av en Linux-bas avbildning. Du använder vanligt vis en anpassad bild när funktionerna kräver en specifik språk version eller har ett särskilt beroende eller en specifik konfiguration som inte tillhandahålls av den inbyggda avbildningen.
+
+::: zone pivot="programming-language-other"
+Azure Functions stöder alla språk och körnings miljöer med [anpassade hanterare](functions-custom-handlers.md). För vissa språk, till exempel det R-programmeringsspråk som används i den här självstudien, måste du installera körningen eller ytterligare bibliotek som beroenden som kräver att en anpassad behållare används.
+::: zone-end
 
 Distribution av funktions koden i en anpassad Linux-behållare kräver [Premium-plan](functions-premium-plan.md#features) eller [dedikerad (App Service) plan-](functions-scale.md#app-service-plan) värd. Genom att slutföra den här självstudien debiteras du kostnader för några amerikanska dollar i ditt Azure-konto, som du kan minimera genom att [Rensa resurser](#clean-up-resources) när du är klar.
 
@@ -22,6 +26,7 @@ Du kan också använda en standard-Azure App Service-behållare enligt beskrivni
 
 I den här guiden får du lära dig att:
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
 > [!div class="checklist"]
 > * Skapa en Function-app och Dockerfile med hjälp av Azure Functions Core Tools.
 > * skapa en anpassad avbildning med Docker
@@ -32,6 +37,18 @@ I den här guiden får du lära dig att:
 > * Aktivera kontinuerlig distribution.
 > * Aktivera SSH-anslutningar till behållaren.
 > * Lägg till en utgående bindning för kö Storage. 
+::: zone-end
+::: zone pivot="programming-language-other"
+> [!div class="checklist"]
+> * Skapa en Function-app och Dockerfile med hjälp av Azure Functions Core Tools.
+> * skapa en anpassad avbildning med Docker
+> * Publicera en anpassad avbildning till ett containerregister.
+> * Skapa stöd resurser i Azure för Function-appen
+> * distribuera en funktionsapp från Docker Hub
+> * lägga till programinställningar i funktionsappen.
+> * Aktivera kontinuerlig distribution.
+> * Aktivera SSH-anslutningar till behållaren.
+::: zone-end
 
 Du kan följa den här självstudien på alla datorer som kör Windows, macOS eller Linux. 
 
@@ -114,10 +131,17 @@ Skriv `Y` eller tryck på RETUR för att bekräfta.
 
 Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, som i det här exemplet är `fabrikam-functions` . 
 ::: zone-end
+
+::: zone pivot="programming-language-other"  
+```console
+func init LocalFunctionsProject --worker-runtime custom --docker
+```
+::: zone-end
+
 `--docker`Alternativet genererar en `Dockerfile` för projektet, som definierar en lämplig anpassad behållare för användning med Azure Functions och den valda körningen.
 
 Navigera till projektmappen:
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"  
 ```console
 cd LocalFunctionsProject
 ```
@@ -128,12 +152,95 @@ cd fabrikam-functions
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-Lägg till en funktion i projektet med hjälp av följande kommando, där `--name` argumentet är det unika namnet för din funktion och `--template` argumentet anger funktionens utlösare. `func new` skapa en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *function.jspå*.
+Lägg till en funktion i projektet med hjälp av följande kommando, där `--name` argumentet är det unika namnet för din funktion och `--template` argumentet anger funktionens utlösare. `func new` skapar en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *function.jspå*.
 
 ```console
 func new --name HttpExample --template "HTTP trigger"
 ```
-::: zone-end  
+::: zone-end
+
+::: zone pivot="programming-language-other" 
+Lägg till en funktion i projektet med hjälp av följande kommando, där `--name` argumentet är det unika namnet för din funktion och `--template` argumentet anger funktionens utlösare. `func new` skapar en undermapp som matchar funktions namnet som innehåller en konfigurations fil med namnet *function.jspå*.
+
+```console
+func new --name HttpExample --template "HTTP trigger"
+```
+
+I en text redigerare skapar du en fil i projektmappen med namnet *hanterare. R*. Lägg till följande innehåll.
+
+```r
+library(httpuv)
+
+PORTEnv <- Sys.getenv("FUNCTIONS_CUSTOMHANDLER_PORT")
+PORT = strtoi(PORTEnv , base = 0L)
+
+http_not_found <- list(
+  status=404,
+  body='404 Not Found'
+)
+http_method_not_allowed <- list(
+  status=405,
+  body='405 Method Not Allowed'
+)
+
+hello_handler <- list(
+  GET = function (request) list(body="Hello world")
+)
+
+routes <- list(
+  '/api/HttpExample' = hello_handler
+)
+
+router <- function (routes, request) {
+  if (!request$PATH_INFO %in% names(routes)) {
+    return(http_not_found)
+  }
+  path_handler <- routes[[request$PATH_INFO]]
+
+  if (!request$REQUEST_METHOD %in% names(path_handler)) {
+    return(http_method_not_allowed)
+  }
+  method_handler <- path_handler[[request$REQUEST_METHOD]]
+
+  return(method_handler(request))
+}
+
+app <- list(
+  call = function (request) {
+    response <- router(routes, request)
+    if (!'status' %in% names(response)) {
+      response$status <- 200
+    }
+    if (!'headers' %in% names(response)) {
+      response$headers <- list()
+    }
+    if (!'Content-Type' %in% names(response$headers)) {
+      response$headers[['Content-Type']] <- 'text/plain'
+    }
+
+    return(response)
+  }
+)
+
+cat(paste0("Server listening on :", PORT, "...\n"))
+runServer("0.0.0.0", PORT, app)
+```
+
+I *host.jspå*, ändra `customHandler` avsnittet för att konfigurera den anpassade hanterarens start kommando.
+
+```json
+"customHandler": {
+  "description": {
+      "defaultExecutablePath": "Rscript",
+      "arguments": [
+      "handler.R"
+    ]
+  },
+  "enableForwardingHttpRequest": true
+}
+```
+::: zone-end
+
 Om du vill testa funktionen lokalt startar du den lokala Azure Functions körnings värd i roten för projektmappen: 
 ::: zone pivot="programming-language-csharp"  
 ```console
@@ -157,14 +264,44 @@ mvn clean package
 mvn azure-functions:run
 ```
 ::: zone-end
+::: zone pivot="programming-language-other"
+```console
+R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
+func start
+```
+::: zone-end 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-typescript"
 När du ser `HttpExample` slut punkten som visas i utdata går du till `http://localhost:7071/api/HttpExample?name=Functions` . Webbläsaren ska visa ett "Hello"-meddelande som ekon tillbaka `Functions` , värdet som anges till `name` Frågeparametern.
-
+::: zone-end
+::: zone pivot="programming-language-other"
+När du ser `HttpExample` slut punkten som visas i utdata går du till `http://localhost:7071/api/HttpExample` . Webbläsaren ska visa meddelandet "Hello World".
+::: zone-end
 Använd **CTRL** - **C** för att stoppa värden.
 
 ## <a name="build-the-container-image-and-test-locally"></a>Bygg behållar avbildningen och testa lokalt
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-typescript"
 Valfritt Granska *Dockerfile* i roten för projektmappen. Dockerfile beskriver den miljö som krävs för att köra Function-appen på Linux.  Den fullständiga listan med bas avbildningar som stöds för Azure Functions finns på [sidan för Azure Functions Base-avbildning](https://hub.docker.com/_/microsoft-azure-functions-base).
-    
+::: zone-end
+
+::: zone pivot="programming-language-other"
+Granska *Dockerfile* i roten för projektmappen. Dockerfile beskriver den miljö som krävs för att köra Function-appen på Linux. Program för anpassade hanterare använder `mcr.microsoft.com/azure-functions/dotnet:3.0-appservice` avbildningen som bas.
+
+Ändra *Dockerfile* för att installera R. Ersätt innehållet i *Dockerfile* med följande.
+
+```dockerfile
+FROM mcr.microsoft.com/azure-functions/dotnet:3.0-appservice 
+ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
+    AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+
+RUN apt update && \
+    apt install -y r-base && \
+    R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
+
+COPY . /home/site/wwwroot
+```
+::: zone-end
+
 Kör kommandot [Docker build](https://docs.docker.com/engine/reference/commandline/build/) i rotmappen för rotmappen och ange ett namn, och en `azurefunctionsimage` tagg `v1.0.0` . Ersätt `<DOCKER_ID>` med ditt konto-ID för Docker Hub. Det här kommandot skapar Docker-avbildningen för containern.
 
 ```console
@@ -179,7 +316,7 @@ Testa versionen genom att köra avbildningen i en lokal behållare med hjälp av
 docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"  
 När avbildningen körs i en lokal behållare öppnar du en webbläsare till `http://localhost:8080` , som ska Visa platshållarbilden som visas nedan. Avbildningen visas nu eftersom din funktion körs i den lokala behållaren, som i Azure, vilket innebär att den skyddas av en åtkomst nyckel som definierats i *function.jspå* med `"authLevel": "function"` egenskapen. Behållaren har inte publicerats i en Function-app i Azure, men nyckeln är inte tillgänglig ännu. Om du vill testa mot den lokala behållaren, stoppa Docker, ändra egenskapen Authorization till `"authLevel": "anonymous"` , återskapa avbildningen och starta om Docker. Återställ sedan `"authLevel": "function"` i *function.jspå*. Mer information finns i [Authorization Keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 ![Platshållarbild som visar att behållaren körs lokalt](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
@@ -258,13 +395,20 @@ En Function-app på Azure hanterar körningen av dina funktioner i värd planen.
 
 1. Skapa Functions-appen med kommandot [AZ functionapp Create](/cli/azure/functionapp#az-functionapp-create) . I följande exempel ersätter `<storage_name>` du med det namn som du använde i föregående avsnitt för lagrings kontot. Ersätt också `<app_name>` med ett globalt unikt namn som passar dig, och `<docker_id>` med ditt Docker-ID.
 
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
     ```azurecli
     az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime <functions runtime stack> --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
     ```
+    ::: zone-end
+    ::: zone pivot="programming-language-other"
+    ```azurecli
+    az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime custom --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
+    ```
+    ::: zone-end
     
     Parametern *Deployment-container-Image-Name* anger vilken avbildning som ska användas för Function-appen. Du kan använda kommandot [AZ functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) för att visa information om den avbildning som används för distribution. Du kan också använda kommandot [AZ functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) för att distribuera från en annan avbildning.
 
-1. Hämta anslutnings strängen för lagrings kontot som du skapade med kommandot [AZ Storage Account show-Connection-String](/cli/azure/storage/account) och tilldela det till en Shell-variabel `storageConnectionString` :
+1. Visa anslutnings strängen för det lagrings konto som du skapade med kommandot [AZ Storage Account show-Connection-String](/cli/azure/storage/account) . Ersätt `<storage-name>` med namnet på det lagrings konto som du skapade ovan:
 
     ```azurecli
     az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv
@@ -275,8 +419,6 @@ En Function-app på Azure hanterar körningen av dina funktioner i värd planen.
     ```azurecli
     az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<connection_string>
     ```
-
-1. Funktionen kan nu använda den här anslutnings strängen för att komma åt lagrings kontot.
 
     > [!TIP]
     > I bash kan du använda en gränssnitts variabel för att avbilda anslutnings strängen i stället för att använda Urklipp. Använd först följande kommando för att skapa en variabel med anslutnings strängen:
@@ -290,6 +432,8 @@ En Function-app på Azure hanterar körningen av dina funktioner i värd planen.
     > ```azurecli
     > az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=$storageConnectionString
     > ```
+
+1. Funktionen kan nu använda den här anslutnings strängen för att komma åt lagrings kontot.
 
 > [!NOTE]    
 > Om du publicerar en anpassad avbildning till ett privat behållar konto bör du i stället använda miljövariabler i Dockerfile för anslutnings strängen. Mer information finns i avsnittet om [miljö](https://docs.docker.com/engine/reference/builder/#env). Du bör också ange variablerna `DOCKER_REGISTRY_SERVER_USERNAME` och `DOCKER_REGISTRY_SERVER_PASSWORD` . Om du vill använda värdena måste du återskapa avbildningen, push-överför avbildningen till registret och sedan starta om Function-appen på Azure.
@@ -439,6 +583,8 @@ SSH möjliggör säker kommunikation mellan en container och en klient. Med SSH 
 
     ![Linux Top-kommando som körs i en SSH-session](media/functions-create-function-linux-custom-image/linux-custom-kudu-ssh-top.png)
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
+
 ## <a name="write-to-an-azure-storage-queue"></a>Skriv till en Azure Storage kö
 
 Med Azure Functions kan du ansluta dina funktioner till andra Azure-tjänster och-resurser utan att behöva skriva din egen integrerings kod. Dessa *bindningar*, som representerar både indata och utdata, deklareras i funktions definitionen. Data från bindningar skickas som parametrar till funktionen. En *utlösare* är en särskild typ av ingående bindning. Även om en funktion bara har en utlösare, kan den ha flera indata och utdata-bindningar. Mer information finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
@@ -446,6 +592,7 @@ Med Azure Functions kan du ansluta dina funktioner till andra Azure-tjänster oc
 I det här avsnittet visas hur du integrerar din funktion med en Azure Storage kö. Den utgående bindning som du lägger till i den här funktionen skriver data från en HTTP-begäran till ett meddelande i kön.
 
 [!INCLUDE [functions-cli-get-storage-connection](../../includes/functions-cli-get-storage-connection.md)]
+::: zone-end
 
 [!INCLUDE [functions-register-storage-binding-extension-csharp](../../includes/functions-register-storage-binding-extension-csharp.md)]
 
@@ -458,9 +605,12 @@ I det här avsnittet visas hur du integrerar din funktion med en Azure Storage k
 [!INCLUDE [functions-add-output-binding-java-cli](../../includes/functions-add-output-binding-java-cli.md)]
 ::: zone-end  
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
+
 ## <a name="add-code-to-use-the-output-binding"></a>Lägg till kod för att använda utgående bindning
 
 När du har definierat kökvoter kan du nu uppdatera din funktion för att ta emot `msg` Utdataparametern och skriva meddelanden till kön.
+::: zone-end
 
 ::: zone pivot="programming-language-python"     
 [!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
@@ -488,6 +638,7 @@ När du har definierat kökvoter kan du nu uppdatera din funktion för att ta em
 [!INCLUDE [functions-add-output-binding-java-test-cli](../../includes/functions-add-output-binding-java-test-cli.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
 ### <a name="update-the-image-in-the-registry"></a>Uppdatera avbildningen i registret
 
 1. I rotmappen kör du `docker build` igen, och den här gången uppdaterar du versionen i taggen till `v1.0.1` . Som tidigare ersätter `<docker_id>` du med ditt Docker Hub-konto-ID:
@@ -509,6 +660,8 @@ När du har definierat kökvoter kan du nu uppdatera din funktion för att ta em
 I en webbläsare använder du samma URL som innan du anropar din funktion. Webbläsaren ska visa samma svar som tidigare eftersom du inte har ändrat den delen av funktions koden. Den tillagda koden skrev dock ett meddelande med URL- `name` parametern till `outqueue` lagrings kön.
 
 [!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
+
+::: zone-end
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e16f33cb8aa7c6ceeb1398dd23ccba31b5f936b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5367e5027bfae2fa3ed7e87a779e50e4048ba608
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776144"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861739"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
 
-Microsoft Graph är Microsoft Unified API-slutpunkten och start för [Azure Active Directory Identity Protection](./overview-identity-protection.md) -API: er. Det finns tre API: er som visar information om riskfyllda användare och inloggningar. Med det första API: et, **riskDetection**, kan du fråga Microsoft Graph om du vill visa en lista över både användare och inloggning länkade risk identifieringar och tillhör ande information om identifieringen. Med det andra API: et, **riskyUsers**, kan du fråga Microsoft Graph om du vill ha information om användarnas identitets skydd som har identifierats som risk Med det tredje API: t **loggar**du kan du fråga Microsoft Graph om du vill veta mer om Azure AD-inloggningar med särskilda egenskaper som rör risk tillstånd, information och nivå. 
+Microsoft Graph är Microsoft Unified API-slutpunkten och start för [Azure Active Directory Identity Protection](./overview-identity-protection.md) -API: er. Det finns tre API: er som visar information om riskfyllda användare och inloggningar. Med det första API: et, **riskDetection**, kan du fråga Microsoft Graph om du vill visa en lista över både användare och inloggning länkade risk identifieringar och tillhör ande information om identifieringen. Med det andra API: et, **riskyUsers**, kan du fråga Microsoft Graph om du vill ha information om användarnas identitets skydd som har identifierats som risk Med det tredje API: t **loggar** du kan du fråga Microsoft Graph om du vill veta mer om Azure AD-inloggningar med särskilda egenskaper som rör risk tillstånd, information och nivå. 
 
 Den här artikeln hjälper dig att komma igång med att ansluta till Microsoft Graph och fråga dessa API: er. För en djupgående introduktion, fullständig dokumentation och åtkomst till Graph Explorer, se [Microsoft Graph webbplats](https://graph.microsoft.io/) eller den speciella referens dokumentationen för dessa API: er:
 
@@ -49,16 +49,16 @@ Det finns fyra steg för att komma åt identitets skydds data via Microsoft Grap
 1. Välj **ny registrering**.
 1. Utför följande steg på sidan **skapa** :
    1. I text rutan **namn** anger du ett namn för ditt program (t. ex. Azure AD-API för risk identifiering).
-   1. Under **typer av konto typer som stöds**väljer du den typ av konton som ska använda API: erna.
+   1. Under **typer av konto typer som stöds** väljer du den typ av konton som ska använda API: erna.
    1. Välj **Register** (Registrera).
 1. Kopiera **program-ID: t**.
 
 ### <a name="configure-api-permissions"></a>Konfigurera API-behörigheter
 
-1. Välj **API-behörigheter**från det **program** som du har skapat.
+1. Välj **API-behörigheter** från det **program** som du har skapat.
 1. På sidan **konfigurerade behörigheter** , i verktygsfältet högst upp, klickar du på **Lägg till en behörighet**.
 1. På sidan **Lägg till API-åtkomst** klickar du på **Välj ett API**.
-1. På sidan **Välj ett API** väljer du **Microsoft Graph**och klickar sedan på **Välj**.
+1. På sidan **Välj ett API** väljer du **Microsoft Graph** och klickar sedan på **Välj**.
 1. På sidan **begär API-behörigheter** : 
    1. Välj **Programbehörigheter**.
    1. Markera kryss rutorna bredvid `IdentityRiskEvent.Read.All` och `IdentityRiskyUser.Read.All` .
@@ -67,8 +67,8 @@ Det finns fyra steg för att komma åt identitets skydds data via Microsoft Grap
 
 ### <a name="configure-a-valid-credential"></a>Konfigurera en giltig autentiseringsuppgift
 
-1. Välj **certifikat & hemligheter**från det **program** som du har skapat.
-1. Under **klient hemligheter**väljer du **ny klient hemlighet**.
+1. Välj **certifikat & hemligheter** från det **program** som du har skapat.
+1. Under **klient hemligheter** väljer du **ny klient hemlighet**.
    1. Ge klient hemligheten en **Beskrivning** och ange tids perioden för förfallo tid enligt organisationens principer.
    1. Välj **Lägg till**.
 
@@ -173,4 +173,4 @@ Relaterad information finns i:
 - [Typer av risk identifieringar som upptäckts av Azure Active Directory Identity Protection](./overview-identity-protection.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Översikt över Microsoft Graph](https://developer.microsoft.com/graph/docs)
-- [Azure AD Identity Protection tjänst roten](/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)
+- [Azure AD Identity Protection tjänst roten](/graph/api/resources/identityprotectionroot)

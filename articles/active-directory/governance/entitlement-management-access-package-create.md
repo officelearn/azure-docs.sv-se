@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6c30dffbc8f97273ee59ce33ae3fe75ed730763
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b2ce3b362d02e7acb0a11e6d93b8e94ca8e4d04e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356645"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903538"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Skapa ett nytt Access-paket i hantering av Azure AD-berättigande
 
@@ -57,7 +57,7 @@ Här följer de övergripande stegen för att skapa ett nytt Access-paket.
 
 **Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
-1. Logga in i [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Klicka på **Azure Active Directory** och klicka sedan på **identitets styrning**.
 
@@ -67,7 +67,7 @@ Här följer de övergripande stegen för att skapa ett nytt Access-paket.
    
     ![Hantering av rättigheter i Azure Portal](./media/entitlement-management-shared/access-packages-list.png)
 
-## <a name="basics"></a>Grunder
+## <a name="basics"></a>Grundläggande inställningar
 
 På fliken **grundläggande** ger du åtkomst paketet ett namn och anger vilken katalog som du vill skapa åtkomst paketet i.
 
@@ -89,7 +89,7 @@ På fliken **grundläggande** ger du åtkomst paketet ett namn och anger vilken 
 
 På fliken **resurs roller** väljer du de resurser som du vill ta med i åtkomst paketet. Användare som begär och tar emot åtkomst paketet får alla resurs roller i åtkomst paketet.
 
-1. Klicka på den resurs typ som du vill lägga till ( **grupper och team** , **program** eller **SharePoint-platser** ).
+1. Klicka på den resurs typ som du vill lägga till (**grupper och team**, **program** eller **SharePoint-platser**).
 
 1. I fönstret Välj som visas väljer du en eller flera resurser i listan.
 
@@ -106,6 +106,9 @@ På fliken **resurs roller** väljer du de resurser som du vill ta med i åtkoms
     ![Åtkomst paket – resurs roll val](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
 1. Klicka på **Nästa**.
+
+>[!NOTE]
+>Du kan lägga till dynamiska grupper i en katalog och till ett Access-paket. Du kan dock bara välja ägar rollen när du hanterar en dynamisk grupp resurs i ett Access-paket.
 
 ## <a name="requests"></a>Begäranden
 

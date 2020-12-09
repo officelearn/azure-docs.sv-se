@@ -1,18 +1,18 @@
 ---
 title: Definiera flera instanser av en variabel
-description: Använd kopierings åtgärden i en Azure Resource Manager mall för att iterera flera gånger när du skapar en variabel.
+description: Använd kopierings åtgärden i en Azure Resource Manager mall (ARM-mall) om du vill iterera flera gånger när du skapar en variabel.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: aca69dd858c7a940592e74123b97b8d364d9e11c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8acd85659b843cb482e1ccc61e28da03431db1b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84678451"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905901"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Variabel iteration i ARM-mallar
 
-Den här artikeln visar hur du skapar fler än ett värde för en variabel i din Azure Resource Manager-mall (ARM). Genom att lägga till elementet **Kopiera** i avsnittet variabler i mallen kan du dynamiskt ange antalet objekt för en variabel under distributionen. Du behöver inte heller upprepa syntaxen för mallar.
+Den här artikeln visar hur du skapar fler än ett värde för en variabel i din Azure Resource Manager-mall (ARM-mall). Genom att lägga till `copy` elementet i avsnittet variabler i mallen kan du dynamiskt ange antalet objekt för en variabel under distributionen. Du behöver inte heller upprepa syntaxen för mallar.
 
 Du kan också använda kopiera med [resurser](copy-resources.md), [Egenskaper i en resurs](copy-properties.md)och [utdata](copy-outputs.md).
 
@@ -30,9 +30,9 @@ Kopierings elementet har följande allmänna format:
 ]
 ```
 
-Egenskapen **Name** är ett värde som identifierar slingan. Egenskapen **Count** anger antalet iterationer som du vill använda för variabeln.
+`name`Egenskapen är ett värde som identifierar slingan. `count`Egenskapen anger antalet iterationer som du vill använda för variabeln.
 
-Egenskapen **indatamängd** anger de egenskaper som du vill upprepa. Du skapar en matris med element som skapats från värdet i egenskapen **indatamängd** . Det kan vara en enskild egenskap (till exempel en sträng) eller ett objekt med flera egenskaper.
+`input`Egenskapen anger de egenskaper som du vill upprepa. Du skapar en matris med element som skapats från värdet i `input` egenskapen. Det kan vara en enskild egenskap (till exempel en sträng) eller ett objekt med flera egenskaper.
 
 ## <a name="copy-limits"></a>Kopierings gränser
 
@@ -92,7 +92,7 @@ Föregående mall returnerar en matris med följande värden:
 ]
 ```
 
-I nästa exempel visas hur du skapar en matris med objekt med tre egenskaper: Name, diskSizeGB och diskIndex.
+I nästa exempel visas hur du skapar en matris med objekt med tre egenskaper: `name` , `diskSizeGB` och `diskIndex` .
 
 ```json
 {
@@ -160,10 +160,10 @@ Föregående exempel returnerar en matris med följande värden:
 ```
 
 > [!NOTE]
-> Variabeln iteration stöder ett offset-argument. Förskjutningen måste komma efter namnet på iterationen, till exempel copyIndex (' diskNames ', 1). Om du inte anger ett förskjutnings värde används 0 som standard för den första instansen.
+> Variabeln iteration stöder ett offset-argument. Förskjutningen måste komma efter namnet på iterationen, till exempel `copyIndex('diskNames', 1)` . Om du inte anger ett förskjutnings värde används 0 som standard för den första instansen.
 >
 
-Du kan också använda kopierings elementet i en variabel. I följande exempel skapas ett objekt som har en matris som en av dess värden.
+Du kan också använda- `copy` elementet i en variabel. I följande exempel skapas ett objekt som har en matris som en av dess värden.
 
 ```json
 {
@@ -236,7 +236,7 @@ Föregående exempel returnerar ett-objekt med följande värden:
 }
 ```
 
-I nästa exempel visas olika sätt som du kan använda kopiera med variabler.
+I nästa exempel visas de olika sätt som du kan använda `copy` med variabler.
 
 ```json
 {
@@ -326,6 +326,5 @@ I följande exempel visas vanliga scenarier för att skapa mer än ett värde f�
   * [Resurs upprepning i ARM-mallar](copy-resources.md)
   * [Egenskaps upprepning i ARM-mallar](copy-properties.md)
   * [Utdata iteration i ARM-mallar](copy-outputs.md)
-* Om du vill lära dig mer om avsnitten i en mall, se [Redigera arm-mallar](template-syntax.md).
-* Information om hur du distribuerar din mall finns i [distribuera ett program med arm-mall](deploy-powershell.md).
-
+* Om du vill lära dig mer om avsnitten i en mall, se [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
+* Information om hur du distribuerar din mall finns i [distribuera resurser med ARM-mallar och Azure PowerShell](deploy-powershell.md).

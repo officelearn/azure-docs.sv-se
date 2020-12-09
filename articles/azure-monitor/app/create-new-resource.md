@@ -3,12 +3,12 @@ title: Skapa en ny Azure Application Insights-resurs | Microsoft Docs
 description: Konfigurera Application Insights övervakning manuellt för ett nytt Live-program.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d2e367e84aed7abac70d803f28d26070f7b0a85e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fd05e6bd68be89b964fe1ad32029bf44f3352ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323136"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906377"
 ---
 # <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 
@@ -44,7 +44,8 @@ När din app har skapats öppnas ett nytt fönster. I det här fönstret visas p
 
 Instrumentation-nyckeln identifierar den resurs som du vill associera dina telemetridata med. Du måste kopiera Instrumentation-nyckeln och lägga till den i programmets kod.
 
-![Klicka och kopiera Instrumentation-tangenten](./media/create-new-resource/instrumentation-key.png)
+> [!IMPORTANT]
+> Nya Azure-regioner **kräver** att anslutnings strängar används i stället för instrument knappar. [Anslutnings strängen](./sdk-connection-string.md?tabs=net) identifierar den resurs som du vill associera dina telemetridata med. Du kan också ändra de slut punkter som resursen kommer att använda som mål för din telemetri. Du måste kopiera anslutnings strängen och lägga till den i programmets kod eller till en miljö variabel.
 
 ## <a name="install-the-sdk-in-your-app"></a>Installera SDK i din app
 

@@ -9,19 +9,16 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 7419e8667f07eec03e860634c7b3fddcac0e186b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 97b52159684eca9be59ccc711f6d2f19b5eb8d49
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95901561"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906122"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montera Blob Storage med hjälp av Network File System (NFS) 3,0-protokollet (för hands version)
 
 Du kan montera en behållare i Blob Storage från en Windows-eller Linux-baserad virtuell Azure-dator (VM) eller ett Windows-eller Linux-system som körs lokalt med hjälp av NFS 3,0-protokollet. Den här artikeln innehåller steg-för-steg-anvisningar. Om du vill veta mer om NFS 3,0 protokoll stöd i Blob Storage, se [Network File System (NFS) stöd för 3,0-protokoll i Azure Blob Storage (för hands version)](network-file-system-protocol-support.md).
-
-> [!NOTE]
-> NFS 3,0 protokoll stöd i Azure Blob Storage finns i offentlig för hands version och är tillgängligt i följande regioner: USA, östra, centrala USA, västra centrala, Australien, sydöstra, Nord Europa, Storbritannien, västra, Korea, centrala, Korea, södra och centrala Kanada.
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>Steg 1: registrera NFS 3,0-protokoll funktionen med din prenumeration
 
@@ -48,13 +45,7 @@ Du kan montera en behållare i Blob Storage från en Windows-eller Linux-baserad
    Register-AzProviderFeature -FeatureName AllowNFSV3 -ProviderNamespace Microsoft.Storage 
    ```
 
-5. Registrera `PremiumHns` funktionen med hjälp av följande kommando.
-
-   ```powershell
-   Register-AzProviderFeature -FeatureName PremiumHns -ProviderNamespace Microsoft.Storage  
-   ```
-
-6. Registrera resurs leverantören med hjälp av följande kommando.
+5. Registrera resurs leverantören med hjälp av följande kommando.
     
    ```powershell
    Register-AzResourceProvider -ProviderNamespace Microsoft.Storage   
@@ -66,7 +57,6 @@ Registreringens godkännande kan ta upp till en timme. Kontrol lera att registre
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNFSV3
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumHns  
 ```
 
 ## <a name="step-3-create-an-azure-virtual-network-vnet"></a>Steg 3: skapa ett Azure-Virtual Network (VNet)
@@ -86,20 +76,20 @@ Information om hur du skyddar data i ditt konto finns i följande rekommendation
 
 Om du vill montera en behållare med hjälp av NFS 3,0 måste du skapa ett lagrings konto **när** du har registrerat funktionen med din prenumeration. Du kan inte aktivera konton som fanns innan du registrerade funktionen. 
 
-I för hands versionen av den här funktionen stöds NFS 3,0-protokollet endast i [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) -konton.
+I för hands versionen av den här funktionen stöds NFS 3,0-protokollet i [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) [-och General-Purpose v2-](../common/storage-account-overview.md#general-purpose-v2-accounts) konton.
 
 När du konfigurerar kontot väljer du dessa värden:
 
-|Inställning | Värde|
-|----|---|
-|Plats|En av följande regioner: USA, östra, centrala USA, västra centrala, sydöstra Australien, norra Europa, Storbritannien, västra, Korea, centrala, Korea, södra och centrala Kanada |
-|Prestanda|Premium|
-|Typ av konto|BlockBlobStorage|
-|Replikering|Lokalt redundant lagring (LRS)|
-|Anslutningsmetod|Offentlig slut punkt (valda nätverk) eller privat slut punkt|
-|Säker överföring krävs|Inaktiverad|
-|Hierarkiskt namn område|Enabled|
-|NFS V3|Enabled|
+|Inställning | Förstklassig prestanda | Standard prestanda  
+|----|---|---|
+|Plats|Alla tillgängliga regioner |En av följande regioner: östra Australien, Korea Central och södra centrala USA   
+|Prestanda|Premium| Standard
+|Typ av konto|BlockBlobStorage| Allmänt-syfte v2
+|Replikering|Lokalt redundant lagring (LRS)| Lokalt redundant lagring (LRS)
+|Anslutningsmetod|Offentlig slut punkt (valda nätverk) eller privat slut punkt |Offentlig slut punkt (valda nätverk) eller privat slut punkt
+|Säker överföring krävs|Inaktiverad|Inaktiverad
+|Hierarkiskt namn område|Enabled|Enabled
+|NFS V3|Enabled |Enabled 
 
 Du kan acceptera standardvärdena för alla andra inställningar. 
 

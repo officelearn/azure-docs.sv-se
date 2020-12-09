@@ -12,18 +12,18 @@ ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Content moderator, innehålls moderator
-ms.openlocfilehash: d1d9315986f7a6c57c1da012b9034e4f1a3730bc
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c026c42fe3c7a7f3f0d6b80e3123904077c104cf
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143740"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905221"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Snabb start: prova Content Moderator på webben
 
 I den här snabb starten använder du verktyget för Content Moderator granskning online för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod. Om du vill integrera den här tjänsten i din app för innehålls redigering snabbare, se de andra snabb starterna i avsnittet [Nästa steg](#next-steps) .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En webbläsare
 
@@ -34,7 +34,7 @@ Verktyget Content Moderator granskning är ett webbaserat verktyg som gör det m
 
 ## <a name="create-a-review-team"></a>Skapa ett granskningsteam
 
-Skapa sedan en gransknings grupp. I ett arbets scenario är det här teamet den grupp av personer som manuellt granskar tjänstens kontroll beslut. Om du vill skapa ett team måste du välja en **region** och ange ett **grupp namn** och ett **Team-ID** . Om du vill bjuda in kollegor till teamet kan du göra det genom att ange deras e-postadresser här.
+Skapa sedan en gransknings grupp. I ett arbets scenario är det här teamet den grupp av personer som manuellt granskar tjänstens kontroll beslut. Om du vill skapa ett team måste du välja en **region** och ange ett **grupp namn** och ett **Team-ID**. Om du vill bjuda in kollegor till teamet kan du göra det genom att ange deras e-postadresser här.
 
 > [!NOTE]
 > **Team namn** är ett eget namn för gransknings teamet. Detta är det namn som visas i Azure Portal. **Team-ID: t** är det som används för att identifiera program mässigt för gransknings teamet.
@@ -49,7 +49,7 @@ Om du väljer att kryptera data med hjälp av en kundhanterad nyckel (CMK) uppma
 
 ## <a name="upload-sample-content"></a>Ladda upp exempel innehåll
 
-Nu är du redo att ladda upp exempel innehåll. Välj **prova > bild** , **prova > Text** eller **prova > video** .
+Nu är du redo att ladda upp exempel innehåll. Välj **prova > bild**, **prova > Text** eller **prova > video**.
 
 > [!div class="mx-imgBorder"]
 > ![Prova bild-eller text redigering](images/tryimagesortext.png)
@@ -88,6 +88,6 @@ Eller Fortsätt med nästa steg för att komma igång med redigerings-API: er i 
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du använder redigerings-API: erna själva i din app.
-- Implementera avbildnings moderator. Använd [API-konsolen](try-image-api.md) eller följ snabb starten för [klient biblioteket](client-libraries.md) för att skanna bilder och identifiera potentiellt vuxna och vågat innehåll genom att använda taggar, konfidens resultat och annan extraherad information.
-- Implementera text moderator. Använd [API-konsolen](try-text-api.md) eller Använd snabb starten för [klient biblioteket](client-libraries.md) för att skanna text innehåll för potentiella svordomar, oönskad text klassificering (för hands version) och personliga data.
+- Implementera avbildnings moderator. Använd [API-konsolen](try-image-api.md) eller Följ ett [klient bibliotek eller REST API snabb start](client-libraries.md) för att skanna bilder och identifiera potentiellt vuxna och vågat innehåll genom att använda taggar, konfidens resultat och annan extraherad information.
+- Implementera text moderator. Använd [API-konsolen](try-text-api.md) eller Följ ett [klient bibliotek eller REST API snabb start](client-libraries.md) för att söka efter potentiella svordomar i text innehåll, oönskad text klassificering (för hands version) och personliga data.
 - Implementera videoinspelning. Följ anvisningarna [för videoinspelnings guiden för C# för](video-moderation-api.md) att söka igenom videor och identifiera potentiellt vuxna och vågat innehåll. 

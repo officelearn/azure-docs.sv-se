@@ -1,20 +1,20 @@
 ---
-title: 'Självstudie: dirigera elektriska bilar med Azure Notebooks (python) | Microsoft Azure Maps'
+title: 'Självstudie: dirigera elektriska fordon med hjälp av Azure Notebooks (python) med Microsoft Azure Maps'
 description: 'Självstudie om hur du dirigerar elektriska fordon med Microsoft Azure mappar API: er för Routning och Azure Notebooks'
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/12/2019
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 6dde7abef1769b9441c037f3727e7fd9d83ab172
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f30b99a1d9c8303d5b2ed4b02819d0ca837946d2
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896826"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905748"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Självstudie: dirigera elektriska bilar med Azure Notebooks (python)
 
@@ -24,7 +24,7 @@ Azure Maps REST-API: er kan anropas från språk som python och R för att aktiv
 
 I den här självstudien får du hjälp med att gå igenom en driv rutin vars batteri batteri är låg. Driv rutinen måste hitta den närmaste möjliga laddnings stationen från fordonets plats.
 
-I den här självstudien kommer vi att:
+I de här självstudierna får du:
 
 > [!div class="checklist"]
 > * Skapa och kör en Jupyter Notebook-fil på [Azure Notebooks](../notebooks/index.yml) i molnet.
@@ -35,7 +35,7 @@ I den här självstudien kommer vi att:
 > * Hitta och visualisera en väg till närmaste elektriska fordons laddnings Station baserat på enhets tid.
 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 För att slutföra den här självstudien måste du först skapa ett Azure Maps konto och hämta din primär nyckel (prenumerations nyckel). 
 
@@ -54,7 +54,7 @@ Om du vill följa med i den här själv studie kursen måste du skapa ett Azure 
 
     ![Knappen mina projekt](./media/tutorial-ev-routing/myproject.png)
 
-1. På sidan **Mina projekt** väljer du **nytt projekt** .
+1. På sidan **Mina projekt** väljer du **nytt projekt**.
  
    ![Knappen nytt projekt](./media/tutorial-ev-routing/create-project.png)
 
@@ -62,7 +62,7 @@ Om du vill följa med i den här själv studie kursen måste du skapa ett Azure 
  
     ![Fönstret Skapa nytt projekt](./media/tutorial-ev-routing/create-project-window.png)
 
-1. Välj **Skapa** .
+1. Välj **Skapa**.
 
 1. När projektet har skapats kan du ladda ned den här [Jupyter Notebook dokument filen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) från [Azure Maps Jupyter Notebook-lagringsplatsen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
 
@@ -70,7 +70,7 @@ Om du vill följa med i den här själv studie kursen måste du skapa ett Azure 
 
     ![Ladda upp Jupyter Notebook](./media/tutorial-ev-routing/upload-notebook.png)
 
-1. Ladda upp filen från datorn och välj sedan **slutförd** .
+1. Ladda upp filen från datorn och välj sedan **slutförd**.
 
 1. När överföringen har slutförts visas filen på projekt sidan. Dubbelklicka på filen för att öppna den som en Jupyter Notebook.
 
@@ -83,13 +83,13 @@ Försök att förstå de funktioner som implementeras i Jupyter Notebook-filen. 
 Om du vill köra koden i Jupyter Notebook installerar du paket på projekt nivå genom att utföra följande steg:
 
 1. Ladda ned [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) -filen från [Azure Maps Jupyter Notebook-lagringsplatsen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)och ladda sedan upp den till projektet.
-1. På instrument panelen för projektet väljer du **projekt inställningar** . 
-1. I fönstret **projekt inställningar** väljer du fliken **miljö** och väljer sedan **Lägg till** .
+1. På instrument panelen för projektet väljer du **projekt inställningar**. 
+1. I fönstret **projekt inställningar** väljer du fliken **miljö** och väljer sedan **Lägg till**.
 1. Under **miljö konfigurations steg** gör du följande:   
-    a. I den första List rutan väljer du **Requirements.txt** .  
+    a. I den första List rutan väljer du **Requirements.txt**.  
     b. Välj din *requirements.txt* -fil i den andra List rutan.  
     c. I den tredje List rutan väljer du **python Version 3,6** som version.
-1. Välj **Spara** .
+1. Välj **Spara**.
 
     ![Installera paket](./media/tutorial-ev-routing/install-packages.png)
 
@@ -171,9 +171,9 @@ for loc in range(len(searchPolyResponse["results"])):
                 reachableLocations.append(location)
 ```
 
-## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service"></a>Ladda upp det nåbara intervallet och debitera platser för Azure Maps data tjänst
+## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service-preview"></a>Ladda upp det nåbara intervallet och debitera Points för Azure Maps data service (för hands version)
 
-På en karta vill du visualisera debiterings stationerna och gränsen för det elektriska fordonets maximala räckvidd. Det gör du genom att ladda upp data om gränser och debitera Stations data som JSON-objekt för att Azure Maps data tjänst. Använd [API för data uppladdning](/rest/api/maps/data/uploadpreview). 
+På en karta vill du visualisera debiterings stationerna och gränsen för det elektriska fordonets maximala räckvidd. Det gör du genom att ladda upp data om gränser och debitera Stations data som JSON-objekt för att Azure Maps data tjänst (för hands version). Använd [API för data uppladdning](/rest/api/maps/data/uploadpreview). 
 
 Om du vill överföra data för gränser och debiterings plats till Azure Maps data tjänst kör du följande två celler:
 
@@ -194,7 +194,7 @@ rangeData = {
   ]
 }
 
-# Upload the range data to Azure Maps Data Service.
+# Upload the range data to Azure Maps Data service (Preview).
 uploadRangeResponse = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = rangeData)
 
 rangeUdidRequest = uploadRangeResponse.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
@@ -223,7 +223,7 @@ poiData = {
   ]
 }
 
-# Upload the electric vehicle charging station data to Azure Maps Data Service.
+# Upload the electric vehicle charging station data to Azure Maps Data service (Preview).
 uploadPOIsResponse = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = poiData)
 
 poiUdidRequest = uploadPOIsResponse.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
@@ -336,12 +336,12 @@ routeData = {
 
 ## <a name="visualize-the-route"></a>Visualisera vägen
 
-För att visualisera vägen laddar du först upp flödes data som ett interjson-objekt för att Azure Maps data tjänst. Det gör du med hjälp av API: et för Azure Maps [data överföring](/rest/api/maps/data/uploadpreview). Anropa sedan åter givnings tjänsten, [Hämta avbildnings-API](/rest/api/maps/render/getmapimage)för att rendera vägen på kartan och visualisera den.
+För att visualisera vägen laddar du först upp flödes data som ett interjson-objekt för att Azure Maps data tjänst (för hands version). Det gör du med hjälp av API: et för Azure Maps [data överföring](/rest/api/maps/data/uploadpreview). Anropa sedan åter givnings tjänsten, [Hämta avbildnings-API](/rest/api/maps/render/getmapimage)för att rendera vägen på kartan och visualisera den.
 
 Kör följande skript för att hämta en avbildning för den återgivna vägen på kartan:
 
 ```python
-# Upload the route data to Azure Maps Data Service.
+# Upload the route data to Azure Maps Data service (Preview).
 routeUploadRequest = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = routeData)
 
 udidRequestURI = routeUploadRequest.headers["Location"]+"&subscription-key={}".format(subscriptionKey)

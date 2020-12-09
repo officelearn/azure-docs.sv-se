@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: a7d392412aa481d9541cd4987cfb4c18d04dafa0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 84e156074d6db837556ba4ed9febdb43bcdf3318
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500163"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902331"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -235,7 +235,7 @@ Nedan följer några rikt linjer som du följer när du skapar den anpassade par
       * `-` innebär att inte behålla standardvärdet för parametern.
       * `|` är ett specialfall för hemligheter från Azure Key Vault för anslutnings strängar eller nycklar.
    * `<name>` är namnet på parametern. Om det är tomt tar det med namnet på egenskapen. Om värdet börjar med ett `-` Character förkortas namnet. Till exempel `AzureStorage1_properties_typeProperties_connectionString` skulle kortas till `AzureStorage1_connectionString` .
-   * `<stype>` är typen av parameter. Om `<stype>` är tomt är standard typen `string` . Värden som stöds:,,, `string` `bool` `number` `object` och `securestring` .
+   * `<stype>` är typen av parameter. Om `<stype>` är tomt är standard typen `string` . Värden som stöds:,,,, `string` `securestring` `int` `bool` `object` `secureobject` och `array` .
 * Att ange en matris i definitions filen anger att den matchande egenskapen i mallen är en matris. Data Factory itererar igenom alla objekt i matrisen med hjälp av definitionen som anges i integration runtime-objektet i matrisen. Det andra objektet, en sträng, blir namnet på egenskapen, som används som namn för parametern för varje iteration.
 * En definition kan inte vara unik för en resurs instans. Alla definitioner gäller för alla resurser av den typen.
 * Som standard är alla säkra strängar, som Key Vault hemligheter och säkra strängar, som anslutnings strängar, nycklar och tokens, parameterstyrda.
@@ -250,7 +250,7 @@ Här är ett exempel på hur en Parameterisering-mall kan se ut så här:
         "properties": {
             "activities": [{
                 "typeProperties": {
-                    "waitTimeInSeconds": "-::number",
+                    "waitTimeInSeconds": "-::int",
                     "headers": "=::object"
                 }
             }]
@@ -268,7 +268,7 @@ Här är ett exempel på hur en Parameterisering-mall kan se ut så här:
             "typeProperties": {
                 "recurrence": {
                     "*": "=",
-                    "interval": "=:triggerSuffix:number",
+                    "interval": "=:triggerSuffix:int",
                     "frequency": "=:-freq"
                 },
                 "maxConcurrency": "="
@@ -317,7 +317,7 @@ Här är en förklaring av hur föregående mall skapas, uppdelat efter resurs t
 #### <a name="triggers"></a>Utlösare
 
 * Under `typeProperties` , har två egenskaper parametriserade. Det första är `maxConcurrency` , som har angetts att ha ett standardvärde och är av typen `string` . Den har standard parameter namnet `<entityName>_properties_typeProperties_maxConcurrency` .
-* `recurrence`Egenskapen är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är `interval` egenskapen, som är parameterstyrda som typ `number` . Parameter namnet har suffix `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . På samma sätt `freq` är egenskapen en sträng och är parameterstyrda som en sträng. `freq`Egenskapen är dock parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Exempelvis `<entityName>_freq`.
+* `recurrence`Egenskapen är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är `interval` egenskapen, som är parameterstyrda som typ `int` . Parameter namnet har suffix `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . På samma sätt `freq` är egenskapen en sträng och är parameterstyrda som en sträng. `freq`Egenskapen är dock parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Exempelvis `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
@@ -668,7 +668,7 @@ Om du använder git-integrering med din data fabrik och har en CI/CD-pipeline so
     - Data Factory-entiteter är beroende av varandra. Utlösare är exempelvis beroende av pipeliner och pipeliner beror på data uppsättningar och andra pipeliner. Selektiv publicering av en del av resurser kan leda till oväntade beteenden och fel.
     - Vid sällsynta tillfällen när du behöver selektiv publicering bör du överväga att använda en snabb korrigering. Mer information finns i [snabb korrigerings produktions miljö](#hotfix-production-environment).
 
-- Azure Data Factorys teamet rekommenderar inte att du tilldelar Azure RBAC-kontroller till enskilda entiteter (pipelines, data uppsättningar osv.) i en data fabrik. Om en utvecklare till exempel har åtkomst till en pipeline eller en data uppsättning, ska de kunna komma åt alla pipeliner eller data uppsättningar i data fabriken. Om du tycker att du behöver implementera många Azure-roller i en data fabrik tittar du på att distribuera en andra data fabrik.
+- Azure Data Factorys teamet rekommenderar inte att du tilldelar Azure RBAC-kontroller till enskilda entiteter (pipelines, data uppsättningar osv.) i en data fabrik. Om en utvecklare till exempel har åtkomst till en pipeline eller en datamängd ska utvecklaren kunna ha åtkomst till alla pipelines eller datamängder i datafabriken. Om du tycker att du behöver implementera många Azure-roller i en data fabrik tittar du på att distribuera en andra data fabrik.
 
 -   Du kan inte publicera från privata grenar.
 

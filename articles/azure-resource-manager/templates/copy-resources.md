@@ -1,26 +1,26 @@
 ---
 title: Distribuera flera instanser av resurser
-description: Använd kopierings åtgärd och matriser i en Azure Resource Manager mall för att distribuera resurs typen flera gånger.
+description: Använd kopierings åtgärd och matriser i en Azure Resource Manager mall (ARM-mall) för att distribuera resurs typen flera gånger.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 411c92061826a6e8bc59380d0440fb69816557a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47f3d693b84347973889a6003360d7113c427f4d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293976"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905918"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Resurs upprepning i ARM-mallar
 
-Den här artikeln visar hur du skapar fler än en instans av en resurs i din Azure Resource Manager-mall (ARM). Genom att lägga till elementet **Kopiera** i avsnittet resurser i mallen kan du dynamiskt ange antalet resurser som ska distribueras. Du behöver inte heller upprepa syntaxen för mallar.
+Den här artikeln visar hur du skapar fler än en instans av en resurs i din Azure Resource Manager-mall (ARM-mall). Genom att lägga till `copy` elementet i avsnittet resurser i mallen kan du dynamiskt ange antalet resurser som ska distribueras. Du behöver inte heller upprepa syntaxen för mallar.
 
-Du kan också använda kopiera med [Egenskaper](copy-properties.md), [variabler](copy-variables.md)och [utdata](copy-outputs.md).
+Du kan också använda `copy` med [Egenskaper](copy-properties.md), [variabler](copy-variables.md)och [utdata](copy-outputs.md).
 
 Om du behöver ange om en resurs har distribuerats alls, se [villkors element](conditional-resource-deployment.md).
 
 ## <a name="syntax"></a>Syntax
 
-Kopierings elementet har följande allmänna format:
+`copy`Elementet har följande allmänna format:
 
 ```json
 "copy": {
@@ -31,9 +31,9 @@ Kopierings elementet har följande allmänna format:
 }
 ```
 
-Egenskapen **Name** är ett värde som identifierar slingan. Egenskapen **Count** anger antalet iterationer som du vill använda för resurs typen.
+`name`Egenskapen är ett värde som identifierar slingan. `count`Egenskapen anger antalet iterationer som du vill använda för resurs typen.
 
-Använd egenskaperna **mode** och **batchSize** för att ange om resurserna distribueras parallellt eller i följd. Dessa egenskaper beskrivs i [serie eller parallellt](#serial-or-parallel).
+Använd- `mode` och- `batchSize` egenskaperna för att ange om resurserna distribueras parallellt eller i följd. Dessa egenskaper beskrivs i [serie eller parallellt](#serial-or-parallel).
 
 ## <a name="copy-limits"></a>Kopierings gränser
 
@@ -52,7 +52,7 @@ Var försiktig med att använda [fullständig läges distribution](deployment-mo
 
 ## <a name="resource-iteration"></a>Resurs upprepning
 
-I följande exempel skapas antalet lagrings konton som anges i parametern **storageCount** .
+I följande exempel skapas antalet lagrings konton som anges i `storageCount` parametern.
 
 ```json
 {
@@ -97,7 +97,7 @@ Skapar följande namn:
 * storage1
 * storage2.
 
-Om du vill åsidosätta indexvärdet kan du skicka ett värde i funktionen copyIndex(). Antalet iterationer har fortfarande angetts i kopierings elementet, men värdet för copyIndex motbokas med det angivna värdet. I följande exempel:
+Du kan ange ett värde i funktionen för att kompensera värdet för indexet `copyIndex()` . Antalet iterationer har fortfarande angetts i kopierings elementet, men värdet för `copyIndex` motbokas med det angivna värdet. I följande exempel:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -187,7 +187,7 @@ Om du till exempel vill distribuera lagrings konton två i taget, använder du:
 }
 ```
 
-Egenskapen mode godkänner också **Parallel**, vilket är standardvärdet.
+`mode`Egenskapen accepterar också **parallell**, vilket är standardvärdet.
 
 ## <a name="depend-on-resources-in-a-loop"></a>Är beroende av resurser i en slinga
 
@@ -297,6 +297,5 @@ I följande exempel visas vanliga scenarier för att skapa mer än en instans av
   * [Variabel iteration i ARM-mallar](copy-variables.md)
   * [Utdata iteration i ARM-mallar](copy-outputs.md)
 * Information om hur du använder kopiera med kapslade mallar finns i [använda kopiera](linked-templates.md#using-copy).
-* Om du vill lära dig mer om avsnitten i en mall, se [Redigera arm-mallar](template-syntax.md).
-* Information om hur du distribuerar din mall finns i [distribuera ett program med arm-mall](deploy-powershell.md).
-
+* Om du vill lära dig mer om avsnitten i en mall, se [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
+* Information om hur du distribuerar din mall finns i [distribuera resurser med ARM-mallar och Azure PowerShell](deploy-powershell.md).

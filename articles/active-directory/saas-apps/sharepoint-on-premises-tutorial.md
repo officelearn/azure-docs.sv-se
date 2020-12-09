@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 1a52fc28d99e0f072323e5042257baec9bf98ecb
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a693b22c609829f3bf6e76637eac5793d73703e6
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518390"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862317"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-sharepoint-on-premises"></a>Självstudie: Azure Active Directory integration med enkel inloggning med SharePoint lokalt
 
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig hur du integrerar lokal SharePoint me
 * Gör det möjligt för användarna att logga in automatiskt till SharePoint lokalt med deras Azure AD-konton.
 * Hantera dina konton i Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med SharePoint lokalt behöver du följande objekt:
 
@@ -43,22 +43,22 @@ Om du vill konfigurera integrering av lokal SharePoint i Azure AD så behöver d
 
 Så här lägger du till SharePoint lokalt från galleriet:
 
-1. Välj **Azure Active Directory**i rutan till vänster i rutan Azure Portal.
+1. Välj **Azure Active Directory** i rutan till vänster i rutan Azure Portal.
 
    > [!NOTE]
    > Om elementet inte är tillgängligt kan du också öppna det via länken **alla tjänster** längst upp i fönstret längst till vänster. I följande översikt finns **Azure Active Directory** länken i avsnittet **identitet** . Du kan också söka efter den med hjälp av filter rutan.
 
-1. Gå till **företags program**och välj sedan **alla program**.
+1. Gå till **företags program** och välj sedan **alla program**.
 
 1. Lägg till ett nytt program genom att välja **Nytt program** längst upp i dialogrutan.
 
-1. Ange **SharePoint lokalt**i rutan Sök. Välj **SharePoint lokalt** i resultat fönstret.
+1. Ange **SharePoint lokalt** i rutan Sök. Välj **SharePoint lokalt** i resultat fönstret.
 
     <kbd>![Lokal SharePoint i resultatlistan](./media/sharepoint-on-premises-tutorial/search-new-app.png)</kbd>
 
 1. Ange ett namn för din lokala SharePoint-instans och välj **Lägg** till för att lägga till programmet.
 
-1. I det nya företags programmet väljer du **Egenskaper**och kontrollerar värdet för **användar tilldelning krävs?**.
+1. I det nya företags programmet väljer du **Egenskaper** och kontrollerar värdet för **användar tilldelning krävs?**.
 
    <kbd>![Krävs användar tilldelning? granska](./media/sharepoint-on-premises-tutorial/user-assignment-required.png)</kbd>
 
@@ -133,7 +133,7 @@ Så här konfigurerar du Azure AD SSO med SharePoint lokalt:
     Kör följande kommandon för att konfigurera en ny betrodd identitets leverantör.
 
     > [!TIP]
-    > Om PowerShell är nytt för dig eller om du vill veta mer om hur PowerShell fungerar, se [SharePoint PowerShell](/powershell/sharepoint/overview?view=sharepoint-ps).
+    > Om PowerShell är nytt för dig eller om du vill veta mer om hur PowerShell fungerar, se [SharePoint PowerShell](/powershell/sharepoint/overview).
 
 
     ```
@@ -152,7 +152,7 @@ Så här konfigurerar du Azure AD SSO med SharePoint lokalt:
 
     1. Välj **autentiseringsproviders** i menyfliksområdet och välj den zon som du vill använda.
 
-    1. Välj **betrodd identitetsprovider**och välj den identifierande provider som du precis registrerade med namnet *AzureAD*.
+    1. Välj **betrodd identitetsprovider** och välj den identifierande provider som du precis registrerade med namnet *AzureAD*.
 
     1. Välj **OK**.
 
@@ -162,11 +162,11 @@ Så här konfigurerar du Azure AD SSO med SharePoint lokalt:
 
 Syftet med det här avsnittet är att skapa en test användare i Azure Portal.
 
-1. Välj **Azure Active Directory**i rutan till vänster i rutan Azure Portal. I fönstret **Hantera** väljer **du användare**.
+1. Välj **Azure Active Directory** i rutan till vänster i rutan Azure Portal. I fönstret **Hantera** väljer **du användare**.
 
 1. Välj **alla användare**  >  **ny användare** överst på skärmen.
 
-1. Välj **skapa användare**och följ de här stegen i användar egenskaperna. Du kanske kan skapa användare i din Azure AD med hjälp av ditt klient certifikat eller en verifierad domän. 
+1. Välj **skapa användare** och följ de här stegen i användar egenskaperna. Du kanske kan skapa användare i din Azure AD med hjälp av ditt klient certifikat eller en verifierad domän. 
 
     1. I rutan **namn** anger du användar namnet. Vi använde **TestUser**.
   
@@ -186,7 +186,7 @@ Syftet med det här avsnittet är att skapa en test användare i Azure Portal.
 
 1. Välj **ny grupp**.
 
-1. Fyll i rutorna **grupp typ**, **grupp namn**, **grupp Beskrivning**och **medlemskaps typ** . Välj pilarna för att välja medlemmar och Sök sedan efter eller Välj de medlemmar som du vill lägga till i gruppen. Välj **Välj** för att lägga till de valda medlemmarna och välj sedan **skapa**.
+1. Fyll i rutorna **grupp typ**, **grupp namn**, **grupp Beskrivning** och **medlemskaps typ** . Välj pilarna för att välja medlemmar och Sök sedan efter eller Välj de medlemmar som du vill lägga till i gruppen. Välj **Välj** för att lägga till de valda medlemmarna och välj sedan **skapa**.
 
 ![Skapa en Azure AD-säkerhetsgrupp](./media/sharepoint-on-premises-tutorial/new-group.png)
 
@@ -240,7 +240,7 @@ Du kan bevilja åtkomst till din SharePoint-webbplats till ett gäst konto på e
 
 1. I den **obligatoriska anspråks** zonen väljer du **unik användar identifierare (namn-ID)**.
 
-1. Ändra egenskapen **Source Attribute** till värdet **User. Localuserprincipalname**och välj **Spara**.
+1. Ändra egenskapen **Source Attribute** till värdet **User. Localuserprincipalname** och välj **Spara**.
 
     ![Användarattribut & inledande källattribut-attribut](./media/sharepoint-on-premises-tutorial/manage-claim.png)
 
@@ -281,10 +281,10 @@ Konfigurationen fungerar för ett enda webb program, men ytterligare konfigurati
     $t.UseWReplyParameter=$true
     $t.Update()
     ```
-1. I **Central administration**går du till webb programmet och aktiverar den befintliga betrodda identitets leverantören.
+1. I **Central administration** går du till webb programmet och aktiverar den befintliga betrodda identitets leverantören.
 
 Du kanske har andra scenarier där du vill ge åtkomst till din lokala SharePoint-instans för dina interna användare. I det här scenariot måste du distribuera Microsoft Azure Active Directory Connect för att kunna synkronisera dina lokala användare med Azure AD. Den här installationen beskrivs i en annan artikel.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 När du har konfigurerat SharePoint lokalt kan du framtvinga kontroll över sessioner, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

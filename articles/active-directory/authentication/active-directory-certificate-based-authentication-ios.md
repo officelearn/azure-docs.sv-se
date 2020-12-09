@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffddac13009b84aa8253955d265f11aefe2ce5dd
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a5f9b96fe9ee0781803bbbd86316e8783b60a6f1
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744422"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861331"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Azure Active Directory certifikatbaserad autentisering på iOS
 
@@ -75,7 +75,7 @@ Mer information finns i [anpassa AD FS inloggnings sida](/previous-versions/wind
 
 Vissa Office-appar med modern autentisering har Aktiver ATS skicka `prompt=login` till Azure AD i sin begäran. Som standard översätter Azure AD `prompt=login` i begäran till ADFS som `wauth=usernamepassworduri` (uppmanar ADFS att göra U/P-autentisering) och `wfresh=0` (uppmanar ADFS att ignorera SSO-tillstånd och göra en ny autentisering). Om du vill aktivera certifikatbaserad autentisering för de här apparna ändrar du standard beteendet för Azure AD.
 
-Om du vill uppdatera standard beteendet ställer du in "*PromptLoginBehavior*" i dina federerade domän inställningar på *inaktive rad*. Du kan använda [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) -cmdlet: en för att utföra den här uppgiften, som du ser i följande exempel:
+Om du vill uppdatera standard beteendet ställer du in "*PromptLoginBehavior*" i dina federerade domän inställningar på *inaktive rad*. Du kan använda [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings) -cmdlet: en för att utföra den här uppgiften, som du ser i följande exempel:
 
 ```powershell
 Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled

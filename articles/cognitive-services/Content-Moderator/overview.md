@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Content moderator, Azure Content moderator, online moderator, program vara för innehålls filtrering, Content moderatoring-tjänst, innehålls moderator
-ms.openlocfilehash: aa1f4c1fab9b3d8a1b5db0e965f1608e694646b2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c7c996ae49bdf7aa72873322f11af754843fd835
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596856"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905255"
 ---
 # <a name="what-is-azure-content-moderator"></a>Vad är Azure Content Moderator?
 
@@ -81,4 +81,4 @@ Som med alla Cognitive Services bör utvecklare som använder Content Moderator-
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med att använda Content Moderator på webb portalen genom att följa [Try Content moderator på webben](quick-start.md). Eller Slutför snabb starten av [klient biblioteket](client-libraries.md) för att implementera de grundläggande scenarierna i kod.
+Kom igång med att använda Content Moderator på webb portalen genom att följa [Try Content moderator på webben](quick-start.md). Eller Slutför ett [klient bibliotek eller REST API snabb start](client-libraries.md) för att implementera de grundläggande scenarierna i kod.

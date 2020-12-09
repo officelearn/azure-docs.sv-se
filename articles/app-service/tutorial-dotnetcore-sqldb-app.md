@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 305137cf371d7a9e3d336d8142ef9a03eb38421f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 890f9c3d5c3a250bc13270ac685b93349f18fcff
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743697"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862280"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-azure-sql-database-app-in-azure-app-service"></a>Självstudie: Bygg en ASP.NET Core-och Azure SQL Database-app i Azure App Service
 
@@ -29,7 +29,7 @@ ms.locfileid: "92743697"
 
 ![app som körs i App Service](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * skapa en SQL Database i Azure
@@ -41,12 +41,14 @@ I de här självstudierna får du lära dig att
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
-* <a href="https://git-scm.com/" target="_blank">Installera Git</a>
-* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Installera den senaste .NET Core 3,1 SDK</a>
+- <a href="https://git-scm.com/" target="_blank">Installera Git</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Installera den senaste .NET Core 3,1 SDK</a>
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-local-net-core-app"></a>Skapa en lokal .NET Core-app
 
@@ -65,7 +67,7 @@ cd dotnetcore-sqldb-tutorial
 
 Exempelprojektet innehåller en grundläggande CRUD-app (create-read-update-delete) med [Entity Framework Core](/ef/core/).
 
-### <a name="run-the-application"></a>Kör programmet
+### <a name="run-the-application"></a>Köra appen
 
 Kör följande kommandon för att installera de nödvändiga paketen, köra databasmigreringar och starta programmet.
 
@@ -75,13 +77,11 @@ dotnet ef database update
 dotnet run
 ```
 
-Gå till `http://localhost:5000` i en webbläsare. Välj länken **Skapa nytt** och skapa några _att-göra_ -objekt.
+Gå till `http://localhost:5000` i en webbläsare. Välj länken **Skapa nytt** och skapa några _att-göra_-objekt.
 
 ![ansluter till SQL Database](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
 Du kan när som helst stoppa .NET Core genom att trycka på `Ctrl+C` i terminalen.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-production-sql-database"></a>Skapa SQL Database för produktion
 
@@ -214,7 +214,7 @@ Nu när migreringen av databasen körs på produktions databasen testar du appen
 dotnet run
 ```
 
-Gå till `http://localhost:5000` i en webbläsare. Välj länken **Skapa nytt** och skapa några _att-göra_ -objekt. Appen läser nu och skriver data till produktions databasen.
+Gå till `http://localhost:5000` i en webbläsare. Välj länken **Skapa nytt** och skapa några _att-göra_-objekt. Appen läser nu och skriver data till produktions databasen.
 
 Spara dina lokala ändringar och spara dem i git-lagringsplatsen. 
 
@@ -269,7 +269,7 @@ Om du vill ange anslutnings strängar för din Azure-app använder du [`az webap
 az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
 ```
 
-I ASP.NET Core kan du använda den här namngivna anslutnings strängen ( `MyDbConnection` ) med standard mönstret, till exempel vilken anslutnings sträng som anges i *appsettings.jspå* . I det här fallet `MyDbConnection` definieras även i *appsettings.js* . När du kör i App Service prioriteras den anslutnings sträng som definieras i App Service den anslutnings sträng som definierats i din *appsettings.js* . Koden använder *appsettings.jsvid* värde under lokal utveckling och samma kod använder App Service-värdet vid distribution.
+I ASP.NET Core kan du använda den här namngivna anslutnings strängen ( `MyDbConnection` ) med standard mönstret, till exempel vilken anslutnings sträng som anges i *appsettings.jspå*. I det här fallet `MyDbConnection` definieras även i *appsettings.js*. När du kör i App Service prioriteras den anslutnings sträng som definieras i App Service den anslutnings sträng som definierats i din *appsettings.js*. Koden använder *appsettings.jsvid* värde under lokal utveckling och samma kod använder App Service-värdet vid distribution.
 
 Information om hur anslutnings strängen refereras i din kod finns i [Konfigurera appen för att ansluta till produktions databasen](#configure-app-to-connect-to-production-database).
 
@@ -286,7 +286,7 @@ Compressing objects: 100% (171/171), done.
 Writing objects: 100% (268/268), 1.18 MiB | 1.55 MiB/s, done.
 Total 268 (delta 95), reused 251 (delta 87), pack-reused 0
 remote: Resolving deltas: 100% (95/95), done.
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id '64821c3558'.
 remote: Generating deployment script.
@@ -303,7 +303,7 @@ remote: Running post deployment command(s)...
 remote: Triggering recycle (preview mode disabled).
 remote: App container will begin restart within 10 seconds.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      master -> master
+ * [new branch]      main -> main
 </pre>
 
 ::: zone-end
@@ -321,7 +321,7 @@ Writing objects: 100% (273/273), 1.19 MiB | 1.85 MiB/s, done.
 Total 273 (delta 96), reused 259 (delta 88)
 remote: Resolving deltas: 100% (96/96), done.
 remote: Deploy Async
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'cccecf86c5'.
 remote: Repository path is /home/site/repository
@@ -337,7 +337,7 @@ remote: Triggering recycle (preview mode disabled).
 remote: Deployment successful.
 remote: Deployment Logs : 'https://&lt;app-name&gt;.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/cccecf86c56493ffa594e76ea1deb3abb3702d89/log'
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      master -> master
+ * [new branch]      main -> main
 </pre>
 
 ::: zone-end
@@ -385,7 +385,7 @@ dotnet ef database update
 
 Gör några ändringar i koden så att du använder egenskapen `Done`. För att göra självstudien enklare ska du bara ändra vyerna `Index` och `Create` så att du ser hur egenskapen fungerar.
 
-Öppna _controllers/TodosController. cs_ .
+Öppna _controllers/TodosController. cs_.
 
 Leta rätt på metoden `Create([Bind("ID,Description,CreatedDate")] Todo todo)` och lägg till `Done` i listan med egenskaper för attributet `Bind`. När du är klar ser signaturen för metoden `Create()` ut som följande kod:
 
@@ -393,7 +393,7 @@ Leta rätt på metoden `Create([Bind("ID,Description,CreatedDate")] Todo todo)` 
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
 ```
 
-Öppna _vyer/Todos/Create. cshtml_ .
+Öppna _vyer/Todos/Create. cshtml_.
 
 I Razor-koden bör du se ett `<div class="form-group">`-element för `Description` och sedan ett annat `<div class="form-group">`-element för `CreatedDate`. Direkt efter dessa två element ska du lägga till ett annat `<div class="form-group">`-element för `Done`:
 
@@ -407,7 +407,7 @@ I Razor-koden bör du se ett `<div class="form-group">`-element för `Descriptio
 </div>
 ```
 
-Öppna _vyer/Todos/index. cshtml_ .
+Öppna _vyer/Todos/index. cshtml_.
 
 Sök efter det tomma `<th></th>`-elementet. Lägg till följande Razor-kod direkt ovanför det här elementet:
 
@@ -439,17 +439,17 @@ dotnet run
 > Om du öppnar ett nytt terminalfönster måste du ange anslutnings strängen till produktions databasen i terminalen, precis som du gjorde i [Kör Database-migreringar till produktions databasen](#run-database-migrations-to-the-production-database).
 >
 
-Öppna webbläsaren och navigera till `http://localhost:5000/`. Du kan nu lägga till en att-göra-uppgift och markera **Klart** . Den ska sedan visas på din startsida som en slutförd uppgift. Kom ihåg att vyn `Edit` inte innehåller fältet `Done` eftersom du inte ändrade vyn `Edit`.
+Öppna webbläsaren och navigera till `http://localhost:5000/`. Du kan nu lägga till en att-göra-uppgift och markera **Klart**. Den ska sedan visas på din startsida som en slutförd uppgift. Kom ihåg att vyn `Edit` inte innehåller fältet `Done` eftersom du inte ändrade vyn `Edit`.
 
 ### <a name="publish-changes-to-azure"></a>Publicera ändringar till Azure
 
 ```bash
 git add .
 git commit -m "added done field"
-git push azure master
+git push azure main
 ```
 
-När du `git push` är klar navigerar du till din app service-app och försöker lägga till ett att göra-objekt och checken är **klar** .
+När du `git push` är klar navigerar du till din app service-app och försöker lägga till ett att göra-objekt och checken är **klar**.
 
 ![Azure-app efter Code First Migration](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
@@ -461,18 +461,17 @@ När ASP.NET Core-appen körs i Azure App Service kan du skicka konsolloggarna t
 
 Exempelprojektet följer redan riktlinjerna i [ASP.NET Core-loggning i Azure](/aspnet/core/fundamentals/logging#azure-app-service-provider) med två konfigurationsändringar:
 
-- Innehåller en referens till `Microsoft.Extensions.Logging.AzureAppServices` i *DotNetCoreSqlDb.csproj* .
-- Anrop `loggerFactory.AddAzureWebAppDiagnostics()` i *program.cs* .
+- Innehåller en referens till `Microsoft.Extensions.Logging.AzureAppServices` i *DotNetCoreSqlDb.csproj*.
+- Anrop `loggerFactory.AddAzureWebAppDiagnostics()` i *program.cs*.
 
 För att ange [loggnivå](/aspnet/core/fundamentals/logging#log-level) för ASP.NET Core i App Service till `Information` från standardnivån `Error`använder du kommandot [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) i Cloud Shell.
 
 ```azurecli-interactive
-az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging true --level information
+az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging filesystem --level information
 ```
 
 > [!NOTE]
-> Projektets loggnivå är redan inställd på `Information` i *appsettings.json* .
-> 
+> Projektets loggnivå är redan inställd på `Information` i *appsettings.json*.
 
 Om du vill starta logg strömningen använder du [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) kommandot i Cloud Shell.
 
@@ -488,7 +487,7 @@ Mer information om att anpassa ASP.NET Core-loggar finns i [Loggning i ASP.NET C
 
 ## <a name="manage-your-azure-app"></a>Hantera din Azure-app
 
-Om du vill se den app som du skapade går du till [Azure Portal](https://portal.azure.com)och söker efter och väljer **app Services** .
+Om du vill se den app som du skapade går du till [Azure Portal](https://portal.azure.com)och söker efter och väljer **app Services**.
 
 ![Välj App Services i Azure Portal](./media/tutorial-dotnetcore-sqldb-app/app-services.png)
 
@@ -496,7 +495,7 @@ På sidan **app Services** väljer du namnet på din Azure-App.
 
 ![Portalnavigering till Azure-app](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
 
-Portalen visar som standard dina webbappar på sidan **Översikt** . På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på sidan kan du se olika konfigurationssidor som du kan öppna.
+Portalen visar som standard dina webbappar på sidan **Översikt**. På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på sidan kan du se olika konfigurationssidor som du kan öppna.
 
 ![App Service-sidan på Azure Portal](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
 

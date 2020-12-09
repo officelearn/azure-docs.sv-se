@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: dc262e133f6e91271d7e9848bdca9d3a6062fc66
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: d46c1d8efb5234d47c80ca4256c2f56d56ccf805
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751724"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862181"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -133,7 +133,7 @@ Ja. Application Gateway v1 SKU kommer att fortsätta att stödjas. Vi rekommende
 
 ### <a name="does-application-gateway-v2-support-proxying-requests-with-ntlm-authentication"></a>Stöder Application Gateway v2 proxy-begäranden med NTLM-autentisering?
 
-Nej. Application Gateway v2 har inte stöd för proxy-begäranden med NTLM-autentisering ännu.
+Nej. Application Gateway v2 har inte stöd för proxy-begäranden med NTLM-autentisering.
 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Stöder Application Gateway SameSite för tillhörighets-cookie?
 Ja, Chrome- [webbläsarens](https://www.chromium.org/Home) [V80-uppdatering](https://chromiumdash.appspot.com/schedule) introducerade ett mandat på HTTP cookies utan SameSite-attribut som ska behandlas som SameSite = lax. Det innebär att den Application Gateway tillhörighets-cookien inte skickas av webbläsaren i en tredjeparts kontext. 

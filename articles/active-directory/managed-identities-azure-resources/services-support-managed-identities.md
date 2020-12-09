@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: c77f0e93e9f0084f335df39d2878871d66af0aac
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2da0407f848b0795414b071b9e082c7ed60a633d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498038"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861892"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Tjänster som stöder hanterade identiteter för Azure-resurser
 
@@ -45,8 +45,8 @@ I följande lista kan du konfigurera hanterad identitet för Azure API Managemen
 
 | Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Systemtilldelad | ![Tillgänglig][check] | ![Tillgänglig][check] | Inte tillgängligt | Inte tillgängligt |
-| Användartilldelad | ![Tillgänglig][check] | ![Tillgänglig][check]  | Inte tillgängligt  | Inte tillgängligt |
+| Systemtilldelad | ![Tillgänglig][check] | ![Tillgänglig][check] | Inte tillgängligt | ![Tillgänglig][check] |
+| Användartilldelad | ![Tillgänglig][check] | ![Tillgänglig][check]  | Inte tillgängligt  | ![Tillgänglig][check] |
 
 I följande lista kan du konfigurera hanterad identitet för Azure App konfiguration (i regioner där det är tillgängligt):
 
@@ -252,7 +252,7 @@ I följande lista kan du konfigurera hanterad identitet för Azure Policy (i reg
 
 - [Azure-portalen](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
-- [Azure CLI](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+- [Azure CLI](/cli/azure/policy/assignment#az-policy-assignment-create)
 - [Azure Resource Manager mallar](/azure/templates/microsoft.authorization/policyassignments)
 - [REST](/rest/api/resources/policyassignments/create)
 
@@ -274,7 +274,7 @@ Se följande lista för att konfigurera hanterad identitet för Azure Service Fa
 
 | Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Systemtilldelad | ![Tillgänglig][check] | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
+| Systemtilldelad | ![Tillgänglig][check] | Inte tillgängligt | Inte tillgängligt | ![Tillgänglig][check] |
 | Användartilldelad | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
 
 

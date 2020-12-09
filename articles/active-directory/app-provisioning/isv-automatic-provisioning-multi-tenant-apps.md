@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 9cb3d8f39d83e27755b1e8982dfe3b807c431413
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d4c6c5b51e00f7f2ed7e29c27aa8e8bb88a2ea94
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069729"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861366"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Aktivera automatisk användar etablering för ditt program för flera klienter
 
@@ -89,7 +89,7 @@ Mer information om hur Azure AD Provisioning-tjänsten användare SCIM finns i:
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph för etablering
 
-När du använder Microsoft Graph för etablering har du till gång till alla omfattande användar data som är tillgängliga i Graph. Förutom information om användare och grupper kan du också hämta ytterligare information, t. ex. användarens roller, chef och direkt rapporter, ägda och registrerade enheter och hundratals andra data delar som är tillgängliga i [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
+När du använder Microsoft Graph för etablering har du till gång till alla omfattande användar data som är tillgängliga i Graph. Förutom information om användare och grupper kan du också hämta ytterligare information, t. ex. användarens roller, chef och direkt rapporter, ägda och registrerade enheter och hundratals andra data delar som är tillgängliga i [Microsoft Graph](/graph/api/overview). 
 
 Fler än 15 000 000 organisationer och 90% av Fortune 500-företag använder Azure AD och prenumererar på Microsofts moln tjänster som Microsoft 365, Microsoft Azure eller Enterprise Mobility Suite. Du kan använda Microsoft Graph för att integrera din app med administrativa arbets flöden, till exempel medarbetarnas onboarding (och terminering), profil underhåll med mera. 
 
@@ -109,7 +109,7 @@ Om du bara vill etablera användare vid första inloggningen till ditt program o
 
 SAML JIT använder anspråks informationen i SAML-token för att skapa och uppdatera användar information i programmet. Kunder kan konfigurera dessa nödvändiga anspråk i Azure AD-programmet efter behov. Ibland måste JIT-etableringen aktive ras från program sidan så att kunden kan använda den här funktionen. SAML JIT är användbart för att skapa och uppdatera användare, men det går inte att ta bort eller inaktivera användare i programmet.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Aktivera enkel inloggning för ditt program](../develop/v2-howto-app-gallery-listing.md)
 

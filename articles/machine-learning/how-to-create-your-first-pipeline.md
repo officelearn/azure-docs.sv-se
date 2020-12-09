@@ -11,16 +11,14 @@ author: NilsPohlmann
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 57806ecaf4b0e295457c78faaff6033126ddb2c8
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2b534f82aeda438b1d2bd5d60eeb4871acffc54a
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463019"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902025"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Skapa och kör maskin inlärnings pipeliner med Azure Machine Learning SDK
-
-
 
 I den här artikeln får du lära dig hur du skapar och kör en [pipeline för maskin inlärning](concept-ml-pipelines.md) med hjälp av [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Använd **ml-pipelines** för att skapa ett arbets flöde som häftar samman olika ml-faser. Publicera sedan den pipelinen för senare åtkomst eller dela med andra. Spåra ML-pipelines för att se hur din modell presterar i verkligheten och för att identifiera data drift. ML-pipelines är idealiska för scenarier med batch-poäng, med hjälp av olika beräkningar, återanvända steg i stället för att köra om dem, samt dela ML-arbetsflöden med andra.
 
@@ -30,9 +28,9 @@ De ML-pipeliner som du skapar visas för medlemmarna i din Azure Machine Learnin
 
 ML pipelines körs på beräknings mål (se [Vad är beräknings mål i Azure Machine Learning](./concept-compute-target.md)). Pipelines kan läsa och skriva data till och från [Azure Storage](../storage/index.yml) platser som stöds.
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Skapa en [Azure Machine Learning arbets yta](how-to-manage-workspace.md) för att lagra alla dina pipeline-resurser.
 
@@ -106,6 +104,9 @@ output_data1 = PipelineData(
 
 > [!TIP]
 > Det går också att bevara mellanliggande data mellan pipeline-steg med den offentliga för hands versions klassen [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) . Ett kod exempel som använder `OutputFileDatasetConfig` -klassen finns i så här [skapar du en pipeline för två steg ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
+
+> [!TIP]
+> Ladda bara upp filer som är relevanta för jobbet i handen. Eventuella ändringar i filerna i data katalogen visas som en anledning till att köra om steget nästa gång pipelinen körs, även om åter användning har angetts. 
 
 ## <a name="set-up-a-compute-target"></a>Konfigurera ett beräknings mål
 

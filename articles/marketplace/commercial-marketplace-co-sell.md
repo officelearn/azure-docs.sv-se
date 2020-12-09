@@ -6,27 +6,31 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 12/04/2020
-ms.openlocfilehash: 7b335c3db5fb52c4323b797556d48e3ed9ae410a
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.date: 12/08/2020
+ms.openlocfilehash: b5001898fa18834ce7c04403de70879084df85f1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621628"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904916"
 ---
-# <a name="co-sell-option-in-the-commercial-marketplace"></a>Alternativet samförsäljning på den kommersiella marknaden
+# <a name="co-sell-option-in-the-commercial-marketplace"></a>Alternativet Säljsamarbete i den kommersiella marknadsplatsen
 
 Att tillhandahålla information på fliken **Co-Sälj med Microsoft** är helt valfritt. Det krävs för att uppnå samförsäljnings [motiverade status](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)för alla produkter. Den information du anger kommer att användas av Microsoft Sales Teams för att lära dig mer om ditt erbjudande när du utvärderar den efter kund behov. Den är inte tillgänglig direkt för kunderna. Mer information finns i [Co-Sälj med Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
-Alternativet Co-försäljning i Partner Center är för närvarande tillgängligt för följande typer av erbjudanden.
+Alternativet samförsäljning i Partner Center är tillgängligt för följande typer av erbjudanden.
 
 - Azure Application
+- Azure-behållare
+- Virtuell Azure-dator
+- Konsult tjänst
 - Dynamics 365 för kund engagemang & PowerApps
-- Dynamics 365 for Operations
+- Dynamics 365 för åtgärder
 - Dynamics 365 Business Central
+- IoT Edge modul
+- Hanterad tjänst
+- Power BI-app
 - Programvara som en tjänst (SaaS)
-
-Stöd för ytterligare erbjudande typer görs tillgängligt med tiden.
 
 ## <a name="listing"></a>Lista
 

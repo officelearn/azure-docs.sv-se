@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 344fee9482cd935375d25fab80b1f365d72586f8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a53b193d16a2cefbde7877fd930e5fa73b0c6a36
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743674"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861280"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Lösen ords principer och konto begränsningar i Azure Active Directory
 
@@ -95,7 +95,7 @@ Principen för två-grind kräver två delar av autentiseringsdata, till exempel
 * En anpassad domän har kon figurer ATS för din Azure AD-klient, till exempel *contoso.com*; eller
 * Azure AD Connect synkroniserar identiteter från din lokala katalog
 
-Du kan inaktivera användningen av SSPR för administratörs konton med hjälp av PowerShell-cmdleten [set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) . `-SelfServePasswordResetEnabled $False`Parametern inaktiverar SSPR för administratörer.
+Du kan inaktivera användningen av SSPR för administratörs konton med hjälp av PowerShell-cmdleten [set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings) . `-SelfServePasswordResetEnabled $False`Parametern inaktiverar SSPR för administratörer.
 
 ### <a name="exceptions"></a>Undantag
 
@@ -107,7 +107,7 @@ En princip för en enskild grind kräver en typ av autentiseringsinformation, ti
 
 ## <a name="password-expiration-policies"></a><a name="set-password-expiration-policies-in-azure-ad"></a>Principer för förfallo datum för lösen ord
 
-En *Global administratör* eller *användar administratör* kan använda [Microsoft Azure AD-modul för Windows PowerShell](/powershell/module/Azuread/?view=azureadps-2.0) för att ange att användar lösen ord inte upphör att gälla.
+En *Global administratör* eller *användar administratör* kan använda [Microsoft Azure AD-modul för Windows PowerShell](/powershell/module/Azuread/) för att ange att användar lösen ord inte upphör att gälla.
 
 Du kan också använda PowerShell-cmdletar för att ta bort konfigurationen som aldrig upphör att gälla eller se vilka användar lösen ord som aldrig upphör att gälla.
 
@@ -118,13 +118,13 @@ Den här vägledningen gäller för andra leverantörer, till exempel Intune och
 
 ### <a name="set-or-check-the-password-policies-by-using-powershell"></a>Ange eller kontrollera lösenordsprinciper med hjälp av PowerShell
 
-Kom igång genom att [Ladda ned och installera Azure AD PowerShell-modulen](/powershell/module/Azuread/?view=azureadps-2.0) och [ansluta den till din Azure AD-klient](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples).
+Kom igång genom att [Ladda ned och installera Azure AD PowerShell-modulen](/powershell/module/Azuread/) och [ansluta den till din Azure AD-klient](/powershell/module/azuread/connect-azuread#examples).
 
 När modulen har installerats använder du följande steg för att slutföra varje aktivitet vid behov.
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Kontrol lera förfallo principen för ett lösen ord
 
-1. Öppna en PowerShell-prompt och [Anslut till din Azure AD-klient](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) med ett *globalt administratörs* -eller *användar administratörs* konto.
+1. Öppna en PowerShell-prompt och [Anslut till din Azure AD-klient](/powershell/module/azuread/connect-azuread#examples) med ett *globalt administratörs* -eller *användar administratörs* konto.
 1. Kör något av följande kommandon för antingen en enskild användare eller för alla användare:
 
    * Kör följande cmdlet för att se om en enskild användares lösen ord är inställda på att aldrig upphöra att gälla. Ersätt `<user ID>` med användar-ID: t för den användare som du vill kontrol lera, t. ex. *driley \@ contoso.onmicrosoft.com*:
@@ -141,7 +141,7 @@ När modulen har installerats använder du följande steg för att slutföra var
 
 ### <a name="set-a-password-to-expire"></a>Ange ett lösen ord som upphör att gälla
 
-1. Öppna en PowerShell-prompt och [Anslut till din Azure AD-klient](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) med ett *globalt administratörs* -eller *användar administratörs* konto.
+1. Öppna en PowerShell-prompt och [Anslut till din Azure AD-klient](/powershell/module/azuread/connect-azuread#examples) med ett *globalt administratörs* -eller *användar administratörs* konto.
 1. Kör något av följande kommandon för antingen en enskild användare eller för alla användare:
 
    * Om du vill ange ett lösen ord för en användare så att lösen ordet upphör att gälla kör du följande cmdlet. Ersätt `<user ID>` med användar-ID: t för den användare som du vill kontrol lera, t. ex. *driley \@ contoso.onmicrosoft.com*
@@ -158,7 +158,7 @@ När modulen har installerats använder du följande steg för att slutföra var
 
 ### <a name="set-a-password-to-never-expire"></a>Ange att ett lösen ord aldrig upphör att gälla
 
-1. Öppna en PowerShell-prompt och [Anslut till din Azure AD-klient](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) med ett *globalt administratörs* -eller *användar administratörs* konto.
+1. Öppna en PowerShell-prompt och [Anslut till din Azure AD-klient](/powershell/module/azuread/connect-azuread#examples) med ett *globalt administratörs* -eller *användar administratörs* konto.
 1. Kör något av följande kommandon för antingen en enskild användare eller för alla användare:
 
    * Kör följande cmdlet för att ange att lösen ordet för en användare aldrig upphör att gälla. Ersätt `<user ID>` med användar-ID: t för den användare som du vill kontrol lera, t. ex. *driley \@ contoso.onmicrosoft.com*

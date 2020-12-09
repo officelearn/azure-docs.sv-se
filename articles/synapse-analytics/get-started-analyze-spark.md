@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: d7b198790b1ecc884321ad42c97eb5cf0c239b7e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: ee4dc945f63180fd06f13287b22949d0ac1e3873
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95241989"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862028"
 ---
 # <a name="analyze-with-apache-spark"></a>Analysera med Apache Spark
 
@@ -23,7 +23,7 @@ ms.locfileid: "95241989"
 
 I den här självstudien får du lära dig de grundläggande stegen för att läsa in och analysera data med Apache Spark för Azure-Synapse.
 
-1. I **data** hubben klickar du på **Lägg till en ny resurs**(plus knappen ovanför **länkad**)  >> **Bläddra bland exempel**. 
+1. I **data** hubben klickar du på **Lägg till en ny resurs**(plus knapp ovanför **länkad**)  >> **Bläddra i galleriet**. 
 1. Hitta **NYC taxi & limousine provision-Yellow taxi resor** och klicka på den. 
 1. Längst ned på sidan klickar du på **Fortsätt** och sedan på **Lägg till data uppsättning**. 
 1. Nu i **data** hubb under **länkad** högerklickning på **Azure Blob Storage >> exempel data uppsättningar >> nyc_tlc_yellow** och välj **ny antecknings bok**

@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 83ee8e0c0583cba72da8702e196f0f38128f8d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 924c21037a464770fac13c9b45ddcf261ff5a058
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72935940"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905187"
 ---
-# <a name="define-and-use-moderation-jobs-rest"></a>Definiera och Använd redigerings jobb (REST)
+# <a name="define-and-use-moderation-jobs-api-console"></a>Definiera och använda moderator jobb (API-konsolen)
 
-Ett redigerings jobb fungerar som en typ av omslutning för funktionerna i Content moderatoring, arbets flöden och recensioner. Den här guiden visar hur du använder REST-API: er för jobb för att initiera och kontrol lera innehålls moderator jobb. När du förstår API: ernas struktur kan du enkelt Porta dessa anrop till alla REST-kompatibla plattformar.
+Ett redigerings jobb fungerar som en typ av omslutning för funktionerna i Content moderatoring, arbets flöden och granskningar. Den här guiden visar hur du använder REST-API: er för jobb för att initiera och kontrol lera innehålls moderator jobb. När du förstår API: ernas struktur kan du enkelt Porta dessa anrop till alla REST-kompatibla plattformar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -28,7 +28,7 @@ Ett redigerings jobb fungerar som en typ av omslutning för funktionerna i Conte
 
 ## <a name="create-a-job"></a>Skapa ett jobb
 
-Om du vill skapa ett redigerings jobb går du till sidan [jobb-skapa API-](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) referens och väljer knappen för din prenumerations region (du hittar det i slut punkts-URL: en på sidan **autentiseringsuppgifter** i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/)). Detta startar API-konsolen där du enkelt kan skapa och köra REST API-anrop.
+Om du vill skapa ett redigerings jobb går du till sidan [jobb-skapa API-](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) referens och väljer knappen för din prenumerations region. Du kan hitta din region i slut punkts-URL: en på sidan **autentiseringsuppgifter** i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/). Detta startar API-konsolen där du enkelt kan skapa och köra REST API-anrop.
 
 ![Jobb – skapa val av sid region](images/test-drive-job-1.png)
 
@@ -41,11 +41,11 @@ Ange följande värden för att konstruera REST-anropet:
 - **ContentId**: en anpassad ID-sträng. Den här strängen skickas till API: et och returneras via återanropet. Det är användbart för att associera interna identifierare eller metadata med resultatet av ett redigerings jobb.
 - **Workflowname**: namnet på arbets flödet som du skapade tidigare (eller "standard" för standard arbets flödet).
 - **CallbackEndpoint**: (valfritt) URL: en som tar emot information om motringning när granskningen är klar.
-- **OCP-APIM-Subscription-Key**: din Content moderator-nyckel. Du hittar detta på fliken **Inställningar** i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com).
+- **OCP-APIM-Subscription-Key**: din Content moderator-nyckel. Du hittar den här nyckeln på fliken **Inställningar** i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com).
 
 ### <a name="fill-in-the-request-body"></a>Fyll i begär ande texten
 
-Innehållet i REST-anropet innehåller ett fält, **ContentValue**. Klistra in innehållet i rå text om du redigerar text eller ange en bild-eller video-URL om du vill använda bild/video. Du kan använda följande URL för exempel bild: [https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
+Innehållet i REST-anropet innehåller ett fält, **ContentValue**. Klistra in innehållet i rå text om du redigerar text eller ange en bild-eller video-URL om du vill ha en bild eller video. Du kan använda följande URL för exempel bild: [https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
 
 ![Jobb – skapa parametrar för konsolens fråga, rubriker och brödtext i begäran](images/job-api-console-inputs.PNG)
 
@@ -115,7 +115,7 @@ Ange resten anrops parametrar som i avsnittet ovan. I det här steget är **jobI
 
 ### <a name="examine-the-new-reviews"></a>Granska nya granskningar
 
-Om ditt innehålls jobb resulterade i att en granskning skapades, kan du se det i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com). Välj **Granska**  >  **bild** / **text** / **video** (beroende på vilket innehåll du använde). Innehållet bör visas, redo för mänsklig granskning. När en mänsklig moderator granskar de automatiskt tilldelade taggarna och förutsägelse data och skickar ett slutligt kontroll beslut skickar jobb-API: n all den här informationen till den angivna slut punkten för slut punkten för återanrop.
+Om ditt innehålls jobb resulterade i att en granskning skapades, kan du se det i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com). Välj **Granska**  >  **bild** / **text** / **video** (beroende på vilket innehåll du använde). Innehållet bör visas, redo för mänsklig granskning. När en mänsklig moderator granskar de automatiskt tilldelade taggarna och förutsägelse data och skickar ett slutligt kontroll beslut skickar jobb-API: n all den här informationen till den angivna slut punkten för återanrop.
 
 ## <a name="next-steps"></a>Nästa steg
 

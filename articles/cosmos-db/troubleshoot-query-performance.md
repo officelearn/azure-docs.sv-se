@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 012e155737b9251827c668b3a9cacbbe8d59ae77
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 42f01b140a44d7aa6d75dece9a4398fd7b41bf5a
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411362"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905119"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Felsöka problem med frågor när du använder Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -51,7 +51,7 @@ När du optimerar en fråga i Azure Cosmos DB, är det första steget alltid att
 
 När du har hämtat frågeresultaten jämför du **antalet hämtade dokument** med **antalet utdata** i frågan. Använd den här jämförelsen för att identifiera relevanta avsnitt som ska granskas i den här artikeln.
 
-**Antalet hämtade dokument** är antalet dokument som frågemotor behöver läsa in. **Antalet utgående dokument** är antalet dokument som behövdes för frågeresultatet. Om **antalet hämtade dokument** är betydligt högre än **antalet utgående dokument** , fanns det minst en del av din fråga som inte kunde använda ett index och behövdes för att göra en genomsökning.
+**Antalet hämtade dokument** är antalet dokument som frågemotor behöver läsa in. **Antalet utgående dokument** är antalet dokument som behövdes för frågeresultatet. Om **antalet hämtade dokument** är betydligt högre än **antalet utgående dokument**, fanns det minst en del av din fråga som inte kunde använda ett index och behövdes för att göra en genomsökning.
 
 Se följande avsnitt för att förstå relevanta optimeringar av frågor för ditt scenario.
 
@@ -93,7 +93,7 @@ Se följande avsnitt för att förstå relevanta optimeringar av frågor för di
 
 ## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Frågor där antal hämtade dokument överskrider antalet utgående dokument
 
- **Antalet hämtade dokument** är antalet dokument som frågemotor behöver läsa in. Antalet **Utgående dokument** är antalet dokument som returneras av frågan. Om **antalet hämtade dokument** är betydligt högre än **antalet utgående dokument** , fanns det minst en del av din fråga som inte kunde använda ett index och behövdes för att göra en genomsökning.
+ **Antalet hämtade dokument** är antalet dokument som frågemotor behöver läsa in. Antalet **Utgående dokument** är antalet dokument som returneras av frågan. Om **antalet hämtade dokument** är betydligt högre än **antalet utgående dokument**, fanns det minst en del av din fråga som inte kunde använda ett index och behövdes för att göra en genomsökning.
 
 Här är ett exempel på en genomsöknings fråga som inte helt hanterades av indexet:
 
@@ -142,7 +142,7 @@ Din indexerings princip ska omfatta egenskaper som ingår i `WHERE` satser, `ORD
 
 Om du kör följande enkla fråga på [näringsvärdes](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data uppsättningen, ser du en mycket lägre ru-avgift när egenskapen i `WHERE` satsen är indexerad:
 
-#### <a name="original"></a>Originalspråket
+#### <a name="original"></a>Ursprunglig
 
 Fråga:
 
@@ -196,9 +196,7 @@ Du kan när som helst lägga till egenskaper till indexerings principen, utan n�
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Förstå vilka system funktioner som använder indexet
 
-Om ett uttryck kan översättas till ett intervall med sträng värden kan det använda indexet. Annars kan det inte.
-
-Här är en lista över några vanliga sträng funktioner som kan använda indexet:
+De flesta system Functions använder index. Här är en lista över några vanliga sträng funktioner som använder index:
 
 - STARTSWITH (str_expr1, str_expr2, bool_expr)  
 - INNEHÅLLER (str_expr, str_expr, bool_expr)
@@ -214,7 +212,26 @@ Nedan följer några vanliga system funktioner som inte använder indexet och so
 
 ------
 
-Andra delar av frågan kan fortfarande använda indexet trots att systemet inte fungerar.
+Om en systemfunktion använder index och fortfarande har en hög RU-avgift kan du försöka lägga till `ORDER BY` i frågan. I vissa fall kan lägga till `ORDER BY` förbättra användningen av systemfunktions index, särskilt om frågan körs länge eller sträcker sig över flera sidor.
+
+Överväg till exempel nedanstående fråga med `CONTAINS` . `CONTAINS` bör använda ett index, men vi vill att när du har lagt till det relevanta indexet, observerar du fortfarande en mycket hög RU-avgift när du kör frågan nedan:
+
+Ursprunglig fråga:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+```
+
+Uppdaterade fråga med `ORDER BY` :
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+ORDER BY c.town
+```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>Förstå vilka mängd frågor som använder indexet
 
@@ -277,7 +294,7 @@ Om du planerar att ofta köra samma mängd frågor kan det vara mer effektivt at
 
 Även om frågor som har ett filter och en `ORDER BY` sats normalt använder ett intervall index, blir de mer effektiva om de kan hanteras från ett sammansatt index. Förutom att ändra indexerings principen bör du lägga till alla egenskaper i det sammansatta indexet i- `ORDER BY` satsen. Den här ändringen av frågan säkerställer att den använder det sammansatta indexet.  Du kan se effekten genom att köra en fråga på [närings](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data uppsättningen:
 
-#### <a name="original"></a>Originalspråket
+#### <a name="original"></a>Ursprunglig
 
 Fråga:
 
@@ -385,7 +402,7 @@ Anta att endast ett objekt i matrisen taggar matchar filtret och att det finns f
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Frågor där antal hämtade dokument är lika med antalet utgående dokument
 
-Om **antalet hämtade dokument** är ungefär lika med **antalet utgående dokument** , behövde inte frågemotor genomsöka många onödiga dokument. För många frågor, t. ex. de som använder `TOP` nyckelordet, kan **antalet hämtade dokument** överstiga **antalet utgående dokument** med 1. Du behöver inte bekymra dig om detta.
+Om **antalet hämtade dokument** är ungefär lika med **antalet utgående dokument**, behövde inte frågemotor genomsöka många onödiga dokument. För många frågor, t. ex. de som använder `TOP` nyckelordet, kan **antalet hämtade dokument** överstiga **antalet utgående dokument** med 1. Du behöver inte bekymra dig om detta.
 
 ### <a name="minimize-cross-partition-queries"></a>Minimera kors partitions frågor
 

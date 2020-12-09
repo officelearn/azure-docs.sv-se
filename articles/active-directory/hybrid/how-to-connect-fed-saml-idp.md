@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cd95d01c9b49bb6002c00c805dc82dcf30941e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20088ccc79abe978eb5b3f1c98e958f6c26bcb86
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295047"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861807"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Använda en SAML 2.0-identitetsprovider (IdP) för enkel inloggning
 
@@ -250,7 +250,7 @@ Innan du kan autentisera dina användare till Microsoft 365 måste du etablera A
 
 Azure AD Connect kan användas för att etablera huvud konton för dina domäner i Azure AD-katalogen från den lokala Active Directory. Mer detaljerad information finns i [integrera dina lokala kataloger med Azure Active Directory](whatis-hybrid-identity.md).
 
-Windows PowerShell kan också användas för att automatisera tillägg av nya användare i Azure AD och för att synkronisera ändringar från den lokala katalogen. Om du vill använda Windows PowerShell-cmdlets måste du ladda ned [Azure Active Directory-modulerna](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Windows PowerShell kan också användas för att automatisera tillägg av nya användare i Azure AD och för att synkronisera ändringar från den lokala katalogen. Om du vill använda Windows PowerShell-cmdlets måste du ladda ned [Azure Active Directory-modulerna](/powershell/azure/active-directory/install-adv2).
 
 Den här proceduren visar hur du lägger till en enskild användare i Azure AD.
 

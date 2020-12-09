@@ -1,20 +1,20 @@
 ---
-title: Självstudie – migrera en webbapp från Google Maps | Microsoft Azure Maps
+title: Självstudie – migrera en webbapp från Google Maps till Microsoft Azure Maps
 description: Självstudie om hur du migrerar en webbapp från Google Maps till Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/18/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: b95800bea4bceffabad56aa29b68a57b310c5518
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4dee8de8f42b78ecdab9d9e15bb277d58fa8ba70
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896454"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905068"
 ---
 # <a name="tutorial---migrate-a-web-app-from-google-maps"></a>Självstudie – migrera en webbapp från Google Maps
 
@@ -51,9 +51,9 @@ Om du utvecklar med ett JavaScript-ramverk kan något av följande projekt med �
 - [Azure Maps Reakta komponent](https://github.com/WiredSolutions/react-azure-maps) – ett reaktat omslutning för kontrollen Azure Maps.
 - [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) – en Azure Maps komponent för Vue-program.
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 2. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
 3. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
@@ -75,7 +75,7 @@ Tabellen innehåller nyckel-API-funktioner i Google Maps v3 JavaScript SDK och A
 | Netencoder-tjänst        | ✓                          |
 | Vägbeskrivnings tjänst      | ✓                          |
 | Distans mat ris tjänst | ✓                          |
-| Höjnings tjänst       | Planerad                     |
+| Höjnings tjänst       | ✓                          |
 
 ## <a name="notable-differences-in-the-web-sdks"></a>Viktiga skillnader i webb-SDK: er
 
@@ -1036,7 +1036,7 @@ När klustring är aktiverat skickar data källan klustrade och data punkter som
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | Anger om funktionen representerar ett kluster. |
 | `cluster_id`              | sträng  | Ett unikt ID för klustret som kan användas med DataSource `getClusterExpansionZoom` -, `getClusterChildren` -och- `getClusterLeaves` metoder. |
-| `point_count`             | nummer  | Antalet platser som klustret innehåller.  |
+| `point_count`             | antal  | Antalet platser som klustret innehåller.  |
 | `point_count_abbreviated` | sträng  | En sträng som förkortar `point_count` värdet om det är långt. (till exempel 4 000 blir 4K)  |
 
 `DataSource`Klassen har följande hjälp funktion för att få åtkomst till ytterligare information om ett kluster med hjälp av `cluster_id` .

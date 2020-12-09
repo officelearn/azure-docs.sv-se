@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd9f59dd75620f3a7b5c9142a4b8f73f75c5ee7b
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 1001d5524fe99783cda4d5b77bdaceacc6791848
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744490"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861382"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Azure Active Directory certifikatbaserad autentisering på Android
 
@@ -67,7 +67,7 @@ Vi rekommenderar att du uppdaterar organisationens ADFS-felsidor med följande i
 Mer information finns i [anpassa AD FS inloggnings sidor](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).
 
 Vissa Office-appar (med modern autentisering aktive rad) skicka '*prompt = inloggning*' till Azure AD i sin begäran. Som standard översätter Azure AD "*prompt = login*" i begäran till ADFS som "*WAUTH = usernamepassworduri*" (uppmanar ADFS att göra U/P auth) och "*wfresh = 0*" (uppmanar ADFS att ignorera SSO-tillstånd och gör en ny autentisering). Om du vill aktivera certifikatbaserad autentisering för de här apparna måste du ändra standard beteendet för Azure AD. Ange "*PromptLoginBehavior*" i dina federerade domän inställningar till "*inaktive rad*".
-Du kan använda [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) -cmdlet: en för att utföra den här uppgiften:
+Du kan använda [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings) -cmdlet: en för att utföra den här uppgiften:
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 

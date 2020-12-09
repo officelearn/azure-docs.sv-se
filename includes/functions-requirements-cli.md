@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 951dbb6c1a44e3c081f682db49458be165e9e930
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: f102a5dd5b7dccba6643176d06d17a2a65171c90
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95553429"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904084"
 ---
 ## <a name="configure-your-local-environment"></a>Konfigurera din lokala miljö
 
@@ -17,15 +17,15 @@ Innan du börjar måste du ha följande:
 
 + Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java"  
-+ [Azure Functions Core tools](../articles/azure-functions/functions-run-local.md#v2) version 2.7.1846 eller en senare 2. x-version.
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java,programming-language-other"  
++ [Azure Functions Core tools](../articles/azure-functions/functions-run-local.md#v2) version 2.7.1846 eller en senare version.
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 + Den Azure Functions Core Tools version som motsvarar din installerade python-version:
 
    | Python-version | Core tools-version |
    | -------------- | ------------------ |
-   | Python 3,8     | [version 3. x](../articles/azure-functions/functions-run-local.md#v2) |
+   | Python 3.8     | [version 3. x](../articles/azure-functions/functions-run-local.md#v2) |
    | Python 3,6<br/>Python 3.7 | [Version 2.7.1846 eller en senare version](../articles/azure-functions/functions-run-local.md#v2) |
   
 ::: zone-end
@@ -46,4 +46,7 @@ Innan du börjar måste du ha följande:
 
 + [Apache maven](https://maven.apache.org), version 3,0 eller senare.
 
+::: zone-end
+::: zone pivot="programming-language-other"
++ Utvecklingsverktyg för det språk som du använder. I den här självstudien används [R-programmeringsspråket](https://www.r-project.org/) som exempel.
 ::: zone-end

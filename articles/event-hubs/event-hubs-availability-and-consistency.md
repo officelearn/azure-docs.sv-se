@@ -4,12 +4,12 @@ description: Hur du ger maximal tillgänglighet och konsekvens med Azure Event H
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 774332b8f2d5c336f1a22d717516ae35a62b341f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81bacd5507396352bb814310979498234ee35347
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000642"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902909"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Tillgänglighet och konsekvens i Event Hubs
 
@@ -40,7 +40,9 @@ Om du skapar ett nytt **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.e
 Den här modellen rekommenderas för användnings fall som kräver den maximala tiden.
 
 ## <a name="consistency"></a>Konsekvens
-I vissa fall kan sortering av händelser vara viktigt. Till exempel kanske du vill att Server dels systemet ska bearbeta ett uppdaterings kommando före kommandot DELETE. I den här instansen kan du antingen ange partitionsnyckel för en händelse eller använda ett `PartitionSender` objekt (om du använder det gamla Microsoft. Azure. Messaging-biblioteket) för att endast skicka händelser till en viss partition. Detta säkerställer att när dessa händelser läses från partitionen, läses de in i ordning. Om du använder **Azure. Messaging. EventHubs** -biblioteket och mer information finns i [migrera kod från PartitionSender till EventHubProducerClient för publicering av händelser till en partition](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
+I vissa fall kan sortering av händelser vara viktigt. Till exempel kanske du vill att Server dels systemet ska bearbeta ett uppdaterings kommando före kommandot DELETE. I den här instansen kan du antingen ange partitionsnyckel för en händelse eller använda ett `PartitionSender` objekt (om du använder det gamla Microsoft. Azure. Messaging-biblioteket) för att endast skicka händelser till en viss partition. Detta säkerställer att när dessa händelser läses från partitionen, läses de in i ordning. 
+
+Om du använder ett nyare **Azure. Messaging. EventHubs** -bibliotek, se [migrera kod från PartitionSender till EventHubProducerClient för publicering av händelser till en partition](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
 
 #### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure. Messaging. EventHubs (5.0.0 eller senare)](#tab/latest)
 
@@ -143,4 +145,4 @@ Det här exemplet skickar din händelse till en av de tillgängliga partitionern
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
 * [Översikt över Event Hubs tjänsten](./event-hubs-about.md)
-* [Skapa en händelsehubb](event-hubs-create.md)
+* [Skapa en händelsehubben](event-hubs-create.md)

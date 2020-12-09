@@ -1,24 +1,28 @@
 ---
-title: Begär real tids data och prognostiserade väder data med hjälp av Azure Maps väder tjänster
-description: Lär dig hur du begär real tids (aktuell) och prognostiserat (minut, varje timme, dagligen) väder data med Microsoft Azure Maps väder tjänster
+title: Begär real tids data och prognostiserade väder data med hjälp av Azure Maps väder tjänster (för hands version)
+description: Lär dig hur du begär real tids (aktuell) och prognostiserat (minut, varje timme, dagligen) väder data med Microsoft Azure Maps väder tjänster (för hands version)
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 10/27/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: c11f20286c514056d14b8faa941315345fea71f2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a5ae262d2882bd76e31666f058fa9a7a703a9e1e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186345"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906020"
 ---
-# <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Begär real tids data och prognostiserade väder data med hjälp av Azure Maps väder tjänster
+# <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services-preview"></a>Begär real tids data och prognostiserade väder data med hjälp av Azure Maps väder tjänster (för hands version) 
 
-Tjänsten Azure Maps [väder](/rest/api/maps/weather) är en uppsättning RESTful-API: er som gör att utvecklare kan integrera mycket dynamiska historiska, real tids data och prognostiserade väder data och visualiseringar i sina lösningar. I den här artikeln visar vi hur du begär både real tids data och prognostiserade väder data.
+> [!IMPORTANT]
+> Azure Maps väder tjänster finns för närvarande i offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Azure Maps [väder tjänster](/rest/api/maps/weather) är en uppsättning RESTful-API: er som gör att utvecklare kan integrera mycket dynamiska historiska, real tids data och prognostiserade väder data och visualiseringar i sina lösningar. I den här artikeln visar vi hur du begär både real tids data och prognostiserade väder data.
 
 I den här artikeln får du lära dig hur du:
 
@@ -28,13 +32,13 @@ I den här artikeln får du lära dig hur du:
 * Begär Tim prognoser med hjälp av API för att [få Tim prognos](/rest/api/maps/weather/gethourlyforecastpreview).
 * Minut prognoser per minut med hjälp av API: et för att [få minuter](/rest/api/maps/weather/getminuteforecastpreview).
 
-Den här videon ger en översikt över väder tjänster i Azure Maps med REST samtal-exempel.
+Den här videon innehåller exempel på hur du kan göra REST-anrop till Azure Maps väder tjänster.
 
 <br/>
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player" width="960" height="540" allowFullScreen frameBorder="0" title="Azure Maps väder tjänster för utvecklare – Microsoft Channel 9-video"></iframe>
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
@@ -751,8 +755,7 @@ I det här exemplet ska du använda [API: et för att hämta Minute](/rest/api/m
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Koncept för Azure Maps väder tjänster](./weather-services-concepts.md)
+> [Koncept för Azure Maps väder tjänster (för hands version)](./weather-services-concepts.md)
 
 > [!div class="nextstepaction"]
-> [Azure Maps väder tjänsten REST API](/rest/api/maps/weather
-)
+> [Azure Maps väder tjänster (för hands version) REST API](/rest/api/maps/weather)

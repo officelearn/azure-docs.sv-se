@@ -1,26 +1,30 @@
 ---
-title: 'Självstudie: koppla sensor data med väder prognos data med hjälp av Azure Notebooks (python) | Microsoft Azure Maps'
-description: Självstudie om hur du kopplar sensor data med väder prognos data från Microsoft Azure Maps väder tjänst med Azure Notebooks (python).
+title: 'Självstudie: koppla sensor data med väder prognos data med hjälp av Azure Notebooks (python) med Microsoft Azure Maps'
+description: Självstudie om hur du kopplar sensor data med väder prognos data från Microsoft Azure mappar väder tjänster med Azure Notebooks (python).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/29/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: f020f3d9e23b9f834fd203f6d030656581fb4416
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 6d2ede8ab49b22a22d8959ce296182a2210640d0
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896607"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905476"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Självstudie: koppla sensor data med väder prognos data med hjälp av Azure Notebooks (python)
 
-Vind styrkan är en alternativ energi källa för fossila bränslen för att bekämpa klimat förändringar. Eftersom lindningen inte är konsekvent med natur måste du använda en motor för att bygga Machine Learning-modeller (ML) för att förutsäga energi kapaciteten. Denna förutsägelse är nödvändig för att möta El efter frågan och se till att rutnätets stabilitet är stabil. I den här självstudien går vi igenom hur Azure Maps data för väder prognoser kombineras med demonstrations data för väder läsningar. Väder prognos data begärs genom att anropa Azure Maps väder tjänsten.
+> [!IMPORTANT]
+> Azure Maps väder tjänster finns för närvarande i offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-I den här självstudien kommer vi att:
+Vind styrkan är en alternativ energi källa för fossila bränslen för att bekämpa klimat förändringar. Eftersom lindningen inte är konsekvent med natur måste du använda en motor för att bygga Machine Learning-modeller (ML) för att förutsäga energi kapaciteten. Denna förutsägelse är nödvändig för att möta El efter frågan och se till att rutnätets stabilitet är stabil. I den här självstudien går vi igenom hur Azure Maps data för väder prognoser kombineras med demonstrations data för väder läsningar. Väder prognos data begärs genom att anropa Azure Maps väder tjänster (för hands version).
+
+I de här självstudierna får du:
 
 > [!div class="checklist"]
 > * Arbeta med datafiler i [Azure Notebooks](../notebooks/index.yml) i molnet.
@@ -31,7 +35,7 @@ I den här självstudien kommer vi att:
 > * Rita prognos data i grafer.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien måste du först:
 
@@ -68,7 +72,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## <a name="request-daily-forecast-data"></a>Begär dagliga prognos data
 
-I vårt scenario skulle vi vilja begära dagliga prognoser för varje sensor plats. Följande skript anropar [API: et för dagliga prognoser](/rest/api/maps/weather/getdailyforecastpreview) i Azure Maps väder tjänsten. Detta API returnerar väder prognoser för varje lindnings turbin, under de närmaste 15 dagarna från dagens datum.
+I vårt scenario skulle vi vilja begära dagliga prognoser för varje sensor plats. Följande skript anropar [API: et för dagliga prognoser](/rest/api/maps/weather/getdailyforecastpreview) för Azure Maps väder tjänster (för hands version). Detta API returnerar väder prognoser för varje lindnings turbin, under de närmaste 15 dagarna från dagens datum.
 
 
 ```python
@@ -82,7 +86,7 @@ years,months,days = [],[],[]
 dates_check=set()
 wind_speeds, wind_direction = [], []
 
-# Call azure maps weather service to get daily forecast data for 15 days from current date
+# Call azure maps Weather services (Preview) to get daily forecast data for 15 days from current date
 session = aiohttp.ClientSession()
 j=-1
 for i in range(0, len(coords), 2):

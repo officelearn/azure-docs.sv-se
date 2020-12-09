@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 291586bc2e34784a7bbf29016ea1da35d51e844b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: bb2eb36e4116c17efb20946b0da4586678838f3b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489955"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862011"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Självstudie: köra Azure Functions från Azure Stream Analytics-jobb 
 
@@ -155,7 +155,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
    |Max batchantal|Anger det maximala antalet händelser i varje batch som skickas till funktionen. Standardvärdet är 100. Den här egenskapen är valfri.|
    |Nyckel|Gör att du kan använda en funktion från en annan prenumeration. Ange nyckelvärdet för att få åtkomst till din funktion. Den här egenskapen är valfri.|
 
-3. Ange ett namn för utdataaliaset. I den här självstudien får den namnet **saop1** , men du kan välja valfritt namn. Fyll i övrig information.
+3. Ange ett namn för utdataaliaset. I den här självstudien får den namnet **saop1**, men du kan välja valfritt namn. Fyll i övrig information.
 
 4. Öppna Stream Analytics-jobbet och uppdatera frågan till följande. Kom ihåg att ändra den i frågan, om du inte har angett ditt utmatnings mottagare **saop1**.  
 
@@ -195,7 +195,9 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
 Om det uppstår ett fel när du skickar händelser till Azure Functions, Stream Analytics försöker de flesta åtgärder. Alla http-undantag provas igen tills det lyckades med undantaget HTTP-fel 413 (enheten är för stor). En entitet för ett stort fel behandlas som ett data fel som omfattas av [återförsöket eller drop-principen](stream-analytics-output-error-policy.md).
 
 > [!NOTE]
-> Tids gränsen för HTTP-begäranden från Stream Analytics till Azure Functions har angetts till 100 sekunder. Om din Azure Functions app tar över 100 sekunder att bearbeta en batch, Stream Analytics fel.
+> Tids gränsen för HTTP-begäranden från Stream Analytics till Azure Functions har angetts till 100 sekunder. Om din Azure Functions app tar över 100 sekunder att bearbeta en batch, Stream Analytics fel och kommer att rety för batchen.
+
+Om du försöker igen för timeout kan dubbla händelser skrivas till utgående mottagare. När Stream Analytics försök för en misslyckad batch försöker den igen om alla händelser i batchen. Anta till exempel att du har en batch med 20 händelser som skickas till Azure Functions från Stream Analytics. Anta att Azure Functions tar 100 sekunder att bearbeta de första 10 händelserna i batchen. Efter 100 sekunderna har Stream Analytics pausar begäran eftersom den inte har fått ett positivt svar från Azure Functions och en annan begäran skickas för samma batch. De första 10 händelserna i batchen bearbetas igen av Azure Functions, vilket orsakar en dubblett. 
 
 ## <a name="known-issues"></a>Kända problem
 
@@ -210,7 +212,7 @@ Stöd för att ansluta till Azure Functions som finns i ett virtuellt nätverk h
 Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömmande enheter som används av jobbet. Om du planerar att använda jobbet i framtiden kan du stoppa det och sedan starta det igen när du behöver det. Om du inte tänker fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten med följande steg:
 
 1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade.  
-2. På sidan med resursgrupper klickar du på **Ta bort** , skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.
+2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

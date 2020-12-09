@@ -9,19 +9,19 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 78455659d76d259c626745c93770428c25042b2d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b4146f11804dd11f7dd0f5536bc040cb30e25b03
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95908820"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902739"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>NFS (Network File System) 3,0 protokoll stöd i Azure Blob Storage (för hands version)
 
 Blob Storage stöder nu NFS-protokollet (Network File System) 3,0. Det här stödet gör att Windows-eller Linux-klienter kan montera en behållare i Blob Storage från en virtuell Azure-dator (VM) eller en lokal dator. 
 
 > [!NOTE]
-> NFS 3,0 protokoll stöd i Azure Blob Storage finns i offentlig för hands version och är tillgängligt i följande regioner: USA, östra, centrala USA, västra centrala, Australien, sydöstra, Nord Europa, Storbritannien, västra, Korea, centrala, Korea, södra och centrala Kanada.
+> NFS 3,0 protokoll stöd i Azure Blob Storage finns i offentlig för hands version. Det stöder GPV2-lagrings konton med standard-nivå prestanda i följande regioner: östra Australien, Korea Central och södra centrala USA. Förhands granskningen stöder Block Blob med Premium Performance-nivån i alla offentliga regioner.
 
 ## <a name="general-workflow-mounting-a-storage-account-container"></a>Allmänt arbets flöde: montera en lagrings konto behållare
 

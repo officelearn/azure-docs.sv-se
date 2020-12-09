@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 978f404aa9b99819460e46ea89df19d27431b8b8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: c9ee81abd7cd0268a7cbd6b16aa6065ec7b54bef
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743147"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861314"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Planera en Azure AD Multi-Factor Authentication-distribution
 
@@ -31,7 +31,7 @@ Om du snabbt vill se Azure AD Multi-Factor Authentication i praktiken och återg
 > [!div class="nextstepaction"]
 > [Aktivera Azure AD-multifaktorautentisering](tutorial-enable-azure-mfa.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar en distribution av Azure AD Multi-Factor Authentication finns det nödvändiga komponenter som bör övervägas.
 
@@ -165,7 +165,7 @@ Med hjälp av följande steg kan en princip för villkorlig åtkomst tvinga anv�
 2. Använd villkorlig åtkomst för att genomdriva Multi-Factor Authentication för den här gruppen för åtkomst till alla resurser.
 3. Utvärdera grupp medlemskapet med jämna mellanrum och ta bort användare som har registrerat sig från gruppen.
 
-Du kan identifiera registrerade och icke-registrerade Azure AD MFA-användare med PowerShell-kommandon som är beroende av [MSOnline PowerShell-modulen](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+Du kan identifiera registrerade och icke-registrerade Azure AD MFA-användare med PowerShell-kommandon som är beroende av [MSOnline PowerShell-modulen](/powershell/azure/active-directory/install-msonlinev1).
 
 #### <a name="identify-registered-users"></a>Identifiera registrerade användare
 
@@ -287,7 +287,7 @@ Om du har en distribuerad NPS-instans och redan använder, [integrerar du din be
 
 Välj vad som ska hända när användare som inte är registrerade med MFA försöker autentisera sig. Använd register inställningen `REQUIRE_USER_MATCH` i register Sök vägen `HKLM\Software\Microsoft\AzureMFA` för att styra funktions sättet. Den här inställningen har ett enda konfigurations alternativ.
 
-| Tangent | Värde | Standard |
+| Tangent | Värde | Standardvärde |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | Inte angivet (motsvarar sant) |
 
@@ -357,7 +357,7 @@ Rapporter för Azure AD MFA
 
 Azure AD Multi-Factor Authentication ger rapporter via Azure Portal:
 
-| Rapport | Plats | Description |
+| Rapport | Plats | Beskrivning |
 | --- | --- | --- |
 | Användnings-och bedrägeri varningar | Inloggnings program för Azure AD > | Innehåller information om allmän användning, användar Sammanfattning och användar information. samt en historik över bedrägeri aviseringar som skickats under det angivna datum intervallet. |
 

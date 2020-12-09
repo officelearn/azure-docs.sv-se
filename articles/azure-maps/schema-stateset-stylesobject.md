@@ -3,21 +3,25 @@ title: StylesObject schema referens guide för dynamiska Azure Maps
 description: Referens guide till det dynamiska Azure Maps StylesObject schema och syntax.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2020
+ms.date: 12/07/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f6bc4c62febf24dee790ac6136b1661426d4d619
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 08379e66c97d34eea53410190475e90e156a58e2
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536956"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903351"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>StylesObject schema referens guide för dynamiska kartor
 
- `StylesObject`Är en `StyleObject` matris som representerar stateset-format. Använd tjänsten Azure Maps Creator [Feature State](/rest/api/maps/featurestate) för att tillämpa dina stateset-format på inhämtade kart data funktioner. När du har skapat dina stateset-format och associerat dem med ingångna kart funktioner kan du använda dem för att skapa dynamiska kartor i inomhus. Mer information om hur du skapar dynamiska kartor finns i [implementera dynamisk formatering för skapare inomhus Maps](indoor-map-dynamic-styling.md).
+> [!IMPORTANT]
+> Azure Maps Creator-tjänster finns för närvarande i en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+ `StylesObject`Är en `StyleObject` matris som representerar stateset-format. Använd [funktions tillstånds tjänsten](/rest/api/maps/featurestate) Azure Maps Creator (för hands version) för att tillämpa dina stateset-format på inhämtade kart data funktioner. När du har skapat dina stateset-format och associerat dem med ingångna kart funktioner kan du använda dem för att skapa dynamiska kartor i inomhus. Mer information om hur du skapar dynamiska kartor finns i [implementera dynamisk formatering för skapare inomhus Maps](indoor-map-dynamic-styling.md).
 
 ## <a name="styleobject"></a>StyleObject
 

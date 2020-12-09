@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 34f43d51bf0df488e04605f7f7c77e9c6dcfe9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56d2aa9f7aa36808774876ac0f5cfc596887ff26
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374090"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906394"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Hitta Linux VM-avbildningar på Azure Marketplace med Azure CLI
 
@@ -22,6 +22,45 @@ Du kan också hitta tillgängliga bilder och erbjudanden med hjälp av [Azure Ma
 Se till att du har installerat den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli) och är inloggad på ett Azure-konto ( `az login` ).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
+
+
+## <a name="deploy-from-a-vhd-using-purchase-plan-parameters"></a>Distribuera från en virtuell hård disk med parametrar för inköps plan
+
+Om du har en befintlig virtuell hård disk som har skapats med en betald Azure Marketplace-avbildning kan du behöva ange inköps Plans informationen när du skapar en ny virtuell dator från den virtuella hård disken. 
+
+Om du fortfarande har den ursprungliga virtuella datorn eller en annan virtuell dator som skapats med samma Marketplace-avbildning kan du hämta plan namn, utgivare och produkt information från den med [AZ VM get-instance-View](/cli/azure/vm#az_vm_get_instance_view). I det här exemplet får du en virtuell dator med namnet *myVM* i resurs gruppen *myResourceGroup* och sedan visas information om inköps planen.
+
+```azurepowershell-interactive
+az vm get-instance-view -g myResourceGroup -n myVM --query plan
+```
+
+Om du inte fick plan informationen innan den ursprungliga virtuella datorn togs bort, kan du skicka en [support förfrågan](https://ms.portal.azure.com/#create/Microsoft.Support). De kommer att behöva det virtuella dator namnet, prenumerations-ID och tidsstämpeln för borttagnings åtgärden.
+
+När du har planerat informationen kan du skapa den nya virtuella datorn med `--attach-os-disk` parametern för att ange den virtuella hård disken.
+
+```azurecli-interactive
+az vm create \
+   --resource-group myResourceGroup \
+  --name myNewVM \
+  --nics myNic \
+  --size Standard_DS1_v2 --os-type Linux \
+  --attach-os-disk myVHD \
+  --plan-name planName \
+  --plan-publisher planPublisher \
+  --plan-product planProduct 
+```
+
+## <a name="deploy-a-new-vm-using-purchase-plan-parameters"></a>Distribuera en ny virtuell dator med parametrar för inköps plan
+
+Om du redan har information om avbildningen kan du distribuera den med hjälp av `az vm create` kommandot. I det här exemplet distribuerar vi en virtuell dator med RabbitMQ-certifierad av Bitnami-avbildningen:
+
+```azurecli
+az group create --name myResourceGroupVM --location westus
+
+az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
+```
+
+Om du får ett meddelande om att godkänna villkoren för avbildningen läser du avsnittet [Godkänn villkoren](#accept-the-terms) längre fram i den här artikeln.
 
 ## <a name="list-popular-images"></a>Lista populära bilder
 
@@ -325,7 +364,7 @@ Utdata:
 }
 ```
 
-### <a name="accept-the-terms"></a>Acceptera villkoren
+## <a name="accept-the-terms"></a>Acceptera villkoren
 
 Om du vill visa och godkänna licens villkoren använder du kommandot [AZ VM Image accept-terms](/cli/azure/vm/image?) . När du godkänner villkoren aktiverar du program mässig distribution i din prenumeration. Du behöver bara godkänna villkoren en gång per prenumeration på avbildningen. Exempel:
 
@@ -350,16 +389,6 @@ Utdata innehåller en `licenseTextLink` till licens villkoren och anger att vär
   "signature": "XXXXXXLAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNXXXXXX",
   "type": "Microsoft.MarketplaceOrdering/offertypes"
 }
-```
-
-### <a name="deploy-using-purchase-plan-parameters"></a>Distribuera med parametrar för inköps plan
-
-När du har accepterat villkoren för avbildningen kan du distribuera en virtuell dator i prenumerationen. Om du vill distribuera avbildningen med hjälp av `az vm create` kommandot anger du parametrar för inköps planen förutom en URN för avbildningen. Till exempel för att distribuera en virtuell dator med RabbitMQ-certifierad av Bitnami-avbildningen:
-
-```azurecli
-az group create --name myResourceGroupVM --location westus
-
-az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
 ```
 
 ## <a name="next-steps"></a>Nästa steg

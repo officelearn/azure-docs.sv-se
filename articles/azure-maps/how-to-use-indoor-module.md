@@ -1,5 +1,5 @@
 ---
-title: Använd modulen Azure Maps inomhus Maps
+title: Använd modulen Azure Maps inomhus Maps med Microsoft Creator Services (för hands version)
 description: Lär dig hur du använder modulen Microsoft Azure Maps inomhus Maps för att återge Maps genom att bädda in modulens JavaScript-bibliotek.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,21 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: d852d17bdf11ea45f833e3d59cacb435166827fe
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: bc80b7dfd433911ef13906db38f59a76827db258
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895468"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905289"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Använd modulen Azure Maps inomhus Maps
 
-Azure Maps Web SDK innehåller *Azure Maps* inliggande modul. I modulen  *Azure Maps inomhus* kan du rendera inliggande Maps som skapats i Azure Maps Creator.
+> [!IMPORTANT]
+> Azure Maps Creator-tjänster finns för närvarande i en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Förutsättningar
+Azure Maps Web SDK innehåller *Azure Maps* inliggande modul. I modulen  *Azure Maps inomhus* kan du rendera inliggande Maps som skapats i Azure Maps Creator Services (för hands version) 
+
+## <a name="prerequisites"></a>Krav
 
 1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Skapa en skapare resurs](how-to-manage-creator.md)
+2. [Skapa en skapare (förhands granskning) resurs](how-to-manage-creator.md)
 3. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
 4. Kom igång `tilesetId` `statesetId` med [självstudierna för att skapa inomhus Maps](tutorial-creator-indoor-maps.md).
  Du måste använda dessa identifierare för att rendera inliggande kartor med modulen Azure Maps inomhus Maps.
@@ -56,7 +60,7 @@ Om du vill använda den globalt värdbaserade Azure Content Delivery Network-ver
 
 ## <a name="instantiate-the-map-object"></a>Instansiera objektet Map
 
-Skapa först ett *kart objekt* . *Map-objektet* kommer att användas i nästa steg för att skapa en instans av objektet *inomhus Manager* .  Koden nedan visar hur du instansierar Map- *objektet* :
+Skapa först ett *kart objekt*. *Map-objektet* kommer att användas i nästa steg för att skapa en instans av objektet *inomhus Manager* .  Koden nedan visar hur du instansierar Map- *objektet*:
 
 ```javascript
 const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
@@ -77,7 +81,7 @@ const map = new atlas.Map("map-id", {
 
 ## <a name="instantiate-the-indoor-manager"></a>Instansiera inomhus Manager
 
-Om du vill läsa in panelernas tilesets och kart stil måste du instansiera den *inomhus Manager* . Instansiera den *inomhus Manager* genom att tillhandahålla *Map-objektet* och motsvarande `tilesetId` . Om du vill ha stöd för [dynamisk Map-formatering](indoor-map-dynamic-styling.md)måste du skicka `statesetId` . `statesetId`Variabel namnet är Skift läges känsligt. Koden bör likna JavaScript-koden nedan.
+Om du vill läsa in panelernas tilesets och kart stil måste du instansiera den *inomhus Manager*. Instansiera den *inomhus Manager* genom att tillhandahålla *Map-objektet* och motsvarande `tilesetId` . Om du vill ha stöd för [dynamisk Map-formatering](indoor-map-dynamic-styling.md)måste du skicka `statesetId` . `statesetId`Variabel namnet är Skift läges känsligt. Koden bör likna JavaScript-koden nedan.
 
 ```javascript
 const tilesetId = "";
@@ -89,7 +93,7 @@ const indoorManager = new atlas.indoor.IndoorManager(map, {
 });
 ```
 
-Om du vill aktivera avsökning av tillstånds data du anger måste du ange `statesetId` och anropa `indoorManager.setDynamicStyling(true)` . Med avsöknings tillstånds data kan du dynamiskt uppdatera tillståndet för dynamiska egenskaper eller *tillstånd* . Till exempel kan en funktion som till exempel rum ha en dynamisk egenskap ( *State* ) som kallas `occupancy` . Programmet kanske vill avsöka efter *status* ändringar för att avspegla ändringen i den visuella kartan. Koden nedan visar hur du aktiverar tillstånds avsökning:
+Om du vill aktivera avsökning av tillstånds data du anger måste du ange `statesetId` och anropa `indoorManager.setDynamicStyling(true)` . Med avsöknings tillstånds data kan du dynamiskt uppdatera tillståndet för dynamiska egenskaper eller *tillstånd*. Till exempel kan en funktion som till exempel rum ha en dynamisk egenskap (*State*) som kallas `occupancy` . Programmet kanske vill avsöka efter *status* ändringar för att avspegla ändringen i den visuella kartan. Koden nedan visar hur du aktiverar tillstånds avsökning:
 
 ```javascript
 const tilesetId = "";
@@ -107,7 +111,7 @@ if (statesetId.length > 0) {
 
 ## <a name="indoor-level-picker-control"></a>Väljare för kontroll över inomhus-nivå
 
- Med kontrollen över-på-sidan- *väljare* kan du ändra nivån på den renderade kartan. Du kan välja att initiera kontroll av *väljare på inomhus-nivå* via den *inomhus Manager* . Här är koden för att initiera kontroll väljaren för nivå:
+ Med kontrollen över-på-sidan- *väljare* kan du ändra nivån på den renderade kartan. Du kan välja att initiera kontroll av *väljare på inomhus-nivå* via den *inomhus Manager*. Här är koden för att initiera kontroll väljaren för nivå:
 
 ```javascript
 const levelControl = new atlas.control.LevelControl({ position: "top-right" });
@@ -116,7 +120,7 @@ indoorManager.setOptions({ levelControl });
 
 ## <a name="indoor-events"></a>Inomhus-händelser
 
- *Azure Maps inomhus* -modulen har stöd för *mappnings objekt* händelser. Händelse lyssnarna i *Map-objektet* anropas när en nivå eller funktion har ändrats. Om du vill köra kod när en nivå eller en funktion har ändrats placerar du koden inuti händelse lyssnaren. Koden nedan visar hur händelse avlyssningar kan läggas till i *objektet Map* .
+ *Azure Maps inomhus* -modulen har stöd för *mappnings objekt* händelser. Händelse lyssnarna i *Map-objektet* anropas när en nivå eller funktion har ändrats. Om du vill köra kod när en nivå eller en funktion har ändrats placerar du koden inuti händelse lyssnaren. Koden nedan visar hur händelse avlyssningar kan läggas till i *objektet Map*.
 
 ```javascript
 map.events.add("levelchanged", indoorManager, (eventData) => {
@@ -144,7 +148,7 @@ Det här exemplet visar hur du använder modulen *Azure Maps inomhus* i ditt web
 
 3. I HTML-huvudet refererar du till JavaScript-och Style Sheet-formaten i *Azure Maps inomhus* -modulen.
 
-4. Initiera ett *kart objekt* . *Map-objektet* har stöd för följande alternativ:
+4. Initiera ett *kart objekt*. *Map-objektet* har stöd för följande alternativ:
     - `Subscription key` är din Azure Maps primära prenumerations nyckel.
     - `center` definierar en latitud och en longitud för platsen för kartan Center. Ange ett värde för `center` om du inte vill ange ett värde för `bounds` . Formatet ska visas som `center` : [-122,13315, 47,63637].
     - `bounds` är den minsta rektangulära formen som innesluter TILESET-kart data. Ange ett värde för `bounds` om du inte vill ange ett värde för `center` . Du kan hitta mappnings gränserna genom att anropa [TILESET List-API: et](/rest/api/maps/tileset/listpreview). TILESET List-API: et returnerar `bbox` , som du kan parsa och tilldela till `bounds` . Formatet ska visas som `bounds` : [# väst, # syd, # öst, # Nord].
@@ -249,7 +253,7 @@ Läs om de API: er som är relaterade till *Azure Maps inomhus* modul:
 > [Krav för ritningspaket](drawing-requirements.md)
 
 >[!div class="nextstepaction"]
-> [Skapare för inomhus Maps](creator-indoor-maps.md)
+> [Skapare (för hands version) för inomhus kartor](creator-indoor-maps.md)
 
 Lär dig mer om hur du lägger till mer data i kartan:
 

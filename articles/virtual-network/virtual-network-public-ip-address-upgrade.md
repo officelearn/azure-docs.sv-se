@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/07/2020
+ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 0c248149694c2bf66b8c94e9c0a29a8f7da9f4e4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9ea29c47349fd7ccee469188f8929a864cf7bbef
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843748"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905799"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Uppgradera offentliga IP-adresser
 
@@ -159,6 +159,7 @@ Kina, norra 2
 
 * För att kunna uppgradera en grundläggande offentlig IP-adress kan den inte kopplas till någon Azure-resurs.  Läs [den här sidan](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) om du vill ha mer information om hur du avassocierar offentliga IP-adresser.  På samma sätt kan det inte vara kopplat till någon moln tjänst för att migrera en Reserverad IP.  Läs [den här sidan](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) om du vill ha mer information om hur du avassocierar reserverade IP-adresser.  
 * Offentliga IP-adresser som uppgraderas från Basic till standard-SKU: n fortsätter att ha inga [tillgänglighets zoner](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) och kan därför inte kopplas till en Azure-resurs som är antingen en zon-redundant eller zonindelade.  Observera att detta endast gäller för regioner som erbjuder tillgänglighets zoner.
+* Det går inte att nedgradera från standard till Basic.
 
 ## <a name="next-steps"></a>Nästa steg
 

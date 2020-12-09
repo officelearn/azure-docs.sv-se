@@ -8,12 +8,12 @@ author: sabbour
 ms.author: asabbour
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 03ecd0e11df5fa20f134b6fd87baf788078a2203
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0d69fa10408618fb188b42e1dd8f7b9d02820cc3
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748037"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862419"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Konfigurera Azure Active Directory autentisering för ett Azure Red Hat OpenShift 4-kluster (CLI)
 
@@ -21,47 +21,67 @@ Om du väljer att installera och använda CLI lokalt kräver den här artikeln a
 
 Hämta dina företagsspecifika URL: er som ska användas för att konfigurera Azure Active Directory-programmet.
 
-Konstruera klustrets OAuth-callback-URL och lagra den i en variabel **oauthCallbackURL** . Se till att ersätta **Aro-RG** med resurs gruppens namn och **Aro-kluster** med ditt kluster namn.
+Ange variabler för resurs grupp och kluster namn.
+
+Ersätt **\<resource_group>** med resurs gruppens namn och **\<aro_cluster>** med klustrets namn.
+
+```azurecli-interactive
+resource_group=<resource_group>
+aro_cluster=<aro_cluster>
+```
+
+Konstruera klustrets OAuth-callback-URL och lagra den i en variabel **oauthCallbackURL**. 
 
 > [!NOTE]
 > `AAD`Avsnittet i OAuth-callback-URL: en ska matcha namnet på den OAuth-identitetsprovider som du kommer att konfigurera senare.
 
+
 ```azurecli-interactive
-domain=$(az aro show -g aro-rg -n aro-cluster --query clusterProfile.domain -o tsv)
-location=$(az aro show -g aro-rg -n aro-cluster --query location -o tsv)
-apiServer=$(az aro show -g aro-rg -n aro-cluster --query apiserverProfile.url -o tsv)
-webConsole=$(az aro show -g aro-rg -n aro-cluster --query consoleProfile.url -o tsv)
-oauthCallbackURL=https://oauth-openshift.apps.$domain.$location.aroapp.io/oauth2callback/AAD
+domain=$(az aro show -g $resource_group -n $aro_cluster --query clusterProfile.domain -o tsv)
+location=$(az aro show -g $resource_group -n $aro_cluster --query location -o tsv)
+apiServer=$(az aro show -g $resource_group -n $aro_cluster --query apiserverProfile.url -o tsv)
+webConsole=$(az aro show -g $resource_group -n $aro_cluster --query consoleProfile.url -o tsv)
 ```
+
+Formatet på oauthCallbackURL skiljer sig något från anpassade domäner:
+
+* Kör följande kommando om du använder en anpassad domän, `contoso.com` t. ex.. 
+
+    ```azurecli-interactive
+    oauthCallbackURL=https://oauth-openshift.apps.$domain/oauth2callback/AAD
+    ```
+
+* Om du inte använder en anpassad domän `$domain` kommer det att vara en sträng med åtta tecken alnum och utökas av `$location.aroapp.io` .
+
+    ```azurecli-interactive
+    oauthCallbackURL=https://oauth-openshift.apps.$domain.$location.aroapp.io/oauth2callback/AAD
+    ```
+
+> [!NOTE]
+> `AAD`Avsnittet i OAuth-callback-URL: en ska matcha namnet på den OAuth-identitetsprovider som du kommer att konfigurera senare.
 
 ## <a name="create-an-azure-active-directory-application-for-authentication"></a>Skapa ett Azure Active Directory-program för autentisering
 
-Skapa ett Azure Active Directory program och hämta den skapade program identifieraren. Ersätt **\<ClientSecret>** med ett säkert lösen ord.
+Ersätt **\<client_secret>** med ett säkert lösen ord för programmet.
 
 ```azurecli-interactive
-az ad app create \
+client_secret=<client_secret>
+```
+
+Skapa ett Azure Active Directory program och hämta den skapade program identifieraren.
+
+```azurecli-interactive
+app_id=$(az ad app create \
   --query appId -o tsv \
   --display-name aro-auth \
   --reply-urls $oauthCallbackURL \
-  --password '<ClientSecret>'
-```
-
-Du bör få tillbaka något som liknar det här. Anteckna det som är det **AppId** du behöver i senare steg.
-
-```output
-6a4cb4b2-f102-4125-b5f5-9ad6689f7224
+  --password $client_secret)
 ```
 
 Hämta klient-ID: t för den prenumeration som äger programmet.
 
 ```azure
-az account show --query tenantId -o tsv
-```
-
-Du bör få tillbaka något som liknar det här. Anteckna det eftersom det här är det **TenantId** du behöver i senare steg.
-
-```output
-72f999sx-8sk1-8snc-js82-2d7cj902db47
+tenant_id=$(az account show --query tenantId -o tsv)
 ```
 
 ## <a name="create-a-manifest-file-to-define-the-optional-claims-to-include-in-the-id-token"></a>Skapa en manifest fil för att definiera de valfria anspråk som ska ingå i ID-token
@@ -97,19 +117,15 @@ EOF
 
 ## <a name="update-the-azure-active-directory-applications-optionalclaims-with-a-manifest"></a>Uppdatera Azure Active Directory programmets optionalClaims med ett manifest
 
-Ersätt **\<AppID>** med det ID du fick tidigare.
-
 ```azurecli-interactive
 az ad app update \
   --set optionalClaims.idToken=@manifest.json \
-  --id <AppId>
+  --id $app_id
 ```
 
 ## <a name="update-the-azure-active-directory-application-scope-permissions"></a>Uppdatera behörigheterna för Azure Active Directory program omfattning
 
 Vi måste definiera rätt omfattningar för att kunna läsa användar informationen från Azure Active Directory.
-
-Ersätt **\<AppID>** med det ID du fick tidigare.
 
 Lägg till behörighet för **Azure Active Directory graf. user. Read** -omfång för att aktivera inloggning och läsa användar profil.
 
@@ -117,11 +133,11 @@ Lägg till behörighet för **Azure Active Directory graf. user. Read** -omfång
 az ad app permission add \
  --api 00000002-0000-0000-c000-000000000000 \
  --api-permissions 311a71cc-e848-46a1-bdf8-97ff7156d8e6=Scope \
- --id <AppId>
+ --id $app_id
 ```
 
 > [!NOTE]
-> Om du inte autentiseras som global administratör för den här Azure Active Directory kan du ignorera meddelandet för att bevilja medgivande, eftersom du kommer att uppmanas att göra det när du har loggat in på ditt eget konto.
+> Du kan på ett säkert sätt Ignorera meddelandet för att bevilja medgivande, såvida du inte autentiseras som global administratör för den här Azure Active Directory. Standard domän användare uppmanas att bevilja medgivande när de först loggar in på klustret med sina AAD-autentiseringsuppgifter.
 
 ## <a name="assign-users-and-groups-to-the-cluster-optional"></a>Tilldela användare och grupper till klustret (valfritt)
 
@@ -134,35 +150,27 @@ Följ anvisningarna i Azure Active Directory-dokumentationen för att [tilldela 
 Hämta `kubeadmin` autentiseringsuppgifterna. Kör följande kommando för att hitta lösen ordet för `kubeadmin` användaren.
 
 ```azurecli-interactive
-az aro list-credentials \
-  --name aro-cluster \
-  --resource-group aro-rg
+kubeadmin_password=$(az aro list-credentials \
+  --name $aro_cluster \
+  --resource-group $resource_group \
+  --query kubeadminPassword --output tsv)
 ```
 
-Följande exempel på utdata visar att lösen ordet är i `kubeadminPassword` .
-
-```json
-{
-  "kubeadminPassword": "<generated password>",
-  "kubeadminUsername": "kubeadmin"
-}
-```
-
-Logga in på OpenShift-klustrets API-server med hjälp av följande kommando. `$apiServer`Variabeln angavs [tidigare](). Ersätt **\<kubeadmin password>** med det lösen ord du hämtade.
+Logga in på OpenShift-klustrets API-server med hjälp av följande kommando. 
 
 ```azurecli-interactive
-oc login $apiServer -u kubeadmin -p <kubeadmin password>
+oc login $apiServer -u kubeadmin -p $kubeadmin_password
 ```
 
-Skapa en OpenShift-hemlighet för att lagra Azure Active Directory program hemligheten och Ersätt **\<ClientSecret>** med den hemlighet som du hämtade tidigare.
+Skapa en OpenShift-hemlighet för att lagra Azure Active Directory program hemligheten.
 
 ```azurecli-interactive
 oc create secret generic openid-client-secret-azuread \
   --namespace openshift-config \
-  --from-literal=clientSecret=<ClientSecret>
+  --from-literal=clientSecret=$client_secret
 ```
 
-Skapa en **OIDC. yaml** -fil för att konfigurera OpenShift OpenID-autentisering mot Azure Active Directory. Ersätt **\<AppID>** och **\<TenantId>** med de värden som du hämtade tidigare.
+Skapa en **OIDC. yaml** -fil för att konfigurera OpenShift OpenID-autentisering mot Azure Active Directory. 
 
 ```bash
 cat > oidc.yaml<< EOF
@@ -176,7 +184,7 @@ spec:
     mappingMethod: claim
     type: OpenID
     openID:
-      clientID: <AppId>
+      clientID: $app_id
       clientSecret:
         name: openid-client-secret-azuread
       extraScopes:
@@ -192,7 +200,7 @@ spec:
         - name
         email:
         - email
-      issuer: https://login.microsoftonline.com/<TenantId>
+      issuer: https://login.microsoftonline.com/$tenant_id
 EOF
 ```
 
@@ -210,6 +218,6 @@ oauth.config.openshift.io/cluster configured
 
 ## <a name="verify-login-through-azure-active-directory"></a>Verifiera inloggning via Azure Active Directory
 
-Om du nu loggar ut från OpenShift-webbkonsolen och försöker logga in igen visas ett nytt alternativ för att logga in med **AAD** . Du kan behöva vänta några minuter.
+Om du nu loggar ut från OpenShift-webbkonsolen och försöker logga in igen visas ett nytt alternativ för att logga in med **AAD**. Du kan behöva vänta några minuter.
 
 ![Inloggnings skärmen med Azure Active Directory alternativ](media/aro4-login-2.png)

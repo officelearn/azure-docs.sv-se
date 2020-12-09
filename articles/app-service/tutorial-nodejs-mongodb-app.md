@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 9c204a07e3c5edff028342af1c88b15ebac0754b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 25d5aa3961ad5dabd29ab4501d8f5076362d9df8
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012228"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862283"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Självstudie: Bygg en Node.js-och MongoDB-app i Azure
 
@@ -43,15 +43,16 @@ Detta får du får lära dig:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
-1. [Installera Git](https://git-scm.com/)
-2. [Installera Node.js och NPM](https://nodejs.org/)
-3. [Installera Bower](https://bower.io/) (krävs för [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-4. [Installera Gulp.js](https://gulpjs.com/) (krävs för [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-5. [Installera och kör MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
+- [Installera Git](https://git-scm.com/)
+- [Installera Node.js och NPM](https://nodejs.org/)
+- [Installera Bower](https://bower.io/) (krävs för [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+- [Installera Gulp.js](https://gulpjs.com/) (krävs för [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+- [Installera och kör MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)] 
 
 ## <a name="test-local-mongodb"></a>Testa lokal MongoDB
 
@@ -83,7 +84,7 @@ git clone https://github.com/Azure-Samples/meanjs.git
 
 Den här exempellagringsplatsen innehåller en kopia av [MEAN.js-lagringsplatsen](https://github.com/meanjs/mean). Den ändras för att köras på App Service (mer information finns [filen Viktigt](https://github.com/Azure-Samples/meanjs/blob/master/README.md) för MEAN.js-lagringsplatsen).
 
-### <a name="run-the-application"></a>Kör programmet
+### <a name="run-the-application"></a>Köra appen
 
 Kör följande kommandon för att installera de nödvändiga paketen och starta programmet.
 
@@ -111,8 +112,6 @@ MEAN.js-exempelprogrammet lagrar användardata i databasen. Om du lyckas skapa e
 Välj **Administratör > Hantera artiklar** för att lägga till några artiklar.
 
 Du kan när som helst stoppa Node.js genom att trycka på `Ctrl+C` i terminalen. 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-production-mongodb"></a>Skapa produktions-MongoDB
 
@@ -306,7 +305,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (5/5), done.
 Writing objects: 100% (5/5), 489 bytes | 0 bytes/s, done.
 Total 5 (delta 3), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id '6c7c716eee'.
 remote: Running custom deployment command...
@@ -317,7 +316,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      master -> master
+ * [new branch]      main -> main
 </pre>
 
 Du kanske märker att distributionsprocessen kör [Gulp](https://gulpjs.com/) efter `npm install`. App Service kör inte Gulp- eller Grunt-uppgifter under distributionen. Den här exempellagringsplatsen har två extra filer i rotkatalogen för detta: 
@@ -468,7 +467,7 @@ I det lokala terminalfönstret sparar du ändringarna i Git och push-överför s
 
 ```bash
 git commit -am "added article comment"
-git push azure master
+git push azure main
 ```
 
 När `git push` har slutförts kan du gå till Azure-appen och prova att använda de nya funktionerna.

@@ -1,21 +1,27 @@
 ---
-title: Arbeta med inomhus Maps i Azure Maps Creator
-description: Den här artikeln beskriver begrepp som gäller för Azure Maps Creator Services
+title: Arbeta med inomhus Maps i Azure Maps Creator (förhands granskning)
+description: I den här artikeln beskrivs begrepp som gäller för Azure Maps Creator Services (för hands version)
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 558903ead572363c5545a4a3121f7cf61f549df6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4ab00317e71f832bb677c4c7587e2356a37cb7a1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895910"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903572"
 ---
-# <a name="creator-for-indoor-maps"></a>Skapare för inomhus Maps
+# <a name="creator-preview-for-indoor-maps"></a>Skapare (för hands version) för inomhus kartor
+
+
+> [!IMPORTANT]
+> Azure Maps Creator-tjänster finns för närvarande i en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Den här artikeln beskriver begrepp och verktyg som gäller för Azure Maps Creator. Vi rekommenderar att du läser den här artikeln innan du börjar använda Azure Maps Creator API och SDK.
 
@@ -23,15 +29,15 @@ Du kan använda Creator för att utveckla program med kart funktioner baserade p
 
 ![Data arbets flöde för skapare karta](./media/creator-indoor-maps/workflow.png)
 
-## <a name="create-azure-maps-creator"></a>Skapa Azure Maps skapare
+## <a name="create-azure-maps-creator-preview"></a>Skapa Azure Maps skapare (förhands granskning) 
 
-Om du vill använda Creator Services måste Azure Maps Creator skapas i ett Azure Maps konto. Information om hur du skapar Azure Maps Creator i Azure Maps finns i [hantera Azure Maps skapare](how-to-manage-creator.md).
+Om du vill använda Creator Services (för hands version) måste Azure Maps Creator skapas i ett Azure Maps konto. Information om hur du skapar Azure Maps Creator i Azure Maps finns i [hantera Azure Maps skapare](how-to-manage-creator.md).
 
 ## <a name="upload-a-drawing-package"></a>Ladda upp ett ritnings paket
 
-Creator samlar in insamlade kart data genom att konvertera ett uppladdat ritnings paket. Ritnings paketet representerar en konstruerad eller ombyggnadd funktion. Information om krav för ritnings paket finns i [krav för ritnings paket](drawing-requirements.md).
+Skapare (för hands version) samlar in insamlade kart data genom att konvertera ett uppladdat ritnings paket. Ritnings paketet representerar en konstruerad eller ombyggnadd funktion. Information om krav för ritnings paket finns i [krav för ritnings paket](drawing-requirements.md).
 
-Använd [Azure Maps data överförings-API](/rest/api/maps/data/uploadpreview) för att ladda upp ett ritnings paket.  Vid en lyckad uppladdning returnerar data överförings-API: et en användar data identifierare ( `udid` ). `udid`Kommer att användas i nästa steg för att konvertera det överförda paketet till insamlade kart data.
+Använd [Azure Maps data (för hands version) Ladda upp API](/rest/api/maps/data/uploadpreview) för att ladda upp ett ritnings paket.  Vid en lyckad uppladdning returnerar data överförings-API: et en användar data identifierare ( `udid` ). `udid`Kommer att användas i nästa steg för att konvertera det överförda paketet till insamlade kart data.
 
 ## <a name="convert-a-drawing-package"></a>Konvertera ett ritnings paket
 
@@ -41,7 +47,7 @@ När ett fel inträffar innehåller konverterings tjänsten en länk till det fr
 
 ## <a name="create-indoor-map-data"></a>Skapa inliggande kart data
 
-Azure Maps Creator tillhandahåller tre tjänster:
+Azure Maps Creator (för hands version) har tre tjänster:
 
 * [Data uppsättnings tjänst](/rest/api/maps/dataset/createpreview).
 Använd data uppsättnings tjänsten för att skapa en data uppsättning från ett konverterat ritnings paket data.
@@ -72,9 +78,9 @@ Om en TILESET blir inaktuell och inte längre är användbar kan du ta bort TILE
 
 ### <a name="feature-statesets"></a>Funktionen statesets
 
-Funktionen statesets är samlingar med dynamiska egenskaper ( *tillstånd* ) som har tilldelats till data uppsättnings funktioner, till exempel rum eller utrustning. Ett exempel på ett *tillstånd* kan vara temperatur eller användning. Varje *tillstånd* är ett nyckel/värde-par som innehåller namnet på egenskapen, värdet och tidsstämpeln för den senaste uppdateringen.
+Funktionen statesets är samlingar med dynamiska egenskaper (*tillstånd*) som har tilldelats till data uppsättnings funktioner, till exempel rum eller utrustning. Ett exempel på ett *tillstånd* kan vara temperatur eller användning. Varje *tillstånd* är ett nyckel/värde-par som innehåller namnet på egenskapen, värdet och tidsstämpeln för den senaste uppdateringen.
 
-Med [funktions tillstånds tjänsten](/rest/api/maps/featurestate/createstatesetpreview) kan du skapa och hantera en funktions-stateset för en data uppsättning. Stateset definieras av ett eller flera *tillstånd* . Varje funktion, till exempel ett rum, kan ha ett anslutet *tillstånd* .
+Med [funktions tillstånds tjänsten](/rest/api/maps/featurestate/createstatesetpreview) kan du skapa och hantera en funktions-stateset för en data uppsättning. Stateset definieras av ett eller flera *tillstånd*. Varje funktion, till exempel ett rum, kan ha ett anslutet *tillstånd* .
 
 Värdet för varje *tillstånd* i en stateset kan uppdateras eller hämtas av IoT-enheter eller andra program.  Om du till exempel använder [funktions tillstånds uppdaterings-API](/rest/api/maps/featurestate/updatestatespreview): t kan enheter som mäter utrymmes användningen systematiskt publicera status ändringen i ett rum.
 
@@ -87,9 +93,9 @@ Ett program kan använda funktionen stateset för att dynamiskt återge funktion
 
 ### <a name="render-v2-service"></a>Rendera v2-tjänsten
 
-Azure Maps [rendera v2-tjänsten – Hämta API för kart panel](/rest/api/maps/renderv2/getmaptilepreview) har utökats för att stödja Creator tilesets.
+Azure Maps [rendera v2-tjänsten – Hämta kart panels-API (för hands version)](/rest/api/maps/renderv2/getmaptilepreview) har utökats för att stödja Creator (för hands version) tilesets.
 
-[Rendera v2-tjänsten – API: et för kart tillstånds panel](/rest/api/maps/renderv2/getmaptilepreview) gör att program kan begära tilesets. Tilesets kan sedan integreras i en kart kontroll eller SDK. Ett exempel på en kart kontroll som använder rendera v2-tjänsten finns i [modulen kartor inomhus](#indoor-maps-module).
+Rendera v2-tjänsten – API: et för kart tillstånds panel gör att program kan begära tilesets. Tilesets kan sedan integreras i en kart kontroll eller SDK. Ett exempel på en kart kontroll som använder rendera v2-tjänsten finns i [modulen kartor inomhus](#indoor-maps-module).
 
 ### <a name="web-feature-service-api"></a>API för webb funktions tjänst
 
@@ -97,7 +103,7 @@ Data uppsättningar kan frågas med hjälp av [WFS-API (Web Feature service)](/r
 
 ### <a name="indoor-maps-module"></a>Modul för inomhuskartor
 
-[Azure Maps-webbsdk: n](./index.yml) innehåller modulen inomhus Maps. Den här modulen ger utökade funktioner till Azure Maps *Kartkontroll* -biblioteket. Modulen inomhus Maps återger inliggande Maps som skapats i skapare. Den integrerar widgetar som t. ex. *vånings väljare* , som hjälper användarna att visualisera olika våningar.
+[Azure Maps-webbsdk: n](./index.yml) innehåller modulen inomhus Maps. Den här modulen ger utökade funktioner till Azure Maps *Kartkontroll* -biblioteket. Modulen kartor i inomhus återger inliggande Maps som skapats i Creator (för hands version). Den integrerar widgetar som t. ex. *vånings väljare*, som hjälper användarna att visualisera olika våningar.
 
 I modulen inmatnings kartor kan du skapa webb program som integrerar inliggande kart data med andra [Azure Maps tjänster](./index.yml). De vanligaste program inställningarna kan omfatta att lägga till kunskap till inomhus kartor från andra kartor, till exempel Road, bilder, väder och överföring.
 
@@ -109,7 +115,7 @@ När du börjar utveckla lösningar för ingångs kartor kan du identifiera sät
 
 ### <a name="data-maintenance"></a>Data underhåll
 
- Med Azure Maps skapare lista, uppdatera och ta bort API kan du Visa, uppdatera och ta bort dina data uppsättningar, tilesets och funktions statesets.
+ Med Azure Maps Creator (för hands version) lista, uppdatera och ta bort API kan du Visa, uppdatera och ta bort dina data uppsättningar, tilesets och funktions statesets.
 
 >[!NOTE]
 >När du granskar en lista över objekt och bestämmer dig för att ta bort dem, måste du ta hänsyn till effekten av borttagningen på alla beroende API: er eller program. Om du till exempel vill ta bort en TILESET som för närvarande används av ett program med hjälp av [rendering v2 – Hämta kart panels-API: et](/rest/api/maps/renderv2/getmaptilepreview)för att ta bort den TILESET skulle det leda till ett program haveri som TILESET.
@@ -129,4 +135,4 @@ I följande exempel visas hur du uppdaterar en data uppsättning, skapar en ny T
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: skapa en skapare inomhus karta](tutorial-creator-indoor-maps.md)
+> [Självstudie: skapa en skapare (för hands version) karta](tutorial-creator-indoor-maps.md)

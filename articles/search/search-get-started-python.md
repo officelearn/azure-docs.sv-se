@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: skapa ett Sök index i python'
 titleSuffix: Azure Cognitive Search
-description: Förklarar hur du skapar ett index, läser in data och kör frågor med python, Jupyter Notebooks och Azure.Documents. Sök bibliotek.
+description: Förklarar hur du skapar ett index, läser in data och kör frågor med python, Notebook och Azure.Documents. Sök bibliotek.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/19/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 528d29f3b285c2583fd1bb52e1de7c24fdc9e28a
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 126fc69678148d4d478c96ff8d05f194c7e3d1b3
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917094"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861875"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i python med Jupyter-anteckningsböcker
 
@@ -26,7 +26,7 @@ ms.locfileid: "94917094"
 > * [Portal](search-get-started-portal.md)
 >
 
-Skapa en Jupyter-anteckningsbok som skapar, läser in och skickar frågor till ett Azure Kognitiv sökning-index med python och [biblioteket Azure-Search-Documents](/python/api/overview/azure/search-documents-readme) i Azure SDK för python. Den här artikeln förklarar hur du skapar en antecknings bok steg för steg. Du kan också [Hämta och köra en färdig Jupyter python-anteckningsbok](https://github.com/Azure-Samples/azure-search-python-samples).
+Skapa en Jupyter Notebook som skapar, läser in och skickar frågor till ett Azure Kognitiv sökning-index med python och [biblioteket Azure-Search-Documents](/python/api/overview/azure/search-documents-readme) i Azure SDK för python. Den här artikeln förklarar hur du skapar en antecknings bok steg för steg. Du kan också [Hämta och köra en färdig Jupyter python-anteckningsbok](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -54,7 +54,7 @@ Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din 
 
 ## <a name="connect-to-azure-cognitive-search"></a>Ansluta till Azure Kognitiv sökning
 
-I den här uppgiften startar du en Jupyter-anteckningsbok och kontrollerar att du kan ansluta till Azure Kognitiv sökning. Du gör detta genom att begära en lista över index från din tjänst. I Windows med Anaconda3 kan du använda Anaconda-navigatören för att starta en bärbar dator.
+I den här uppgiften startar du en Jupyter Notebook och kontrollerar att du kan ansluta till Azure Kognitiv sökning. Du gör detta genom att begära en lista över index från din tjänst. I Windows med Anaconda3 kan du använda Anaconda-navigatören för att starta en bärbar dator.
 
 1. Skapa en ny python3 Notebook.
 

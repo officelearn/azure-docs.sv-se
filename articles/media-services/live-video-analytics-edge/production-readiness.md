@@ -3,12 +3,12 @@ title: Produktions beredskap och bästa praxis – Azure
 description: Den här artikeln innehåller rikt linjer för hur du konfigurerar och distribuerar live video analys på IoT Edge modul i produktions miljöer.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 215427e3524861a842349b197668d92167960e5c
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87071932"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906343"
 ---
 # <a name="production-readiness-and-best-practices"></a>Produktionsberedskap och bästa praxis
 
@@ -62,7 +62,7 @@ I distributions manifestet kan du ange LOCAL_USER_ID-och LOCAL_GROUP_ID-miljöva
 
 Live video analys i IoT Edge modul kräver möjlighet att skriva filer till det lokala fil systemet när:
 
-* Genom att använda en moduls dubbla egenskap [[applicationDataDirectory](module-twin-configuration-schema.md#module-twin-properties)], där du bör ange en katalog i det lokala fil systemet för lagring av konfigurations data.
+* Genom att använda en modul med dubbla egenskaper [`applicationDataDirectory`](module-twin-configuration-schema.md#module-twin-properties) , där du bör ange en katalog i det lokala fil systemet för lagring av konfigurations data.
 * Genom att använda ett medie diagram för att spela in video i molnet kräver modulen att en katalog används på gräns enheten som ett cacheminne (se [kontinuerlig video inspelnings](continuous-video-recording-concept.md) artikel för mer information).
 * [Registrera till en lokal fil](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources)där du bör ange en fil Sök väg för den inspelade videon.
 
@@ -124,7 +124,7 @@ Det rekommenderade namngivnings mönstret är " &lt; anytext &gt; -$ {system. Da
 Om du kör flera instanser av samma graf kan du använda grafens Topology-namn och instans namn för att skilja. Som exempel kan du ange assetNamePattern på till gångs mottagaren på följande sätt:
 
 ```
-"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName} -${System.DateTime}"
+"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName}-${System.DateTime}"
 ```
 
 För händelsebaserade videoinspelning – genererade MP4-videoklipp på gränsen bör det rekommenderade namngivnings mönstret innehålla DateTime och för flera instanser av samma graf rekommenderar att du använder systemvariablerna GraphTopologyName och GraphInstanceName. Som exempel kan du ange filePathPattern på fil mottagare på följande sätt: 

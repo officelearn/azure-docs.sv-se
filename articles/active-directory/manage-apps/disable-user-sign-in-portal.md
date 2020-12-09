@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c208da657d30d4a0f5b6f171693c5c6abc2b358b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0671d3dec963c0b475133881b00224cfe11e8370
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649200"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861652"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Inaktivera användar inloggningar för en företags app i Azure Active Directory
 
@@ -39,7 +39,7 @@ Det är enkelt att inaktivera ett företags program så att inga användare kan 
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Använd Azure AD PowerShell för att inaktivera en app som inte är listad
 
-Om du känner till AppId för en app som inte visas i listan över företags appar (till exempel eftersom du har tagit bort appen eller om tjänstens huvud namn inte har skapats på grund av att appen är förauktoriserad av Microsoft), kan du skapa tjänstens huvud namn manuellt för appen och sedan inaktivera den med hjälp av [AzureAD PowerShell-cmdleten](/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0).
+Om du känner till AppId för en app som inte visas i listan över företags appar (till exempel eftersom du har tagit bort appen eller om tjänstens huvud namn inte har skapats på grund av att appen är förauktoriserad av Microsoft), kan du skapa tjänstens huvud namn manuellt för appen och sedan inaktivera den med hjälp av [AzureAD PowerShell-cmdleten](/powershell/module/azuread/New-AzureADServicePrincipal).
 
 ```PowerShell
 # The AppId of the app to be disabled

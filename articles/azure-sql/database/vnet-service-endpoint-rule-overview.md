@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 2ff8f6134f74e0eda355342a7282e8be81a3d8df
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c5839589c35ea5a9c52303801a8767fc598434fc
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450238"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905884"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Använd tjänst slut punkter och regler för virtuella nätverk för servrar i Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -95,7 +95,7 @@ När du använder tjänst slut punkter för Azure SQL Database bör du gå igeno
 ### <a name="expressroute"></a>ExpressRoute
 
 Om du använder [ExpressRoute](../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lokalt för offentlig peering eller Microsoft-peering, måste du identifiera de NAT IP-adresser som används. För offentlig peering, använder varje ExpressRoute-krets som standard två NAT IP-adresser, som används för Azure-tjänsttrafik när trafiken kommer till Microsoft Azure-stamnätverket. För Microsoft-peering är de NAT IP-adresser som används antingen tillhandahållna av kunden eller av tjänsteleverantören. Om du vill tillåta åtkomst till dina tjänstresurser måste du tillåta dessa offentliga IP-adresser i resursens IP-brandväggsinställning. För att kunna hitta ExpressRoute-kretsens IP-adresser för offentlig peering [öppnar du en supportbegäran hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure-portalen. Lär dig mer om [NAT för ExpressRoute offentliga peering och Microsoft-peering.](../../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
-  
+
 Om du vill tillåta kommunikation från din krets till Azure SQL Database måste du skapa IP-nätverksnummer för de offentliga IP-adresserna för din NAT.
 
 <!--
@@ -111,7 +111,7 @@ Azure Storage har implementerat samma funktion som gör att du kan begränsa ans
 
 PolyBase och COPY-instruktionen används ofta för att läsa in data i Azure Synapse Analytics från Azure Storage konton för data inmatning med hög data flöde. Om Azure Storage-kontot som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät, kommer anslutningen när du använder PolyBase och KOPIERINGs instruktionen till lagrings kontot att brytas. Om du vill aktivera import-och export scenarier med hjälp av kopiera och PolyBase med Azure Synapse Analytics ansluter du till Azure Storage som är säkrad till VNet, följer du stegen som anges nedan:
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 - Installera Azure PowerShell med hjälp av den här [guiden](/powershell/azure/install-az-ps).
 - Om du har ett konto av typen generell användning v1 eller bloblagring måste du först uppgradera till generell användning v2 med hjälp av den här [guiden](../../storage/common/storage-account-upgrade.md).
@@ -122,7 +122,7 @@ PolyBase och COPY-instruktionen används ofta för att läsa in data i Azure Syn
 
 #### <a name="steps"></a>Steg
 
-1. **Registrera en server** som är värd för Azure-Synapse med Azure Active Directory (AAD) i PowerShell:
+1. Om du har en fristående SQL-pool registrerar du SQL Server med Azure Active Directory (AAD) med hjälp av PowerShell: 
 
    ```powershell
    Connect-AzAccount
@@ -130,6 +130,14 @@ PolyBase och COPY-instruktionen används ofta för att läsa in data i Azure Syn
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
+   Det här steget krävs inte för dedikerade SQL-pooler inom en Synapse-arbetsyta.
+
+1. Om du har en Synapse-arbetsyta registrerar du arbets ytans systemhanterade identitet:
+
+   1. Gå till din Synapse-arbetsyta i Azure Portal
+   2. Gå till bladet hanterade identiteter 
+   3. Kontrol lera att alternativet Tillåt pipeliner är aktiverat
+   
 1. Skapa ett **Allmänt-syfte v2-lagrings konto** med hjälp av den här [guiden](../../storage/common/storage-account-create.md).
 
    > [!NOTE]
@@ -137,7 +145,7 @@ PolyBase och COPY-instruktionen används ofta för att läsa in data i Azure Syn
    > - Om du har ett allmänt v1-eller Blob Storage-konto måste du **först uppgradera till v2** med hjälp av den här [guiden](../../storage/common/storage-account-upgrade.md).
    > - Information om kända problem med Azure Data Lake Storage Gen2 finns i den här [hand boken](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning**. Tilldela Azure-rollen **Storage BLOB data Contributor** till den server som är värd för din Azure Synapse-analys som du har registrerat med Azure Active Directory (AAD) som i steg #1.
+1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning**. Tilldela Azure-rollen **Storage BLOB data Contributor** till den server eller arbets yta som är värd för din dedikerade SQL-pool som du har registrerat med Azure Active Directory (AAD).
 
    > [!NOTE]
    > Endast medlemmar med ägar behörighet för lagrings kontot kan utföra det här steget. Information om olika inbyggda Azure-roller finns i den här [guiden](../../role-based-access-control/built-in-roles.md).
@@ -228,7 +236,7 @@ Internt anropar PowerShell-cmdletar för SQL VNet-åtgärder REST-API: er. Du ka
 
 - [Virtual Network regler: åtgärder][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste redan ha ett undernät som är taggat med det specifika Virtual Network tjänst slut punkts *typ namn* som är relevant för Azure SQL Database.
 

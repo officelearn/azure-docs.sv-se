@@ -22,7 +22,7 @@ Den här artikeln gäller för kunder som har registrerat sig för Azure Online 
 
 Om vi inte får din betalning eller om vi inte kan bearbeta den, får du ett e-postmeddelande och en varning på Azure-portalen som meddelar att förfallodatumet för prenumerationen har passerat. Om din standardbetalningsmetod är kreditkort kan [kontoadministratören](../understand/subscription-transfer.md#whoisaa) kvitta de utestående kostnaderna på Azure-portalen. Om du betalar per faktura (check/överföring) skickar du betalningen till den plats som anges längst ned på fakturan.
 
-> [!IMPORTANT]
+> [!Viktigt]
 > * Om du har flera prenumerationer som använder samma kreditkort och samtliga av dessa har förfallit måste du betala hela det utestående beloppet samtidigt.
 > * Det kreditkort som du använder för att kvitta de utestående kostnaderna blir den nya standardbetalningsmetoden för alla prenumerationer som använde betalningsmetoden som misslyckades.
 

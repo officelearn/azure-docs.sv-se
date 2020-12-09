@@ -1,25 +1,30 @@
 ---
-title: Krav för ritnings paket i Azure Maps Creator
+title: Krav för ritnings paket i Microsoft Azure Maps Creator (för hands version)
 description: Lär dig mer om kraven för ritnings paket för att konvertera design filer för anläggningar för att mappa data
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 6/12/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 26b6273b4dd2371790025515e35b71d1fc863ebe
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013130"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903470"
 ---
 # <a name="drawing-package-requirements"></a>Krav för ritningspaket
 
+
+> [!IMPORTANT]
+> Azure Maps Creator-tjänster finns för närvarande i en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Du kan konvertera överförda ritnings paket till kart data med hjälp av [Azure Maps Conversion service](/rest/api/maps/conversion). I den här artikeln beskrivs kraven för ritnings paket för konverterings-API: et. Om du vill visa ett exempel paket kan du hämta exempel [ritnings paketet](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ritnings paketet innehåller ritningar som sparats i DWG-format, vilket är det interna fil formatet för Autodesks AutoCAD®-programvara.
 
@@ -31,7 +36,7 @@ Du kan välja valfri CAD-programvara för att skapa ritningarna i ritnings paket
 
 Här är några termer och definitioner som är viktiga när du läser den här artikeln för enkel referens.
 
-| Term  | Definition |
+| Period  | Definition |
 |:-------|:------------|
 | Skikt | Ett AutoCAD DWG-lager.|
 | Nivå | Ett del i en byggnad med en angiven höjning. Till exempel en byggnads golv. |
@@ -188,7 +193,7 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 ### `directoryInfo`
 
-| Egenskap  | Typ | Obligatorisk | Description |
+| Egenskap  | Typ | Obligatorisk | Beskrivning |
 |-----------|------|----------|-------------|
 | `name`      | sträng | true   |  Namn på byggnaden. |
 | `streetAddress`|    sträng |    falskt    | Byggnadens adress. |
@@ -209,7 +214,7 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 `buildingLevels`Objektet innehåller en JSON-matris med byggnader-nivåer.
 
-| Egenskap  | Typ | Obligatorisk | Description |
+| Egenskap  | Typ | Obligatorisk | Beskrivning |
 |-----------|------|----------|-------------|
 |`levelName`    |sträng    |true |    Namn på beskrivande nivå. Till exempel: våning 1, lobbyn, blå parkering eller Basement.|
 |`ordinal` | heltal |    true | Anger den lodräta ordningen för nivåer. Varje funktion måste ha en nivå med ordnings tal 0. |
@@ -241,7 +246,7 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 `unitProperties`Objektet innehåller en JSON-matris med enhets egenskaper.
 
-| Egenskap  | Typ | Obligatorisk | Description |
+| Egenskap  | Typ | Obligatorisk | Beskrivning |
 |-----------|------|----------|-------------|
 |`unitName`    |sträng    |true    |Namnet på den enhet som ska associeras med den här `unitProperty` posten. Posten är endast giltig när en etikett matchning finns `unitName` i `unitLabel` skikten. |
 |`categoryName`|    sträng|    falskt    |Kategori namn. En fullständig lista över kategorier finns i [Kategorier](https://aka.ms/pa-indoor-spacecategories). |
@@ -407,10 +412,10 @@ Följande är en exempel manifest fil för exempel ritnings paketet. Om du vill 
 När ditt Drawing-paket uppfyller kraven kan du använda [Azure Maps Conversion service](/rest/api/maps/conversion) för att konvertera paketet till en karta-datauppsättning. Sedan kan du använda data uppsättningen för att generera en insamlad karta med hjälp av modulen inomhus Maps.
 
 > [!div class="nextstepaction"]
->[Skapare för inomhus Maps](creator-indoor-maps.md)
+>[Skapare (för hands version) för inomhus kartor](creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
-> [Självstudie: skapa en skapare inomhus karta](tutorial-creator-indoor-maps.md)
+> [Självstudie: skapa en skapare (för hands version) karta](tutorial-creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Dynamisk formatering för inomhus-kartor](indoor-map-dynamic-styling.md)

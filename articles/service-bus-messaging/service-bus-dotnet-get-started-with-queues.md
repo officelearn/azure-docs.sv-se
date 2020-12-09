@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 15e5d257259bb4dfc98528cb726dbd2cc1f9a903
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f55af61a061bf3a3897569058aace728f7465b64
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498735"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862130"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Skicka meddelanden till och ta emot meddelanden från Azure Service Bus köer (.NET)
 I den här självstudien skapar du ett .NET Core-konsolprogram för att skicka meddelanden till och ta emot meddelanden från en Service Bus kö med hjälp av **Azure. Messaging. Service Bus** -paketet. 
@@ -55,26 +55,9 @@ Starta Visual Studio och skapa ett nytt **konsol program (.net Core)-** projekt 
         static string queueName = "<QUEUE NAME>";
     ```
 
-    Ange din anslutnings sträng för namn området som `ServiceBusConnectionString` variabel. Ange namnet på kön.
+    Ange din anslutnings sträng för namn området som `connectionString` variabel. Ange namnet på kön.
 
-1. Ersätt `Main()` metoden med följande async- **async** `Main` metod. Den anropar den `SendMessagesAsync()` metod som du ska lägga till i nästa steg för att skicka meddelanden till kön. 
-
-    ```csharp
-    public static async Task Main(string[] args)
-    {    
-        const int numberOfMessages = 10;
-        
-        Console.WriteLine("======================================================");
-        Console.WriteLine("Press ENTER key to exit after sending all the messages.");
-        Console.WriteLine("======================================================");
-
-        // Send messages.
-        await SendMessagesAsync(numberOfMessages);
-
-        Console.ReadKey();
-    }
-    ```
-1. Direkt efter `Main()` -metoden lägger du till följande `SendMessagesAsync()` metod som utför arbetet med att skicka antalet meddelanden som anges av `numberOfMessagesToSend` (för närvarande är inställt på 10):
+1. Direkt efter `Main()` -metoden lägger du till följande `SendMessagesAsync()` metod som utför arbetet med att skicka ett meddelande:
 
     ```csharp
         static async Task SendMessageAsync()
@@ -101,9 +84,9 @@ Starta Visual Studio och skapa ett nytt **konsol program (.net Core)-** projekt 
         {
             // create a queue containing the messages and return it to the caller
             Queue<ServiceBusMessage> messages = new Queue<ServiceBusMessage>();
-            messages.Enqueue(new ServiceBusMessage("First message"));
-            messages.Enqueue(new ServiceBusMessage("Second message"));
-            messages.Enqueue(new ServiceBusMessage("Third message"));
+            messages.Enqueue(new ServiceBusMessage("First message in the batch"));
+            messages.Enqueue(new ServiceBusMessage("Second message in the batch"));
+            messages.Enqueue(new ServiceBusMessage("Third message in the batch"));
             return messages;
         }
     ```
@@ -257,7 +240,7 @@ I det här avsnittet ska du lägga till kod för att hämta meddelanden från k�
         }
     ```
 
-## <a name="run-the-app"></a>Kör appen
+## <a name="run-the-app"></a>Köra appen
 Kör appen. Vänta en minut och tryck sedan på valfri tangent för att sluta ta emot meddelanden. Du bör se följande utdata (blank steg för nyckeln). 
 
 ```console

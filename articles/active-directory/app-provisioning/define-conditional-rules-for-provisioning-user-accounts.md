@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
-ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 88d004836d5311fc3a971df81a3dc6e6ab605ca9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994000"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861399"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Attributbaserade program etablering med omfångs filter
 Syftet med den här artikeln är att förklara hur du använder omfångs filter för att definiera attributbaserade regler som avgör vilka användare som ska tillhandahållas till ett program.
@@ -94,7 +94,7 @@ Definitions områdes filter konfigureras som en del av mappningar av mappar för
    
    j. **Greater_Than_OR_EQUALS.** Sats returnerar true om det utvärderade attributet är större än eller lika med värdet. Värdet som anges i omfångs filtret måste vara ett heltal och attributet för användaren måste vara ett heltal [0, 1, 2,...]. 
    
-   k. **Åtgärd.** Sats returnerar true om det utvärderade attributet innehåller strängens värde (Skift läges känsligt) enligt beskrivningen [här](/dotnet/api/system.string.contains?view=netframework-4.8). 
+   k. **Åtgärd.** Sats returnerar true om det utvärderade attributet innehåller strängens värde (Skift läges känsligt) enligt beskrivningen [här](/dotnet/api/system.string.contains). 
 
 
 >[!IMPORTANT] 

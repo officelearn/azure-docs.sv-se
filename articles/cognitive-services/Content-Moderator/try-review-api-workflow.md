@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 3e58be4b94457d95d28cf6528b9151e4be1802cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79749533d636f4b73ff3bef6b12d9e842ac485ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72754189"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905183"
 ---
-# <a name="define-and-use-moderation-workflows-rest"></a>Definiera och använda arbets flöden för redaktörer (REST)
+# <a name="define-and-use-moderation-workflows-api-console"></a>Definiera och använda moderator arbets flöden (API-konsol)
 
 Arbets flöden är molnbaserade anpassade filter som du kan använda för att hantera innehåll mer effektivt. Arbets flöden kan ansluta till en mängd olika tjänster för att filtrera innehåll på olika sätt och vidta lämplig åtgärd. Den här guiden visar hur du använder REST-API: er för arbets flöden via API-konsolen för att skapa och använda arbets flöden. När du förstår API: ernas struktur kan du enkelt Porta dessa anrop till alla REST-kompatibla plattformar.
 
@@ -25,26 +25,26 @@ Arbets flöden är molnbaserade anpassade filter som du kan använda för att ha
 
 - Logga in eller skapa ett konto på webbplatsen för Content Moderator [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) .
 
-## <a name="create-a-workflow"></a>Skapa ett arbets flöde
+## <a name="create-a-workflow"></a>Skapa ett arbetsflöde
 
-Om du vill skapa eller uppdatera ett arbets flöde går du till sidan **[arbets flöde – skapa eller uppdatera API-](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** referens och väljer knappen för nyckel regionen (du hittar det i slut punkts-URL: en på sidan **autentiseringsuppgifter** i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/)). Detta startar API-konsolen där du enkelt kan skapa och köra REST API-anrop.
+Om du vill skapa eller uppdatera ett arbets flöde går du till sidan **[arbets flöde – skapa eller uppdatera API-](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** referens och väljer knappen för nyckel området. Du kan hitta din region i slut punkts-URL: en på sidan **autentiseringsuppgifter** i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/). Detta startar API-konsolen där du enkelt kan skapa och köra REST API-anrop.
 
 ![Arbets flöde – skapa eller uppdatera val av sid region](images/test-drive-region.png)
 
 ### <a name="enter-rest-call-parameters"></a>Ange REST-anrops parametrar
 
-Ange värden för **team**, **workflowname**och **OCP-APIM-Subscription-Key**:
+Ange värden för **team**, **workflowname** och **OCP-APIM-Subscription-Key**:
 
 - **team**: det team-ID som du skapade när du konfigurerade kontot för [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) (finns i fältet **ID** på skärmens inloggnings uppgifter).
 - **workflowname**: namnet på ett nytt arbets flöde som ska läggas till (eller ett befintligt namn om du vill uppdatera ett befintligt arbets flöde).
-- **OCP-APIM-Subscription-Key**: din Content moderator-nyckel. Du hittar detta på fliken **Inställningar** i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com).
+- **OCP-APIM-Subscription-Key**: din Content moderator-nyckel. Du hittar den här nyckeln på fliken **Inställningar** i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com).
 
 ![Arbets flöde – skapa eller uppdatera parametrar och rubriker för konsolen](images/workflow-console-parameters.PNG)
 
 ### <a name="enter-a-workflow-definition"></a>Ange en arbets flödes definition
 
 1. Redigera rutan **begär ande text** för att ange JSON-begäran med information om **Beskrivning** och **typ** (antingen `Image` eller `Text` ).
-2. För **uttryck**kopierar du standard uttrycket för arbets flödets JSON. Den slutgiltiga JSON-strängen bör se ut så här:
+2. För **uttryck** kopierar du standard uttrycket för arbets flödets JSON. Den slutgiltiga JSON-strängen bör se ut så här:
 
 ```json
 {
@@ -102,7 +102,7 @@ Ange resten anrops parametrar som i avsnittet ovan. Se till att den här tiden, 
 
 ![Hämta frågeparametrar och rubriker](images/workflow-get-default.PNG)
 
-Välj **Skicka**. Om åtgärden lyckas, är **svars statusen** och i `200 OK` rutan **svars innehåll** visas arbets flödet i JSON-format, t. ex. följande:
+Välj **Skicka**. Om åtgärden lyckas, är **svars statusen** och i `200 OK` rutan **svars innehåll** visas arbets flödet i JSON-format, som i följande exempel:
 
 ```json
 {

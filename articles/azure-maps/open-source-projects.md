@@ -3,18 +3,18 @@ title: Azure Maps community-projekt med öppen källkod | Microsoft Azure Maps
 description: Projekt med öppen källkod som är koordinerade för Microsoft Azure Maps-plattformen.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/17/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ebe633bbfa8ec950e7726c127e38adecf0d1872f
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 138160eb1515d1443302dbc23bbafa482e2eb905
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896267"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904558"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps community-projekt med öppen källkod
 
@@ -62,7 +62,7 @@ Följande är en lista med projekt med öppen källkod som utökar funktionerna 
 | Projektnamn | Beskrivning |
 |-|-|
 | [Azure Maps dokument](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | Källa för all Azure Location Based Services-dokumentation. |
-| [Verktyg för Azure Maps skapare](https://github.com/Azure-Samples/AzureMapsCreator) | Python-verktyg för Azure Maps skapare verktyg. |
+| [Verktyg för Azure Maps skapare (förhands granskning)](https://github.com/Azure-Samples/AzureMapsCreator) | Verktyg för python-verktyg för Azure Maps skapare (för hands version). |
 
 En längre lista över projekt med öppen källkod för Azure Maps som innehåller Community-skapade projekt finns [här](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
 

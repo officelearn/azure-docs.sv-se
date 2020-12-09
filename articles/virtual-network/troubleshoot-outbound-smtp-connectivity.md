@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 063ebc40fd845fe6300b008e7ca048357a2fce49
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d2e5996da5a1fe3f5b154d57ee509f25e54e30ac
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95806671"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862368"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Felsök problem med utgående SMTP-anslutningar i Azure
 
@@ -39,7 +39,7 @@ För Enterprise-avtal Azure-användare finns det ingen ändring av den tekniska 
 
 Om du registrerade dig före den 15 november 2017 för prenumerationen betala per användning, sker ingen ändring i den tekniska möjligheten att testa utgående e-postleverans. Du fortsätter att kunna testa utgående e-postleverans från virtuella Azure-datorer i dessa prenumerationer direkt till externa e-postleverantörer utan begränsningar från Azure-plattformen. Återigen är det inte säkert att e-postleverantörerna accepterar inkommande e-post från en specifik användare, och användarna måste arbeta direkt med e-postleverantörer för att kunna åtgärda eventuella meddelande leverans-eller skräp post filtrerings problem som berör vissa leverantörer.
 
-För prenumerationer enligt principen betala per användning som skapades efter den 15 november 2017 kommer det att finnas tekniska begränsningar som blockerar e-post som skickas direkt från virtuella datorer i dessa prenumerationer. Om du vill kunna skicka e-post från virtuella Azure-datorer direkt till externa e-postleverantörer (inte använda ett autentiserat SMTP-relä) kan du göra en begäran om att ta bort begränsningen i **anslutnings** avsnittet på bladet **diagnostisera och lösa** för en Azure Virtual Network-resurs i Azure Portal. Om det är kvalificerat så kommer din prenumeration att aktive ras, eller så får du instruktioner om nästa steg.
+För prenumerationer enligt principen betala per användning som skapades efter den 15 november 2017 kommer det att finnas tekniska begränsningar som blockerar e-post som skickas direkt från virtuella datorer i dessa prenumerationer. Om du vill kunna skicka e-post från virtuella Azure-datorer direkt till externa e-postleverantörer (inte använda ett autentiserat SMTP-relä) och du har ett konto med en betalnings historik kan du göra en begäran om att ta bort begränsningen i **anslutnings** avsnittet på bladet **diagnostisera och lösa** för en Azure Virtual Network-resurs i Azure Portal. Om det är kvalificerat så kommer din prenumeration att aktive ras, eller så får du instruktioner om nästa steg. 
 
 När en prenumeration enligt principen betala per användning är undantagen och de virtuella datorerna har stoppats och startats i Azure Portal, undantas alla virtuella datorer i den prenumerationen. Undantaget gäller endast för den prenumeration som begärs och endast för VM-trafik som dirigeras direkt till Internet.
 
@@ -54,13 +54,13 @@ Om du använder de här prenumerations typerna rekommenderar vi att du använder
 
 ## <a name="cloud-service-provider-csp"></a>Cloud Service Provider (CSP)
 
-Om du använder Azure-resurser via CSP kan du göra en begäran om att ta bort begränsningen i avsnittet "anslutnings" i bladet "diagnosticera och lösa" för en Virtual Network-resurs i Azure-portalen. Om det är kvalificerat så kommer din prenumeration att aktive ras eller så får du instruktioner om nästa steg..
+Om du använder Azure-resurser via CSP kan du göra en begäran om att ta bort begränsningen i **anslutnings** avsnittet på bladet **diagnostisera och lösa** för en Virtual Network resurs i Azure Portal. Om det är kvalificerat så kommer din prenumeration att aktive ras, eller så får du instruktioner om nästa steg.
 
 ## <a name="microsoft-partner-network-mpn-bizspark-plus-or-azure-sponsorship"></a>Microsoft Partner Network (MPN), BizSpark Plus eller Azure-sponsring
 
 För Microsoft Partner Network (MPN), BizSpark Plus eller Azure-sponsring prenumerationer som har skapats efter den 15 november 2017 kommer det att finnas tekniska begränsningar som blockerar e-post som skickas direkt från virtuella datorer i dessa prenumerationer. Om du vill kunna skicka e-post från virtuella Azure-datorer direkt till externa e-postleverantörer (inte använda ett autentiserat SMTP-relä) kan du göra en begäran genom att öppna ett support ärende med följande typ av problem: **teknisk**  >  **Virtual Network**  >  **anslutning**  >  **kan inte skicka e-post (SMTP/port 25)**. Se till att du lägger till information om varför din distribution måste skicka e-post direkt till e-postleverantörer i stället för att använda ett autentiserat relä. Begär Anden kommer att granskas och godkännas enligt Microsofts gottfinnande. Begär Anden kan beviljas endast efter att ytterligare skydds kontroller har slutförts. 
 
-När en prenumeration enligt principen betala per användning är undantagen och de virtuella datorerna har stoppats och startats i Azure Portal, undantas alla virtuella datorer i den prenumerationen. Undantaget gäller endast för den prenumeration som begärs och endast för VM-trafik som dirigeras direkt till Internet.
+När en prenumeration har undantagits och de virtuella datorerna har stoppats och startats i Azure Portal, undantas alla virtuella datorer i den prenumerationen. Undantaget gäller endast för den prenumeration som begärs och endast för VM-trafik som dirigeras direkt till Internet.
 
 ## <a name="restrictions-and-limitations"></a>Begränsningar och begränsningar
 
@@ -68,4 +68,4 @@ När en prenumeration enligt principen betala per användning är undantagen och
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 
-Om du fortfarande behöver hjälp kan du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att lösa problemet snabbt genom att använda följande typ av problem: typ av **prenumerations hantering** : **begäran om att aktivera port 25 e-flöde**.
+Om du fortfarande behöver hjälp kan du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att lösa problemet snabbt genom att använda följande typ av problem: **teknisk**  >  **Virtual Network**  >  **Connectivity**  >  **-anslutning kan inte skicka e-post (SMTP/port 25)**.

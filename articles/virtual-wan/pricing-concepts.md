@@ -6,15 +6,15 @@ services: virtual-wan
 author: reyandap
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 12/08/2020
 ms.author: reyandap
 ms.custom: references_pricing
-ms.openlocfilehash: b4025990a1a62351d3971d788558dea8ecb390ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ced9bb33be341d35904967092414676a6ffe3ac
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327965"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905544"
 ---
 # <a name="about-virtual-wan-pricing"></a>Om priser för virtuella WAN-nätverk
 
@@ -38,7 +38,7 @@ En **skalnings enhet** tillhandahåller enheten för sammanställd kapacitet fö
 
 ### <a name="what-is-a-connection-unit"></a><a name="connection-unit"></a>Vad är en anslutnings enhet?
 
-En **anslutnings enhet** gäller för alla lokala/icke-Microsoft-slutpunkter som ansluter till Azure-gatewayer. För plats-till-plats-VPN innebär detta grenar. För användares VPN (punkt-till-plats) innebär detta att fjärran vändare. För ExpressRoute innebär detta att ExpressRoute-krets anslutningar.<br>Exempel:
+En **anslutnings enhet** gäller för alla lokala/icke-Microsoft-slutpunkter som ansluter till Azure-gatewayer. För plats-till-plats-VPN innebär detta värde grenar. För användares VPN (punkt-till-plats) innebär detta värde fjärran vändare. För ExpressRoute betyder detta värde ExpressRoute-krets-anslutningar.<br>Exempel:
 
 * En förgrenings anslutning som ansluter till Azure VPN i en virtuell hubb kostar $0,05/timme. Därför kostar 100 förgrenings anslutningar som ansluter till en virtuell Azure-hubb $0,05 * 100/timme.
 
@@ -50,38 +50,13 @@ En **anslutnings enhet** gäller för alla lokala/icke-Microsoft-slutpunkter som
 
 * All trafik som använder Azure debiteras inte. Trafik som lämnar Azure (via VPN, ExpressRoute eller punkt-till-plats-VPN-anslutningar) omfattas av standard [avgifterna för Azure data överföring](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-* För data överförings avgifter mellan en virtuell WAN-hubb och en virtuell fjärran sluten virtuell WAN-hubb eller VNet i en annan region än käll-hubben gäller avgifterna för data överföring för trafik som lämnar en hubb. Exempel: trafik som lämnar en östra USA-hubb debiteras $0,02/GB till en västra USA-hubb. Trafik är ingen avgift för trafik som går in i hubben västra USA. I följande tabeller visas kostnaderna.
-
-Tabellerna nedan använder följande förkortningar: {Oceanien: Nordamerika}, {EU: Europa}, {MONOETANOLAMIN: Mellanöstern, östra}, {OC: (Australien, centrala och Australien, centrala 2)}, {LATAM: Latinamerika} 
-
-**Priser inom kontinenten (*)**
-
-| Intra-Continent| Pris ($/GB)|
-|---|---|
-| Tillst|0,02 USD |
-| EU till EU |0,02 USD |
-| Asien och Asien (exklusive Kina)|$0,10 |
-| MONOETANOLAMIN till MONOETANOLAMIN|$0,16 |
-| LATAM-LATAM |$0,16 |
-| OC-OC|$0,12 |
-
-**Priser för Inter-kontinental (*)**
-
-| Inter-Continental| Pris ($/GB)|
-|---|---|
-| FRÅN och med EU eller EU till dig |$0,07 |
-| FRÅN LATAM till var som helst |$0,17 |
-| FRÅN MONOETANOLAMIN till var som helst |$0,17 |
-| FRÅN Oceanien till var som helst |$0,12 |
-| FRÅN Asien (förutom Kina) till var som helst |$0,12 |
-
-(*) Vissa kostnader kan tillkomma från och med den 1 augusti 2020.
+* För data överförings avgifter mellan en virtuell WAN-hubb och en virtuell fjärran sluten virtuell WAN-hubb eller VNet i en annan region än käll-hubben gäller avgifterna för data överföring för trafik som lämnar en hubb. Exempel: trafik som lämnar en östra USA-hubb debiteras $0,02/GB till en västra USA-hubb. Trafik är ingen avgift för trafik som går in i hubben västra USA. All hubb till hubb trafik omfattas Inter-Region (Intra/interkontinental) avgifter för [Azure data överföring](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ### <a name="what-is-the-difference-between-a-standard-hub-fee-and-a-standard-hub-processing-fee"></a><a name="fee"></a>Vad är skillnaden mellan en standard avgift för hubb och en avgift för standard hubben?
 
 Det virtuella WAN-nätverket finns i två varianter:
 
-* Ett **grundläggande virtuellt WAN-nätverk**där användare kan distribuera flera hubbar och dra nytta av VPN plats-till-plats-anslutning. Ett grundläggande virtuellt WAN-nätverk har inte avancerade funktioner, till exempel helt nätbaserade nav, ExpressRoute-anslutning, VPN-anslutning via punkt-till-plats, anslutning mellan virtuella nätverk, VPN-och ExpressRoute-transit anslutning, eller Azure-brandvägg osv. Det finns ingen bas avgift eller data bearbetnings avgift för hubbar i ett grundläggande virtuellt WAN-nätverk.
+* Ett **grundläggande virtuellt WAN-nätverk** där användare kan distribuera flera hubbar och dra nytta av VPN plats-till-plats-anslutning. Ett grundläggande virtuellt WAN-nätverk har inte avancerade funktioner, till exempel helt nätbaserade nav, ExpressRoute-anslutning, VPN-anslutning via punkt-till-plats, anslutning mellan virtuella nätverk, VPN-och ExpressRoute-transit anslutning, eller Azure-brandvägg osv. Det finns ingen bas avgift eller data bearbetnings avgift för hubbar i ett grundläggande virtuellt WAN-nätverk.
 
 * Ett **virtuellt WAN-nätverk** erbjuder avancerade funktioner, t. ex. helt nätbaserade nav, ExpressRoute-anslutning, VPN-anslutning från punkt till plats, anslutning mellan VNet-till-VNet, transitiv anslutning för VPN-och ExpressRoute-överföring, Azure-brandvägg osv. All routning för virtuell hubb tillhandahålls av en router som möjliggör flera tjänster i en virtuell hubb. Det finns en grund avgift för hubben, som priss ätts till $0,25/timme. Det finns också en avgift för data bearbetning i den virtuella hubben för anslutning mellan virtuella nätverk för VNet-till-VNet-överföring. Se följande figur.
 

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eb656e46ce5e26fca5ae5c094f9b8bb85819caa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d33b419e0f24201d661ad0f5f1373022ea6e9e9f
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89275784"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861756"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect synkronisering: hantera LargeObject-fel som orsakas av userCertificate-attribut
 
@@ -49,7 +49,7 @@ Det går inte att exportera andra attributändringar till samma objekt till Azur
  * Minska antalet certifikat värden för det lokala AD-objektet (högst 15) genom att ta bort värden som inte längre används av din organisation. Detta är lämpligt om attributet överdriven storlek orsakas av certifikat som har förfallit eller inte används. Du kan använda [PowerShell-skriptet som är tillgängligt här](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f) för att hitta, säkerhetskopiera och ta bort utgångna certifikat i din lokala AD. Innan du tar bort certifikaten rekommenderar vi att du verifierar med administratörer för offentliga nycklar i organisationen.
 
  * Konfigurera Azure AD Connect att undanta attributet userCertificate från att exporteras till Azure AD. I allmänhet rekommenderar vi inte det här alternativet eftersom attributet kan användas av Microsoft Online Services för att aktivera vissa scenarier. Framför allt:
-    * Attributet userCertificate i användarobjektet används av Exchange Online-och Outlook-klienter för meddelande signering och kryptering. Mer information om den här funktionen finns i artikeln [S/MIME for Message signing and Encryption](/microsoft-365/security/office-365-security/s-mime-for-message-signing-and-encryption?view=o365-worldwide).
+    * Attributet userCertificate i användarobjektet används av Exchange Online-och Outlook-klienter för meddelande signering och kryptering. Mer information om den här funktionen finns i artikeln [S/MIME for Message signing and Encryption](/microsoft-365/security/office-365-security/s-mime-for-message-signing-and-encryption).
 
     * Attributet userCertificate i datorobjektet används av Azure AD för att tillåta att Windows 10 lokala domänanslutna enheter ansluter till Azure AD. Mer information om den här funktionen finns i artikeln [Anslut domänanslutna enheter till Azure AD för Windows 10-upplevelser](../devices/hybrid-azuread-join-plan.md).
 
@@ -94,7 +94,7 @@ Det bör finnas en befintlig Synkroniseringsregel som är aktive rad och konfigu
     | --- | --- |
     | Riktning |**Utgående** |
     | Typ av MV-objekt |**Person** |
-    | Anslutningsprogram |*namn på din Azure AD-anslutning* |
+    | Anslutning |*namn på din Azure AD-anslutning* |
     | Kopplings objekt typ |**användarvänlig** |
     | MV-attribut |**userCertificate** |
 

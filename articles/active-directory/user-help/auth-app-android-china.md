@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 05/20/2020
+ms.date: 12/08/2020
 ms.author: curtand
-ms.openlocfilehash: 795c68fc063d98bdee6ccf59dba6ee718dc92d03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b3af7c5bd55e748b1d1f4cf8f192797187da30a
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84323033"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901804"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>Microsoft Authenticator för Android i det offentliga molnet i Kina
 
@@ -50,13 +50,14 @@ I stället för att använda push-meddelanden för Multi-Factor Authentication k
 
 Microsoft Authenticator funktion | Tillgänglighet i Kina
 ------------------------------- | ---------------------
-MFA-registrering med push-meddelanden | Inga
-Redan befintligt MFA-konto verifierar identitet med push-meddelanden | Inga
+MFA-registrering med push-meddelanden | Nej
+Redan befintligt MFA-konto verifierar identitet med push-meddelanden | Nej
 Befintligt MFA-konto som utför manuell kontroll av meddelanden | Ja
 MFA-registrering/-autentisering med TOTP mobilapp/verifierings koder | Ja
-Registrering av telefonin loggning | Inga
-Befintlig telefonin loggning med push-meddelanden | Inga
+Registrering av telefonin loggning | Nej
+Befintlig telefonin loggning med push-meddelanden | Nej
 Befintlig telefonin loggning genom att utföra manuell kontroll av autentiseringsbegäranden | Ja
+Stöd för Authenticator-appen för personliga Microsoft-konton | Nej
 
 ## <a name="next-steps"></a>Nästa steg
 

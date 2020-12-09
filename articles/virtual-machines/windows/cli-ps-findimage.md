@@ -1,48 +1,86 @@
 ---
-title: Hitta och använda Azure Marketplace-avbildningar
-description: Använd Azure PowerShell för att fastställa utgivare, erbjudande, SKU och version för VM-avbildningar på Marketplace.
+title: Hitta och använda Azure Marketplace-avbildningar och-planer
+description: Använd Azure PowerShell för att hitta och använda utgivare, erbjudande, SKU, version och planera information för VM-avbildningar i Marketplace.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 01/25/2019
+ms.date: 12/07/2020
 ms.author: cynthn
-ms.openlocfilehash: 96b5e3770a3f5e08237d61eab05cfeafbc72a5db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45e6b157dba5ef7410d8a5c0223fd3ecb52f39d0
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288357"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906275"
 ---
-# <a name="find-and-use-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Hitta och Använd VM-avbildningar på Azure Marketplace med Azure PowerShell
+# <a name="find-and-use-azure-marketplace-vm-images-with-azure-powershell"></a>Hitta och Använd virtuella Azure Marketplace-avbildningar med Azure PowerShell     
 
-Den här artikeln beskriver hur du använder Azure PowerShell för att hitta VM-avbildningar på Azure Marketplace. Du kan sedan ange en Marketplace-avbildning när du skapar en virtuell dator.
+Den här artikeln beskriver hur du använder Azure PowerShell för att hitta VM-avbildningar på Azure Marketplace. Du kan sedan ange en Marketplace-avbildning och planera information när du skapar en virtuell dator.
 
 Du kan också söka efter tillgängliga bilder och erbjudanden med hjälp av [Azure Marketplace](https://azuremarketplace.microsoft.com/) -butik, [Azure Portal](https://portal.azure.com)eller [Azure CLI](../linux/cli-ps-findimage.md). 
 
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
-## <a name="table-of-commonly-used-windows-images"></a>Tabell över ofta använda Windows-avbildningar
 
-I den här tabellen visas en delmängd av tillgängliga SKU: er för de angivna utgivare och erbjudanden.
+## <a name="create-a-vm-from-vhd-with-plan-information"></a>Skapa en virtuell dator från en virtuell hård disk med plan information
 
-| Publisher | Erbjudande | Sku |
-|:--- |:--- |:--- |
-| MicrosoftWindowsServer |WindowsServer |2019 – Data Center |
-| MicrosoftWindowsServer |WindowsServer |2019-Data Center-kärna |
-| MicrosoftWindowsServer |WindowsServer |2019-Data Center-med-containers |
-| MicrosoftWindowsServer |WindowsServer |2016 – Data Center |
-| MicrosoftWindowsServer |WindowsServer |2016-Data Center-Server Core |
-| MicrosoftWindowsServer |WindowsServer |2016-Data Center-med-containers |
-| MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
-| MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
-| MicrosoftSharePoint |MicrosoftSharePointServer |sp2019 |
-| MicrosoftSQLServer |SQL2019 – WS2016 |Enterprise |
-| MicrosoftRServer |RServer – WS2016 |Enterprise |
+Om du har en befintlig virtuell hård disk som har skapats med en Azure Marketplace-avbildning kan du behöva ange inköps plan informationen när du skapar en ny virtuell dator från den virtuella hård disken.
 
-## <a name="navigate-the-images"></a>Navigera bland avbildningarna
+Om du fortfarande har den ursprungliga virtuella datorn eller en annan virtuell dator som har skapats från samma avbildning kan du hämta plan namn, utgivare och produkt information från den med hjälp av Get-AzVM. I det här exemplet får du en virtuell dator med namnet *myVM* i resurs gruppen *myResourceGroup* och sedan visas information om inköps planen.
+
+```azurepowershell-interactive
+$vm = Get-azvm `
+   -ResourceGroupName myResourceGroup `
+   -Name myVM
+$vm.Plan
+```
+
+Om du inte fick plan informationen innan den ursprungliga virtuella datorn togs bort, kan du skicka en [support förfrågan](https://ms.portal.azure.com/#create/Microsoft.Support). De kommer att behöva det virtuella dator namnet, prenumerations-ID och tidsstämpeln för borttagnings åtgärden.
+
+Om du vill skapa en virtuell dator med en virtuell hård disk läser du den här artikeln [skapa en virtuell dator från en specialiserad virtuell hård disk](create-vm-specialized.md) och lägger till i en rad för att lägga till plan informationen i VM-konfigurationen med [set-AzVMPlan](/powershell/module/az.compute/set-azvmplan) som liknar följande:
+
+```azurepowershell-interactive
+$vmConfig = Set-AzVMPlan `
+   -VM $vmConfig `
+   -Publisher "publisherName" `
+   -Product "productName" `
+   -Name "planName"
+```
+
+## <a name="create-a-new-vm-from-a-marketplace-image"></a>Skapa en ny virtuell dator från en Marketplace-avbildning
+
+Om du redan har information om vilken avbildning som du vill använda kan du skicka den informationen till cmdleten [set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) för att lägga till avbildnings information i VM-konfigurationen. Se nästa avsnitt för att söka efter och lista de avbildningar som är tillgängliga i Marketplace.
+
+Vissa betalda avbildningar kräver också att du anger information om inköps plan med hjälp av [set-AzVMPlan](/powershell/module/az.compute/set-azvmplan). 
+
+```powershell
+...
+
+$vmConfig = New-AzVMConfig -VMName "myVM" -VMSize Standard_D1
+
+# Set the Marketplace image
+$offerName = "windows-data-science-vm"
+$skuName = "windows2016"
+$version = "19.01.14"
+$vmConfig = Set-AzVMSourceImage -VM $vmConfig -PublisherName $publisherName -Offer $offerName -Skus $skuName -Version $version
+
+# Set the Marketplace plan information, if needed
+$publisherName = "microsoft-ads"
+$productName = "windows-data-science-vm"
+$planName = "windows2016"
+$vmConfig = Set-AzVMPlan -VM $vmConfig -Publisher $publisherName -Product $productName -Name $planName
+
+...
+```
+
+Sedan skickar du VM-konfigurationen tillsammans med de andra konfigurations objekten till- `New-AzVM` cmdleten. Ett detaljerat exempel på hur du använder en VM-konfiguration med PowerShell finns i det här [skriptet](https://github.com/Azure/azure-docs-powershell-samples/blob/master/virtual-machine/create-vm-detailed/create-windows-vm-detailed.ps1).
+
+Om du får ett meddelande om att godkänna villkoren för avbildningen läser du avsnittet [Godkänn villkoren](#accept-the-terms) längre fram i den här artikeln.
+
+## <a name="list-images"></a>Lista bilder
 
 Ett sätt att hitta en avbildning på en plats är att köra cmdletarna [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher), [Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer)och [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) i ordning:
 
@@ -276,41 +314,7 @@ Accepted          : True
 Signdate          : 2/23/2018 7:49:31 PM
 ```
 
-### <a name="deploy-using-purchase-plan-parameters"></a>Distribuera med parametrar för inköps plan
 
-När du har accepterat villkoren för en avbildning kan du distribuera en virtuell dator i den prenumerationen. Som du ser i följande kodfragment använder du cmdleten [set-AzVMPlan](/powershell/module/az.compute/set-azvmplan) för att ange information om Marketplace-plan för det virtuella datorobjektet. Ett fullständigt skript för att skapa nätverks inställningar för den virtuella datorn och slutföra distributionen finns i [exempel på PowerShell-skript](powershell-samples.md).
-
-```powershell
-...
-
-$vmConfig = New-AzVMConfig -VMName "myVM" -VMSize Standard_D1
-
-# Set the Marketplace plan information
-
-$publisherName = "microsoft-ads"
-
-$productName = "windows-data-science-vm"
-
-$planName = "windows2016"
-
-$vmConfig = Set-AzVMPlan -VM $vmConfig -Publisher $publisherName -Product $productName -Name $planName
-
-$cred=Get-Credential
-
-$vmConfig = Set-AzVMOperatingSystem -Windows -VM $vmConfig -ComputerName "myVM" -Credential $cred
-
-# Set the Marketplace image
-
-$offerName = "windows-data-science-vm"
-
-$skuName = "windows2016"
-
-$version = "19.01.14"
-
-$vmConfig = Set-AzVMSourceImage -VM $vmConfig -PublisherName $publisherName -Offer $offerName -Skus $skuName -Version $version
-...
-```
-Sedan skickar du VM-konfigurationen tillsammans med nätverks konfigurations objekt till `New-AzVM` cmdleten.
 
 ## <a name="next-steps"></a>Nästa steg
 

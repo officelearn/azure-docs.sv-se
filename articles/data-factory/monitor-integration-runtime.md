@@ -10,12 +10,12 @@ ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 4eb9b0077d1d0591953a40d98a220d7aa0683de7
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fa71dc1e6b3a09827f2ad3d9f714622da5a36222
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497953"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862453"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integreringskörning i Azure Data Factory
 
@@ -47,12 +47,12 @@ Följande tabell innehåller beskrivningar av egenskaper som returneras av cmdle
 
 | Egenskap | Beskrivning |
 -------- | ------------- | 
-| Name | Namnet på Azure integration Runtime. |  
+| Namn | Namnet på Azure integration Runtime. |  
 | Stat | Status för Azure integration Runtime. | 
 | Plats | Platsen för Azure integration Runtime. Mer information om platsen för en Azure integration runtime finns i [Introduktion till integration runtime](concepts-integration-runtime.md). |
 | DataFactoryName | Namnet på den data fabrik som Azure integration runtime tillhör. | 
 | ResourceGroupName | Namnet på den resurs grupp som data fabriken tillhör.  |
-| Description | Beskrivning av integrerings körningen.  |
+| Beskrivning | Beskrivning av integrerings körningen.  |
 
 ### <a name="status"></a>Status
 
@@ -76,14 +76,14 @@ Följande tabell innehåller beskrivningar av övervaknings egenskaper för **va
 
 | Egenskap | Beskrivning | 
 | -------- | ----------- | 
-| Name | Namnet på den egna värdbaserade integrerings körningen och noder som är kopplade till den. Node är en lokal Windows-dator som har den lokala integrerings körningen installerad. |  
+| Namn | Namnet på den egna värdbaserade integrerings körningen och noder som är kopplade till den. Node är en lokal Windows-dator som har den lokala integrerings körningen installerad. |  
 | Status | Status för den övergripande integrerings körningen med egen värd och varje nod. Exempel: online/offline/begränsat/osv. Information om dessa statusar finns i nästa avsnitt. | 
 | Version | Versionen av integration runtime med egen värd och varje nod. Versionen av den lokala integration runtime-versionen bestäms baserat på den version av majoriteten av noderna i gruppen. Om det finns noder med olika versioner i installations programmet för lokal installation av integration runtime fungerar bara noderna med samma versions nummer som den logiska integrerings körningen för egen värd. Andra är i begränsat läge och måste uppdateras manuellt (endast om automatisk uppdatering Miss lyckas). | 
 | Tillgängligt minne | Tillgängligt minne på en egen värd för integration runtime-noden. Det här värdet är en nära real tids ögonblicks bild. | 
 | CPU-användning | CPU-användning för en egen värd för integration runtime-noden. Det här värdet är en nära real tids ögonblicks bild. |
 | Nätverk (in/ut) | Nätverks användning av en egen värd för integration runtime-noden. Det här värdet är en nära real tids ögonblicks bild. | 
 | Samtidiga jobb (som körs/begränsas) | **Körs**. Antal jobb eller aktiviteter som körs på varje nod. Det här värdet är en nära real tids ögonblicks bild. <br/><br/>**Begränsa**. Gränsen visar maximalt antal samtidiga jobb för varje nod. Det här värdet definieras baserat på datorns storlek. Du kan öka gränsen för att skala upp samtidiga jobb körningar i avancerade scenarier, när aktiviteterna är tids gräns, även om processor, minne eller nätverk används. Den här funktionen är också tillgänglig med en lokal integration runtime med egen värd. |
-| Roll | Det finns två typer av roller i en integration runtime med egen värd för flera noder – dispatcher och Worker. Alla noder är arbetare, vilket innebär att de kan användas för att köra jobb. Det finns bara en dispatcher-nod som används för att hämta aktiviteter/jobb från moln tjänster och skicka dem till olika arbetsnoder. Dispatcher-noden är också en arbetsnod. |
+| Role | Det finns två typer av roller i en integration runtime med egen värd för flera noder – dispatcher och Worker. Alla noder är arbetare, vilket innebär att de kan användas för att köra jobb. Det finns bara en dispatcher-nod som används för att hämta aktiviteter/jobb från moln tjänster och skicka dem till olika arbetsnoder. Dispatcher-noden är också en arbetsnod. |
 
 Vissa inställningar för egenskaperna är mer begripliga när det finns två eller fler noder i den egna värdbaserade integrerings körningen (det vill säga i ett scenario med skala ut).
 
@@ -104,7 +104,7 @@ Följande tabell innehåller möjliga status värden för en egen värd för int
 | Online | Noden är ansluten till Data Factory tjänsten. |
 | Offline | Noden är offline. |
 | Fortsätter | Noden uppdateras automatiskt. |
-| Begränsad | På grund av ett anslutnings problem. Kan bero på HTTP-port 8050 problem, problem med Service Bus-anslutning eller problem med synkronisering av autentiseringsuppgifter. |
+| Begränsad | På grund av ett anslutnings problem. Kan bero på HTTP-port 8060 problem, problem med Service Bus-anslutning eller problem med synkronisering av autentiseringsuppgifter. |
 | Inaktiv | Noden har en annan konfiguration än konfigurationen av andra majoritets noder. |
 
 En nod kan vara inaktiv när den inte kan ansluta till andra noder.
@@ -175,7 +175,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 Följande tabell innehåller beskrivningar av egenskaper som returneras av ovanstående cmdlet för en Azure-SSIS IR.
 
-| Egenskap/status              | Description                  |
+| Egenskap/status              | Beskrivning                  |
 | ---------------------------- | ---------------------------- |
 | CreateTime                   | UTC-tiden när Azure-SSIS IR skapades. |
 | Noder                        | De allokerade/tillgängliga noderna i din Azure-SSIS IR med Node-/regionsspecifika status (start/tillgänglighet/åter användning/ej tillgänglig) och åtgärds bara fel. |
@@ -196,14 +196,14 @@ Följande tabell innehåller beskrivningar av egenskaper som returneras av ovans
 | Typ                         | IR-typen (hanterad/egen värd) för din Azure-SSIS IR. |
 | ResourceGroupName            | Namnet på din Azure-adressresurs där ADF och Azure-SSIS IR skapades. |
 | DataFactoryName              | Namnet på din ADF. |
-| Name                         | Namnet på din Azure-SSIS IR. |
-| Description                  | Beskrivning av din Azure-SSIS IR. |
+| Namn                         | Namnet på din Azure-SSIS IR. |
+| Beskrivning                  | Beskrivning av din Azure-SSIS IR. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>Status (per Azure-SSIS IR nod)
 
 Följande tabell innehåller möjliga status värden för en Azure-SSIS IR-nod:
 
-| Node-/regionsspecifika status | Description |
+| Node-/regionsspecifika status | Beskrivning |
 | -------------------- | ----------- | 
 | Startar             | Den här noden förbereds. |
 | Tillgänglig            | Den här noden är redo att distribuera/köra SSIS-paket. |
@@ -214,7 +214,7 @@ Följande tabell innehåller möjliga status värden för en Azure-SSIS IR-nod:
 
 Följande tabell innehåller möjliga övergripande status för en Azure-SSIS IR. Den övergripande statusen i tur är beroende av de kombinerade statusarna för alla noder som tillhör Azure-SSIS IR. 
 
-| Övergripande status | Description | 
+| Övergripande status | Beskrivning | 
 | -------------- | ----------- | 
 | Inledande        | Noderna i Azure-SSIS IR inte har allokerats/för berett. | 
 | Startar       | Noderna i dina Azure-SSIS IR tilldelas/förbereds och faktureringen har påbörjats. |

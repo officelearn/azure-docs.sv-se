@@ -4,18 +4,18 @@ description: Konfigurera prestanda-, tillgänglighets-och användar beteende ana
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 861a9f53c2f149268e06005053206a7411e842f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 970971082e684ebcb6efce07bb707ffbb20ed228
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838950"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904184"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Konfigurera Application Insights för din ASP.NET-webbplats
 
 Den här proceduren konfigurerar din ASP.NET-webbapp för att skicka telemetri till tjänsten [Azure Application Insights](./app-insights-overview.md). Det fungerar för ASP.NET-appar som finns antingen i dina egna IIS-servrar lokalt eller i molnet. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 När du ska lägga till Application Insights för din ASP.NET-webbplats måste du göra följande:
 
 - Installera den senaste versionen av [Visual Studio 2019 för Windows](https://www.visualstudio.com/downloads/) med följande arbets belastningar:
@@ -25,6 +25,10 @@ När du ska lägga till Application Insights för din ASP.NET-webbplats måste d
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 - Skapa en [Application Insights arbets ytans-baserad resurs](create-workspace-resource.md).
+
+> [!IMPORTANT]
+> Nya Azure-regioner **kräver** att anslutnings strängar används i stället för instrument knappar. [Anslutnings strängen](./sdk-connection-string.md?tabs=net) identifierar den resurs som du vill associera dina telemetridata med. Du kan också ändra de slut punkter som resursen kommer att använda som mål för din telemetri. Du måste kopiera anslutnings strängen och lägga till den i programmets kod eller till en miljö variabel.
+
 
 ## <a name="create-a-basic-aspnet-web-app"></a>Skapa en grundläggande ASP.NET-webbapp
 

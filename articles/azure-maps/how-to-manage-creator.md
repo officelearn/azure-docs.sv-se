@@ -1,43 +1,47 @@
 ---
-title: Hantera Azure Maps skapare
-description: I den här artikeln får du lära dig hur du hanterar Azure Maps Creator.
+title: Hantera Microsoft Azure Maps Creator (förhands granskning)
+description: I den här artikeln får du lära dig hur du hanterar Microsoft Azure Maps Creator (för hands version).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e6d8a2bfe20d0e7b52dcd60127b3666f0c21a792
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 1ed3a9033f9be39774e1c52982f63259cc477d29
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895808"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906105"
 ---
-# <a name="manage-azure-maps-creator"></a>Hantera Azure Maps skapare
+# <a name="manage-azure-maps-creator-preview"></a>Hantera Azure Maps skapare (förhands granskning) 
+
+> [!IMPORTANT]
+> Azure Maps Creator-tjänster finns för närvarande i en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Med Azure Maps Creator kan du skapa privat indata från kartan. Med hjälp av Azure Maps API och modulen kartor kan du utveckla interaktiva och dynamiska kart webb program. För närvarande är Creator endast tillgängligt i USA med hjälp av pris nivån S1.
 
 Den här artikeln tar dig igenom stegen för att skapa och ta bort en skapare-resurs i ett Azure Maps konto.
 
-## <a name="create-creator-resource"></a>Skapa skapare resurs
+## <a name="create-creator-preview-resource"></a>Skapa skapare (förhands granskning) resurs
 
 1. Logga in på [Azure-portalen](https://portal.azure.com)
 
-2. Välj ditt Azure Maps-konto. Om du inte kan se ditt Azure Maps konto under de **senaste resurserna** går du till Azure Portal-menyn. Välj **Alla resurser** . Sök efter och välj ditt Azure Maps-konto.
+2. Välj ditt Azure Maps-konto. Om du inte kan se ditt Azure Maps konto under de **senaste resurserna** går du till Azure Portal-menyn. Välj **Alla resurser**. Sök efter och välj ditt Azure Maps-konto.
 
     ![Azure Maps portalens start sida](./media/how-to-manage-creator/select-maps-account.png)
 
-3. När du är på sidan Azure Maps konto går du till **översikts** alternativet under **skapare** . Klicka på  **skapa**  för att skapa en Azure Maps skapare-resurs.
+3. När du är på sidan Azure Maps konto går du till **översikts** alternativet under **skapare**. Klicka på  **skapa**  för att skapa en Azure Maps skapare-resurs.
 
     ![Sidan Skapa Azure Maps skapare](./media/how-to-manage-creator/creator-blade-settings.png)
 
-4. Ange namn och plats för din skapare resurs. För närvarande stöds endast skapare i USA. Klicka på **Granska + skapa** .
+4. Ange namn och plats för din skapare resurs. För närvarande stöds endast skapare i USA. Klicka på **Granska + skapa**.
 
    ![Sidan Ange skapare konto information](./media/how-to-manage-creator/creator-creation-dialog.png)
 
-5. Granska inställningarna och klicka på **skapa** .
+5. Granska inställningarna och klicka på **skapa**.
 
     ![Sidan Bekräfta inställningar för skapare av konto](./media/how-to-manage-creator/creator-create-dialog.png)
 
@@ -45,16 +49,16 @@ Den här artikeln tar dig igenom stegen för att skapa och ta bort en skapare-re
 
    ![Status sida för resurs distribution](./media/how-to-manage-creator/creator-resource-created.png)
 
-7. Klicka på **Gå till resurs** . Sidan skapare resurs visning visar status för din skapare-resurs och den valda demografiska regionen.
+7. Klicka på **Gå till resurs**. Sidan skapare resurs visning visar status för din skapare-resurs och den valda demografiska regionen.
 
     ![Sidan status för skapare](./media/how-to-manage-creator/creator-resource-view.png)
 
    >[!NOTE]
    >På sidan skapare resurs kan du gå tillbaka till det Azure Maps konto som den tillhör genom att klicka på Azure Maps konto.
 
-## <a name="delete-creator-resource"></a>Ta bort skapare resurs
+## <a name="delete-creator-preview-resource"></a>Ta bort skapare (förhands granskning) resurs
 
-Om du vill ta bort skapare-resursen går du till ditt Azure Maps-konto. Välj **Översikt** under **skapare** . Klicka på knappen **Ta bort** .
+Om du vill ta bort skapare-resursen går du till ditt Azure Maps-konto. Välj **Översikt** under **skapare**. Klicka på knappen **Ta bort**.
 
 >[!WARNING]
 >När du tar bort skapare-resursen för ditt Azure Maps-konto tar du även bort data uppsättningarna, tilesets och funktionen statesets som skapats med hjälp av Creator Services.
@@ -67,19 +71,19 @@ Klicka på knappen **ta bort** och skriv namnet på din skapare för att bekräf
 
 ## <a name="authentication"></a>Autentisering
 
-Skapare ärver inställningar för Azure Maps Access Control (IAM). Alla API-anrop för data åtkomst måste skickas med regler för autentisering och auktorisering.
+Skapare (förhands granskning) ärver inställningar för Azure Maps Access Control (IAM). Alla API-anrop för data åtkomst måste skickas med regler för autentisering och auktorisering.
 
 Skapare användnings data ingår i Azure Maps användnings diagram och aktivitets loggen.  Mer information finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
 ## <a name="access-to-creator-services"></a>Åtkomst till Creator-tjänster
 
-Creator-tjänsterna är bara tillgängliga från den plats som valdes när den skapas. Om anrop görs till skapare av tjänster utanför den valda platsen returneras ett användar fel meddelande. För att ringa från platser utanför den valda platsen måste tjänstens URL innehålla det geografiska prefixet för de valda platserna. Om skapare till exempel skapas i USA, måste alla anrop till konverterings tjänsten skickas till `us.atlas.microsoft.com/conversion/convert` .
+Creator Services (för hands version) är bara tillgängligt från den plats som valdes när den skapas. Om anrop görs till skapare av tjänster utanför den valda platsen returneras ett användar fel meddelande. För att ringa från platser utanför den valda platsen måste tjänstens URL innehålla det geografiska prefixet för de valda platserna. Om skapare till exempel skapas i USA, måste alla anrop till konverterings tjänsten skickas till `us.atlas.microsoft.com/conversion/convert` .
 
 Alla data som importeras till skaparen bör också överföras till samma geografiska plats som skaparen-resursen. Om skapare till exempel är etablerad i USA, ska alla rå data överföras via `us.atlas.microsoft.com/mapData/upload` .
 
 ## <a name="next-steps"></a>Nästa steg
 
-Introduktion till skapare för från koppling till inomhus:
+Introduktion till Creator Services (för hands version) för inlednings mappning:
 
 > [!div class="nextstepaction"]
 > [Data uppladdning](creator-indoor-maps.md#upload-a-drawing-package)
@@ -88,7 +92,7 @@ Introduktion till skapare för från koppling till inomhus:
 > [Data konvertering](creator-indoor-maps.md#convert-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Data uppsättning](creator-indoor-maps.md#datasets)
+> [Datamängd](creator-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
 > [Tileset](creator-indoor-maps.md#tilesets)
@@ -96,7 +100,7 @@ Introduktion till skapare för från koppling till inomhus:
 > [!div class="nextstepaction"]
 > [Funktions tillstånds uppsättning](creator-indoor-maps.md#feature-statesets)
 
-Lär dig hur du använder skaparen för att rendera inaktuella kartor i ditt program:
+Lär dig hur du använder Creator Services (för hands version) för att återge inaktuella kartor i ditt program:
 
 > [!div class="nextstepaction"]
 > [Själv studie kurs om Azure Maps Creator](tutorial-creator-indoor-maps.md)

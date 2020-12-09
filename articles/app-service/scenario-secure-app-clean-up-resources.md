@@ -10,18 +10,19 @@ ms.workload: identity
 ms.date: 10/27/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: 64421dba5578b478a5fdf0c657614770baf9d735
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: azureday1
+ms.openlocfilehash: bf03fe9d920298d49e79a9a0febf7e09e94eb6ff
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025369"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905527"
 ---
 # <a name="tutorial-clean-up-resources"></a>Självstudie: Rensa resurser
 
 Om du har slutfört alla steg i den här självstudien har du skapat en app service, en värd plan för app service och ett lagrings konto i en resurs grupp. Du skapade också en app-registrering i Azure Active Directory. När de inte längre behövs kan du ta bort dessa resurser och registrera registreringen så att du inte fortsätter att Periodisera avgifter.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >

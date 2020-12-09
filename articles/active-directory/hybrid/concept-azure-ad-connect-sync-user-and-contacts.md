@@ -15,12 +15,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9470e9af38fdd814f5059538656e6a3dbb8e3a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e015f7937db6788aa4473a8a04434121299901e9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279320"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861790"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect synkronisering: förstå användare, grupper och kontakter
 Det finns flera olika anledningar till varför du skulle ha flera Active Directory skogar och det finns flera olika distributions topologier. Vanliga modeller är en konto-resurs distribution och GAL sync'ed-skogar efter en sammanslagning & förvärv. Även om det finns rena modeller är även hybrid modeller vanliga. Standard konfigurationen i Azure AD Connect Sync förutsätter ingen viss modell, men beroende på hur användar matchning har valts i installations guiden kan olika beteenden observeras.
@@ -41,7 +41,7 @@ Viktiga saker att tänka på när du synkroniserar grupper från Active Director
 
 * Azure AD Connect stöder inte synkronisering av [primära grupp medlemskap](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771489(v=ws.11)) till Azure AD.
 
-* Azure AD Connect stöder inte synkronisering av [medlemskap i dynamiska distributions grupper](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups?view=exchserver-2019) till Azure AD.
+* Azure AD Connect stöder inte synkronisering av [medlemskap i dynamiska distributions grupper](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups) till Azure AD.
 
 * Så här synkroniserar du en Active Directory grupp till Azure AD som en e-postaktiverad grupp:
 

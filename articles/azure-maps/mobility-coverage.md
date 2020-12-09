@@ -1,27 +1,32 @@
 ---
-title: Täckning för mobilitet (överföring)
-description: Lär dig vilken nivå av täckning Azure Maps mobilitets tjänsten tillhandahåller i vilka regioner för offentliga överförings funktioner, t. ex. Routning och tjänst aviseringar.
+title: Täckning för mobilitet (överföring) i Microsoft Azure Maps mobilitets tjänster (för hands version)
+description: Lär dig vilken nivå av täckning Azure Maps Mobility Services (för hands version) tillhandahåller i vilka regioner för offentliga överförings funktioner, till exempel Routning och tjänst aviseringar.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/23/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 10a0f9b1b21b060d7c33aeb52fb72f950cedf0e6
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e902f313edf22d75f6b183575c3dc8d0dd94bc1f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779158"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904762"
 ---
-# <a name="azure-maps-mobility-coverage"></a>Azure Maps mobilitets täckning
+# <a name="azure-maps-mobility-services-preview-coverage"></a>Täckning för Azure Maps Mobility Services (för hands version)
 
-Tjänsten Azure Maps [Mobility](/rest/api/maps/mobility) förbättrar utvecklings tiden för program med funktioner för offentlig överföring, till exempel transit Routning och sökning efter närliggande offentlig överföring. Användare kan hämta detaljerad information om överförings stopp, rader och scheman. Mobilitets tjänsten gör det också möjligt för användare att hämta stopp-och rad-Geometries, aviseringar för stopp, rader och tjänst områden samt mottagna real tids-och tjänst aviseringar. Mobilitets tjänsten tillhandahåller dessutom routningsfunktioner med planerings alternativ för multimodal resan. Multimodal rese planering införlivar, alternativ för att dirigera och välja offentlig överföring, allt i en resa. Användare kan också få åtkomst till detaljerade multimodal steg-för-steg-färd vägar. 
+> [!IMPORTANT]
+> Azure Maps mobilitets tjänster finns för närvarande i en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+Azure Maps [mobilitets tjänster](/rest/api/maps/mobility) förbättrar utvecklings tiden för program med funktioner för offentlig överföring, t. ex. transit Routning och sökning efter närliggande offentliga överförings stopp. Användare kan hämta detaljerad information om överförings stopp, rader och scheman. Mobilitets tjänsterna gör det också möjligt för användarna att hämta stopp-och rad-Geometries, aviseringar för stopp, rader och tjänst områden samt mottagna real tids data och tjänst aviseringar. Dessutom tillhandahåller mobilitets tjänsterna routningsfunktioner med multimodal. Multimodal rese planering införlivar, alternativ för att dirigera och välja offentlig överföring, allt i en resa. Användare kan också få åtkomst till detaljerade multimodal steg-för-steg-färd vägar.
 
 Azure Maps tillhandahåller inte samma nivå av information och noggrannhet för alla städer och länder/regioner. Möjligheten att anropa offentliga överförings data beror på Metro-ytan. Mappnings data får inte heller innehålla alla offentliga överförings alternativ och myndigheter som hanterar Metro-ytan.
 
-Följande tabell innehåller information om disponering för Azure Maps Mobility Service.
+Följande tabell innehåller information om disponering för Azure Maps mobilitets tjänster.
 
 | Symbol | Innebörd |
 |--------|---------|
@@ -149,17 +154,17 @@ Följande tabell innehåller information om disponering för Azure Maps Mobility
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du begär överförings data med mobilitets tjänsten:
+Lär dig hur du begär överförings data med mobilitets tjänster (för hands version):
 
 > [!div class="nextstepaction"]
 > [Så här begär du överförings data](how-to-request-transit-data.md)
 
-Lär dig hur du begär data i real tid med mobilitets tjänsten:
+Lär dig hur du begär real tids data med mobilitets tjänster (för hands version):
 
 > [!div class="nextstepaction"]
 > [Så här begär du real tids data](how-to-request-real-time-data.md)
 
-Utforska dokumentationen för Azure Maps Mobility Service API
+Utforska API-dokumentationen för Azure Maps Mobility Services (för hands version)
 
 > [!div class="nextstepaction"]
-> [API-dokumentation för Mobility Service](/rest/api/maps/mobility)
+> [API-dokumentation för mobilitets tjänster](/rest/api/maps/mobility)

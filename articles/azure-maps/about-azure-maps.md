@@ -3,30 +3,31 @@ title: Översikt över Microsoft Azure Maps
 description: Lär dig mer om tjänster och funktioner i Microsoft Azure Maps och hur du använder dem i dina program.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/31/2020
+ms.date: 12/07/2020
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 082695069a66efb3919be0667407ba73d963c572
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 1a38da6cd80b692925e353eb0d16f3d6f84c3e7b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889960"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905420"
 ---
 # <a name="what-is-azure-maps"></a>Vad är Azure Maps?
 
 Azure Maps är en samling geospatiala tjänster och SDK: er som använder nya mappnings data för att tillhandahålla geografisk kontext till webb-och mobil program. Azure Maps tillhandahåller:
 
 * REST API: er för rendera vektor-och raster kartor i flera format och satellit-bilder.
-* Skapare av tjänster för att skapa och återge kartor baserat på privat ingångs kartor.
+* Creator Services (för hands version) för att skapa och återge kartor baserat på privata data från kartan.
 * Sök efter tjänster för att hitta adresser, platser och intressanta platser i världen.
 * Olika alternativ för routning; till exempel punkt-till-punkt, Multipoint, Multipoint-optimering, isochrone, elektriska fordon, nytto fordon, trafik påverkan och mat ris vägar.
 * Vyn trafikflödes läge och incidenter för program som kräver information om trafik i real tid.
-* Mobilitets tjänsten för att begära offentlig överförings information, planera vägar genom att blanda olika rese lägen och i real tid.
-* Tidszon och tjänster för geolokalisering.
+* Mobilitets tjänster (för hands version) för att begära offentlig överförings information, planera vägar genom att blanda olika rese lägen och i real tid.
+* Tids zons-och geolokalisering (för hands version)-tjänster.
+* Höjnings tjänster (för hands version) med digital höjnings modell
 * Att serva och mappa data lagring med plats information som finns i Azure.
 * Plats information via Geospatial analys.
 
@@ -52,33 +53,33 @@ Med Azure Maps Web SDK kan du anpassa interaktiva kartor med ditt eget innehåll
 
 Använd Azure Maps Android SDK för att skapa appar för mobil mappning.
 
-:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Exempel karta över populations ändringar som skapats med hjälp av Azure Maps Web SDK":::
+:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Kart exempel på en mobil enhet":::
 
 ## <a name="services-in-azure-maps"></a>Tjänster i Azure Maps
 
 Azure Maps består av följande tjänster som kan tillhandahålla geografisk kontext till dina Azure-program.
 
-### <a name="data-service"></a>Datatjänst
+### <a name="data-service-preview"></a>Data tjänst (för hands version)
 
 Data är absolut nödvändigt för Maps. Använd data tjänsten för att ladda upp och lagra geospatiala data som ska användas med spatiala åtgärder eller bild kompositioner.  Att ta med kund information närmare Azure Maps tjänsten minskar svars tiden, ökar produktiviteten och skapar nya scenarier i dina program. Mer information om den här tjänsten finns i [dokumentationen för data service](/rest/api/maps/data).
 
-### <a name="geolocation-service"></a>Geoplatstjänst
+### <a name="geolocation-service-preview"></a>Geolokalisering (för hands version)
 
 Använd tjänsten för geolokalisering för att förhandsgranska den hämtade lands-och region koden för två bokstäver för en IP-adress. Den här tjänsten kan hjälpa dig att förbättra användar upplevelsen genom att tillhandahålla anpassat program innehåll baserat på geografisk plats.
 
 Mer information finns i dokumentationen om [geolokalisering](/rest/api/maps/geolocation).
 
-### <a name="mobility-service"></a>Mobilitetstjänsten
+### <a name="mobility-services-preview"></a>Mobilitets tjänster (för hands version) 
 
-Tjänsten Azure Maps Mobility förbättrar utvecklings tiden för program med funktioner för offentlig överföring, till exempel transit Routning och sökning efter närliggande offentlig överföring. Användare kan hämta detaljerad information om överförings stopp, rader och scheman. Mobilitets tjänsten gör det också möjligt för användare att hämta stopp-och rad-Geometries, aviseringar för stopp, rader och tjänst områden samt mottagna real tids-och tjänst aviseringar. Mobilitets tjänsten tillhandahåller dessutom routningsfunktioner med planerings alternativ för multimodal resan. Multimodal rese planering införlivar, alternativ för att dirigera och välja offentlig överföring, allt i en resa. Användare kan också få åtkomst till detaljerade multimodal steg-för-steg-färd vägar.
+Azure Maps mobilitets tjänster förbättrar utvecklings tiden för program med funktioner för offentlig överföring, t. ex. transit Routning och sökning efter närliggande offentliga överförings stopp. Användare kan hämta detaljerad information om överförings stopp, rader och scheman. Mobilitets tjänsten gör det också möjligt för användare att hämta stopp-och rad-Geometries, aviseringar för stopp, rader och tjänst områden samt mottagna real tids-och tjänst aviseringar. Dessutom tillhandahåller mobilitets tjänsterna routningsfunktioner med multimodal. Multimodal rese planering införlivar, alternativ för att dirigera och välja offentlig överföring, allt i en resa. Användare kan också få åtkomst till detaljerade multimodal steg-för-steg-färd vägar.
 
 Mer information om tjänsten finns i [dokumentationen för mobilitets tjänsten](/rest/api/maps/mobility).
 
 ### <a name="render-service"></a>Renderingstjänst
 
-[Rendering service v2](/rest/api/maps/renderv2) som nu finns i för hands version introducerar en ny version av [Get Map panel v2-API: et](/rest/api/maps/renderv2/getmaptilepreview). Med hjälp av API: et för kart panel v2 kan kunder begära Azure Maps väg paneler, väder paneler eller kart paneler som skapats med hjälp av Azure Maps Creator. Vi rekommenderar att du använder den nya API: et för Get Map panel v2.  
+[Rendering service v2 (för hands version)](/rest/api/maps/renderv2) introducerar en ny version av [Get Map panel v2-API: et](/rest/api/maps/renderv2/getmaptilepreview). Med hjälp av API: et för kart panel v2 kan kunder begära Azure Maps väg paneler, väder paneler eller kart paneler som skapats med hjälp av Azure Maps Creator. Vi rekommenderar att du använder den nya API: et för Get Map panel v2.  
 
-:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Exempel karta över populations ändringar som skapats med hjälp av Azure Maps Web SDK":::
+:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Exempel på en karta från rendering service v2":::
 
 Mer information finns i dokumentationen för [rendering service v2](/rest/api/maps/renderv2).
 
@@ -88,7 +89,7 @@ Mer information om åter givnings tjänsten v1 som är i GA (allmän tillgängli
 
 Route Services kan användas för att beräkna uppskattade ankomst tider (ETAs) för varje begärd väg. Väg-API: er kan vara faktorer, till exempel information om trafik i real tid och historiska trafikdata, till exempel vanliga väg hastigheter på den begärda dagen i veckan och tid på dagen. API: erna returnerar de kortaste eller snabbaste vägarna som är tillgängliga för flera mål i taget i följd eller i optimerad ordning, baserat på tid eller avstånd. Tjänsten gör det möjligt för utvecklare att beräkna vägvisningar i flera rese lägen, till exempel bil, Last bil, cykel eller promenad och elektriska fordon. Tjänsten anser också indata, till exempel sändnings tid, vikt begränsningar eller transport av farligt material.
 
-:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Exempel karta över populations ändringar som skapats med hjälp av Azure Maps Web SDK":::
+:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Exempel på en karta från Route service":::
 
 Route service har avancerade uppsättnings funktioner, till exempel:
 
@@ -102,7 +103,7 @@ Mer information om routningsfunktioner finns i [dokumentationen om Route service
 
 Sök tjänsten hjälper utvecklare att söka efter adresser, platser, företags listor efter namn eller kategori och annan geografisk information. Dessutom kan tjänster [omvända koder](https://en.wikipedia.org/wiki/Reverse_geocoding) för hår koder och korsade gator utifrån latitud och longitud.
 
-:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="Exempel karta över populations ändringar som skapats med hjälp av Azure Maps Web SDK":::
+:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="Exempel på en sökning på en karta":::
 
 Sök tjänsten innehåller även avancerade funktioner som:
 
@@ -168,9 +169,9 @@ Traffic service är en uppsättning webb tjänster som utvecklare kan använda f
 
 Mer information finns i dokumentationen för [Traffic service](/rest/api/maps/traffic).
 
-### <a name="weather-service"></a>Vädertjänst
+### <a name="weather-services-preview"></a>Väder tjänster (för hands version) 
 
-Väder tjänsten innehåller API: er som utvecklare kan använda för att hämta väder information för en viss plats. Informationen innehåller information som observations datum och tid, kort beskrivning av väder förhållanden, väder ikonen, utfällning av indikator flaggor, temperatur och information om vridnings hastigheten. Ytterligare information som RealFeel™ temperatur och UV-index returneras också.
+Väder tjänster erbjuder API: er som utvecklare kan använda för att hämta väder information för en viss plats. Informationen innehåller information som observations datum och tid, kort beskrivning av väder förhållanden, väder ikonen, utfällning av indikator flaggor, temperatur och information om vridnings hastigheten. Ytterligare information som RealFeel™ temperatur och UV-index returneras också.
 
 Utvecklare kan använda [API: t get väder utmed väg](/rest/api/maps/weather/getweatheralongroutepreview) för att hämta väder information tillsammans med en viss väg. Tjänsten har också stöd för att skapa väder meddelanden för waypoints som påverkas av väder risker, till exempel översvämning eller tung regn.
 
@@ -178,7 +179,7 @@ Med [hjälp av API: et för kart panel v2](/rest/api/maps/renderv2/getmaptilepre
 
 ![Exempel på kartor med real tids väder radar paneler](media/about-azure-maps/intro_weather.png)
 
-### <a name="maps-creator-service"></a>Maps Creator-tjänst
+### <a name="maps-creator-service-preview"></a>Maps Creator service (för hands version) 
 
 Maps Creator service är en uppsättning webb tjänster som utvecklare kan använda för att skapa program med kart funktioner baserade på insamlings data från kartan.
 
@@ -194,17 +195,34 @@ Maps Creator har tre kärn tjänster:
 
 * [WFS-tjänst](/rest/api/maps/featurestate). Använd WFS-tjänsten för att fråga dina indata från kartan. WFS-tjänsten följer [Open GEOSPATIAL CONSORTIUM API](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) -standarder för att skicka frågor till en enda data uppsättning.
 
+### <a name="elevation-service-preview"></a>Höjnings tjänst (för hands version)
+
+Tjänsten Azure Maps höjning är en webb tjänst som utvecklare kan använda för att hämta höjnings data från var som helst på jordens yta.
+
+Med upphöjnings tjänsten kan du hämta höjnings data i två format:
+
+* **Geotiff raster format**. Använd [rendering v2 – Hämta API för kart panel](/rest/api/maps/renderv2) för att hämta höjnings data i panel format.
+
+* **INTERjson-format**. Använd [aviserings-API: er](/rest/api/maps/elevation) för att begära exempel på höjnings data utmed sökvägar, inom en definierad avgränsnings ruta eller vid vissa koordinater. 
+
+:::image type="content" source="./media/about-azure-maps/elevation.png" alt-text="Exempel på karta med höjnings data":::
+
+
 ## <a name="programming-model"></a>Programmeringsmodell
 
 Azure Maps har skapats för mobilitet och kan hjälpa dig att utveckla plattforms oberoende program. Den använder en programmerings modell som är språk oberoende och har stöd för JSON-utdata via [REST-API: er](/rest/api/maps/).
 
 Azure Maps erbjuder också en praktisk [JavaScript-mappning](/javascript/api/azure-maps-control) med en enkel programmerings modell. Utvecklingen är snabb och enkel för både webb-och mobil program.
 
+
+
+
+
 ## <a name="power-bi-visual"></a>Visuellt Power BI-objekt
 
 Azure Maps visualiseringen för Power BI ger en omfattande uppsättning data visualiseringar för spatialdata ovanpå en karta. Det uppskattas att över 80% av affärs data har ett plats sammanhang. Azure Maps Visual erbjuder en lösning utan kod för att få insikter om hur den här plats kontexten relaterar till och påverkar dina affärs data.
 
-:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Exempel karta över populations ändringar som skapats med hjälp av Azure Maps Web SDK":::
+:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Power BI Station ära datorer med Azure Maps visuell visning av affärs data":::
 
 Mer information finns i avsnittet komma igång med [Azure Maps Power BI visuell](power-bi-visual-getting-started.md) dokumentation.
 

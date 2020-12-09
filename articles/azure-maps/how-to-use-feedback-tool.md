@@ -3,24 +3,24 @@ title: Lämna data feedback till Azure Maps | Microsoft Azure Maps
 description: Ge feedback om data med hjälp av Microsoft Azure Maps-verktyget.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/19/2019
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b53ea7cf3ec29d7bad7e65a535cd140877bcea09
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4be775d8a6a8c476bcc659a902c7f43c12a6d6d0
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895519"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905340"
 ---
 # <a name="provide-data-feedback-to-azure-maps"></a>Ge data feedback till Azure Maps
 
 Azure Maps har varit tillgängligt sedan maj 2018. Azure Maps har fått nya kart data, lättanvända REST API: er och kraftfulla SDK: er som stöder våra företags kunder med olika typer av affärs användnings fall. Den verkliga världen ändras varje sekund och det är viktigt att vi tillhandahåller en riktig digital representation av våra kunder. Våra kunder som planerar att öppna eller stänga anläggningar behöver våra kartor för att snabbt kunna uppdatera dem. Därför kan de effektivt planera för leverans-, underhålls-eller kund tjänster på rätt sätt. Vi har skapat webbplatsen för Azure Maps data feedback för att hjälpa våra kunder att tillhandahålla direkt data feedback. Kundernas data feedback skickas direkt till våra data leverantörer och deras kart redigerare. De kan snabbt utvärdera och införliva feedback i våra mappnings produkter.  
 
-[Azure Maps data feedback-webbplatsen](https://feedback.azuremaps.com) är ett enkelt sätt för våra kunder att tillhandahålla feedback från kart data, särskilt i affärs punkter av intresse-och bostads adresser. Den här artikeln vägleder dig hur du ger olika typer av feedback på webbplatsen för Azure Maps feedback.
+[Azure Maps data (för hands version) feedback-webbplatsen](https://feedback.azuremaps.com) är ett enkelt sätt för våra kunder att tillhandahålla feedback från kart data, särskilt på affärs punkter av intresse-och bostads adresser. Den här artikeln vägleder dig hur du ger olika typer av feedback på webbplatsen för Azure Maps feedback.
 
 ## <a name="add-a-business-place-or-a-residential-address"></a>Lägg till en företags plats eller en bostads adress 
 

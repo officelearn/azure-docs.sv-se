@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: gelecaro
-ms.openlocfilehash: 06e4eea32aefcb400c144be98c274e3e4bb4b121
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f674edd15b86f49d60450a53f5df5852b32f95a4
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188396"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906444"
 ---
 Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för Linux
 
@@ -19,7 +19,7 @@ Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-servic
 
 Linux Se listan över [Linux-distributioner och mål arkitekturer som stöds](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabb starten behöver du:
 
@@ -54,17 +54,19 @@ För att slutföra den här snabb starten behöver du:
 
 ## <a name="configure-go-environment"></a>Konfigurera go-miljö
 
+Utför följande steg för att konfigurera din go-miljö för att hitta tal-SDK. I båda stegen ersätter `<architecture>` du med processor arkitekturen för processorn. Detta är `x86` ,, `x64` `arm32` eller `arm64` .
+
 1. Eftersom bindningarna förlitar sig på `cgo` måste du ange miljövariablerna så att de kan hitta SDK:
 
    ```sh
    export CGO_CFLAGS="-I$SPEECHSDK_ROOT/include/c_api"
-   export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib -lMicrosoft.CognitiveServices.Speech.core"
+   export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib/<architecture> -lMicrosoft.CognitiveServices.Speech.core"
    ```
 
-1. För att köra program inklusive SDK måste vi dessutom meddela operativ systemet var du hittar libs:
+1. Om du vill köra program inklusive SDK måste du meddela operativ systemet var du hittar libs:
 
    ```sh
-   export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<arch>:$LD_LIBRARY_PATH"
+   export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<architecture>:$LD_LIBRARY_PATH"
    ```
 
 ## <a name="next-steps"></a>Nästa steg

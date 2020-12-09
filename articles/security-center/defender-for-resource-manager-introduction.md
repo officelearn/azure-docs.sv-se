@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 62a71f484baab2a8a717535cec77f2629cc2fb08
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 5594e8225b615bf6e1af5077bd68422edbbeec19
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754924"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905459"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Introduktion till Azure Defender för Resource Manager
 
@@ -46,7 +46,7 @@ En fullständig lista över de aviseringar som tillhandahålls av Azure Defender
 
  ## <a name="how-to-investigate-alerts-from-azure-defender-for-resource-manager"></a>Så här undersöker du aviseringar från Azure Defender för Resource Manager
 
-Säkerhets aviseringar från Azure Defender för Resource Manager baseras på hot som upptäckts av övervaknings Azure Resource Manager åtgärder. Azure Defender använder och interna logg källor med Azure Resource Manager samt Azure aktivitets logg, en plattforms logg i Azure som ger inblick i händelser på prenumerations nivå.
+Säkerhets aviseringar från Azure Defender för Resource Manager baseras på hot som upptäckts av övervaknings Azure Resource Manager åtgärder. Azure Defender använder interna logg källor för Azure Resource Manager och Azure aktivitets logg, en plattforms logg i Azure som ger inblick i händelser på prenumerations nivå.
 
 Läs mer om [Azure aktivitets logg](../azure-monitor/platform/activity-log.md).
 

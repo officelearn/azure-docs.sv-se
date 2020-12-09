@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f80f67ac695c17cc760e0e87fb9b11384fb7585
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 8735a0d34b9fcf5b86b6592980ffc5c7c3e3073c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377742"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861943"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Felsökningsroller tilldelade till molngrupper
 
@@ -32,16 +32,16 @@ Här följer några vanliga frågor och fel söknings tips för att tilldela rol
 
 **A:** Som standard hanterar endast privilegie rad roll administratör och global administratör medlemskap i en grupp som kan tilldelas av roller, men du kan delegera hanteringen av roll tilldelnings bara grupper genom att lägga till grupp ägare.
 
-**F** : Jag är administratör för supportavdelningen i min organisation, men jag kan inte uppdatera lösen ordet för en användare som är katalog läsare. Varför sker detta?
+**F**: Jag är administratör för supportavdelningen i min organisation, men jag kan inte uppdatera lösen ordet för en användare som är katalog läsare. Varför sker detta?
 
-**A** : användaren kan ha blivit katalog läsare via en grupp som kan tilldelas av roller. Alla medlemmar och ägare av en roll tilldelnings bara grupper är skyddade. Endast användare med rollerna Privileged Authentication Administrator eller global administratör kan återställa autentiseringsuppgifter för en skyddad användare.
+**A**: användaren kan ha blivit katalog läsare via en grupp som kan tilldelas av roller. Alla medlemmar och ägare av en roll tilldelnings bara grupper är skyddade. Endast användare med rollerna Privileged Authentication Administrator eller global administratör kan återställa autentiseringsuppgifter för en skyddad användare.
 
 **F:** Jag kan inte uppdatera användarens lösen ord. De har inte tilldelats någon högre privilegie rad roll. Varför händer det?
 
 **A:** Användaren kan vara ägare till en grupp som kan tilldelas av roller. Vi skyddar ägare till Roll tilldelnings bara grupper för att undvika höjning av privilegier. Ett exempel kan vara om en grupp Contoso_Security_Admins tilldelas rollen som säkerhets administratör, där Bob är grupp ägaren och Alice är lösen ords administratör i organisationen. Om det här skyddet inte finns kan Alice återställa Bobs autentiseringsuppgifter och ta över sin identitet. Sedan kan Alice lägga till sig själv eller någon i gruppen Contoso_Security_Admins gruppen för att bli en säkerhets administratör i organisationen. Ta reda på om en användare är grupp ägare genom att hämta listan över ägda objekt för den användaren och se om någon av grupperna har isAssignableToRole angetts till true. Om ja, är den användaren skyddad och beteendet är avsiktligt. Referera till dessa dokument för att få ägda objekt:
 
-- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
-- [Visa lista ownedObjects](/graph/api/user-list-ownedobjects?tabs=http&view=graph-rest-1.0)
+- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject)  
+- [Visa lista ownedObjects](/graph/api/user-list-ownedobjects?tabs=http)
 
 **F:** Kan jag skapa en åtkomst granskning för grupper som kan tilldelas till Azure AD-roller (särskilt grupper med egenskapen isAssignableToRole inställd på true)?  
 

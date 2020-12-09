@@ -1,27 +1,33 @@
 ---
-title: Mobilitets tjänstens data strukturer i Azure Maps | Microsoft Azure Maps
-description: Förstå hur data är ordnade i Metro-områden i Azure Maps mobilitets tjänster. Se vilka fält som lagrar information om offentliga överförings stopp och-rader.
+title: Mobilitets tjänster (för hands version) data strukturer i Microsoft Azure Maps
+description: Förstå hur data är ordnade i Metro-områden i Azure Maps Mobility Services (för hands version). Se vilka fält som lagrar information om offentliga överförings stopp och-rader.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/05/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 60d45febced2f2d678d41682f7f27bf668943de2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8ffedc18ba331733723a6293756b60b733cc32cf
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896318"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904728"
 ---
-# <a name="data-structures-in-azure-maps-mobility-service"></a>Data strukturer i Azure Maps Mobility Service
+# <a name="data-structures-in-azure-maps-mobility-services-preview"></a>Data strukturer i Azure Maps mobilitets tjänster (för hands version) 
 
-I den här artikeln beskrivs begreppet tunnelbane linje i [Azure Maps Mobility Service](/rest/api/maps/mobility). Vi diskuterar några vanliga fält som returneras när den här tjänsten efter frågas för offentliga överförings stopp och-rader. Vi rekommenderar att du läser den här artikeln innan du utvecklar med mobilitets tjänstens API: er.
+> [!IMPORTANT]
+> Azure Maps mobilitets tjänster finns för närvarande i en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+
+I den här artikeln beskrivs begreppet tunnelbane linje i [Azure Maps mobilitets tjänster](/rest/api/maps/mobility). Vi diskuterar några vanliga fält som returneras när den här tjänsten efter frågas för offentliga överförings stopp och-rader. Vi rekommenderar att du läser den här artikeln innan du utvecklar med mobilitets tjänstens API: er.
 
 ## <a name="metro-area"></a>Tunnelbane yta
 
-Mobilitets tjänstens data grupperas efter stödda Metro-områden. Metro-områden följer inte stads gränser. Ett tunnelbane område kan innehålla flera städer, tätt ifylld stad och omgivande städer. Ett land/region kan i själva verket vara ett tunnelbane område. 
+Mobilitets tjänster (för hands version) är grupperade efter Metro-områden som stöds. Metro-områden följer inte stads gränser. Ett tunnelbane område kan innehålla flera städer, tätt ifylld stad och omgivande städer. Ett land/region kan i själva verket vara ett tunnelbane område. 
 
 `metroID`Är ett Metro-områdens ID som kan användas för att anropa API: t för att [Hämta information om Metro-ytan](/rest/api/maps/mobility/getmetroareainfopreview). Använd Azure Maps "Get Metro"-API för att begära överförings typer, transit myndigheter, aktiva aviseringar och ytterligare information för den valda tunnelbane linje. Du kan också begära de tunnelbane områden och metroIDs som stöds. Metro-områdes-ID: n kan komma att ändras.
 
@@ -37,7 +43,7 @@ För att starta kan du begära att närliggande överföring slutar att använda
 
 ## <a name="line-groups-and-lines"></a>Linje grupper och linjer
 
-Mobilitets tjänsten använder en parallell data modell för linjer och linje grupper. Den här modellen används för att bättre hantera ändringar som ärvts från [GTFS](http://gtfs.org/) -vägar och TRIPs-data.
+Mobilitets tjänster (för hands version) använder en parallell data modell för linjer och linje grupper. Den här modellen används för att bättre hantera ändringar som ärvts från [GTFS](http://gtfs.org/) -vägar och TRIPs-data.
 
 
 ### <a name="line-groups"></a>Linje grupper
@@ -54,17 +60,17 @@ För att börja kan du begära linje grupper med hjälp av [API: t get transport
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du begär överförings data med mobilitets tjänsten:
+Lär dig hur du begär överförings data med mobilitets tjänster (för hands version):
 
 > [!div class="nextstepaction"]
 > [Så här begär du överförings data](how-to-request-transit-data.md)
 
-Lär dig hur du begär data i real tid med mobilitets tjänsten:
+Lär dig hur du begär real tids data med mobilitets tjänster (för hands version):
 
 > [!div class="nextstepaction"]
 > [Så här begär du real tids data](how-to-request-real-time-data.md)
 
-Utforska dokumentationen för Azure Maps Mobility Service API
+Utforska API-dokumentationen för Azure Maps Mobility Services (för hands version)
 
 > [!div class="nextstepaction"]
-> [API-dokumentation för Mobility Service](/rest/api/maps/mobility)
+> [API-dokumentation för mobilitets tjänster](/rest/api/maps/mobility)

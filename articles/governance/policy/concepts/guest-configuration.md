@@ -3,12 +3,12 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder gäst konfigurations agenten för att granska inställningar i virtuella datorer.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: e941938fce09e8729856322a5b6572b46a3714be
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a956d5e8dcfa82f85020928e1427a08ac8fe7a69
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075492"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906258"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Om Azure Policys gästkonfiguration
 
@@ -60,9 +60,9 @@ Klienten för gäst konfiguration söker efter nytt innehåll var 5: e minut. N�
 
 Princip definitioner för gäst konfiguration inkluderar nya versioner. Äldre versioner av operativ system som är tillgängliga i Azure Marketplace ingår inte om gäst konfigurations agenten inte är kompatibel. I följande tabell visas en lista över operativ system som stöds på Azure-avbildningar:
 
-|Publisher|Name|Versioner|
+|Publisher|Namn|Versioner|
 |-|-|-|
-|Canonical|Ubuntu Server|14,04 och senare|
+|Canonical|Ubuntu Server|14,04 – 18,04|
 |Credativ|Debian|8 och senare|
 |Microsoft|Windows Server|2012 och senare|
 |Microsoft|Windows-klient|Windows 10|
@@ -120,7 +120,7 @@ Azure Policy använder **complianceStatus** -egenskapen för gäst konfiguration
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Granska operativ system inställningar efter bransch bas linjer
 
-Ett initiativ i Azure Policy ger möjlighet att granska inställningarna för operativ systemet efter en "bas linje". Definition, för _ \[ hands version \] : granska virtuella Windows-datorer som inte matchar inställningarna för Azures säkerhets bas linje_ innehåller en uppsättning regler som baseras på Active Directory Grupprincip.
+Ett initiativ i Azure Policy ger möjlighet att granska inställningarna för operativ systemet efter en "bas linje". Definition, för _\[ hands version \] : granska virtuella Windows-datorer som inte matchar inställningarna för Azures säkerhets bas linje_ innehåller en uppsättning regler som baseras på Active Directory Grupprincip.
 
 De flesta av inställningarna är tillgängliga som parametrar. Med parametrar kan du anpassa vad som granskas.
 Justera principen med dina krav eller mappa principen till information från tredje part, till exempel bransch regelverks standarder.
@@ -133,7 +133,7 @@ Om du tilldelar principen med hjälp av en Azure Resource Manager-mall (ARM-mall
 
 Det är bara definitionen som _konfigurerar tids zonen på Windows-datorer_ som gör ändringar i datorn genom att konfigurera tids zonen. Anpassade princip definitioner för konfiguration av inställningar i datorer stöds inte.
 
-När du tilldelar definitioner som börjar med _Konfigurera_måste du också tilldela _krav för definitions distribution för att aktivera principen för gäst konfiguration på virtuella Windows-datorer_. Du kan kombinera dessa definitioner i ett initiativ om du väljer.
+När du tilldelar definitioner som börjar med _Konfigurera_ måste du också tilldela _krav för definitions distribution för att aktivera principen för gäst konfiguration på virtuella Windows-datorer_. Du kan kombinera dessa definitioner i ett initiativ om du väljer.
 
 > [!NOTE]
 > Den inbyggda tids zons principen är den enda definition som stöder konfiguration av inställningar i datorer och anpassade princip definitioner som konfigurerar inställningar i datorer som inte stöds.

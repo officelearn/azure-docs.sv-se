@@ -1,20 +1,20 @@
 ---
 title: Distribuera mall – IntelliJ idé
-description: Lär dig hur du skapar din första Azure Resource Manager-mall med hjälp av IntelliJ-idén och hur du distribuerar den.
+description: Lär dig hur du skapar din första Azure Resource Manager mall (ARM-mall) med IntelliJ-idén och hur du distribuerar den.
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: 6a596eff70bfc20b5a6752ef47398bd14d527c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0e007fe8930b30cee1c95159d7e964e3792449f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973338"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905969"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Skapa och distribuera ARM-mallar med hjälp av IntelliJ-idén
 
-Lär dig hur du distribuerar en Azure Resource Manager-mall (ARM) till Azure med hjälp av IntelliJ-idén och processen för att redigera och uppdatera mallen direkt från IDE. ARM-mallar är JSON-filer som definierar de resurser som du behöver distribuera för din lösning. Information om de begrepp som är kopplade till att distribuera och hantera dina Azure-lösningar finns i [Översikt över mall-distribution](overview.md).
+Lär dig hur du distribuerar en Azure Resource Manager mall (ARM-mall) till Azure med IntelliJ-idén och processen för att redigera och uppdatera mallen direkt från IDE. ARM-mallar är JSON-filer som definierar de resurser som du behöver distribuera för din lösning. Information om de begrepp som är kopplade till att distribuera och hantera dina Azure-lösningar finns i [Översikt över mall-distribution](overview.md).
 
 ![Portal diagram för Resource Manager-mall](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
@@ -22,7 +22,7 @@ När du har slutfört självstudien kan du distribuera ett Azure Storage-konto. 
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -40,7 +40,7 @@ I stället för att skapa en mall från början öppnar du en mall från [Azure-
 
     ![Resource Manager-mall Högerklicka för att skapa distribution](./media/create-templates-use-intellij/resource-manager-create-deployment-right-click.png)
 
-1. Konfigurera **distributions namn**, **prenumeration**, **resurs grupp**och **region**. Här distribuerar vi mallen till en ny resurs grupp `testRG` . Välj sedan sökväg för **resurs mal len** som `azuredeploy.json` och **resurs parametrar** när `azuredeploy.parameters.json` du laddade ned.
+1. Konfigurera **distributions namn**, **prenumeration**, **resurs grupp** och **region**. Här distribuerar vi mallen till en ny resurs grupp `testRG` . Välj sedan sökväg för **resurs mal len** som `azuredeploy.json` och **resurs parametrar** när `azuredeploy.parameters.json` du laddade ned.
 
     ![Resource Manager-mall Välj filer för att skapa distribution](./media/create-templates-use-intellij/resource-manager-create-deployment-select-files.png)
 
@@ -60,7 +60,7 @@ I stället för att skapa en mall från början öppnar du en mall från [Azure-
 
 ## <a name="edit-and-update-an-existing-deployment"></a>Redigera och uppdatera en befintlig distribution
 
-1. Välj **Redigera distribution** från snabb meny eller Visa egenskapsvyn innan. En annan flik öppnas som visar mall-och parametervärdena för distributionen på Azure. Om du vill spara filerna på en lokal plats kan du klicka på **Exportera mallfil**  eller **Exportera parameter**filen.
+1. Välj **Redigera distribution** från snabb meny eller Visa egenskapsvyn innan. En annan flik öppnas som visar mall-och parametervärdena för distributionen på Azure. Om du vill spara filerna på en lokal plats kan du klicka på **Exportera mallfil**  eller **Exportera parameter** filen.
 
     ![Redigera distribution av Resource Manager-mall](./media/create-templates-use-intellij/resource-manager-edit-deployment.png)
 

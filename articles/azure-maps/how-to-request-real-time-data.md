@@ -1,28 +1,33 @@
 ---
-title: Begär offentlig överförings data för Real tid | Microsoft Azure Maps
-description: Läs om hur du begär data från offentliga data i real tid, t. ex. införsel i ett överförings stopp. Se hur du använder tjänsten Azure Maps Mobility för detta ändamål.
+title: Begär offentlig överförings information i real tid med Microsoft Azure Maps Mobility Services (för hands version)
+description: Läs om hur du begär data från offentliga data i real tid, t. ex. införsel i ett överförings stopp. Se hur du använder Azure Maps mobilitets tjänster (för hands version) för detta ändamål.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/06/2019
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e6f6d0738cb1673b752e35761a112f2ca22a409e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d3e3dc4b0e3bc64a38856da8344583b744ea62b6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895723"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906054"
 ---
-# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Begär offentlig överförings information i real tid med tjänsten Azure Maps Mobility
+# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Begär offentlig överförings data i real tid med hjälp av Azure Maps Mobility Services (för hands version) 
 
-Den här artikeln visar hur du använder Azure Maps [Mobility Service](/rest/api/maps/mobility) för att begära offentliga data i real tid.
+> [!IMPORTANT]
+> Azure Maps mobilitets tjänster finns för närvarande i en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+Den här artikeln visar hur du använder Azure Maps [mobilitets tjänster](/rest/api/maps/mobility) för att begära offentlig överförings data i real tid.
 
 I den här artikeln får du lära dig hur du begär nästa mottagna real tid för alla rader som kommer vid ett angivet stopp
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste först ha ett Azure Maps konto och en prenumerations nyckel för att kunna anropa de Azure Maps offentliga API: erna för överföring. Om du vill ha mer information följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-azure-maps-account) för att skapa ett Azure Maps-konto. Följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
@@ -30,13 +35,13 @@ I den här artikeln används [Postman-appen](https://www.getpostman.com/apps) f�
 
 ## <a name="request-real-time-arrivals-for-a-stop"></a>Begär real tids mottagningar för ett stopp
 
-För att begära ingångs data i real tid för en viss offentlig överförings stopp, måste du göra en begäran till [real tids ingångs-API: t](/rest/api/maps/mobility/getrealtimearrivalspreview) för [tjänsten Azure Maps Mobility](/rest/api/maps/mobility). Du behöver **metroID** och **stopID** för att slutföra begäran. Mer information om hur du begär dessa parametrar finns i vår guide om hur du [begär offentliga överförings vägar](./how-to-request-transit-data.md).
+För att kunna begära data i real tid för en viss offentlig överförings stopp, måste du göra en begäran till [real tids ingångs-API: t](/rest/api/maps/mobility/getrealtimearrivalspreview) för Azure Maps [mobilitets tjänsten (för hands version)](/rest/api/maps/mobility). Du behöver **metroID** och **stopID** för att slutföra begäran. Mer information om hur du begär dessa parametrar finns i vår guide om hur du [begär offentliga överförings vägar](./how-to-request-transit-data.md).
 
 Vi använder "522" som vårt tunnelbane-ID, som är Metro-ID: t för "Seattle – Tacoma – Bellevue, WA"-ytan. Använd "522---2060603" som stopp-ID: t det här buss steget är "ne 24 st & 162nd Ave Ne, Bellevue WA". Om du vill begära nästa fem real tids mottagande data, för alla nästa Live-införsel i detta steg, slutför du följande steg:
 
-1. Öppna Postman-appen och skapa en samling där du kan lagra begär Anden. Längst upp i Postman-appen väljer du **nytt** . I fönstret **Skapa nytt** väljer du **samling** .  Namnge samlingen och välj knappen **skapa** .
+1. Öppna Postman-appen och skapa en samling där du kan lagra begär Anden. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **samling**.  Namnge samlingen och välj knappen **skapa** .
 
-2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran** . Ange ett **namn** för begäran. Välj den samling som du skapade i föregående steg, som den plats där du vill spara begäran. Välj sedan **Spara** .
+2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** för begäran. Välj den samling som du skapade i föregående steg, som den plats där du vill spara begäran. Välj sedan **Spara**.
 
     ![Skapa en begäran i Postman](./media/how-to-request-transit-data/postman-new.png)
 
@@ -113,12 +118,12 @@ Vi använder "522" som vårt tunnelbane-ID, som är Metro-ID: t för "Seattle �
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du begär överförings data med mobilitets tjänsten:
+Lär dig hur du begär överförings data med mobilitets tjänster (för hands version):
 
 > [!div class="nextstepaction"]
 > [Så här begär du överförings data](how-to-request-transit-data.md)
 
-Utforska dokumentationen för Azure Maps Mobility Service API:
+Utforska API-dokumentationen för Azure Maps Mobility Services (för hands version):
 
 > [!div class="nextstepaction"]
-> [API-dokumentation för Mobility Service](/rest/api/maps/mobility)
+> [API-dokumentation för mobilitets tjänster](/rest/api/maps/mobility)

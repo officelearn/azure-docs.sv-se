@@ -1,5 +1,5 @@
 ---
-title: Hantera användar tilldelning för en app i Azure Active Directory
+title: Hantera användartilldelning för en app i Azure Active Directory
 description: Lär dig att tilldela och ta bort tilldelning av användare och grupper för en app som använder Azure Active Directory för identitets hantering.
 services: active-directory
 author: kenwith
@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 55934e8c33b74740b7398be1ae18a3ef899aee74
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 22acfc5095b1ffcad382fa2b665a86d382645e7a
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651285"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861685"
 ---
-# <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Hantera användar tilldelning för en app i Azure Active Directory
+# <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Hantera användartilldelning för en app i Azure Active Directory
 
 Den här artikeln visar hur du tilldelar användare och grupper till företags program i Azure Active Directory (Azure AD), antingen i Azure Portal eller med hjälp av PowerShell. När du tilldelar en användare till ett program visas programmet i användarens [Mina appar](https://myapps.microsoft.com/) för enkel åtkomst. Om programmet exponerar roller kan du också tilldela användaren en specifik roll.
 
@@ -81,11 +81,11 @@ Du kan använda Graph API för att tilldela eller ta bort tilldelning av använd
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
-Mer information om hur du tilldelar en användare till en program roll finns i dokumentationen för [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
+Mer information om hur du tilldelar en användare till en program roll finns i dokumentationen för [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment).
 
 Om du vill tilldela en grupp till en företags app måste du ersätta `Get-AzureADUser` med `Get-AzureADGroup` och ersätta `New-AzureADUserAppRoleAssignment` med `New-AzureADGroupAppRoleAssignment` .
 
-Mer information om hur du tilldelar en grupp till en program roll finns i dokumentationen för [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
+Mer information om hur du tilldelar en grupp till en program roll finns i dokumentationen för [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment).
 
 ### <a name="example"></a>Exempel
 

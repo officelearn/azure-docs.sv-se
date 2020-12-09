@@ -1,29 +1,33 @@
 ---
-title: Implementera dynamisk formatering för Azure Maps Creators inomhus Maps
-description: Lär dig hur du implementerar dynamisk formatering för Creators inomhus Maps
+title: Implementera dynamisk formatering för Azure Maps skapare (förhands granskning) inomhus Maps
+description: Lär dig hur du implementerar dynamisk formatering för skapare (för hands version) i inomhus Maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b9ce0d0770c7e6c4579469cc16d8c76c309a33d1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 266dc5d62f6224495075546528ad71d806d415ac
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895383"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903453"
 ---
-# <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implementera dynamisk formatering för Creators inomhus Maps
+# <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>Implementera dynamisk formatering för skapare (förhands granskning) inomhus Maps
+
+> [!IMPORTANT]
+> Azure Maps Creator-tjänster finns för närvarande i en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Med Azure Maps skapare [funktion tillstånds tjänst](/rest/api/maps/featurestate) kan du använda formatmallar som baseras på de dynamiska egenskaperna för inlednings data funktioner i kartan.  Du kan till exempel återge anläggningarnas Mötes rum med en speciell färg för att avspegla inslags status. I den här artikeln visar vi hur du dynamiskt återger inaktuella kart funktioner med [funktions tillstånds tjänsten](/rest/api/maps/featurestate) och den inaktuella [webbmodulen](how-to-use-indoor-module.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. [Skapa ett Azure Maps-konto](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
-3. [Skapa en skapare resurs](how-to-manage-creator.md)
+3. [Skapa en skapare (förhands granskning) resurs](how-to-manage-creator.md)
 4. Ladda ned [exempel ritnings paketet](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 5. [Skapa en](tutorial-creator-indoor-maps.md) ingångs karta för att få en `tilesetId` och `statesetId` .
 6. Bygg ett webb program genom att följa stegen i [använda Map-modulen](how-to-use-indoor-module.md).
@@ -66,7 +70,7 @@ I nästa avsnitt anger vi användnings *status* för Office `UNIT26` till `true`
 
  Vi kommer nu att uppdatera status för de två kontoren `UNIT26` och `UNIT27` :
 
-1. I Postman-programmet väljer du **nytt** . I fönstret **Skapa nytt** väljer du **begäran** . Ange ett **namn på begäran** och välj en samling. Klicka på **Spara**
+1. I Postman-programmet väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn på begäran** och välj en samling. Klicka på **Spara**
 
 2. Använd [API: t för funktions uppdaterings tillstånd](/rest/api/maps/featurestate/updatestatespreview) för att uppdatera tillståndet. Skicka stateset-ID: t och `UNIT26` för en av de två enheterna. Lägg till din Azure Maps prenumerations nyckel. Här är URL: en för en **post** -begäran om att uppdatera status:
 
@@ -113,7 +117,7 @@ Det webb program som du tidigare öppnade i en webbläsare bör nu avspegla det 
 Läs mer genom att läsa:
 
 > [!div class="nextstepaction"]
-> [Skapare för från koppling till inomhus](creator-indoor-maps.md)
+> [Skapare (för hands version) för från koppling till inomhus](creator-indoor-maps.md)
 
 Se referenserna för de API: er som nämns i den här artikeln:
 
@@ -124,7 +128,7 @@ Se referenserna för de API: er som nämns i den här artikeln:
 > [Data konvertering](creator-indoor-maps.md#convert-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Data uppsättning](creator-indoor-maps.md#datasets)
+> [Datamängd](creator-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
 > [Tileset](creator-indoor-maps.md#tilesets)

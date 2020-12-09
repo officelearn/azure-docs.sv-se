@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 9/17/2020
-ms.openlocfilehash: 1a51d2140528e3f6ed6da0ca699d7b71b91638ec
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 12/8/2020
+ms.openlocfilehash: bd8f5a28b709a45e99e846fb4e242f774aca80c5
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743162"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902518"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database utan Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -138,6 +138,7 @@ Autoåterupptagande utlöses om något av följande villkor är uppfyllt när so
 |Transparent datakryptering|Visa status eller status för transparent data kryptering|
 |Sårbarhetsbedömning|Ad hoc-sökningar och regelbundna sökningar om det är aktiverat|
 |Fråga (prestanda) data lager|Ändra eller Visa inställningar för frågearkivet|
+|Prestandarekommendationer|Visa eller tillämpa prestanda rekommendationer|
 |Autojustera|Program och verifiering av rekommendationer för automatisk justering, till exempel automatisk indexering|
 |Databas kopiering|Skapa databas som kopia.<br>Exportera till en BACPAC-fil.|
 |SQL Data Sync|Synkronisering mellan hubb och medlems databaser som körs enligt ett konfigurerbart schema eller som utförs manuellt|
@@ -148,7 +149,7 @@ Autoåterupptagande utlöses om något av följande villkor är uppfyllt när so
 
 Funktionen för att återuppta automatiskt utlöses även under distributionen av vissa tjänste uppdateringar som kräver att databasen är online.
 
-### <a name="connectivity"></a>Anslutningsmöjlighet
+### <a name="connectivity"></a>Anslutningar
 
 Om en server lös databas har pausats kommer den första inloggningen att återuppta databasen och returnera ett fel som anger att databasen inte är tillgänglig med felkoden 40613. När databasen har återupptagits måste inloggningen göras om för att upprätta anslutningen. Databas klienter med logik för anslutnings försök ska inte behöva ändras.
 
@@ -277,14 +278,14 @@ Mät värden för att övervaka resursanvändningen för Appaketet och poolen f�
 
 |Entitet|Mått|Beskrivning|Enheter|
 |---|---|---|---|
-|Appaket|app_cpu_percent|Procent andelen av virtuella kärnor som används av appen i förhållande till högsta tillåtna virtuella kärnor för appen.|Procentandel|
+|Appaket|app_cpu_percent|Procent andelen av virtuella kärnor som används av appen i förhållande till högsta tillåtna virtuella kärnor för appen.|Procent|
 |Appaket|app_cpu_billed|Mängden data som debiteras för appen under rapporterings perioden. Det belopp som betalas under perioden är produkten av det här måttet och vCore enhets pris. <br><br>Värdena för det här måttet bestäms genom agg regering över tid för maximalt CPU-använt och minne som används varje sekund. Om det använda beloppet är mindre än det lägsta belopp som har angetts som den lägsta virtuella kärnor och minsta mängden minne, faktureras det lägsta mängd som har allokerats.För att kunna jämföra CPU med minne i fakturerings syfte normaliseras minnet till enheter av virtuella kärnor genom att skala om mängden minne i GB med 3 GB per vCore.|vCore sekunder|
-|Appaket|app_memory_percent|Procent andelen minne som används av appen i förhållande till maximalt minne som tillåts för appen.|Procentandel|
-|Adresspool|cpu_percent|Procent andelen av virtuella kärnor som används av användar arbets belastning i förhållande till högsta tillåtna virtuella kärnor för användar arbets belastning.|Procentandel|
-|Adresspool|data_IO_percent|Procent andel data IOPS som används av användar arbets belastning i förhållande till maximal data-IOPS som tillåts för användar arbets belastning.|Procentandel|
-|Adresspool|log_IO_percent|Procent andel logg MB/s som används av användar arbets belastning i förhållande till maximalt antal loggar i MB/s som tillåts för användar arbets belastning.|Procentandel|
-|Adresspool|workers_percent|Procent andel arbetare som används av användar arbets belastning i förhållande till max arbetare som tillåts för användar arbets belastning.|Procentandel|
-|Adresspool|sessions_percent|Procent andel sessioner som används av användar arbets belastning i förhållande till högsta antal sessioner som tillåts för användar arbets belastning.|Procentandel|
+|Appaket|app_memory_percent|Procent andelen minne som används av appen i förhållande till maximalt minne som tillåts för appen.|Procent|
+|Adresspool|cpu_percent|Procent andelen av virtuella kärnor som används av användar arbets belastning i förhållande till högsta tillåtna virtuella kärnor för användar arbets belastning.|Procent|
+|Adresspool|data_IO_percent|Procent andel data IOPS som används av användar arbets belastning i förhållande till maximal data-IOPS som tillåts för användar arbets belastning.|Procent|
+|Adresspool|log_IO_percent|Procent andel logg MB/s som används av användar arbets belastning i förhållande till maximalt antal loggar i MB/s som tillåts för användar arbets belastning.|Procent|
+|Adresspool|workers_percent|Procent andel arbetare som används av användar arbets belastning i förhållande till max arbetare som tillåts för användar arbets belastning.|Procent|
+|Adresspool|sessions_percent|Procent andel sessioner som används av användar arbets belastning i förhållande till högsta antal sessioner som tillåts för användar arbets belastning.|Procent|
 
 ### <a name="pause-and-resume-status"></a>Pausa och återuppta status
 
@@ -314,17 +315,17 @@ För resurs gränser, se [Server lös beräknings nivå](resource-limits-vcore-s
 
 Den mängd data som faktureras är det högsta antal CPU-som används och minne som används varje sekund. Om mängden använt CPU och använt minne är mindre än den lägsta mängd som har skapats för varje, faktureras det etablerade beloppet. För att kunna jämföra CPU med minne i fakturerings syfte normaliseras minnet till enheter av virtuella kärnor genom att skala om mängden minne i GB med 3 GB per vCore.
 
-- **Resurs fakturerad** : CPU och minne
-- **Fakturerat belopp** : vCore enhets pris * Max (min virtuella kärnor, virtuella kärnor som används, minimalt minne GB * 1/3, använt minnes utrymme * 1/3) 
-- **Fakturerings frekvens** : per sekund
+- **Resurs fakturerad**: CPU och minne
+- **Fakturerat belopp**: vCore enhets pris * Max (min virtuella kärnor, virtuella kärnor som används, minimalt minne GB * 1/3, använt minnes utrymme * 1/3) 
+- **Fakturerings frekvens**: per sekund
 
 Priset för vCore-enheten är kostnaden per vCore per sekund. Mer information finns på [sidan med Azure SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/single/) för vissa enhets priser i en specifik region.
 
 Den totala mängden data som faktureras exponeras enligt följande mått:
 
-- **Mått** : App_cpu_billed (vCore sekunder)
-- **Definition** : Max (min-virtuella kärnor, virtuella kärnor som används, minimalt minne gb * 1/3, använt minnes utrymme * 1/3)
-- **Rapport frekvens** : per minut
+- **Mått**: App_cpu_billed (vCore sekunder)
+- **Definition**: Max (min-virtuella kärnor, virtuella kärnor som används, minimalt minne gb * 1/3, använt minnes utrymme * 1/3)
+- **Rapport frekvens**: per minut
 
 Den här kvantiteten beräknas varje sekund och sammanställs över 1 minut.
 

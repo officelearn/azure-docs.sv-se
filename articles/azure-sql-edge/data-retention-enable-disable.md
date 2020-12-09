@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9408aaa8fd5b677f012392ef4bd51c8826650eee
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 5b8dd911952a63ba8775f27a6128ff61e849e823
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395163"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861433"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Aktivera och inaktivera data lagrings principer
 
@@ -56,7 +56,7 @@ Den `WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD 
 
 - DATA_DELETION-anger om data kvarhållning är på eller av.
 - FILTER_COLUMN-namnet på kolumnen i tabellen som ska användas för att kontrol lera om raderna är föråldrade eller inte. Filter kolumnen kan bara vara en kolumn med följande data typer 
-    - Date
+    - Datum
     - Datatyp
     - DateTime
     - DateTime2
@@ -88,7 +88,7 @@ where is_data_deletion_filter_column =1
 and object_id = object_id(N'dbo.data_retention_table', N'U')
 ```
 
-## <a name="corelating-db-and-table-data-retention-settings"></a>Samrelaterade inställningar för databas-och tabell data lagring
+## <a name="correlating-db-and-table-data-retention-settings"></a>Korrelera inställningar för databas-och tabell data lagring
 
 Inställningen datakvarhållning i databasen och tabellen används tillsammans för att avgöra om autorensning för de inaktuella raderna ska köras i tabellerna eller inte. 
 

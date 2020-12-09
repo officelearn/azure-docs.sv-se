@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 12/08/2020
 ms.author: memildin
-ms.openlocfilehash: 43b66a59062a230aa2fba6909172deb5f1740b28
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: bdca5a753a49c26587db27892b54c2cb88910c83
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122302"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862470"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportera Security Center data kontinuerligt
 
@@ -72,6 +72,7 @@ Stegen nedan är nödvändiga om du konfigurerar en kontinuerlig export till Log
     - Utvärderings resultat av säkerhets risker på dina SQL-servrar på datorer bör åtgärdas (för hands version)
     - Säkerhets risker i Azure Container Registry avbildningar bör åtgärdas (drivs av Qualys)
     - Säkerhets risker på dina virtuella datorer bör åtgärdas
+    - Systemuppdateringar ska ha installerats på dina datorer
 
     Om du vill inkludera undersöknings resultaten med dessa rekommendationer aktiverar du alternativet **Inkludera säkerhets resultat** .
 
@@ -119,7 +120,7 @@ Om du vill distribuera dina kontinuerliga export konfigurationer i organisatione
 
 1. I tabellen nedan väljer du den princip som du vill använda:
 
-    |Mål  |Policy  |Princip-ID  |
+    |Mål  |Princip  |Princip-ID  |
     |---------|---------|---------|
     |Kontinuerlig export till händelsehubben|[Distribuera export till händelsehubben för aviseringar och rekommendationer i Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
     |Löpande export till Log Analytics arbets yta|[Distribuera export till Log Analytics-arbetsytan för aviseringar och rekommendationer i Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|

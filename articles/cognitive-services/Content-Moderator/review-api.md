@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: e2d87d4322ac6b91a19a4775c23ceec75d528030
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 43c39c40af6e02861211a8666fefa57c34072f32
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325340"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905204"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Granskningar av innehålls moderatorer, arbets flöden och jobb
 
@@ -42,7 +42,7 @@ Använd verktygsfältet **Sök** för att sortera granskningar efter en rad olik
 > [!div class="mx-imgBorder"]
 > ![Verktygsfältet Sök visas. Den har olika kombinations rutor för att ange Sök villkor, till exempel gransknings status och taggar.](./Review-Tool-user-Guide/images/review-search.png)
 
-I [guiden granska verktyg](./review-tool-user-guide/review-moderated-images.md) kan du komma igång med att skapa recensioner eller se [rest Apis guide](./try-review-api-review.md) för att lära dig hur du gör det program mässigt.
+Se [guiden granska verktyg](./review-tool-user-guide/review-moderated-images.md) för att komma igång med att skapa recensioner eller se [API-konsolens guide](./try-review-api-review.md) för att lära dig hur du gör det program mässigt.
 
 ## <a name="workflows"></a>Arbetsflöden
 
@@ -80,13 +80,13 @@ Arbets flöden definieras som JSON-strängar som gör dem tillgängliga via prog
 }
 ```
 
-I [guiden granska verktyg](./review-tool-user-guide/workflows.md) kan du komma igång med att skapa och använda arbets flöden, eller se [rest Apis guide](./try-review-api-workflow.md) för att lära dig hur du gör det program mässigt.
+I [guiden granska verktyg](./review-tool-user-guide/workflows.md) kan du komma igång med att skapa och använda arbets flöden, eller se [API-konsolens guide](./try-review-api-workflow.md) för att lära dig hur du gör det program mässigt.
 
 ## <a name="jobs"></a>Jobb
 
 Ett redigerings jobb fungerar som en typ av omslutning för funktionerna i Content moderatoring, arbets flöden och granskningar. Jobbet skannar ditt innehåll med hjälp av API: et för Content Moderator bild redigeringsprogram eller API för text redigering och kontrollerar det mot det angivna arbets flödet. Utifrån arbets flödes resultatet kan det hända att det inte går att skapa en granskning för innehållet i [gransknings verktyget](./review-tool-user-guide/human-in-the-loop.md). Både granskningar och arbets flöden kan skapas och konfigureras med deras respektive API: er, men jobb-API: et gör att du kan få en detaljerad rapport över hela processen (som kan skickas till en angiven slut punkt för återanrop).
 
-Se [rest Apis guide](./try-review-api-job.md) för att komma igång med jobb.
+I [Guide för API-konsolen](./try-review-api-job.md) kan du komma igång med jobb.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,17 +3,17 @@ title: Azure Maps ritnings konverterings fel och varningar
 description: Läs om de konverterings fel och varningar som du kan uppfylla när du använder Azure Maps Conversion service. Läs rekommendationerna för hur du löser felen och varningar, med några exempel.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 04a43e3e2fa9ad77e11f82ff38a144a1de3add78
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cecc19f0984ce1801d50e5cbda73e98a01e2825b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895944"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906224"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Fel och varningar vid ritningskonvertering
 
@@ -159,7 +159,7 @@ Utför följande åtgärder för att åtgärda en **automaticRepairPerformed** -
 
 #### <a name="how-to-fix-redundantattribution"></a>*Så här åtgärdar du redundantAttribution*
 
-Om du vill åtgärda en * *redundantAttribution* varning tar du bort överflödiga eller motstridiga objekt egenskaper.
+Om du vill åtgärda en **redundantAttribution* varning tar du bort överflödiga eller motstridiga objekt egenskaper.
 
 ### <a name="manifestwarning"></a>**manifestWarning**
 
@@ -267,7 +267,7 @@ Följande bild visar en zon som inte innehåller en etikett.
 
 #### <a name="how-to-fix-zonewarning"></a>*Så här åtgärdar du zoneWarning*
 
-Kontrol lera att varje zon har en enda etikett för att åtgärda ett **zoneWarning** .
+Kontrol lera att varje zon har en enda etikett för att åtgärda ett **zoneWarning**.
 
 ## <a name="label-warnings"></a>Etikett varningar
 
@@ -291,7 +291,7 @@ Följande bild visar en etikett som finns i två zoner.
 
 #### <a name="how-to-fix-labelwarning"></a>*Så här åtgärdar du labelWarning*
 
-För att åtgärda en **labelWarning** , se till att:
+För att åtgärda en **labelWarning**, se till att:
 
 * Alla enhets etiketter är inuti enheter.
 * Alla zon etiketter är inuti zoner.
@@ -311,7 +311,7 @@ Ett **invalidArchiveFormat** -fel uppstår också om zip-arkivet är tomt.
 
 Om du vill åtgärda ett **invalidArchiveFormat** -fel kontrollerar du att:
 
-* Namnet på Arkiv filen slutar med _. zip_ .
+* Namnet på Arkiv filen slutar med _. zip_.
 * Ditt ZIP-arkiv innehåller data.
 * Du kan öppna ditt ZIP-arkiv.
 
@@ -330,7 +330,7 @@ Du försökte ladda upp ett ritnings paket med en felaktig `udid` parameter.
 Om du vill åtgärda ett **invalidUserData** -fel kontrollerar du att:
 
 * Du har angett rätt `udid` för det överförda paketet.
-* Azure Maps Creator har Aktiver ATS för det Azure Maps-konto som du använde för att ladda upp ritnings paketet.
+* Azure Maps Creator (för hands version) har Aktiver ATS för det Azure Maps-konto som du använde för att ladda upp ritnings paketet.
 * API-begäran till konverterings tjänsten innehåller prenumerations nyckeln till det Azure Maps konto som du använde för att ladda upp ritnings paketet.
 
 ### <a name="dwgerror"></a>**dwgError**
@@ -392,7 +392,7 @@ Kontrol lera att manifestet innehåller alla obligatoriska egenskaper för att �
 
 Om du vill åtgärda ett **missingManifest** -fel bekräftar du att arkivet har en fil med namnet _manifest.jspå_ rot nivån i zip-arkivet.
 
-### <a name="conflict"></a>**uppstod**
+### <a name="conflict"></a>**konflikt**
 
 #### <a name="description-for-conflict"></a>*Beskrivning av konflikt*
 
@@ -506,4 +506,4 @@ Om du vill åtgärda ett **verticalPenetrationError** -fel kan du läsa om hur d
 > [Använda Azure Maps ritnings fel visualiserare](drawing-error-visualizer.md)
 
 > [!div class="nextstepaction"]
-> [Skapare för från koppling till inomhus](creator-indoor-maps.md)
+> [Skapare (för hands version) för från koppling till inomhus](creator-indoor-maps.md)

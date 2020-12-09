@@ -4,18 +4,18 @@ description: Beskriver hur du använder Azure Resource Manager för distribution
 ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperfq1
-ms.openlocfilehash: f78b6015846253d79020752522c10af96839a854
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 317d7cae9c0febcc99831b20525b9d9d2cc96651
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91372280"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903198"
 ---
 # <a name="what-is-azure-resource-manager"></a>Vad är Azure Resource Manager?
 
 Azure Resource Manager är Azures tjänst för distribution och hantering. Den ger dig ett hanteringslager där du kan skapa, uppdatera och ta bort resurser i ditt Azure-konto. Du kan använda hanteringsfunktioner som åtkomstkontroll, lås och taggar till att skydda och organisera dina resurser efter distributionen.
 
-Mer information om Azure Resource Manager mallar finns [malldistribution översikt](../templates/overview.md).
+Mer information om Azure Resource Manager mallar (ARM-mallar) finns i [Översikt över mall-distribution](../templates/overview.md).
 
 ## <a name="consistent-management-layer"></a>Enhetligt hanteringslager
 
@@ -39,7 +39,7 @@ Om du inte har arbetat med Azure Resource Manager tidigare finns det några term
 
 ## <a name="the-benefits-of-using-resource-manager"></a>Fördelarna med att använda Resource Manager
 
-Med Resource Manager kan du:
+Med Resource Manager kan du göra följande:
 
 * Hantera din infrastruktur via deklarativa mallar i stället för skript.
 
@@ -95,7 +95,7 @@ Det finns några viktiga faktorer att tänka på när du definierar en resursgru
 
 * Vissa resurser kan finnas utanför en resurs grupp. Dessa resurser distribueras till [prenumerationen](../templates/deploy-to-subscription.md), [hanterings gruppen](../templates/deploy-to-management-group.md)eller [klient organisationen](../templates/deploy-to-tenant.md). Endast vissa resurs typer stöds i dessa omfång.
 
-* Om du vill skapa en resurs grupp kan du använda [portalen](manage-resource-groups-portal.md#create-resource-groups), [POWERSHELL](manage-resource-groups-powershell.md#create-resource-groups), [Azure CLI](manage-resource-groups-cli.md#create-resource-groups)eller en [Azure Resource Manager-mall (arm)](../templates/deploy-to-subscription.md#resource-groups).
+* Om du vill skapa en resurs grupp kan du använda [portalen](manage-resource-groups-portal.md#create-resource-groups), [POWERSHELL](manage-resource-groups-powershell.md#create-resource-groups), [Azure CLI](manage-resource-groups-cli.md#create-resource-groups)eller en [arm-mall](../templates/deploy-to-subscription.md#resource-groups).
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Azure Resource Managers återhämtning
 

@@ -3,12 +3,12 @@ title: Azure Relay Hybridanslutningar protokoll guide | Microsoft Docs
 description: I den här artikeln beskrivs interaktionen på klient sidan med Hybridanslutningar relä för att ansluta klienterna i lyssnings-och avsändarens roller.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 893092124961ffa9df2535ca6de75def2930b797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a812aa401077b81934d89ada99cf1dc312d8dbc
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531453"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862334"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure Relay Hybridanslutningar protokoll
 
@@ -138,7 +138,7 @@ Parameter alternativen för frågesträng är följande.
 | `sb-hc-action`   | Ja      | Parametern måste vara **SB-HC-Action = avlyssna** för Listener-rollen
 | `{path}`         | Ja      | Den URL-kodade namn områdets sökväg för den förkonfigurerade hybrid anslutningen för att registrera lyssnaren på. Det här uttrycket läggs till i den fasta `$hc/` Sök vägs delen.
 | `sb-hc-token`    | Ja\*    | Lyssnaren måste ange en giltig URL-kodad Service Bus-token för delad åtkomst för namn området eller hybrid anslutningen som ger **lyssnings** rättigheten.
-| `sb-hc-id`       | Inga       | Det här tillhandahållna valfria ID: t för klienten möjliggör diagnostisk spårning från slut punkt till slut punkt.
+| `sb-hc-id`       | Nej       | Det här tillhandahållna valfria ID: t för klienten möjliggör diagnostisk spårning från slut punkt till slut punkt.
 
 Om WebSocket-anslutningen Miss lyckas på grund av att hybrid anslutnings Sök vägen inte är registrerad, eller om en token är ogiltig eller saknas, eller om något annat fel inträffar, så anges fel återkopplings modellen med vanlig HTTP 1,1-status feedback. Status beskrivningen innehåller ett fel spårnings-ID som kan förmedlas till support personal för Azure:
 
@@ -197,7 +197,7 @@ URL: en måste användas för att upprätta en socket för godkännande, men inn
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | Ja      | För att acceptera en socket måste parametern vara `sb-hc-action=accept`
 | `{path}`       | Ja      | (se följande stycke)
-| `sb-hc-id`     | Inga       | Se tidigare beskrivning av **ID**.
+| `sb-hc-id`     | Nej       | Se tidigare beskrivning av **ID**.
 
 `{path}` är sökvägen till URL-kodad namnrymd för den förkonfigurerade hybrid anslutning som den här lyssnaren ska registreras på. Det här uttrycket läggs till i den fasta `$hc/` Sök vägs delen.
 
@@ -414,7 +414,7 @@ Avsändar protokollet är på ett effektivt sätt identiskt med hur en lyssnare 
 Målet är maximal genomskinlighet för slutpunkt-till-slutpunkt-WebSocket. Adressen som ska anslutas till är samma som för lyssnaren, men "åtgärden" skiljer sig åt och token behöver en annan behörighet:
 
 ```
-wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...
+wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sb-hc-token=...
 ```
 
 _Namn områdets adress_ är det fullständigt kvalificerade domän namnet för Azure Relay namn området som är värd för Hybrid anslutningen, vanligt vis av formuläret `{myname}.servicebus.windows.net` .
@@ -428,12 +428,12 @@ Parameter alternativen för frågesträngen är följande:
 | `sb-hc-action` | Ja       | Parametern måste vara för avsändarens roll `sb-hc-action=connect` .
 | `{path}`       | Ja       | (se följande stycke)
 | `sb-hc-token`  | Ja\*     | Lyssnaren måste ange en giltig URL-kodad Service Bus delad åtkomsttoken för namn området eller hybrid anslutningen som ger **send** -rättigheten.
-| `sb-hc-id`     | Inga        | Ett valfritt ID som möjliggör diagnostisk spårning från slut punkt till slut punkt och görs tillgängligt för lyssnaren under godkännande hand skakningen.
+| `sb-hc-id`     | Nej        | Ett valfritt ID som möjliggör diagnostisk spårning från slut punkt till slut punkt och görs tillgängligt för lyssnaren under godkännande hand skakningen.
 
  `{path}`Är sökvägen till URL-kodad namnrymd för den förkonfigurerade hybrid anslutning som den här lyssnaren ska registreras på. `path`Uttrycket kan utökas med ett suffix och ett frågeuttryck för att kommunicera vidare. Om hybrid anslutningen är registrerad under sökvägen `hyco` `path` kan uttrycket `hyco/suffix?param=value&...` följas av de parametrar för frågesträng som definierats här. Ett fullständigt uttryck kan sedan vara följande:
 
 ```
-wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...
+wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sb-hc-token=...
 ```
 
 `path`Uttrycket skickas till lyssnaren i adress-URI: n som finns i kontroll meddelandet "acceptera".
@@ -462,7 +462,7 @@ HTTP Request-protokollet tillåter godtyckliga HTTP-begäranden, förutom protok
 HTTP-begäranden anges i entitetens reguljära körnings adress utan den $hc infix som används för Hybrid anslutningar WebSocket-klienter.
 
 ```
-https://{namespace-address}/{path}?sbc-hc-token=...
+https://{namespace-address}/{path}?sb-hc-token=...
 ```
 
 _Namn områdets adress_ är det fullständigt kvalificerade domän namnet för Azure Relay namn området som är värd för Hybrid anslutningen, vanligt vis av formuläret `{myname}.servicebus.windows.net` .

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: af394b68a943f4c89358a719c155606c264b9dc4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: ce23119e568347fff2ad270cfea7f8b563cae529
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554510"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905000"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrera och skanna en Power BI klient (förhands granskning)
 
@@ -49,16 +49,12 @@ Om du vill konfigurera autentisering skapar du en säkerhets grupp och lägger t
 
 ## <a name="associate-the-security-group-with-the-tenant"></a>Associera säkerhets gruppen med klienten
 
-1. Logga in på [Power BI admin-portalen](https://app.powerbi.com/admin-portal/tenantSettings?allowServicePrincipalsUseReadAdminAPIsUI=1). Lägg till den här funktions flaggan i URI: en:  `allowServicePrincipalsUseReadAdminAPIsUI=1` . Den här flaggan aktiverar funktionen som gör att du kan associera din säkerhets grupp. Exempel:
-
-    ```http
-    https://app.powerbi.com/admin-portal/tenantSettings?allowServicePrincipalsUseReadAdminAPIsUI=1
-    ```
+1. Logga in på [Power BI admin-portalen](https://app.powerbi.com/admin-portal/tenantSettings).
 
     > [!Important]
     > Du måste vara Power BI administratör för att se sidan klient inställningar.
 
-1. Välj **Inställningar**  >  **för utvecklare Tillåt att tjänstens huvud namn använder skrivskyddade Power BI-API: er (för hands version)**.
+1. Välj **Inställningar**  >  **för utvecklare Tillåt att tjänstens huvud namn använder skrivskyddade Power BI administrations-API: er (för hands version)**.
 1. Välj **vissa säkerhets grupper**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Bild som visar hur du tillåter tjänstens huvud namn för att få skrivskyddade Power BI administrations-API-behörigheter":::

@@ -4,15 +4,15 @@ description: Överföra data med AzCopy och fil lagring. AzCopy är ett kommando
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a19cca515bafa1d06f93d71b4868011a7c922354
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 087af322240322e44e70a9b5279eb7d251e735be
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792845"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901872"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Överföra data med AzCopy och fillagring 
 
@@ -72,7 +72,7 @@ Du kan också ladda upp en fil med en jokertecken (*) var som helst i fil Sök v
 
 ### <a name="upload-a-directory"></a>Ladda upp en katalog
 
-I det här exemplet kopieras en katalog (och alla filer i katalogen) till en fil resurs. Resultatet är en katalog i fil resursen med samma namn.
+I det här exemplet kopieras en katalog (och alla filer i katalogen) till en filresurs. Resultatet är en katalog i filresursen med samma namn.
 
 |    |     |
 |--------|-----------|
@@ -184,7 +184,7 @@ Det här exemplet resulterar i en katalog med namnet `C:\myDirectory\myFileShare
 
 ### <a name="download-the-contents-of-a-directory"></a>Hämta innehållet i en katalog
 
-Du kan ladda ned innehållet i en katalog utan att kopiera den innehåller själva katalogen genom att använda jokertecknet (*).
+Du kan ladda ned innehållet i en katalog utan att kopiera själva katalogen med hjälp av jokertecknet (*).
 
 |    |     |
 |--------|-----------|
@@ -207,7 +207,7 @@ Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-path
 | **Syntax** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>' '<local-directory-path>'  --include-path <semicolon-separated-file-list>` |
 | **Exempel** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive` |
 
-I det här exemplet överför AzCopy `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` katalogen och `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/documents/myFile.txt` filen. Du måste inkludera `--recursive` alternativet för att överföra alla filer i `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` katalogen.
+I det här exemplet överför AzCopy `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` katalogen och `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/documents/myFile.txt` filen. Inkludera `--recursive` alternativet för att överföra alla filer i `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` katalogen.
 
 Du kan också utesluta filer med hjälp av `--exclude-path` alternativet. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
 
@@ -248,7 +248,7 @@ Det här avsnittet innehåller följande exempel:
 > * Kopiera en fil till ett annat lagrings konto
 > * Kopiera en katalog till ett annat lagrings konto
 > * Kopiera en fil resurs till ett annat lagrings konto
-> * Kopiera alla fil resurser, kataloger och filer till ett annat lagrings konto
+> * Kopiera alla filresurser, kataloger och filer till ett annat lagringskonto
 
 > [!TIP]
 > Du kan ändra kopierings åtgärden genom att använda valfria flaggor. Här är några exempel.
@@ -283,7 +283,7 @@ Det här avsnittet innehåller följande exempel:
 | **Syntax** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
 | **Exempel** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
-### <a name="copy-all-file-shares-directories-and-files-to-another-storage-account"></a>Kopiera alla fil resurser, kataloger och filer till ett annat lagrings konto
+### <a name="copy-all-file-shares-directories-and-files-to-another-storage-account"></a>Kopiera alla filresurser, kataloger och filer till ett annat lagringskonto
 
 |    |     |
 |--------|-----------|
@@ -292,14 +292,14 @@ Det här avsnittet innehåller följande exempel:
 
 ## <a name="synchronize-files"></a>Synkronisera filer
 
-Du kan synkronisera innehållet i en fil resurs med en annan fil resurs. Du kan också synkronisera innehållet i en katalog i en fil resurs med innehållet i en katalog som finns i en annan fil resurs. Synkroniseringen är enkelriktad. Med andra ord kan du välja vilken av dessa två slut punkter som är källan och vilken som är målet. Synkronisering använder också server-till-Server-API: er.
+Du kan synkronisera innehållet i en fil resurs med en annan fil resurs. Du kan också synkronisera innehållet i en katalog i en fil resurs med innehållet i en katalog som finns i en annan fil resurs. Synkronisering är ett sätt. Med andra ord kan du välja vilken av dessa två slut punkter som är källan och vilken som är målet. Synkronisering använder också server-till-Server-API: er.
 
 > [!NOTE]
 > För närvarande stöds det här scenariot endast för konton som inte har ett hierarkiskt namn område. Den aktuella versionen av AzCopy synkroniseras inte mellan Azure Files och Blob Storage.
 
 Kommandot [Sync](storage-ref-azcopy-sync.md) jämför fil namn och senaste ändrade tidsstämplar. Ange `--delete-destination` värdet för valfri flagga `true` eller `prompt` ta bort filer i mål katalogen om filerna inte längre finns i käll katalogen.
 
-Om du ställer in `--delete-destination` flaggan på `true` AzCopy tar bort filer utan att ange någon prompt. Om du vill att en prompt ska visas innan AzCopy tar bort en fil, ställer du in `--delete-destination` flaggan på `prompt` .
+Om du ställer in `--delete-destination` flaggan på `true` , tar AzCopy bort filer utan att ange någon prompt. Om du vill att en prompt ska visas innan AzCopy tar bort en fil, ställer du in `--delete-destination` flaggan på `prompt` .
 
 > [!TIP]
 > Du kan anpassa din synkronisering genom att använda valfria flaggor. Här är några exempel.
@@ -348,8 +348,6 @@ Hitta fler exempel i någon av följande artiklar:
 
 - [Kom igång med AzCopy](storage-use-azcopy-v10.md)
 
-- [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
-
-- [Överföra data med AzCopy och Amazon S3-buckets](storage-use-azcopy-s3.md)
+- [Överföra data](storage-use-azcopy-v10.md#transfer-data)
 
 - [Konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)

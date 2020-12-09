@@ -1,18 +1,18 @@
 ---
 title: Definiera flera instanser av ett utdata-värde
-description: Använd kopierings åtgärden i en Azure Resource Manager-mall för att iterera flera gånger när du returnerar ett värde från en distribution.
+description: Använd kopierings åtgärden i en Azure Resource Manager-mall (ARM-mall) om du vill iterera flera gånger när du returnerar ett värde från en distribution.
 ms.topic: conceptual
 ms.date: 04/17/2020
-ms.openlocfilehash: 50c4b4b8f301ad88d3dfde98ace1aed4431693db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ae20ed9ec3fdb3b76adbd370f5ba22f9386d613
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82583423"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905952"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Utdata iteration i ARM-mallar
 
-Den här artikeln visar hur du skapar fler än ett värde för utdata i din Azure Resource Manager-mall (ARM). Genom att lägga till elementet **Kopiera** i avsnittet utdata i mallen kan du dynamiskt returnera ett antal objekt under distributionen.
+Den här artikeln visar hur du skapar fler än ett värde för utdata i din Azure Resource Manager-mall (ARM-mall). Genom att lägga till `copy` elementet i avsnittet utdata i mallen kan du returnera ett antal objekt dynamiskt under distributionen.
 
 Du kan också använda kopiera med [resurser](copy-resources.md), [Egenskaper i en resurs](copy-properties.md)och [variabler](copy-variables.md).
 
@@ -27,9 +27,9 @@ Kopierings elementet har följande allmänna format:
 }
 ```
 
-Egenskapen **Count** anger antalet iterationer som du vill använda för utmatning svärdet.
+`count`Egenskapen anger antalet iterationer som du vill använda för utmatning svärdet.
 
-Egenskapen **indatamängd** anger de egenskaper som du vill upprepa. Du skapar en matris med element som skapats från värdet i egenskapen **indatamängd** . Det kan vara en enskild egenskap (till exempel en sträng) eller ett objekt med flera egenskaper.
+`input`Egenskapen anger de egenskaper som du vill upprepa. Du skapar en matris med element som skapats från värdet i `input` egenskapen. Det kan vara en enskild egenskap (till exempel en sträng) eller ett objekt med flera egenskaper.
 
 ## <a name="copy-limits"></a>Kopierings gränser
 
@@ -171,6 +171,5 @@ Föregående exempel returnerar en matris med följande värden:
   * [Resurs upprepning i ARM-mallar](copy-resources.md)
   * [Egenskaps upprepning i ARM-mallar](copy-properties.md)
   * [Variabel iteration i ARM-mallar](copy-variables.md)
-* Om du vill lära dig mer om avsnitten i en mall, se [Redigera arm-mallar](template-syntax.md).
-* Information om hur du distribuerar din mall finns i [distribuera ett program med arm-mall](deploy-powershell.md).
-
+* Om du vill lära dig mer om avsnitten i en mall, se [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
+* Information om hur du distribuerar din mall finns i [distribuera resurser med ARM-mallar och Azure PowerShell](deploy-powershell.md).

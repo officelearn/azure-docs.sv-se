@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 96e6b7a672e2967403626cb9ba7db87fc4dd795c
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 0da970724a5d6f0ad42ba64939f316ec1ada855b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980209"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905561"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Använd privata slut punkter för Azure Storage
 
@@ -125,10 +125,6 @@ Pris information finns i [priser för privata Azure-länkar](https://azure.micro
 ## <a name="known-issues"></a>Kända problem
 
 Tänk på följande kända problem med privata slut punkter för Azure Storage.
-
-### <a name="copy-blob-support"></a>Kopiera BLOB-stöd
-
-Om lagrings kontot skyddas av en brand vägg och kontot nås via privata slut punkter, kan det kontot inte fungera som källa för en [kopierings-BLOB](/rest/api/storageservices/copy-blob) -åtgärd.
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Begränsningar för lagrings åtkomst för klienter i virtuella nätverk med privata slut punkter
 

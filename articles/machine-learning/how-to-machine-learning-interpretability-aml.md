@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ce068f1b43fcd6611d4abf65029cbcc5de3b7d30
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c9ee57baf63867e4dca4236d484321586cfb3b17
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311601"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862351"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Använd tolknings paketet till att förklara ML-modeller & förutsägelser i python (för hands version)
 
@@ -42,12 +42,12 @@ Mer information om vilka tolknings tekniker och maskin inlärnings modeller som 
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Generera funktions prioritets värde på din personliga dator 
 I följande exempel visas hur du använder tolknings paketet på din personliga dator utan att kontakta Azure-tjänster.
 
-1. Installera `azureml-interpret`-paketet.
+1. Installera paketet `azureml-interpret`.
     ```bash
     pip install azureml-interpret
     ```
 
-2. Träna en exempel modell i en lokal Jupyter-anteckningsbok.
+2. Träna en exempel modell i en lokal Jupyter Notebook.
 
     ```python
     # load breast cancer dataset, a well-known small dataset that comes with scikit-learn
@@ -238,11 +238,11 @@ I följande exempel visas hur du kan använda- `ExplanationClient` klassen för 
 * Använd `ExplanationClient` i fjärrkörning för att överföra tolknings kontexten.
 * Ladda ned kontexten senare i en lokal miljö.
 
-1. Installera `azureml-interpret`-paketet.
+1. Installera paketet `azureml-interpret`.
     ```bash
     pip install azureml-interpret
     ```
-1. Skapa ett utbildnings skript i en lokal Jupyter-anteckningsbok. Exempelvis `train_explain.py`.
+1. Skapa ett utbildnings skript i en lokal Jupyter Notebook. Exempelvis `train_explain.py`.
 
     ```python
     from azureml.interpret import ExplanationClient
@@ -275,7 +275,7 @@ I följande exempel visas hur du kan använda- `ExplanationClient` klassen för 
 
 1. Konfigurera en Azure Machine Learning Compute som ditt beräknings mål och skicka din utbildnings körning. Instruktioner finns i [skapa och hantera Azure Machine Learning beräknings kluster](how-to-create-attach-compute-cluster.md) . Du kan också hitta [exempel på bärbara datorer](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) .
 
-1. Hämta förklaringen i den lokala Jupyter-anteckningsboken.
+1. Hämta förklaringen i din lokala Jupyter Notebook.
 
     ```python
     from azureml.interpret import ExplanationClient
@@ -296,7 +296,7 @@ I följande exempel visas hur du kan använda- `ExplanationClient` klassen för 
 
 ## <a name="visualizations"></a>Visualiseringar
 
-När du har laddat ned förklaringarna i din lokala Jupyter-anteckningsbok kan du använda visualiserings instrument panelen för att förstå och tolka din modell.
+När du har laddat ned förklaringarna i din lokala Jupyter Notebook kan du använda visualiserings instrument panelen för att förstå och tolka din modell.
 
 ### <a name="understand-entire-model-behavior-global-explanation"></a>Förstå hela modell beteendet (global förklaring) 
 

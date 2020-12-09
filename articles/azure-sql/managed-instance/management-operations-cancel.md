@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 092981f9d74a3f9f18c491ca6cee539a29e73c83
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 342491178d55dacbdc68e6c9042623d381dff898
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782509"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861552"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Avbryta hanterings åtgärder för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -61,7 +61,7 @@ Följ dessa steg om du vill avbryta hanterings åtgärder med hjälp av Azure Po
 
 1. Välj **Avbryt åtgärden** längst ned på sidan. 
 
-   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Välj rutan pågående åtgärd för att öppna sidan pågående åtgärd.":::
+   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Välj Avbryt om du vill avbryta åtgärden.":::
 
 1. Bekräfta att du vill avbryta åtgärden. 
 
@@ -116,13 +116,12 @@ Detaljerade kommando förklaringar finns i [AZ SQL mi op](/cli/azure/sql/mi/op).
 
 ## <a name="canceled-deployment-request"></a>Begäran om avbruten distribution
 
-Med API version 2020-02-02, så snart som begäran om att skapa instans godkänns, börjar instansen finnas som en resurs, oavsett förloppet för distributions processen (status för hanterade instanser är **etablering** ). Om du avbryter instans distributions förfrågan (ny instans skapas), kommer den hanterade instansen att gå från **etablerings** statusen till **FailedToCreate** .
+Med API version 2020-02-02, så snart som begäran om att skapa instans godkänns, börjar instansen finnas som en resurs, oavsett förloppet för distributions processen (status för hanterade instanser är **etablering**). Om du avbryter instans distributions förfrågan (ny instans skapas), kommer den hanterade instansen att gå från **etablerings** statusen till **FailedToCreate**.
 
 Instanser som inte kunde skapas finns fortfarande som en resurs och: 
 
 - Debiteras inte
 - Räkna inte mot resurs gränser (undernät eller vCore-kvot)
-- Behåll instans namnet reserverat – om du vill distribuera en instans med samma namn tar du bort den misslyckade instansen för att frigöra namnet
 
 
 > [!NOTE]

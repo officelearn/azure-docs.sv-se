@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
-ms.openlocfilehash: a9726e41a84926d00d48b51e31f534a3d8c2fe0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 479c7c455f07d098edd327196803e85df24dfb6d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72757147"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905169"
 ---
-# <a name="create-human-reviews-rest"></a>Skapa mänsklig granskningar (REST)
+# <a name="create-human-reviews-api-console"></a>Skapa mänsklig granskningar (API-konsol)
 
 [Granskar](./review-api.md#reviews) lagring och visning av innehåll för de mänskliga moderatorerna att utvärdera. När en användare slutför en granskning skickas resultatet till en angiven slut punkt för motringning. I den här guiden får du lära dig hur du ställer in granskningar med hjälp av API-konsolen för att granska REST-API: er. När du förstår API: ernas struktur kan du enkelt Porta dessa anrop till alla REST-kompatibla plattformar.
 
@@ -33,7 +33,7 @@ Om du vill skapa en granskning går du till sidan **[Granska – skapa API-](htt
 
 ### <a name="enter-rest-call-parameters"></a>Ange REST-anrops parametrar
 
-Ange värden för **teamName**och **OCP-APIM-Subscription-Key**:
+Ange värden för **teamName** och **OCP-APIM-Subscription-Key**:
 
 - **teamName**: det team-ID som du skapade när du konfigurerade kontot för [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) (finns i fältet **ID** på skärmens inloggnings uppgifter).
 - **OCP-APIM-Subscription-Key**: din Content moderator-nyckel. Du hittar detta på fliken **Inställningar** i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com).

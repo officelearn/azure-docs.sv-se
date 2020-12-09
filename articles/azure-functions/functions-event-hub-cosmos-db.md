@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: aa9e7612a5b3b9655b0c1981fbba87645526b3a2
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 20792d58ab259f93d7725fbafda1507f9eddc740
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327210"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862164"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Självstudie: skapa en funktion i Java med en Event Hub-utlösare och en Azure Cosmos DB utgående bindning
 
@@ -26,21 +26,18 @@ I den här självstudien får du:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien måste du ha följande installerat:
 
-* [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8
-* [Apache Maven](https://maven.apache.org), version 3.0 eller senare
-* [Azure CLI](/cli/azure/install-azure-cli) om du inte vill använda Cloud Shell
-* [Azure Functions Core tools](https://www.npmjs.com/package/azure-functions-core-tools) version 2.6.666 eller senare
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8
+- [Apache Maven](https://maven.apache.org), version 3.0 eller senare
+- [Azure Functions Core tools](https://www.npmjs.com/package/azure-functions-core-tools) version 2.6.666 eller senare [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 > [!IMPORTANT]
 > `JAVA_HOME`Miljövariabeln måste anges till installations platsen för JDK för att slutföra den här självstudien.
 
 Om du föredrar att använda koden för den här självstudien direkt, se exempel lagrings platsen för [Java-Functions-eventhub-cosmosdb](https://github.com/Azure-Samples/java-functions-eventhub-cosmosdb) .
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-azure-resources"></a>Skapa Azure-resurser
 
@@ -53,17 +50,13 @@ I den här självstudien behöver du följande resurser:
 
 I följande avsnitt visas hur du skapar de här resurserna med hjälp av Azure CLI.
 
-### <a name="log-in-to-azure"></a>Logga in på Azure
-
-Om du inte använder Cloud Shell måste du använda Azure CLI lokalt för att komma åt ditt konto. Använd `az login` kommandot från bash-prompten för att starta den webbläsarbaserade inloggnings upplevelsen. Om du har åtkomst till fler än en Azure-prenumeration anger du standardvärdet `az account set --subscription` följt av prenumerations-ID: t.
-
 ### <a name="set-environment-variables"></a>Ange miljövariabler
 
 Skapa sedan några miljövariabler för namn och plats för de resurser som du ska skapa. Använd följande kommandon och Ersätt `<value>` plats hållarna med värden som du väljer. Värdena bör följa [namngivnings reglerna och begränsningarna för Azure-resurser](/azure/architecture/best-practices/resource-naming). `LOCATION`Använd ett av värdena som skapas av kommandot för variabeln `az functionapp list-consumption-locations` .
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 RESOURCE_GROUP=<value>
 EVENT_HUB_NAMESPACE=<value>
 EVENT_HUB_NAME=<value>
@@ -350,7 +343,7 @@ Om du använde Cloud Shell för att skapa dina resurser kommer du inte att anslu
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 RESOURCE_GROUP=<value>
 FUNCTION_APP=<value>
 ```
@@ -370,7 +363,7 @@ Använd följande maven-kommando för att skapa ett Functions-projekt och lägga
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 mvn archetype:generate --batch-mode \
     -DarchetypeGroupId=com.microsoft.azure \
     -DarchetypeArtifactId=azure-functions-archetype \
@@ -406,7 +399,7 @@ För att undvika kompileringsfel måste du ta bort testfilerna. Kör följande k
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 cd telemetry-functions
 rm -r src/test
 ```
@@ -426,7 +419,7 @@ För lokal testning behöver ditt funktions projekt de anslutnings strängar som
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 func azure functionapp fetch-app-settings $FUNCTION_APP
 ```
 
@@ -584,7 +577,7 @@ Använd följande maven-kommandon för att skapa och köra funktionerna:
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 mvn clean package
 mvn azure-functions:run
 ```
@@ -623,7 +616,7 @@ Distribuera projektet till Azure med hjälp av följande kommando:
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 mvn azure-functions:deploy
 ```
 

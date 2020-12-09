@@ -1,6 +1,6 @@
 ---
-title: Begrepp för väder tjänster i Microsoft Azure Maps
-description: Lär dig mer om de begrepp som gäller för Microsoft Azure Maps väder tjänster.
+title: Väder tjänster (för hands version) begrepp i Microsoft Azure Maps
+description: Lär dig mer om de begrepp som gäller för Microsoft Azure Maps väder tjänster (för hands version).
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,20 +8,24 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ea8698b7bf402850e506ec126cd2a7bb6ce05823
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 657cb6a86122d267b86e82b6f02eb58e968cddd3
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896735"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904745"
 ---
-# <a name="weather-services-in-azure-maps"></a>Väder tjänster i Azure Maps
+# <a name="weather-services-preview-in-azure-maps"></a>Väder tjänster (för hands version) i Azure Maps
 
-Den här artikeln beskriver begrepp som gäller [Azure Maps väder tjänster](/rest/api/maps/weather). Vi rekommenderar att du går igenom den här artikeln innan du börjar med väder-API: erna.
+> [!IMPORTANT]
+> Azure Maps väder tjänster finns för närvarande i offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+I den här artikeln beskrivs begrepp som gäller för Azure Maps [väder tjänster](/rest/api/maps/weather). Vi rekommenderar att du går igenom den här artikeln innan du börjar med väder-API: erna.
 
 ## <a name="unit-types"></a>Enhets typer
 
-Vissa av API: erna för väder tjänster låter användaren ange om data returneras antingen i mått eller i Imperial enheter. De svar som returneras för dessa API: er är unitType och ett numeriskt värde som kan användas för enhets översättningar. Se tabellen nedan för att tolka dessa värden.
+Vissa av API: erna för väder tjänsten (för hands version) låter användaren ange om data returneras antingen i mått eller i Imperial enheter. De svar som returneras för dessa API: er är unitType och ett numeriskt värde som kan användas för enhets översättningar. Se tabellen nedan för att tolka dessa värden.
 
 |unitType|Beskrivning         |
 |--------|--------------------|
@@ -52,7 +56,7 @@ Vissa av API: erna för väder tjänster låter användaren ange om data returne
 
 ## <a name="weather-icons"></a>Väder ikoner
 
-Några av API: erna för väder tjänster returnerar `iconCode` i svaret. `iconCode`Är ett numeriskt värde som används för att definiera ikonen. Länka inte direkt till de här bilderna från dina program, webb adresserna kan och ändras.
+Några av väderleks-API: erna returnerar `iconCode` i svaret. `iconCode`Är ett numeriskt värde som används för att definiera ikonen. Länka inte direkt till de här bilderna från dina program, webb adresserna kan och ändras.
 
 | Ikon nummer |Ikon| Dag | Natten | Text |
 |-------------|:----:|-----|-------|------|
@@ -84,7 +88,7 @@ Några av API: erna för väder tjänster returnerar `iconCode` i svaret. `iconC
 | 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Ja |  Ja   | Frekvent|
 | 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | Ja |  Ja   | Kall|
 | 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | Ja |  Ja   | Lindning|
-| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | Nej  |  Ja   | Clear|
+| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | Nej  |  Ja   | Rensa|
 | 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | Nej  |  Ja   | Oftast rensa|
 | 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | Nej  |  Ja   | Delvis Molnt|
 | 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | Nej  |  Ja   | Tillfälligt moln|

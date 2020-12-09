@@ -4,12 +4,12 @@ description: Ser du inte data i Azure Application Insights? Prova här.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: c3f0350152ece32829291012d583be87a90227cf
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 26ba586715c7b76ff8972c6574c3c29b837713a1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748948"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904473"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Fel sökning av inga data Application Insights för .NET/.NET Core
 
@@ -39,6 +39,10 @@ ms.locfileid: "96748948"
 
 * Se [fel sökning statusövervakare](./monitor-performance-live-website-now.md#troubleshoot).
 
+> [!IMPORTANT]
+> Nya Azure-regioner **kräver** att anslutnings strängar används i stället för instrument knappar. [Anslutnings strängen](./sdk-connection-string.md?tabs=net) identifierar den resurs som du vill associera dina telemetridata med. Du kan också ändra de slut punkter som resursen kommer att använda som mål för din telemetri. Du måste kopiera anslutnings strängen och lägga till den i programmets kod eller till en miljö variabel.
+
+
 ## <a name="filenotfoundexception-could-not-load-file-or-assembly-microsoftaspnet-telemetrycorrelation"></a>FileNotFoundException: det gick inte att läsa in filen eller sammansättningen "Microsoft. ASPNET TelemetryCorrelation
 
 Mer information om det här felet finns i [GitHub Issue 1610] ( https://github.com/microsoft/ApplicationInsights-dotnet/issues/1610) .
@@ -64,7 +68,7 @@ När du uppgraderar från SDK: er som är äldre än (2,4) måste du se till att
     </TelemetryModules>
     ```
 
-*Om det inte **går att uppgradera korrekt kan det leda till oväntade undantag eller telemetri som inte samlas in.** _
+*Om det inte *_går att uppgradera korrekt kan det leda till oväntade undantag eller telemetri som inte samlas in._* _
 
 
 ## <a name="no-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>Alternativet Lägg till Application Insights i Visual Studio

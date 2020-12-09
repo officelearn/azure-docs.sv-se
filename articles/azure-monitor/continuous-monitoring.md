@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: e41fa9f9918f4f17bd89e80610ae608e83eb3402
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 1892afde42ccbcf1c28b7d6a757875772ee3ac5d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996401"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905612"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Kontinuerlig övervakning med Azure Monitor
 
@@ -28,7 +28,7 @@ För att få till gång till hela din miljö måste du aktivera övervakning av 
 - [Azure DevOps Projects](../devops-project/overview.md) ge dig en förenklad upplevelse med din befintliga kod och git-lagringsplats, eller Välj från ett av exempel programmen för att skapa en pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD) till Azure.
 - [Med kontinuerlig övervakning i din DevOps release-pipeline](./app/continuous-monitoring.md) kan du Gate eller återställa distributionen baserat på övervaknings data.
 - Med [statusövervakare](./app/monitor-performance-live-website-now.md) kan du instrumentera en Live .net-app i Windows med Azure Application Insights utan att behöva ändra eller distribuera om koden.
-- Om du har åtkomst till koden för ditt program kan du Aktivera fullständig övervakning med [Application Insights](./app/app-insights-overview.md) genom att installera Azure Monitor Application Insights SDK för [.net](./learn/quick-monitor-portal.md), [Java](./app/java-get-started.md), [Node.js](./learn/nodejs-quick-start.md)eller [något annat programmeringsspråk](./app/platforms.md). På så sätt kan du ange anpassade händelser, mått eller sid visningar som är relevanta för ditt program och ditt företag.
+- Om du har åtkomst till koden för ditt program kan du Aktivera fullständig övervakning med [Application Insights](./app/app-insights-overview.md) genom att installera Azure Monitor Application Insights SDK för [.net](./app/asp-net.md), [.net Core](./app/asp-net-core.md), [Java](./app/java-get-started.md), [Node.js](./learn/nodejs-quick-start.md)eller [något annat programmeringsspråk](./app/platforms.md). På så sätt kan du ange anpassade händelser, mått eller sid visningar som är relevanta för ditt program och ditt företag.
 
 
 

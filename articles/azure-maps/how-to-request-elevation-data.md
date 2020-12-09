@@ -1,24 +1,28 @@
 ---
-title: Begär höjnings data med Azure Maps höjnings tjänsten
-description: Lär dig hur du begär höjnings data med hjälp av Azure Maps höjnings tjänsten.
+title: Begär höjnings data med hjälp av Azure Maps höjnings tjänsten (för hands version)
+description: Lär dig hur du begär höjnings data med hjälp av Azure Maps-höjnings tjänsten (för hands version).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/02/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9937d72b44eb33df8027eddb9a9f500a372c9037
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: af3653d9e4509b1aa31a377dfc22cb6b6b2ff34e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554267"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906071"
 ---
-# <a name="request-elevation-data-using-the-azure-maps-elevation-service"></a>Begär höjnings data med Azure Maps höjnings tjänsten
+# <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Begär höjnings data med hjälp av Azure Maps höjnings tjänsten (för hands version)
 
-Tjänsten Azure Maps [höjning](https://docs.microsoft.com/rest/api/maps/elevation) innehåller API: er för att fråga höjnings data för platser på jorden. Du kan begära exempel på höjnings data längs sökvägar, inom en definierad avgränsnings ruta eller vid vissa koordinater. Du kan också använda [rendera v2 – Hämta API för kart panel](https://docs.microsoft.com/rest/api/maps/renderv2) för att hämta höjnings data i panel format. Panelerna levereras i GeoTIFF raster-format. Den här artikeln visar hur du använder Azure Maps-höjnings tjänsten och API: t för att hämta kart panel för att begära utökade data. Det går att begära höjnings data i både formaten interjson och GeoTiff.
+> [!IMPORTANT]
+> Tjänsten Azure Maps höjning är för närvarande en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Tjänsten Azure Maps [höjning](https://docs.microsoft.com/rest/api/maps/elevation) innehåller API: er för att fråga höjnings data var som helst på jordens yta. Du kan begära exempel på höjnings data längs sökvägar, inom en definierad avgränsnings ruta eller vid vissa koordinater. Du kan också använda [rendera v2 – Hämta API för kart panel](https://docs.microsoft.com/rest/api/maps/renderv2) för att hämta höjnings data i panel format. Panelerna levereras i GeoTIFF raster-format. Den här artikeln visar hur du använder Azure Maps-höjnings tjänsten och API: t för att hämta kart panel för att begära utökade data. Det går att begära höjnings data i både formaten interjson och GeoTiff.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -50,7 +54,7 @@ Om du vill begära höjnings data i raster panels format använder du [kart pane
 
 ## <a name="request-elevation-data-in-geojson-format"></a>Begär höjnings data i interjson-format
 
-Använd API: erna för utökade privilegier för att begära höjnings data i det interjson-formatet. I det här avsnittet visas var och en av de tre API: erna:
+Använd API: erna för upphöjnings tjänsten (för hands version) för att begära höjnings data i det interjson-formatet. I det här avsnittet visas var och en av de tre API: erna:
 
 * [Hämta data för punkter](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
 * [Publicera data för Poäng](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates)
@@ -443,7 +447,7 @@ I det här exemplet ska vi ange rader = 3 och kolumnerna = 6. 18 höjnings värd
     }
     ```
 
-## <a name="samples-use-elevation-service-apis-in-azure-maps-control"></a>Exempel: Använd API: er för utökade tjänster i Azure Maps kontroll
+## <a name="samples-use-elevation-service-preview-apis-in-azure-maps-control"></a>Exempel: Använd API: er för utöknings tjänsten (för hands version) i Azure Maps kontroll
 
 ### <a name="get-elevation-data-by-coordinate-position"></a>Hämta höjnings data efter koordinat position
 
@@ -478,16 +482,16 @@ Se <a href='https://codepen.io/azuremaps/pen/7bee08e5cb13d05cb0a11636b60f14ca'>T
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill utforska Azure Maps utökade API: er ytterligare, se:
+För att ytterligare utforska API: erna för Azure Maps höjning (för hands version), se:
 
 > [!div class="nextstepaction"]
-> [Höjning – hämta data för lat-långa koordinater](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
+> [Höjning (för hands version) – Hämta data för lat-långa koordinater](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
 
 > [!div class="nextstepaction"]
-> [Höjning – hämta data för markerings ram](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
+> [Höjning (för hands version) – Hämta data för markerings ram](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
 
 > [!div class="nextstepaction"]
-> [Höjning – hämta data för polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
+> [Höjning (för hands version) – Hämta data för polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
 
 > [!div class="nextstepaction"]
 > [Rendera v2 – Hämta kart panel](https://docs.microsoft.com/rest/api/maps/renderv2)

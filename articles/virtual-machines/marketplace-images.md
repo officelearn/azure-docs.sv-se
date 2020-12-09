@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 07/07/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3de79e5cb3db2d0c52d13826900ec7160271edf9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a971f6e56f441ab05a6a9b483eeef990d3ea31f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86225288"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903759"
 ---
 # <a name="supply-azure-marketplace-purchase-plan-information-when-creating-images"></a>Ange information om inköps plan för Azure Marketplace när du skapar bilder
 
@@ -24,15 +24,13 @@ Mer information om hur du hittar och använder Marketplace-avbildningar finns i 
 
 
 ## <a name="get-the-source-vm-information"></a>Hämta information om den virtuella käll datorn
-Om du fortfarande har den ursprungliga virtuella datorn kan du hämta plan, utgivare och SKU-information från den med hjälp av Get-AzVM. I det här exemplet får du en virtuell dator med namnet *myVM* i resurs gruppen *myResourceGroup* och sedan visas information om inköps planen.
+Om du fortfarande har den ursprungliga virtuella datorn kan du hämta plan namn, utgivare och produkt information från den med hjälp av Get-AzVM. I det här exemplet får du en virtuell dator med namnet *myVM* i resurs gruppen *myResourceGroup* och sedan visas information om inköps planen för den virtuella datorn.
 
 ```azurepowershell-interactive
 $vm = Get-azvm `
    -ResourceGroupName myResourceGroup `
    -Name myVM
-$vm.Plan.Publisher
-$vm.Plan.Name
-$vm.Plan.Product
+$vm.Plan
 ```
 
 ## <a name="create-the-image-definition"></a>Skapa avbildnings definitionen

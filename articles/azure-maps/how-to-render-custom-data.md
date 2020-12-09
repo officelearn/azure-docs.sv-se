@@ -3,18 +3,18 @@ title: Återge anpassade data på en raster karta | Microsoft Azure Maps
 description: Lär dig hur du lägger till kartnålar, etiketter och geometriska former i en raster karta. Se hur du använder tjänsten för statisk avbildning i Azure Maps för detta ändamål.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/23/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 88afb380f1aabf0c91e9d5abb0430972743eb6c2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5c70835c11bafb3fd06645ba51099b33d1eb6149
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895757"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906088"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Återge anpassade data på en raster karta
 
@@ -25,7 +25,7 @@ Om du vill återge anpassade kartnålar, etiketter och geometri överlägg kan d
 > [!Tip]
 > Det är ofta mycket mer kostnads effektivt att använda Azure Maps Web SDK för att visa en enkel karta på en webb sida än att använda tjänsten för statisk avbildning. Webb-SDK: n använder kart paneler och om inte användaren Pans och zoomar in kartan så genererar de ofta bara en bråkdel av en transaktion per kart belastning. Observera att Azure Maps Web SDK har alternativ för att inaktivera panorering och zoomning. Dessutom tillhandahåller Azure Maps Web SDK en mer omfattande uppsättning data visualiserings alternativ än en statisk kart webb tjänst.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto
 
@@ -41,9 +41,9 @@ Azure Maps-kontots S0-nivå stöder endast en instans av `pins` parametern. Du k
 
 Slutför följande steg för att återge kartnålar med etiketter och en anpassad bild:
 
-1. Skapa en samling där förfrågningarna ska lagras. I Postman-appen väljer du **ny** . I fönstret **Skapa nytt** väljer du **samling** . Namnge samlingen och välj knappen **skapa** . 
+1. Skapa en samling där förfrågningarna ska lagras. I Postman-appen väljer du **ny**. I fönstret **Skapa nytt** väljer du **samling**. Namnge samlingen och välj knappen **skapa** . 
 
-2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran** . Ange ett **namn** på en begäran för kartnålarna. Välj den samling som du skapade i föregående steg som plats för att spara begäran. Välj sedan **Spara** .
+2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** på en begäran för kartnålarna. Välj den samling som du skapade i föregående steg som plats för att spara begäran. Välj sedan **Spara**.
     
     ![Skapa en begäran i Postman](./media/how-to-render-custom-data/postman-new.png)
 
@@ -223,4 +223,4 @@ På samma sätt kan du ändra, lägga till och ta bort andra format modifierare.
 
 
 * Utforska [Azure Maps Hämta avbildnings-API](/rest/api/maps/render/getmapimage) -dokumentation.
-* Mer information om Azure Maps data service finns i [tjänst dokumentationen](/rest/api/maps/data).
+* Mer information om Azure Maps data service (för hands version) finns i [tjänst dokumentationen](/rest/api/maps/data).

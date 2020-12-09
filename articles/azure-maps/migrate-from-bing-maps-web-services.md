@@ -3,18 +3,18 @@ title: 'Självstudie: Migrera webb tjänster från Bing Maps | Microsoft Azure M
 description: Själv studie kurs om hur du migrerar webb tjänster från Bing Maps till Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 9/10/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: c6e63f67aca279b64829e67e1aa06a69d312fd58
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d257c66de8fb62fb57c573d91966f3e7d8d1b123
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897032"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904966"
 ---
 # <a name="tutorial---migrate-web-service-from-bing-maps"></a>Självstudie – migrera webb tjänsten från Bing Maps
 
@@ -37,21 +37,21 @@ Följande tabell innehåller API: er för Azure Maps tjänsten som tillhandahål
 | Avstånds Data Services (SDS)           | [Sök](/rest/api/maps/search)  +  [Routning](/rest/api/maps/route) och andra Azure-tjänster |
 | Tidszon                             | [Tidszon](/rest/api/maps/timezone)  |
 | Trafik incidenter                     | [Information om trafik incident](/rest/api/maps/traffic/gettrafficincidentdetail)                     |
+| Höjning                             | [Höjning (förhands granskning)](/rest/api/maps/elevation)
 
 Följande tjänst-API: er är för närvarande inte tillgängliga i Azure Maps:
 
--   Höjning – planerad
 -   Optimerade res vägar – planerat. Azure Maps väg-API: et stöder rese optimering av säljprogram för ett enda fordon.
 -   Bilder metadata – används främst för att hämta panel-URL: er i Bing Maps. Azure Maps har en fristående tjänst för direkt åtkomst till kart paneler.
 
 Azure Maps har flera andra REST-webbtjänster som kan vara av intresse,
 
--   [Azure Maps skapare](./creator-indoor-maps.md) – skapa en anpassad privat Digital byggnad av byggnader och utrymmen.
+-   [Azure Maps Creator (för hands version) ](./creator-indoor-maps.md) – skapa en anpassad privat Digital byggnad av byggnader och utrymmen.
 -   [Spatialdata](/rest/api/maps/spatial) – avlastning av komplexa spatiala beräkningar och åtgärder, t. ex. polystaket, i en tjänst.
 -   [Kart paneler](/rest/api/maps/render/getmaptile) – åtkomst till väg-och bilder-paneler från Azure Maps som raster-och vektor paneler.
 -   [Batchbearbetning](/rest/api/maps/route/postroutedirectionsbatchpreview) – tillåter upp till 1 000 flödes begär Anden som görs i en enda batch under en viss tids period. Vägar beräknas parallellt på servern för snabbare bearbetning.
 -   [Trafik](/rest/api/maps/traffic) Flow – åtkomst till trafik flödes data i real tid som både raster och vektor paneler.
--   [API för geolokalisering](/rest/api/maps/geolocation/getiptolocationpreview) – hämta platsen för en IP-adress.
+-   [API för geolokalisering (för hands version)](/rest/api/maps/geolocation/getiptolocationpreview) – hämta platsen för en IP-adress.
 -   [Väder tjänster](/rest/api/maps/weather) – få till gång till väder data i real tid och prognoser.
 
 Se även följande guider för bästa praxis:
@@ -154,12 +154,12 @@ Följande tabell refererar till värdena för Bing Maps-enhets typen till motsva
 |-----------------------|-------------------------------------------------|--------------------------------------------|
 | `Address`             |                                                 | *Adress*                                  |
 | `Neighborhood`        | `Neighbourhood`                                 | *Stadsdel*                             |
-| `PopulatedPlace`      | `Municipality` eller `MunicipalitySubdivision`     | *Stad* , *stad eller sub* eller *Super City*     |
+| `PopulatedPlace`      | `Municipality` eller `MunicipalitySubdivision`     | *Stad*, *stad eller sub* eller *Super City*     |
 | `Postcode1`           | `PostalCodeArea`                                | *Post nummer* eller *post* nummer                |
 | `AdminDivision1`      | `CountrySubdivision`                            | *Region* *Province*                      |
 | `AdminDivision2`      | `CountrySecondarySubdivison`                    | *Län* eller *distrikt*                    |
 | `CountryRegion`       | `Country`                                       | *Lands namn*                             |
-|                       | `CountryTertiarySubdivision`                    | *Boroughs* , *cantons* , *communes*          |
+|                       | `CountryTertiarySubdivision`                    | *Boroughs*, *cantons*, *communes*          |
 
 ## <a name="get-location-suggestions-autosuggest"></a>Hämta förslag på platser (automatiska förslag)
 
@@ -186,7 +186,7 @@ Tjänsten Azure Maps routning innehåller följande API: er för att beräkna v�
 
 -   [Beräkna väg](/rest/api/maps/route/getroutedirections): beräkna en väg och behandla begäran omedelbart. Detta API stöder både GET-och POST-förfrågningar. POST-begäranden rekommenderas när du anger ett stort antal waypoints eller när du använder flera väg alternativ för att säkerställa att URL-begäran inte blir för lång och orsaka problem.
 -   [Batch-väg](/rest/api/maps/route/postroutedirectionsbatchpreview): skapa en begäran som innehåller upp till 1 000 cirkulations förfrågan och behandla dem under en viss tids period. Alla data kommer att bearbetas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned.
--   [Mobilitets tjänster](/rest/api/maps/mobility): beräkna vägar och vägbeskrivningar med hjälp av offentlig överföring.
+-   [Mobilitets tjänster (för hands version) ](/rest/api/maps/mobility): beräkna vägar och vägbeskrivning med hjälp av offentlig överföring.
 
 Följande tabell innehåller en kors referens till API-parametrarna Bing Maps med de jämförbara API-parametrarna i Azure Maps.
 
@@ -221,12 +221,12 @@ API för Azure Maps routning stöder också Truck-routning inom samma API. I fö
 | `vehicleLength` (`vl`)                   | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)               | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                 | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                 | **Saknas**                                    |
+| `vehicleTrailers` (`vt`)                 | **EJ TILLÄMPLIGT**                                    |
 | `vehicleSemi` (`semi`)                   | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)             | **Saknas**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)          | **Saknas**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)         | **Saknas**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)     | **Saknas**                                    |
+| `vehicleMaxGradient` (`vmg`)             | **EJ TILLÄMPLIGT**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)          | **EJ TILLÄMPLIGT**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)         | **EJ TILLÄMPLIGT**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)     | **EJ TILLÄMPLIGT**                                    |
 | `vehicleHazardousMaterials` (`vhm`)      | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)        | `vehicleLoadType`                          |
 
@@ -287,12 +287,12 @@ API: et för Azure Maps routning stöder också en väg för Truck i samma API f
 | `vehicleLength` (`vl`)                  | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)              | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                | **Saknas**                                    |
+| `vehicleTrailers` (`vt`)                | **EJ TILLÄMPLIGT**                                    |
 | `vehicleSemi` (`semi`)                  | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)            | **Saknas**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)         | **Saknas**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)        | **Saknas**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)    | **Saknas**                                    |
+| `vehicleMaxGradient` (`vmg`)            | **EJ TILLÄMPLIGT**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)         | **EJ TILLÄMPLIGT**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)        | **EJ TILLÄMPLIGT**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)    | **EJ TILLÄMPLIGT**                                    |
 | `vehicleHazardousMaterials` (`vhm`)     | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)       | `vehicleLoadType`                          |
 
@@ -528,7 +528,7 @@ Följande tabell innehåller en kors referens till API-parametrarna Bing Maps me
 Punkt för intressanta data kan sökas i Bing Maps med hjälp av följande API: er:
 
 -   **Lokal sökning:** Söker efter intressanta punkter i närheten (radiell sökning), efter namn eller enhets typ (kategori). Den Azure Maps [POI Sök](/rest/api/maps/search/getsearchpoi) -och [POI för kategori sökning](/rest/api/maps/search/getsearchpoicategory) är mest likt detta API.
--   **Plats igenkänning** : söker efter intressanta punkter som ligger inom ett visst avstånd från en plats. [Söknings](/rest/api/maps/search/getsearchnearby) -API: t i närheten Azure Maps i närheten liknar det här API: et.
+-   **Plats igenkänning**: söker efter intressanta punkter som ligger inom ett visst avstånd från en plats. [Söknings](/rest/api/maps/search/getsearchnearby) -API: t i närheten Azure Maps i närheten liknar det här API: et.
 -   **Lokala insikter:** Söker efter ansvars punkter som ligger inom den angivna maximala kör tiden eller avståndet från en specifik koordinat. Detta är möjligt med Azure Maps genom att först beräkna en isochrone och sedan skicka den till [sökningen i Geometry](/rest/api/maps/search/postsearchinsidegeometry) -API.
 
 Azure Maps tillhandahåller flera Sök-API: er för intressanta punkter:
@@ -614,7 +614,7 @@ Bing Maps gör det möjligt för upp till 200 000 adresser att skickas i en enda
 
 Azure Maps har en batch-tjänst för att skapa en grupp, men det tillåter att upp till 10 000 adresser skickas i en enskild begäran och bearbetas över några sekunder till några minuter beroende på storleken på data uppsättningen och belastningen på tjänsten. Varje adress i begäran genererade en transaktion. I Azure Maps är batch-tjänsten för att användas endast som S1-nivå.
 
-Ett annat alternativ för att ange ett stort antal adresser med Azure Maps är att göra parallella förfrågningar till standard Sök-API: erna. De här tjänsterna accepterar bara en enskild adress per begäran, men kan användas med S0-nivån som även ger kostnads fria användnings gränser. S0-nivån tillåter upp till 50 begär Anden per sekund till Azure Maps plattform från ett enda konto. Så om du bearbetar gräns thes för att hålla dig inom den gränsen, är det möjligt att hårdkoda upp till 180 000-adressen per timme. S1-nivån har ingen dokumenterad gräns för antalet frågor per sekund som kan göras från ett konto, så att mycket mer data kan bearbetas snabbare när du använder den pris nivån, men med hjälp av batch-tjänsten för att använda funktionen för att använda tjänster för att minska den totala mängden data som överförs drastiskt minskar nätverks trafiken.
+Ett annat alternativ för att ange ett stort antal adresser med Azure Maps är att göra parallella förfrågningar till standard Sök-API: erna. De här tjänsterna accepterar bara en enskild adress per begäran, men kan användas med S0-nivån som även ger kostnads fria användnings gränser. S0-nivån tillåter upp till 50 begär Anden per sekund till Azure Maps plattform från ett enda konto. Så om du bearbetar begränsa dessa så att de ligger inom den gränsen, är det möjligt att hårdkoda upp till 180 000-adressen per timme. S1-nivån har ingen dokumenterad gräns för antalet frågor per sekund som kan göras från ett konto, så att mycket mer data kan bearbetas snabbare när du använder den pris nivån, men med hjälp av batch-tjänsten för att använda funktionen för att använda tjänster för att minska den totala mängden data som överförs drastiskt minskar nätverks trafiken.
 
 -   [Kod för fri Forms adress](/rest/api/maps/search/getsearchaddress): Ange en enskild adress sträng (som `"1 Microsoft way, Redmond, WA"` ) och bearbeta begäran omedelbart. Den här tjänsten rekommenderas om du snabbt behöver koda enskilda adresser.
 -   [Kodning av strukturerad adress](/rest/api/maps/search/getsearchaddressstructured): Ange delar av en enskild adress, till exempel gatu namn, stad, land och post nummer och bearbeta begäran omedelbart. Den här tjänsten rekommenderas om du snabbt behöver koda enskilda adresser och data redan har tolkats i sina enskilda adress delar.

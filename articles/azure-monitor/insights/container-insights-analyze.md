@@ -3,12 +3,12 @@ title: Kubernetes-övervakning med Azure Monitor för behållare | Microsoft Doc
 description: Den här artikeln beskriver hur du kan visa och analysera prestanda för ett Kubernetes-kluster med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a1f661089b3a6357abb3eed584401e6a8ae2e2fb
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011089"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905714"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Övervaka prestanda för Kubernetes-kluster med Azure Monitor för behållare
 
@@ -75,7 +75,7 @@ Följande tabell innehåller en analys av beräkningen som styr hälso tillstån
 | |Okänt |Om de inte har rapporter ATS under de senaste 30 minuterna |
 |**Systemets Pod**| | |
 | |Felfri |100 % |
-| |Varning |Ej tillämpligt |
+| |Varning |Saknas |
 | |Kritiskt |<100% |
 | |Okänt |Om de inte har rapporter ATS under de senaste 30 minuterna |
 |**Node** | | |
@@ -117,7 +117,7 @@ Azure Monitor för behållare stöder också Azure Monitor [Metrics Explorer](..
 
 I Metrics Explorer kan du visa aggregerade noder och Pod användnings mått från Azure Monitor för behållare. I följande tabell sammanfattas information som hjälper dig att förstå hur du använder mått diagram för att visualisera container mått.
 
-|Namnområde | Metric | Beskrivning |
+|Namnområde | Mått | Beskrivning |
 |----------|--------|-------------|
 | Insights. container/Nodes | |
 | | cpuUsageMillicores | Aggregerad mätning av CPU-belastning i klustret. Det är en processor kärna som delas upp i 1000 enheter (Milli = 1000). Används för att fastställa användningen av kärnor i en behållare där många program kan använda en kärna.|
@@ -191,7 +191,7 @@ Den information som visas när du visar fliken **noder** beskrivs i följande ta
 
 | Kolumn | Beskrivning |
 |--------|-------------|
-| Name | Namnet på värden. |
+| Namn | Namnet på värden. |
 | Status | Kubernetes visar nodens status. |
 | Min &nbsp; %, AVG &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;%  | Genomsnittlig nod i procent baserat på percentil under den valda varaktigheten. |
 | Min, AVG, 50, nittionde, 95, max | Genomsnittligt antal noders faktiska värde baserat på percentil under den valda tids perioden. Det genomsnittliga värdet mäts från PROCESSORns/minnes gränsen som angetts för en nod. För poddar och behållare är det det genomsnittliga värdet som rapporteras av värden. |
@@ -228,13 +228,13 @@ Row-hierarkin börjar med en kontroll enhet. När du expanderar en kontrollant v
 
 Välj värdet i kolumnen **nod** för den aktuella kontrollanten.
 
-![Exempel gå nedåt från noden till kontrollanten i vyn prestanda](./media/container-insights-analyze/drill-down-controller-node.png)
+![Exempel gå nedåt från Controller till nod i vyn prestanda](./media/container-insights-analyze/drill-down-controller-node.png)
 
 Den information som visas när du visar kontrollanter beskrivs i följande tabell.
 
 | Kolumn | Beskrivning |
 |--------|-------------|
-| Name | Namnet på kontrollanten.|
+| Namn | Namnet på kontrollanten.|
 | Status | Sammanslagnings statusen för behållarna när den har slutförts med status, till exempel *OK*, *avslutad*, *misslyckad*, *stoppad* eller *pausad*. Om behållaren körs men status antingen inte visas korrekt eller inte har hämtats av agenten och inte har svarat i mer än 30 minuter, är statusen *okänd*. Ytterligare information om status ikonen finns i följande tabell.|
 | Min &nbsp; %, AVG &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;%| Beräknat medelvärde för den genomsnittliga procent andelen av varje enhet för det valda måttet och percentilen. |
 | Min, AVG, 50, nittionde, 95, max  | Sammanslagning av genomsnittlig CPU-Millicore eller minnes prestanda för den valda percentilen. Det genomsnittliga värdet mäts från PROCESSORns/minnes gränsen som angetts för en pod. |
@@ -271,7 +271,7 @@ Den information som visas när du visar behållare beskrivs i följande tabell.
 
 | Kolumn | Beskrivning |
 |--------|-------------|
-| Name | Namnet på kontrollanten.|
+| Namn | Namnet på kontrollanten.|
 | Status | Status för behållarna, om det finns några. Ytterligare information om status ikonen finns i nästa tabell.|
 | Min &nbsp; %, AVG &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;% | Sammanställning av den genomsnittliga procent andelen av varje enhet för det valda måttet och percentilen. |
 | Min, AVG, 50, nittionde, 95, max | Sammanslagning av genomsnittlig CPU-Millicore eller minnes prestanda för behållaren för den valda percentilen. Det genomsnittliga värdet mäts från PROCESSORns/minnes gränsen som angetts för en pod. |
@@ -297,31 +297,8 @@ Azure Network Policy Manager innehåller informativa Prometheus-mått som gör a
 
 ## <a name="workbooks"></a>Arbetsböcker
 
-Arbets böcker kombinerar text, [logg frågor](/azure/data-explorer/kusto/query/), [mått](../platform/data-platform-metrics.md)och parametrar till omfattande interaktiva rapporter. Arbetsböcker kan redigeras av andra teammedlemmar som har åtkomst till samma Azure-resurser.
+Arbets böcker kombinerar text, logg frågor, mått och parametrar till omfattande interaktiva rapporter som gör att du kan analysera kluster prestanda. Se [arbets böcker i Azure Monitor för behållare](container-insights-reports.md) för en beskrivning av de arbets böcker som är tillgängliga för Azure Monitor för behållare.
 
-Azure Monitor för behållare innehåller fyra arbets böcker för att komma igång:
-
-- **Disk kapacitet**: visar interaktiva disk användnings diagram för varje disk som visas för noden i en behållare i följande perspektiv:
-
-    - Disk procents användning för alla diskar.
-    - Ledigt disk utrymme för alla diskar.
-    - Ett rutnät som visar varje nods disk, dess procent andel av använt utrymme, trenden i procent av använt utrymme, ledigt disk utrymme (GiB) och trenden för ledigt disk utrymme (GiB). När en rad väljs i tabellen visas procent andelen använt utrymme och ledigt disk utrymme (GiB) under raden.
-
-- **Disk-i/o**: visar interaktiva disk användnings diagram för varje disk som visas för noden i en behållare i följande perspektiv:
-
-    - Disk-I/O sammanfattas över alla diskar med lästa byte/s, skrivna byte/s och Läs-och skriv byte/s-trender.
-    - Åtta prestanda diagram visar nyckeltal för att hjälpa till att mäta och identifiera disk-I/O-Flask halsar.
-
-- **Kubelet**: innehåller två rutnät som visar drift statistik över viktiga noder:
-
-    - Översikt per Node-rutnät sammanfattar total åtgärd, totalt antal fel och lyckade åtgärder efter procent och trend för varje nod.
-    - Översikt per åtgärds typ sammanfattar för varje åtgärd, totalt antal fel och lyckade åtgärder efter procent och trend.
-
-- **Nätverk**: visar interaktiva nätverks användnings diagram för varje nods nätverkskort och ett rutnät presenterar nyckeltalet för att mäta prestanda för nätverkskorten.
-
-Du kommer åt dessa arbets böcker genom att välja var och en i list rutan **Visa arbets böcker** .
-
-![Visa List rutan för arbets böcker](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

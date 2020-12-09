@@ -4,16 +4,16 @@ description: AzCopy är ett kommando rads verktyg som du kan använda för att k
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperfq2
-ms.openlocfilehash: ad9b40b448b48500cd6882ac614611f91370ec9e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 9379417fcb96dce8a59f7d81335cec44e1bb5e6a
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410280"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901780"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -95,19 +95,20 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 
 Mer information om SAS-token och hur du hämtar en finns i [använda signaturer för delad åtkomst (SAS)](./storage-sas-overview.md).
 
+<a id="transfer-data"></a>
+
 ## <a name="transfer-data"></a>Överföra data
 
 När du har auktoriserat din identitet eller fått en SAS-token kan du börja överföra data.
 
 Du hittar exempel kommandon i någon av de här artiklarna.
 
-- [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
-
-- [Överföra data med AzCopy och fillagring](storage-use-azcopy-files.md)
-
-- [Överföra data med AzCopy och Amazon S3-buckets](storage-use-azcopy-s3.md)
-
-- [Överföra data med AzCopy och Azure Stack Storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)
+| Tjänst | Artikel |
+|--------|-----------|
+|Azure Blob Storage |[Ladda upp filer till Azure Blob Storage](storage-use-azcopy-blobs-upload.md)<br><br>[Ladda ned blobbar från Azure Blob Storage](storage-use-azcopy-blobs-download.md)<br><br>[Kopiera blobbar mellan Azure Storage-konton](storage-use-azcopy-blobs-download.md)<br><br>[Synkronisera med Azure Blob Storage](storage-use-azcopy-blobs-download.md)|
+|Azure Files |[Överföra data med AzCopy och fillagring](storage-use-azcopy-files.md)|
+|Amazon S3|[Överföra data med AzCopy och Amazon S3-buckets](storage-use-azcopy-s3.md)|
+|Azure Stack lagring|[Överföra data med AzCopy och Azure Stack Storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
 
 ## <a name="use-in-a-script"></a>Använd i ett skript
 

@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 12/08/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0b67761b3c765e202505d442647b3ba034ef15a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2a618da7c9a66b8f687c1b75914530080ed56bea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372505"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905833"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Skapa en åtkomst granskning av Azures resurs roller i Privileged Identity Management
 
@@ -38,9 +38,9 @@ Den här artikeln beskriver hur du skapar en eller flera åtkomst granskningar f
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
-1. Välj **Azure-resurser**på den vänstra menyn.
+1. Välj **Azure-resurser** på den vänstra menyn.
 
-1. Välj den resurs som du vill hantera, till exempel en prenumeration eller hanterings grupp.
+1. Välj den resurs som du vill hantera, till exempel en prenumeration.
 
 1. Under hantera väljer du **åtkomst granskningar**.
 

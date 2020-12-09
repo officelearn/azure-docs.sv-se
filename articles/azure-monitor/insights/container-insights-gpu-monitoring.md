@@ -3,16 +3,16 @@ title: Konfigurera GPU-övervakning med Azure Monitor för behållare | Microsof
 description: Den här artikeln beskriver hur du kan konfigurera övervakning av Kubernetes-kluster med NVIDIA-och AMD GPU-aktiverade noder med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 4c6044d407dc4abd0e69bac0190cc19c901022c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e391117ab57211aa5d178d11c27b934b4ccd37f8
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569704"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905595"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Konfigurera GPU-övervakning med Azure Monitor för behållare
 
-Från och med agent version *ciprod03022019*har Azure Monitor for containers Integrated agent nu stöd för övervakning av GPU (grafiska bearbetnings enheter) på GPU-medvetna Kubernetes klusternoder och övervaka poddar/containers som begär och använder GPU-resurser.
+Från och med agent version *ciprod03022019* har Azure Monitor for containers Integrated agent nu stöd för övervakning av GPU (grafiska bearbetnings enheter) på GPU-medvetna Kubernetes klusternoder och övervaka poddar/containers som begär och använder GPU-resurser.
 
 ## <a name="supported-gpu-vendors"></a>GPU-leverantörer som stöds
 
@@ -39,7 +39,7 @@ Azure Monitor for containers startar automatiskt övervakning av GPU-användning
 
 ## <a name="gpu-performance-charts"></a>Diagram över GPU-prestanda 
 
-Azure Monitor för behållare innehåller förkonfigurerade diagram för de mått som anges tidigare i tabellen som en GPU-arbetsbok för varje kluster. Du kan hitta GPU-arbetsboks **nod-GPU** direkt från ett AKS-kluster genom att välja **arbets böcker** i den vänstra rutan och från List rutan **Visa arbets böcker** i insikten.
+Azure Monitor för behållare innehåller förkonfigurerade diagram för de mått som anges tidigare i tabellen som en GPU-arbetsbok för varje kluster. Se [arbets böcker i Azure Monitor för behållare](container-insights-reports.md) för en beskrivning av de arbets böcker som är tillgängliga för Azure Monitor för behållare.
 
 ## <a name="next-steps"></a>Nästa steg
 

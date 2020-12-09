@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b5b83d75df734c667c365f20fad2e1f62f997d7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 95f70005f2c7f53833163dcd5f0d2ee89b3db37c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994289"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861297"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Skapa en elastisk strategi för hantering av åtkomst kontroll med Azure Active Directory
 
@@ -266,7 +266,7 @@ Beroende på vilka åtgärder som används under ett avbrott kan din organisatio
 3. Återställa andra ändringar som du har gjort och dokumenterat under avbrott.
 4. Om du har använt ett konto för nödfalls åtkomst måste du komma ihåg att återskapa autentiseringsuppgifter och fysiskt skydda de nya autentiseringsuppgifterna som en del av dina konto procedurer för nöd åtkomst.
 5. Fortsätt att [prioritering alla risk identifieringar som rapporter ATS](../reports-monitoring/concept-sign-ins.md) efter avbrott för misstänkt aktivitet.
-6. Återkalla alla uppdateringstoken som utfärdats [med PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) för att rikta in dig på en uppsättning användare. Att återkalla alla uppdateringstoken är viktigt för privilegierade konton som används under avbrottet och det tvingar dem att autentisera och uppfylla kontrollen över de återställda principerna.
+6. Återkalla alla uppdateringstoken som utfärdats [med PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) för att rikta in dig på en uppsättning användare. Att återkalla alla uppdateringstoken är viktigt för privilegierade konton som används under avbrottet och det tvingar dem att autentisera och uppfylla kontrollen över de återställda principerna.
 
 ## <a name="emergency-options"></a>Nöd alternativ
 
@@ -282,12 +282,12 @@ Om din organisation använder äldre MFA-principer per användare, kan du överv
 >[!NOTE]
  > Det går bara att konfigurera [betrodda IP-adresser](./howto-mfa-mfasettings.md) för Azure AD MFA med [Azure AD Premium licenser](./concept-mfa-licensing.md).
 
-## <a name="learn-more"></a>Läs mer
+## <a name="learn-more"></a>Mer information
 
 * [Dokumentation om Azure AD-autentisering](./howto-mfaserver-iis.md)
 * [Hantera administrativa konton för katastrof åtkomst i Azure AD](../roles/security-emergency-access.md)
 * [Konfigurera namngivna platser i Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
-  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
 * [Konfigurera hybrid Azure Active Directory anslutna enheter](../devices/hybrid-azuread-join-plan.md)
 * [Distributionsguide för Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Vägledning för lösen ord – Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)

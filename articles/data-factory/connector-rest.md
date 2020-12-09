@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från en REST-källa med hjälp av Azure Data Factory
-description: Lär dig hur du kopierar data från en moln-eller lokal REST-källa till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
+title: Kopiera data från och till en REST-slutpunkt genom att använda Azure Data Factory
+description: Lär dig hur du kopierar data från en moln-eller lokal REST-källa till mottagar data lager, eller från ett käll data lager som stöds till en REST-mottagare genom att använda en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,19 +9,19 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 7b6fa2395e81089e8b4523929a4a7a583b0788a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8cd6386ed6004935b0a1e45a53c01668166c0e4
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360777"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902263"
 ---
-# <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiera data från en REST-slutpunkt genom att använda Azure Data Factory
+# <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiera data från och till en REST-slutpunkt genom att använda Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från en REST-slutpunkt. Artikeln bygger på [kopierings aktivitet i Azure Data Factory](copy-activity-overview.md), som visar en översikt över kopierings aktiviteten.
+Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från och till en REST-slutpunkt. Artikeln bygger på [kopierings aktivitet i Azure Data Factory](copy-activity-overview.md), som visar en översikt över kopierings aktiviteten.
 
 Skillnaden mellan den här REST-anslutningen, [http-kopplingen](connector-http.md)och [webb tabell anslutningen](connector-web-table.md) är:
 
@@ -31,19 +31,19 @@ Skillnaden mellan den här REST-anslutningen, [http-kopplingen](connector-http.m
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från en REST-källa till alla mottagar data lager som stöds. En lista över data lager som kopierings aktiviteten stöder som källor och mottagare finns i [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+Du kan kopiera data från en REST-källa till alla mottagar data lager som stöds. Du kan också kopiera data från alla käll data lager som stöds till REST-mottagare. En lista över data lager som kopierings aktiviteten stöder som källor och mottagare finns i [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Mer specifikt stöder den här generiska REST-anslutningen:
 
-- Hämta data från en REST-slutpunkt med metoderna **Get** eller **post** .
-- Hämta data genom att använda någon av följande autentiseringar: **Anonym**, **grundläggande**, **AAD-tjänstens huvud namn**och **hanterade identiteter för Azure-resurser**.
+- Kopiera data från en REST-slutpunkt med metoderna **Get** eller **post** och kopiera data till en **REST-slutpunkt** med hjälp av metoderna **post**, part eller **patch** .
+- Kopiera data genom att använda någon av följande autentiseringar: **Anonym**, **grundläggande**, **AAD-tjänstens huvud namn** och **hanterade identiteter för Azure-resurser**.
 - **[Sid brytning](#pagination-support)** i REST-API: erna.
-- Kopiera REST JSON-svaret [som det är](#export-json-response-as-is) eller parsa det med hjälp av [schema mappning](copy-activity-schema-and-type-mapping.md#schema-mapping). Endast svars nytto Last i **JSON** stöds.
+- För REST som källa, kopierar du REST JSON [-svaret som-är](#export-json-response-as-is) eller tolkar det med hjälp av [schema mappning](copy-activity-schema-and-type-mapping.md#schema-mapping). Endast svars nytto Last i **JSON** stöds.
 
 > [!TIP]
 > Om du vill testa en begäran om data hämtning innan du konfigurerar REST-anslutningen i Data Factory kan du läsa om API-specifikationen för sidhuvuds-och text krav. Du kan använda verktyg som Postman eller webbläsare för att validera.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -61,9 +61,9 @@ Följande egenskaper stöds för den REST-länkade tjänsten:
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** måste anges till **RestService**. | Ja |
 | url | Bas-URL: en för REST-tjänsten. | Ja |
-| enableServerCertificateValidation | Huruvida TLS/SSL-certifikat på Server sidan ska verifieras vid anslutning till slut punkten. | Inga<br /> (Standardvärdet är **Sant**) |
-| authenticationType | Typ av autentisering som används för att ansluta till REST-tjänsten. Tillåtna värden är **Anonymous**, **Basic**, **AadServicePrincipal**och **ManagedServiceIdentity**. Se motsvarande avsnitt nedan om du vill ha fler egenskaper respektive exempel. | Ja |
-| connectVia | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om detta inte anges använder den här egenskapen standard Azure Integration Runtime. |Inga |
+| enableServerCertificateValidation | Huruvida TLS/SSL-certifikat på Server sidan ska verifieras vid anslutning till slut punkten. | Nej<br /> (Standardvärdet är **Sant**) |
+| authenticationType | Typ av autentisering som används för att ansluta till REST-tjänsten. Tillåtna värden är **Anonymous**, **Basic**, **AadServicePrincipal** och **ManagedServiceIdentity**. Se motsvarande avsnitt nedan om du vill ha fler egenskaper respektive exempel. | Ja |
+| connectVia | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om detta inte anges använder den här egenskapen standard Azure Integration Runtime. |Nej |
 
 ### <a name="use-basic-authentication"></a>Använd grundläggande autentisering
 
@@ -108,7 +108,7 @@ Ange egenskapen **authenticationType** till **AadServicePrincipal**. Förutom de
 | servicePrincipalKey | Ange Azure Active Directory programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | tenant | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja |
 | aadResourceId | Ange den AAD-resurs som du begär auktorisering för, till exempel `https://management.core.windows.net` .| Ja |
-| azureCloudType | För tjänstens huvud namns autentisering anger du vilken typ av Azure-moln miljö som ditt AAD-program är registrerat på. <br/> Tillåtna värden är **AzurePublic**, **AzureChina**, **azureusgovernment eller**och **AzureGermany**. Som standard används data fabrikens moln miljö. | Inga |
+| azureCloudType | För tjänstens huvud namns autentisering anger du vilken typ av Azure-moln miljö som ditt AAD-program är registrerat på. <br/> Tillåtna värden är **AzurePublic**, **AzureChina**, **azureusgovernment eller** och **AzureGermany**. Som standard används data fabrikens moln miljö. | Nej |
 
 **Exempel**
 
@@ -175,9 +175,9 @@ Följande egenskaper stöds för att kopiera data från REST:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens **typ** -egenskap måste anges till **RestResource**. | Ja |
-| relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen inte anges används endast den URL som anges i den länkade tjänst definitionen. HTTP-anslutningen kopierar data från den kombinerade URL: en: `[URL specified in linked service]/[relative URL specified in dataset]` . | Inga |
+| relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen inte anges används endast den URL som anges i den länkade tjänst definitionen. HTTP-anslutningen kopierar data från den kombinerade URL: en: `[URL specified in linked service]/[relative URL specified in dataset]` . | Nej |
 
-Om du har angett `requestMethod` , `additionalHeaders` `requestBody` och `paginationRules` i data uppsättning, stöds den fortfarande som den är, men du rekommenderas att använda den nya modellen i aktivitets källan.
+Om du har angett `requestMethod` , `additionalHeaders` `requestBody` och `paginationRules` i data uppsättning, stöds den fortfarande som den är, medan du föreslås att använda den nya modellen i aktivitet som går framåt.
 
 **Exempel:**
 
@@ -200,7 +200,7 @@ Om du har angett `requestMethod` , `additionalHeaders` `requestBody` och `pagina
 
 ## <a name="copy-activity-properties"></a>Kopiera aktivitets egenskaper
 
-Det här avsnittet innehåller en lista över egenskaper som REST-källan stöder.
+Det här avsnittet innehåller en lista över egenskaper som stöds av REST-källan och mottagare.
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [pipelines](concepts-pipelines-activities.md). 
 
@@ -211,12 +211,12 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **RestSource**. | Ja |
-| requestMethod | HTTP-metoden. Tillåtna värden är **Get** (standard) och **post**. | Inga |
-| additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Inga |
-| requestBody | Bröd texten för HTTP-begäran. | Inga |
-| paginationRules | Sid brytnings regler för att skapa nästa sida begär Anden. Mer information finns i avsnittet om [sid brytnings stöd](#pagination-support) . | Inga |
-| httpRequestTimeout | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Standardvärdet är **00:01:40**.  | Inga |
-| requestInterval | Vänte tiden innan begäran skickas för nästa sida. Standardvärdet är **00:00:01** |  Inga |
+| requestMethod | HTTP-metoden. Tillåtna värden är **Get** (standard) och **post**. | Nej |
+| additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
+| requestBody | Bröd texten för HTTP-begäran. | Nej |
+| paginationRules | Sid brytnings regler för att skapa nästa sida begär Anden. Mer information finns i avsnittet om [sid brytnings stöd](#pagination-support) . | Nej |
+| httpRequestTimeout | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Standardvärdet är **00:01:40**.  | Nej |
+| requestInterval | Vänte tiden innan begäran skickas för nästa sida. Standardvärdet är **00:00:01** |  Nej |
 
 >[!NOTE]
 >REST Connector ignorerar alla "Accept"-huvud som anges i `additionalHeaders` . Eftersom REST Connector endast stöder svar i JSON genererar den automatiskt ett huvud av `Accept: application/json` .
@@ -293,6 +293,59 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 ]
 ```
 
+### <a name="rest-as-sink"></a>REST som mottagare
+
+Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** :
+
+| Egenskap | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Egenskapen **Type** för kopierings aktivitetens Sink måste anges till **RestSink**. | Ja |
+| requestMethod | HTTP-metoden. Tillåtna värden är **post** (standard), **placering** och **korrigering**. | Nej |
+| additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
+| httpRequestTimeout | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att skriva data. Standardvärdet är **00:01:40**.  | Nej |
+| requestInterval | Intervall tiden mellan olika begär anden i milisecond. Värdet för begär ande intervall måste vara ett tal mellan [10, 60000]. |  Nej |
+| httpCompressionType | HTTP-komprimerings typ som ska användas när data skickas med optimal komprimerings nivå. Tillåtna värden är **none** och **gzip**. | Nej |
+| writeBatchSize | Antal poster som ska skrivas till REST-Sink per batch. Standardvärdet är 10000. | Nej |
+
+>[!NOTE]
+>REST-anslutningen som mottagare fungerar med de REST-slutpunkter som accepterar JSON. Data skickas endast i JSON.
+
+**Exempel:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToREST",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<REST output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "RestSink",
+                "requestMethod": "POST",
+                "httpRequestTimeout": "00:01:40",
+                "requestInterval": 10,
+                "writeBatchSize": 10000,
+                "httpCompressionType": "none",
+            },
+        }
+    }
+]
+```
+
 ## <a name="pagination-support"></a>Stöd för sid brytning
 
 Normalt begränsar REST API dess svars nytto Last storlek för en enskild begäran under ett rimligt antal. När stora mängder data skulle returneras delas resultatet in på flera sidor och det krävs att anropare skickar efterföljande begär Anden för att hämta nästa sida i resultatet. Vanligt vis är begäran för en sida dynamisk och består av den information som returneras från svars sidan föregående.
@@ -310,7 +363,7 @@ Denna generiska REST-anslutning har stöd för följande sid brytnings mönster:
 
 **Nycklar som stöds** i sid brytnings regler:
 
-| Tangent | Beskrivning |
+| Nyckel | Beskrivning |
 |:--- |:--- |
 | AbsoluteUrl | Anger den URL som utfärdar nästa begäran. Det kan **antingen vara en absolut URL eller en relativ URL**. |
 | QueryParameters. *request_query_parameter* ELLER QueryParameters ["request_query_parameter"] | "request_query_parameter" är användardefinierad, som refererar till ett parameter namn för en fråga i nästa HTTP-begärande-URL. |
@@ -325,7 +378,7 @@ Denna generiska REST-anslutning har stöd för följande sid brytnings mönster:
 
 **Exempel:**
 
-Facebook Graph API returnerar svar i följande struktur, i vilket fall visas nästa sidas URL i ***sid indelning. nästa***:
+Facebook-Graph API returnerar svar i följande struktur, i vilket fall nästa sidas URL visas i **_växling. Next_* _:
 
 ```json
 {
@@ -380,7 +433,7 @@ I det här avsnittet beskrivs hur du använder en lösnings mall för att kopier
 ### <a name="about-the-solution-template"></a>Om lösnings mal len
 
 Mallen innehåller två aktiviteter:
-- **Webb** aktivitet hämtar Bearer-token och skickar den sedan till efterföljande kopierings aktivitet som auktorisering.
+- _ *Webb** aktivitet hämtar Bearer-token och skickar den sedan till efterföljande kopierings aktivitet som auktorisering.
 - **Kopierings** aktiviteten kopierar data från REST till Azure Data Lake Storage.
 
 Mallen definierar två parametrar:
@@ -394,8 +447,8 @@ Mallen definierar två parametrar:
 
     Nedan visas viktiga steg för inställningar för ny länkad tjänst (REST):
     
-     1. Under **bas-URL**anger du URL-parametern för din egen käll REST-tjänst. 
-     2. Som **Autentiseringstyp**väljer du *Anonym*.
+     1. Under **bas-URL** anger du URL-parametern för din egen käll REST-tjänst. 
+     2. Som **Autentiseringstyp** väljer du *Anonym*.
         ![Ny REST-anslutning](media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png)
 
 2. Skapa en ny anslutning för mål anslutning.  
@@ -406,13 +459,13 @@ Mallen definierar två parametrar:
 
 4. Du ser pipelinen som skapades på det sätt som visas i följande exempel:  ![ skärm bilden visar pipelinen som skapats från mallen.](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
 
-5. Välj **webb** aktivitet. I **Inställningar**anger du motsvarande **URL**, **metod**, **rubriker**och **brödtext** för att hämta OAuth Bearer-token från inloggnings-API: t för den tjänst som du vill kopiera data från. Plats hållaren i mallen visar ett exempel på Azure Active Directory (AAD) OAuth. Obs!-autentisering med AAD stöds internt av REST Connector. här är bara ett exempel på ett OAuth-flöde. 
+5. Välj **webb** aktivitet. I **Inställningar** anger du motsvarande **URL**, **metod**, **rubriker** och **brödtext** för att hämta OAuth Bearer-token från inloggnings-API: t för den tjänst som du vill kopiera data från. Plats hållaren i mallen visar ett exempel på Azure Active Directory (AAD) OAuth. Obs!-autentisering med AAD stöds internt av REST Connector. här är bara ett exempel på ett OAuth-flöde. 
 
     | Egenskap | Beskrivning |
     |:--- |:--- |:--- |
     | URL |Ange URL: en som OAuth Bearer-token ska hämtas från. i exemplet här är det t. ex. https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Metod | HTTP-metoden. Tillåtna värden är **post** och **Get**. | 
-    | Rubriker | Rubriken är användardefinierad, som refererar till ett rubrik namn i HTTP-begäran. | 
+    | Sidhuvuden | Rubriken är användardefinierad, som refererar till ett rubrik namn i HTTP-begäran. | 
     | Brödtext | Bröd texten för HTTP-begäran. | 
 
     ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)
@@ -426,7 +479,7 @@ Mallen definierar två parametrar:
 
    ![Kopiera käll autentisering](media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png)
 
-7. Välj **Felsök**, ange **parametrarna**och välj sedan **Slutför**.
+7. Välj **Felsök**, ange **parametrarna** och välj sedan **Slutför**.
    ![Pipeline-körning](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
 
 8. När pipeline-körningen har slutförts ser du resultatet som liknar följande exempel: ![ pipeline-körnings resultat](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 

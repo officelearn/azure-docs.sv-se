@@ -1,19 +1,19 @@
 ---
-title: Lokaliserings stöd | Microsoft Azure Maps
+title: Lokaliserings stöd med Microsoft Azure Maps
 description: Se vilka regioner Azure Maps stöder med tjänster som kartor, sökning, routning, väder och trafik incidenter. Lär dig hur du konfigurerar parametern View.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a6664b5a2c0c6b4de2435ee5c8bb29f63560c342
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50e5d0721eb14d1fcdfad26aaf081bfa370e954e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037702"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904524"
 ---
 # <a name="localization-support-in-azure-maps"></a>Lokaliserings stöd i Azure Maps
 
@@ -22,7 +22,7 @@ Azure Maps stöder olika språk och vyer baserat på land/region. Den här artik
 
 ## <a name="azure-maps-supported-languages"></a>Azure Maps språk som stöds
 
-Azure Maps har lokaliserats på olika typer av tjänster för sina tjänster. Följande tabell innehåller de språk koder som stöds för varje tjänst.  
+Azure Maps har lokaliserats på olika typer av tjänster för sina tjänster. Följande tabell innehåller de språk koder som stöds för varje tjänst.  
   
 
 | ID         | Namn                   |  Maps | Search | Routning | Vädret | Trafik incidenter | JS-kart kontroll |
@@ -129,10 +129,10 @@ Berörda Azure Maps REST-tjänster:
  * Hämta omvänd söknings adress
  * Hämta Sök adress omvänt kors gatan
  * Publicera sökning i geometri
- * Publicera söknings adress batch för hands version
- * Publicera söknings adress, omvänd batch-förhandsgranskning
+ * Publicera söknings adress batch
+ * Publicera omvänd kommando adress
  * Publicera sökning längs väg
- * Publicera sökning i fuzzy-kommando för hands version
+ * Publicera sökning i fuzzy-batch
 
  
 ### <a name="sdks"></a>SDK:er
@@ -147,7 +147,7 @@ Som standard har parametern View angetts till **Unified**, även om du inte har 
 
 Följande tabell innehåller vyer som stöds.
 
-| Visa         | Beskrivning                            |  Maps | Search | JS-Kartkontroll |
+| Vy         | Beskrivning                            |  Maps | Search | JS-Kartkontroll |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Förenade Arabemiraten (arabisk vy)    |   ✓   |        |     ✓          |
 | AR           | Argentina (argentinsk vy)           |   ✓   |    ✓   |     ✓          |

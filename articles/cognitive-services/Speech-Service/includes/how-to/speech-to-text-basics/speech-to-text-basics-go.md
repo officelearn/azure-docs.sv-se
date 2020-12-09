@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: f3a3d897d5cc5a22340dccf3aeeac8d52158a3a0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: f87db54b43f0ece49b940521bea34737da676a31
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425041"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96912264"
 ---
 En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna igen mänskligt tal (kallas ofta tal till text). I den här snabb starten får du lära dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativt tal-till-text-konvertering.
 
@@ -17,7 +17,7 @@ En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna ige
 
 Om du vill hoppa över direkt till exempel kod, se [snabb starts exempel för go](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples/recognizer) på GitHub.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](../../../overview.md#try-the-speech-service-for-free).
 
@@ -30,6 +30,8 @@ Innan du kan göra något måste du installera [talet SDK för go](../../../quic
 Använd följande kod exempel för att köra tal igenkänning från standard mikrofonen för enheten. Ersätt variablerna `subscription` och `region` med din prenumeration och region nycklar. Genom att köra skriptet startar du en igenkännings session på standard mikrofonen och den utgående texten.
 
 ```go
+package main
+
 import (
     "bufio"
     "fmt"
@@ -104,6 +106,8 @@ Se referens dokumenten för detaljerad information om [`SpeechConfig`](https://p
 Använd följande exempel för att köra tal igenkänning från en ljudfil. Ersätt variablerna `subscription` och `region` med din prenumeration och region nycklar. Ersätt dessutom variabeln `file` med en sökväg till en. wav-fil. Om du kör skriptet identifieras tal från filen och resultatet skrivs ut.
 
 ```go
+package main
+
 import (
     "fmt"
     "time"

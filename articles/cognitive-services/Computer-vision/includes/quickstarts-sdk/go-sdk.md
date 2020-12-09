@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 45524b12ae00c50601d294aaf3cbc7c3ac82c5ff
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 996ffdeb56d41e2c05fd402714876cb16e126021
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533344"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96912333"
 ---
 <a name="HOLTop"></a>
 
@@ -69,7 +69,7 @@ eller i din lagringsplatskörning om du använder dep:
 dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision
 ```
 
-### <a name="create-a-go-application"></a>Skapa ett Go-program
+### <a name="create-a-go-application"></a>Skapa ett Go-program 
 
 Skapa sedan en fil i **src** -katalogen med namnet `sample-app.go` :
 
@@ -87,6 +87,9 @@ Deklarera också en kontext i roten i skriptet. Du behöver det här objektet f�
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_context)]
 
 Härnäst ska du börja lägga till kod för att utföra olika Visuellt innehåll åtgärder.
+
+> [!div class="nextstepaction"]
+> [Jag har konfigurerat klienten](?success=set-up-client#object-model) som [Jag stötte på ett problem](https://www.research.net/r/7QYZKHL?issue=set-up-client)
 
 ## <a name="object-model"></a>Objekt modell
 
@@ -115,6 +118,9 @@ De här kodfragmenten visar hur du gör följande uppgifter med Visuellt innehå
 Skapa en `main` funktion och Lägg till följande kod i den för att instansiera en klient med din slut punkt och nyckel.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_client)]
+
+> [!div class="nextstepaction"]
+> [Jag autentiserade klienten att](?success=authenticate-client#analyze-an-image) [Jag stötte på ett problem](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Analysera en bild
 
@@ -207,6 +213,9 @@ Följande funktion skriver ut information om typen av bild &mdash; oavsett om de
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_type)]
 
+> [!div class="nextstepaction"]
+> [Jag analyserade en bild](?success=analyze-image#read-printed-and-handwritten-text) som [Jag stötte på ett problem](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+
 ## <a name="read-printed-and-handwritten-text"></a>Skriv ut och handskriven text
 
 Visuellt innehåll kan läsa synlig text i en bild och konvertera den till en tecken ström. Koden i det här avsnittet definierar en funktion, `RecognizeTextReadAPIRemoteImage` som använder-klient objekt för att identifiera och extrahera utskrift eller handskriven text i bilden.
@@ -236,6 +245,9 @@ Lägg till följande kod för att parsa och Visa hämtade text data och slutför
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_display)]
 
+> [!div class="nextstepaction"]
+> [Jag](?success=read-printed-handwritten-text#run-the-application) [fick ett problem](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text) med att läsa texten
+
 ## <a name="run-the-application"></a>Köra appen
 
 Kör programmet från program katalogen med `go run` kommandot.
@@ -244,6 +256,9 @@ Kör programmet från program katalogen med `go run` kommandot.
 go run sample-app.go
 ```
 
+> [!div class="nextstepaction"]
+> [Jag körde det program](?success=run-the-application#clean-up-resources) [Jag stötte på ett problem](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
@@ -251,10 +266,14 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+> [!div class="nextstepaction"]
+> [Jag har rensat resurser](?success=clean-up-resources#next-steps) som [jag stött på ett problem](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [API för visuellt innehåll referens (go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
+
 
 * [Vad är visuellt innehåll?](../../overview.md)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).

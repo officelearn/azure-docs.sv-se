@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/13/2019
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: de00db2b8c2b6e0d293f4a9bb8206eba5227ca03
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 5661e0e3a1978735ae9e4313ac9aa78a88e81f19
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533337"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96912161"
 ---
 <a name="HOLTop"></a>
 
@@ -104,6 +104,8 @@ I programmets **main** -metod lägger du till anrop för de metoder som används
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_maincalls)]
 
+> [!div class="nextstepaction"]
+> [Jag har konfigurerat klienten](?success=set-up-client#object-model) som [Jag stötte på ett problem](https://www.research.net/r/7QYZKHL?issue=set-up-client)
 
 ## <a name="object-model"></a>Objekt modell
 
@@ -125,11 +127,12 @@ De här kodfragmenten visar hur du gör följande uppgifter med Visuellt innehå
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-
 I en ny metod instansierar du ett [ComputerVisionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) -objekt med din slut punkt och nyckel.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_auth)]
 
+> [!div class="nextstepaction"]
+> [Jag autentiserade klienten att](?success=authenticate-client#analyze-an-image) [Jag stötte på ett problem](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Analysera en bild
 
@@ -211,6 +214,9 @@ Följande kod skriver ut information om typen av bild &mdash; oavsett om den är
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imagetype)]
 
+> [!div class="nextstepaction"]
+> [Jag analyserade en bild](?success=analyze-image#read-printed-and-handwritten-text) som [Jag stötte på ett problem](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+
 ## <a name="read-printed-and-handwritten-text"></a>Skriv ut och handskriven text
 
 Visuellt innehåll kan läsa synlig text i en bild och konvertera den till en tecken ström. I det här avsnittet definieras en metod, `ReadFromFile` som tar en lokal fil Sök väg och skriver ut bildens text till-konsolen.
@@ -231,7 +237,6 @@ Lägg sedan till följande metod definition i **ComputerVisionQuickstarts** -kla
 Lägg sedan till följande kod för att anropa **readInStreamWithServiceResponseAsync** -metoden för den aktuella avbildningen.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_call)]
-
 
 Följande kodblock extraherar åtgärds-ID: t från svaret från Read-anropet. Den använder det här ID: t med en hjälp metod för att skriva ut texten läsa resultat till-konsolen. 
 
@@ -255,6 +260,9 @@ Slutligen lägger du till den andra hjälp metoden som används ovan, som extrah
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_opid_extract)]
 
+> [!div class="nextstepaction"]
+> [Jag](?success=read-printed-handwritten-text#run-the-application) [fick ett problem](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text) med att läsa texten
+
 ## <a name="run-the-application"></a>Köra appen
 
 Du kan bygga appen med:
@@ -269,6 +277,9 @@ Kör programmet med `gradle run` kommandot:
 gradle run
 ```
 
+> [!div class="nextstepaction"]
+> [Jag körde det program](?success=run-the-application#clean-up-resources) [Jag stötte på ett problem](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
@@ -276,12 +287,16 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+> [!div class="nextstepaction"]
+> [Jag har rensat resurser](?success=clean-up-resources#next-steps) som [jag stött på ett problem](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+
 ## <a name="next-steps"></a>Nästa steg
 
 I den här snabb starten har du lärt dig hur du använder Visuellt innehåll Java-biblioteket för att utföra grundläggande uppgifter. Sedan kan du utforska referens dokumentationen och läsa mer om biblioteket.
 
 > [!div class="nextstepaction"]
 >[Visuellt innehåll referens (Java)](/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable)
+
 
 * [Vad är visuellt innehåll?](../../overview.md)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
 ms.custom: automl
-ms.openlocfilehash: 5577a0d9270f3e4566bf57876b8abc3d1a3ae4be
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b354abb98c56a572badf2421b0d7dbbd25f7a63
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356509"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921859"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Självstudie: prognostisera efter frågan med automatiserad maskin inlärning
 
@@ -34,7 +34,7 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 > * Utforska experiment resultatet.
 > * Distribuera den bästa modellen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md). 
 
@@ -60,7 +60,7 @@ Innan du konfigurerar experimentet laddar du upp data filen till din arbets yta 
 
 1. I formuläret **Välj data uppsättning** väljer du **från lokala filer** från List rutan  **+ skapa data uppsättning** . 
 
-    1. Ge din data uppsättning ett namn i formuläret **grundläggande information** och ange en valfri beskrivning. Data uppsättnings typen ska vara standard i **tabell** , eftersom automatisk ML i Azure Machine Learning Studio endast stöder tabell data uppsättningar.
+    1. Ge din data uppsättning ett namn i formuläret **grundläggande information** och ange en valfri beskrivning. Data uppsättnings typen ska vara standard i **tabell**, eftersom automatisk ML i Azure Machine Learning Studio endast stöder tabell data uppsättningar.
     
     1. Välj **Nästa** längst ned till vänster
 
@@ -82,7 +82,7 @@ Innan du konfigurerar experimentet laddar du upp data filen till din arbets yta 
         Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan &nbsp; separata, oberoende regioner i oformaterad text eller andra data strömmar. |Komma
         Kodning|Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.| UTF-8
         Kolumnrubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.| Använd huvuden från den första filen
-        Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Inget
+        Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Ingen
 
     1. Med hjälp av **schema** formuläret kan du ytterligare konfigurera dina data för det här experimentet. 
     
@@ -118,7 +118,7 @@ När du har läst in och konfigurerat dina data konfigurerar du ditt fjärrberä
         &nbsp; &nbsp; Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning.|Standard_DS12_V2
         Min/högsta antal noder| Du måste ange 1 eller fler noder för att kunna profilera data.|Minsta antal noder: 1<br>Max noder: 6
         Inaktiva sekunder innan skalning | Inaktivitetstid innan klustret skalas automatiskt ned till lägsta antal noder.|120 (standard)
-        Avancerade inställningar | Inställningar för att konfigurera och auktorisera ett virtuellt nätverk för experimentet.| Inget
+        Avancerade inställningar | Inställningar för att konfigurera och auktorisera ett virtuellt nätverk för experimentet.| Ingen
   
         1. Välj **skapa** för att hämta beräknings målet. 
 
@@ -145,7 +145,7 @@ Slutför installationen av ditt automatiserade ML-experiment genom att ange akti
     Primärt mått| Bedömnings mått som ska mätas av Machine Learning-algoritmen.|Normaliserat rot genomsnitts fel
     Förklara bästa modell| Visar automatiskt förklaringar för den bästa modellen som skapats av automatisk ML.| Aktivera
     Blockerade algoritmer | Algoritmer som du vill undanta från utbildnings jobbet| Extrema slumpmässiga träd
-    Ytterligare prognos inställningar| De här inställningarna hjälper till att förbättra din modells precision <br><br> _**Beräkna mål lags:**_ hur långt tillbaka du vill konstruera lags för mål variabeln <br> _**Mål riktnings fönster**_ : anger storleken på det rullande fönster över vilka funktioner, till exempel *Max, min* och *Summa* , som ska genereras. | <br><br>Lags för prognos &nbsp; mål &nbsp; : ingen <br> &nbsp;Storlek för rullande fönster i mål &nbsp; &nbsp; : ingen
+    Ytterligare prognos inställningar| De här inställningarna hjälper till att förbättra din modells precision <br><br> _**Beräkna mål lags:**_ hur långt tillbaka du vill konstruera lags för mål variabeln <br> _**Mål riktnings fönster**_: anger storleken på det rullande fönster över vilka funktioner, till exempel *Max, min* och *Summa*, som ska genereras. | <br><br>Lags för prognos &nbsp; mål &nbsp; : ingen <br> &nbsp;Storlek för rullande fönster i mål &nbsp; &nbsp; : ingen
     Avslutnings kriterium| Om ett villkor uppfylls stoppas utbildnings jobbet. |Utbildnings &nbsp; jobb &nbsp; tid (timmar): 3 <br> Mått &nbsp; poängs &nbsp; tröskel: ingen
     Validering | Välj en kors validerings typ och antalet tester.|Validerings typ:<br>&nbsp;k-vikning &nbsp; kors validering <br> <br> Antal verifieringar: 5
     Samtidighet| Maximalt antal parallella iterationer som utförs per iteration| Max &nbsp; . antal samtidiga &nbsp; iterationer: 6
@@ -235,7 +235,7 @@ I den här artikeln finns anvisningar om hur du skapar ett schema för Power BI 
 > [Använda en webbtjänst](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Lär dig mer om [Automatisk maskin inlärning](concept-automated-ml.md).
-+ Mer information om klassificerings mått och diagram finns i artikeln [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md#classification) .
++ Mer information om klassificerings mått och diagram finns i artikeln [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md) .
 + Läs mer om [funktionalisering](how-to-configure-auto-features.md#featurization).
 + Läs mer om [data profilering](how-to-connect-data-ui.md#profile).
 

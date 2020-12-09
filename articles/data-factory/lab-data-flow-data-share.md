@@ -6,13 +6,13 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: 0a578f1edb51efd5f0905e663d42bf5a6fbfc783
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/09/2020
+ms.openlocfilehash: bdf9cbfef7dfdcf80976641b527ddeb61368d50b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489062"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921040"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Data integrering med Azure Data Factory och Azure-Dataresurs
 
@@ -26,7 +26,7 @@ I den här workshopen använder du Azure Data Factory (ADF) för att mata in dat
 
 De data som används i det här labbet är New York taxi-data. Om du vill importera den till databasen i SQL Database laddar du ned [taxi-data BACPAC-filen](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -34,7 +34,7 @@ De data som används i det här labbet är New York taxi-data. Om du vill import
 
 * **Azure Data Lake Storage Gen2 lagrings konto**: om du inte har ett ADLS Gen2 lagrings konto kan du läsa om hur du [skapar ett ADLS Gen2 lagrings konto](../storage/common/storage-account-create.md).
 
-* **Azure Synapse Analytics (tidigare SQL DW)**: om du inte har en Azure Synapse-analys (tidigare SQL DW) lär du dig hur du [skapar en Azure Synapse Analytics-instans](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+* **Azure Synapse Analytics**: om du inte har en Azure Synapse-analys kan du läsa om hur du [skapar en Azure Synapse Analytics-instans](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 * **Azure Data Factory**: om du inte har skapat en data fabrik, se så här [skapar du en data fabrik](./quickstart-create-data-factory-portal.md).
 
@@ -79,7 +79,7 @@ I Azure Data Factory länkade tjänster definierar du anslutnings informationen 
 
 ### <a name="create-an-azure-synapse-analytics-linked-service"></a>Skapa en länkad Azure Synapse Analytics-tjänst
 
-1. Upprepa samma process för att lägga till en länkad Azure Synapse Analytics-tjänst. På fliken anslutningar klickar du på **ny**. Välj panelen **Azure Synapse Analytics (tidigare SQL DW)** och klicka på Fortsätt.
+1. Upprepa samma process för att lägga till en länkad Azure Synapse Analytics-tjänst. På fliken anslutningar klickar du på **ny**. Välj panelen **Azure Synapse Analytics** och klicka på Fortsätt.
 
     ![Portal konfigurera 6](media/lab-data-flow-data-share/configure6.png)
 1. I fönstret konfiguration av länkad tjänst anger du "SQLDW" som namnet på den länkade tjänsten. Ange dina autentiseringsuppgifter så att Data Factory kan ansluta till databasen. Om du använder SQL-autentisering anger du namnet på servern, databasen, ditt användar namn och lösen ord. Du kan kontrol lera att anslutnings informationen är korrekt genom att klicka på **Testa anslutning**. Klicka på **skapa** när du är färdig.
@@ -155,7 +155,7 @@ Du har skapat käll data uppsättningen. Se till att käll inställningarna är 
 1. Verifiera att kopierings aktiviteten fungerar som den ska genom att klicka på **Felsök** överst i pipeline-arbetsytan för att köra en fel sökning. Med en fel söknings körning kan du testa din pipeline antingen från slut punkt till slut punkt eller till en Bryt punkt innan du publicerar den till Data Factory-tjänsten.
 
     ![Portal kopia 11](media/lab-data-flow-data-share/copy11.png)
-1. Om du vill övervaka din fel söknings körning går du till fliken **utdata** i pipeline-arbetsytan. Övervaknings skärmen uppdateras automatiskt var 20: e sekund eller när du klickar på knappen Uppdatera manuellt. Kopierings aktiviteten har en särskild övervaknings vy som du kan komma åt genom att klicka på ögon ikonen i kolumnen **åtgärder** .
+1. Om du vill övervaka din fel söknings körning går du till fliken **utdata** i pipeline-arbetsytan. Övervaknings skärmen uppdateras automatiskt var 20: e sekund eller när du klickar på knappen Uppdatera manuellt. Kopierings aktiviteten har en särskild övervaknings vy, som du kan komma åt genom att klicka på ögon ikonen i kolumnen **åtgärder** .
 
     ![Portal kopia 12](media/lab-data-flow-data-share/copy12.png)
 1. Vyn kopiera övervakning ger aktivitetens körnings information och prestanda egenskaper. Du kan se information, till exempel data läsa/skriva, rader, lästa/skrivna, lästa/skrivna filer och data flöde. Om du har konfigurerat allting korrekt bör du se 49 999 rader skrivna i en fil i din ADLS-mottagare.
@@ -261,7 +261,7 @@ Det data flöde som skapats i det här steget inre kopplar samman data uppsättn
     Om du vill hämta det totala rese avståndet använder du `sum()` agg regerings funktionen för att aggregera `trip_distance` kolumn omvandlingen till ett heltal med `toInteger()` . I data flödets uttrycks språk definieras det som `sum(toInteger(trip_distance))` . Klicka på **Spara och slutför** när du är klar.
 
     ![Portal aggare 6](media/lab-data-flow-data-share/agg6.png)
-1. Testa din omvandlings logik på fliken **data förhands granskning** . Som du kan se finns det betydligt färre rader och kolumner än tidigare. Endast de tre kolumnerna Group by och agg regering som definierats i den här omvandlingen fortsätter att vara underordnade. Eftersom det bara finns fem grupper av betalnings typer i exemplet returneras bara fem rader.
+1. Testa din omvandlings logik på fliken **data förhands granskning** . Som du kan se finns det betydligt färre rader och kolumner än tidigare. Endast de tre grupperna by och agg regerings kolumnerna som definierats i den här omvandlingen fortsätter att vara underordnade. Eftersom det bara finns fem grupper av betalnings typer i exemplet returneras bara fem rader.
 
     ![Portal aggare 7](media/lab-data-flow-data-share/agg7.png)
 
@@ -274,7 +274,7 @@ Det data flöde som skapats i det här steget inre kopplar samman data uppsättn
 
     ![Portal mottagare 2](media/lab-data-flow-data-share/sink2.png)
 
-1. Välj panelen **Azure Synapse Analytics (tidigare SQL DW)** och klicka på Fortsätt.
+1. Välj panelen **Azure Synapse Analytics** och klicka på Fortsätt.
 
     ![Portal mottagare 3](media/lab-data-flow-data-share/sink3.png)
 1. Anropa din data uppsättning "AggregatedTaxiData". Välj "SQLDW" som länkad tjänst. Välj **Skapa ny tabell** och namnge den nya tabellen dbo. AggregateTaxiData. Klicka på OK när du är färdig
@@ -330,7 +330,7 @@ När du har skapat en data resurs kan du växla hatt och bli *data konsument*. S
 
 1. Under **resurs namn** anger du ett namn som du väljer. Detta är resurs namnet som visas av din data konsument, så se till att ge det ett beskrivande namn, till exempel TaxiData.
 
-1. Under **Beskrivning** skriver du in en mening som beskriver innehållet i data resursen. Data resursen kommer att innehålla världs omfattande taxi rese data som lagras i ett antal butiker, inklusive Azure Synapse Analytics och Azure Data Lake Store. 
+1. Under **Beskrivning**, sorteras en mening som beskriver innehållet i data resursen. Data resursen kommer att innehålla världs omfattande taxi rese data som lagras i ett antal butiker, inklusive Azure Synapse Analytics och Azure Data Lake Store. 
 
 1. Under **användningsvillkor** anger du en uppsättning villkor som du vill att din data konsument ska följa. Några exempel är "Distribuera inte dessa data utanför organisationen" eller "se juridiskt avtal". 
 

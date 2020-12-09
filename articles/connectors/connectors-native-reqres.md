@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: b8f95e7e173dd6d1ad43301aab8ff3ec7cf78018
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 4997853fea97d14491bd9e9101f79f324807a6a1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981008"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920815"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-begäranden i Azure Logic Apps
 
@@ -42,7 +42,7 @@ Mer information om säkerhet finns i auktorisering och kryptering för inkommand
 
 Den här inbyggda utlösaren skapar en manuellt anropad slut punkt som *bara* kan hantera inkommande begär Anden via https. När en anropare skickar en begäran till den här slut punkten utlöses [utlösaren för begäran](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) och kör Logic-appen. Mer information om hur du anropar den här utlösaren finns i [anropa, utlösa eller kapsla arbets flöden med https-slutpunkter i Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-Din Logi Kap par ser till att en inkommande begäran endast öppnas under en [begränsad tid](../logic-apps/logic-apps-limits-and-config.md#request-limits). Förutsatt att din Logic app innehåller en [svars åtgärd](#add-response), om din Logi Kap par inte skickar tillbaka ett svar till anroparen efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` status till anroparen. Om din Logic app inte innehåller någon svars åtgärd, returnerar din Logi Kap app omedelbart en `202 ACCEPTED` status till anroparen.
+Din Logi Kap par ser till att en inkommande begäran endast öppnas under en [begränsad tid](../logic-apps/logic-apps-limits-and-config.md#http-limits). Förutsatt att din Logic app innehåller en [svars åtgärd](#add-response), om din Logi Kap par inte skickar tillbaka ett svar till anroparen efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` status till anroparen. Om din Logic app inte innehåller någon svars åtgärd, returnerar din Logi Kap app omedelbart en `202 ACCEPTED` status till anroparen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Skapa en tom logikapp.
 
@@ -179,7 +179,7 @@ Din Logi Kap par ser till att en inkommande begäran endast öppnas under en [be
 
    Du kan till exempel svara på begäran genom att [lägga till en svars åtgärd](#add-response), som du kan använda för att returnera ett anpassat svar och beskrivs senare i det här avsnittet.
 
-   Din Logi Kap par ser till att inkommande begäran endast öppnas under en [begränsad tid](../logic-apps/logic-apps-limits-and-config.md#request-limits). Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Om din Logic app inte innehåller någon svars åtgärd returnerar din Logi Kap app omedelbart ett `202 ACCEPTED` svar till anroparen.
+   Din Logi Kap par ser till att inkommande begäran endast öppnas under en [begränsad tid](../logic-apps/logic-apps-limits-and-config.md#http-limits). Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Om din Logic app inte innehåller någon svars åtgärd returnerar din Logi Kap app omedelbart ett `202 ACCEPTED` svar till anroparen.
 
 1. När du är klar sparar du din Logic app. I verktygsfältet designer väljer du **Spara**.
 

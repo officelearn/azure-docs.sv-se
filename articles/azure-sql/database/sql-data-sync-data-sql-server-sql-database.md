@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: b23b5a81fdff8a05742092f517128e08723103fc
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 55fa106f0515405dcad969f05d28e0bc7b975b40
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531147"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922282"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
 
@@ -81,6 +81,14 @@ Datasynkronisering är inte den bästa lösningen i följande scenarier:
 | **Fördelar** | – Stöd för aktiv-aktiv<br/>– Dubbelriktad mellan lokala och Azure SQL Database | -Nedre latens<br/>– Transaktionell konsekvens<br/>-Återanvänd befintlig topologi efter migrering <br/>– Stöd för Azure SQL Managed instance |
 | **Nackdelar** | – Ingen transaktionell konsekvens<br/>-Högre prestanda påverkan | -Det går inte att publicera från Azure SQL Database <br/>– Kostnad för hög underhåll |
 
+## <a name="private-link-for-data-sync-preview"></a>Privat länk för datasynkronisering (förhands granskning)
+Med funktionen ny privat länk (förhands granskning) kan du välja en tjänst hanterad privat slut punkt för att upprätta en säker anslutning mellan synkroniseringstjänsten och dina databas-/Hubbs databaser under synkroniseringsprocessen. En tjänst hanterad privat slut punkt är en privat IP-adress inom ett särskilt virtuellt nätverk och undernät. I datasynkroniseringen skapas tjänsten hanterad privat slut punkt av Microsoft och används exklusivt av data Sync-tjänsten för en specifik synkronisering. Innan du konfigurerar den privata länken bör du läsa de [allmänna kraven](sql-data-sync-data-sql-server-sql-database.md#general-requirements) för funktionen. 
+
+![Privat länk för datasynkronisering](./media/sql-data-sync-data-sql-server-sql-database/sync-private-link-overview.png)
+
+> [!NOTE]
+> Du måste godkänna den hanterade privata slut punkten för tjänsten manuellt på sidan **anslutningar för privata slut punkter** i Azure Portal under distributionen av synkroniseringsresursen eller med hjälp av PowerShell.
+
 ## <a name="get-started"></a>Kom igång 
 
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Konfigurera datasynkronisering i Azure Portal
@@ -126,6 +134,8 @@ Etablering och avetablering när du skapar, uppdaterar och tar bort grupper kan 
 
 - Ögonblicks bilds isolering måste vara aktiverat för både Sync-medlemmar och-hubb. Mer information finns i [Ögonblicksbildisolering i SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
+- För att kunna använda privat länk med datasynkronisering måste både medlemmen och hubben vara värdbaserade i Azure (samma eller olika regioner), i samma moln typ (t. ex. både i offentligt moln eller både i myndighets moln). Om du vill använda en privat länk måste Microsoft. Network Resource providers vara registrerade för de prenumerationer som är värdar för hubben och medlems servrarna. Slutligen måste du manuellt godkänna den privata länken för datasynkronisering under konfigurationen, i avsnittet "anslutningar för privata slut punkter" i Azure Portal eller via PowerShell. Mer information om hur du godkänner den privata länken finns i [konfigurera SQL Data Sync](./sql-data-sync-sql-server-configure.md). När du godkänner den hanterade privata slut punkten för tjänsten, sker all kommunikation mellan synkroniseringstjänsten och databas/hubb-databaser över den privata länken. De befintliga grupperna kan uppdateras för att aktivera den här funktionen.
+
 ### <a name="general-limitations"></a>Allmänna begränsningar
 
 - En tabell kan inte ha en identitets kolumn som inte är primär nyckel.
@@ -169,6 +179,9 @@ Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade ko
 > Det kan finnas upp till 30 slut punkter i en enda Sync-grupp om det bara finns en Sync-grupp. Om det finns fler än en Sync-grupp får det totala antalet slut punkter i alla Sync-grupper inte överstiga 30. Om en databas tillhör flera Sync-grupper räknas den som flera slut punkter, inte en.
 
 ### <a name="network-requirements"></a>Nätverkskrav
+
+> [!NOTE]
+> Om du använder en privat länk gäller inte dessa nätverks krav. 
 
 När Sync-gruppen har upprättats måste data Sync-tjänsten ansluta till Hub-databasen. När du upprättar Sync-gruppen måste Azure SQL-servern ha följande konfiguration i dess `Firewalls and virtual networks` inställningar:
 
@@ -248,7 +261,7 @@ Behöver du uppdatera schemat för en databas i en Sync-grupp? Schema ändringar
 - [Automatisera replikeringen av schema ändringar med SQL Data Sync i Azure](./sql-data-sync-update-sync-schema.md)
 - [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](scripts/update-sync-schema-in-sync-group.md)
 
-### <a name="monitor-and-troubleshoot"></a>Övervaka och felsök
+### <a name="monitor-and-troubleshoot"></a>Övervaka och felsöka
 
 Är SQL Data Sync att göra som det ska? Information om hur du övervakar aktiviteter och felsöker problem finns i följande artiklar:
 

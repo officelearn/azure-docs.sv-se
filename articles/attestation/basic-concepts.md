@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 95f59b73682e461a350410b38e3a021226cd7db6
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 8ae5bcf103bbb2d2b952fa647ba591e49002f2ff
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748696"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921625"
 ---
 # <a name="basic-concepts"></a>Grundläggande begrepp
 
@@ -30,7 +30,7 @@ Nedan visas några grundläggande begrepp som rör Microsoft Azure attestering.
 
 Attesterings leverantören tillhör Azure Resource Provider med namnet Microsoft. attestering. Resurs leverantören är en tjänst slut punkt som tillhandahåller REST-avtal för Azure-attestering och distribueras med hjälp av [Azure Resource Manager](../azure-resource-manager/management/overview.md). Varje attesterings leverantör följer en speciell princip som kan upptäckas. 
 
-Attesterings leverantörer skapas med en standard princip för varje TEE-typ (Observera att VBS enklaven inte har någon standard princip). Se [exempel på en attesterings princip](policy-examples.md) för mer information om standard principen för SGX.
+Attesterings leverantörer skapas med en standard princip för varje attesterings typ (Observera att VBS-enklaven inte har någon standard princip). Se [exempel på en attesterings princip](policy-examples.md) för mer information om standard principen för SGX.
 
 ### <a name="regional-default-provider"></a>Regional standard leverantör
 
@@ -50,13 +50,13 @@ Begäran om attestering är ett serialiserat JSON-objekt som skickas av klient p
 - "QUOTE" – värdet för egenskapen "QUOTE" är en sträng som innehåller en Base64URL-kodad representation av attesterings offerten
 - "EnclaveHeldData" – värdet för egenskapen "EnclaveHeldData" är en sträng som innehåller en Base64URL-kodad representation av enklaven hålls data.
 
-Azure-attesteringen validerar det tillhandahållna "QUOTE" från TEE och ser till att SHA256-hashen för de tillhandahållna enklaven hålls data uttrycks i de första 32 byten i fältet reportData i offerten. 
+Azure-attesteringen validerar det tillhandahållna "QUOTE" och ser till att SHA256-hashen för de tillhandahållna enklaven hålls data uttrycks i de första 32 byten i fältet reportData i offerten. 
 
 ## <a name="attestation-policy"></a>Attesteringsprincip
 
 Attesterings policyn används för att bearbeta attesterings beviset och kan konfigureras av kunder. Kärnan i Azure-attestering är en princip motor som bearbetar anspråk som utgör beviset. Principer används för att avgöra om Azure-attesteringen ska utfärda en attesterings-token baserat på bevis (eller inte) och därmed påteckna attesteringen (eller inte). Därför leder det till att det inte finns någon JWT-token som utfärdas för att Miss lyckas med att skicka alla principer.
 
-Om standard principen för TEE i attesterings leverantören inte uppfyller behoven kan kunderna skapa anpassade principer i någon av de regioner som stöds av Azure-attestering. Princip hantering är en viktig funktion som kunder har fått av Azure-attestering. Principer är TEE och kan användas för att identifiera enclaves eller lägga till anspråk till utdataporten eller modifiera anspråk i en utmatnings-token. 
+Om standard principen i attesteringsservern inte uppfyller behoven kommer kunderna att kunna skapa anpassade principer i någon av de regioner som stöds av Azure-attestering. Princip hantering är en viktig funktion som kunder har fått av Azure-attestering. Principer kommer att vara angivna som attesterings typ och kan användas för att identifiera enclaves eller lägga till anspråk till utdataporten eller modifiera anspråk i en utdataport. 
 
 Se [exempel på en attesterings princip](policy-examples.md) för standard princip innehåll och exempel.
 

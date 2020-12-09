@@ -1,20 +1,20 @@
 ---
-title: Automatisera uppgifter för företags integrering
-description: Lär dig mer om automatisering av arbets flöden som integrerar appar, data, tjänster och system med minimal kod för företags integrering med hjälp av Azure Logic Apps.
+title: Översikt över Azure Logic Apps
+description: Azure Logic Apps är en moln lösning för att bygga och dirigera automatiserade arbets flöden som integrerar appar, data, tjänster och system med minimal kod för scenarier på företags nivå.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 3496dfd7813818ced8963175d73ec0f8ef6892d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4c4e8c8f809452286fee493e20dbef2cc538c8bd
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86536240"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921536"
 ---
-# <a name="overview---what-is-azure-logic-apps"></a>Översikt – vad är Azure Logic Apps?
+# <a name="what-is-azure-logic-apps"></a>Vad är Azure Logic Apps?
 
 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) är en moln tjänst som hjälper dig att schemalägga, automatisera och dirigera uppgifter, affärs processer och [arbets flöden](#logic-app-concepts) när du behöver integrera appar, data, system och tjänster i företag eller organisationer. Logic Apps fören klar hur du utformar och skapar skalbara lösningar för [integrering](https://azure.microsoft.com/product-categories/integration/)av appar, data integrering, system integrering, Enterprise Application Integration (EAI) och kommunikation mellan företag (B2B), oavsett om de finns i molnet, lokalt eller både och.
 

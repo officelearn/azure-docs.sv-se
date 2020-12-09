@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 092320db9b7fe2b1f3fe142f84ad201d40dc6e2e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1318aaf50d4f05b8a999e5661318dc83997a2f02
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492292"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920787"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption i vila
 
@@ -33,7 +33,7 @@ Kryptering i vila är ett vanligt säkerhets krav. I Azure kan organisationer kr
 
 ## <a name="what-is-encryption-at-rest"></a>Vad är kryptering i vila?
 
-Kryptering i vila är kodningen (kryptering) av data när den är beständig. Kryptering i rest-modeller i Azure använder symmetrisk kryptering för att kryptera och dekryptera stora mängder data snabbt enligt en enkel konceptuell modell:
+Kryptering är säker kodning av data som används för att skydda konfidentialiteten för data. Kryptering i rest-modeller i Azure använder symmetrisk kryptering för att kryptera och dekryptera stora mängder data snabbt enligt en enkel konceptuell modell:
 
 - En symmetrisk krypterings nyckel används för att kryptera data när de skrivs till lagringen.
 - Samma krypterings nyckel används för att dekryptera dessa data som de är lätta att använda i minnet.

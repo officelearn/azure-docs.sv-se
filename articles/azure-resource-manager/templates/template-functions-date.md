@@ -1,18 +1,18 @@
 ---
 title: Mallens funktioner – datum
-description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med datum.
+description: Beskriver de funktioner som används i en Azure Resource Manager mall (ARM-mall) för att arbeta med datum.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 83e601adb649098f7a4e19cb71170b96a3287d9b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 58d865f109ecca2629b89eeb55e554743824c195
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004593"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920494"
 ---
 # <a name="date-functions-for-arm-templates"></a>Datum funktioner för ARM-mallar
 
-Resource Manager innehåller följande funktioner för att arbeta med datum i din Azure Resource Manager-mall (ARM):
+Resource Manager innehåller följande funktioner för att arbeta med datum i din Azure Resource Manager-mall (ARM-mall):
 
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
@@ -27,11 +27,11 @@ Lägger till en tids period till ett bas värde. ISO 8601-format förväntas.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| base | Yes | sträng | Start-datetime-värdet för additionen. Använd [formatet ISO 8601-tidsstämpel](https://en.wikipedia.org/wiki/ISO_8601). |
-| varaktighet | Yes | sträng | Det tids värde som ska läggas till i basen. Det kan vara ett negativt värde. Använd [varaktighets formatet ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| format | No | sträng | Utdataformatet för datum/tid-resultatet. Om inget värde anges används formatet för bas värdet. Använd antingen [standard format strängar](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| base | Ja | sträng | Start-datetime-värdet för additionen. Använd [formatet ISO 8601-tidsstämpel](https://en.wikipedia.org/wiki/ISO_8601). |
+| varaktighet | Ja | sträng | Det tids värde som ska läggas till i basen. Det kan vara ett negativt värde. Använd [varaktighets formatet ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+| format | Inga | sträng | Utdataformatet för datum/tid-resultatet. Om inget värde anges används formatet för bas värdet. Använd antingen [standard format strängar](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -182,13 +182,13 @@ resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31
 
 `utcNow(format)`
 
-Returnerar det aktuella (UTC) datetime-värdet i det angivna formatet. Om inget format anges används formatet ISO 8601 (yyyyMMddTHHmmssZ). **Den här funktionen kan endast användas i standardvärdet för en parameter.**
+Returnerar det aktuella (UTC) datetime-värdet i det angivna formatet. Om inget format anges används formatet ISO 8601 ( `yyyyMMddTHHmmssZ` ). **Den här funktionen kan endast användas i standardvärdet för en parameter.**
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| format |No |sträng |Det URI-kodade värdet som ska konverteras till en sträng. Använd antingen [standard format strängar](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Inga |sträng |Det URI-kodade värdet som ska konverteras till en sträng. Använd antingen [standard format strängar](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Kommentarer
 
@@ -326,4 +326,4 @@ output utcShortOutput string = utcShort
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
+* En beskrivning av avsnitten i en ARM-mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).

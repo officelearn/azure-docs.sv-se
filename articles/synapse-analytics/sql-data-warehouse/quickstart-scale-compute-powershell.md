@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skala beräkning för Synapse SQL-pool (Azure PowerShell)'
-description: Du kan skala beräkning för Synapse SQL-pool (informations lager) med hjälp av Azure PowerShell.
+title: 'Snabb start: skala beräkning för dedikerad SQL-pool (tidigare SQL DW) (Azure PowerShell)'
+description: Du kan skala beräkning för dedikerad SQL-pool (tidigare SQL DW) med hjälp av Azure PowerShell.
 services: synapse-analytics
 author: Antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 8077b1a52e44ce3a5160309c92288f756bed1014
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 87e10740e6081431bad96daa930f61238ca495bd
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91566150"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921908"
 ---
-# <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Snabb start: skala beräkning för Synapse SQL-pool med Azure PowerShell
+# <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Snabb start: skala beräkning för dedikerad SQL-pool (tidigare SQL DW) med Azure PowerShell
 
-Du kan skala beräkning för Synapse SQL-pool (informations lager) med hjälp av Azure PowerShell. [Skala ut beräkning](sql-data-warehouse-manage-compute-overview.md) för bättre prestanda eller skala upp beräkning för att spara kostnader.
+Du kan skala beräkning för dedikerad SQL-pool (tidigare SQL DW) med hjälp av Azure PowerShell. [Skala ut beräkning](sql-data-warehouse-manage-compute-overview.md) för bättre prestanda eller skala upp beräkning för att spara kostnader.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -28,7 +28,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Den här snabb starten förutsätter att du redan har en SQL-pool som du kan skala. Om du behöver skapa en använder du [skapa och Anslut-portalen](create-data-warehouse-portal.md) för att skapa en SQL-pool med namnet **mySampleDataWarehouse**.
+Den här snabb starten förutsätter att du redan har en särskild SQL-pool (tidigare SQL DW) som du kan skala. Om du behöver skapa en, använder du [skapa och Anslut-portalen](create-data-warehouse-portal.md) för att skapa en dedikerad SQL-pool (tidigare SQL DW) som kallas **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -56,7 +56,7 @@ Leta upp databasens namn, servernamnet och resursgruppen för det informationsla
 
 Följ de här anvisningarna för att hitta platsen för ditt informationslager.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på **Azure Synapse Analytics (tidigare SQL DW)** på den vänstra navigerings sidan i Azure Portal.
 3. Välj **mySampleDataWarehouse** på sidan **Azure Synapse Analytics (tidigare SQL DW)** för att öppna data lagret.
 
@@ -67,7 +67,7 @@ Följ de här anvisningarna för att hitta platsen för ditt informationslager.
 
 ## <a name="scale-compute"></a>Skala beräkning
 
-I SQL-poolen kan du öka eller minska beräknings resurserna genom att justera informations lager enheter. I [Skapa och ansluta – portal](create-data-warehouse-portal.md) skapades **mySampleDataWarehouse** och initierades med 400 DWU. Följande steg justerar DWU för **mySampleDataWarehouse**.
+I dedikerad SQL-pool (tidigare SQL DW) kan du öka eller minska beräknings resurserna genom att justera informations lager enheter. I [Skapa och ansluta – portal](create-data-warehouse-portal.md) skapades **mySampleDataWarehouse** och initierades med 400 DWU. Följande steg justerar DWU för **mySampleDataWarehouse**.
 
 Om du vill ändra informations lager enheter använder du PowerShell-cmdleten [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) . I följande exempel anges data lager enheter till DW300c för databasen **mySampleDataWarehouse**, som finns i resurs gruppen **ResourceGroupName** på Server **sqlpoolservername**.
 
@@ -121,7 +121,7 @@ $database | Select-Object DatabaseName,Status
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du lärt dig hur du skalar beräkning för SQL-poolen. Om du vill veta mer om SQL-poolen fortsätter du till självstudien för att läsa in data.
+Nu har du lärt dig hur du skalar beräkning för dedikerad SQL-pool (tidigare SQL DW). Om du vill veta mer om dedikerad SQL-pool (tidigare SQL DW) fortsätter du till självstudien för att läsa in data.
 
 > [!div class="nextstepaction"]
->[Läs in data i en SQL-pool](load-data-from-azure-blob-storage-using-polybase.md)
+>[Läs in data i en dedikerad SQL-pool](load-data-from-azure-blob-storage-using-copy.md)

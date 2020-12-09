@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/19/2020
-ms.openlocfilehash: ee9bcedea15b039982e73304a25073c85b496635
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 56c3475ae6a03600723e7a12b3f3809f003ce7c4
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780061"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922267"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
@@ -67,11 +67,11 @@ Den storskaliga tjänst nivån har stöd för ett brett utbud av SQL Server arbe
 
 Storskalig Service Tier är endast tillgängligt i [vCore-modellen](service-tiers-vcore.md). För att passa den nya arkitekturen skiljer sig pris modellen något från Generell användning eller Affärskritisk tjänst nivåer:
 
-- **Compute** :
+- **Compute**:
 
   Det storskaliga beräknings enhets priset är per replik. [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/) priset används automatiskt för att läsa skalnings repliker. Vi skapar en primär replik och en skrivskyddad replik per storskalig databas som standard.  Användare kan justera det totala antalet repliker, inklusive primärt från 1-5.
 
-- **Lagring** :
+- **Lagring**:
 
   Du behöver inte ange den maximala data storleken när du konfigurerar en storskalig databas. I den storskaliga nivån debiteras du för lagring av databasen baserat på den faktiska allokeringen. Storage tilldelas automatiskt mellan 40 GB och 100 TB, i steg om 10 GB. Flera datafiler kan växa vid samma tidpunkt om det behövs. En storskalig databas skapas med en start storlek på 10 GB och börjar växa med 10 GB var 10: e minut tills den når storleken på 40 GB.
 
@@ -87,7 +87,7 @@ Följande diagram illustrerar de olika typerna av noder i en storskalig databas:
 
 En storskalig databas innehåller följande typer av komponenter:
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>Beräkning
 
 Compute-noden är den plats där Relations motorn bor. Detta är där språk-, fråge-och transaktions bearbetning sker. Alla användar interaktioner med en storskalig databas sker genom de här Compute-noderna. Compute-noder har SSD-baserade cacheminnen (märkta RBPEX-elastiska buffertpooltillägget i diagrammet ovan) för att minimera antalet nätverks fördröjningar som krävs för att hämta en sida med data. Det finns en primär Compute-nod där alla Läs-och skriv åtgärder och transaktioner bearbetas. Det finns en eller flera sekundära datornoder som fungerar som frekventa vänte läge för redundans, samt fungerar som skrivskyddade Compute-noder för avlastning av Läs arbets belastningar (om den här funktionen önskas).
 
@@ -231,7 +231,6 @@ Detta är de aktuella begränsningarna för den storskaliga tjänst nivån från
 | Migrering av databaser med In-Memory OLTP-objekt | Storskalig stöder en delmängd av In-Memory OLTP-objekt, inklusive minnesoptimerade tabell typer, Table-variabler och internt kompilerade moduler. Men när en typ av In-Memory OLTP-objekt finns i databasen som migreras, stöds inte migrering från Premium-och Affärskritisks tjänst nivåer till storskalig skalning. Alla In-Memory OLTP-objekt och deras beroenden måste släppas för att en sådan databas ska kunna migreras till skalning. När databasen har migrerats kan dessa objekt återskapas. Tåliga och icke-varaktiga minnesoptimerade tabeller stöds inte för närvarande i storskaliga och måste återskapas som disk tabeller.|
 | Geo-replikering  | Du kan inte konfigurera geo-replikering för Azure SQL Database storskaligt. |
 | Databas kopia | Databas kopiering på storskaligheten är nu i en offentlig för hands version. |
-| TDE/AKV-integrering | Transparent databas kryptering med Azure Key Vault (kallas vanligt vis för att ta med sig nyckeln eller BYOK) är för närvarande en offentlig för hands version. |
 | Intelligenta databas funktioner | Med undantag för alternativet "framtvinga plan" stöds inte alla andra automatiska justerings alternativ i den storskaliga: alternativen kan verka vara aktiverade, men inga rekommendationer eller åtgärder har gjorts. |
 | Information om frågeprestanda | Fråga prestanda insikter stöds för närvarande inte för storskaliga databaser. |
 | Krymp databas | DBCC SHRINKDATABASE eller DBCC SHRINKFILE stöds för närvarande inte för storskaliga databaser. |

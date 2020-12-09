@@ -4,12 +4,12 @@ description: I den här självstudien konfigurerar du haveri beredskap för virt
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 90527ad39055e438e4970ad4686f204f72d20cd2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 6d07082b4a9c18461d5cc74de8844be803da7168
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394181"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922485"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-azure-vms"></a>Självstudie: Konfigurera haveri beredskap för virtuella Azure-datorer
 
@@ -28,7 +28,7 @@ När du aktiverar replikering för en virtuell dator för att konfigurera haveri
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
@@ -47,16 +47,16 @@ Ditt Azure-konto måste ha behörighet att skapa ett Recovery Services-valv och 
 
 - Om du precis har skapat en kostnads fri Azure-prenumeration är du konto administratör och ingen ytterligare åtgärd krävs.
 - Om du inte är administratör kan du arbeta med administratören för att få de behörigheter som du behöver.
-    - **Skapa ett valv** : administratörs-eller ägar behörigheter för prenumerationen. 
-    - **Hantera Site Recovery åtgärder i valvet** : den inbyggda Azure-rollen *Site Recovery Contributor* .
-    - **Skapa virtuella Azure-datorer i mål regionen** : antingen den inbyggda rollen *virtuell dator deltagare* eller specifika behörigheter för att:
+    - **Skapa ett valv**: administratörs-eller ägar behörigheter för prenumerationen. 
+    - **Hantera Site Recovery åtgärder i valvet**: den inbyggda Azure-rollen *Site Recovery Contributor* .
+    - **Skapa virtuella Azure-datorer i mål regionen**: antingen den inbyggda rollen *virtuell dator deltagare* eller specifika behörigheter för att:
         - Skapa en virtuell dator i det valda virtuella nätverket.
         - Skriv till ett Azure Storage-konto.
         - Skriv till en Azure-hanterad disk.
 
 ### <a name="verify-target-settings"></a>Verifiera mål inställningarna
 
-När du växlar över från käll regionen under identifierings återställning skapas virtuella datorer i mål regionen. 
+Vid haveri beredskap skapas virtuella datorer i mål regionen när du växlar över från käll regionen. 
 
 Kontrol lera att din prenumeration har tillräckligt med resurser i mål regionen. Du måste kunna skapa virtuella datorer med storlekar som matchar de virtuella datorerna i käll regionen. När du konfigurerar haveri beredskap, Site Recovery väljer samma storlek (eller den närmast möjliga storleken) för den virtuella mål datorn.
 
@@ -79,7 +79,7 @@ Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgåend
 
 | **Namn**                  | **Kommersiellt**                               | **Myndigheter**                                 | **Beskrivning** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Gör att data kan skrivas från den virtuella datorn till cachelagringskontot i källregionen. |
+| Lagring                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Gör att data kan skrivas från den virtuella datorn till cachelagringskontot i källregionen. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Tillhandahåller auktorisering och autentisering för Site Recovery-tjänstens webbadresser. |
 | Replikering               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Låter den virtuella datorn kommunicera med Site Recovery-tjänsten. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Låter den virtuella datorn skriva övervaknings- och diagnostikdata för Site Recovery. |
@@ -102,20 +102,20 @@ GuestAndHybridManagement-tagg | Använd om du vill uppgradera den Site Recovery 
 
 Kontrol lera att de virtuella datorerna har de senaste rot certifikaten. Annars kan den virtuella datorn inte registreras med Site Recovery på grund av säkerhets begränsningar.
 
-- **Virtuella Windows-datorer** : installera alla de senaste Windows-uppdateringarna på den virtuella datorn så att alla betrodda rot certifikat finns på datorn. I en frånkopplad miljö följer du standard processerna för Windows Update och certifikat uppdateringar.
-- **Virtuella Linux-datorer** : Följ de rikt linjer som tillhandahålls av Linux-distributören för att hämta de senaste betrodda rot certifikaten och listan över återkallade certifikat (CRL).
+- **Virtuella Windows-datorer**: installera alla de senaste Windows-uppdateringarna på den virtuella datorn så att alla betrodda rot certifikat finns på datorn. I en frånkopplad miljö följer du standard processerna för Windows Update och certifikat uppdateringar.
+- **Virtuella Linux-datorer**: Följ de rikt linjer som tillhandahålls av Linux-distributören för att hämta de senaste betrodda rot certifikaten och listan över återkallade certifikat (CRL).
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
 Skapa ett Recovery Services-valv i vilken region som helst, förutom i käll regionen som du vill replikera virtuella datorer från.
 
-1. Logga in i [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Skriv *återställning* i rutan Sök. Under **tjänster** väljer du **Recovery Services valv**.
 
     ![Sök efter Recovery Services valv](./media/azure-to-azure-tutorial-enable-replication/search.png)
 
 3. I **Recovery Services valv** väljer du **Lägg till**.
-4. I **skapa Recovery Services Vault**  >  - **grunderna** väljer du den prenumeration som du vill skapa valvet i.
+4. I **skapa Recovery Services Vault**  >  -**grunderna** väljer du den prenumeration som du vill skapa valvet i.
 5. I **resurs grupp** väljer du en befintlig resurs grupp för valvet eller skapar en ny.
 6. I **valv namn** anger du ett eget namn som identifierar valvet.
 7. I **region** väljer du den Azure-region där du vill placera valvet. [Kontrol lera regioner som stöds](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -123,7 +123,7 @@ Skapa ett Recovery Services-valv i vilken region som helst, förutom i käll reg
 
    ![Valv inställningar på sidan för att skapa ett nytt valv](./media/azure-to-azure-tutorial-enable-replication/vault-basics.png)
 
-9. I **Granska + skapa** , väljer du **skapa**.
+9. I **Granska + skapa**, väljer du **skapa**.
 
 10. Valv distributionen börjar. Följ förloppet i aviseringarna.
 11. När valvet har distribuerats väljer du **Fäst på instrument panelen** för att spara den för snabb referens. Välj **gå till resurs** för att öppna det nya valvet. 
@@ -142,7 +142,7 @@ Välj käll inställningar och aktivera VM-replikering.
 
 ### <a name="select-source-settings"></a>Välj käll inställningar
 
-1. På sidan valv > **Site Recovery** , under **Azure Virtual Machines** , väljer du **Aktivera replikering**.
+1. På sidan valv > **Site Recovery** , under **Azure Virtual Machines**, väljer du **Aktivera replikering**.
 
     ![Val för att aktivera replikering för virtuella Azure-datorer](./media/azure-to-azure-tutorial-enable-replication/enable-replication.png)
 

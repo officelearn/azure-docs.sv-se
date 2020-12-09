@@ -1,18 +1,18 @@
 ---
 title: Mall funktioner – distribution
-description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att hämta distributions information.
+description: Beskriver de funktioner som används i en Azure Resource Manager mall (ARM-mall) för att hämta distributions information.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 9d6a1783bcd6d84c181edae84063ed7c0964c3d8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e63caef669a2c28d29cd0bbd649b0997cea14ee1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004576"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920510"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Distributions funktioner för ARM-mallar
 
-Resource Manager innehåller följande funktioner för att hämta värden som är relaterade till den aktuella distributionen av din Azure Resource Manager-mall (ARM):
+Resource Manager innehåller följande funktioner för att hämta värden som är relaterade till den aktuella distributionen av din Azure Resource Manager-mall (ARM-mall):
 
 * [spridningen](#deployment)
 * [miljö](#environment)
@@ -295,9 +295,9 @@ Returnerar ett parameter värde. Det angivna parameter namnet måste definieras 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| parameterName |Yes |sträng |Namnet på den parameter som ska returneras. |
+| parameterName |Ja |sträng |Namnet på den parameter som ska returneras. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -434,7 +434,7 @@ Utdata från föregående exempel med standardvärdena är:
 | arrayOutput | Matris | [1, 2, 3] |
 | crossOutput | Sträng | alternativ 1 |
 
-Mer information om hur du använder parametrar finns [i parametrar i Azure Resource Manager mall](template-parameters.md).
+Mer information om hur du använder parametrar finns [i parametrar i arm-mallar](template-parameters.md).
 
 ## <a name="variables"></a>användarvariabler
 
@@ -444,7 +444,7 @@ Returnerar värdet för variabeln. Det angivna variabel namnet måste definieras
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | variableName |Ja |Sträng |Namnet på variabeln som ska returneras. |
 
@@ -571,8 +571,8 @@ Utdata från föregående exempel med standardvärdena är:
 | exampleOutput3 | Sträng | Variabel |
 | exampleOutput4 |  Objekt | {"Egenskap1": "värde1", "Egenskap2": "värde2"} |
 
-Mer information om hur du använder variabler finns [i variabler i Azure Resource Manager mall](template-variables.md).
+Mer information om hur du använder variabler finns [i variabler i arm-mallen](template-variables.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
+* En beskrivning av avsnitten i en ARM-mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).

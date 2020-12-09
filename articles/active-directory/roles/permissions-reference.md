@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf91c9e081bff9860153b342648fedc0990b68b9
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 1d634978333e2b833324228fb0908cfba61a786d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862065"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919748"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -1016,6 +1016,7 @@ Kan läsa & skriva grundläggande katalog information. För att bevilja åtkomst
 | Microsoft. Directory/Users/appRoleAssignments/Update | Uppdatera users. appRoleAssignments-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/Users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
 | Microsoft. Directory/Users/Basic/Update | Uppdatera grundläggande egenskaper för användare i Azure Active Directory. |
+| Microsoft. Directory/Users/Create | Skapa användare i Azure Active Directory. |
 | Microsoft. Directory/användare/inaktivera | Inaktivera ett användar konto i Azure Active Directory. |
 | Microsoft. Directory/Users/Enable | Aktivera ett användar konto i Azure Active Directory |
 | Microsoft. Directory/Users/invalidateAllRefreshTokens | Ogiltig verifiering av alla användares uppdateringstoken i Azure Active Directory, vilket kräver att användare autentiseras på nytt vid nästa inloggning |

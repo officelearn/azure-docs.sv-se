@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: a807c76a08bf075973cd0f358c67b61b10b40ba0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 9003366ec0d64057ca7426d5b6b99986bc21fc9d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554524"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920295"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registrera och skanna en lokal SQL Server
 
@@ -31,6 +31,10 @@ Lokal data källa för SQL Server stöder:
 - alla versioner av SQL från SQL Server 2019 tillbaka till SQL Server 2000
 
 - Autentiseringsmetod: SQL-autentisering
+
+### <a name="known-limitations"></a>Kända begränsningar
+
+Azure avdelningens kontroll stöder inte genomsökning av [vyer](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) i SQL Server. 
 
 ## <a name="prerequisites"></a>Krav
 

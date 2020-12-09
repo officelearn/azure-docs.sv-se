@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: a0b0dc8c29bcdb51f7b348dd62e3d27796819a7d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: e0a1d8dba9ea284322584de3b4be2ae390d15fdf
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554574"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920258"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Registrera och skanna Azure Synapse Analytics
 
@@ -21,6 +21,10 @@ Den här artikeln beskriver hur du registrerar och skannar en instans av Azure S
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
 Azure Synapse Analytics (tidigare SQL DW) stöder fullständiga och stegvisa genomsökningar för att avbilda metadata och scheman. Genomsökningar klassificerar även data automatiskt baserat på system-och anpassade klassificerings regler.
+
+### <a name="known-limitations"></a>Kända begränsningar
+
+Azure avdelningens kontroll stöder inte genomsökning av [vyer](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) i Azure Synapse Analytics
 
 ## <a name="prerequisites"></a>Krav
 

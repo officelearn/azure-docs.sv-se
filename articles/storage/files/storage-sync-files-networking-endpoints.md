@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 02d9e65f5422b7b12900d051f01c1d6f55e8685b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 61ff5d05eb74804af69b90d839115a8468619275
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844684"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921717"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Konfigurera nätverksslutpunkter i Azure File Sync
 Azure Files och Azure File Sync ger två huvud typer av slut punkter för åtkomst till Azure-fil resurser: 
@@ -26,7 +26,7 @@ Den här artikeln fokuserar på hur du konfigurerar nätverks slut punkter för 
 
 Vi rekommenderar att du läser [Azure File Sync nätverks överväganden](storage-sync-files-networking-overview.md) innan du läser den här guiden.
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 Den här artikeln förutsätter att:
 - Du har en Azure-prenumeration. Om du inte redan har en prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - Du har redan skapat en Azure-filresurs i ett lagrings konto som du vill ansluta till från den lokala platsen. Information om hur du skapar en Azure-filresurs finns i [skapa en Azure-fil resurs](storage-how-to-create-file-share.md).
@@ -34,7 +34,7 @@ Den här artikeln förutsätter att:
 
 Dessutom:
 - Om du tänker använda Azure PowerShell [installerar du den senaste versionen](/powershell/azure/install-az-ps).
-- Om du tänker använda Azure CLI [installerar du den senaste versionen](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Om du tänker använda Azure CLI [installerar du den senaste versionen](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="create-the-private-endpoints"></a>Skapa de privata slut punkterna
 När du skapar en privat slut punkt för en Azure-resurs distribueras följande resurser:
@@ -588,7 +588,7 @@ När du begränsar lagrings kontot till specifika virtuella nätverk kan du till
 Med Azure File Sync kan du begränsa åtkomsten till vissa virtuella nätverk via privata slut punkter. Azure File Sync har inte stöd för tjänst slut punkter för att begränsa åtkomsten till den offentliga slut punkten till vissa virtuella nätverk. Det innebär att de två tillstånden för lagrings tjänstens offentliga slut punkt är aktiverade och inaktiverade.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Detta är inte möjligt via Azure Portal. Välj instruktioner för Azure PowerShell eller Azure CLI-fliken för att få instruktioner om hur du inaktiverar den offentliga slut punkten för Storage Sync-tjänsten. 
+Detta är inte möjligt via Azure Portal. Välj fliken Azure PowerShell för att få anvisningar om hur du inaktiverar den offentliga slut punkten för Storage Sync-tjänsten. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 För att inaktivera åtkomst till lagrings tjänstens offentliga slut punkt ställer vi in `incomingTrafficPolicy` egenskapen på lagrings tjänsten för synkronisering till `AllowVirtualNetworksOnly` . Ange `incomingTrafficPolicy` till i stället om du vill aktivera åtkomst till lagrings tjänstens offentliga slut punkt `AllowAllTraffic` . Kom ihåg att ersätta `<storage-sync-service-resource-group>` och `<storage-sync-service>` .
@@ -603,23 +603,11 @@ $storageSyncService = Get-AzResource `
         -ResourceType "Microsoft.StorageSync/storageSyncServices"
 
 $storageSyncService.Properties.incomingTrafficPolicy = "AllowVirtualNetworksOnly"
-$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force
+$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force -UsePatchSemantics
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-För att inaktivera åtkomst till lagrings tjänstens offentliga slut punkt ställer vi in `incomingTrafficPolicy` egenskapen på lagrings tjänsten för synkronisering till `AllowVirtualNetworksOnly` . Ange `incomingTrafficPolicy` till i stället om du vill aktivera åtkomst till lagrings tjänstens offentliga slut punkt `AllowAllTraffic` . Kom ihåg att ersätta `<storage-sync-service-resource-group>` och `<storage-sync-service>` .
-
-```bash
-storageSyncServiceResourceGroupName="<storage-sync-service-resource-group>"
-storageSyncServiceName="<storage-sync-service>"
-
-az resource update \
-        --resource-group $storageSyncServiceResourceGroupName \
-        --name $storageSyncServiceName \
-        --resource-type "Microsoft.StorageSync/storageSyncServices" \
-        --set "properties.incomingTrafficPolicy=AllowVirtualNetworksOnly" \
-        --output none
-```
+<a name="azure-cli-does-not-support-setting-the-incomingtrafficpolicy-property-on-the-storage-sync-service-please-select-the-azure-powershell-tab-to-get-instructions-on-how-to-disable-the-storage-sync-service-public-endpoint"></a>Azure CLI har inte stöd för att ange `incomingTrafficPolicy` egenskapen för synkroniseringstjänsten för lagring. Välj fliken Azure PowerShell för att få anvisningar om hur du inaktiverar den offentliga slut punkten för Storage Sync-tjänsten.
 ---
 
 ## <a name="see-also"></a>Se även

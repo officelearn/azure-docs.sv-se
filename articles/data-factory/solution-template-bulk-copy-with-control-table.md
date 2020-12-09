@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/14/2018
-ms.openlocfilehash: 8d1ff372009c6158f2148847dd77126bcb4d189f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: d89fd8b4102333603fa71b2cc28a49b732b91b08
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461236"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920882"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Mass kopiering från en databas med en kontroll tabell
 
@@ -44,7 +44,7 @@ Mallen definierar följande parametrar:
 - *Data_Destination_Container* är sökvägen till rotmappen där data kopieras till i mål arkivet. 
 - *Data_Destination_Directory* är katalog Sök vägen under roten där data kopieras till mål lagret. 
 
-De sista tre parametrarna, som definierar sökvägen i mål lagret, visas bara om det mål du väljer är filbaserad lagring. Om du väljer "Azure Synapse Analytics (tidigare SQL DW)" som mål Arkiv, krävs inte dessa parametrar. Men tabell namnen och schemat i Azure Synapse Analytics måste vara desamma som i käll databasen.
+De sista tre parametrarna, som definierar sökvägen i mål lagret, visas bara om det mål du väljer är filbaserad lagring. Om du väljer Azure Synapse Analytics som mål Arkiv, krävs inte dessa parametrar. Men tabell namnen och schemat i Azure Synapse Analytics måste vara desamma som i käll databasen.
 
 ## <a name="how-to-use-this-solution-template"></a>Så här använder du den här lösnings mal len
 
@@ -94,7 +94,7 @@ De sista tre parametrarna, som definierar sökvägen i mål lagret, visas bara o
 
     ![Granska resultatet](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. Valfritt Om du väljer "Azure Synapse Analytics (tidigare SQL DW)" som data mål måste du ange en anslutning till Azure Blob Storage för mellanlagring, vilket krävs av Azure Synapse Analytics PolyBase. Mallen genererar automatiskt en container Sök väg för Blob Storage. Kontrol lera om behållaren har skapats efter att pipelinen har körts.
+9. Valfritt Om du väljer Azure Synapse Analytics som data mål måste du ange en anslutning till Azure Blob Storage för mellanlagring, vilket krävs av Azure Synapse Analytics PolyBase. Mallen genererar automatiskt en container Sök väg för Blob Storage. Kontrol lera om behållaren har skapats efter att pipelinen har körts.
     
     ![PolyBase-inställning](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

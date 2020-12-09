@@ -1,21 +1,21 @@
 ---
 title: Mall-funktioner – jämförelse
-description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att jämföra värden.
+description: Beskriver de funktioner som används i en Azure Resource Manager-mall (ARM-mall) för att jämföra värden.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: c5ffcfe7688935da6ea5602cdb2c66a8b86a8d88
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1b7192db361f510e0246a737de47930534a1cb9d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004610"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920525"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Jämförelse funktioner för ARM-mallar
 
-Resource Manager innehåller flera funktioner för att göra jämförelser i dina Azure Resource Manager-mallar (ARM).
+Resource Manager innehåller flera funktioner för att göra jämförelser i din Azure Resource Manager-mall (ARM-mall):
 
 * [coalesce](#coalesce)
-* [lika med](#equals)
+* [är lika med](#equals)
 * [större än](#greater)
 * [större än eller lika med](#greaterorequals)
 * [minskad](#less)
@@ -31,10 +31,10 @@ Returnerar det första värdet som inte är null från parametrarna. Tomma strä
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |heltal, sträng, matris eller objekt |Det första värdet som ska testas för null. |
-| ytterligare argument |No |heltal, sträng, matris eller objekt |Ytterligare värden att testa för null. |
+| arg1 |Ja |heltal, sträng, matris eller objekt |Det första värdet som ska testas för null. |
+| ytterligare argument |Inga |heltal, sträng, matris eller objekt |Ytterligare värden att testa för null. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -133,10 +133,10 @@ Kontrollerar om två värden är lika med varandra. `equals`Funktionen stöds in
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |heltal, sträng, matris eller objekt |Det första värdet för att kontrol lera om det är lika. |
-| arg2 |Yes |heltal, sträng, matris eller objekt |Det andra värdet för att kontrol lera om det är lika. |
+| arg1 |Ja |heltal, sträng, matris eller objekt |Det första värdet för att kontrol lera om det är lika. |
+| arg2 |Ja |heltal, sträng, matris eller objekt |Det andra värdet för att kontrol lera om det är lika. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -317,10 +317,10 @@ Kontrollerar om det första värdet är större än det andra värdet. `greater`
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int eller string |Det första värdet för större jämförelse. |
-| arg2 |Yes |int eller string |Det andra värdet för större jämförelse. |
+| arg1 |Ja |int eller string |Det första värdet för större jämförelse. |
+| arg2 |Ja |int eller string |Det andra värdet för större jämförelse. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -398,10 +398,10 @@ Kontrollerar om det första värdet är större än eller lika med det andra vä
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int eller string |Det första värdet för större eller lika jämförelse. |
-| arg2 |Yes |int eller string |Det andra värdet för större eller lika jämförelse. |
+| arg1 |Ja |int eller string |Det första värdet för större eller lika jämförelse. |
+| arg2 |Ja |int eller string |Det andra värdet för större eller lika jämförelse. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -479,10 +479,10 @@ Kontrollerar om det första värdet är mindre än det andra värdet. `less`Funk
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int eller string |Det första värdet för mindre jämförelse. |
-| arg2 |Yes |int eller string |Det andra värdet för mindre jämförelse. |
+| arg1 |Ja |int eller string |Det första värdet för mindre jämförelse. |
+| arg2 |Ja |int eller string |Det andra värdet för mindre jämförelse. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -560,10 +560,10 @@ Kontrollerar om det första värdet är mindre än eller lika med det andra vär
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int eller string |Det första värdet för mindre eller lika med jämförelse. |
-| arg2 |Yes |int eller string |Det andra värdet för jämförelsen som är mindre eller lika med. |
+| arg1 |Ja |int eller string |Det första värdet för mindre eller lika med jämförelse. |
+| arg2 |Ja |int eller string |Det andra värdet för jämförelsen som är mindre eller lika med. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -635,4 +635,4 @@ Utdata från föregående exempel med standardvärdena är:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
+* En beskrivning av avsnitten i en ARM-mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).

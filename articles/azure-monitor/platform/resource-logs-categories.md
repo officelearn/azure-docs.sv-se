@@ -4,12 +4,12 @@ description: Referens för Azure Monitor förstå tjänster och händelse schema
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: 1fd6f07151c93b64c150f01e5c0b5c7f4cffed85
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 463b1d9d9c3ed1d94728874ba814554deb4f97c6
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593016"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920833"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Kategorier som stöds för Azure-resurs loggar
 
@@ -20,6 +20,11 @@ ms.locfileid: "94593016"
 
 En kombination av resurs typen (tillgänglig i `resourceId` egenskapen) och `category` unikt identifiera ett schema. Det finns ett gemensamt schema för alla resurs loggar med tjänstspecifika fält och läggs till för olika logg kategorier. Mer information finns i [common and Service Specific schema för Azures resurs loggar]()
 
+
+## <a name="costs"></a>Kostnader
+
+ Det finns kostnader som är kopplade till att skicka och lagra data i till Log Analytics och/eller Händelsehubben. Resurs loggar är en typ av data som du kan skicka till dessa platser. Det finns ytterligare [kostnader för att exportera vissa kategorier av resurs loggar](https://azure.microsoft.com/pricing/details/monitor/). Andra är kostnads fria export kostnader. Information visas i tabellen nedan.
+
 ## <a name="supported-log-categories-per-resource-type"></a>Logg kategorier som stöds per resurs typ
 
 Följande är en lista över de typer av loggar som är tillgängliga för varje resurs typ. 
@@ -27,17 +32,11 @@ Följande är en lista över de typer av loggar som är tillgängliga för varje
 Vissa kategorier kan bara användas för vissa typer av resurser. Se den Resource-/regionsspecifika dokumentationen om du anser att du saknar en resurs. Till exempel är inte kategorierna Microsoft. SQL/Server/Databass tillgängliga för alla typer av databaser. Mer information finns i [information om SQL Database diagnostisk loggning](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i den här artikeln.
-
-## <a name="microsoftaadiamtenants"></a>Microsoft. aadiam/klient organisationer
-
-|Kategori|Kategori visnings namn|
-|---|---|
-|Inloggning|Inloggning|
-
-
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft. AnalysisServices/servers
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |Motor|Motor|
 |Tjänst|Tjänst|
@@ -45,14 +44,18 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |GatewayLogs|Loggar som rör API Management-Gateway|
 
 
 ## <a name="microsoftappplatformspring"></a>Microsoft. AppPlatform/våren
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |ApplicationConsole|Program konsol|
 |SystemLogs|System loggar|
@@ -60,23 +63,29 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft. Automation/automationAccounts
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
+|DscNodeStatus|DSC-nods status|
 |JobLogs|Jobb loggar|
 |JobStreams|Jobb strömmar|
-|DscNodeStatus|DSC-nods status|
 
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.BatCH/batchAccounts
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |ServiceLog|Tjänst loggar|
 
 
 ## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/arbets ytor
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |BaiClusterEvent|BaiClusterEvent|
 |BaiClusterNodeEvent|BaiClusterNodeEvent|
@@ -85,58 +94,77 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft. blockchain/blockchainMembers
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |BlockchainApplication|Blockchain-program|
+|FabricOrderer|Fabric-beställare|
+|FabricPeer|Infrastruktur resurs|
 |Proxy|Proxy|
 
 
 ## <a name="microsoftblockchaincordamembers"></a>Microsoft. blockchain/cordaMembers
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |BlockchainApplication|Blockchain-program|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft. CDN/cdnwebapplicationfirewallpolicies
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
-|WebApplicationFirewallLogs|Brand Väggs loggar för webb program|
+|WebApplicationFirewallLogs|Brand Väggs loggar för webb webbappen|
 
 
 ## <a name="microsoftcdnprofiles"></a>Microsoft. CDN/profiler
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |AzureCdnAccessLog|Azure CDN Access-logg|
 
 
 ## <a name="microsoftcdnprofilesendpoints"></a>Microsoft. CDN/profiler/slut punkter
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
-|CoreAnalytics|Hämtar måtten för slut punkten, till exempel bandbredd, utgående data osv.|
+|CoreAnalytics|Hämtar Mät värdena för slut punkten, t. ex. bandbredd, utgående data osv.|
 
 
 ## <a name="microsoftclassicnetworknetworksecuritygroups"></a>Microsoft. ClassicNetwork/networksecuritygroups
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |Regel flödes händelse för nätverks säkerhets grupp|Regel flödes händelse för nätverks säkerhets grupp|
 
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft. CognitiveServices/konton
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |Granska|Granskningsloggar|
 |RequestResponse|Förfrågningar och svars loggar|
+|Spårning|Spårnings loggar|
 
 
 ## <a name="microsoftcontainerregistryregistries"></a>Microsoft. ContainerRegistry/register
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |ContainerRegistryLoginEvents|Inloggnings händelser|
 |ContainerRegistryRepositoryEvents|RepositoryEvent-loggar|
@@ -144,7 +172,9 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft. container service/managedClusters
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |kluster – autoskalning|Kubernetes-kluster autoskalning|
 |kube-apiserver|Kubernetes-API-Server|
@@ -155,14 +185,18 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftcustomprovidersresourceproviders"></a>Microsoft. CustomProviders/resourceproviders
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |AuditLogs|Gransknings loggar för MiniRP-anrop|
 
 
 ## <a name="microsoftdatabricksworkspaces"></a>Microsoft. Databricks/arbets ytor
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |konton|Databricks-konton|
 |kluster|Databricks-kluster|
@@ -176,16 +210,11 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 |arbetsyta|Databricks-arbetsyta|
 
 
-## <a name="microsoftdatacatalogdatacatalogs"></a>Microsoft. DataCatalog/datacatalogs
-
-|Kategori|Kategori visnings namn|
-|---|---|
-|ScanStatusLogEvent|ScanStatus|
-
-
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft. DataFactory/fabriker
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |ActivityRuns|Pipeline-aktivitet kör logg|
 |PipelineRuns|Pipeline kör logg|
@@ -194,31 +223,70 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft. DataLakeStore/konton
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |Granska|Granskningsloggar|
 |Begäranden|Begär ande loggar|
 
 
+## <a name="microsoftdatashareaccounts"></a>Microsoft. DataShare/konton
+
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
+|---|---|
+|ReceivedShareSnapshots|Mottagna resurs ögonblicks bilder|
+|SentShareSnapshots|Ögonblicks bilder av skickade resurser|
+|Resurser|Resurser|
+|ShareSubscriptions|Dela prenumerationer|
+
+
 ## <a name="microsoftdbformariadbservers"></a>Microsoft. DBforMariaDB/servers
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |MySqlAuditLogs|Gransknings loggar för MariaDB|
 |MySqlSlowLogs|MariaDB Server-loggar|
 
 
+## <a name="microsoftdbformysqlflexibleservers"></a>Microsoft. DBforMySQL/flexibleServers
+
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
+|---|---|
+|MySqlAuditLogs|MySQL gransknings loggar|
+|MySqlSlowLogs|Långsamma loggfiler för MySQL|
+
+
 ## <a name="microsoftdbformysqlservers"></a>Microsoft. DBforMySQL/servers
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |MySqlAuditLogs|MySQL gransknings loggar|
 |MySqlSlowLogs|MySQL server-loggar|
 
 
+## <a name="microsoftdbforpostgresqlflexibleservers"></a>Microsoft. DBforPostgreSQL/flexibleServers
+
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
+|---|---|
+|PostgreSQLLogs|PostgreSQL Server-loggar|
+
+
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft. DBforPostgreSQL/servers
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |PostgreSQLLogs|PostgreSQL Server-loggar|
 |QueryStoreRuntimeStatistics|PostgreSQL för fråge lagrings körning|
@@ -227,21 +295,18 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftdbforpostgresqlserversv2"></a>Microsoft. DBforPostgreSQL/serversv2
 
-|Kategori|Kategori visnings namn|
-|---|---|
-|PostgreSQLLogs|PostgreSQL Server-loggar|
+Kostnad: kostnads fri 
 
-
-## <a name="microsoftdbforpostgresqlsingleservers"></a>Microsoft. DBforPostgreSQL/singleservers
-
-|Kategori|Kategori visnings namn|
+|Kategori |Kategori visnings namn|
 |---|---|
 |PostgreSQLLogs|PostgreSQL Server-loggar|
 
 
 ## <a name="microsoftdesktopvirtualizationapplicationgroups"></a>Microsoft. DesktopVirtualization/applicationgroups
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |Checkpoint|Checkpoint|
 |Fel|Fel|
@@ -250,7 +315,9 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftdesktopvirtualizationhostpools"></a>Microsoft. DesktopVirtualization/hostpools
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |Checkpoint|Checkpoint|
 |Anslutning|Anslutning|
@@ -261,7 +328,9 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftdesktopvirtualizationworkspaces"></a>Microsoft. DesktopVirtualization/arbets ytor
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |Checkpoint|Checkpoint|
 |Fel|Fel|
@@ -271,7 +340,9 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft. Devices/IotHubs
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |C2DCommands|C2D-kommandon|
 |C2DTwinOperations|C2D dubbla åtgärder|
@@ -291,7 +362,9 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft. Devices/provisioningServices
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |DeviceOperations|Enhets åtgärder|
 |ServiceOperations|Tjänst åtgärder|
@@ -299,28 +372,25 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |CassandraRequests|CassandraRequests|
 |ControlPlaneRequests|ControlPlaneRequests|
 |DataPlaneRequests|DataPlaneRequests|
+|GremlinRequests|GremlinRequests|
 |MongoRequests|MongoRequests|
 |PartitionKeyRUConsumption|PartitionKeyRUConsumption|
 |PartitionKeyStatistics|PartitionKeyStatistics|
 |QueryRuntimeStatistics|QueryRuntimeStatistics|
 
 
-## <a name="microsoftenterpriseknowledgegraphservices"></a>Microsoft. EnterpriseKnowledgeGraph/Services
-
-|Kategori|Kategori visnings namn|
-|---|---|
-|AuditEvent|AuditEvent-logg|
-|DataIssue|DataIssue-logg|
-|Begäranden|Konfigurations logg|
-
 ## <a name="microsofteventgriddomains"></a>Microsoft. EventGrid/Domains
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |DeliveryFailures|Loggar för leverans problem|
 |PublishFailures|Publicera Felaktiga loggar|
@@ -328,14 +398,18 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsofteventgridsystemtopics"></a>Microsoft. EventGrid/systemTopics
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |DeliveryFailures|Loggar för leverans problem|
 
 
 ## <a name="microsofteventgridtopics"></a>Microsoft. EventGrid/ämnen
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |DeliveryFailures|Loggar för leverans problem|
 |PublishFailures|Publicera Felaktiga loggar|
@@ -343,11 +417,13 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft. EventHub/Namespaces
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |ArchiveLogs|Arkiv loggar|
 |AutoScaleLogs|Automatisk skalnings loggar|
-|CustomerManagedKeyUserLogs|Customer-Managed nyckel loggar|
+|CustomerManagedKeyUserLogs|Kund hanterade nyckel loggar|
 |EventHubVNetConnectionEvent|Anslutnings loggar för VNet/IP-filtrering|
 |KafkaCoordinatorLogs|Kafka koordinator loggar|
 |KafkaUserErrorLogs|Kafka användar fel loggar|
@@ -356,14 +432,18 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsofthealthcareapisservices"></a>Microsoft. HealthcareApis/Services
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |AuditLogs|Granskningsloggar|
 
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft. Insights/AutoscaleSettings
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |AutoscaleEvaluations|Autoskala-utvärderingar|
 |AutoscaleScaleActions|Åtgärder för autoskalning av skala|
@@ -371,7 +451,9 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft. Insights/komponenter
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |AppAvailabilityResults|Tillgänglighets resultat|
 |AppBrowserTimings|Tids inställningar för webbläsare|
@@ -386,50 +468,53 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 |AppTraces|Spårningar|
 
 
-## <a name="microsoftiotspacesgraph"></a>Microsoft. IoTSpaces/Graph
-
-|Kategori|Kategori visnings namn|
-|---|---|
-|Granska|Granska|
-|Utgående|Utgående|
-|Ingress|Ingress|
-|Operativ|Operativ|
-|Spårning|Spårning|
-|UserDefinedFunction|UserDefinedFunction|
-
-
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft. nyckel valv/-valv
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |AuditEvent|Granskningsloggar|
 
 
 ## <a name="microsoftkustoclusters"></a>Microsoft. Kusto/kluster
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
+|Kommando|Kommando|
 |FailedIngestion|Misslyckade inmatnings åtgärder|
+|IngestionBatching|Inmatningsbatchning|
+|Söka i data|Söka i data|
 |SucceededIngestion|Framgångs åtgärder|
+|TableDetails|Tabell information|
+|TableUsageStatistics|Statistik över Tabell användning|
 
 
 ## <a name="microsoftlogicintegrationaccounts"></a>Microsoft. Logic/integrationAccounts
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |IntegrationAccountTrackingEvents|Spårnings händelser för integrations konto|
 
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft. Logic/arbets flöden
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |WorkflowRuntime|Diagnostiska händelser för arbets flödes körning|
 
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft. MachineLearningServices/arbets ytor
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |AmlComputeClusterEvent|AmlComputeClusterEvent|
 |AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|
@@ -440,14 +525,18 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftmediamediaservices"></a>Microsoft. Media/Media Services
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |KeyDeliveryRequests|Begär Anden om nyckel leverans|
 
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft. Network/applicationGateways
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |ApplicationGatewayAccessLog|Application Gateway åtkomst logg|
 |ApplicationGatewayFirewallLog|Application Gateway brand Väggs logg|
@@ -456,7 +545,9 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftnetworkazurefirewalls"></a>Microsoft. Network/azurefirewalls
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |AzureFirewallApplicationRule|Regel för Azure brand Väggs program|
 |AzureFirewallNetworkRule|Nätverks regel för Azure Firewall|
@@ -464,21 +555,27 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftnetworkbastionhosts"></a>Microsoft. Network/bastionHosts
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |BastionAuditLogs|Gransknings loggar för skydds|
 
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft. Network/expressRouteCircuits
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |PeeringRouteLog|Tabell loggar för peering-routning|
 
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft. Network/frontdoors
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |FrontdoorAccessLog|Ytterdörr åtkomst logg|
 |FrontdoorWebApplicationFirewallLog|Ytterdörr webb program brand Väggs logg|
@@ -486,7 +583,9 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft. Network/belastningsutjämnare
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |LoadBalancerAlertEvent|Load Balancer aviserings händelser|
 |LoadBalancerProbeHealthStatus|Load Balancer avsökningens hälso status|
@@ -494,15 +593,20 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftnetworknetworksecuritygroups"></a>Microsoft. Network/networksecuritygroups
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |NetworkSecurityGroupEvent|Händelse för nätverks säkerhets grupp|
+|NetworkSecurityGroupFlowEvent|Regel flödes händelse för nätverks säkerhets grupp|
 |NetworkSecurityGroupRuleCounter|Regel räknare för nätverks säkerhets grupp|
 
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft. Network/publicIPAddresses
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |DDoSMitigationFlowLogs|Flödes loggar för DDoSa beslut om minskning|
 |DDoSMitigationReports|Rapporter för DDoS-åtgärder|
@@ -511,14 +615,18 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft. Network/trafficManagerProfiles
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |ProbeHealthStatusEvents|Traffic Manager händelse av hälso resultat för avsökning|
 
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft. Network/virtualNetworkGateways
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |GatewayDiagnosticLog|Gateway-diagnostikloggar|
 |IKEDiagnosticLog|IKE-diagnostikloggar|
@@ -529,21 +637,27 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft. Network/virtualNetworks
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |VMProtectionAlerts|Aviseringar för VM-skydd|
 
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft. PowerBIDedicated/kapacitet
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |Motor|Motor|
 
 
 ## <a name="microsoftrecoveryservicesvaults"></a>Microsoft. RecoveryServices/valv
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |AddonAzureBackupAlerts|Aviserings data för addon Azure Backup|
 |AddonAzureBackupJobs|Jobb data för addon Azure Backup|
@@ -563,35 +677,45 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft. Relay/namnrymder
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |HybridConnectionsEvent|HybridConnections-händelser|
 
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft. search/searchServices
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |OperationLogs|Åtgärds loggar|
 
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft. Service Bus/namnrymder
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |OperationalLogs|Drift loggar|
 
 
 ## <a name="microsoftsignalrservicesignalr"></a>Microsoft. SignalRService/SignalR
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |AllLogs|Azure SignalR service-loggar.|
 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft. SQL/managedInstances
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |DevOpsOperationsAudit|Gransknings loggar för DevOps-åtgärder|
 |ResourceUsageStats|Statistik för resursanvändning|
@@ -600,7 +724,9 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft. SQL/managedInstances/-databaser
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |Fel|Fel|
 |QueryStoreRuntimeStatistics|Körnings statistik för Query Store|
@@ -610,7 +736,9 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft. SQL/Servers/databaser
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |AutomaticTuning|Automatisk inställning|
 |Delar|Delar|
@@ -632,7 +760,9 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft. Storage/storageAccounts/blobServices
 
-|Kategori|Kategori visnings namn|
+Kostnad: betalad enligt beskrivningen i avsnittet plattforms loggar på [sidan Azure Monitor prissättning.](https://azure.microsoft.com/pricing/details/monitor/) 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -641,7 +771,9 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft. Storage/storageAccounts/fileServices
 
-|Kategori|Kategori visnings namn|
+Kostnad: betalad enligt beskrivningen i avsnittet plattforms loggar på [sidan Azure Monitor prissättning.](https://azure.microsoft.com/pricing/details/monitor/) 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -650,7 +782,9 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft. Storage/storageAccounts/queueServices
 
-|Kategori|Kategori visnings namn|
+Kostnad: betalad enligt beskrivningen i avsnittet plattforms loggar på [sidan Azure Monitor prissättning.](https://azure.microsoft.com/pricing/details/monitor/) 
+ 
+|Kategori |Kategori visnings namn|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -659,7 +793,9 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft. Storage/storageAccounts/tableServices
 
-|Kategori|Kategori visnings namn|
+Kostnad: betalad enligt beskrivningen i avsnittet plattforms loggar på [sidan Azure Monitor prissättning.](https://azure.microsoft.com/pricing/details/monitor/) 
+ 
+|Kategori |Kategori visnings namn|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -668,22 +804,64 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft. StreamAnalytics/streamingjobs
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |Redigering|Redigering|
 |Körnings-|Körnings-|
 
 
+## <a name="microsoftsynapseworkspaces"></a>Microsoft. Synapse/arbets ytor
+
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
+|---|---|
+|BuiltinSqlReqsEnded|De inbyggda SQL-pool-begärandena avslutas|
+|GatewayApiRequests|API-begäranden för Synapse Gateway|
+|SQLSecurityAuditEvents|Säkerhets gransknings händelse i SQL|
+|SynapseRbacOperations|Synapse RBAC-åtgärder|
+
+
+## <a name="microsoftsynapseworkspacesbigdatapools"></a>Microsoft. Synapse/arbets ytor/bigDataPools
+
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
+|---|---|
+|BigDataPoolAppsEnded|Big data pool program har slutförts|
+
+
+## <a name="microsoftsynapseworkspacessqlpools"></a>Microsoft. Synapse/arbets ytor/sqlPools
+
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
+|---|---|
+|DmsWorkers|DMS-arbetare|
+|ExecRequests|Exec-begäranden|
+|RequestSteps|Förfrågnings steg|
+|SqlRequests|SQL-begäranden|
+|SQLSecurityAuditEvents|Säkerhets gransknings händelse i SQL|
+|Väntar|Väntar|
+
+
 ## <a name="microsoftwebhostingenvironments"></a>Microsoft. Web/hostingenvironments
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |AppServiceEnvironmentPlatformLogs|App Service-miljön plattforms loggar|
 
 
 ## <a name="microsoftwebsites"></a>Microsoft. Web/Sites
 
-|Kategori|Kategori visnings namn|
+Kostnad: kostnads fri 
+
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |AppServiceAppLogs|App Service program loggar|
 |AppServiceAuditLogs|Åtkomst gransknings loggar|
@@ -691,13 +869,14 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 |AppServiceFileAuditLogs|Gransknings loggar för ändring av webbplats innehåll|
 |AppServiceHTTPLogs|HTTP-loggar|
 |FunctionAppLogs|Funktions program loggar|
-|ScanLogs|Loggar för virus sökning|
 
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft. Web/Sites/lotss
 
+Kostnad: kostnads fri 
 
-|Kategori|Kategori visnings namn|
+
+|Kategori |Kategori visnings namn|
 |---|---|
 |AppServiceAppLogs|App Service program loggar|
 |AppServiceAuditLogs|Åtkomst gransknings loggar|
@@ -705,7 +884,6 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 |AppServiceFileAuditLogs|Gransknings loggar för ändring av webbplats innehåll|
 |AppServiceHTTPLogs|HTTP-loggar|
 |FunctionAppLogs|Funktions program loggar|
-|ScanLogs|Loggar för virus sökning|
 
 
 ## <a name="next-steps"></a>Nästa steg

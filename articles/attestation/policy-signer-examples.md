@@ -7,17 +7,17 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 33998d9f2d117b02e7f792a7a6e47e6a66a5ff0d
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 0b32158ad58a663f7d85b9814bb4f2c1c55e4178
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748662"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922448"
 ---
 # <a name="examples-of-an-attestation-policy-signer-certificate"></a>Exempel på ett signerings certifikat för attesterings princip
 
 Princip signerings certifikat som är kopplade till en attesterings leverantör används av Microsoft Azure attestering för att validera signerade principer.
-Läs mer om [fördelarna med princip signering](/azure/attestation/basic-concepts/#Benefits-of-policy-signing)
+Läs mer om [fördelarna med princip signering](/azure/attestation/basic-concepts/#benefits-of-policy-signing)
 
 **Princip signerings certifikat fil format som ska användas i Create Provider-flöde**
 

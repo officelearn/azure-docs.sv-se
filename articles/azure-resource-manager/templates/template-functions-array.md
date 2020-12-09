@@ -1,18 +1,18 @@
 ---
 title: Mall-funktioner-matriser
-description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med matriser.
+description: Beskriver de funktioner som används i en Azure Resource Manager mall (ARM-mall) för att arbeta med matriser.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 85f910f6143fd16f996a200172d0efd852897d8c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 40a6815bb10ce9725405d68498b9a554706f3af8
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004627"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920550"
 ---
 # <a name="array-functions-for-arm-templates"></a>Mat ris funktioner för ARM-mallar
 
-Resource Manager innehåller flera funktioner för att arbeta med matriser i din Azure Resource Manager-mall (ARM).
+Resource Manager innehåller flera funktioner för att arbeta med matriser i din Azure Resource Manager-mall (ARM-mall):
 
 * [matris](#array)
 * [concat](#concat)
@@ -42,9 +42,9 @@ Konverterar värdet till en matris.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Yes |heltal, sträng, matris eller objekt |Värdet som ska konverteras till en matris. |
+| convertToArray |Ja |heltal, sträng, matris eller objekt |Värdet som ska konverteras till en matris. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -129,10 +129,10 @@ Kombinerar flera matriser och returnerar den sammanfogade matrisen, eller kombin
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matris eller sträng |Den första matrisen eller strängen för sammanfogning. |
-| ytterligare argument |No |matris eller sträng |Ytterligare matriser eller strängar i sekventiell ordning för sammanfogning. |
+| arg1 |Ja |matris eller sträng |Den första matrisen eller strängen för sammanfogning. |
+| ytterligare argument |Inga |matris eller sträng |Ytterligare matriser eller strängar i sekventiell ordning för sammanfogning. |
 
 Den här funktionen kan ta valfritt antal argument och kan acceptera antingen strängar eller matriser för parametrarna. Du kan dock inte ange både matriser och strängar för parametrar. Matriser sammanfogas endast med andra matriser.
 
@@ -252,10 +252,10 @@ Kontrollerar om en matris innehåller ett värde, ett objekt innehåller en nyck
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| container |Yes |matris, objekt eller sträng |Värdet som innehåller värdet som ska hittas. |
-| itemToFind |Yes |sträng eller heltal |Det värde som ska hittas. |
+| container |Ja |matris, objekt eller sträng |Värdet som innehåller värdet som ska hittas. |
+| itemToFind |Ja |sträng eller heltal |Det värde som ska hittas. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -364,9 +364,9 @@ Skapar en matris från parametrarna. `createArray`Funktionen stöds inte av bice
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| args |No |Sträng, heltal, matris eller objekt |Värdena i matrisen. |
+| args |Inga |Sträng, heltal, matris eller objekt |Värdena i matrisen. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -448,9 +448,9 @@ Anger om en matris, ett objekt eller en sträng är tom.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |matris, objekt eller sträng |Värdet för att kontrol lera om det är tomt. |
+| itemToTest |Ja |matris, objekt eller sträng |Värdet för att kontrol lera om det är tomt. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -529,9 +529,9 @@ Returnerar det första elementet i matrisen eller första tecken i strängen.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matris eller sträng |Värdet för att hämta det första elementet eller specialtecknet. |
+| arg1 |Ja |matris eller sträng |Värdet för att hämta det första elementet eller specialtecknet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -598,11 +598,11 @@ Returnerar en enskild matris eller ett objekt med de gemensamma elementen från 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matris eller objekt |Det första värdet som ska användas för att hitta vanliga element. |
-| arg2 |Yes |matris eller objekt |Det andra värdet som ska användas för att hitta vanliga element. |
-| ytterligare argument |No |matris eller objekt |Ytterligare värden som ska användas för att hitta vanliga element. |
+| arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att hitta vanliga element. |
+| arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att hitta vanliga element. |
+| ytterligare argument |Inga |matris eller objekt |Ytterligare värden som ska användas för att hitta vanliga element. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -706,9 +706,9 @@ Returnerar det sista elementet i matrisen eller det sista tecken i strängen.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matris eller sträng |Värdet för att hämta det sista elementet eller specialtecknet. |
+| arg1 |Ja |matris eller sträng |Värdet för att hämta det sista elementet eller specialtecknet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -775,9 +775,9 @@ Returnerar antalet element i en matris, tecken i en sträng eller på rot nivå 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matris, sträng eller objekt |Den matris som ska användas för att hämta antalet element, strängen som ska användas för att hämta antalet tecken, eller objektet som ska användas för att hämta antalet rot nivå egenskaper. |
+| arg1 |Ja |matris, sträng eller objekt |Den matris som ska användas för att hämta antalet element, strängen som ska användas för att hämta antalet tecken, eller objektet som ska användas för att hämta antalet rot nivå egenskaper. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -889,7 +889,7 @@ Du kan använda den här funktionen med en matris för att ange antalet iteratio
 
 ---
 
-Mer information om hur du använder den här funktionen med en matris finns i [skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
+Mer information om hur du använder den här funktionen med en matris finns [i resurs upprepning i arm-mallar](copy-resources.md).
 
 ## <a name="max"></a>max
 
@@ -899,9 +899,9 @@ Returnerar det maximala värdet från en matris med heltal eller en kommaavgrän
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det högsta värdet. |
+| arg1 |Ja |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det högsta värdet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -969,9 +969,9 @@ Returnerar det minsta värdet från en matris med heltal eller en kommaavgränsa
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det lägsta värdet. |
+| arg1 |Ja |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det lägsta värdet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1039,10 +1039,10 @@ Skapar en matris med heltal från ett start-heltal och innehåller ett antal obj
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| Start |Yes |int |Det första heltalet i matrisen. Summan av start index och Count får inte vara större än 2147483647. |
-| count |Yes |int |Antalet heltal i matrisen. Måste vara ett icke-negativt heltal upp till 10000. |
+| Start |Ja |int |Det första heltalet i matrisen. Summan av start index och Count får inte vara större än 2147483647. |
+| count |Ja |int |Antalet heltal i matrisen. Måste vara ett icke-negativt heltal upp till 10000. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1103,10 +1103,10 @@ Returnerar en matris med alla element efter det angivna talet i matrisen eller r
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| Ursprungligt värde |Yes |matris eller sträng |Matrisen eller strängen som ska användas för att hoppa över. |
-| numberToSkip |Yes |int |Det antal element eller tecken som ska hoppas över. Om värdet är 0 eller mindre returneras alla element eller tecken i värdet. Om den är större än längden på matrisen eller strängen returneras en tom matris eller sträng. |
+| Ursprungligt värde |Ja |matris eller sträng |Matrisen eller strängen som ska användas för att hoppa över. |
+| numberToSkip |Ja |int |Det antal element eller tecken som ska hoppas över. Om värdet är 0 eller mindre returneras alla element eller tecken i värdet. Om den är större än längden på matrisen eller strängen returneras en tom matris eller sträng. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1191,10 +1191,10 @@ Returnerar en matris med det angivna antalet element från början av matrisen, 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| Ursprungligt värde |Yes |matris eller sträng |Matrisen eller strängen som elementen ska tas från. |
-| numberToTake |Yes |int |Det antal element eller tecken som ska vidtas. Om värdet är 0 eller mindre returneras en tom matris eller sträng. Om det är större än längden på matrisen eller strängen returneras alla element i matrisen eller strängen. |
+| Ursprungligt värde |Ja |matris eller sträng |Matrisen eller strängen som elementen ska tas från. |
+| numberToTake |Ja |int |Det antal element eller tecken som ska vidtas. Om värdet är 0 eller mindre returneras en tom matris eller sträng. Om det är större än längden på matrisen eller strängen returneras alla element i matrisen eller strängen. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1279,11 +1279,11 @@ Returnerar en enskild matris eller ett objekt med alla element från parametrarn
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matris eller objekt |Det första värdet som ska användas för att koppla ihop element. |
-| arg2 |Yes |matris eller objekt |Det andra värdet som ska användas för att koppla ihop element. |
-| ytterligare argument |No |matris eller objekt |Ytterligare värden som ska användas för att koppla ihop element. |
+| arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att koppla ihop element. |
+| arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att koppla ihop element. |
+| ytterligare argument |Inga |matris eller objekt |Ytterligare värden som ska användas för att koppla ihop element. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1381,4 +1381,4 @@ Utdata från föregående exempel med standardvärdena är:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
+* En beskrivning av avsnitten i en ARM-mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).

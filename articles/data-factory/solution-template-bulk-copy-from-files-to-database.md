@@ -7,13 +7,13 @@ ms.author: jingwang
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: ecf3c3954bd77962e56ee289b623806efb352410
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: e1bd5852ca12ca03e7202cf9cfb89372d076bad9
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461271"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920422"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>Masskopiera från filer till databas
 
@@ -55,7 +55,7 @@ Mallen definierar följande två parametrar:
     ![Granska pipelinen](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > Om du väljer **Azure Synapse Analytics (tidigare SQL DW)** som data mål i **steg 2** ovan, måste du ange en anslutning till Azure Blob Storage för mellanlagring, vilket krävs av Azure Synapse Analytics PolyBase. När följande skärm bild visas kommer mallen automatiskt att generera en *lagrings Sök väg* för blob-lagringen. Kontrol lera om behållaren har skapats efter att pipelinen har körts.
+    > Om du väljer **Azure Synapse Analytics** som data mål i **steg 2** ovan, måste du ange en anslutning till Azure Blob Storage för mellanlagring, vilket krävs av Azure Synapse Analytics PolyBase. När följande skärm bild visas kommer mallen automatiskt att generera en *lagrings Sök väg* för blob-lagringen. Kontrol lera om behållaren har skapats efter att pipelinen har körts.
         
     ![PolyBase-inställning](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 

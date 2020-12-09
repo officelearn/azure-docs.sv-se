@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 50a256796ee26c03f21353e8fe268c4300b21ebe
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 1fbeedd8643a777b29ebe4993eed7b664240621c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575862"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920267"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registrera och skanna en Azure SQL Database
 
@@ -25,6 +25,10 @@ Den Azure SQL Database data källan har stöd för följande funktioner:
 - **Fullständiga och stegvisa genomsökningar** för att avbilda metadata och klassificering i Azure SQL Database.
 
 - **Härkomst** mellan data till gångar för ADF-kopiering och data flödes aktiviteter.
+
+### <a name="known-limitations"></a>Kända begränsningar
+
+Azure avdelningens kontroll stöder inte genomsökning av [vyer](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) i Azure SQL Database. 
 
 ## <a name="prerequisites"></a>Krav
 

@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/24/2018
-ms.openlocfilehash: e7b7acb7e67d809229825b3d393fe49af12b3642
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: 3f15ffd6f7ed784cce398d419e013a69c60289d8
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461208"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921808"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Delta kopia från en databas med en kontroll tabell
 
@@ -45,7 +45,7 @@ Mallen definierar följande parametrar:
 - *Data_Source_WaterMarkColumn* är namnet på kolumnen i käll tabellen som används för att identifiera nya eller uppdaterade rader. Den här kolumnens typ är normalt *datetime*, *int* eller liknande.
 - *Data_Destination_Container* är rot Sök vägen till den plats där data kopieras till i mål arkivet.
 - *Data_Destination_Directory* är katalog Sök vägen under roten på den plats där data kopieras till i mål arkivet.
-- *Data_Destination_Table_Name* är den plats där data kopieras till i mål lagret (gäller när "Azure Synapse Analytics (tidigare SQL DW) är valt som data mål).
+- *Data_Destination_Table_Name* är den plats där data kopieras till i mål lagret (gäller när "Azure Synapse Analytics" är valt som data mål).
 - *Data_Destination_Folder_Path* är den plats där data kopieras till i mål lagret (gäller när "fil system" eller "Azure Data Lake Storage gen1" är valt som data mål).
 - *Control_Table_Table_Name* är den externa kontroll tabell där värdet för hög vatten märket lagras.
 - *Control_Table_Column_Name* är kolumnen i den externa kontroll tabell som lagrar värdet för den högsta vatten märket.

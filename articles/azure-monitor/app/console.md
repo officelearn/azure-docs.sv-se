@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.custom: devx-track-csharp
 ms.reviewer: lmolkova
-ms.openlocfilehash: 98f1ea8a4994515b437841174ae95563ea53ed88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa39a1eca04621fc4db75f755402d3679403e814
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933349"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920599"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights för .NET-konsol program
 
@@ -22,6 +22,9 @@ Du behöver en prenumeration med [Microsoft Azure](https://azure.com). Logga in 
 > Vi *rekommenderar starkt* att du använder paketet [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) och tillhör ande [instruktioner för alla](./worker-service.md) konsol program. Det här paketet [`NetStandard2.0`](/dotnet/standard/net-standard) är mål och kan därför användas i .net Core 2,1 eller högre, och .NET Framework 4.7.2 eller högre.
 
 ## <a name="getting-started"></a>Komma igång
+
+> [!IMPORTANT]
+> Nya Azure-regioner **kräver** att anslutnings strängar används i stället för instrument knappar. [Anslutnings strängen](./sdk-connection-string.md?tabs=net) identifierar den resurs som du vill associera dina telemetridata med. Du kan också ändra de slut punkter som resursen kommer att använda som mål för din telemetri. Du måste kopiera anslutnings strängen och lägga till den i programmets kod eller till en miljö variabel.
 
 * [Skapa en Application Insights-resurs](./create-new-resource.md) på [Azure Portal](https://portal.azure.com). För program typ väljer du **Allmänt**.
 * Kopiera instrumenteringsnyckeln. Leta upp nyckeln i den **grundläggande** List rutan för den nya resurs som du skapade.

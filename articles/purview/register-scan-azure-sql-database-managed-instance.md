@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: ded15b45dd859b18180bd396067360ae6585ef97
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 09fcaf0fb0c358c1e94d5cd7064c225d7f185ee0
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575881"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920316"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registrera och skanna en Azure SQL Database Hanterad instans
 
@@ -25,6 +25,10 @@ Den Azure SQL Database hanterade instans data källan har stöd för följande f
 - **Fullständiga och stegvisa genomsökningar** för att avbilda metadata och klassificering i Azure SQL Database Hanterad instans.
 
 - **Härkomst** mellan data till gångar för ADF-kopiering och data flödes aktiviteter.
+
+### <a name="known-limitations"></a>Kända begränsningar
+
+Azure avdelningens kontroll stöder inte genomsökning av [vyer](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) i Azure SQL-hanterad instans.
 
 ## <a name="prerequisites"></a>Krav
 

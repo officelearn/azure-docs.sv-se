@@ -3,90 +3,90 @@ title: Utvärdera AutoML experiment resultat
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du visar och utvärderar diagram och mått för var och en av dina automatiserade experiment körningar i Machine Learning.
 services: machine-learning
-author: aniththa
-ms.author: anumamah
+author: gregorybchris
+ms.author: chgrego
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 10/09/2020
+ms.date: 11/30/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2, automl
-ms.openlocfilehash: fcbe0fc5049f6e892f80f048a885c75420bc636e
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 43ce1c4865b3458ccd9c0ac17589f8ca5d77d92f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359093"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922077"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Utvärdera resultat från automatiska maskin inlärnings experiment
 
-I den här artikeln lär du dig att visa och utvärdera resultaten av din automatiserade maskin inlärning, automatiserade ML-experiment. Experimenten består av flera körningar, där varje körning skapar en modell. För att hjälpa dig att utvärdera varje modell genererar automatiserade ML automatiskt prestanda mått och diagram som är speciella för din experiment typ. 
+I den här artikeln lär du dig hur du utvärderar och jämför modeller som har tränats av ditt automatiserade experiment (med automatisk maskin inlärning). Under ett automatiserat ML experiment skapas många körningar och varje körning skapar en modell. För varje modell genererar automatiserad ML utvärderings statistik och diagram som hjälper dig att mäta modellens prestanda. 
 
-Till exempel tillhandahåller automatiserad ML olika diagram för klassificerings-och Regressions modeller. 
+Automatiserad ML genererar till exempel följande diagram baserat på experiment typ.
 
-|Klassificering|Regression
-|---|---|
-|<li> [Förvirringsmatris](#confusion-matrix) <li>[Diagram över precisions återställning](#precision-recall-chart) <li> [Egenskaper för mottagar drift (eller ROC)](#roc) <li> [Lyft kurva](#lift-curve)<li> [Vinster-kurva](#gains-curve)<li> [Kalibrerings område](#calibration-plot) | <li> [Förutsägs jämfört med sant](#pvt) <li> [Histogram över rester](#histo)|
+| Klassificering| Regression/Prognosticering |
+| ----------------------------------------------------------- | ---------------------------------------- |
+| [Förvirringsmatris](#confusion-matrix)                       | [Residualhistogram](#residuals)        |
+| [ROC-kurva (mottagarens operativa egenskaper)](#roc-curve) | [Förutsägs jämfört med sant](#predicted-vs-true) |
+| [Precisions åter kallelse (PR) kurva](#precision-recall-curve)      |                                          |
+| [Lyft kurva](#lift-curve)                                   |                                          |
+| [Kurva för ackumulerade vinster](#cumulative-gains-curve)           |                                          |
+| [Kalibrerings kurva](#calibration-curve)                     |                     
+
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
-
-* Skapa ett experiment för din automatiserade Machine Learning-körning, antingen med SDK eller i Azure Machine Learning Studio.
-
-    * Använd SDK: n för att bygga en [klassificerings modell](how-to-auto-train-remote.md) eller [Regressions modell](tutorial-auto-train-models.md)
-    * Använd [Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md) för att skapa en klassificerings-eller Regressions modell genom att överföra relevanta data.
+- En Azure-prenumeration. (Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://aka.ms/AMLFree) innan du börjar)
+- Ett Azure Machine Learning experiment har skapats med något av följande:
+  - [Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md) (ingen kod krävs)
+  - [Azure Machine Learning python SDK](how-to-configure-auto-train.md)
 
 ## <a name="view-run-results"></a>Visa körnings resultat
 
-När din automatiserade maskin inlärnings experiment har slutförts kan du hitta en historik över körningarna i din Machine Learning-arbetsyta via [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md). 
+När ditt automatiserade ML-experiment är klart kan du hitta en historik över körningarna via:
+  - En webbläsare med [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md)
+  - En Jupyter-anteckningsbok med [RunDetails Jupyter-widgeten](/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py&preserve-view=true)
 
-För SDK-experiment kan du se samma resultat under en körning när du använder Jupyter- `RunDetails` [widgeten](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py).
-
-Följande steg och animering visar hur du visar körnings historik och prestanda mått och diagram för en speciell modell i Studio.
-
-![Steg för att Visa körnings historik och modell prestanda mått och diagram](./media/how-to-understand-automated-ml/view-run-metrics-ui.gif)
-
-Visa körnings historik och modell prestanda mått och diagram i Studio: 
+I följande steg och video visas hur du visar körnings historik och modell utvärderings mått och diagram i Studio:
 
 1. [Logga in på Studio](https://ml.azure.com/) och navigera till din arbets yta.
-1. I den vänstra panelen i arbets ytan väljer du **Kör**.
-1. I listan över experiment väljer du det som du vill utforska.
-1. Välj kommandot **Kör** i den nedre tabellen.
-1. På fliken **modeller** väljer du **algoritmens namn** för den modell som du vill utforska.
-1. På fliken **mått** väljer du vilka mått och diagram som du vill utvärdera för den modellen. 
+1. Välj **experiment** i menyn till vänster.
+1. Välj experimentet i listan över experiment.
+1. I tabellen längst ned på sidan väljer du en automatisk ML-körning.
+1. På fliken **modeller** väljer du **algoritmens namn** för den modell som du vill utvärdera.
+1. På fliken **mått** använder du kryss rutorna till vänster för att visa mått och diagram.
 
+![Steg för att visa mått i Studio](./media/how-to-understand-automated-ml/how-to-studio-metrics.gif)
 
-<a name="classification"></a> 
+## <a name="classification-metrics"></a>Klassificerings mått
 
-## <a name="classification-performance-metrics"></a>Klassificering av prestanda mått
+Med automatisk ML beräknas prestanda mått för varje klassificerings modell som genereras för experimentet. Dessa mått baseras på scikit-implementeringen. 
 
-I följande tabell sammanfattas de modell prestanda mått som automatiserade ML beräknar för varje klassificerings modell som genereras för experimentet. 
+Många klassificerings mått definieras för binär klassificering i två klasser och kräver en genomsnitts grad över klasser för att skapa en poäng för klassificering med flera klasser. Scikit – lär dig flera genomsnitts metoder, varav tre av vilka automatiserade ML exponeras: **makro**, **Micro** och **viktad**.
 
-Mått|Beskrivning|Beräkning|Extra parametrar
---|--|--|--
-AUC_macro| AUC är den del av den egenskaps kurva som används för mottagaren. Makro är det aritmetiska medelvärdet av AUC för varje klass.  | [Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | genomsnitt = "makro"|
-AUC_micro| AUC är den del av den egenskaps kurva som används för mottagaren. Micro beräknas globalt genom att kombinera de sanna positiva positiva och falska positiva identifieringar från varje klass.| [Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | genomsnitt = "Micro"|
-AUC_weighted  | AUC är den del av den egenskaps kurva som används för mottagaren. Viktat är det aritmetiska medelvärdet av poängen för varje klass, viktat med antalet sanna instanser i varje klass.| [Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|Average = "viktad"
-accuracy|Noggrannhet är procent andelen förväntade etiketter som exakt matchar de sanna etiketterna. |[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Inget|
-average_precision_score_macro|Genomsnittlig precision sammanfattar en precisions återställnings kurva som viktat medelvärde för de precisioner som uppnås vid varje tröskelvärde, med en ökning av återställningen från föregående tröskel som används som vikt. Makro är det aritmetiska medelvärdet av den genomsnittliga precisions poängen för varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|genomsnitt = "makro"|
-average_precision_score_micro|Genomsnittlig precision sammanfattar en precisions återställnings kurva som viktat medelvärde för de precisioner som uppnås vid varje tröskelvärde, med en ökning av återställningen från föregående tröskel som används som vikt. Micro beräknas globalt genom att kombinera de sanna positiva positiva och falska positiva identifieringarna vid varje avgränsare.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|genomsnitt = "Micro"|
-average_precision_score_weighted|Genomsnittlig precision sammanfattar en precisions återställnings kurva som viktat medelvärde för de precisioner som uppnås vid varje tröskelvärde, med en ökning av återställningen från föregående tröskel som används som vikt. Viktat är det aritmetiska medelvärdet av den genomsnittliga precisions poängen för varje klass, viktat med antalet sanna instanser i varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|Average = "viktad"|
-balanced_accuracy|Balanserade noggrannhet är det aritmetiska medelvärdet för återkallning för varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|genomsnitt = "makro"|
-f1_score_macro|F1-Poäng är det harmoniska medelvärdet av precision och återkallande. Makro är det aritmetiska medelvärdet av F1-poängen för varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|genomsnitt = "makro"|
-f1_score_micro|F1-Poäng är det harmoniska medelvärdet av precision och återkallande. Micro beräknas globalt genom att räkna antalet sanna positiva identifieringar, falska negativa negativa och falska positiva identifieringar.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|genomsnitt = "Micro"|
-f1_score_weighted|F1-Poäng är det harmoniska medelvärdet av precision och återkallande. Viktat medelvärde efter klass frekvens för F1-Poäng för varje klass|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|Average = "viktad"|
-log_loss|Detta är den förlust funktion som används i (MULTINOMIAL) Logistisk regression och tillägg, till exempel neurala Networks, definierad som den negativa logg sannolikheten för de faktiska etiketterna med en Probabilistic klassificerares förutsägelser. För ett enda exempel med True Label yt i {0,1} och uppskattad sannolikhet YP som yt = 1, är logg förlusten-log P (yt&#124;YP) =-(yt log (YP) + (1-yt) log (1-YP)).|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Inget|
-norm_macro_recall|Normaliserat makro återkallande är ett makro som är normaliserat så att slumpmässiga prestanda har en poäng på 0 och perfekt prestanda har en poäng på 1. Detta uppnås genom norm_macro_recall: = (recall_score_macro-R)/(1-R), där R är det förväntade värdet för recall_score_macro för slumpmässiga förutsägelser (t. ex. R = 0,5 för binär klassificering och R = (1/C) för klassificerings problem i C-klass).|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|genomsnitt = "makro" |
-precision_score_macro|Precision är procent andelen positiva element som är korrekt märkta. Makro är det aritmetiska medelvärdet för varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|genomsnitt = "makro"|
-precision_score_micro|Precision är procent andelen positiva element som är korrekt märkta. Micro beräknas globalt genom att räkna antalet sanna positiva positiva och falska positiva identifieringar.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|genomsnitt = "Micro"|
-precision_score_weighted|Precision är procent andelen positiva element som är korrekt märkta. Viktat är det aritmetiska medelvärdet för varje klass, viktat med antalet sanna instanser i varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Average = "viktad"|
-recall_score_macro|Återkallande är den procent andel av korrekt märkta element i en viss klass. Makro är det aritmetiska medelvärdet för återkallning för varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|genomsnitt = "makro"|
-recall_score_micro|Återkallande är den procent andel av korrekt märkta element i en viss klass. Micro beräknas globalt genom att räkna antalet sanna positiva identifieringar, falska negativa negativa och falska positiva identifieringar|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|genomsnitt = "Micro"|
-recall_score_weighted|Återkallande är den procent andel av korrekt märkta element i en viss klass. Viktat är det aritmetiska medelvärdet för återkallning för varje klass, viktat med antalet sanna instanser i varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "viktad"|
-weighted_accuracy|Viktad noggrannhet är exakthet där vikten för varje exempel motsvarar proportionerna för de sanna instanserna i det här exemplets sanna klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight är en Vector som motsvarar den andel av klassen för varje element i målet|
+- **Makro** – beräkna måttet för varje klass och ta det ej viktade medelvärdet
+- **Micro** -beräkna måttet globalt genom att räkna antalet sanna positiva identifieringar, falska negativa negativa och falska positiva identifieringar (oberoende av klasser).
+- **Viktat** – beräkna måttet för varje klass och ta viktat medelvärde baserat på antalet sampel per klass.
 
-### <a name="binary-vs-multiclass-metrics"></a>Egenskaper för binär vs. multiklass
+Varje genomsnitts metod har sina fördelar, men ett vanligt övervägande när du väljer lämplig metod är klass obalans. Om klasser har olika antal exempel kan det vara mer informativt att använda ett makro genomsnitt, där minoritets klasser får samma viktning till majoritets klasserna. Lär dig mer om [binära vs multiklassing-mått i automatiserad ml](#binary-vs-multiclass-classification-metrics). 
+
+I följande tabell sammanfattas de modell prestanda mått som automatiserade ML beräknar för varje klassificerings modell som genereras för experimentet. Mer information finns i dokumentationen för scikit-lär som är länkad i **beräknings** fältet för varje mått. 
+
+|Mått|Beskrivning|Beräkning|
+|--|--|---|
+|AUC | AUC är den del av den [egenskaps kurva](#roc-curve)som används för mottagaren.<br><br> **Mål:** Närmare 1 desto bättre <br> **Intervall:** [0, 1]<br> <br>Mått namn som stöds är, <li>`AUC_macro`, det aritmetiska medelvärdet av AUC för varje klass.<li> `AUC_micro`, beräknad genom att kombinera de sanna positiva positiva och falska positiva identifieringar från varje klass. <li> `AUC_weighted`, det aritmetiska medelvärdet av poängen för varje klass, viktat med antalet sanna instanser i varje klass.   |[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | 
+|accuracy| Noggrannhet är förhållandet mellan förutsägelser som exakt matchar de sanna klass etiketterna. <br> <br>**Mål:** Närmare 1 desto bättre <br> **Intervall:** [0, 1]|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
+|average_precision|Genomsnittlig precision sammanfattar en precisions återställnings kurva som viktat medelvärde för de precisioner som uppnås vid varje tröskelvärde, med en ökning av återställningen från föregående tröskel som används som vikt. <br><br> **Mål:** Närmare 1 desto bättre <br> **Intervall:** [0, 1]<br> <br>Mått namn som stöds är,<li>`average_precision_score_macro`, det aritmetiska medelvärdet av den genomsnittliga precisions poängen för varje klass.<li> `average_precision_score_micro`, beräknad genom att kombinera de sanna positiva positiva och falska positiva identifieringar vid varje avgränsare.<li>`average_precision_score_weighted`, det aritmetiska medelvärdet av den genomsnittliga precisions poängen för varje klass, viktat med antalet sanna instanser i varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|
+balanced_accuracy|Balanserade noggrannhet är det aritmetiska medelvärdet för återkallning för varje klass.<br> <br>**Mål:** Närmare 1 desto bättre <br> **Intervall:** [0, 1]|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
+f1_score|F1-Poäng är det harmoniska medelvärdet av precision och återkallande. Det är ett god balanserat mått av både falska positiva identifieringar och falska negativa negativa. Det tar dock inte hänsyn till sant negativ till kontot. <br> <br>**Mål:** Närmare 1 desto bättre <br> **Intervall:** [0, 1]<br> <br>Mått namn som stöds är,<li>  `f1_score_macro`: det aritmetiska medelvärdet av F1-poängen för varje klass. <li> `f1_score_micro`: beräknas genom att räkna antalet sanna positiva identifieringar, falska negativa negativa data och falska positiva identifieringar. <li> `f1_score_weighted`: viktat medelvärde per klass frekvens av F1-Poäng för varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|
+log_loss|Detta är den förlust funktion som används i (MULTINOMIAL) Logistisk regression och tillägg, till exempel neurala Networks, definierad som den negativa logg sannolikheten för de faktiska etiketterna med en Probabilistic klassificerares förutsägelser. <br><br> **Mål:** Närmare 0 desto bättre <br> **Intervall:** [0, inf)|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|
+norm_macro_recall| Normaliserat makro återkallande är återkalla makro – Genomsnittligt och normaliserat, så att slumpmässiga prestanda har poängen 0, och perfekt prestanda har en poäng på 1. <br> <br>**Mål:** Närmare 1 desto bättre <br> **Intervall:** [0, 1] |`(recall_score_macro - R)`&nbsp;/&nbsp;`(1 - R)` <br><br>där, `R` är det förväntade värdet `recall_score_macro` för för slumpmässiga förutsägelser.<br><br>`R = 0.5`&nbsp;för &nbsp; binär &nbsp; klassificering. <br>`R = (1 / C)` för klassificerings problem i C-klass.|
+Koefficient för Matthews-korrelation | Matthews korrelations koefficient är ett balanserat mått på noggrannhet, som kan användas även om en klass har många fler sampel än en annan. En koefficient på 1 indikerar perfekt förutsägelse, 0 slumpmässig förutsägelse och-1 inverterad förutsägelse.<br><br> **Mål:** Närmare 1 desto bättre <br> **Intervall:** [-1, 1]|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
+precision|Precision är möjligheten för en modell att undvika att etikettera negativa prover som positiva. <br><br> **Mål:** Närmare 1 desto bättre <br> **Intervall:** [0, 1]<br> <br>Mått namn som stöds är, <li> `precision_score_macro`, det aritmetiska medelvärdet för varje klass. <li> `precision_score_micro`, beräknad globalt genom att räkna antalet sanna positiva positiva och falska positiva identifieringar. <li> `precision_score_weighted`, det aritmetiska medelvärdet för varje klass, viktat med antalet sanna instanser i varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|
+träffsäkerhet| Återkallande är möjligheten för en modell att identifiera alla positiva exempel. <br><br> **Mål:** Närmare 1 desto bättre <br> **Intervall:** [0, 1]<br> <br>Mått namn som stöds är, <li>`recall_score_macro`: det aritmetiska medelvärdet för återkallning för varje klass. <li> `recall_score_micro`: beräknas globalt genom att räkna antalet sanna positiva identifieringar, falska negativa negativa och falska positiva identifieringar.<li> `recall_score_weighted`: det aritmetiska medelvärdet för varje klass, viktat med antalet sanna instanser i varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
+weighted_accuracy|Viktad noggrannhet är exakthet där varje prov viktas av det totala antalet prover som tillhör samma klass. <br><br>**Mål:** Närmare 1 desto bättre <br>**Intervall:** [0, 1]|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
+
+### <a name="binary-vs-multiclass-classification-metrics"></a>Klass mått för binära vs.
 
 Automatisk ML särskiljer inte mellan binära och multiklassiga mått. Samma verifierings mått rapporteras om en data uppsättning har två klasser eller fler än två klasser. Vissa mått är dock avsedda för klassificering av flera klasser. När dessa mått används i en binär data uppsättning, kommer dessa mått inte att behandla någon klass som `true` klass, vilket kan förväntas. Mått som är tydligt avsedda för multiklassen är suffix till `micro` , `macro` eller `weighted` . Exempel:,,, `average_precision_score` `f1_score` `precision_score` `recall_score` och `AUC` .
 
@@ -94,180 +94,161 @@ Till exempel, i stället för att beräkna återkalla som, Genomsnittligt `tp / 
 
 ## <a name="confusion-matrix"></a>Förvirringsmatris
 
-En Förväxlings mat ris beskriver prestanda för en klassificerings modell. Varje rad visar instanserna av klassen True, eller den faktiska klassen i din data uppsättning, och varje kolumn representerar instanser av klassen som förutsägs av modellen. 
+Förvirrings-matriser ger ett visuellt objekt för hur en Machine Learning-modell gör systematiska fel i sina förutsägelser för klassificerings modeller. Ordet "förvirring" i namnet kommer från en modell "förvirrande" eller felmärks exempel. En cell i rad `i` och kolumn `j` i en förvirring mat ris innehåller antalet exempel i utvärderings data uppsättningen som tillhör klassen `C_i` och klassificerats av modellen som klass `C_j` .
 
-För varje förvirrings mat ris visar automatiserad ML frekvensen för varje förväntad etikett (kolumn) jämfört med den sanna etiketten (rad). Ju mörkare färgen, desto högre är antalet i den specifika delen av matrisen. 
+I Studio indikerar en mörkare cell ett större antal exempel. Val av **normaliserad** vy i list rutan normaliserar över varje mat ris rad för att Visa procent andelen av klassen som `C_i` är förväntad som klass `C_j` . Fördelen med standardinställd **RAW** -vy är att du kan se om obalans i fördelningen av faktiska klasser orsakade att modellen inte klassificerar exempel från minoritets klassen, ett vanligt problem i obalanserade data uppsättningar.
 
-### <a name="what-does-a-good-model-look-like"></a>Vad ser en bra modell ut?
+Förväxlings mat ris för en lämplig modell kommer att ha de flesta exempel längs diagonalen.
 
-En förvirring mat ris jämför det faktiska värdet för data uppsättningen mot de förväntade värden som modellen gav. Därför har Machine Learning-modeller högre precision om modellen har de flesta värden längs diagonalen, vilket innebär att modellen förutsäger det korrekta värdet. Om en modell har klass obalans, hjälper Förväxlings mat ris att identifiera en prioriterad modell.
+### <a name="confusion-matrix-for-a-good-model"></a>Förväxlings mat ris för en lämplig modell 
+![Förväxlings mat ris för en lämplig modell ](./media/how-to-understand-automated-ml/chart-confusion-matrix-good.png)
 
-#### <a name="example-1-a-classification-model-with-poor-accuracy"></a>Exempel 1: en klassificerings modell med dålig precision
-![En klassificerings modell med dålig precision](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
+### <a name="confusion-matrix-for-a-bad-model"></a>Förvirring mat ris för en dålig modell
+![Förvirring mat ris för en dålig modell](./media/how-to-understand-automated-ml/chart-confusion-matrix-bad.png)
 
-#### <a name="example-2-a-classification-model-with-high-accuracy"></a>Exempel 2: en klassificerings modell med hög exakthet 
-![En klassificerings modell med hög noggrannhet](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
+## <a name="roc-curve"></a>ROC kurva
 
-##### <a name="example-3-a-classification-model-with-high-accuracy-and-high-bias-in-model-predictions"></a>Exempel 3: en klassificerings modell med hög exakthet och hög bias i modell förutsägelser
-![En klassificerings modell med hög exakthet och hög bias i modell förutsägelser](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-biased-model.png)
+ROC-kurvan ritar relationen mellan sant positiv hastighet (TPR) och falskt positivt pris (på) som besluts tröskel. ROC-kurvan kan vara mindre informativ vid inlärnings modeller på data uppsättningar med hög obalans, eftersom majoriteten klass kan Drown ut bidrag från minoritets klasser.
 
-<a name="precision-recall-chart"></a>
+Ytan under kurvan (AUC) kan tolkas som andel av korrekt klassificerade prover. Mer exakt är AUC sannolikheten att klassificeraren rangordnar ett slumpmässigt valt positivt positivt exempel än ett slumpmässigt valt negativt exempel. Kurvans form ger en intuition för relationen mellan TPR och på som en funktion i klassificerings tröskeln eller besluts gränsen.
 
-## <a name="precision-recall-chart"></a>Diagram över precisions återställning
+En kurva som närmar sig det övre vänstra hörnet i diagrammet närmar sig en 100% TPR och 0% på, den bästa möjliga modellen. En slumpmässig modell skapar en ROC kurva längs `y = x` linjen från det nedre vänstra hörnet till det övre högra hörnet. En sämre modell än den slumpmässiga modellen skulle ha en ROC kurva som är DIP under `y = x` linjen.
+> [!TIP]
+> För klassificerings experiment kan varje linje diagram som skapas för automatiserade ML-modeller användas för att utvärdera modellen per klass eller genomsnitt för alla klasser. Du kan växla mellan dessa olika vyer genom att klicka på klass etiketter i förklaringen till höger om diagrammet.
+### <a name="roc-curve-for-a-good-model"></a>ROC kurva för en lämplig modell
+![ROC kurva för en lämplig modell](./media/how-to-understand-automated-ml/chart-roc-curve-good.png)
 
-Kurvan om precisions åter kallelse visar förhållandet mellan precisionen och återställningen från en modell. Termen precision representerar möjligheten för en modell att märka alla instanser på rätt sätt. Återkallande representerar möjligheten för en klassificerare att hitta alla instanser av en viss etikett.
+### <a name="roc-curve-for-a-bad-model"></a>ROC kurva för en dålig modell
+![ROC kurva för en dålig modell](./media/how-to-understand-automated-ml/chart-roc-curve-bad.png)
 
-Med det här diagrammet kan du jämföra precisions återställnings kurvorna för varje modell för att avgöra vilken modell som har en acceptabel relation mellan precisionen och återställningen av ditt specifika affärs problem. Det här diagrammet visar Genomsnittligt antal återkallning i makron, mikrogenomsnittlig precisions återställning och precisions åter kallelse som är associerad med alla klasser för en modell. 
+## <a name="precision-recall-curve"></a>Precision – återkalla kurva
 
-**Makro-genomsnitt** beräknar måttet oberoende av varje klass och tar sedan medelvärdet och behandlar alla klasser lika. Mikrogenomsnitt **micro-average** aggregerar emellertid bidragen från alla klasser för att beräkna medelvärdet. Micro-Average är att föredra om det finns klass obalans i data uppsättningen.
+Kurvan för precisions åter kallelse ritar relationen mellan precision och återkallande som besluts tröskel ändringar. Återkallande är möjligheten för en modell att identifiera alla positiva prover och precision är möjligheten för en modell att undvika att etikettera negativa prover som positivt. Vissa affärs problem kan kräva högre återkallning och viss högre precision beroende på den relativa betydelsen av att undvika falska negativa eller falska positiva identifieringar.
+> [!TIP]
+> För klassificerings experiment kan varje linje diagram som skapas för automatiserade ML-modeller användas för att utvärdera modellen per klass eller genomsnitt för alla klasser. Du kan växla mellan dessa olika vyer genom att klicka på klass etiketter i förklaringen till höger om diagrammet.
+### <a name="precision-recall-curve-for-a-good-model"></a>Precisions åter kallelse kurva för en lämplig modell
+![Precisions åter kallelse kurva för en lämplig modell](./media/how-to-understand-automated-ml/chart-precision-recall-curve-good.png)
 
-### <a name="what-does-a-good-model-look-like"></a>Vad ser en bra modell ut?
-Den perfekta precisions återställnings kurvan kan variera beroende på målet i affärs problemet. 
+### <a name="precision-recall-curve-for-a-bad-model"></a>Precisions åter kallelse kurva för en dålig modell
+![Precisions åter kallelse kurva för en dålig modell](./media/how-to-understand-automated-ml/chart-precision-recall-curve-bad.png)
 
-##### <a name="example-1-a-classification-model-with-low-precision-and-low-recall"></a>Exempel 1: en klassificerings modell med låg precision och låg återkallning
-![En klassificerings modell med låg precision och låg återkallning](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
+## <a name="cumulative-gains-curve"></a>Kurva för ackumulerade vinster
 
-##### <a name="example-2-a-classification-model-with-100-precision-and-100-recall"></a>Exempel 2: en klassificerings modell med ~ 100% precision och ~ 100% återkalla 
-![En klassificerings modell med hög precision och återkallande](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
+Kurvan för ackumulerade vinster ritar upp procent andelen positiva prover som klassificeras korrekt som en funktion av procent andelen av exempel som beaktas där vi betraktar exempel i den förväntade sannolikhets ordningen.
 
-<a name="roc"></a>
+Om du vill beräkna vinst måste du först sortera alla exempel från högsta till lägsta sannolikhet som förväntas av modellen. Ta sedan `x%` med de högsta förtroende förutsägelserna. Dividera antalet positiva exempel som identifierats `x%` med det totala antalet positiva exempel för att få vinst. Ackumulerad vinst är den procentuella insamlingen av positiva exempel som vi upptäcker när du överväger vissa procent av de data som troligen är mest sannolika för klassen positiv.
 
-## <a name="roc-chart"></a>ROC-diagram
+En perfekt modell rangordnar alla positiva prover över alla negativa prover som ger en kurva om ackumulerade vinster av två enkla segment. Den första är en rad med lutning `1 / x` från `(0, 0)` till `(x, 1)` där `x` är fraktionen av exempel som tillhör klassen positiv ( `1 / num_classes` om klasser är balanserade). Den andra är en vågrät linje från `(x, 1)` till `(1, 1)` . I det första segmentet klassificeras alla positiva prover korrekt och den ackumulerade vinsten går till i `100%` de första `x%` av exemplen som beaktas.
 
-Mottagarens operativa egenskaper (eller ROC) är ett diagram över de korrekt klassificerade etiketterna jämfört med de felaktigt klassificerade etiketterna för en viss modell. ROC-kurvan kan vara mindre informativ vid inlärnings modeller på data uppsättningar med hög obalans, eftersom majoriteten klass kan Drown ut från minoritets klasser.
+Den slumpmässiga modellen för bas linjen har en kurva för ackumulerade vinster `y = x` , efter vilka `x%` prover som endast betraktas som `x%` av de totala positiva exemplen har identifierats. En perfekt modell har en mikrogenomsnittlig kurva som vidrör det övre vänstra hörnet och en genomsnittlig linje för makron som har en lutning `1 / num_classes` tills den ackumulerade vinsten är 100% och sedan vågrätt tills data procenten är 100.
+> [!TIP]
+> För klassificerings experiment kan varje linje diagram som skapas för automatiserade ML-modeller användas för att utvärdera modellen per klass eller genomsnitt för alla klasser. Du kan växla mellan dessa olika vyer genom att klicka på klass etiketter i förklaringen till höger om diagrammet.
+### <a name="cumulative-gains-curve-for-a-good-model"></a>Kumulativa vinster-kurva för en lämplig modell
+![Kumulativa vinster-kurva för en lämplig modell](./media/how-to-understand-automated-ml/chart-cumulative-gains-curve-good.png)
 
-Du kan visualisera ytan under ROC-diagrammet som andel av korrekt klassificerade exempel. En avancerad användare av ROC-diagrammet kan se bortom det område som finns under kurvan och få en intuition för de sanna positiva och falska positiva positiva priserna som en funktion i klassificerings tröskeln eller besluts gränsen.
+### <a name="cumulative-gains-curve-for-a-bad-model"></a>Ackumulerade vinster-kurvor för en dålig modell
+![Ackumulerade vinster-kurvor för en dålig modell](./media/how-to-understand-automated-ml/chart-cumulative-gains-curve-bad.png)
 
-### <a name="what-does-a-good-model-look-like"></a>Vad ser en bra modell ut?
-En ROC kurva som närmar sig det övre vänstra hörnet med 100% True positiv hastighet och 0% falskt positiv hastighet blir den bästa modellen. En slumpmässig modell visas som en platt linje från det nedre vänstra hörnet till det övre högra hörnet. Sämre än slumpmässigt DIP under raden y = x.
+## <a name="lift-curve"></a>Lyft kurva
 
-#### <a name="example-1-a-classification-model-with-low-true-labels-and-high-false-labels"></a>Exempel 1: en klassificerings modell med låg sant etiketter och höga Felaktiga etiketter
-![Klassificerings modell med låg sann etiketter och hög falskt etiketter](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
+Lyft kurvan visar hur många gånger bättre en modell fungerar jämfört med en slumpmässig modell. Lyft definieras som förhållandet mellan ackumulerad vinst och den ackumulerade vinsten hos en slumpmässig modell.
 
-#### <a name="example-2-a-classification-model-with-high-true-labels-and-low-false-labels"></a>Exempel 2: en klassificerings modell med höga sanna etiketter och låg falskt etiketter
+Den här relativa prestandan tar hänsyn till det faktum att klassificeringen blir svårare när du ökar antalet klasser. (En slumpmässig modell förutsäger felaktigt en större del av exempel från en data uppsättning med 10 klasser jämfört med en data uppsättning med två klasser)
 
-![en klassificerings modell med höga sanna etiketter och låg falskt etiketter](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
+Bas linje lyft kurvan är den `y = 1` linje där modellens prestanda är konsekvent med den slumpmässiga modellen. I allmänhet kommer lyft kurvan för en bra modell att vara högre i diagrammet och längre bort från x-axeln, som visar att när modellen är mest säker i dess förutsägelser, utförs många gånger bättre än slumpmässig gissning.
 
+> [!TIP]
+> För klassificerings experiment kan varje linje diagram som skapas för automatiserade ML-modeller användas för att utvärdera modellen per klass eller genomsnitt för alla klasser. Du kan växla mellan dessa olika vyer genom att klicka på klass etiketter i förklaringen till höger om diagrammet.
+### <a name="lift-curve-for-a-good-model"></a>Lyft kurva för en lämplig modell
+![Lyft kurva för en lämplig modell](./media/how-to-understand-automated-ml/chart-lift-curve-good.png)
+ 
+### <a name="lift-curve-for-a-bad-model"></a>Lyft kurva för en dålig modell
+![Lyft kurva för en dålig modell](./media/how-to-understand-automated-ml/chart-lift-curve-bad.png)
 
-<a name="lift-curve"></a>
+## <a name="calibration-curve"></a>Kalibrerings kurva
 
-## <a name="lift-chart"></a>Lyft diagram
+Kalibrerings kurvan ritar en modells förtroende i dess förutsägelser mot proportionerna av positiva prover vid varje konfidensnivå. En väl kalibrerad modell klassificeras korrekt 100% av de förutsägelser som den tilldelar 100% konfidensgrad, 50% av de förutsägelser som den tilldelar till 50% konfidensgrad, 20% av förutsägelserna tilldelar 20% förtroende och så vidare. En perfekt kalibrerad modell har en kalibrerings kurva som följer på `y = x` linjen där modellen perfekt förutsäger sannolikheten för att exempel tillhör varje klass.
 
-Lyft diagram utvärderar prestanda för klassificerings modeller. Ett lyft diagram visar hur många gånger bättre en modell fungerar jämfört med en slumpmässig modell. Detta ger dig en relativ prestanda som tar hänsyn till det faktum att klassificeringen blir svårare när du ökar antalet klasser. En slumpmässig modell förutsäger felaktigt en större del av exempel från en data uppsättning med tio klasser jämfört med en data uppsättning med två klasser.
-
-Du kan jämföra hissen med modellen som skapats automatiskt med Azure Machine Learning till bas linjen (slumpmässig modell) för att visa den aktuella modellens värde vinst.
-
-### <a name="what-does-a-good-model-look-like"></a>Vad ser en bra modell ut?
-
-En bättre presterande modell har en lyft kurva som är högre i grafen och ytterligare från bas linjen. 
-
-#### <a name="example-1-a-classification-model-that-performs-poorly-compared-to-a-random-selection-model"></a>Exempel 1: en klassificerings modell som fungerar dåligt jämfört med en slumpmässig markerings modell
-![En klassificerings modell som är sämre än en slumpmässig markerings modell](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
-
-#### <a name="example-2-a-classification-model-that-performs-better-than-a-random-selection-model"></a>Exempel 2: en klassificerings modell som fungerar bättre än en slumpmässig markerings modell
-![En klassificerings modell som fungerar bättre](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
-
-<a name="gains-curve"></a>
-
-## <a name="cumulative-gains-chart"></a>Diagram över ackumulerade vinster
-
-I ett diagram över ackumulerade vinster utvärderas prestandan för en klassificerings modell av varje del av data. För varje percentil av data uppsättningen visar diagrammet hur många fler exempel som har klassificerats korrekt jämfört med en modell som alltid är felaktig. Den här informationen ger ett annat sätt att titta på resultaten i det medföljande lyft diagrammet.
-
-I diagrammet över ackumulerade vinster kan du välja klassificerings gräns genom att använda ett procenttal som motsvarar den önskade vinsten från modellen. Du kan jämföra det ackumulerade vinst diagrammet med bas linjen (felaktig modell) för att se hur många procent av exemplen som klassificerades korrekt vid varje konfidens percentil.
-
-#### <a name="what-does-a-good-model-look-like"></a>Vad ser en bra modell ut?
-
-På samma sätt som i ett lyft diagram är ju högre den ackumulerade vinster-kurvan över bas linjen, desto bättre modell. Dessutom är den närmare kurvan för ackumulerade vinster i diagrammets övre vänstra hörn, desto bättre blir din modell jämfört med bas linjen. 
-
-##### <a name="example-1-a-classification-model-with-minimal-gain"></a>Exempel 1: en klassificerings modell med minimal vinst
-![en klassificerings modell med minimal vinst](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
-
-##### <a name="example-2-a-classification-model-with-significant-gain"></a>Exempel 2: en klassificerings modell med betydande vinst
-![En klassificerings modell med betydande vinst](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
-
-<a name="calibration-plot"></a>
-
-## <a name="calibration-chart"></a>Kalibrerings diagram
-
-I en kalibrerings ritning visas förtroendet för en förutsägelse modell. Detta görs genom att visa relationen mellan den förväntade sannolikheten och den faktiska sannolikheten, där sannolikheten representerar sannolikheten att en viss instans tillhör en viss etikett.
-
-För alla klassificerings problem kan du granska kalibrerings linjen för Micro-Average, makro medelvärde och varje klass i en viss förutsägelse modell.
-
-**Makro – Genomsnittligt** beräknar måttet oberoende av varje klass och sedan tar genomsnittet och behandlar alla klasser lika. Mikrogenomsnitt **micro-average** aggregerar emellertid bidragen från alla klasser för att beräkna medelvärdet. 
-
-### <a name="what-does-a-good-model-look-like"></a>Vad ser en bra modell ut?
-En väl kalibrerad modell justeras mot y = x-raden, där den beräknar sannolikheten att exempel tillhör varje klass. En över-säker modell är över-predict sannolikheten nära noll och en, vilket sällan är osäker om klassen för varje exempel.
-
-#### <a name="example-1-a-well-calibrated-model"></a>Exempel 1: en väl kalibrerad modell
-![ mer bra kalibrerad modell](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
-
-#### <a name="example-2-an-over-confident-model"></a>Exempel 2: en över-säker modell
-![En över-säker modell](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
-
-
-<a name="regression"></a> 
-
-## <a name="regression-performance-metrics"></a>Regressions prestanda mått
-
-I följande tabell sammanfattas modell prestanda måtten som automatiserade ML beräknar för varje Regressions-eller prognos modell som genereras för experimentet. 
-
-|Mått|Beskrivning|Beräkning|Extra parametrar
---|--|--|--|
-explained_variance|Förklarad varians är den proportion som en matematisk modell utgörs av för variationen av en specifik data uppsättning. Det är den procentuella minskningen av var Ian sen för de ursprungliga data som var fel. När medelvärdet för felen är 0 är det lika med koefficienten för bestämning (se r2_score nedan).|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Inget|
-r2_score|R ^ 2 är koefficienten för bestämningen eller procent minskningen i kvadrat-fel jämfört med en bas linje modell som matar ut medelvärdet. |[Beräkning](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Inget|
-spearman_correlation|Spearman-korrelationen är en parameter som inte är ett mått på monotonicity för relationen mellan två data uppsättningar. Till skillnad från Pearson-korrelationen förutsätter Spearman-korrelationen inte att båda data uppsättningarna vanligt vis distribueras. Precis som andra korrelations koefficienter varierar den här typen mellan-1 och + 1 med 0, vilket innebär att ingen korrelation. Korrelationer på-1 eller + 1 innebär en exakt enkel färgs relation. Positiva korrelationer innebär att x ökar, så y. Negativa korrelationer innebär att vartefter x ökar, y minskar.|[Beräkning](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Inget|
-mean_absolute_error|Medelvärde för absolut fel är det förväntade värdet av absolut värde för skillnaden mellan målet och förutsägelsen|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Inget|
-normalized_mean_absolute_error|Normaliserat medelvärde är ett absolut fel dividerat med data området|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Dela efter data intervall|
-median_absolute_error|Median det absoluta felet är median värdet för alla absoluta skillnader mellan målet och förutsägelsen. Den här förlusten är robust för att kunna avvika.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Inget|
-normalized_median_absolute_error|Det normaliserade median värdet är median som är ett absolut fel dividerat med data området|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Dela efter data intervall|
-root_mean_squared_error|Det genomsnittliga kvadratvärdet i roten är kvadratroten ur den förväntade skillnaden i kvadraten mellan målet och förutsägelsen|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Inget|
-normalized_root_mean_squared_error|Normaliserat rot genomsnitts fel i roten är ett kvadratrots fel dividerat med data intervallet|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Dela efter data intervall|
-root_mean_squared_log_error|Rot genomsnitts logg fel i kvadrat är kvadratroten ur det förväntade logaritmiska felet|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Inget|
-normalized_root_mean_squared_log_error|Normaliserat rot genomsnitts fel i kvadratroten är ett rot genomsnitts logg fel som delas av data intervallet|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Dela efter data intervall|
-
-<a name="pvt"></a>
-
-## <a name="predicted-vs-true-chart"></a>Förutsägande vs. True-diagram
-
-Vid förutsägelse jämfört med sant visas relationen mellan ett förutsägande värde och dess korrelerade sanna värde för ett Regressions problem. 
-
-Efter varje körning kan du se ett förutsägande vs. True-diagram för varje Regressions modell. För att skydda data integriteten är värden diskretiseras och storleken på varje lager plats visas som ett stapeldiagram i den nedre delen av diagram området. Du kan jämföra förutsägelse modellen med det ljusare skuggade avsnittet som visar fel marginaler mot det idealiska värdet för var modellen ska vara.
-
-### <a name="what-does-a-good-model-look-like"></a>Vad ser en bra modell ut?
-Det här diagrammet kan användas för att mäta prestanda för en modell som närmare y = x-linjen, de förväntade värdena är, desto bättre prestanda för en förutsägelse modell.
-
-#### <a name="example-1-a-regression-model-with-low-performance"></a>Exempel 1: en Regressions modell med låg prestanda
-![En Regressions modell med låg precision i förutsägelserna](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
-
-#### <a name="example-2-a-regression-model-with-high-performance"></a>Exempel 2: en Regressions modell med hög prestanda
-![En Regressions modell med hög noggrannhet i dess förutsägelser](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)
-
-<a name="histo"></a> 
-
-## <a name="histogram-of-residuals-chart"></a>Histogram över resten av diagrammet
-
-Med automatisk ML får du automatiskt ett rest diagram som visar distributionen av fel i förutsägelserna för en Regressions modell. En rest är skillnaden mellan förutsägelsen och det faktiska värdet ( `y_pred - y_true` ). 
-
-### <a name="what-does-a-good-model-look-like"></a>Vad ser en bra modell ut?
-Om du vill visa en marginal på fel med låg förskjutning måste histogrammets histogram vara formad som en klock kurva och centreras runt noll.
-
-#### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>Exempel 1: en Regressions modell med en förskjutning i dess fel
-![SA Regressions modell med förskjutning i sina fel](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
-
-#### <a name="example-2-a-regression-model-with-a-more-even-distribution-of-errors"></a>Exempel 2: en Regressions modell med en mer jämn fördelning av fel
-![En Regressions modell med mer jämn fördelning av fel](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
-
-<a name="explain-model"></a>
-
-## <a name="model-interpretability-and-feature-importance"></a>Modellens tolknings-och funktions prioritet
-Med automatisk ML får du en instrument panel för maskin inlärnings tolkning för dina körningar.
-
-Mer information om hur du aktiverar tolknings funktioner finns i [tolkning: modell förklaringar i automatiserad maskin inlärning](how-to-machine-learning-interpretability-automl.md).
+En försäkrad modell är över-predict sannolikheten nära noll och en, vilket sällan är osäker på om klassen för varje exempel och kalibrerings kurvan ser ut ungefär så här: "S". En under-säker modell tilldelar en lägre sannolikhet i genomsnitt till den klass den förutsäger och den tillhör ande kalibrerings kurvan ser ut ungefär som en "S". Kalibrerings kurvan visar inte en modells förmåga att klassificera korrekt, utan i stället möjlighet att tilldela förtroende till sina förutsägelser korrekt. En dålig modell kan fortfarande ha en bra kalibrerings kurva om modellen korrekt tilldelar låg exakthet och hög osäkerhet.
 
 > [!NOTE]
-> ForecastTCN-modellen stöds för närvarande inte av förklarings klienten. Den här modellen returnerar inte en förklarings instrument panel om den returneras som den bästa modellen och inte stöder förklarings körningar på begäran.
+> Kalibrerings kurvan är känslig för antalet prover, så en liten verifierings uppsättning kan producera brus resultat som kan vara svårt att tolka. Detta innebär inte nödvändigt vis att modellen inte är väl kalibrerad.
+
+### <a name="calibration-curve-for-a-good-model"></a>Kalibrerings kurva för en lämplig modell
+![Kalibrerings kurva för en lämplig modell](./media/how-to-understand-automated-ml/chart-calibration-curve-good.png)
+
+### <a name="calibration-curve-for-a-bad-model"></a>Kalibrerings kurva för en dålig modell
+![Kalibrerings kurva för en dålig modell](./media/how-to-understand-automated-ml/chart-calibration-curve-bad.png)
+
+## <a name="regressionforecasting-metrics"></a>Regressions-/prognos mått
+
+Med automatisk ML beräknas samma prestanda mått för varje modell som genereras, oavsett om det är ett Regressions-eller prognos experiment. Dessa mått genomgår också normalisering för att möjliggöra jämförelse mellan modeller som har tränats på data med olika intervall. Mer information finns i [mått normalisering](#metric-normalization)  
+
+I följande tabell sammanfattas de modell prestanda mått som genereras för Regressions-och prognos experiment. Precis som klassificerings mått är de här måtten också baserade på scikit lär dig implementeringar. Lämplig dokumentation om scikit-information länkas enligt detta i **beräknings** fältet.
+
+|Mått|Beskrivning|Beräkning|
+--|--|--|
+explained_variance|Förklarad varians mäter i vilken utsträckning ett modell konto för variationen i mål variabeln. Det är den procentuella minskningen av var Ian sen för de ursprungliga data som var fel. När medelvärdet för felen är 0 är det lika med koefficienten för bestämning (se r2_score nedan). <br> <br> **Mål:** Närmare 1 desto bättre <br> **Intervall:** (-inf, 1]|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|
+mean_absolute_error|Medelvärde för absolut fel är det förväntade värdet av absolut värde för skillnaden mellan målet och förutsägelsen.<br><br> **Mål:** Närmare 0 desto bättre <br> **Intervall:** [0, inf) <br><br> Nodtyper <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`, mean_absolute_error dividerat med data intervallet. | [Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
+median_absolute_error|Median det absoluta felet är median värdet för alla absoluta skillnader mellan målet och förutsägelsen. Den här förlusten är robust för att kunna avvika.<br><br> **Mål:** Närmare 0 desto bättre <br> **Intervall:** [0, inf)<br><br>Nodtyper <br> `median_absolute_error`<br> `normalized_median_absolute_error`: median_absolute_error dividerat med data intervallet. |[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
+r2_score|R ^ 2 är koefficienten för bestämningen eller procent minskningen i kvadrat-fel jämfört med en bas linje modell som matar ut medelvärdet. <br> <br> **Mål:** Närmare 1 desto bättre <br> **Intervall:** (-inf, 1]|[Beräkning](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
+root_mean_squared_error |Rot genomsnitts fel (RMSE) är kvadratroten ur den förväntade skillnaden i kvadraten mellan målet och förutsägelsen. RMSE är lika med standard avvikelsen för en icke-vägd uppskattning.<br> <br> **Mål:** Närmare 0 desto bättre <br> **Intervall:** [0, inf)<br><br>Nodtyper<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: root_mean_squared_error dividerat med data intervallet. |[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
+root_mean_squared_log_error|Rot genomsnitts logg fel i kvadrat är kvadratroten ur det förväntade logaritmiska felet.<br><br>**Mål:** Närmare 0 desto bättre <br> **Intervall:** [0, inf) <br> <br>Nodtyper <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error`: root_mean_squared_log_error dividerat med data intervallet.  |[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
+spearman_correlation| Spearman-korrelationen är en parameter som inte är ett mått på monotonicity för relationen mellan två data uppsättningar. Till skillnad från Pearson-korrelationen förutsätter Spearman-korrelationen inte att båda data uppsättningarna vanligt vis distribueras. Precis som andra korrelations koefficienter varierar Spearman mellan-1 och 1 med 0, vilket innebär att ingen korrelation. Korrelationer på-1 eller 1 innebär en exakt enkel färgs relation. <br><br> Spearman är ett korrelations mått i ranknings ordning som ändras till förväntade eller faktiska värden inte ändrar Spearman-resultatet om de inte ändrar rangordnings ordningen för förväntade eller faktiska värden.<br> <br> **Mål:** Närmare 1 desto bättre <br> **Intervall:** [-1, 1]|[Beräkning](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|
+
+### <a name="metric-normalization"></a>Mått normalisering
+
+Med automatiserad ML normaliseras regression och prognostisering av mått som möjliggör en jämförelse mellan modeller som har tränats på data med olika intervall. En modell som har tränats på en data med ett större intervall har högre fel än samma modell som har tränats på data med ett mindre intervall, om inte felet är normaliserat.
+
+Även om det inte finns någon standard metod för att normalisera fel mått, tar automatiserade ML med den gemensamma metoden att dividera felet med data intervallet: `normalized_error = error / (y_max - y_min)`
+
+När du utvärderar en prognos modell för tids serie data, tar automatiserade ML ytterligare steg för att säkerställa att normalisering sker per Time Series ID (kornigt), eftersom varje tids serie sannolikt har en annan fördelning av mål värden.
+## <a name="residuals"></a>Residualer
+
+Resten av diagrammet är ett histogram av förutsägelse felen (rester) som genereras för Regressions-och prognos experiment. Rester beräknas som `y_predicted - y_true` för alla exempel och visas sedan som ett histogram för att Visa modell kompensation.
+
+I det här exemplet är det viktigt att båda modellerna är något fördelade för att förutsäga lägre än det faktiska värdet. Detta är inte ovanligt för en data uppsättning med en skevad fördelning av faktiska mål, men visar sämre modell prestanda. En lämplig modell kommer att ha en rest-fördelning som är hög vid noll med få rester på extrema nivå. En sämre modell kommer att ha en utspridande rest-distribution med färre prover runt noll.
+
+### <a name="residuals-chart-for-a-good-model"></a>Resten av diagrammet för en lämplig modell
+![Resten av diagrammet för en lämplig modell](./media/how-to-understand-automated-ml/chart-residuals-good.png)
+
+### <a name="residuals-chart-for-a-bad-model"></a>Resten av diagrammet för en dålig modell
+![Resten av diagrammet för en dålig modell](./media/how-to-understand-automated-ml/chart-residuals-bad.png)
+
+## <a name="predicted-vs-true"></a>Förutsägs jämfört med sant
+
+För Regressions-och Prognosticering experimenterar det förväntade vs. True-diagrammet relationen mellan mål funktionen (sant/faktiska värden) och modellens förutsägelser. De sanna värdena är diskretiseras längs x-axeln och för varje lager plats ritas medelvärdet för det förväntade värdet med felstaplar. På så sätt kan du se om en modell är prioriterad mot förutsägelse av vissa värden. Raden visar den genomsnittliga förutsägelsen och det skuggade arean visar var Ian sen för förutsägelserna runt det betyder.
+
+Ofta har det vanligaste sanna värdet de mest exakta förutsägelserna med lägst varians. Avståndet i trend linjen från den perfekta `y = x` linjen där det finns några sanna värden är ett bra mått på modell prestanda för avvikande värden. Du kan använda histogrammet längst ned i diagrammet om du vill veta mer om den faktiska data distributionen. Inklusive fler data exempel där fördelningen är sparse kan förbättra modell prestanda på osett-data.
+
+I det här exemplet är det viktigt att den bättre modellen har en förväntad eller sann rad som är närmare den perfekta `y = x` linjen.
+
+### <a name="predicted-vs-true-chart-for-a-good-model"></a>Förutsägande vs. True-diagram för en lämplig modell
+![Förutsägande vs. True-diagram för en lämplig modell](./media/how-to-understand-automated-ml/chart-predicted-true-good.png)
+
+### <a name="predicted-vs-true-chart-for-a-bad-model"></a>Förutsägande vs. True-diagram för en dålig modell
+![Förutsägande vs. True-diagram för en dålig modell](./media/how-to-understand-automated-ml/chart-predicted-true-bad.png)
+
+## <a name="model-explanations-and-feature-importances"></a>Modell förklaringar och funktions betydelse
+
+Även om modell utvärderings mått och diagram är bra för att mäta den allmänna kvaliteten i en modell, är det viktigt att kontrol lera vilken data uppsättning som en modell som används för att göra sina förutsägelser viktiga vid en eventuell bedömning av AI. Det är anledningen till att den automatiserade ML ger en instrument panel för modell tolkning som mäter och rapporterar de relativa bidragen för data uppsättnings funktioner.
+
+![Funktions betydelse](./media/how-to-understand-automated-ml/how-to-feature-importance.gif)
+
+För att Visa tolknings instrument panelen i Studio:
+
+1. [Logga in på Studio](https://ml.azure.com/) och navigera till din arbets yta
+2. På den vänstra menyn väljer du **experiment**
+3. Välj experimentet i listan över experiment
+4. I tabellen längst ned på sidan väljer du en AutoML-körning
+5. På fliken **modeller** väljer du **algoritmens namn** för den modell som du vill förklara
+6. På fliken **förklaringar** kan du se att en förklaring redan har skapats om modellen var den bästa
+7. Om du vill skapa en ny förklaring väljer du **förklara modell** och väljer den fjärrberäkning som du vill beräkna förklaringar för
+
+> [!NOTE]
+> ForecastTCN-modellen stöds för närvarande inte av automatiska ML-förklaringar och andra prognos modeller kan ha begränsad åtkomst till tolknings verktyg.
 
 ## <a name="next-steps"></a>Nästa steg
-
-+ Läs mer om [automatiserad ml](concept-automated-ml.md) i Azure Machine Learning.
-+ Prova de automatiska antecknings exemplen för [Machine Learning-modeller](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) .
+* Prova de [automatiska antecknings exemplen för Machine Learning-modeller](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
+* Lär dig mer om [ansvariga AI-erbjudanden i automatiserad ml](how-to-machine-learning-interpretability-automl.md).
+* För automatiserade ML-frågor, kontakta askautomatedml@microsoft.com .

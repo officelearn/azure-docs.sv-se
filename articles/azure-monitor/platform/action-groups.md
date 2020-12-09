@@ -1,19 +1,19 @@
 ---
-title: Skapa och hantera åtgärds grupper i Azure Portal
+title: Skapa och hantera åtgärdsgrupper i Azure-portalen
 description: Lär dig hur du skapar och hanterar åtgärds grupper i Azure Portal.
 author: dkamstra
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a2144827cd27c0af6610dabdf5ad205359f550cc
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: fd773ade0173fc1c238a5ce44e864e1255ed9044
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435492"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920643"
 ---
-# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärds grupper i Azure Portal
+# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure-portalen
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. 
 
 Den här artikeln visar hur du skapar och hanterar åtgärds grupper i Azure Portal.
@@ -128,7 +128,7 @@ E-postmeddelanden kommer att skickas från följande e-postadresser. Kontrol ler
 
 Du kan ha ett begränsat antal e-poståtgärder i en åtgärds grupp. Se artikeln [rate relimiting information](./alerts-rate-limiting.md) .
 
-### <a name="email-azure-resource-manager-role"></a>E-post till Azure Resource Manager-rollen
+### <a name="email-azure-resource-manager-role"></a>E-posta Azure Resource Manager-rollen
 Skicka e-post till medlemmarna i prenumerationens roll. E-post skickas endast till **användar medlemmar i Azure AD** i rollen. E-post kommer inte att skickas till Azure AD-grupper eller tjänstens huvudnamn.
 
 Ett e-postmeddelande skickas endast till den *primära e-* postadressen.
@@ -250,7 +250,9 @@ Du kan ha ett begränsat antal SMS-åtgärder i en åtgärds grupp.
 > Om användar gränssnittet Azure Portal åtgärds grupp inte tillåter att du väljer din landskod, stöds SMS inte för ditt land/din region.  Om lands-/region koden inte är tillgänglig kan du rösta för att få ditt land/region tillagt i [User Voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). Under tiden är ett arbete runt att låta din åtgärds grupp anropa en webhook till en tredjeparts-SMS-provider med stöd i ditt land/din region.  
 
 Priser för länder/regioner som stöds finns på [sidan Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/).
-  
+
+**Lista över länder där SMS-avisering stöds** 
+| **Landskod**  |  **Lands namn** | | 61 | Australien | | 43 | Österrike | | 32 | Belgien | | 55 | Brasilien | | 1 | Kanada | | 56 | Chile | | 86 | Kina | | 420 | Tjeckiska republiken | | 45 | Danmark | | 372 | Estland | | 358 | Finland | | 33 | Frankrike | | 49 | Tyskland | | 852 | Hong Kong | | 91 | Indien | | 353 | Irland | | 972 | Israel | | 39 | Italien | | 81 | Japan | | 352 | Luxemburg | | 60 | Malaysia | | 52 | Mexiko | | 31 | Nederländerna | | 64 | Nya Zeeland | | 47 | Norge | | 351 | Portugal | | 1 | Puerto Rico | | 40 | Rumänien | | 65 | Singapore | | 27 | Sydafrika | | 82 | Sydkorea | | 34 | Spanien | | 41 | Schweiz | | 886 | Taiwan | | 44 |  Storbritannien | | 1 | USA |
 
 ### <a name="voice"></a>Röst
 Mer viktig information finns i artikeln om [pris begränsning](./alerts-rate-limiting.md) .
@@ -259,6 +261,7 @@ Du kan ha ett begränsat antal röst åtgärder i en åtgärds grupp.
 
 > [!NOTE]
 > Om användar gränssnittet Azure Portal åtgärds grupp inte tillåter att du väljer landskod, stöds inte röst samtal för ditt land/din region. Om lands-/region koden inte är tillgänglig kan du rösta för att få ditt land/region tillagt i [User Voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  Under tiden är ett arbete runt att be din åtgärds grupp att anropa en webhook till en röst samtals leverantör från tredje part med support i ditt land/din region.  
+> Endast lands kod som stöds i dag i Azure Portal åtgärds grupp för röst meddelande är + 1 (USA). 
 
 Priser för länder/regioner som stöds finns på [sidan Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/).
 

@@ -4,12 +4,12 @@ description: Övervaka prestanda- och diagnostiseringsproblem i Node.js-tjänste
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 4c350cbfdf92d19a084940941351cf1f028c93d2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7aea6c03b0ce35fa0e74c39ff5f94f714447ad6f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186287"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920578"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Övervaka dina Node-js-tjänster och -appar med Application Insights
 
@@ -25,7 +25,7 @@ Med TelemetryClient API kan du manuellt instrumentera och övervaka ytterligare 
 
 Utför följande uppgifter för att konfigurera övervakning för en app eller tjänst.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att ha en Azure-prenumeration eller [så skaffar du en kostnadsfritt][azure-free-offer]. Om din organisation redan har en Azure-prenumeration kan en administratör följa [de här instruktionerna][add-aad-user] för att lägga till dig.
 
@@ -40,6 +40,9 @@ Innan du börjar ska du se till att ha en Azure-prenumeration eller [så skaffar
 ### <a name="set-up-the-nodejs-sdk"></a><a name="sdk"></a>Konfigurera Node.js-SDK:n
 
 Inkludera SDK:n i din app så den kan samla in data.
+
+> [!IMPORTANT]
+> Nya Azure-regioner **kräver** att anslutnings strängar används i stället för instrument knappar. [Anslutnings strängen](./sdk-connection-string.md?tabs=nodejs) identifierar den resurs som du vill associera dina telemetridata med. Du kan också ändra de slut punkter som resursen kommer att använda som mål för din telemetri. Du måste kopiera anslutnings strängen och lägga till den i programmets kod eller till en miljö variabel.
 
 1. Kopiera din resurs Instrumentation-nyckel (kallas även *iKey*) från den nya resursen. Application Insights använder ikey för att mappa data till Azure-resursen. Innan SDK:n kan använda din ikey måste du ange den i en miljövariabel eller i din kod.  
 
@@ -374,7 +377,7 @@ appInsights.defaultClient.addTelemetryProcessor(removeStackTraces);
 
 Du kan skapa flera Application Insights-resurser och skicka olika data till var och en genom att använda deras respektive instrument knappar ("iKey").
 
- Ett exempel:
+ Exempel:
 
 ```javascript
 let appInsights = require("applicationinsights");

@@ -1,18 +1,18 @@
 ---
 title: Mall funktioner – resurser
-description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att hämta värden för resurser.
+description: Beskriver de funktioner som används i en Azure Resource Manager mall (ARM-mall) för att hämta värden för resurser.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 3b5a2642ebbabac61e46f4d9b0a2dfec9610a673
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 166e9104a9d791ac6d82ed0e8e2d3659efd2ae0d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902671"
+ms.locfileid: "96919985"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Resurs funktioner för ARM-mallar
 
-Resource Manager tillhandahåller följande funktioner för att hämta resurs värden i din Azure Resource Manager-mall (ARM):
+Resource Manager innehåller följande funktioner för att hämta resurs värden i din Azure Resource Manager-mall (ARM-mall):
 
 * [extensionResourceId](#extensionresourceid)
 * [lista](#list)
@@ -42,7 +42,7 @@ Returnerar resurs-ID för en [tilläggs resurs](../management/extension-resource
 | resourceId |Ja |sträng |Resurs-ID för resursen som tilläggs resursen tillämpas på. |
 | resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
 | resourceName1 |Ja |sträng |Resursens namn. |
-| resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
+| resourceName2 |Inga |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
@@ -183,7 +183,7 @@ Syntaxen för den här funktionen varierar beroende på namnet på list åtgärd
 |:--- |:--- |:--- |:--- |
 | resourceName eller resourceIdentifier |Ja |sträng |Unikt ID för resursen. |
 | apiVersion |Ja |sträng |API-version för resurs körnings tillstånd. Normalt i formatet **åååå-mm-dd**. |
-| functionValues |Nej |objekt | Ett objekt som har värden för funktionen. Ange bara det här objektet för funktioner som stöder mottagning av ett objekt med parameter värden, t. ex. **listAccountSas** på ett lagrings konto. Ett exempel på att skicka funktions värden visas i den här artikeln. |
+| functionValues |Inga |objekt | Ett objekt som har värden för funktionen. Ange bara det här objektet för funktioner som stöder mottagning av ett objekt med parameter värden, t. ex. **listAccountSas** på ett lagrings konto. Ett exempel på att skicka funktions värden visas i den här artikeln. |
 
 ### <a name="valid-uses"></a>Giltig användning
 
@@ -443,8 +443,8 @@ Bestämmer om en resurs typ stöder zoner för en region.
 | providerNamespace | Ja | sträng | Resurs leverantörens namn område för resurs typen för att kontrol lera om det finns stöd för zonen. |
 | resourceType | Ja | sträng | Resurs typen för att kontrol lera om det finns stöd för zonen. |
 | location | Ja | sträng | Regionen för att kontrol lera om det finns stöd för zonen. |
-| numberOfZones | Nej | heltal | Antalet logiska zoner som ska returneras. Standard är 1. Talet måste vara ett positivt heltal mellan 1 och 3.  Använd 1 för resurser med en zon. För resurser med flera zoner måste värdet vara mindre än eller lika med antalet zoner som stöds. |
-| offset | Nej | heltal | Förskjutningen från den inledande logiska zonen. Funktionen returnerar ett fel om förskjutningen plus numberOfZones överskrider antalet zoner som stöds. |
+| numberOfZones | Inga | heltal | Antalet logiska zoner som ska returneras. Standard är 1. Talet måste vara ett positivt heltal mellan 1 och 3.  Använd 1 för resurser med en zon. För resurser med flera zoner måste värdet vara mindre än eller lika med antalet zoner som stöds. |
+| offset | Inga | heltal | Förskjutningen från den inledande logiska zonen. Funktionen returnerar ett fel om förskjutningen plus numberOfZones överskrider antalet zoner som stöds. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -550,7 +550,7 @@ Returnerar information om en resurs leverantör och de resurs typer som stöds. 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Ja |sträng |Namn område för providern |
-| resourceType |Nej |sträng |Typ av resurs inom den angivna namn rymden. |
+| resourceType |Inga |sträng |Typ av resurs inom den angivna namn rymden. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -638,8 +638,8 @@ Returnerar ett objekt som representerar en resurs körnings tillstånd.
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | resourceName eller resourceIdentifier |Ja |sträng |Namn eller unik identifierare för en resurs. När du refererar till en resurs i den aktuella mallen anger du endast resurs namnet som en parameter. Ange resurs-ID när du refererar till en tidigare distribuerad resurs eller när namnet på resursen är tvetydigt. |
-| apiVersion |Nej |sträng |API-version för den angivna resursen. **Den här parametern krävs när resursen inte är etablerad i samma mall.** Normalt i formatet **åååå-mm-dd**. Giltiga API-versioner för din resurs finns i [referens för mallar](/azure/templates/). |
-| Fullständig |Nej |sträng |Värde som anger om det fullständiga resurs objekt ska returneras. Om du inte anger `'Full'` returneras bara resursens egenskaps objekt. Det fullständiga objektet innehåller värden, till exempel resurs-ID och plats. |
+| apiVersion |Inga |sträng |API-version för den angivna resursen. **Den här parametern krävs när resursen inte är etablerad i samma mall.** Normalt i formatet **åååå-mm-dd**. Giltiga API-versioner för din resurs finns i [referens för mallar](/azure/templates/). |
+| Fullständig |Inga |sträng |Värde som anger om det fullständiga resurs objekt ska returneras. Om du inte anger `'Full'` returneras bara resursens egenskaps objekt. Det fullständiga objektet innehåller värden, till exempel resurs-ID och plats. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1109,11 +1109,11 @@ Returnerar den unika identifieraren för en resurs. Du använder den här funkti
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Nej |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp eller prenumeration. |
-| resourceGroupName |Nej |sträng |Standardvärdet är den aktuella resurs gruppen. Ange det här värdet när du behöver hämta en resurs i en annan resurs grupp. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp. |
+| subscriptionId |Inga |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp eller prenumeration. |
+| resourceGroupName |Inga |sträng |Standardvärdet är den aktuella resurs gruppen. Ange det här värdet när du behöver hämta en resurs i en annan resurs grupp. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp. |
 | resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
 | resourceName1 |Ja |sträng |Resursens namn. |
-| resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
+| resourceName2 |Inga |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
@@ -1412,10 +1412,10 @@ Returnerar den unika identifieraren för en resurs som distribueras på prenumer
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Nej |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. |
+| subscriptionId |Inga |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. |
 | resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
 | resourceName1 |Ja |sträng |Resursens namn. |
-| resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
+| resourceName2 |Inga |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
@@ -1546,7 +1546,7 @@ Returnerar den unika identifieraren för en resurs som distribueras på klient n
 |:--- |:--- |:--- |:--- |
 | resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
 | resourceName1 |Ja |sträng |Resursens namn. |
-| resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
+| resourceName2 |Inga |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
@@ -1632,7 +1632,7 @@ resource myPolicyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-0
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [redigera Azure Resource Manager mallar](template-syntax.md).
-* Information om hur du sammanfogar flera mallar finns i [använda länkade mallar med Azure Resource Manager](linked-templates.md).
-* Om du vill iterera ett visst antal gånger när du skapar en typ av resurs, se [skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
-* Information om hur du distribuerar mallen som du har skapat finns i [distribuera ett program med Azure Resource Manager mall](deploy-powershell.md).
+* En beskrivning av avsnitten i en ARM-mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
+* Information om hur du sammanfogar flera mallar finns i [använda länkade och kapslade mallar när du distribuerar Azure-resurser](linked-templates.md).
+* Om du vill iterera ett visst antal gånger när du skapar en typ av resurs, se [resurs upprepning i arm-mallar](copy-resources.md).
+* Information om hur du distribuerar mallen som du har skapat finns i [distribuera resurser med ARM-mallar och Azure PowerShell](deploy-powershell.md).

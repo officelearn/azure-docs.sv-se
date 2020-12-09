@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 96bdfc513023cafb2d94a68c06f1065cf20c3ba8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f20405add698c64ecedfd7375063ba934a98e158
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130178"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922427"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Skapa ett erbjudande för Dynamics 365 for Customer Engagement & PowerApps
 
@@ -23,8 +23,8 @@ Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Cent
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace** -  >  **Översikt** .
-3. På sidan Översikt väljer du **+ nytt erbjudande**  >  **Dynamics 365 för kund engagemang & PowerApps** .
+2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace**-  >  **Översikt**.
+3. På sidan Översikt väljer du **+ nytt erbjudande**  >  **Dynamics 365 för kund engagemang & PowerApps**.
 
     ![Visar menyn till vänster-navigering.](./media/new-offer-dynamics-365-customer-engagement-powerapps.png)
 
@@ -33,17 +33,17 @@ Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Cent
 
 ## <a name="new-offer"></a>Nytt erbjudande
 
-Ange ett **erbjudande-ID** . Detta är en unik identifierare för varje erbjudande i ditt konto.
+Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
 
 - Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
 - Erbjudande-ID: t kombinerat med utgivar-ID: t måste vara under 40 tecken långt.
-- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inga blank steg. Om ditt utgivar-ID t. ex. är testpublisherid och du anger **test-erbjudande-1** , är webb adressen för erbjudandet `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
-- Erbjudande-ID: t kan inte ändras när du har valt **skapa** .
+- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inga blank steg. Om ditt utgivar-ID t. ex. är testpublisherid och du anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
+- Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
 
-Ange ett **erbjudande alias** . Detta är det namn som används för erbjudandet i Partner Center.
+Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
 
 - Det här namnet används inte på Marketplace och skiljer sig från namnet på erbjudandet och andra värden som visas för kunderna.
-- Detta kan inte ändras när du har valt **skapa** .
+- Detta kan inte ändras när du har valt **skapa**.
 
 Välj **skapa** för att generera erbjudandet och fortsätt.
 
@@ -95,7 +95,7 @@ På den här sidan kan du definiera de kategorier och branscher som ska använda
 Välj kategorier och under Kategorier för att placera ditt erbjudande i lämpliga sökområden för Marketplace. Se till att du beskriver hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet. Välj:
 
 - Minst en och upp till två kategorier, inklusive en primär och en sekundär kategori (valfritt).
-- Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori gäller ditt erbjudande väljer du **ej tillämpligt** .
+- Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori gäller ditt erbjudande väljer du **ej tillämpligt**.
 
 Se den fullständiga listan över kategorier och under Kategorier i [erbjudande lista med bästa praxis](../gtm-offer-listing-best-practices.md).
 
@@ -141,7 +141,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 7. Beskrivning
 8. Skärm bilder/videor
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
 
@@ -179,7 +179,7 @@ Ange adressen till din organisations sekretess policy. Du ansvarar för att se t
 
 ### <a name="contacts"></a>Kontakter
 
-Ange namn, e-postadress och telefonnummer för en **support kontakt** och en **teknisk kontakt** . Den här informationen visas inte för kunder, men är tillgänglig för Microsoft och kan tillhandahållas till CSP-partner.
+Ange namn, e-postadress och telefonnummer för en **support kontakt** och en **teknisk kontakt**. Den här informationen visas inte för kunder, men är tillgänglig för Microsoft och kan tillhandahållas till CSP-partner.
 
 I avsnittet **support kontakt** måste du också ange **Support-URL:** en där CSP-partner kan hitta support för ditt erbjudande.
 
@@ -229,7 +229,7 @@ På den här sidan kan du definiera var och hur du vill göra ditt erbjudande ti
 
 ### <a name="markets"></a>Marknaden
 
-Ange de marknader där ditt erbjudande ska vara tillgängligt. Det gör du genom att välja **Redigera marknader** , så visas popup-fönstret för **marknads val** .
+Ange de marknader där ditt erbjudande ska vara tillgängligt. Det gör du genom att välja **Redigera marknader**, så visas popup-fönstret för **marknads val** .
 
 Som standard väljs inga marknader, men du måste välja minst en marknad för att kunna publicera erbjudandet. Välj  **Välj alla** om du vill göra ditt erbjudande tillgängligt på alla möjliga marknader eller Välj de olika marknader som du vill lägga till.
 
@@ -240,7 +240,7 @@ Dina val gäller endast för nya förvärv. om någon redan har din app på en v
 
 ### <a name="preview-audience"></a>Förhandsgranska mål grupp
 
-Innan du publicerar erbjudandet Live på det bredare Marketplace-erbjudandet måste du först göra det tillgängligt för en begränsad **förhands gransknings publik** . Ange en **Dölj nyckel** (valfri sträng med endast gemener och/eller siffror) här. Medlemmar i din förhands visnings publik kan använda denna Dölj-nyckel som en token för att visa en förhands granskning av ditt erbjudande i Marketplace.
+Innan du publicerar erbjudandet Live på det bredare Marketplace-erbjudandet måste du först göra det tillgängligt för en begränsad **förhands gransknings publik**. Ange en **Dölj nyckel** (valfri sträng med endast gemener och/eller siffror) här. Medlemmar i din förhands visnings publik kan använda denna Dölj-nyckel som en token för att visa en förhands granskning av ditt erbjudande i Marketplace.
 
 När du är redo att göra ditt erbjudande tillgängligt och ta bort begränsningen för för hands versionen måste du ta bort **Dölj-tangenten** och publicera igen.
 
@@ -260,7 +260,7 @@ Markera den här kryss rutan om du vill aktivera konfiguration av åtkomst till 
 
 ### <a name="application-configuration-url"></a>URL för program konfiguration
 
-Ange webb adressen till webb sidan för konfigurationen som gör det möjligt för kunden att konfigurera din app.
+Se till att det här fältet är tomt. Den kommer att användas för framtida användning. 
 
 ### <a name="crm-package"></a>CRM-paket
 
@@ -269,7 +269,7 @@ I **URL: en för din paket plats** anger du URL: en för ett Azure Blob Storage-
 > [!IMPORTANT]
 > För att undvika ett publicerings block ser du till att utgångs datumet i URL: en för blob-lagringen inte har gått ut. Du kan ändra datumet genom att komma åt din princip. Vi rekommenderar att **förfallo tiden infaller** minst en månad i framtiden.
 
-Markera kryss rutan **det finns mer än ett CRM-paket i paket filen** , om tillämpligt. I så fall, se till att inkludera alla paket i. zip-filen.
+Markera kryss rutan **det finns mer än ett CRM-paket i paket filen**, om tillämpligt. I så fall, se till att inkludera alla paket i. zip-filen.
 
 Detaljerad information om hur du skapar paketet och uppdaterar dess struktur finns i [steg 3: skapa ett AppSource-paket för din app](/powerapps/developer/common-data-service/create-package-app-appsource).
 
@@ -312,7 +312,7 @@ Om det är första gången du publicerar det här erbjudandet kan du:
     - **Ofullständig** – avsnittet innehåller fel som behöver åtgärdas eller som kräver mer information. Gå tillbaka till avsnitten och uppdatera det.
     - **Slutfört** -avsnittet är slutfört, alla data som krävs har angetts och det finns inga fel. Alla avsnitt i erbjudandet måste vara i ett komplett tillstånd innan du kan skicka in erbjudandet.
 - I avsnittet **Obs!-certifiering** anger du test instruktioner till certifierings teamet för att kontrol lera att appen är korrekt testad, förutom eventuella kompletterande anteckningar som hjälper dig att förstå din app.
-- Skicka in erbjudandet om publicering genom att välja **Skicka** . Vi skickar dig ett e-postmeddelande för att meddela dig när en för hands version av erbjudandet kan granskas och godkännas. Gå tillbaka till Partner Center och välj **Go-Live** för erbjudandet att publicera till allmänheten.
+- Skicka in erbjudandet om publicering genom att välja **Skicka**. Vi skickar dig ett e-postmeddelande för att meddela dig när en för hands version av erbjudandet kan granskas och godkännas. Gå tillbaka till Partner Center och välj **Go-Live** för erbjudandet att publicera till allmänheten.
 
 ## <a name="next-step"></a>Nästa steg
 

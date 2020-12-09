@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d4bff4ee7980002d911426ed46ffef6fc28c43e9
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014745"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920755"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hantera fel och undantag i Azure Logic Apps
 
@@ -27,15 +27,15 @@ För flest grundläggande undantag och fel hantering kan du använda en *princip
 
 Här är princip typerna för återförsök:
 
-| Typ | Description |
+| Typ | Beskrivning |
 |------|-------------|
 | **Objekt** | Den här principen skickar upp till fyra återförsök med *exponentiellt ökande* intervall, som skalas med 7,5 sekunder, men är ett tak mellan 5 och 45 sekunder. |
 | **Exponentiellt intervall**  | Den här principen väntar ett slumpmässigt intervall som väljs från ett exponentiellt växande intervall innan nästa förfrågan skickas. |
 | **Fast intervall**  | Den här principen väntar det angivna intervallet innan nästa förfrågan skickas. |
-| **Inga**  | Skicka inte begäran igen. |
+| **Ingen**  | Skicka inte begäran igen. |
 |||
 
-Information om begränsningar för återförsök finns i [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#request-limits).
+Information om begränsningar för återförsök finns i [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#http-limits).
 
 ### <a name="change-retry-policy"></a>Ändra princip för återförsök
 
@@ -69,7 +69,7 @@ Eller så kan du manuellt ange principen för återförsök i `inputs` avsnittet
 
 *Obligatoriskt*
 
-| Värde | Typ | Description |
+| Värde | Typ | Beskrivning |
 |-------|------|-------------|
 | <*återförsök-princip-typ*> | Sträng | Den princip typ för återförsök som du vill använda: `default` , `none` , `fixed` eller `exponential` |
 | <*retry-intervall*> | Sträng | Återförsöksintervall där värdet måste använda [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Standardvärdet för minimi intervallet är `PT5S` och det maximala intervallet är `PT1D` . När du använder exponentiell intervall princip kan du ange olika minimi-och max värden. |
@@ -78,7 +78,7 @@ Eller så kan du manuellt ange principen för återförsök i `inputs` avsnittet
 
 *Valfritt*
 
-| Värde | Typ | Description |
+| Värde | Typ | Beskrivning |
 |-------|------|-------------|
 | <*lägsta-intervall*> | Sträng | För principen för exponentiella intervall, det minsta intervallet för det slumpmässigt valda intervallet i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 | <*högsta-intervall*> | Sträng | För principen för exponentiella intervall är det största intervallet för det slumpmässigt valda intervallet i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
@@ -112,7 +112,7 @@ Om du inte anger en princip för återförsök använder åtgärden standard pri
 }
 ```
 
-### <a name="none"></a>Inget
+### <a name="none"></a>Ingen
 
 Om du vill ange att åtgärden eller utlösaren inte ska försöka utföra misslyckade förfrågningar igen, anger du <*återförsök-princip-typ*> till `none` .
 

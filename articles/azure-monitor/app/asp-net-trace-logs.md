@@ -4,12 +4,12 @@ description: Sök efter loggar som genereras av trace, NLog eller Log4Net.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: ab3b12bf0401c4060823c6ed1d20dd6385cc397f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90777da4d0b67587afebaa7111e3503af2afcb9a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973843"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920337"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Utforska loggarna .NET/.NET Core och python i Application Insights
 
@@ -97,7 +97,7 @@ Du kan konfigurera [system. Diagnostics. tracing. EventSource](/dotnet/api/syste
 
 För varje källa kan du ange följande parametrar:
  * **Namn** anger namnet på den EventSource som ska samlas in.
- * **Nivå** anger den loggnings nivå som ska samlas in: *kritisk*, *fel*, *information*, *LogAlways*, *utförlig*eller *Varning*.
+ * **Nivå** anger den loggnings nivå som ska samlas in: *kritisk*, *fel*, *information*, *LogAlways*, *utförlig* eller *Varning*.
  * **Nyckelord** (valfritt) Ange heltal svärdet för nyckelords kombinationer som ska användas.
 
 ## <a name="use-diagnosticsource-events"></a>Använda DiagnosticSource-händelser
@@ -130,7 +130,7 @@ Du kan konfigurera ETW (Event Tracing for Windows)-händelser (ETW) som ska skic
 För varje källa kan du ange följande parametrar:
  * **ProviderName** är namnet på ETW-providern som ska samlas in.
  * **ProviderGuid** anger GUID för ETW-providern som ska samlas in. Den kan användas i stället för `ProviderName` .
- * **Nivå** anger den loggnings nivå som ska samlas in. Det kan vara *kritiskt*, *fel*, *information*, *LogAlways*, *utförlig*eller *Varning*.
+ * **Nivå** anger den loggnings nivå som ska samlas in. Det kan vara *kritiskt*, *fel*, *information*, *LogAlways*, *utförlig* eller *Varning*.
  * **Nyckelord** (valfritt) Ange heltal svärdet för nyckelords kombinationer som ska användas.
 
 ## <a name="use-the-trace-api-directly"></a>Använda trace API direkt
@@ -139,7 +139,8 @@ Du kan anropa API: et för Application Insights trace direkt. Loggnings korten a
 Exempel:
 
 ```csharp
-var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+var telemetryClient = new TelemetryClient(configuration);
 telemetry.TrackTrace("Slow response - database01");
 ```
 
@@ -148,10 +149,11 @@ En fördel med TrackTrace är att du kan ställa in relativt långa data i medde
 Du kan också lägga till en allvarlighets grad i meddelandet. Liksom annan telemetri kan du lägga till egenskaps värden för att filtrera eller söka efter olika uppsättningar med spår. Exempel:
 
   ```csharp
-  var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-  telemetry.TrackTrace("Slow database response",
-                 SeverityLevel.Warning,
-                 new Dictionary<string,string> { {"database", db.ID} });
+  TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+  var telemetryClient = new TelemetryClient(configuration);
+  telemetryClient.TrackTrace("Slow database response",
+                              SeverityLevel.Warning,
+                              new Dictionary<string, string> { { "database", "db.ID" } });
   ```
 
 På så sätt kan du enkelt filtrera ut i [söka][diagnostic] alla meddelanden med en viss allvarlighets grad som relaterar till en viss databas.
@@ -196,16 +198,16 @@ I Java codeal Instrumentation (rekommenderas) loggar samlas in direkt i rutan, a
 Om du använder Java SDK använder du [Java log-nätverkskorten](./java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Det finns inget Application Insights alternativ på snabb menyn i Project
-* Se till att Developer Analytics Tools är installerat på utvecklings datorn. I Visual Studio **Tools**  >  -**tillägg och uppdateringar**kan du leta efter **Developer Analytics-verktyg**. Om den inte finns på fliken **installerad** öppnar du fliken **online** och installerar den.
+* Se till att Developer Analytics Tools är installerat på utvecklings datorn. I Visual Studio **Tools**  >  -**tillägg och uppdateringar** kan du leta efter **Developer Analytics-verktyg**. Om den inte finns på fliken **installerad** öppnar du fliken **online** och installerar den.
 * Detta kan vara en projekt typ som inte stöds av Developer Analytics tools. Använd [manuell installation](#manual-installation).
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Det finns inget logg korts alternativ i konfigurations verktyget
 * Installera loggnings ramverket först.
-* Om du använder system. Diagnostics. trace kontrollerar du att du har [konfigurerat den i *web.config* ](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
-* Kontrol lera att du har den senaste versionen av Application Insights. I Visual Studio går du till **verktyg**  >  **tillägg och uppdateringar**och öppnar fliken **uppdateringar** . Om **Developer Analytics tools** finns där väljer du det för att uppdatera det.
+* Om du använder system. Diagnostics. trace kontrollerar du att du har [konfigurerat den i *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
+* Kontrol lera att du har den senaste versionen av Application Insights. I Visual Studio går du till **verktyg**  >  **tillägg och uppdateringar** och öppnar fliken **uppdateringar** . Om **Developer Analytics tools** finns där väljer du det för att uppdatera det.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>Jag får fel meddelandet "Instrumentation-nyckeln kan inte vara tom"
-Du har förmodligen installerat NuGet-paketet för loggnings kortet utan att installera Application Insights. I Solution Explorer högerklickar du på *ApplicationInsights.config*och väljer **Uppdatera Application Insights**. Du uppmanas att logga in på Azure och skapa en Application Insights resurs eller återanvända en befintlig. Det bör åtgärda problemet.
+Du har förmodligen installerat NuGet-paketet för loggnings kortet utan att installera Application Insights. I Solution Explorer högerklickar du på *ApplicationInsights.config* och väljer **Uppdatera Application Insights**. Du uppmanas att logga in på Azure och skapa en Application Insights resurs eller återanvända en befintlig. Det bör åtgärda problemet.
 
 ### <a name="i-can-see-traces-but-not-other-events-in-diagnostic-search"></a>Jag kan se spårningar men inte andra händelser i diagnostisk sökning
 Det kan ta en stund innan alla händelser och begär Anden kan gå igenom pipelinen.

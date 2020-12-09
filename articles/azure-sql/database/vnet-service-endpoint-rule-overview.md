@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: c5839589c35ea5a9c52303801a8767fc598434fc
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 96030f0e74c29848f675ae2e0867eefa2e79a8a7
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905884"
+ms.locfileid: "96920408"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Använd tjänst slut punkter och regler för virtuella nätverk för servrar i Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -52,8 +52,8 @@ Varje virtuell nätverks regel gäller hela servern, inte bara till en viss data
 
 Det finns en separation av säkerhets roller i administration av Virtual Network tjänstens slut punkter. Åtgärd krävs från var och en av följande roller:
 
-- **Nätverks administratör:** &nbsp; Aktivera slut punkten.
-- **Databas administratör:** &nbsp; Uppdatera åtkomst kontrol listan (ACL) för att lägga till angivet undernät till servern.
+- **Nätverks administratör (rollen [nätverks deltagare](../../role-based-access-control/built-in-roles.md#network-contributor) ):** &nbsp; Aktivera slut punkten.
+- **Databas administratör (rollen [SQL Server deltagare](../../role-based-access-control/built-in-roles.md#sql-server-contributor) ):** &nbsp; Uppdatera åtkomst kontrol listan (ACL) för att lägga till angivet undernät till servern.
 
 *Alternativ för Azure RBAC:*
 

@@ -1,19 +1,19 @@
 ---
 title: Mallens resurs plats
-description: Beskriver hur du anger resurs plats i en Azure Resource Manager mall.
+description: Beskriver hur du anger resurs plats i en Azure Resource Manager-mall (ARM-mall).
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.custom: ''
-ms.openlocfilehash: e1310c81d7b726e9be2fe9f38a0bb8d701035ba4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a818109e6681b8d0e18de4d2d7969310582818
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613704"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922404"
 ---
 # <a name="set-resource-location-in-arm-template"></a>Ange resurs plats i ARM-mallen
 
-När du distribuerar en Azure Resource Manager-mall (ARM) måste du ange en plats för varje resurs. Platsen behöver inte vara samma plats som resurs gruppens plats.
+När du distribuerar en Azure Resource Manager-mall (ARM-mall) måste du ange en plats för varje resurs. Platsen behöver inte vara samma plats som resurs gruppens plats.
 
 ## <a name="get-available-locations"></a>Hämta tillgängliga platser
 
@@ -96,5 +96,5 @@ I följande exempel visas ett lagrings konto som har distribuerats till en plats
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En fullständig lista över mall funktioner finns i [Azure Resource Manager Template Functions](template-functions.md).
+* En fullständig lista över mallar finns i funktioner i [arm-mallar](template-functions.md).
 * Mer information om mallfiler finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).

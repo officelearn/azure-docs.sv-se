@@ -1,18 +1,18 @@
 ---
 title: Template Functions – Logical
-description: Beskriver de funktioner som används i en Azure Resource Manager mall för att fastställa logiska värden.
+description: Beskriver de funktioner som används i en Azure Resource Manager mall (ARM-mall) för att fastställa logiska värden.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: b54c104c8af5bb742b2c82d8a075515b8696501b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 27d94f10374daf0b9a351469579a5eb659cf5445
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004559"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920486"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Logiska funktioner för ARM-mallar
 
-Resource Manager innehåller flera funktioner för att göra jämförelser i dina Azure Resource Manager-mallar (ARM).
+Resource Manager innehåller flera funktioner för att göra jämförelser i din Azure Resource Manager-mall (ARM-mall):
 
 * [and](#and)
 * [boolesk](#bool)
@@ -32,11 +32,11 @@ Kontrollerar om alla parameter värden är sanna. `and`Funktionen stöds inte i 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |boolean |Det första värdet för att kontrol lera om är sant. |
-| arg2 |Yes |boolean |Det andra värdet för att kontrol lera om är sant. |
-| ytterligare argument |No |boolean |Ytterligare argument för att kontrol lera om är true. |
+| arg1 |Ja |boolean |Det första värdet för att kontrol lera om är sant. |
+| arg2 |Ja |boolean |Det andra värdet för att kontrol lera om är sant. |
+| ytterligare argument |Inga |boolean |Ytterligare argument för att kontrol lera om är true. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -96,9 +96,9 @@ Konverterar parametern till ett booleskt värde.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |sträng eller heltal |Värdet som ska konverteras till ett booleskt värde. |
+| arg1 |Ja |sträng eller heltal |Värdet som ska konverteras till ett booleskt värde. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -215,11 +215,11 @@ Returnerar ett värde baserat på om ett villkor är sant eller falskt. `if`Funk
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| moduletype |Yes |boolean |Värdet för att kontrol lera om det är sant eller falskt. |
-| trueValue |Yes | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är sant. |
-| falseValue |Yes | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är falskt. |
+| moduletype |Ja |boolean |Värdet för att kontrol lera om det är sant eller falskt. |
+| trueValue |Ja | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är sant. |
+| falseValue |Ja | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är falskt. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -227,7 +227,7 @@ Returnerar den andra parametern när den första parametern är **True**; annars
 
 ### <a name="remarks"></a>Kommentarer
 
-När villkoret är **Sant** utvärderas bara det sanna värdet. Om villkoret är **falskt** utvärderas bara det falska värdet. Med funktionen **IF** kan du inkludera uttryck som endast är villkorligt giltiga. Du kan till exempel referera till en resurs som finns under ett villkor, men inte med det andra villkoret. Ett exempel på villkorligt utvärdering av uttryck visas i följande avsnitt.
+När villkoret är **Sant** utvärderas bara det sanna värdet. Om villkoret är **falskt** utvärderas bara det falska värdet. Med `if` -funktionen kan du inkludera uttryck som endast är villkorligt giltiga. Du kan till exempel referera till en resurs som finns under ett villkor, men inte med det andra villkoret. Ett exempel på villkorligt utvärdering av uttryck visas i följande avsnitt.
 
 ### <a name="examples"></a>Exempel
 
@@ -272,7 +272,7 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| yesOutput | Sträng | yes |
+| yesOutput | Sträng | ja |
 | nooutput | Sträng | nej |
 | objectOutput | Objekt | {"test": "värde1"} |
 
@@ -341,9 +341,9 @@ Konverterar booleskt värde till motsatt värde. `not`Funktionen stöds inte i b
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |boolean |Det värde som ska konverteras. |
+| arg1 |Ja |boolean |Det värde som ska konverteras. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -436,11 +436,11 @@ Kontrollerar om ett parameter värde är sant. `or`Funktionen stöds inte i bice
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |boolean |Det första värdet för att kontrol lera om är sant. |
-| arg2 |Yes |boolean |Det andra värdet för att kontrol lera om är sant. |
-| ytterligare argument |No |boolean |Ytterligare argument för att kontrol lera om är true. |
+| arg1 |Ja |boolean |Det första värdet för att kontrol lera om är sant. |
+| arg2 |Ja |boolean |Det andra värdet för att kontrol lera om är sant. |
+| ytterligare argument |Inga |boolean |Ytterligare argument för att kontrol lera om är true. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -542,4 +542,4 @@ Utdata från föregående exempel är:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
+* En beskrivning av avsnitten i en ARM-mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).

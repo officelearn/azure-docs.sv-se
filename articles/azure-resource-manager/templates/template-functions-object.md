@@ -1,18 +1,18 @@
 ---
 title: Mall funktioner – objekt
-description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med objekt.
+description: Beskriver de funktioner som används i en Azure Resource Manager mall (ARM-mall) för att arbeta med objekt.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 7ed317b3506f00e71bbf97d5564cacec05032744
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5e13177db1a7cf2f19a822363cb3884474566add
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004525"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920456"
 ---
 # <a name="object-functions-for-arm-templates"></a>Objekt funktioner för ARM-mallar
 
-Resource Manager innehåller flera funktioner för att arbeta med objekt i din Azure Resource Manager-mall (ARM).
+Resource Manager innehåller flera funktioner för att arbeta med objekt i din Azure Resource Manager-mall (ARM-mall):
 
 * [ingår](#contains)
 * [createObject](#createobject)
@@ -33,10 +33,10 @@ Kontrollerar om en matris innehåller ett värde, ett objekt innehåller en nyck
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| container |Yes |matris, objekt eller sträng |Värdet som innehåller värdet som ska hittas. |
-| itemToFind |Yes |sträng eller heltal |Det värde som ska hittas. |
+| container |Ja |matris, objekt eller sträng |Värdet som innehåller värdet som ska hittas. |
+| itemToFind |Ja |sträng eller heltal |Det värde som ska hittas. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -145,12 +145,12 @@ Skapar ett objekt från nycklar och värden. `createObject`Funktionen stöds int
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| key1 |No |sträng |Namnet på nyckeln. |
-| value1 |No |int, boolesk, sträng, objekt eller matris |Värdet för nyckeln. |
-| ytterligare nycklar |No |sträng |Ytterligare namn på nycklarna. |
-| ytterligare värden |No |int, boolesk, sträng, objekt eller matris |Ytterligare värden för nycklarna. |
+| key1 |Inga |sträng |Namnet på nyckeln. |
+| value1 |Inga |int, boolesk, sträng, objekt eller matris |Värdet för nyckeln. |
+| ytterligare nycklar |Inga |sträng |Ytterligare namn på nycklarna. |
+| ytterligare värden |Inga |int, boolesk, sträng, objekt eller matris |Ytterligare värden för nycklarna. |
 
 Funktionen accepterar bara ett jämnt antal parametrar. Varje nyckel måste ha ett matchande värde.
 
@@ -219,9 +219,9 @@ Anger om en matris, ett objekt eller en sträng är tom.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |matris, objekt eller sträng |Värdet för att kontrol lera om det är tomt. |
+| itemToTest |Ja |matris, objekt eller sträng |Värdet för att kontrol lera om det är tomt. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -300,11 +300,11 @@ Returnerar en enskild matris eller ett objekt med de gemensamma elementen från 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matris eller objekt |Det första värdet som ska användas för att hitta vanliga element. |
-| arg2 |Yes |matris eller objekt |Det andra värdet som ska användas för att hitta vanliga element. |
-| ytterligare argument |No |matris eller objekt |Ytterligare värden som ska användas för att hitta vanliga element. |
+| arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att hitta vanliga element. |
+| arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att hitta vanliga element. |
+| ytterligare argument |Inga |matris eller objekt |Ytterligare värden som ska användas för att hitta vanliga element. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -407,9 +407,9 @@ Konverterar en giltig JSON-sträng till en JSON-datatyp.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |sträng |Värdet som ska konverteras till JSON. Strängen måste vara en korrekt formaterad JSON-sträng. |
+| arg1 |Ja |sträng |Värdet som ska konverteras till JSON. Strängen måste vara en korrekt formaterad JSON-sträng. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -538,9 +538,9 @@ Returnerar antalet element i en matris, tecken i en sträng eller på rot nivå 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matris, sträng eller objekt |Den matris som ska användas för att hämta antalet element, strängen som ska användas för att hämta antalet tecken, eller objektet som ska användas för att hämta antalet rot nivå egenskaper. |
+| arg1 |Ja |matris, sträng eller objekt |Den matris som ska användas för att hämta antalet element, strängen som ska användas för att hämta antalet tecken, eller objektet som ska användas för att hämta antalet rot nivå egenskaper. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -690,11 +690,11 @@ Returnerar en enskild matris eller ett objekt med alla element från parametrarn
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matris eller objekt |Det första värdet som ska användas för att koppla ihop element. |
-| arg2 |Yes |matris eller objekt |Det andra värdet som ska användas för att koppla ihop element. |
-| ytterligare argument |No |matris eller objekt |Ytterligare värden som ska användas för att koppla ihop element. |
+| arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att koppla ihop element. |
+| arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att koppla ihop element. |
+| ytterligare argument |Inga |matris eller objekt |Ytterligare värden som ska användas för att koppla ihop element. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -792,4 +792,4 @@ Utdata från föregående exempel med standardvärdena är:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
+* En beskrivning av avsnitten i en ARM-mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).

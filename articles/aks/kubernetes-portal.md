@@ -1,23 +1,21 @@
 ---
-title: Få åtkomst till Kubernetes-resurser från Azure Portal (för hands version)
+title: Få åtkomst till Kubernetes-resurser från Azure Portal
 description: Lär dig hur du interagerar med Kubernetes-resurser för att hantera ett Azure Kubernetes service (AKS)-kluster från Azure Portal.
 services: container-service
 ms.topic: article
-ms.date: 09/21/2020
-ms.openlocfilehash: cfd09e469de68a1eee7440773347e9fe58bf8619
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/09/2020
+ms.openlocfilehash: 8e31c41573ced403a034999de71a5595a54281df
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571631"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921584"
 ---
-# <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Få åtkomst till Kubernetes-resurser från Azure Portal (för hands version)
+# <a name="access-kubernetes-resources-from-the-azure-portal"></a>Få åtkomst till Kubernetes-resurser från Azure Portal
 
-Azure Portal innehåller en Kubernetes Resource Viewer (för hands version) för enkel åtkomst till Kubernetes-resurserna i ditt Azure Kubernetes service-kluster (AKS). Genom att Visa Kubernetes-resurser från Azure Portal reduceras kontext växlingen mellan Azure Portal och `kubectl` kommando rads verktyget, vilket effektiviserar upplevelsen med att visa och redigera dina Kubernetes-resurser. Resurs läsaren innehåller för närvarande flera resurs typer, till exempel distributioner, poddar och replik uppsättningar.
+Azure Portal innehåller en Kubernetes för enkel åtkomst till Kubernetes-resurserna i ditt Azure Kubernetes service-kluster (AKS). Genom att Visa Kubernetes-resurser från Azure Portal reduceras kontext växlingen mellan Azure Portal och `kubectl` kommando rads verktyget, vilket effektiviserar upplevelsen med att visa och redigera dina Kubernetes-resurser. Resurs läsaren innehåller för närvarande flera resurs typer, till exempel distributioner, poddar och replik uppsättningar.
 
 Kubernetes från Azure Portal ersätter [instrument panels tillägget AKS][kubernetes-dashboard], vilket är inaktuellt.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="prerequisites"></a>Krav
 

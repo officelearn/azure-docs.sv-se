@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2c238bf3911283db5d09fdd5679d784c5e5401f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23a176bfa5e3861dbc4ad5c03ea54fc847d3f56b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654811"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922537"
 ---
 # <a name="scalability-and-performance-targets-for-premium-page-blob-storage-accounts"></a>Skalbarhets-och prestanda mål för Premium Page Blob Storage-konton
 
@@ -37,7 +37,7 @@ Premium Page Blob Storage-konton har följande skalbarhets mål:
 
 <sup>2</sup> alla data (svar) som tas emot från ett lagrings konto
 
-Ett BLOB-konto för Premium sidan är ett allmänt konto som kon figurer ATS för Premium-prestanda. Allmänna-Purpose v2-lagrings konton rekommenderas.
+Ett BLOB-konto för Premium sidan är ett allmänt konto som har kon figurer ATS för Premium-prestanda. Allmänna-Purpose v2-lagrings konton rekommenderas.
 
 Om du använder Blob Storage-konton på Premium-sidan för ohanterade diskar och ditt program överskrider skalbarhets målen för ett enda lagrings konto, rekommenderar Microsoft att du migrerar till hanterade diskar. Mer information om hanterade diskar finns i [Azure-disklagring översikt för virtuella datorer](../../virtual-machines/managed-disks-overview.md).
 

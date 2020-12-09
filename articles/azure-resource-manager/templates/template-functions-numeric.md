@@ -1,18 +1,18 @@
 ---
 title: Template Functions-numeric
-description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med siffror.
+description: Beskriver de funktioner som används i en Azure Resource Manager mall (ARM-mall) för att arbeta med siffror.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 26f4b846c67ee7b926ea984ceefd84bf9ea56952
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1484826b2377fe2adb2ac6ae2ab3ee6243b26c2c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004542"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920476"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Numeriska funktioner för ARM-mallar
 
-Resource Manager innehåller följande funktioner för att arbeta med heltal i din Azure Resource Manager-mall (ARM):
+Resource Manager innehåller följande funktioner för att arbeta med heltal i din Azure Resource Manager-mall (ARM-mall):
 
 * [skapa](#add)
 * [copyIndex](#copyindex)
@@ -35,10 +35,10 @@ Returnerar summan av de två angivna heltalen. `add`Funktionen stöds inte i bic
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-|operand1 |Yes |int |Första talet som ska läggas till. |
-|operand2 |Yes |int |Det andra numret som ska läggas till. |
+|operand1 |Ja |int |Första talet som ska läggas till. |
+|operand2 |Ja |int |Det andra numret som ska läggas till. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -106,10 +106,10 @@ Returnerar indexet för en upprepnings slinga.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| loopName | No | sträng | Namnet på slingan för att hämta iterationen. |
-| offset |No |int |Talet som ska läggas till i det nollbaserade upprepning svärdet. |
+| loopName | Inga | sträng | Namnet på slingan för att hämta iterationen. |
+| offset |Inga |int |Talet som ska läggas till i det nollbaserade upprepning svärdet. |
 
 ### <a name="remarks"></a>Kommentarer
 
@@ -180,10 +180,10 @@ Returnerar heltals divisionen av de två angivna heltalen. `div`Funktionen stöd
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| operand1 |Yes |int |Talet som delas. |
-| operand2 |Yes |int |Det tal som används för att dividera. Kan inte vara 0. |
+| operand1 |Ja |int |Talet som delas. |
+| operand2 |Ja |int |Det tal som används för att dividera. Kan inte vara 0. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -251,9 +251,9 @@ Konverterar värdet till ett flytt ALS nummer. Du använder bara den här funkti
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |sträng eller heltal |Värdet som ska konverteras till ett flytt ALS nummer. |
+| arg1 |Ja |sträng eller heltal |Värdet som ska konverteras till ett flytt ALS nummer. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -294,9 +294,9 @@ Konverterar det angivna värdet till ett heltal.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Yes |sträng eller heltal |Värdet som ska konverteras till ett heltal. |
+| valueToConvert |Ja |sträng eller heltal |Värdet som ska konverteras till ett heltal. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -353,9 +353,9 @@ Returnerar det maximala värdet från en matris med heltal eller en kommaavgrän
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det högsta värdet. |
+| arg1 |Ja |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det högsta värdet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -423,9 +423,9 @@ Returnerar det minsta värdet från en matris med heltal eller en kommaavgränsa
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det lägsta värdet. |
+| arg1 |Ja |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det lägsta värdet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -493,10 +493,10 @@ Returnerar resten av heltals divisionen med de två angivna heltalen. `mod`Funkt
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| operand1 |Yes |int |Talet som delas. |
-| operand2 |Yes |int |Talet som används för att dividera, kan inte vara 0. |
+| operand1 |Ja |int |Talet som delas. |
+| operand2 |Ja |int |Talet som används för att dividera, kan inte vara 0. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -564,10 +564,10 @@ Returnerar multiplikationen av de två angivna heltalen. `mul`Funktionen stöds 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| operand1 |Yes |int |Första talet som ska multipliceras. |
-| operand2 |Yes |int |Det andra talet som ska multipliceras. |
+| operand1 |Ja |int |Första talet som ska multipliceras. |
+| operand2 |Ja |int |Det andra talet som ska multipliceras. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -635,10 +635,10 @@ Returnerar subtraktion av de två angivna heltalen. `sub`Funktionen stöds inte 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| operand1 |Yes |int |Det tal som subtraheras från. |
-| operand2 |Yes |int |Talet som subtraheras. |
+| operand1 |Ja |int |Det tal som subtraheras från. |
+| operand2 |Ja |int |Talet som subtraheras. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -700,5 +700,5 @@ Utdata från föregående exempel med standardvärdena är:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
-* Om du vill iterera ett visst antal gånger när du skapar en typ av resurs, se [skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
+* En beskrivning av avsnitten i en ARM-mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
+* Om du vill iterera ett visst antal gånger när du skapar en typ av resurs, se [resurs upprepning i arm-mallar](copy-resources.md).

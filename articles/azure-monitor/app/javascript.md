@@ -4,12 +4,12 @@ description: Hämta sid visning och antal sessioner, webb klient data, enstaka s
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: b109aaea1ae5e751f40b55a3c703f0739661e10d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: f5f81fe5d3f7f7d24e5e6618ba3956b80451570c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876217"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921868"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 
@@ -19,8 +19,11 @@ Application Insights kan användas med alla webbsidor – du lägger bara till e
 
 ## <a name="adding-the-javascript-sdk"></a>Lägga till JavaScript SDK
 
+> [!IMPORTANT]
+> Nya Azure-regioner **kräver** att anslutnings strängar används i stället för instrument knappar. [Anslutnings strängen](./sdk-connection-string.md?tabs=js) identifierar den resurs som du vill associera dina telemetridata med. Du kan också ändra de slut punkter som resursen kommer att använda som mål för din telemetri. Du måste kopiera anslutnings strängen och lägga till den i programmets kod eller till en miljö variabel.
+
 1. Först behöver du en Application Insights-resurs. Om du inte redan har en resurs-och Instrumentation-nyckel följer du anvisningarna för att [skapa en ny resurs](create-new-resource.md).
-2. Kopiera _Instrumentation-nyckeln_ (även kallat "iKey") för den resurs där du vill att din JavaScript-telemetri ska skickas (från steg 1.) Du kommer att lägga till den i `instrumentationKey` inställningen för Application Insights JavaScript SDK.
+2. Kopiera _Instrumentation-nyckeln_ (även kallat "iKey") eller [anslutnings sträng](#connection-string-setup) för den resurs där du vill att din JavaScript-telemetri ska skickas (från steg 1.) Du kommer att lägga till den i `instrumentationKey` eller- `connectionString` inställningen för Application Insights JavaScript SDK.
 3. Lägg till Application Insights JavaScript SDK till din webb sida eller app via något av följande två alternativ:
     * [NPM-installation](#npm-based-setup)
     * [JavaScript-kodfragment](#snippet-based-setup)
@@ -102,7 +105,7 @@ Alla konfigurations alternativ har nu flyttats till slutet av skriptet för att 
 
 Varje konfigurations alternativ visas på en ny rad, om du inte vill åsidosätta standardvärdet för ett objekt som anges som [valfritt], kan du ta bort raden för att minimera den resulterande storleken på din returnerade sida.
 
-De tillgängliga konfigurations alternativen är 
+De tillgängliga konfigurations alternativen är
 
 | Namn | Typ | Beskrivning
 |------|------|----------------
@@ -113,9 +116,23 @@ De tillgängliga konfigurations alternativen är
 | crossOrigin | sträng *[valfritt]* | Genom att inkludera den här inställningen inkluderar den skript kod som lagts till för att ladda ned SDK crossOrigin-attributet med det här strängvärdet. När det inte har definierats (standard) läggs inget crossOrigin-attribut till. Rekommenderade värden har inte definierats (standard). ""; eller "Anonym" (för alla giltiga värden se [HTML-attribut `crossorigin` :](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) dokumentation)
 | konfiguration | objekt **[obligatoriskt]** | Konfigurationen som skickas till Application Insights SDK under initieringen.
 
+### <a name="connection-string-setup"></a>Konfiguration av anslutnings sträng
+
+För antingen NPM-eller kodfragment-installationen kan du också konfigurera din instans av Application Insights med hjälp av en anslutnings sträng. Ersätt bara `instrumentationKey` fältet med `connectionString` fältet.
+```js
+import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+
+const appInsights = new ApplicationInsights({ config: {
+  connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE'
+  /* ...Other Configuration Options... */
+} });
+appInsights.loadAppInsights();
+appInsights.trackPageView();
+```
+
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Skicka telemetri till Azure Portal
 
-Som standard samlar Application Insights JavaScript SDK automatiskt in ett antal telemetridata som är användbara för att fastställa hälso tillståndet för ditt program och den underliggande användar upplevelsen. Exempel:
+Som standard samlar Application Insights JavaScript SDK automatiskt in ett antal telemetridata som är användbara för att fastställa hälso tillståndet för ditt program och den underliggande användar upplevelsen. Dessa omfattar:
 
 - Ej **fångade undantag** i appen, inklusive information om
     - Stack spårning
@@ -153,7 +170,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Konfiguration
 De flesta konfigurations fälten får ett namn som är förfalskade som standard. Alla fält är valfria förutom för `instrumentationKey` .
 
-| Namn | Default | Beskrivning |
+| Name | Standardvärde | Beskrivning |
 |------|---------|-------------|
 | instrumentationKey | null | **Obligatoriskt**<br>Instrumentation-nyckel som du fick från Azure Portal. |
 | accountId | null | Ett valfritt konto-ID, om din app grupperar användare till konton. Inga blank steg, kommatecken, semikolon, likheter eller lodräta staplar |
@@ -163,8 +180,8 @@ De flesta konfigurations fälten får ett namn som är förfalskade som standard
 | maxBatchInterval | 15 000 | Hur lång tid det tar att gruppera telemetri innan det skickas (millisekunder) |
 | disableExceptionTracking | falskt | Om det här värdet är sant är undantag inte autosamlade. Standardvärdet är false. |
 | disableTelemetry | falskt | Om det här värdet är sant samlas ingen telemetri in eller skickas. Standardvärdet är false. |
-| enableDebug | falskt | Om det här värdet är sant genereras **interna** fel söknings data som ett undantag **i stället** för att loggas, oavsett inställningarna för SDK-loggning. Standardvärdet är false. <br>***Obs:*** Om du aktiverar den här inställningen tas all telemetri bort när ett internt fel inträffar. Detta kan vara användbart för att snabbt identifiera problem med konfigurationen eller användningen av SDK. Om du inte vill förlora telemetri vid fel sökning kan du överväga att använda `consoleLoggingLevel` eller `telemetryLoggingLevel` i stället för `enableDebug` . |
-| loggingLevelConsole | 0 | Loggar **interna** Application Insights fel i konsolen. <br>0: av, <br>1: endast kritiska fel, <br>2: allt (fel & varningar) |
+| enableDebug | falskt | Om det här värdet är sant genereras **interna** fel söknings data som ett undantag **i stället** för att loggas, oavsett inställningarna för SDK-loggning. Standardvärdet är false. <br>**_Obs!_* _ om den här inställningen aktive ras, leder det till att telemetri tas bort när ett internt fel inträffar. Detta kan vara användbart för att snabbt identifiera problem med konfigurationen eller användningen av SDK. Om du inte vill förlora telemetri vid fel sökning kan du överväga att använda `consoleLoggingLevel` eller `telemetryLoggingLevel` i stället för `enableDebug` . |
+| loggingLevelConsole | 0 | Loggar _ *interna** Application Insights fel till konsolen. <br>0: av, <br>1: endast kritiska fel, <br>2: allt (fel & varningar) |
 | loggingLevelTelemetry | 1 | Skickar **interna** Application Insights fel som telemetri. <br>0: av, <br>1: endast kritiska fel, <br>2: allt (fel & varningar) |
 | diagnosticLogInterval | 10000 | inhemska Avsöknings intervall (i MS) för intern loggnings kön |
 | samplingPercentage | 100 | Procent andel av händelser som ska skickas. Standardvärdet är 100, vilket innebär att alla händelser skickas. Ange detta om du vill bevara din data Kap för storskaliga program. |
@@ -271,7 +288,7 @@ Välj **webbläsare** och välj sedan **haverier** eller **prestanda**.
 
 ![Skärm bild av sidan prestanda i Application Insights visar bild visning av beroende mått för ett webb program.](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>Analys
 
 Om du vill fråga din telemetri som samlas in av JavaScript SDK väljer du knappen **Visa i loggar (analys)** . Genom att lägga till en `where` -sats i visas `client_Type == "Browser"` endast data från Java Script SDK och all telemetri på Server sidan som samlas in av andra SDK: er.
  

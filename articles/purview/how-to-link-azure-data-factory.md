@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: cb74a799efb6099b55c9da9650d9cca7358ecbed
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 55651b3201676ee5cddb5412e950791afaa4e87a
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554328"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852140"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Så här ansluter du Azure Data Factory och Azure-avdelningens kontroll
 
@@ -34,7 +34,7 @@ Flera Azure-datafabriker kan ansluta till en enda Azure avdelningens kontroll-Da
     - **Frånkopplad**: data fabriken har åtkomst till katalogen, men den är ansluten till en annan katalog. Det innebär att data härkomst inte rapporteras automatiskt till katalogen.
     - **CannotAccess**: den aktuella användaren har inte åtkomst till data fabriken, så anslutnings statusen är okänd.
  >[!Note]
- >För att kunna Visa Data Factory anslutningar måste du ha tilldelats någon av rollerna för Azure-skapande:
+ >För att kunna Visa Data Factory-anslutningar måste du tilldelas någon av avdelningens kontroll-rollerna:
  >- Deltagare
  >- Ägare
  >- Läsare
@@ -72,9 +72,9 @@ Gör så här om du vill ta bort en data fabriks anslutning:
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Skärm bild som visar hur du väljer data fabriker för att ta bort anslutningen." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
 >[!Note]
->För att kunna lägga till eller ta bort Data Factory anslutningar måste du ha tilldelats någon av rollerna för Azure-skapande:
+>Om du vill lägga till eller ta bort Data Factory anslutningar måste du ha tilldelats någon av avdelningens kontroll-rollerna:
 >- Ägare
->- Administratör för användaråtkomst
+>- Administratör för användar åtkomst förutom måste användarna vara data fabrikens "ägare", "deltagare" eller "Data Factory Contributor". 
 
 ## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>Konfigurera en egen värd-IR för att samla in härkomst från lokal SQL
 

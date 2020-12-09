@@ -687,7 +687,7 @@
                   href: service-fabric-how-to-remove-node-type.md
             - name: Uppgradera
               items:
-                - name: Lägg till ett tillägg för en VM-skalningsuppsättning till en nodtyp för hanterade kluster
+                - name: Lägga till ett tillägg för VM-skalningsuppsättningar till en hanterad klusternod
                   href: how-to-managed-cluster-vmss-extension.md
                 - name: Uppgradera Service Fabric-versionen
                   href: service-fabric-cluster-upgrade-version-azure.md
@@ -797,6 +797,8 @@
               href: configure-existing-cluster-enable-managed-identity-token-service.md
             - name: Konfigurera ett nytt Azure Service Fabric-kluster med hanterad identitet
               href: configure-new-azure-service-fabric-enable-managed-identity.md
+            - name: Konfigurera ett Service Fabric-hanterat kluster med hanterad identitet
+              href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
         - name: Programkonfiguration
           items:
             - name: Så här distribuerar du program med hanterad identitet

@@ -125,10 +125,12 @@
       items:
         - name: Skapa ett flöde
           items:
-            - name: Registrering eller inloggning
-              href: tutorial-create-user-flows.md
+            - name: Skapa användarflöden
+              href: create-user-flow.md
             - name: Autentiseringsuppgifter för lösenord för resursägare
               href: configure-ropc.md
+            - name: Konfigurera telefonautentisering
+              href: phone-authentication-user-flows.md
             - name: Konfigurera återställning av lösenord för självbetjäning
               href: user-flow-self-service-password-reset.md
         - name: Lägg till villkorsstyrd åtkomst

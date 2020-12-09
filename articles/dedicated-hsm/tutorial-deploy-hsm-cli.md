@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d175ac75ce76836d012cdd04d4dbd7d81ffda584
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b6f4610887092b1dac5cdc85622739318d5921d7
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460707"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852242"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Självstudie: Distribuera HSM: er till ett befintligt virtuellt nätverk med hjälp av Azure CLI
 
@@ -233,14 +233,14 @@ Utdata bör se ut som på bilden nedan:
 
 ![Skärm bilden visar utdata i PowerShell-fönstret.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
-I det här skedet har du allokerat alla resurser för en distribution med hög tillgänglighet och två HSM:er samt verifierat åtkomst och driftstatus. Ytterligare konfiguration eller testning medför mer arbete med själva HSM-enheten. För detta bör du följa anvisningarna i kapitel 7 i administrationsguiden för Gemalto Luna Network HSM 7 för att initiera HSM och skapa partitioner. All dokumentation och programvara är tillgänglig direkt från Gemalto för nedladdning när du har registrerats i Gemalto Customer Support Portal och har ett kund-ID. Ladda ned klientprogramvara version 7.2 för att få alla nödvändiga komponenter.
+I det här skedet har du allokerat alla resurser för en distribution med hög tillgänglighet och två HSM:er samt verifierat åtkomst och driftstatus. Ytterligare konfiguration eller testning medför mer arbete med själva HSM-enheten. För detta bör du följa anvisningarna i administrations hand boken för Thales Luna Network HSM 7 kapitel 7 för att initiera HSM och skapa partitioner. All dokumentation och program vara är tillgängliga direkt från Thales för hämtning när du har registrerat dig på Thales kund support Portal och har ett kund-ID. Ladda ned klientprogramvara version 7.2 för att få alla nödvändiga komponenter.
 
 ## <a name="delete-or-clean-up-resources"></a>Ta bort eller rensa resurser
 
 Om du är klar med bara HSM-enheten kan den tas bort som resurs och returneras till poolen. Det uppenbara problemet när du gör detta är eventuella känsliga kunddata som finns på enheten. Det bästa sättet att "zeroize" en enhet är att få lösen ordet för HSM-administratören fel tre gånger (Obs! det här är inte enhets administratören, det är den faktiska HSM-administratören). Som säkerhets åtgärd för att skydda nyckel material kan enheten inte tas bort som en Azure-resurs förrän den är i ett nollställt tillstånd.
 
 > [!NOTE]
-> om det är problem med någon Gemalto-enhetskonfiguration bör du kontakta [Gemaltos kundsupport](https://safenet.gemalto.com/technical-support/).
+> Om du har problem med en Thales enhets konfiguration bör du kontakta [Thales kund support](https://safenet.gemalto.com/technical-support/).
 
 Om du är färdig med alla resurser i den här resurs gruppen kan du ta bort dem med följande kommando:
 

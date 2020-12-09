@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: b9e43cb9188df8274d5bafa7fd9bc90c24339237
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 81782f63199a9fe8f43f56aeefcd1c68951d57a4
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286843"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852260"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Översikt över Azure App Service lokal cache
 
@@ -120,3 +120,6 @@ Lokalt cacheminne bidrar till att förhindra att Storage-relaterade appar starta
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>Utesluter lokal cache eventuella kataloger från att kopieras till den snabbare lokala enheten?
 Som en del av det steg som kopierar lagrings innehållet undantas alla mappar som heter lagrings plats. Detta hjälper till med scenarier där ditt webbplats innehåll kan innehålla en lagrings plats för käll kontroll som kanske inte behövs under den dagliga driften av appen. 
+
+### <a name="how-to-flush-the-local-cache-logs-after-a-site-management-operation"></a>Hur tömmer du de lokala cache-loggarna efter en plats hanterings åtgärd?
+Stoppa och starta om appen om du vill tömma de lokala cache-loggarna. Den här åtgärden rensar det gamla cacheminnet. 

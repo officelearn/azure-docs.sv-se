@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 543e6115be30963600d867bb9c2a03dfbb54e9f1
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: abc8cffa3d5b9dffb55beabc90cdaecb3adc647f
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576561"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852531"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Distribuera exempeletikettverktyget
 
@@ -99,6 +99,9 @@ Följ de här stegen för att skapa en ny resurs med hjälp av Azure Portal:
 
 > [!NOTE]
 > När du skapar din webbapp kan du också konfigurera auktorisering/autentisering. Detta är inte nödvändigt för att komma igång. 
+
+> [!IMPORTANT]
+> Du kan behöva aktivera TLS för din webbapp för att kunna visa den på `https` adressen. Följ anvisningarna i [Aktivera en TLS-slutpunkt](https://docs.microsoft.com/azure/container-instances/container-instances-container-group-ssl) för att konfigurera en sidvagn-behållare än aktiverar TLS/SSL för din webbapp.
 
 ### <a name="azure-cli"></a>Azure CLI
 

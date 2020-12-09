@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 68cb738ae6e4689a0356ea56c1de2d383ea83ad6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31ff3620bcab6b10b59582daa255ff1f259ab0d3
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449943"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852650"
 ---
 # <a name="supported-platforms"></a>Plattformar som stöds 
 
@@ -44,8 +44,10 @@ Security Center är beroende av [Log Analytics agenten](../azure-monitor/platfor
 
 Se också till att din Log Analytics-agent är [korrekt konfigurerad för att skicka data till Security Center](security-center-enable-data-collection.md#manual-agent)
 
-> [!TIP]
-> Mer information om de Security Center funktioner som är tillgängliga i Windows och Linux finns i [funktions täckning för datorer](security-center-services.md).
+Mer information om de Security Center funktioner som är tillgängliga i Windows och Linux finns i [funktions täckning för datorer](security-center-services.md).
+
+> [!NOTE]
+> Även om Azure Defender är utformat för att skydda servrar, stöds de flesta funktioner i **Azure Defender för servrar** för Windows 10-datorer. En funktion som inte stöds för närvarande är [Security Center integrerad EDR-lösning: Microsoft Defender för slut punkt](security-center-wdatp.md).
 
 ## <a name="managed-virtual-machine-services"></a>Hanterade virtuella maskin tjänster <a name="virtual-machine"></a>
 

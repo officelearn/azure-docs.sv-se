@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
-ms.openlocfilehash: 09a6920e0d3a50da1bdacbf2bc7a80396c885897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0d7310c4863c8dd431b991a2c249f2d8e257aeb
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61448570"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852361"
 ---
 # <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Självstudie: Skapa och köra en IoT-enhetssimulering
 
@@ -28,21 +28,13 @@ I den här kursen får du:
 > * Visa mått för en simulering
 > * Stoppa en simulering
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa den här självstudien behöver du en distribuerad instans av enhetssimuleringen i din Azure-prenumeration.
 
-Om du inte har distribuerat enhetssimulering ännu bör du slutföra snabbstarten [Distribuera och köra en IoT-enhetssimulering i Azure](quickstart-device-simulation-deploy.md).
-
-## <a name="open-device-simulation"></a>Öppna enhetssimulering
-
-För att köra enhetssimulering i webbläsaren navigerar du först till [Microsoft Azure IoT-lösningsacceleratorer](https://www.azureiotsolutions.com). 
-
-Du kan bli ombedd att logga in med dina autentiseringsuppgifter för Azure-prenumeration.
-
-Klicka sedan på **Starta** på den panel för enhetssimulering som du distribuerade i [snabbstarten](quickstart-device-simulation-deploy.md).
+Om du inte redan har distribuerat enhets simuleringen kan du läsa [distribuera enhets simulering](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) på GitHub.
 
 ## <a name="view-simulations"></a>Visa simuleringar
 

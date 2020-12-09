@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
-ms.openlocfilehash: f58eb05ed582cf18157a76f4d637d72a228f4e96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7be0278fd8870395b8495168eb9723780eba4b26
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "65464875"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852378"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>Översikt över lösningsacceleratorn för enhetssimulering
 
@@ -36,7 +36,7 @@ Enhets simuleringen är kostnads fri. Men enhets simuleringen distribueras till 
 
 ## <a name="sample-simulations"></a>Exempel simuleringar
 
-När du distribuerar enhets simulering får du några exempel på simuleringar och exempel enheter. Du kan använda de här exemplen för att lära dig hur du använder enhets simulering. Kom igång genom att köra en [simulering som simulerar 10 Last bilar](quickstart-device-simulation-deploy.md). Du kan också [skapa en egen simulering med någon av de många exempel enheter som tillhandahålls](iot-accelerators-device-simulation-create-simulation.md).
+När du distribuerar enhets simulering får du några exempel på simuleringar och exempel enheter. Du kan använda de här exemplen för att lära dig hur du använder enhets simulering. Kom igång genom att köra en [simulering](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)av ett exempel. Du kan också [skapa en egen simulering med någon av de många exempel enheter som tillhandahålls](iot-accelerators-device-simulation-create-simulation.md).
 
 ![Simuleringskonfiguration](media/iot-accelerators-device-simulation-overview/samplesimulation1.png)
 
@@ -60,7 +60,7 @@ Med avancerade enhets modeller kan du:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig om enhets simuleringens lösnings Accelerator och dess funktioner. Kom igång med Solution Accelerator genom att fortsätta till snabb starten:
+I den här artikeln har du lärt dig om enhets simuleringens lösnings Accelerator och dess funktioner. Om du vill distribuera Solution Accelerator går du till GitHub-lagringsplatsen:
 
 > [!div class="nextstepaction"]
-> [Distribuera och köra en IoT-enhetssimulering i Azure](quickstart-device-simulation-deploy.md)
+> [Distribuera och köra en IoT-enhetssimulering i Azure](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 7ddd1aa9865cb4061212ce77b31efc82ad339283
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1fe86aef832223a7485036343b4b12d8bb526e06
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165578"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852395"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Självstudie: Skapa en anpassad simulerad enhet
 
@@ -34,15 +34,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 För att följa den här självstudien behöver du en distribuerad instans av enhetssimulering i din Azure-prenumeration.
 
-Om du inte har distribuerat enhetssimulering ännu bör du slutföra snabbstarten [Distribuera och köra en IoT-enhetssimulering i Azure](quickstart-device-simulation-deploy.md).
-
-## <a name="open-device-simulation"></a>Öppna enhetssimulering
-
-För att köra enhetssimulering i webbläsaren navigerar du först till [Microsoft Azure IoT-lösningsacceleratorer](https://www.azureiotsolutions.com).
-
-Du kan bli ombedd att logga in med dina autentiseringsuppgifter för Azure-prenumeration.
-
-Klicka sedan på **Starta** på den panel för enhetssimulering som du distribuerade i snabbstarten [Distribuera och köra en IoT-enhetssimulering i Azure](quickstart-device-simulation-deploy.md).
+Om du inte redan har distribuerat enhets simuleringen kan du läsa [distribuera enhets simulering](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) på GitHub.
 
 ## <a name="view-your-device-models"></a>Visa dina enhetsmodeller
 
@@ -64,7 +56,7 @@ Fyll i formuläret med följande information:
 | ------------------- | ---------------------------------------------------- |
 | Enhetsmodellnamn   | Kylskåp                                         |
 | Modellbeskrivning   | Ett kylskåp med temperatur- och luftfuktighetssensorer |
-| Version             | 1.0                                                  |
+| Version             | 1,0                                                  |
 
 > [!NOTE]
 > Enhetsmodellnamnet måste vara unikt.

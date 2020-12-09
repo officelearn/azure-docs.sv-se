@@ -2,13 +2,13 @@
 title: Länka mallar för distribution
 description: 'Beskriver hur du använder länkade mallar i en Azure Resource Manager mall för att skapa en lösning för modulär mall. Visar hur du skickar parameter värden, anger en parameter fil och dynamiskt skapade URL: er.'
 ms.topic: conceptual
-ms.date: 11/06/2020
-ms.openlocfilehash: 603445fdd96cc72a2d64bae21a47cfeabd6dd167
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.date: 12/07/2020
+ms.openlocfilehash: 1e2ccc57b42f8072c9aa28612d534507b9a674ed
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366355"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852106"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Använda länkade och nästlade mallar vid distribution av Azure-resurser
 
@@ -162,7 +162,7 @@ Följande mall visar hur mall uttryck matchas enligt omfånget. Den innehåller 
 
 Värdet för `exampleVar` ändringar beroende på `scope` egenskapens värde i `expressionEvaluationOptions` . I följande tabell visas resultaten för båda omfattningarna.
 
-| `expressionEvaluationOptions` utrymme | Utdata |
+| `expressionEvaluationOptions` utrymme | Resultat |
 | ----- | ------ |
 | innersta | från kapslad mall |
 | yttre (eller standard) | från överordnad mall |
@@ -380,6 +380,12 @@ Mer information finns i:
 - [Självstudie: skapa en mall-specifikation med länkade mallar](./template-specs-create-linked.md).
 - [Självstudie: Distribuera en mall specifikation som en länkad mall](./template-specs-deploy-linked-template.md).
 
+## <a name="dependencies"></a>Beroenden
+
+Precis som med andra resurs typer kan du ange beroenden mellan de länkade mallarna. Om resurserna i en länkad mall måste distribueras före resurser i en andra länkad mall, anger du den andra mallen som är beroende av den första.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/linked-dependency.json" highlight="10,22,24":::
+
 ## <a name="contentversion"></a>contentVersion
 
 Du behöver inte ange `contentVersion` egenskapen för `templateLink` `parametersLink` egenskapen eller. Om du inte anger någon `contentVersion` , distribueras den aktuella versionen av mallen. Om du anger ett värde för innehålls version måste det matcha versionen i den länkade mallen. annars Miss lyckas distributionen med ett fel.
@@ -388,7 +394,7 @@ Du behöver inte ange `contentVersion` egenskapen för `templateLink` `parameter
 
 I föregående exempel visades hårdkodade URL-värden för mallens länkar. Den här metoden kan fungera för en enkel mall, men den fungerar inte bra för en stor uppsättning modulära mallar. I stället kan du skapa en statisk variabel som lagrar en bas-URL för huvudmallen och sedan dynamiskt skapa URL: er för de länkade mallarna från den bas-URL: en. Fördelen med den här metoden är att du enkelt kan flytta eller förgrena mallen eftersom du bara behöver ändra den statiska variabeln i huvud mal len. Huvud mal len skickar rätt URI: er i den sammanställda mallen.
 
-I följande exempel visas hur du använder en bas-URL för att skapa två URL: er för länkade mallar ( **sharedTemplateUrl** och **vmTemplate** ).
+I följande exempel visas hur du använder en bas-URL för att skapa två URL: er för länkade mallar (**sharedTemplateUrl** och **vmTemplate**).
 
 ```json
 "variables": {
@@ -472,156 +478,19 @@ När du hämtar en output-egenskap från en länkad mall får egenskaps namnet i
 
 Följande exempel visar hur du refererar till en länkad mall och hämtar ett utdata-värde. Den länkade mallen returnerar ett enkelt meddelande.  Först den länkade mallen:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "greetingMessage": {
-      "value": "Hello World",
-      "type" : "string"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/helloworld.json":::
 
 Huvud mal len distribuerar den länkade mallen och hämtar det returnerade värdet. Observera att den refererar till distributions resursen efter namn och använder namnet på den egenskap som returnerades av den länkade mallen.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
-      "name": "linkedTemplate",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[uri(deployment().properties.templateLink.uri, 'helloworld.json')]",
-          "contentVersion": "1.0.0.0"
-        }
-      }
-    }
-  ],
-  "outputs": {
-    "messageFromLinkedTemplate": {
-      "type": "string",
-      "value": "[reference('linkedTemplate').outputs.greetingMessage.value]"
-    }
-  }
-}
-```
-
-Precis som med andra resurs typer kan du ange beroenden mellan den länkade mallen och andra resurser. När andra resurser kräver ett värde för utdata från den länkade mallen kontrollerar du att den länkade mallen har distribuerats före dem. Eller, när den länkade mallen är beroende av andra resurser, se till att andra resurser distribueras före den länkade mallen.
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/helloworldparent.json" highlight="10,23":::
 
 I följande exempel visas en mall som distribuerar en offentlig IP-adress och returnerar resurs-ID för Azure-resursen för den offentliga IP-adressen:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "publicIPAddresses_name": {
-      "type": "string"
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Network/publicIPAddresses",
-      "apiVersion": "2018-11-01",
-      "name": "[parameters('publicIPAddresses_name')]",
-      "location": "eastus",
-      "properties": {
-        "publicIPAddressVersion": "IPv4",
-        "publicIPAllocationMethod": "Dynamic",
-        "idleTimeoutInMinutes": 4
-      },
-      "dependsOn": []
-    }
-  ],
-  "outputs": {
-    "resourceID": {
-      "type": "string",
-      "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/public-ip.json" highlight="27":::
 
 Om du vill använda den offentliga IP-adressen från föregående mall när du distribuerar en belastningsutjämnare länkar du till mallen och deklarerar ett beroende på `Microsoft.Resources/deployments` resursen. Den offentliga IP-adressen för belastningsutjämnaren anges till värdet output från den länkade mallen.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "loadBalancers_name": {
-      "defaultValue": "mylb",
-      "type": "string"
-    },
-    "publicIPAddresses_name": {
-      "defaultValue": "myip",
-      "type": "string"
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Network/loadBalancers",
-      "apiVersion": "2018-11-01",
-      "name": "[parameters('loadBalancers_name')]",
-      "location": "eastus",
-      "properties": {
-        "frontendIPConfigurations": [
-          {
-            "name": "LoadBalancerFrontEnd",
-            "properties": {
-              "privateIPAllocationMethod": "Dynamic",
-              "publicIPAddress": {
-                // this is where the output value from linkedTemplate is used
-                "id": "[reference('linkedTemplate').outputs.resourceID.value]"
-              }
-            }
-          }
-        ],
-        "backendAddressPools": [],
-        "loadBalancingRules": [],
-        "probes": [],
-        "inboundNatRules": [],
-        "outboundNatRules": [],
-        "inboundNatPools": []
-      },
-      // This is where the dependency is declared
-      "dependsOn": [
-        "linkedTemplate"
-      ]
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
-      "name": "linkedTemplate",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[uri(deployment().properties.templateLink.uri, 'publicip.json')]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters":{
-          "publicIPAddresses_name":{"value": "[parameters('publicIPAddresses_name')]"}
-        }
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json" highlight="28,41":::
 
 ## <a name="deployment-history"></a>Distributions historik
 
@@ -803,7 +672,7 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 I följande exempel visas vanliga användnings områden för länkade mallar.
 
-|Huvud mal len  |Länkad mall |Description  |
+|Huvud mal len  |Länkad mall |Beskrivning  |
 |---------|---------| ---------|
 |[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Returnerar en sträng från den länkade mallen. |
 |[Load Balancer med offentlig IP-adress](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Returnerar den offentliga IP-adressen från den länkade mallen och anger värdet i belastningsutjämnaren. |

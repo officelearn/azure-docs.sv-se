@@ -51,6 +51,8 @@
           href: marketplace-co-sell.md
         - name: Alternativet för säljsamarbete i Partner Center
           href: commercial-marketplace-co-sell.md
+        - name: Migrera lösningar för säljsamarbete från OCP GTM
+          href: co-sell-solution-migration.md
         - name: Sälja via CSP-partner
           href: cloud-solution-providers.md
         - name: Onboardingguiden Ansluta program

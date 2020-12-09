@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 12aa18c966745b450b3c9aa55e87e576b0c3f99b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 77a795b8f704084b612a2dcbd364b8d5be0a3333
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018536"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852158"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialisera telemetri med hjälp av Protocol buffrar
 
@@ -32,7 +32,7 @@ Stegen i den här instruktions guiden visar hur du:
 1. Generera protobuf-klasser
 1. Testa lokalt
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill följa stegen i den här instruktions guiden behöver du:
 
@@ -277,4 +277,4 @@ Många IoT Hub funktioner har inte inbyggt stöd för protobuf eller andra binä
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du lärt dig hur du anpassar enhets simuleringen för att använda protobuf för att skicka telemetri, nästa steg är att lära dig nu för att [distribuera en anpassad avbildning till molnet](iot-accelerators-device-simulation-deploy-image.md).
+Nu har du lärt dig hur du anpassar enhets simuleringen för att använda protobuf för att skicka telemetri, nästa steg finns på GitHub-lagringsplatsen för att lära dig mer [enhets simulering](https://github.com/Azure/device-simulation-dotnet).

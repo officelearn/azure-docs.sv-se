@@ -188,15 +188,15 @@
               href: manage/pay-by-invoice.md
             - name: Skapa ytterligare prenumerationer
               href: manage/create-subscription.md
-            - name: 'Skapa EA-prenumerationer programmatiskt med det senaste API:et'
+            - name: Skapa EA-prenumerationer – REST
               href: manage/programmatically-create-subscription-enterprise-agreement.md
-            - name: 'Skapa MCA-prenumerationer programmatiskt med det senaste API:et'
+            - name: Skapa MCA-prenumerationer – REST
               href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
-            - name: 'Skapa MPA-prenumerationer programmatiskt med det senaste API:et'
+            - name: Skapa MPA-prenumerationer – REST
               href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-            - name: Skapa prenumerationer programmatiskt med en Resource Manager-mall
+            - name: Skapa prenumerationer – ARM-mall
               href: manage/create-subscription-template.md
-            - name: Skapa prenumerationer programmatiskt med ett gammalt förhandsversions-API
+            - name: Skapa prenumerationer – REST (förhandsversion)
               href: manage/programmatically-create-subscription-preview.md
             - name: Bevilja åtkomst för att skapa EA-prenumerationer
               href: manage/grant-access-to-create-subscription.md

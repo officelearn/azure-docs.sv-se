@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 3295815be035544d27da52926e5271c2c5551f28
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 58891bdb4601744129c97454f43202d3ba07b709
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076053"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852565"
 ---
 # <a name="create-an-advanced-device-model"></a>Skapa en avancerad enhetsmodell
 
@@ -30,15 +30,11 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 Om du vill följa stegen i den här instruktions guiden behöver du en distribuerad instans av enhets simulering i din Azure-prenumeration.
 
-Om du inte har distribuerat enhetssimulering ännu bör du slutföra snabbstarten [Distribuera och köra en IoT-enhetssimulering i Azure](quickstart-device-simulation-deploy.md).
+Om du inte redan har distribuerat enhets simuleringen kan du läsa [distribuera enhets simulering](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) på GitHub.
 
 ### <a name="open-device-simulation"></a>Öppna enhetssimulering
 
-För att köra enhetssimulering i webbläsaren navigerar du först till [Microsoft Azure IoT-lösningsacceleratorer](https://www.azureiotsolutions.com).
-
-Du kan bli ombedd att logga in med dina autentiseringsuppgifter för Azure-prenumeration.
-
-Klicka sedan på **Starta** på panelen för enhets simulering som du distribuerade i [distribuera och köra en IoT Device-simulering i Azure](quickstart-device-simulation-deploy.md) snabb start.
+Om du inte redan har distribuerat enhets simuleringen kan du läsa [distribuera enhets simulering](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) på GitHub.
 
 ## <a name="device-models"></a>Enhetsmodeller
 
@@ -89,7 +85,7 @@ Följande egenskaper beskriver enhets modellen. Varje typ har en unik identifier
 
 ### <a name="iot-protocol"></a>IoT-protokoll
 
-IoT-enheter kan ansluta med olika protokoll. Med simuleringen kan du använda antingen **AMQP**, **MQTT**eller **http**:
+IoT-enheter kan ansluta med olika protokoll. Med simuleringen kan du använda antingen **AMQP**, **MQTT** eller **http**:
 
 ```json
 "Protocol": "AMQP"

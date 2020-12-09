@@ -10,12 +10,12 @@ metadata:
   author: cherylmc
   ms.author: cherylmc
   ms.date: 08/28/2019
-  ms.openlocfilehash: 4e01ee4a4dc065e88bf69bc8347867cdea9108cf
-  ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+  ms.openlocfilehash: 8619e0948cc08d06d27a09864bbff13ad6ad3791
+  ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 11/17/2020
-  ms.locfileid: "94660567"
+  ms.lasthandoff: 12/07/2020
+  ms.locfileid: "96780339"
 landingContent:
 - title: Om VPN Gateway
   linkLists:
@@ -38,12 +38,12 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Skapa och hantera VPN Gateway
-      url: vpn-gateway-tutorial-create-gateway-powershell.md
+      url: tutorial-create-gateway-portal.md
+    - text: Skapa en VPN-anslutning från plats till plats
+      url: tutorial-site-to-site-portal.md
   - linkListType: how-to-guide
     links:
-    - text: Skapa en plats-till-plats-anslutning
-      url: vpn-gateway-howto-site-to-site-resource-manager-portal.md
-    - text: Skapa en punkt-till-plats-anslutning
+    - text: Skapa en VPN-anslutning från punkt till plats
       url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
 - title: VPN-enheter
   linkLists:
@@ -63,10 +63,10 @@ landingContent:
     links:
     - text: Inställningar för gatewaykonfiguration
       url: vpn-gateway-about-vpn-gateway-settings.md
-    - text: Punkt-till-plats-routning
-      url: vpn-gateway-about-point-to-site-routing.md
     - text: Gateway-SKU:er
       url: vpn-gateway-about-vpn-gateway-settings.md#gwsku
+    - text: Punkt-till-plats-routning
+      url: vpn-gateway-about-point-to-site-routing.md
   - linkListType: how-to-guide
     links:
     - text: Verifiera en VPN-gateway

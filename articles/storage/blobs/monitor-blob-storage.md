@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: a15f4a45b37a4f64dc7895ba37ecae8673766c80
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: b73146302c740dfd8d97d275bad003a6d8a9a23c
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779387"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852786"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Övervaka Azure Blob Storage
 
@@ -101,6 +101,8 @@ Allmän vägledning finns i [skapa diagnostisk inställning för att samla in pl
 
 #### <a name="archive-logs-to-a-storage-account"></a>Arkivera loggar till ett lagrings konto
 
+Om du väljer att arkivera loggarna på ett lagrings konto betalar du för den volym loggar som skickas till lagrings kontot. För en speciell prissättning, se avsnittet **plattforms loggar** på sidan [Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
+
 1. Markera kryss rutan **arkivera till ett lagrings konto** och klicka sedan på knappen **Konfigurera** .
 
    > [!div class="mx-imgBorder"]   
@@ -112,6 +114,8 @@ Allmän vägledning finns i [skapa diagnostisk inställning för att samla in pl
    > Innan du väljer ett lagrings konto som export mål, se [arkivera Azures resurs loggar](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) för att förstå krav på lagrings kontot.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Strömma loggar till Azure Event Hubs
+
+Om du väljer att strömma dina loggar till en Event Hub, betalar du för den volym av loggar som skickas till händelsehubben. För en speciell prissättning, se avsnittet **plattforms loggar** på sidan [Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
 
 1. Markera kryss rutan **strömma till en Event Hub** och klicka sedan på knappen **Konfigurera** .
 
@@ -145,6 +149,8 @@ Allmän vägledning finns i [skapa diagnostisk inställning för att samla in pl
 
 #### <a name="archive-logs-to-a-storage-account"></a>Arkivera loggar till ett lagrings konto
 
+Om du väljer att arkivera loggarna på ett lagrings konto betalar du för den volym loggar som skickas till lagrings kontot. För en speciell prissättning, se avsnittet **plattforms loggar** på sidan [Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
+
 Aktivera loggar med hjälp av [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell-cmdlet tillsammans med `StorageAccountId` parametern.
 
 ```powershell
@@ -162,6 +168,8 @@ Här är ett exempel:
 En beskrivning av varje parameter finns i [arkivera Azures resurs loggar via Azure PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Strömma loggar till en händelsehubb
+
+Om du väljer att strömma dina loggar till en Event Hub, betalar du för den volym av loggar som skickas till händelsehubben. För en speciell prissättning, se avsnittet **plattforms loggar** på sidan [Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
 
 Aktivera loggar med hjälp av cmdleten [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell med `EventHubAuthorizationRuleId` parametern.
 
@@ -203,6 +211,8 @@ Mer information finns i [strömma Azure resurs loggar till Log Analytics arbets 
 
 #### <a name="archive-logs-to-a-storage-account"></a>Arkivera loggar till ett lagrings konto
 
+Om du väljer att arkivera loggarna på ett lagrings konto betalar du för den volym loggar som skickas till lagrings kontot. För en speciell prissättning, se avsnittet **plattforms loggar** på sidan [Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
+
 Aktivera loggar genom att använda kommandot [AZ Monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
 
 ```azurecli-interactive
@@ -220,6 +230,8 @@ Här är ett exempel:
 En beskrivning av varje parameter finns i [arkivera resurs loggar via Azure CLI](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Strömma loggar till en händelsehubb
+
+Om du väljer att strömma dina loggar till en Event Hub, betalar du för den volym av loggar som skickas till händelsehubben. För en speciell prissättning, se avsnittet **plattforms loggar** på sidan [Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
 
 Aktivera loggar genom att använda kommandot [AZ Monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
 

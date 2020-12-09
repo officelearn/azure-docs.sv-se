@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2020
 ms.author: memildin
-ms.openlocfilehash: d8b690201ea4349f9577377ff24c91bd75ecd58b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 3272212a857f24916acce7da5a4ee31561ec0c5a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751877"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922921"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -37,6 +37,7 @@ Uppdateringar i december inkluderar:
 
 - [Azure Defender för SQL-servrar på datorer är allmänt tillgänglig](#azure-defender-for-sql-servers-on-machines-is-generally-available)
 - [Azure Defender for SQL-stöd för Azure Synapse Analytics-dedikerad SQL-pool är allmänt tillgänglig](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
+- [Globala administratörer kan nu ge sig själva behörigheter på klient nivå](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
 - [Två nya Azure Defender-planer: Azure Defender för DNS och Azure Defender för Resource Manager (för hands version)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
 
 ### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>Azure Defender för SQL-servrar på datorer är allmänt tillgänglig
@@ -71,6 +72,13 @@ Azure Defender för SQL har stöd för Azure Synapse Analytics SQL-pooler läggs
 Läs mer om [Azure Defender för SQL](defender-for-sql-introduction.md).
 
 
+### <a name="global-administrators-can-now-grant-themselves-tenant-level-permissions"></a>Globala administratörer kan nu ge sig själva behörigheter på klient nivå
+
+En användare med rollen Azure Active Directory **Global administratör** kan ha ansvar för hela företaget, men saknar Azure-behörighet att visa den här informationen i organisationen i Azure Security Center. 
+
+Om du vill tilldela dig själv behörighet för klient organisations nivå följer du instruktionerna i [bevilja behörighet för klient organisationen till dig själv](security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself).
+
+
 ### <a name="two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview"></a>Två nya Azure Defender-planer: Azure Defender för DNS och Azure Defender för Resource Manager (för hands version)
 
 Vi har lagt till två nya Cloud-inbyggda funktioner för skydd mot bredd skydd i din Azure-miljö.
@@ -79,12 +87,12 @@ Dessa nya skydd förbättrar avsevärt din återhämtning mot attacker från hot
 
 - **Azure Defender för Resource Manager** – övervakar automatiskt alla resurs hanterings åtgärder som utförs i din organisation. Mer information finns i:
     - [Introduktion till Azure Defender för Resource Manager](defender-for-resource-manager-introduction.md)
-    - [Svara på Azure Defender för Resource Manager-aviseringar](defender-for-resource-manager-usage.md)
+    - [Svara på aviseringar från Azure Defender för Resource Manager](defender-for-resource-manager-usage.md)
     - [Lista över aviseringar från Azure Defender för Resource Manager](alerts-reference.md#alerts-resourcemanager)
 
 - **Azure Defender för DNS** – kontinuerligt övervakar alla DNS-frågor från dina Azure-resurser. Mer information finns i:
     - [Introduktion till Azure Defender för DNS](defender-for-dns-introduction.md)
-    - [Svara på Azure Defender för DNS-aviseringar](defender-for-dns-usage.md)
+    - [Svara på aviseringar från Azure Defender för DNS](defender-for-dns-usage.md)
     - [Lista över aviseringar som tillhandahålls av Azure Defender för DNS](alerts-reference.md#alerts-dns)
 
 
@@ -651,7 +659,7 @@ Om du har skript, frågor eller automatiseringar som refererar till föregående
 ||||
 
 
-|Princip|Omfång|
+|Policy|Omfång|
 |----|:----|
 |**Sårbarhets bedömning ska vara aktiverat på virtuella datorer**<br>Princip-ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|Inbyggd|
 |**Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning**<br>Princip-ID: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
@@ -666,7 +674,7 @@ Om du har skript, frågor eller automatiseringar som refererar till föregående
 |**Säkerhets risker på dina virtuella datorer bör åtgärdas**<br>Nyckel: 1195afff-c881-495e-9bc5-1486211ae03f|Inbyggda + BYOL|
 ||||
 
-|Princip|Omfång|
+|Policy|Omfång|
 |----|:----|
 |[**Sårbarhets bedömning ska vara aktiverat på virtuella datorer**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>Princip-ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |Inbyggda + BYOL|
 ||||

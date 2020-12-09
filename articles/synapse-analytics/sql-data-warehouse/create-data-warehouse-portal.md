@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skapa och fråga en dedikerad SQL-pool (Azure Portal)'
-description: Skapa och fråga en dedikerad SQL-pool med hjälp av Azure Portal
+title: 'Snabb start: skapa och fråga en dedikerad SQL-pool (tidigare SQL DW) (Azure Portal)'
+description: Skapa och fråga en dedikerad SQL-pool (tidigare SQL DW) med hjälp av Azure Portal
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,23 +11,23 @@ ms.date: 05/28/2019
 ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3d4884fd64c773647f78a98dc7aeb1063d539edf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 78a0982081b8e34461fb2910cc7ce21be622cb6a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456744"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922881"
 ---
-# <a name="quickstart-create-and-query-a-dedicated-sql-pool-in-azure-synapse-analytics-using-the-azure-portal"></a>Snabb start: skapa och fråga en dedikerad SQL-pool i Azure Synapse Analytics med hjälp av Azure Portal
+# <a name="quickstart-create-and-query-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-the-azure-portal"></a>Snabb start: skapa och fråga en dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics med hjälp av Azure Portal
 
-Skapa och fråga snabbt en Synapse SQL-pool (informations lager) i Azure Synapse Analytics med hjälp av Azure Portal.
+Skapa och fråga snabbt en dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics med hjälp av Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
    > [!NOTE]
-   > Att skapa en SQL-pool i Azure Synapse kan resultera i en ny fakturerbar tjänst. Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+   > Att skapa en dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse kan resultera i en ny fakturerbar tjänst. Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
 2. Ladda ned och installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
@@ -37,25 +37,25 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-sql-pool"></a>Skapa en SQL-pool
 
-Informations lager skapas med SQL-pool i Azure Synapse Analytics. En SQL-pool skapas med en definierad uppsättning [beräknings resurser](memory-concurrency-limits.md). Databasen skapas i en Azure- [resurs grupp](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och i en [logisk SQL-Server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Informations lager skapas med dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics. En dedikerad SQL-pool (tidigare SQL DW) skapas med en definierad uppsättning [beräknings resurser](memory-concurrency-limits.md). Databasen skapas i en Azure- [resurs grupp](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och i en [logisk SQL-Server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Följ dessa steg om du vill skapa en SQL-pool som innehåller **AdventureWorksDW** -exempel data.
+Följ dessa steg om du vill skapa en dedikerad SQL-pool (tidigare SQL DW) som innehåller **AdventureWorksDW** -exempel data.
 
-1. Välj **skapa en resurs** i det övre vänstra hörnet av Azure Portal.
+1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.
 
    ![skapa en resurs i Azure Portal](./media/create-data-warehouse-portal/create-a-resource.png)
 
-2. Välj **databaser** på sidan **nytt** och välj **Azure SYNAPSE Analytics (tidigare SQL DW)** i listan **aktuella** .
+2. I Sök fältet typ "dedikerad SQL-pool" väljer du dedikerad SQL-pool (tidigare SQL DW). Välj **skapa** på sidan som öppnas.
 
    ![skapa ett tomt informationslager](./media/create-data-warehouse-portal/create-a-data-warehouse.png)
 
-3. I **grunderna**, anger du din prenumeration, resurs grupp, SQL-poolnamn och Server Namn:
+3. I **grunderna**, anger du din prenumeration, resurs grupp, dedikerad SQL-pool (tidigare SQL DW) och Server Namn:
 
    | Inställning | Föreslaget värde | Beskrivning |
    | :------ | :-------------- | :---------- |
    | **Prenumeration** | Din prenumeration | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
    | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
-   | **SQL-poolnamn** | Globalt unikt namn (ett exempel är *mySampleDataWarehouse*) | För giltiga databas namn, se [databas identifierare](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Obs! en SQL-pool är en typ av databas. |
+   | **SQL-poolnamn** | Globalt unikt namn (ett exempel är *mySampleDataWarehouse*) | För giltiga databas namn, se [databas identifierare](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  |
    | **Server** | Valfritt globalt unikt namn | Välj befintlig server eller skapa ett nytt Server namn och välj **Skapa ny**. Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
 
    ![skapa grundläggande information om informations lagret](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
@@ -68,7 +68,7 @@ Följ dessa steg om du vill skapa en SQL-pool som innehåller **AdventureWorksDW
 
 5. Välj **ytterligare inställningar**. under **Använd befintliga data** väljer du **exempel** så att AdventureWorksDW skapas som exempel databas.
 
-    ![Välj Använd befintliga data](./media/create-data-warehouse-portal/create-sql-pool-additional-1.png) 
+    ![Välj Använd befintliga data](./media/create-data-warehouse-portal/create-sql-pool-additional-1.png)
 
 6. Nu när du har slutfört fliken grundläggande i formuläret för Azure Synapse Analytics väljer du **Granska + skapa** och sedan **skapa** för att skapa SQL-poolen. Etableringen tar några minuter.
 
@@ -124,7 +124,7 @@ Hämta det fullständigt kvalificerade Server namnet för servern i Azure Portal
 
 3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet sqlpoolservername.database.windows.net.
 
-    ![anslutningsinformation](./media/create-data-warehouse-portal/find-server-name-copy.png)
+    ![anslutningsinformation](./media/create-data-warehouse-portal/find-server-name.png)
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ansluta till servern som serveradministratör
 
@@ -180,21 +180,21 @@ Azure Synapse Analytics använder T-SQL som frågespråk. Använd följande steg
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du debiteras för data lager enheter och data som lagras i SQL-poolen. Dessa beräknings- och lagringsresurser debiteras separat.
+Du debiteras för data lager enheter och data som lagras i din dedikerade SQL-pool (tidigare SQL DW). Dessa beräknings- och lagringsresurser debiteras separat.
 
-- Om du vill behålla data i lagrings utrymmet kan du pausa beräkningen när du inte använder SQL-poolen. Genom att pausa beräkning debiteras du bara för data lagring. Du kan återuppta beräkningen när du är redo att arbeta med data.
+- Om du vill behålla data i lagrings utrymmet kan du pausa beräkningen när du inte använder den dedikerade SQL-poolen (tidigare SQL DW). Genom att pausa beräkning debiteras du bara för data lagring. Du kan återuppta beräkningen när du är redo att arbeta med data.
 
-- Om du vill ta bort framtida avgifter kan du ta bort SQL-poolen.
+- Om du vill ta bort framtida avgifter kan du ta bort den dedikerade SQL-poolen (tidigare SQL DW).
 
 Följ dessa steg för att rensa resurser som du inte längre behöver.
 
-1. Logga in på [Azure Portal](https://portal.azure.com)och välj din SQL-pool.
+1. Logga in på [Azure Portal](https://portal.azure.com), välj din DEDIKERADe SQL-pool (tidigare SQL DW).
 
    ![Rensa resurser](./media/create-data-warehouse-portal/clean-up-resources.png)
 
-2. Om du vill pausa beräkningen väljer du knappen **pausa** . När SQL-poolen har pausats visas en knappen **Fortsätt** . Om du vill återuppta beräkningen väljer du **återuppta**.
+2. Om du vill pausa beräkningen väljer du knappen **pausa** . När den dedikerade SQL-poolen (tidigare SQL DW) har pausats visas en knappen **Fortsätt** . Om du vill återuppta beräkningen väljer du **återuppta**.
 
-3. Om du vill ta bort SQL-poolen så att du inte debiteras för beräkning eller lagring väljer du **ta bort**.
+3. Om du vill ta bort den dedikerade SQL-poolen (tidigare SQL DW) så att du inte debiteras för beräkning eller lagring väljer du **ta bort**.
 
 4. Om du vill ta bort den server som du har skapat väljer du **sqlpoolservername.Database.Windows.net** i föregående bild och väljer sedan **ta bort**. Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
 
@@ -206,4 +206,4 @@ Vill du optimera och Spara på dina moln utgifter?
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om att läsa in data i SQL-poolen fortsätter du till artikeln [Läs in data i SQL-poolen](load-data-from-azure-blob-storage-using-polybase.md) .
+Om du vill veta mer om att läsa in data i en dedikerad SQL-pool (tidigare SQL DW) fortsätter du till artikeln [Läs in data i en särskild SQL-pool](load-data-from-azure-blob-storage-using-copy.md) .

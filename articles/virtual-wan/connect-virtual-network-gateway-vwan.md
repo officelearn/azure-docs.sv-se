@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 29f5b549bd5f5dbc421487739bb1eb8c7f120bb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb31bb09c1e09e4799715fc5a1cbca4b216b28a2
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441028"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922956"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Anslut en VPN Gateway (virtuell nätverksgateway) till virtuellt WAN
 
@@ -45,7 +45,7 @@ Aktivera aktivt-aktivt läge på sidan **konfiguration** av virtuell nätverksga
 
 ### <a name="bgp-setting"></a><a name="BGP"></a>BGP-inställning
 
-På sidan **konfiguration** av virtuell nätverksgateway kan du konfigurera **BGP ASN**. Ändra BGP-ASN. BGP ASN får inte vara 65515. 66515 kommer att användas av Azure Virtual WAN.
+På sidan **konfiguration** av virtuell nätverksgateway kan du konfigurera **BGP ASN**. Ändra BGP-ASN. BGP ASN får inte vara 65515. 65515 kommer att användas av Azure Virtual WAN.
 
 ![Skärm bild som visar en konfigurations sida för virtuell nätverksgateway med konfigurera BGP ASN valt.](./media/connect-virtual-network-gateway-vwan/bgp.png "BGP")
 
@@ -57,7 +57,7 @@ När gatewayen har skapats går du till sidan **Egenskaper** . Egenskaperna och 
 
 ## <a name="2-create-virtual-wan-vpn-sites"></a><a name="vwansite"></a>2. skapa virtuella WAN VPN-platser
 
-Om du vill skapa virtuella WAN VPN-platser navigerar du till ditt virtuella WAN och väljer **VPN-platser**under **anslutning**. I det här avsnittet ska du skapa två virtuella WAN-webbplatser som motsvarar de virtuella Nätverksgatewayen som du skapade i föregående avsnitt.
+Om du vill skapa virtuella WAN VPN-platser navigerar du till ditt virtuella WAN och väljer **VPN-platser** under **anslutning**. I det här avsnittet ska du skapa två virtuella WAN-webbplatser som motsvarar de virtuella Nätverksgatewayen som du skapade i föregående avsnitt.
 
 1. Välj **+ Skapa webbplats**.
 2. På sidan **skapa VPN-platser** anger du följande värden:
@@ -67,7 +67,7 @@ Om du vill skapa virtuella WAN VPN-platser navigerar du till ditt virtuella WAN 
    * **Privat adress utrymme** – ange ett värde eller lämna tomt när BGP är aktiverat.
    * **Border Gateway Protocol** -Ställ in för att **aktivera** om Azure VPN gateway virtuell nätverksgateway har BGP aktiverat.
    * **Anslut till hubbar** – Välj den hubb som du skapade i kraven i list rutan. Om du inte ser en hubb kontrollerar du att du har skapat en plats-till-plats-VPN-gateway för hubben.
-3. Under **länkar**anger du följande värden:
+3. Under **länkar** anger du följande värden:
 
    * **Providernamn** – ange ett namn på länken och ett providernamn (valfritt namn).
    * **Hastighets** hastighet (valfritt tal).
@@ -81,7 +81,7 @@ Om du vill skapa virtuella WAN VPN-platser navigerar du till ditt virtuella WAN 
 
 I det här avsnittet laddar du ned VPN-konfigurationsfilen för var och en av de platser som du skapade i föregående avsnitt.
 
-1. Längst upp på sidan virtuella WAN **-webbplatser** för virtuella nätverk väljer du **platsen**och väljer sedan **Ladda ned konfiguration för plats-till-plats-VPN**. Azure skapar en konfigurations fil med inställningarna.
+1. Längst upp på sidan virtuella WAN **-webbplatser** för virtuella nätverk väljer du **platsen** och väljer sedan **Ladda ned konfiguration för plats-till-plats-VPN**. Azure skapar en konfigurations fil med inställningarna.
 
    ![Skärm bild som visar sidan "VPN-webbplatser" med åtgärden "Ladda ned VPN-konfiguration för plats-till-plats" vald.](./media/connect-virtual-network-gateway-vwan/download.png "ladda ned")
 2. Ladda ned och öppna konfigurations filen.
@@ -121,7 +121,7 @@ I det här avsnittet skapar du en anslutning mellan VPN Gateway lokala nätverks
 
    ![Anslutning](./media/connect-virtual-network-gateway-vwan/connect.png "anslutning")
 5. Upprepa föregående steg för att skapa en andra anslutning. För den andra anslutningen väljer du den andra lokala Nätverksgatewayen som du skapade.
-6. Om anslutningarna är över BGP, när du har skapat anslutningarna, navigerar du till en anslutning och väljer **konfiguration**. På sidan **konfiguration** för **BGP**väljer du **aktive rad**. Klicka sedan på **Spara**. Upprepa för den andra anslutningen.
+6. Om anslutningarna är över BGP, när du har skapat anslutningarna, navigerar du till en anslutning och väljer **konfiguration**. På sidan **konfiguration** för **BGP** väljer du **aktive rad**. Klicka sedan på **Spara**. Upprepa för den andra anslutningen.
 
 ## <a name="6-test-connections"></a><a name="test"></a>6. testa anslutningar
 
@@ -129,7 +129,7 @@ Du kan testa anslutningen genom att skapa två virtuella datorer, en på sidan a
 
 1. Skapa en virtuell dator i det virtuella nätverket (TEST1-VNet) för Azure VPN Gateway (TEST1-VNG). Skapa inte den virtuella datorn i GatewaySubnet.
 2. Skapa ett annat virtuellt nätverk för att ansluta till det virtuella WAN-nätverket. Skapa en virtuell dator i ett undernät för det här virtuella nätverket. Det här virtuella nätverket kan inte innehålla några virtuella nätverks-gatewayer. Du kan snabbt skapa ett virtuellt nätverk med hjälp av PowerShell-stegen i artikeln [plats-till-plats-anslutning](virtual-wan-site-to-site-portal.md#vnet) . Se till att ändra värdena innan du kör cmdletarna.
-3. Anslut VNet till den virtuella WAN-hubben. På sidan för ditt virtuella WAN väljer du **virtuella nätverks anslutningar**och sedan **+ Lägg till anslutning**. Fyll i följande fält på sidan **Lägg till anslutning**:
+3. Anslut VNet till den virtuella WAN-hubben. På sidan för ditt virtuella WAN väljer du **virtuella nätverks anslutningar** och sedan **+ Lägg till anslutning**. Fyll i följande fält på sidan **Lägg till anslutning**:
 
     * **Anslutningsnamn** – Namnge anslutningen.
     * **Hubbar** – Välj den hubb du vill koppla till anslutningen.
